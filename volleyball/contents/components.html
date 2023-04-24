@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Templates</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- SNS share -->
+    <meta property="og:title" content="" />
+    <meta property="og:url" content=""/>
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16"  href="../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32"  href="../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="../frontLayer/images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../frontLayer/images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../frontLayer/images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../frontLayer/images/favicons/apple-touch-icon-76x76.png">
+    <link rel="icon" type="image/png" sizes="96x96"  href="../frontLayer/images/favicons/apple-touch-icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../frontLayer/images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../frontLayer/images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../frontLayer/images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../frontLayer/images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../frontLayer/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../frontLayer/images/favicons/android-icon-192x192.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="canonical" href=""/>
+    <link rel="stylesheet" href="../frontLayer/css/package.css">
+    <script src="../frontLayer/js/jquery-3.3.1.min.js"></script>
+    <script src="../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../frontLayer/js/swiper.min.js"></script>
+    <script src="../frontLayer/js/fn.js"></script>
+    <script src="../frontLayer/js/common.js"></script>
+    <style>
+        #container { width: 90%; max-width: 1280px; margin: 0 auto;}
+        .title_wrap {padding:20px;background: #000;}
+        .section:nth-child(n+2) .title_wrap { margin-top: 20px;}
+        .title_wrap h2 {color: #fff;}
+        .section h3 {padding: 20px;font-size:16px;font-weight: 700;}
+        .content {padding: 10px;}
+        .content table th {background: #cdcdcd;}
+        .content table th,
+        .content table td {padding:10px;border: 1px solid #cdcdcd;}
+        .content .set_swiper {position:relative;}
+    </style>
+</head>
+<body>
+
+    <!-- s:wrap -->
+    <div id="wrap">
+
+        <!-- s:skip -->
+        <div class="skip">
+            <a href="#container">본문 바로가기</a>
+        </div>
+        <!-- e:skip -->
+
+        <section id="container">
+            <div class="section">
+                <div class="title_wrap">
+                    <h2>파비콘</h2>
+                </div>
+                <div class="content">
+                    <a href="https://www.favicon-generator.org/" target="_blank">https://www.favicon-generator.org/</a>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="title_wrap">
+                    <h2>Button</h2>
+                </div>
+                <div class="content">
+                    <button class="btn btn_primary" type="button">기본 버튼</button>
+                    <button class="btn btn_primary" type="button" disabled>기본 버튼</button>
+                    <button class="btn btn_secondary" type="button">기본 버튼</button>
+                    <br/>
+                    <br/>
+                    <button class="btn btn_primary rounded_pill" type="button">기본 버튼</button>
+                    <button class="btn btn_primary rounded_pill" type="button" disabled>기본 버튼</button>
+                    <button class="btn btn_secondary rounded_pill" type="button">기본 버튼</button>
+                    <br/>
+                    <br/>
+                    <button class="btn btn_outline_primary" type="button">기본 버튼</button>
+                    <button class="btn btn_outline_primary" type="button" disabled>기본 버튼</button>
+                    <button class="btn btn_outline_secondary" type="button">기본 버튼</button>
+                    <br/>
+                    <br/>
+                    <button class="btn btn_outline_primary rounded_pill" type="button">기본 버튼</button>
+                    <button class="btn btn_outline_primary rounded_pill" type="button" disabled>기본 버튼</button>
+                    <button class="btn btn_outline_secondary rounded_pill" type="button">기본 버튼</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="title_wrap">
+                    <h2>Select</h2>
+                </div>
+                <div class="content">
+                    <div class="form_select" data-items="항목A, 항목B, 항목C">
+                        <button class="form_btn" type="button">기본 타입 셀렉트</button>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="form_select" data-items="항목1, 항목2, 항목3, 항목4, 항목5, 항목6, 항목7, 항목8, 항목9, 항목10">
+                        <button class="form_btn" type="button">셀렉트 스크롤바</button>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="form_select" data-items="항목1, 항목2, 항목3, 항목4, 항목5, 항목6, 항목7, 항목8, 항목9, 항목10" data-index="5">
+                        <button class="form_btn active" type="button">항목 6</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="title_wrap">
+                    <h2>Checkbox</h2>    
+                </div>
+                <h3>css 타입</h3>
+                <div class="content">
+                    <div class="fancy_area">
+                        <div class="fancy_ani_box">
+                            <input type="checkbox" id="checkCss01">
+                            <label for="checkCss01">
+                                <span></span>
+                                checkbox1
+                            </label>
+                        </div>
+                        <div class="fancy_ani_box">
+                            <input type="checkbox" id="checkCss02">
+                            <label for="checkCss02">
+                                <span></span>
+                                checkbox2
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <h3>image 타입</h3>
+                <div class="content">
+                    <div class="fancy_area">
+                        <div class="fancy_img_box">
+                            <input type="checkbox" id="checkImg01">
+                            <label for="checkImg01">
+                                <span>checkbox1</span>
+                            </label>
+                        </div>
+                        <div class="fancy_img_box">
+                            <input type="checkbox" id="checkImg02">
+                            <label for="checkImg02">
+                                <span>checkbox2</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <h3>암묵적표기 타입</h3>
+                <div class="content">
+                    <div class="form_check_list">
+                        <label class="form_check">
+                            <input class="form_check_input" type="checkbox" name="check01">
+                            <span class="form_check_txt">checkbox1</span>
+                        </label>
+                        <label class="form_check">
+                            <input class="form_check_input" type="checkbox" name="check01">
+                            <span class="form_check_txt">checkbox2</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="title_wrap">
+                    <h2>Radio</h2>
+                </div>
+                <h3>css 타입</h3>
+                <div class="content">
+                    <div class="fancy_ani_box">
+                        <input type="radio" name="radioCss" id="radioCss01">
+                        <label for="radioCss01">
+                            <span></span>
+                            radio1
+                        </label>
+                    </div>
+                    <div class="fancy_ani_box">
+                        <input type="radio" name="radioCss" id="radioCss02">
+                        <label for="radioCss02">
+                            <span></span>
+                            radio2
+                        </label>
+                    </div>
+                </div>
+                <h3>image 타입</h3>
+                <div class="content">
+                    <div class="fancy_img_box">
+                        <input type="radio" name="radioImg" id="radioImg01">
+                        <label for="radioImg01">
+                            <span>radio1</span>
+                        </label>
+                    </div>
+                    <div class="fancy_img_box">
+                        <input type="radio" name="radioImg" id="radioImg02">
+                        <label for="radioImg02">
+                            <span>radio2</span>
+                        </label>
+                    </div>
+                </div>
+                <h3>암묵적표기 타입</h3>
+                <div class="content">
+                    <div class="form_check_list">
+                        <label class="form_check">
+                            <input class="form_check_input" type="radio" name="radio01">
+                            <span class="form_check_txt">radio1</span>
+                        </label>
+                        <label class="form_check">
+                            <input class="form_check_input" type="radio" name="radio01">
+                            <span class="form_check_txt">radio2</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="title_wrap">
+                    <h2>Switch</h2>
+                </div>
+                <div class="content">
+                    <div class="switch">
+                        <label class="form_switch">
+                            <input type="checkbox" class="switch_input" />
+                            <span class="switch_label" data-on="ON" data-off="OFF"></span>
+                            <span class="switch_handle"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="title_wrap">
+                    <h2>Pagination</h2>
+                </div>
+                <div class="content">
+                    <nav class="pagination" aria-label="Search results pages">
+                        <ul>
+                            <li><a class="ico first" href="#">First</a></li>
+                            <li><a class="ico prev" href="#">Previous</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#" class="current">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a class="ico next" href="#">Next</a></li>
+                            <li><a class="ico last" href="#">Last</a></li>
+                        </ul>
+                    </nav>
+
+                    <br><br>
+
+                    <nav class="pagination" aria-label="Search results pages">
+                        <ul>
+                            <li><a class="ico first" href="#" tabindex="-1" aria-disabled="true">First</a></li>
+                            <li><a class="ico prev" href="#">Previous</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">···</a></li>
+                            <li><a href="#" class="current">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a class="ico next" href="#">Next</a></li>
+                            <li><a class="ico last" href="#" tabindex="-1" aria-disabled="true">Last</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="title_wrap">
+                    <h2>Table</h2>
+                </div>
+                <div class="content">
+                    <table>
+                        <caption>
+                            <strong>직원 관리 현황 표</strong>
+                            <span>번호, 부서, 직원 수 등 항목으로 구성되어있습니다.</span>
+                        </caption>
+                        <colgroup>
+                            <col width="*" />
+                            <col width="*" />
+                            <col width="*" />
+                            <col width="*" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">번호</th>
+                                <th scope="col">부서</th>
+                                <th scope="col">직원 수</th>
+                                <th scope="col">기타</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>총무부</td>
+                                <td>5명</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>총무부</td>
+                                <td>5명</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>총무부</td>
+                                <td>5명</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>총무부</td>
+                                <td>5명</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>총무부</td>
+                                <td>5명</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="title_wrap">
+                    <h2>Form</h2>
+                </div>
+                <div class="content">
+                    <!-- legend 기입, id와 for 속성 연결하기 -->
+                    <form action="">
+                        <legend>회원가입 정보</legend>
+                        <fieldset>
+                            <div class="form_group">
+                                <label for="userName" class="form_label">form_label</label>
+                                <div class="form_box">
+                                    <input type="text" id="userName" class="form_control" placeholder="폼 input" />
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <label for="userNickname" class="form_label require">form_label</label>
+                                <div class="form_box">
+                                    <input type="text" id="userNickname" class="form_control" placeholder="폼 input" />
+                                </div>
+                            </div>
+                            <span class="caution">항목을 입력해주세요.</span>
+                            <div class="form_group">
+                                <label for="userNickname2" class="form_label require">form_label</label>
+                                <div class="form_box">
+                                    <input type="text" id="userNickname2" class="form_control" placeholder="폼 input" value="value" readonly/>
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <label for="formValue" class="form_label">form_label</label>
+                                <div class="form_box">
+                                    <input type="text" id="formValue" class="form_control form_datepicker"/>
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <label for="formValue2" class="form_label">form_label</label>
+                                <div class="form_box">
+                                    <input type="text" id="formValue2" class="form_control form_datepicker" readonly/>
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <label for="formValue3" class="form_label">form_label</label>
+                                <div class="input_group">
+                                    <span class="input_group_txt">http://</span>
+                                    <input type="text" id="formValue3" class="form_control" />
+                                </div>
+                            </div>
+                            <div class="form_group column">
+                                <label for="formValue4" class="form_label">form_label</label>
+                                <div class="input_group">
+                                    <span class="input_group_txt">http://</span>
+                                    <input type="text" id="formValue4" class="form_control" />
+                                </div>
+                            </div>
+                            <div class="form_group column">
+                                <label for="formValue5" class="form_label">form_label</label>
+                                <div class="input_group">
+                                    <input type="text" id="formValue5" class="form_control" />
+                                    <span class="input_group_txt">@naver.com</span>
+                                </div>
+                            </div>
+                            <div class="form_group column">
+                                <label for="formValue6" class="form_label">form_label</label>
+                                <div class="input_group">
+                                    <span class="input_group_txt">test</span>
+                                    <input type="text" id="formValue6" class="form_control" />
+                                    <span class="input_group_txt">@naver.com</span>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="title_wrap">
+                    <h2>Tab</h2>
+                </div>
+                <div class="content">
+                    <div class="tab_container">
+                        <div class="tabs">
+                            <ul>
+                                <li class="active">
+                                    <button type="button" rel="tab1">탭1-1</button>
+                                </li>
+                                <li>
+                                    <button type="button" rel="tab2">탭1-2</button>
+                                </li>
+                                <li>
+                                    <button type="button" rel="tab3">탭1-3</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="tab1" class="tab_content">
+                            <h1 class="blind">탭1 내용</h1>
+                            탭1
+                        </div>
+                        <div id="tab2" class="tab_content">
+                            <h1 class="blind">탭2 내용</h1>
+                            탭2
+                        </div>
+                        <div id="tab3" class="tab_content">
+                            <h1 class="blind">탭3 내용</h1>
+                            탭3
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="title_wrap">
+                    <h2>Modal</h2>
+                </div>
+                <div class="content">
+
+                    <button type="button" class="btn btn_primary modal_toggle" data-target="#modalTest01">기본모달 열기</button>
+                    <br/>
+                    <br/>
+                    <button type="button" class="btn btn_primary modal_toggle" data-target="#modalTest02">컨턴츠가 넘칠때 모달 열기2</button>
+                    <br/>
+                    <br/>
+                    <button type="button" class="btn btn_primary modal_toggle" data-target="#modalTest03">딤드부분 클릭막기 모달 열기3</button>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <p>스크립트로 모달열기 ex) ProjectName.openModal($('#modalTest01'));</p>
+                    <br/>
+                    <p>스크립트로 모달닫기 ex) ProjectName.closeModal($('#modalTest01'));</p>
+
+                    <div class="modal modal_close" id="modalTest01">
+                        <div class="modal_centered" tabindex="0">
+                            <div class="modal_box">
+                                modalTest01
+                                <button type="button" class="btn_modal_close close">
+                                    <span class="blind">닫기</span>
+                                </button>
+                                <div class="btn_wrap">
+                                    <button type="button" class="btn btn_primary close">확인</button>
+                                    <button type="button" class="btn btn_secondary close">취소</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal modal_close" id="modalTest02">
+                        <div class="modal_centered" tabindex="0">
+                            <div class="modal_box">
+                                <button type="button" class="btn_modal_close close">
+                                    <span class="blind">닫기</span>
+                                </button>
+                                <div style="height: 100vh;"></div>
+                                modalTest02
+                                <br/>
+                                <br/>
+                                <div class="form_select" data-items="항목1, 항목2, 항목3, 항목4, 항목5, 항목6, 항목7, 항목8, 항목9, 항목10">
+                                    <button class="form_btn" type="button">셀렉트 스크롤바</button>
+                                </div>
+                                <div style="height: 100vh;"></div>
+                                
+                                <div class="btn_wrap">
+                                    <button type="button" class="btn btn_primary close">확인</button>
+                                    <button type="button" class="btn btn_secondary close">취소</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="modal modal_close" id="modalTest03" data-dim-click="false">
+                        <div class="modal_centered" tabindex="0">
+                            <div class="modal_box">
+                                modalTest03
+                                <button type="button" class="btn_modal_close close">
+                                    <span class="blind">닫기</span>
+                                </button>
+                                <div class="btn_wrap">
+                                    <button type="button" class="btn btn_primary close">확인</button>
+                                    <button type="button" class="btn btn_secondary close">취소</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="title_wrap">
+                    <h2>Swiper</h2>
+                </div>
+                <div class="content">
+
+                    <div class="set_swiper">
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    swiper1
+                                </div>
+                                <div class="swiper-slide">
+                                    swiper2
+                                </div>
+                                <div class="swiper-slide">
+                                    swiper3
+                                </div>
+                                <div class="swiper-slide">
+                                    swiper4
+                                </div>
+                                <div class="swiper-slide">
+                                    swiper5
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev">prev</div>
+                        <div class="swiper-button-next">next</div>
+                    </div>
+
+                    <br><br>
+
+                    <div class="set_swiper">
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="https://picsum.photos/seed/picsum/200/300" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="https://picsum.photos/seed/picsum/200/300" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="https://picsum.photos/seed/picsum/200/300" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="https://picsum.photos/seed/picsum/200/300" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="https://picsum.photos/seed/picsum/200/300" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev">prev</div>
+                        <div class="swiper-button-next">next</div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- e:wrap -->
+
+</body>
+</html>

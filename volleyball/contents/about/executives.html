@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>한국 9인제 배구연맹</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <!-- SNS share -->
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:description" content="" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="../../frontLayer/images/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../frontLayer/images/favicons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="../../frontLayer/images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../../frontLayer/images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../../frontLayer/images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../frontLayer/images/favicons/apple-touch-icon-76x76.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../frontLayer/images/favicons/apple-touch-icon-96x96.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../../frontLayer/images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../../frontLayer/images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../../frontLayer/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../../frontLayer/images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../frontLayer/images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../../frontLayer/images/favicons/android-icon-192x192.png">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="" />
+  <link rel="stylesheet" href="../../frontLayer/css/package.css">
+  <script src="../../frontLayer/js/jquery-3.3.1.min.js"></script>
+  <script src="../../frontLayer/js/jquery-ui.min.js"></script>
+  <script src="../../frontLayer/js/swiper.min.js"></script>
+  <script src="../../frontLayer/js/fn.js"></script>
+  <script src="../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+  <!-- s:skip -->
+  <div class="skip">
+    <a href="#container">본문 바로가기</a>
+  </div>
+  <!-- e:skip -->
+
+  <!-- s:wrap -->
+  <div id="wrap">
+
+    <!-- s:header -->
+    <header id="header">
+      <h1 class="logo">
+        <a href="../index.html">
+          <img src="../../frontLayer/images/common/logo.svg" alt="한국 9인제 배구연맹 로고">
+          한국9인제배구연맹
+        </a>
+      </h1>
+      <nav id="gnb" class="pc">
+        <h2 class="blind">주메뉴</h2>
+        <div class="gnb_bg"></div>
+        <ul>
+          <li>
+            <a href="../about/greeting.html">연맹소개</a>
+            <div class="sub_menu">
+              <ul>
+                <li><a href="../about/greeting.html">인사말</a></li>
+                <li><a href="../about/history.html">연혁</a></li>
+                <li><a href="../about/organization.html">조직도</a></li>
+                <li><a href="../about/executives.html">임원 소개</a></li>
+                <li><a href="../about/location.html">오시는 길</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="../competition/newsList.html">대회안내</a>
+            <div class="sub_menu">
+              <ul>
+                <li><a href="../competition/newsList.html">대회소식</a></li>
+                <li><a href="../competition/scheduleAll.html">대회일정</a>
+                  <ul>
+                    <li><a href="../competition/scheduleAll.html">전체</a></li>
+                    <li><a href="../competition/scheduleExpected.html">예정</a></li>
+                    <li><a href="../competition/scheduleApplication.html">신청중</a></li>
+                    <li><a href="../competition/scheduleProgress.html">진행중</a></li>
+                    <li><a href="../competition/scheduleEnd.html">종료</a></li>
+                  </ul>
+                </li>
+                <li><a href="../competition/archives.html">기록실</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="../mediaCenter/newsList.html">미디어센터</a>
+            <div class="sub_menu">
+              <ul>
+                <li><a href="../mediaCenter/newsList.html">뉴스</a></li>
+                <li><a href="../mediaCenter/galleryList.html">포토갤러리</a></li>
+                <li><a href="../mediaCenter/videoList.html">영상</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="../community/noticeList.html">커뮤니티</a>
+            <div class="sub_menu">
+              <ul>
+                <li><a href="../community/noticeList.html">공지사항</a></li>
+                <li><a href="../community/referenceList.html">자료실</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">SHOP</a>
+            <div class="sub_menu"></div>
+          </li>
+        </ul>
+        <div class="ad_area">
+          <div class="ad_box">
+              <div class="img_box">
+                  <img src="../../frontLayer/images/img/img_schedules_03.jpg" alt="" class="img">
+              </div>
+          </div>
+      </div>
+      </nav>
+      <nav id="gnb" class="m_gnb">
+        <h2 class="blind">주메뉴</h2>
+        <div class="gnb_bg"></div>
+        <div class="util">
+          <a href="../account/login.html" class="user_util">로그인</a>
+          <a href="../account/signUp.html" class="user_util sign_up">회원가입</a>
+          <a href="#" class="link" target="_blank" title="새창열기">
+            <img src="../../frontLayer/images/icons/ico_daum.svg" alt="">
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="#">연맹소개</a>
+            <div class="sub_menu">
+              <ul>
+                <li><a href="../about/greeting.html">인사말</a></li>
+                <li><a href="../about/history.html">연혁</a></li>
+                <li><a href="../about/organization.html">조직도</a></li>
+                <li><a href="../about/executives.html">임원 소개</a></li>
+                <li><a href="../about/location.html">오시는 길</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">대회안내</a>
+            <div class="sub_menu">
+              <ul>
+                <li><a href="../competition/newsList.html">대회소식</a></li>
+                <li class="depth03"><a href="../competition/scheduleAll.html">대회일정</a>
+                  <ul>
+                    <li><a href="../competition/scheduleAll.html">전체</a></li>
+                    <li><a href="../competition/scheduleExpected.html">예정</a></li>
+                    <li><a href="../competition/scheduleApplication.html">신청중</a></li>
+                    <li><a href="../competition/scheduleProgress.html">진행중</a></li>
+                    <li><a href="../competition/scheduleEnd.html">종료</a></li>
+                  </ul>
+                </li>
+                <li><a href="../competition/archives.html">기록실</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">미디어센터</a>
+            <div class="sub_menu">
+              <ul>
+                <li><a href="../mediaCenter/newsList.html">뉴스</a></li>
+                <li><a href="../mediaCenter/galleryList.html">포토갤러리</a></li>
+                <li><a href="../mediaCenter/videoList.html">영상</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">커뮤니티</a>
+            <div class="sub_menu">
+              <ul>
+                <li><a href="../community/noticeList.html">공지사항</a></li>
+                <li><a href="../community/referenceList.html">자료실</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">SHOP</a>
+            <div class="sub_menu"></div>
+          </li>
+        </ul>
+        <div class="ad_area">
+          <div class="ad_box">
+              <div class="img_box">
+                  <img src="../../frontLayer/images/img/img_schedules_03.jpg" alt="" class="img">
+              </div>
+          </div>
+      </div>
+      </nav>
+      <div class="util pc">
+        <a href="../account/login.html" class="user_util">로그인</a>
+        <a href="../account/signUp.html" class="user_util sign_up">회원가입</a>
+        <a href="#" class="link" target="_blank" title="새창열기">
+          <img src="../../frontLayer/images/icons/ico_daum.svg" alt="">
+        </a>
+      </div>
+      <button type="button" class="btn btn_hamburger mobile"></button>
+    </header>
+    <!-- e:header -->
+
+    <!-- s:container -->
+    <div id="container">
+      
+      <section class="sec executives">
+        <div class="content_inner">
+          <h2 class="ttl front_line">임원소개</h2>
+          <div class="content">
+            <table class="tbl">
+              <caption>임원소개 : 순, 직위, 성명, 연락처, 서명, 비고 등의 정보 확인</caption>
+              <colgroup>
+                <col class="w_px_73 md_w_px_58 sm_w_px_46">
+                <col width="*">
+                <col width="*">
+                <col width="*">
+                <col width="*">
+                <col width="*">
+              </colgroup>
+              <thead class="thead">
+                <tr>
+                  <th scope="col" class="th"><span class="txt">순</span></th>
+                  <th scope="col" class="th"><span class="txt">직위</span></th>
+                  <th scope="col" class="th"><span class="txt">성명</span></th>
+                  <th scope="col" class="th"><span class="txt">연락처</span></th>
+                  <th scope="col" class="th"><span class="txt">서명</span></th>
+                  <th scope="col" class="th"><span class="txt">비고</span></th>
+                </tr>
+              </thead>
+              <tbody class="tbody">
+                <tr>
+                  <td class="td"><span class="txt">1</span></td>
+                  <td class="td"><span class="txt">회장</span></td>
+                  <td class="td"><span class="txt">신태호</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">2</span></td>
+                  <td class="td"><span class="txt">실무부회장</span></td>
+                  <td class="td"><span class="txt">엄세창</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">3</span></td>
+                  <td class="td"><span class="txt">대내외총괄협력실 실장</span></td>
+                  <td class="td"><span class="txt">김봉재</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">4</span></td>
+                  <td class="td"><span class="txt">부회장</span></td>
+                  <td class="td"><span class="txt">황규옥</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">5</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt">최광일</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">6</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt">한순덕</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">7</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt">이남희</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">8</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt">고길남</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">9</span></td>
+                  <td class="td"><span class="txt">경기이사</span></td>
+                  <td class="td"><span class="txt">서평원</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">10</span></td>
+                  <td class="td"><span class="txt">심판이사</span></td>
+                  <td class="td"><span class="txt">백상덕</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">11</span></td>
+                  <td class="td"><span class="txt">홍보이사</span></td>
+                  <td class="td"><span class="txt">김태근</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">12</span></td>
+                  <td class="td"><span class="txt">강화이사</span></td>
+                  <td class="td"><span class="txt">김효삼</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">13</span></td>
+                  <td class="td"><span class="txt">기술이사</span></td>
+                  <td class="td"><span class="txt">지경희</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">14</span></td>
+                  <td class="td"><span class="txt">국제이사</span></td>
+                  <td class="td"><span class="txt">엄미화</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">15</span></td>
+                  <td class="td"><span class="txt">이사</span></td>
+                  <td class="td"><span class="txt">김진희</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">16</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt">홍승표</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">17</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt">양문순</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">18</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt">김종훈</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">19</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt">정영훈</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">20</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt">김애란</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">21</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt">권경인</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">22</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt">정용옥</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">23</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt">김원준</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">24</span></td>
+                  <td class="td"><span class="txt">자문변호사</span></td>
+                  <td class="td"><span class="txt">최거훈</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">25</span></td>
+                  <td class="td"><span class="txt">회계감사</span></td>
+                  <td class="td"><span class="txt">조장배</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">26</span></td>
+                  <td class="td"><span class="txt">사무국장</span></td>
+                  <td class="td"><span class="txt">최나영</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+                <tr>
+                  <td class="td"><span class="txt">27</span></td>
+                  <td class="td"><span class="txt">사무국장</span></td>
+                  <td class="td"><span class="txt">최나영</span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                  <td class="td"><span class="txt"></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <!-- e:container -->
+
+
+    <!-- s:footer -->
+    <footer id="footer">
+      <div class="footer_top">
+        <div class="content_inner">
+          <ul>
+            <li><a href="../about/greeting.html">연맹소개</a></li>
+            <li><a href="../competition/newsList.html">대회안내</a></li>
+            <li><a href="../mediaCenter/newsList.html">미디어센터</a></li>
+            <li><a href="../community/noticeList.html">커뮤니티</a></li>
+            <li><a href="#">SHOP</a></li>
+          </ul>
+          <a href="#" class="link" target="_blank" title="새창열기">
+            <img src="../../frontLayer/images/icons/ico_daum.svg" alt="">
+          </a>
+        </div>
+      </div>
+      <div class="footer_bottom">
+        <div class="content_inner">
+          <span class="logo">
+            <img src="../../frontLayer/images/common/logo.svg" alt="">
+            <em>한국 9인제 배구 연맹</em>
+          </span>
+          <div class="dl_wrap">
+            <dl>
+                <dt>회장</dt>
+                <dd>신태호</dd>
+            </dl>
+            <div class="d_flex flex_wrap align_items_center gap_px_x_10">
+                <dl>
+                    <dt>주소</dt>
+                    <dd>
+                        <address>서울 광진구 능동로49길 16</address>
+                    </dd>
+                </dl>
+                <dl class="mt_0">
+                    <dt>전화번호</dt>
+                    <dd>
+                        <address>02-414-1893</address>
+                    </dd>
+                </dl>
+            </div>
+            <div class="d_flex flex_wrap align_items_center gap_px_x_10">
+                <dl>
+                    <dt>팩스</dt>
+                    <dd>
+                        <address>02-414-1894</address>
+                    </dd>
+                </dl>
+                <dl class="mt_0">
+                    <dt>카페</dt>
+                    <dd>
+                        <a href="cafe.daum.net/knvf" target="_blank" title="새창열기">cafe.daum.net/knvf</a>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        </div>
+      </div>
+      <p class="copyright">Copyright &copy; KNVF All rights reserved.</p>
+    </footer>
+    <!-- e:footer -->
+
+  </div>
+  <!-- e:wrap -->
+
+</body>
+
+</html>

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>한국 9인제 배구연맹</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <!-- SNS share -->
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:description" content="" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="../../frontLayer/images/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../frontLayer/images/favicons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="../../frontLayer/images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../../frontLayer/images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../../frontLayer/images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../frontLayer/images/favicons/apple-touch-icon-76x76.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../frontLayer/images/favicons/apple-touch-icon-96x96.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../../frontLayer/images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../../frontLayer/images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../../frontLayer/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../../frontLayer/images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../frontLayer/images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../../frontLayer/images/favicons/android-icon-192x192.png">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="" />
+  <link rel="stylesheet" href="../../frontLayer/css/package.css">
+  <script src="../../frontLayer/js/jquery-3.3.1.min.js"></script>
+  <script src="../../frontLayer/js/jquery-ui.min.js"></script>
+  <script src="../../frontLayer/js/swiper.min.js"></script>
+  <script src="../../frontLayer/js/fn.js"></script>
+  <script src="../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+  <!-- s:skip -->
+  <div class="skip">
+    <a href="#container">본문 바로가기</a>
+  </div>
+  <!-- e:skip -->
+
+  <!-- s:wrap -->
+  <div id="wrap">
+
+    <!-- s:header -->
+    <header id="header">
+      <h1 class="logo">
+        <a href="../index.html">
+          <img src="../../frontLayer/images/common/logo.svg" alt="한국 9인제 배구연맹 로고">
+          한국9인제배구연맹
+        </a>
+      </h1>
+      <nav id="gnb" class="pc">
+        <h2 class="blind">주메뉴</h2>
+        <div class="gnb_bg"></div>
+        <ul>
+          <li>
+            <a href="../about/greeting.html">연맹소개</a>
+            <div class="sub_menu">
+              <ul>
+                <li><a href="../about/greeting.html">인사말</a></li>
+                <li><a href="../about/history.html">연혁</a></li>
+                <li><a href="../about/organization.html">조직도</a></li>
+                <li><a href="../about/executives.html">임원 소개</a></li>
+                <li><a href="../about/location.html">오시는 길</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="../competition/newsList.html">대회안내</a>
+            <div class="sub_menu">
+              <ul>
+                <li><a href="../competition/newsList.html">대회소식</a></li>
+                <li><a href="../competition/scheduleAll.html">대회일정</a>
+                  <ul>
+                    <li><a href="../competition/scheduleAll.html">전체</a></li>
+                    <li><a href="../competition/scheduleExpected.html">예정</a></li>
+                    <li><a href="../competition/scheduleApplication.html">신청중</a></li>
+                    <li><a href="../competition/scheduleProgress.html">진행중</a></li>
+                    <li><a href="../competition/scheduleEnd.html">종료</a></li>
+                  </ul>
+                </li>
+                <li><a href="../competition/archives.html">기록실</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="../mediaCenter/newsList.html">미디어센터</a>
+            <div class="sub_menu">
+              <ul>
+                <li><a href="../mediaCenter/newsList.html">뉴스</a></li>
+                <li><a href="../mediaCenter/galleryList.html">포토갤러리</a></li>
+                <li><a href="../mediaCenter/videoList.html">영상</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="../community/noticeList.html">커뮤니티</a>
+            <div class="sub_menu">
+              <ul>
+                <li><a href="../community/noticeList.html">공지사항</a></li>
+                <li><a href="../community/referenceList.html">자료실</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">SHOP</a>
+            <div class="sub_menu"></div>
+          </li>
+        </ul>
+        <div class="ad_area">
+          <div class="ad_box">
+            <div class="img_box">
+              <img src="../../frontLayer/images/img/img_schedules_03.jpg" alt="" class="img">
+            </div>
+          </div>
+        </div>
+      </nav>
+      <nav id="gnb" class="m_gnb">
+        <h2 class="blind">주메뉴</h2>
+        <div class="gnb_bg"></div>
+        <div class="util">
+          <a href="../account/login.html" class="user_util">로그인</a>
+          <a href="../account/signUp.html" class="user_util sign_up">회원가입</a>
+          <a href="#" class="link" target="_blank" title="새창열기">
+            <img src="../../frontLayer/images/icons/ico_daum.svg" alt="">
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="#">연맹소개</a>
+            <div class="sub_menu">
+              <ul>
+                <li><a href="../about/greeting.html">인사말</a></li>
+                <li><a href="../about/history.html">연혁</a></li>
+                <li><a href="../about/organization.html">조직도</a></li>
+                <li><a href="../about/executives.html">임원 소개</a></li>
+                <li><a href="../about/location.html">오시는 길</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">대회안내</a>
+            <div class="sub_menu">
+              <ul>
+                <li><a href="../competition/newsList.html">대회소식</a></li>
+                <li class="depth03"><a href="../competition/scheduleAll.html">대회일정</a>
+                  <ul>
+                    <li><a href="../competition/scheduleAll.html">전체</a></li>
+                    <li><a href="../competition/scheduleExpected.html">예정</a></li>
+                    <li><a href="../competition/scheduleApplication.html">신청중</a></li>
+                    <li><a href="../competition/scheduleProgress.html">진행중</a></li>
+                    <li><a href="../competition/scheduleEnd.html">종료</a></li>
+                  </ul>
+                </li>
+                <li><a href="../competition/archives.html">기록실</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">미디어센터</a>
+            <div class="sub_menu">
+              <ul>
+                <li><a href="../mediaCenter/newsList.html">뉴스</a></li>
+                <li><a href="../mediaCenter/galleryList.html">포토갤러리</a></li>
+                <li><a href="../mediaCenter/videoList.html">영상</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">커뮤니티</a>
+            <div class="sub_menu">
+              <ul>
+                <li><a href="../community/noticeList.html">공지사항</a></li>
+                <li><a href="../community/referenceList.html">자료실</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">SHOP</a>
+            <div class="sub_menu"></div>
+          </li>
+        </ul>
+        <div class="ad_area">
+          <div class="ad_box">
+            <div class="img_box">
+              <img src="../../frontLayer/images/img/img_schedules_03.jpg" alt="" class="img">
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="util pc">
+        <a href="../account/login.html" class="user_util">로그인</a>
+        <a href="../account/signUp.html" class="user_util sign_up">회원가입</a>
+        <a href="#" class="link" target="_blank" title="새창열기">
+          <img src="../../frontLayer/images/icons/ico_daum.svg" alt="">
+        </a>
+      </div>
+      <button type="button" class="btn btn_hamburger mobile"></button>
+    </header>
+    <!-- e:header -->
+
+    <!-- s:container -->
+    <div id="container">
+      
+      <section class="sec schedule">
+        <div class="content_inner">
+          <h2 class="ttl front_line">대회일정</h2>
+          <div class="sch_tab_container">
+            <ul class="sch_tabs">
+              <li class="tab_item"><button class="tab_btn"><span class="txt">전체</span></button></li>
+              <li class="tab_item"><button class="tab_btn"><span class="txt">예정</span></button></li>
+              <li class="tab_item"><button class="tab_btn"><span class="txt">신청중</span></button></li>
+              <li class="tab_item active"><button class="tab_btn"><span class="txt">진행중</span></button></li>
+              <li class="tab_item"><button class="tab_btn"><span class="txt">종료</span></button></li>
+            </ul>
+            <div class="form_group search_area">
+              <input class="input_search form_control" placeholder="제목, 내용"></input>
+              <button class="btn btn_dark sm">검색</button>
+            </div>
+            <ul class="sch_tab_content content_item active">
+              <li class="sch_item">
+                <div class="sch_content">
+                  <span class="tag progress">진행중</span>
+                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="competition_area">
+                    <span class="txt team">000000</span>
+                    <span class="txt">vs</span>
+                    <span class="txt team">000000</span>
+                  </div>
+                  <span class="date">2022. 7. 27-<br class="d_none d_md_block"/> 2022. 7. 29</span>
+                </div>
+              </li>
+              <li class="sch_item">
+                <div class="sch_content">
+                  <span class="tag progress">진행중</span>
+                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="competition_area">
+                    <span class="txt team">000000</span>
+                    <span class="txt">vs</span>
+                    <span class="txt team">000000</span>
+                  </div>
+                  <span class="date">2022. 7. 27-<br class="d_none d_md_block"/> 2022. 7. 29</span>
+                </div>
+              </li>
+              <li class="sch_item">
+                <div class="sch_content">
+                  <span class="tag progress">진행중</span>
+                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="competition_area">
+                    <span class="txt team">000000</span>
+                    <span class="txt">vs</span>
+                    <span class="txt team">000000</span>
+                  </div>
+                  <span class="date">2022. 7. 27-<br class="d_none d_md_block"/> 2022. 7. 29</span>
+                </div>
+              </li>
+              <li class="sch_item">
+                <div class="sch_content">
+                  <span class="tag progress">진행중</span>
+                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="competition_area">
+                    <span class="txt team">000000</span>
+                    <span class="txt">vs</span>
+                    <span class="txt team">000000</span>
+                  </div>
+                  <span class="date">2022. 7. 27-<br class="d_none d_md_block"/> 2022. 7. 29</span>
+                </div>
+              </li>
+              <li class="sch_item">
+                <div class="sch_content">
+                  <span class="tag progress">진행중</span>
+                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="competition_area">
+                    <span class="txt team">000000</span>
+                    <span class="txt">vs</span>
+                    <span class="txt team">000000</span>
+                  </div>
+                  <span class="date">2022. 7. 27-<br class="d_none d_md_block"/> 2022. 7. 29</span>
+                </div>
+              </li>
+              <li class="sch_item">
+                <div class="sch_content">
+                  <span class="tag progress">진행중</span>
+                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="competition_area">
+                    <span class="txt team">000000</span>
+                    <span class="txt">vs</span>
+                    <span class="txt team">000000</span>
+                  </div>
+                  <span class="date">2022. 7. 27-<br class="d_none d_md_block"/> 2022. 7. 29</span>
+                </div>
+              </li>
+              <li class="sch_item">
+                <div class="sch_content">
+                  <span class="tag progress">진행중</span>
+                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="competition_area">
+                    <span class="txt team">000000</span>
+                    <span class="txt">vs</span>
+                    <span class="txt team">000000</span>
+                  </div>
+                  <span class="date">2022. 7. 27-<br class="d_none d_md_block"/> 2022. 7. 29</span>
+                </div>
+              </li>
+              <li class="sch_item">
+                <div class="sch_content">
+                  <span class="tag progress">진행중</span>
+                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="competition_area">
+                    <span class="txt team">000000</span>
+                    <span class="txt">vs</span>
+                    <span class="txt team">000000</span>
+                  </div>
+                  <span class="date">2022. 7. 27-<br class="d_none d_md_block"/> 2022. 7. 29</span>
+                </div>
+              </li>
+              <li class="sch_item">
+                <div class="sch_content">
+                  <span class="tag progress">진행중</span>
+                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="competition_area">
+                    <span class="txt team">000000</span>
+                    <span class="txt">vs</span>
+                    <span class="txt team">000000</span>
+                  </div>
+                  <span class="date">2022. 7. 27-<br class="d_none d_md_block"/> 2022. 7. 29</span>
+                </div>
+              </li>
+              <li class="sch_item">
+                <div class="sch_content">
+                  <span class="tag progress">진행중</span>
+                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="competition_area">
+                    <span class="txt team">000000</span>
+                    <span class="txt">vs</span>
+                    <span class="txt team">000000</span>
+                  </div>
+                  <span class="date">2022. 7. 27-<br class="d_none d_md_block"/> 2022. 7. 29</span>
+                </div>
+              </li>
+              <li class="sch_item">
+                <div class="sch_content">
+                  <span class="tag progress">진행중</span>
+                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="competition_area">
+                    <span class="txt team">000000</span>
+                    <span class="txt">vs</span>
+                    <span class="txt team">000000</span>
+                  </div>
+                  <span class="date">2022. 7. 27-<br class="d_none d_md_block"/> 2022. 7. 29</span>
+                </div>
+              </li>
+              <li class="sch_item">
+                <div class="sch_content">
+                  <span class="tag progress">진행중</span>
+                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="competition_area">
+                    <span class="txt team">000000</span>
+                    <span class="txt">vs</span>
+                    <span class="txt team">000000</span>
+                  </div>
+                  <span class="date">2022. 7. 27-<br class="d_none d_md_block"/> 2022. 7. 29</span>
+                </div>
+              </li>
+              <li class="sch_item">
+                <div class="sch_content">
+                  <span class="tag progress">진행중</span>
+                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="competition_area">
+                    <span class="txt team">000000</span>
+                    <span class="txt">vs</span>
+                    <span class="txt team">000000</span>
+                  </div>
+                  <span class="date">2022. 7. 27-<br class="d_none d_md_block"/> 2022. 7. 29</span>
+                </div>
+              </li>
+              <li class="sch_item">
+                <div class="sch_content">
+                  <span class="tag progress">진행중</span>
+                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="competition_area">
+                    <span class="txt team">000000</span>
+                    <span class="txt">vs</span>
+                    <span class="txt team">000000</span>
+                  </div>
+                  <span class="date">2022. 7. 27-<br class="d_none d_md_block"/> 2022. 7. 29</span>
+                </div>
+              </li>
+              <li class="sch_item">
+                <div class="sch_content">
+                  <span class="tag progress">진행중</span>
+                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="competition_area">
+                    <span class="txt team">000000</span>
+                    <span class="txt">vs</span>
+                    <span class="txt team">000000</span>
+                  </div>
+                  <span class="date">2022. 7. 27-<br class="d_none d_md_block"/> 2022. 7. 29</span>
+                </div>
+              </li>
+              <li class="sch_item">
+                <div class="sch_content">
+                  <span class="tag progress">진행중</span>
+                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="competition_area">
+                    <span class="txt team">000000</span>
+                    <span class="txt">vs</span>
+                    <span class="txt team">000000</span>
+                  </div>
+                  <span class="date">2022. 7. 27-<br class="d_none d_md_block"/> 2022. 7. 29</span>
+                </div>
+              </li>
+              <li class="sch_item">
+                <div class="sch_content">
+                  <span class="tag progress">진행중</span>
+                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="competition_area">
+                    <span class="txt team">000000</span>
+                    <span class="txt">vs</span>
+                    <span class="txt team">000000</span>
+                  </div>
+                  <span class="date">2022. 7. 27-<br class="d_none d_md_block"/> 2022. 7. 29</span>
+                </div>
+              </li>
+              <li class="sch_item">
+                <div class="sch_content">
+                  <span class="tag progress">진행중</span>
+                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="competition_area">
+                    <span class="txt team">000000</span>
+                    <span class="txt">vs</span>
+                    <span class="txt team">000000</span>
+                  </div>
+                  <span class="date">2022. 7. 27-<br class="d_none d_md_block"/> 2022. 7. 29</span>
+                </div>
+              </li>
+            </ul>
+            <button class="btn btn_more">더보기</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <!-- e:container -->
+
+
+    <!-- s:footer -->
+    <footer id="footer">
+      <div class="footer_top">
+        <div class="content_inner">
+          <ul>
+            <li><a href="../about/greeting.html">연맹소개</a></li>
+            <li><a href="../competition/newsList.html">대회안내</a></li>
+            <li><a href="../mediaCenter/newsList.html">미디어센터</a></li>
+            <li><a href="../community/noticeList.html">커뮤니티</a></li>
+            <li><a href="#">SHOP</a></li>
+          </ul>
+          <a href="#" class="link" target="_blank" title="새창열기">
+            <img src="../../frontLayer/images/icons/ico_daum.svg" alt="">
+          </a>
+        </div>
+      </div>
+      <div class="footer_bottom">
+        <div class="content_inner">
+          <span class="logo">
+            <img src="../../frontLayer/images/common/logo.svg" alt="">
+            <em>한국 9인제 배구 연맹</em>
+          </span>
+          <div class="dl_wrap">
+            <dl>
+                <dt>회장</dt>
+                <dd>신태호</dd>
+            </dl>
+            <div class="d_flex flex_wrap align_items_center gap_px_x_10">
+                <dl>
+                    <dt>주소</dt>
+                    <dd>
+                        <address>서울 광진구 능동로49길 16</address>
+                    </dd>
+                </dl>
+                <dl class="mt_0">
+                    <dt>전화번호</dt>
+                    <dd>
+                        <address>02-414-1893</address>
+                    </dd>
+                </dl>
+            </div>
+            <div class="d_flex flex_wrap align_items_center gap_px_x_10">
+                <dl>
+                    <dt>팩스</dt>
+                    <dd>
+                        <address>02-414-1894</address>
+                    </dd>
+                </dl>
+                <dl class="mt_0">
+                    <dt>카페</dt>
+                    <dd>
+                        <a href="cafe.daum.net/knvf" target="_blank" title="새창열기">cafe.daum.net/knvf</a>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        </div>
+      </div>
+      <p class="copyright">Copyright &copy; KNVF All rights reserved.</p>
+    </footer>
+    <!-- e:footer -->
+
+  </div>
+  <!-- e:wrap -->
+
+</body>
+
+</html>

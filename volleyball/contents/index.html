@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>한국 9인제 배구연맹</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- SNS share -->
+    <meta property="og:title" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="../frontLayer/images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../frontLayer/images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../frontLayer/images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../frontLayer/images/favicons/apple-touch-icon-76x76.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../frontLayer/images/favicons/apple-touch-icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../frontLayer/images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../frontLayer/images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../frontLayer/images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../frontLayer/images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../frontLayer/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../frontLayer/images/favicons/android-icon-192x192.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="canonical" href="" />
+    <link rel="stylesheet" href="../frontLayer/css/package.css">
+    <script src="../frontLayer/js/jquery-3.3.1.min.js"></script>
+    <script src="../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../frontLayer/js/swiper.min.js"></script>
+    <script src="../frontLayer/js/fn.js"></script>
+    <script src="../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+    <!-- s:skip -->
+    <div class="skip">
+        <a href="#container">본문 바로가기</a>
+    </div>
+    <!-- e:skip -->
+
+    <!-- s:wrap -->
+    <div id="wrap">
+
+        <!-- s:header -->
+        <header id="header">
+            <h1 class="logo">
+                <a href="./index.html">
+                    <img src="../frontLayer/images/common/logo.svg" alt="한국 9인제 배구연맹 로고">
+                    한국9인제배구연맹
+                </a>
+            </h1>
+            <button type="button" class="btn btn_hamburger mobile"></button>
+            <nav id="gnb" class="pc">
+                <h2 class="blind">주메뉴</h2>
+                <div class="gnb_bg"></div>
+                <ul>
+                    <li>
+                        <a href="./about/greeting.html">연맹소개</a>
+                        <div class="sub_menu">
+                            <ul>
+                                <li><a href="./about/greeting.html">인사말</a></li>
+                                <li><a href="./about/history.html">연혁</a></li>
+                                <li><a href="./about/organization.html">조직도</a></li>
+                                <li><a href="./about/executives.html">임원 소개</a></li>
+                                <li><a href="./about/location.html">오시는 길</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="./competition/newsList.html">대회안내</a>
+                        <div class="sub_menu">
+                            <ul>
+                                <li><a href="./competition/newsList.html">대회소식</a></li>
+                                <li><a href="./competition/scheduleAll.html">대회일정</a>
+                                    <ul>
+                                        <li><a href="./competition/scheduleAll.html">전체</a></li>
+                                        <li><a href="./competition/scheduleExpected.html">예정</a></li>
+                                        <li><a href="./competition/scheduleApplication.html">신청중</a></li>
+                                        <li><a href="./competition/scheduleProgress.html">진행중</a></li>
+                                        <li><a href="./competition/scheduleEnd.html">종료</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="./competition/archives.html">기록실</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="./mediaCenter/newsList.html">미디어센터</a>
+                        <div class="sub_menu">
+                            <ul>
+                                <li><a href="./mediaCenter/newsList.html">뉴스</a></li>
+                                <li><a href="./mediaCenter/galleryList.html">포토갤러리</a></li>
+                                <li><a href="./mediaCenter/videoList.html">영상</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="./community/noticeList.html">커뮤니티</a>
+                        <div class="sub_menu">
+                            <ul>
+                                <li><a href="./community/noticeList.html">공지사항</a></li>
+                                <li><a href="./community/referenceList.html">자료실</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">SHOP</a>
+                        <div class="sub_menu"></div>
+                    </li>
+                </ul>
+                <div class="ad_area">
+                    <div class="ad_box">
+                        <div class="img_box">
+                            <img src="../frontLayer/images/img/img_schedules_03.jpg" alt="" class="img">
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <nav id="gnb" class="m_gnb" tabindex="0">
+                <h2 class="blind">주메뉴</h2>
+                <div class="gnb_bg"></div>
+                <div class="util">
+                    <a href="./account/login.html" class="user_util">로그인</a>
+                    <a href="./account/signUp.html" class="user_util sign_up">회원가입</a>
+                    <a href="#" class="link" target="_blank" title="새창열기">
+                        <img src="../frontLayer/images/icons/ico_daum.svg" alt="">
+                    </a>
+                </div>
+                <ul>
+                    <li>
+                        <a href="#">연맹소개</a>
+                        <div class="sub_menu">
+                            <ul>
+                                <li><a href="./about/greeting.html">인사말</a></li>
+                                <li><a href="./about/history.html">연혁</a></li>
+                                <li><a href="./about/organization.html">조직도</a></li>
+                                <li><a href="./about/executives.html">임원 소개</a></li>
+                                <li><a href="./about/location.html">오시는 길</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">대회안내</a>
+                        <div class="sub_menu">
+                            <ul>
+                                <li><a href="./competition/newsList.html">대회소식</a></li>
+                                <li class="depth03"><a href="./competition/scheduleAll.html">대회일정</a>
+                                    <ul>
+                                        <li><a href="./competition/scheduleAll.html">전체</a></li>
+                                        <li><a href="./competition/scheduleExpected.html">예정</a></li>
+                                        <li><a href="./competition/scheduleApplication.html">신청중</a></li>
+                                        <li><a href="./competition/scheduleProgress.html">진행중</a></li>
+                                        <li><a href="./competition/scheduleEnd.html">종료</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="./competition/archives.html">기록실</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">미디어센터</a>
+                        <div class="sub_menu">
+                            <ul>
+                                <li><a href="./mediaCenter/newsList.html">뉴스</a></li>
+                                <li><a href="./mediaCenter/galleryList.html">포토갤러리</a></li>
+                                <li><a href="./mediaCenter/videoList.html">영상</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">커뮤니티</a>
+                        <div class="sub_menu">
+                            <ul>
+                                <li><a href="./community/noticeList.html">공지사항</a></li>
+                                <li><a href="./community/referenceList.html">자료실</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">SHOP</a>
+                    </li>
+                </ul>
+                <div class="ad_area">
+                    <div class="ad_box">
+                        <div class="img_box">
+                            <img src="../frontLayer/images/img/img_schedules_03.jpg" alt="" class="img">
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="util pc">
+                <a href="./account/login.html" class="user_util">로그인</a>
+                <a href="./account/signUp.html" class="user_util sign_up">회원가입</a>
+                <a href="#" class="link" target="_blank" title="새창열기">
+                    <img src="../frontLayer/images/icons/ico_daum.svg" alt="">
+                </a>
+            </div>
+        </header>
+        <!-- e:header -->
+
+        <!-- s:container -->
+        <main id="container" class="main">
+            <section class="main_visual">
+                <button class="swiper_btn swiper-button-prev"></button>
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide slide01">
+                        <div class="txt_area">
+                            <h2 class="ttl">
+                                누구나 언제나 즐길 수 있는 <br>
+                                9인제 배구
+                            </h2>
+                        </div>
+                    </li>
+                    <li class="swiper-slide slide02">
+                        <div class="txt_area">
+                            <h2 class="ttl">
+                                누구나 언제나 즐길 수 있는 <br>
+                                9인제 배구
+                            </h2>
+                        </div>
+                    </li>
+                    <li class="swiper-slide slide03">
+                        <div class="txt_area">
+                            <h2 class="ttl">
+                                누구나 언제나 즐길 수 있는 <br>
+                                9인제 배구
+                            </h2>
+                        </div>
+                    </li>
+                    <li class="swiper-slide slide04">
+                        <div class="txt_area">
+                            <h2 class="ttl">
+                                누구나 언제나 즐길 수 있는 <br>
+                                9인제 배구
+                            </h2>
+                        </div>
+                    </li>
+                    <li class="swiper-slide slide05">
+                        <div class="txt_area">
+                            <h2 class="ttl">
+                                누구나 언제나 즐길 수 있는 <br>
+                                9인제 배구
+                            </h2>
+                        </div>
+                    </li>
+                    <li class="swiper-slide slide06">
+                        <div class="txt_area">
+                            <h2 class="ttl">
+                                누구나 언제나 즐길 수 있는 <br>
+                                9인제 배구
+                            </h2>
+                        </div>
+                    </li>
+                </ul>
+                <div class="swiper-pagination"></div>
+                <button class="swiper_btn swiper-button-next"></button>
+            </section>
+        
+            <article class="schedule sec">
+                <div class="content_inner">
+                    <h3 class="ttl">대회일정</h3>
+                    <div class="schedule_swiper">
+                        <button class="swiper_btn swiper-button-prev"></button>
+                        <ul class="schedule_list swiper-wrapper">
+                            <li class="swiper-slide">
+                                <div class="schedule_box">
+                                    <a href="./competition/scheduleExpected.html" class="schedule_item">
+                                        <div class="img_box">
+                                            <img src="../frontLayer/images/img/img_schedules_01.jpg" alt="대회일정 예정" class="img">
+                                        </div>
+                                        <span class="txt">예정</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="schedule_box">
+                                    <a href="./competition/scheduleApplication.html" class="schedule_item">
+                                        <div class="img_box">
+                                            <img src="../frontLayer/images/img/img_schedules_02.jpg" alt="대회일정 신청중" class="img">
+                                        </div>
+                                        <span class="txt">신청중</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="schedule_box">
+                                    <a href="./competition/scheduleProgress.html" class="schedule_item">
+                                        <div class="img_box">
+                                            <img src="../frontLayer/images/img/img_schedules_03.jpg" alt="대회일정 진행중" class="img">
+                                        </div>
+                                        <span class="txt">진행중</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="swiper-pagination"></div>
+                        <button class="swiper_btn swiper-button-next"></button>
+                    </div>
+                </div>
+            </article>
+        
+            <section class="notice sec">
+                <div class="content_inner">
+                    <div class="ttl_wrap col_4">
+                        <div class="ttl_area ttl_area_01 active">
+                            <h3 class="ttl">NOTICE</h2>
+                                <a href="#"><span class="txt">더보기</span></a>
+                        </div>
+                        <div class="ttl_area ttl_area_02">
+                            <h3 class="ttl">NEWS</h2>
+                                <a href="#"><span class="txt">더보기</span></a>
+                        </div>
+                    </div>
+                    <div class="notice_content_area col_8">
+                        <div class="notice_tab_container">
+                            <ul class="notice_tabs">
+                                <li class="tab_item active"><button class="tab_btn">공지사항</button></li>
+                                <li class="tab_item"><button class="tab_btn">뉴스</button></li>
+                            </ul>
+                            <ul class="content_item active">
+                                <li>
+                                    <a href="#" class="content">
+                                        <p class="content_ttl ellipsis">대회연기안내</p>
+                                        <span class="date">22.11.22</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="content">
+                                        <p class="content_ttl ellipsis">제1회 인제내린천배 한국9인제배구연맹 챔피언쉽대회</p>
+                                        <span class="date">22.11.09</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="content">
+                                        <p class="content_ttl ellipsis">제58회 박계조배대회 결과표</p>
+                                        <span class="date">22.11.07</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="content">
+                                        <p class="content_ttl ellipsis">공지사항</p>
+                                        <span class="date">22.11.02</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="content">
+                                        <p class="content_ttl ellipsis">9인제 종별선수권대회 참가신청 마감 알림</p>
+                                        <span class="date">22.05.03</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="content_item">
+                                <li>
+                                    <a href="#" class="content">
+                                        <p class="content_ttl ellipsis">공지사항 제목입니다.</p>
+                                        <span class="date">22.11.22</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="content">
+                                        <p class="content_ttl ellipsis">공지사항 제목입니다.</p>
+                                        <span class="date">22.11.09</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="content">
+                                        <p class="content_ttl ellipsis">공지사항 제목입니다.</p>
+                                        <span class="date">22.11.07</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="content">
+                                        <p class="content_ttl ellipsis">공지사항 제목입니다.</p>
+                                        <span class="date">22.11.02</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="content">
+                                        <p class="content_ttl ellipsis">공지사항 제목입니다.</p>
+                                        <span class="date">22.05.03</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+        </main>
+        <!-- e:container -->
+
+
+        <!-- s:footer -->
+        <footer id="footer">
+            <div class="footer_swiper_wrap">
+                <div class="content_inner">
+                    <div class="footer_swiper">
+                        <div class="swiper_btn swiper-button-prev"></div>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="img_box">
+                                    <img src="../frontLayer/images/img/img_footer_logo_01.png" alt="대한배구협회" class="img">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="img_box">
+                                    <img src="../frontLayer/images/img/img_footer_logo_02.png" alt="THE S LAB" class="img">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="img_box">
+                                    <img src="../frontLayer/images/img/img_footer_logo_03.png" alt="start sports" class="img">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="img_box">
+                                    <img src="../frontLayer/images/img/img_footer_logo_04.png" alt="법무법인(유) 에이스" class="img">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="img_box">
+                                    <img src="../frontLayer/images/img/img_footer_logo_05.png" alt="adup" class="img">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper_btn swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_top">
+                <div class="content_inner">
+                    <ul>
+                        <li><a href="./about/greeting.html">연맹소개</a></li>
+                        <li><a href="./competition/newsList.html">대회안내</a></li>
+                        <li><a href="./mediaCenter/newsList.html">미디어센터</a></li>
+                        <li><a href="./community/noticeList.html">커뮤니티</a></li>
+                        <li><a href="#">SHOP</a></li>
+                    </ul>
+                    <a href="#" class="link" target="_blank" title="새창열기">
+                        <img src="../frontLayer/images/icons/ico_daum.svg" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <div class="content_inner">
+                    <span class="logo">
+                        <img src="../frontLayer/images/common/logo.svg" alt="">
+                        <em>한국 9인제 배구 연맹</em>
+                    </span>
+                    <div class="dl_wrap">
+                        <dl>
+                            <dt>회장</dt>
+                            <dd>신태호</dd>
+                        </dl>
+                        <div class="d_flex flex_wrap align_items_center gap_px_x_10">
+                            <dl>
+                                <dt>주소</dt>
+                                <dd>
+                                    <address>서울 광진구 능동로49길 16</address>
+                                </dd>
+                            </dl>
+                            <dl class="mt_0">
+                                <dt>전화번호</dt>
+                                <dd>
+                                    <address>02-414-1893</address>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="d_flex flex_wrap align_items_center gap_px_x_10">
+                            <dl>
+                                <dt>팩스</dt>
+                                <dd>
+                                    <address>02-414-1894</address>
+                                </dd>
+                            </dl>
+                            <dl class="mt_0">
+                                <dt>카페</dt>
+                                <dd>
+                                    <a href="cafe.daum.net/knvf" target="_blank" title="새창열기">cafe.daum.net/knvf</a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">Copyright &copy; KNVF All rights reserved.</p>
+        </footer>
+        <!-- e:footer -->
+
+    </div>
+    <!-- e:wrap -->
+    <script>
+        // breakpoint where swiper will be destroyed
+        // and switches to a dual-column layout
+        const breakpoint = window.matchMedia('(max-width:767px)');
+        // keep track of swiper instances to destroy later
+        let mainSwiper,
+        scheduleSwiper;
+
+        const breakpointChecker = function () {
+            // if larger viewport and multi-row layout needed
+            if (breakpoint.matches === true) {
+                // clean up old instances and inline styles when available
+                if (mainSwiper !== undefined) mainSwiper.destroy(true, true);
+                // or/and do nothing
+                return enableMobileSwiper();
+                // else if a small viewport and single column layout needed
+            } else if (breakpoint.matches === false) {
+                if (mainSwiper !== undefined) mainSwiper.destroy(true, true);
+                if (scheduleSwiper !== undefined) {
+                    scheduleSwiper.destroy(true, true);
+                    $('.schedule_swiper .swiper-pagination').css({
+                        'display': 'none'
+                    })
+                    $('.schedule_swiper .swiper_btn').css({
+                        'display': 'none'
+                    });
+                } 
+                // or/and do nothing
+                return enablePcSwiper();
+            }
+        };
+
+        const enablePcSwiper = function () {
+            mainSwiper = new Swiper(".main_visual", {
+                touchRatio: 0,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".main_visual .swiper-pagination",
+                },
+                navigation: {
+                    nextEl: ".main_visual .swiper-button-next",
+                    prevEl: ".main_visual .swiper-button-prev",
+                }
+            });
+            footerSwiper = new Swiper(".footer_swiper", {
+                slidesPerView: 5,
+                spaceBetween: 52,
+                touchRatio: 0,
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".footer_swiper .swiper-pagination",
+                },
+                navigation: {
+                    nextEl: ".footer_swiper .swiper-button-next",
+                    prevEl: ".footer_swiper .swiper-button-prev",
+                }
+            });
+        };
+        const enableMobileSwiper = function () {
+            mainSwiper = new Swiper(".main_visual", {
+                touchRatio: 0,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    type: "fraction",
+                    el: ".main_visual .swiper-pagination",
+                },
+                navigation: {
+                    nextEl: ".main_visual .swiper-button-next",
+                    prevEl: ".main_visual .swiper-button-prev",
+                }
+            });
+            scheduleSwiper = new Swiper('.schedule_swiper', {
+                slidesPerView: 'auto',
+                pagination:{
+                    el: ".schedule .swiper-pagination"
+                },
+                navigation: {
+                    nextEl: ".schedule .swiper-button-next",
+                    prevEl: ".schedule .swiper-button-prev",
+                },
+                on: {
+                    init: function() {
+                        $('.schedule_swiper .swiper-pagination').css({
+                            'display':'block'
+                        })
+                        $('.schedule_swiper .swiper_btn').css({
+                            'display':'block'
+                        });
+                    }
+                }
+            })
+            footerSwiper = new Swiper(".footer_swiper", {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                touchRatio: 0,
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".footer_swiper .swiper-pagination",
+                },
+                navigation: {
+                    nextEl: ".footer_swiper .swiper-button-next",
+                    prevEl: ".footer_swiper .swiper-button-prev",
+                }
+            });
+        };
+
+        // keep an eye on viewport size changes
+        breakpoint.addListener(breakpointChecker);
+        // kickstart
+        breakpointChecker();
+    </script>
+
+</body>
+
+</html>
