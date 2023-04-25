@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="naver-site-verification" content="fe006f6c28bf41abdadd441c7fd38dc78eab358f" />
+    <title>서울특별시 시립병원</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="서울특별시 시립병원" />
+    <!-- SNS share -->
+    <meta property="og:title" content="서울특별시 시립병원" />
+    <meta property="og:url" content="http://seoulhospitals.kr/"/>
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="서울특별시 시립병원" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16"  href="./frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32"  href="./frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="./frontLayer/images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./frontLayer/images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./frontLayer/images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./frontLayer/images/favicons/apple-touch-icon-76x76.png">
+    <link rel="icon" type="image/png" sizes="96x96"  href="./frontLayer/images/favicons/apple-touch-icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./frontLayer/images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./frontLayer/images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./frontLayer/images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./frontLayer/images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./frontLayer/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="./frontLayer/images/favicons/android-icon-192x192.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="canonical" href="http://seoulhospitals.kr/"/>
+    <link rel="stylesheet" href="./frontLayer/css/package.css">
+    <script src="./frontLayer/js/hospitalData.js"></script>
+    <script src="./frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f4c46ee404c57a5cab70b500852d5c2d&libraries=services"></script>
+    <script src="./frontLayer/js/swiper.min.js"></script>
+    <script src="./frontLayer/js/fn.js"></script>
+</head>
+<body>
+
+    <!-- s:wrap -->
+    <div id="wrap" class="page_main">
+
+        <!-- s:skip -->
+        <div class="skip">
+            <a href="#container">본문 바로가기</a>
+        </div>
+        <!-- e:skip -->
+
+        <!-- s:visual -->
+        <div class="visual">
+            <div class="center">
+                <div class="lang_area">
+                    <a href="#" onclick="go('ko');" class="lang_btn">KOREAN</a>
+                </div>
+                <div class="banner_area">
+                    <h1 class="logo">
+                        <a class="logo_link" href="#">
+                            <span class="blind">City hospital reopened, seoul citizens' health Blooms - municipal hospital blooms again</span>
+                        </a>
+                    </h1>
+                    <div class="banner_swiper_wrap">
+                        <div class="swiper banner-swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="banner_box">
+                                        <img class="banner_img" src="./frontLayer/images/@/@img_web_boramae.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="banner_box">
+                                        <img class="banner_img" src="./frontLayer/images/@/@img_web_seoul_medical.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="banner_box">
+                                        <img class="banner_img" src="./frontLayer/images/@/@img_web_seonam.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="banner_box">
+                                        <img class="banner_img" src="./frontLayer/images/@/@img_web_dongbu.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="banner_box">
+                                        <img class="banner_img" src="./frontLayer/images/@/@img_web_seobuk.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="banner_box">
+                                        <img class="banner_img" src="./frontLayer/images/@/@img_web_bukbu.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="banner_box">
+                                        <img class="banner_img" src="./frontLayer/images/@/@img_web_children.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="banner_box">
+                                        <img class="banner_img" src="./frontLayer/images/@/@img_web_dental.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="banner_box">
+                                        <img class="banner_img" src="./frontLayer/images/@/@img_web_eunpyeong.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="banner_box">
+                                        <img class="banner_img" src="./frontLayer/images/@/@img_web_chungryeong.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="banner_box">
+                                        <img class="banner_img" src="./frontLayer/images/@/@img_web_baekam.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="banner_box">
+                                        <img class="banner_img" src="./frontLayer/images/@/@img_web_goyang.jpg" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper_controller">
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:visual -->
+
+        <!-- s:container -->
+        <div id="container" class="container">
+
+            <section class="sec sec_searh">
+                <div class="center">
+                    <h2 class="blind">Search</h2>
+                    <div class="searh_area">
+                        <div class="searh_group_wrap">
+                            <div class="searh_group">
+                                <div class="ttl_area">
+                                    <span class="ttl">Area</span>
+                                </div>
+                                <div class="form_select area" data-index="1" data-items="Seocho-gu, Eunpyeong-gu, Jungnang-gu, Dongjak-gu, Dongdaemun-gu, Jungnang-gu, Yangcheon-gu, Seongdong-gu, Namyangju, Yongin, Goyang">
+                                    <button class="form_btn" type="button">Overall</button>
+                                </div>
+                            </div>
+                            <div class="searh_group">
+                                <div class="ttl_area">
+                                    <span class="ttl">Medical department</span>
+                                </div>
+                                <div class="form_select cls" data-index="0" data-items="Overall, Internal, Surgery, Plastic Surgery, Neurosurgery, Orthopedic, Thoracic, Rehabilitation, Gynecology, Pediatrics, Dermatology, Urology, Ophthalmology, Neurology, Mental Health, Imaging, Radiation Oncology, Anesthesiology, Diagnosis, Pathology, Dentistry, Emergency Medicine, Family Medicine">
+                                    <button class="form_btn" type="button">Overall</button>
+                                </div>
+                            </div>
+                            <div class="searh_group">
+                                <div class="ttl_area">
+                                    <span class="ttl">Keywords</span>
+                                </div>
+                                <div class="form_select keyw" data-items="Item 1, Item 2, Item 3, Item 4, Item 5, Item 6, Item 7, Item 8, Item 9, Item 10">
+                                    <button class="form_btn" type="button">Overall</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="searh_btn_area">
+                            <button type="button" class="searh_btn searh_map_btn active">
+                                <i class="ico"></i>
+                                <span class="txt">View on a map</span>
+                            </button>
+                            <button type="button" class="searh_btn searh_list_btn">
+                                <i class="ico"></i>
+                                <span class="txt">View on a list</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sec sec_hospital">
+                <div class="center">
+                    <h2 class="blind">List of municipal hospitals</h2>
+                    <div class="hospital_area">
+                    </div>
+                </div>
+            </section>
+
+            <section class="sec sec_map d_none">
+                <div class="center">
+                    <div class="map_area">
+                        <div class="map_header">
+                            <div class="ttl_area">
+                                <i class="ico ico_map_white"></i>
+                                <h2 class="ttl">View on a map</h2>
+                            </div>
+                            <div class="info_area">
+                                <ul class="info_list">
+                                    <li class="info_item">
+                                        <span class="info_ttl">Area</span>
+                                        <span class="info_txt area">Eunpyeong-gu</span>
+                                    </li>
+                                    <li class="info_item">
+                                        <span class="info_ttl">Medical department</span>
+                                        <span class="info_txt cls">Rehabilitation Medicine</span>
+                                    </li>
+                                    <li class="info_item">
+                                        <span class="info_ttl">Keywords</span>
+                                        <span class="info_txt type02 keyw">Psoriasis atopic dermatitis clinic</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="hospital_map_area">
+                                <span class="hospital_map_ttl">List</span>
+                            </div>
+                        </div>
+                        <div class="map_body">
+                            <div class="map_content">
+                                <div class="map_box"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="sec sec_ad">
+                <div class="center">
+                    <h2 class="blind">Banner Links</h2>
+                    <div class="bnr_area">
+                        <a class="bnr_link" target="_blank" title="Shortcut to seoul citizens' health portal (New window)" href="https://hudc.seoulmc.or.kr" >
+                            <img class="bnr_img" src="./frontLayer/images/@/@ad.jpg" alt="Shortcut to Seoul Citizens' Health Portal for Health Protection to secure the right to health of Seoul citizens"/>
+                        </a>
+                        <a class="bnr_link" target="_blank" title="Shortcut to single-person hospital accompanying service (New window)" href="https://1in.seoul.go.kr/front/bsns/bsnsView.do?bsns_id=890429d0cfad44b8b620263ef0e1f49b" >
+                            <img class="bnr_img" src="./frontLayer/images/@/@ad02.jpg" alt="It's okay even if you're alone! Since we're together, okay! Single-person hospital accompanying service"/>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sec sec_newsletter">
+                <div class="center">
+                    <div class="newsletter_area">
+                        <div class="newsletter_header">
+                            <div class="ttl_area">
+                                <h2 class="ttl">Seoul Hospital Newsletter</h2>
+                            </div>
+                        </div>
+                        <div class="newsletter_body">
+                            <div class="newsletter_swiper_wrap">
+                                <div class="swiper newsletter-swiper">
+                                    <div class="swiper-wrapper"></div>
+                                </div>
+                                <div class="swiper_controller">
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <!-- e:container -->
+
+        <!-- s:footer -->
+        <footer class="footer">
+            <div class="center">
+                <div class="logo_area">
+                    <img class="logo" src="./frontLayer/images/img/logo_footer.png" alt="서울특별시 SEOUL METROPLITAN GOVERNMENT"/>
+                </div>
+                <div class="company_area">
+                    <div class="company_content">
+                        <p class="company_txt">
+                            (04512) 20th floor, 17 Sejong-daero, Jung-gu, Seoul (WISE TOWER)<br/>
+                            phone: 02-6386-8300 / Fax: 02-6386-8390
+                        </p>
+                        <p class="copyright">Copyright©2022 By Seoul public health and medical foundation. All right reserved.</p>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+        <!-- e:footer -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close modal_hospital">
+            <div class="modal_centered" tabindex="0">
+                <div class="modal_box modal_lg p_0">
+                    <button type="button" class="btn_modal_close close">
+                        <span class="blind">닫기</span>
+                    </button>
+                    <div class="modal_body">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+    </div>
+    <!-- e:wrap -->
+
+<script src="./frontLayer/js/common.js"></script>
+
+<script>
+
+$.namespace('ProjectName');
+
+function go(lang){
+	if(lang=='en') location = './index02.html';
+	else           location = "./index.html";
+}
+
+var keywords = {};
+keywords["건강검진(일반)"] = "Health Screening Program";
+keywords["재활치료실"] = "Rehabilitation Treatment Room";
+keywords["호스피스완화의료센터"] = "Hospice & Palliative Care Center";
+keywords["통증센터/클리닉"] = "Pain Center/Clinic";
+keywords["소화기센터"] = "Gastroenterology Center";
+keywords["심혈관센터"] = "Cardiovascular Center";
+keywords["응급실"] = "Emergency Room";
+keywords["건강돌봄 네트워크"] = "Health Care Network";
+keywords["건강검진(영유아)"] = "Health Screening Program(Infants and Children)";
+keywords["건강검진(암)"] = "Health Screening Program(Cancer)";
+keywords["정신사회재활치료"] = "Psychosocial Rehabilitation";
+
+var classes = {};
+classes["가정의학과"] = "Family Medicine";
+classes["감염내과"] = "Infectious Diseases";
+classes["공공의학과"] = "Public Health and Community Medicine";
+classes["내분비대사내과"] = "Endocrinology and Metabolism";
+classes["류마티스내과"] = "Rheumatology";
+classes["마취통증의학과"] = "Anesthesiology and Pain Medicine";
+classes["방사선종양학과"] = "Radiation Oncology";
+classes["병리과"] = "Pathology";
+classes["비뇨의학과"] = "Urology";
+classes["산부인과"] = "Obstetrics and Gynecology";
+classes["성형외과"] = "Plastic Surgery";
+classes["소아청소년과"] = "Pediatrics";
+classes["소화기내과"] = "Gastroenterology";
+classes["순환기내과"] = "Cardiology";
+classes["신경과"] = "Neurology";
+classes["신경외과"] = "Neurosurgery";
+classes["신장내과"] = "Nephrology";
+classes["안과"] = "Ophthalmology";
+classes["알레르기내과"] = "Allergic Medicine";
+classes["영상의학과"] = "Radiology";
+classes["외과"] = "Surgery";
+classes["응급의학과"] = "Emergency Medicine";
+classes["이비인후과"] = "Otorhinolaryngology";
+classes["재활의학과"] = "Rehabilitation Medicine";
+classes["정신건강의학과"] = "Psychiatry";
+classes["정형외과"] = "Orthopedic Surgery";
+classes["종합내과"] = "Medicine";
+classes["진단검사의학과"] = "Laboratory Medicine";
+classes["치과"] = "Dentistry";
+classes["피부과"] = "Dermatology";
+classes["핵의학과"] = "Nuclear Medicine";
+classes["혈액종양내과"] = "Hematology and Oncology";
+classes["호흡기내과"] = "Pulmonology";
+classes["흉부외과"] = "Thoracic Surgery";
+classes["직업환경의학과"] = "Occupational and Environmental Medicine";
+classes["침구과"] = "Acupuncture Department";
+classes["호흡기알레르기내과"] = "Respiratory Allergy Internal Medicine";
+classes["내분비내과"] = "Endocrinology";
+classes["인공관절센터"] = "Joint Replacement Center";
+classes["백세건강센터"] = "Homo Hundred Health Center";
+classes["내과"] = "Medicine";
+classes["건강관리과"] = "Health Management";
+classes["결핵과"] = "Tuberculosis";
+classes["한방과"] = "Oriental Medicine";
+classes["가임센터"] = "Fertility Center";
+classes["호스피스완화의료센터"] = "Hospice & Palliative Care Center";
+classes["마취통증의학과"] = "Anesthesiology and Pain Medicine";
+
+
+$(function () {
+	$(hospitalData02).each(function(i, item){
+		var data = hospitalData[i];
+		var list = [];
+		$(data.medicalDepartment).each(function(){
+			list.push(classes[this]);
+		});
+		item.medicalDepartment = list;
+		list = [];
+		$(data.keywords).each(function(){
+			list.push(keywords[this]);
+		});
+		item.src = data.src;
+		item.keywords = list;
+	});
+});
+
+var hsData = hospitalData02;
+
+function getListKeyword(datalist){
+	var list = [];
+	var map = {};
+	$(datalist).each(function(idx, it){
+		$(it.keywords).each(function(i, item){
+			if(map[item]){}
+			else{
+				list.push(item);
+				map[item] = item;
+			}
+		});
+	});
+	list.sort();
+	list.unshift("Overall");
+	return list;
+}
+function getListClass(datalist){
+	var list = [];
+	var map = {};
+	$(datalist).each(function(idx, it){
+		$(it.medicalDepartment).each(function(i, item){
+			if(map[item]){}
+			else{
+				list.push(item);
+				map[item] = item;
+			}
+		});
+	});
+	list.sort();
+	list.unshift("Overall");
+	return list;
+}
+function compare(a, b){
+	if(a.area<b.area){
+		return 1;
+	}
+	if(b.area<a.area){
+		return -1;
+	}
+	if(a.sigu<b.sigu){
+		return -1;
+	}
+	return 1;
+}
+function getListSigu(hd){
+	var list = [];
+	var comlist = [];
+	var m = {};
+	$(hd).each(function(i, item){
+		if(m[item.sigu]){}
+		else{
+			comlist.push({area: item.area, sigu: item.sigu});
+			m[item.sigu] = item.sigu;
+		}
+	});
+	comlist.sort(compare);
+	$(comlist).each(function(){
+		list.push(this.sigu);
+	});
+	list.unshift("Overall");
+	return list;
+}
+
+ProjectName = {
+	arealist: [],
+	classlist: [],
+	init : function(){
+		this.start();
+		this.list(hsData);
+		this.select();
+		this.modal();
+		this.button();
+
+		setTimeout(function(){
+			$('.sec_map').removeClass('d_none');
+			map.relayout();
+			map.setBounds(bounds);
+			$('.sec_map').addClass('d_none');
+		}, 300);
+	},
+	start : function(){
+		if(!fn.exists($('.page_main'))) return
+
+		var bannerSwiper = new Swiper(".banner-swiper", {
+			effect: "fade",
+			speed: 1000,
+			autoplay: {
+				delay: 4500,
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: ".banner-swiper .swiper-pagination",
+				clickable: true,
+			},
+		});
+		$('.banner-swiper').on('mouseenter', function(e){
+			bannerSwiper.autoplay.stop();
+		});
+		$('.banner-swiper').on('mouseleave', function(e){
+			bannerSwiper.autoplay.start();
+		});
+
+		$('.form_select.area').attr('data-items', getListSigu(hsData).join(', '));
+		$('.form_select.cls').attr('data-items', getListClass(hsData).join(', '));
+		$('.form_select.keyw').attr('data-items', getListKeyword(hsData).join(', '));
+
+		$('.hospital_area').append('<ul class="hospital_list"></ul>');
+		$('.hospital_map_area').append('<ul class="hospital_map_list"></ul>');
+
+		newsletterData.forEach((item,idx)=>{
+			$('.newsletter-swiper .swiper-wrapper').append(`
+				<div class="swiper-slide">
+					<div class="newsletter_box">
+						<a class="newsletter_link" target="_blank" title="Shortcut to newsletter (New window)" href="${item.link}">
+							<div class="newsletter_thumb">
+								<img class="newsletter_img" src="${item.src}" alt="소식지 - ${item.title} ${item.area} ${item.name}" />
+							</div>
+						</a>
+					</div>
+				</div>
+			`);
+		});
+		var newsletterSwiper = new Swiper(".newsletter-swiper", {
+			slidesPerView: 4,
+			slidesPerGroup: 4,
+			navigation: {
+				nextEl: ".newsletter_swiper_wrap .swiper-button-next",
+				prevEl: ".newsletter_swiper_wrap .swiper-button-prev",
+			},
+		});
+	},
+	search: function(cls, title){
+		var list, slist;
+		if(cls==1){
+			ProjectName.classlist = [];
+			ProjectName.arealist = ProjectName.searchArea(hsData, title);
+			list = ProjectName.arealist;
+			ProjectName.setSelect(2, list);
+		}else if(cls==2){
+			if(ProjectName.arealist.length==0){
+				slist = hsData;
+			}else{
+				slist = ProjectName.arealist;
+			}
+			ProjectName.classlist = ProjectName.searchClass(slist, title);
+			list = ProjectName.classlist;
+			ProjectName.setSelect(3, list);
+		}else if(cls==3){
+			if(ProjectName.classlist.length==0){
+				if(ProjectName.arealist.length==0){
+					slist = hsData;
+				}else{
+					slist = ProjectName.arealist;
+				}
+			}else{
+				slist = ProjectName.classlist;
+			}
+			list = ProjectName.searchKeyword(slist, title);
+		}
+		ProjectName.list(list);
+	},
+	setSelect: function(idx, datalist){
+		var list = [];
+		if(idx==2){
+			list = ProjectName.getClassList(datalist);
+			$('.form_select.cls').attr('data-items', list.join(', '));
+			$('.form_select.cls').find('.form_btn').text("Overall").addClass('active');
+			ProjectName.setSelect(3, datalist);
+		}else if(idx==3){
+			list = ProjectName.getKeyList(datalist);
+			$('.form_select.keyw').attr('data-items', list.join(', '));
+			$('.form_select.keyw').find('.form_btn').text("Overall").addClass('active');
+		}
+	},
+	getClassList: function(dlist){
+		console.log("class list");
+		console.log(dlist);
+		var list = [];
+		var map = {};
+		$(dlist).each(function(idx, mitem){
+			$(mitem.medicalDepartment).each(function(i, item){
+				if(map[item]){
+				}else{
+					if(list.length==0){
+						list.push("Overall");
+					}
+					list.push(item);
+					map[item] = item;
+				}
+			});
+		});
+		return list;
+	},
+	getKeyList: function(dlist){
+		console.log("keywords list");
+		console.log(dlist);
+		var list = [];
+		var map = {};
+		$(dlist).each(function(idx, mitem){
+			$(mitem.keywords).each(function(i, item){
+				if(map[item]){
+				}else{
+					if(list.length==0){
+						list.push("Overall");
+					}
+					list.push(item);
+					map[item] = item;
+				}
+			});
+		});
+		return list;
+	},
+	searchKeyword: function(plist, title){
+		var list = [];
+		if(title=="Overall"){
+			return plist;
+		}
+		$(plist).each(function(idx, pitem){
+			$(pitem.keywords).each(function(i, item){
+				if(item==title){
+					list.push(pitem);
+					return false;
+				}
+			});
+		});
+		return list;
+	},
+	searchClass: function(plist, title){
+		var list = [];
+		if(title=="Overall"){
+			return plist;
+		}
+		$(plist).each(function(idx, pitem){
+			$(pitem.medicalDepartment).each(function(i, item){
+				if(item==title){
+					list.push(pitem);
+					return false;
+				}
+			});
+		});
+		return list;
+	},
+	searchArea: function(plist, title){
+		var list = [];
+		if(title=="Overall"){
+			return plist;
+		}
+		$(plist).each(function(i, item){
+			if(item.sigu==title){
+				list.push(item);
+			}
+		});
+		return list;
+	},
+	list: function(items){
+		$('.hospital_list').empty();
+		$('.hospital_map_list').empty();
+		$('.overlay').remove();
+		$('.info_txt.area').text($('.area .form_btn').text().trim());
+		$('.info_txt.cls').text($('.cls .form_btn').text().trim());
+		$('.info_txt.keyw').text($('.keyw .form_btn').text().trim());
+		items.forEach((item,idx)=>{
+			let homepage_idx;
+			item?.link.forEach((item,idx)=>{
+				if (item.name == "homepage"){
+					homepage_idx = idx;
+				}
+			});
+			$('.hospital_list').append(`
+				<li class="hospital_item" data-id="${item.id}">
+					<div class="hospital_box">
+						<div class="hospital_thumb">
+							<a href="${item.link[homepage_idx].url ? item.link[homepage_idx].url : "#"}" class="thumb" title="홈페이지 바로가기 (새창)" target="_blank">
+								<img class="img" src="${item.src}" onerror="this.src='./frontLayer/images/@/@error_hospital.jpg';" alt=""/>
+							</a>
+						</div>
+						<div class="hospital_content">
+							<span class="hospital_category">
+								${item.area} <span class="badge bg_secondary">${item.tag}</span>
+							</span>
+							<strong class="hospital_name">${item.name}</strong>
+						</div>
+						<a class="hospital_more" href="#" title="더보기">
+							<span class="blind">더보기</span> 
+						</a>
+					</div>
+				</li>
+			`);
+			$('.hospital_map_list').append(`
+				<li class="hospital_map_item" data-id="${item.id}">
+					<a href="#" class="hospital_map_link type02">${item.name.replace('Seoul Metropolitan','')}</a>
+				</li>
+			`);
+			
+			// 주소로 좌표를 검색합니다
+			geocoder.addressSearch(item.location, function (result, status) {
+				// 정상적으로 검색이 완료됐으면 
+				if (status === kakao.maps.services.Status.OK) {
+
+					var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+					const contentWrapper = document.createElement('div');
+					contentWrapper.innerHTML = `<div class="overlay" onclick="ProjectName.openModal($('.modal_hospital'),'hospital',${item.id})"><a href="javascript:void(0)"><span class="title">${item.name.replace('Seoul Metropolitan','')}</span></a></div>`;
+
+					const content = contentWrapper.firstChild
+
+					// 커스텀 오버레이를 생성합니다
+					const customOverlay = new kakao.maps.CustomOverlay({
+						position: coords,
+						content: content,
+						xAnchor: 0.25,
+						yAnchor: 1.2,
+					});
+
+					// 커스텀 오버레이를 지도에 표시합니다
+					customOverlay.setMap(map);
+
+					// LatLngBounds 객체에 좌표를 추가합니다
+					bounds.extend(coords);
+
+
+					// search result list 클릭 시 이벤트
+					listClick(item.id, coords);
+
+				}
+			})
+		});
+		function listClick(idx, pos) {
+			$(document).on('click','.hospital_map_item', function(e) {
+				e.preventDefault();
+				const title = $(this).children('a').text();
+				//const title = $(this).children('span').text();
+				let latlng = pos;
+				if (title === items[idx].name.replace('Seoul Metropolitan','')) {
+					map.setLevel(4);
+					map.panTo(latlng);
+				}
+			})
+		}
+	},
+	select : function(){
+		let $formSelect;
+		var $aSelect;
+		var $bSelect;
+		var $cSelect;
+
+		function optionAreaSize() {
+			let selectTop = $($formSelect).offset().top;
+			let selectLeft = $($formSelect).offset().left;
+			let selectW = $($formSelect).outerWidth();
+			let selectH = $($formSelect).outerHeight();
+			$('.option_area').css({'top':selectTop+ selectH, 'left': selectLeft, 'width': selectW});
+		}
+		$(document).on('click','.form_select .form_btn', function(e) {
+			$formSelect = e.currentTarget.parentNode;
+			const arr = $formSelect.dataset.items.split(', ');
+			$formSelect.selectArr = arr;
+			
+			let active = false;
+			$('.option_area').remove();
+			if($(this).parents('.form_select').hasClass('active')){
+				active = true;
+			} else {
+				$('body').append(`
+					<div class="option_area" tabIndex='0'>
+						<ul class="option_list"></ul>
+					</div>
+				`);
+				$formSelect.selectArr.forEach((val, idx)=>{
+					$('.option_list').append(`
+						<li class="option_item">
+							<button class="option_btn" type="button">${val}</button>
+						</li>
+					`);
+				});
+				if($formSelect.dataset.index !== undefined) {
+					$formSelect.selectIdx = $formSelect.dataset.index;
+					$formSelect.dataset.index !== '' && $('.option_item').eq($formSelect.selectIdx).addClass('active');
+				}
+			}
+			optionAreaSize();
+
+			$('.form_select.active').removeClass('active');
+			if(!active){
+				$(this).parents('.form_select').toggleClass('active');
+			} 
+			
+		});
+		$('html').click(function (e) {
+			if ($(e.target).parents('.option_area').length < 1 && $(e.target).parents('.form_select').length < 1) {
+				$('.option_area').remove();
+				$($formSelect).removeClass('active');
+			}
+		});
+		function clear2(){
+			clear($bSelect);
+			clear3();
+		}
+		function clear3(){
+			clear($cSelect);
+		}
+		function clear($select){
+			if($select){
+				$select.selectIdx = 0;
+				$select.dataset.index = 0;
+				let textData = $select.selectArr[$select.selectIdx];
+				$($select).find('.option_item').removeClass('active');
+				$(this).closest('.option_item').addClass('active');
+				$($select).find('.form_btn').text(textData).addClass('active');
+				$($select).removeClass('active');
+				$('.option_area').remove();
+			}
+		}
+		$(document).on('click','.option_btn', function() {
+			$formSelect.selectIdx = $(this).closest('.option_item').index();
+			$formSelect.dataset.index = $(this).closest('.option_item').index();
+			let textData = $formSelect.selectArr[$formSelect.selectIdx];
+			$($formSelect).find('.option_item').removeClass('active');
+			$(this).closest('.option_item').addClass('active');
+			var text = $(this).closest('.option_item').text().trim();
+			var cls = 0;
+			if($($formSelect).hasClass('area')){
+				clear2();
+				cls = 1;
+				$aSelect = $formSelect;
+			} else if($($formSelect).hasClass('cls')){
+				clear3();
+				cls = 2;
+				$bSelect = $formSelect;
+			} else if($($formSelect).hasClass('keyw')){
+				cls = 3;
+				$cSelect = $formSelect;
+			} else {
+				console.log('else--------');
+			}
+			$($formSelect).find('.form_btn').text(textData).addClass('active');
+			$($formSelect).removeClass('active');
+			$('.option_area').remove();
+			ProjectName.search(cls, text);
+		});
+		// 화살표 클릭 처리
+		$(document).on('keydown','.form_btn', function(e) {
+			$formSelect = e.currentTarget.parentNode;
+			const arr = $formSelect.dataset.items.split(', ');
+			$formSelect.selectArr = arr;
+			if($formSelect.dataset.index == undefined) {
+				$formSelect.selectIdx = -1;
+			}else {
+				$formSelect.selectIdx = $formSelect.dataset.index;
+			}
+
+			if(e.keyCode == 9 || e.keyCode == 27){
+				$('.option_area').remove();
+				$($formSelect).removeClass('active');
+			}
+
+			if(e.keyCode == 37 || e.keyCode == 38){
+				e.preventDefault();
+				if (0 < $formSelect.selectIdx){
+					$formSelect.selectIdx =  Number($formSelect.selectIdx) - 1;
+					$formSelect.dataset.index =  Number($formSelect.selectIdx) ;
+					$('.option_list').find('.option_item').removeClass('active');
+					$('.option_list').find('.option_item').eq($formSelect.selectIdx).addClass('active');
+					let textData = $formSelect.selectArr[$formSelect.selectIdx];
+					$(this).text(textData).addClass('active');
+					if ($($formSelect).hasClass('active')){
+						let h = 0;
+						for (let i = 0; i < $formSelect.selectIdx; i++) {
+							h += $('.option_list').find('.option_item').eq(i).outerHeight();
+						}
+						$('.option_area').scrollTop(h);
+					}
+				}
+			}
+
+			if(e.keyCode == 39 || e.keyCode == 40){
+				e.preventDefault();
+				let max = e.currentTarget.parentNode.selectArr.length;
+				if (max - 1 !== $formSelect.selectIdx && max - 1 > $formSelect.selectIdx){
+					$formSelect.selectIdx = Number($formSelect.selectIdx) + 1;
+					$formSelect.dataset.index =  Number($formSelect.selectIdx);
+					$('.option_list').find('.option_item').removeClass('active');
+					$('.option_list').find('.option_item').eq($formSelect.selectIdx).addClass('active');
+					
+					let textData = $formSelect.selectArr[$formSelect.selectIdx];
+					$(this).text(textData).addClass('active');
+					if ($($formSelect).hasClass('active')){
+						let h = 0;
+						for (let i = 0; i < $formSelect.selectIdx; i++) {
+							h += $('.option_list').find('.option_item').eq(i).outerHeight();
+						}
+						$('.option_area').scrollTop(h);
+					}
+				}
+			}
+		});
+		$(window).resize(function(){
+			$('.form_select').hasClass('active') && optionAreaSize();
+		});
+	},
+
+	modal : function(){
+		var $modal, $modalButton;
+		$modalButton = $('.modal_toggle');
+		$modalButton.on('click',function(){
+			$modal = $($(this).data('target'));
+			ProjectName.openModal($modal);
+		});
+	},
+	closeModal : function(
+		$modal, 
+		focusedElementBeforeModal = document.activeElement
+	){
+		fn.removeHidden();
+		$('.modal').off('scroll',function(){});
+		$('html, body').removeClass('hidden');
+		$modal.addClass('modal_close');
+		$modal.removeClass('active');
+		focusedElementBeforeModal.focus();
+	},
+	openModal : function(
+		$modal, 
+		type,
+		id_idx,
+		focusableElementsString = '.modal_centered, a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]', 
+		$modalCloseButton = $('.modal .close')
+	){
+		fn.addHidden();
+		$modal.addClass('active');
+		$('.modal').on('scroll',function(){
+			if ($('.form_select').hasClass('active')){
+				let $formSelect = $('.form_select.active');
+				let selectTop = $($formSelect).offset().top;
+				let selectLeft = $($formSelect).offset().left;
+				let selectW = $($formSelect).outerWidth();
+				let selectH = $($formSelect).outerHeight();
+				$('.option_area').css({
+					'top': selectTop + selectH, 
+					'left': selectLeft, 
+					'width': selectW
+				});
+			}
+		})
+
+		$modal.on('keydown',function(e){
+			trapTabKey(e);
+		});
+
+		$modal.on('click',function(e){
+			if ($(e.target).closest('.modal_box').length < 1 && $('.modal.active').attr('data-dim-click') !== 'false') {
+				ProjectName.closeModal($modal);
+			}
+		});
+
+		$modalCloseButton.on('click',function(){
+			ProjectName.closeModal($modal);
+		})
+
+		var focusableElements = $modal.find(focusableElementsString),
+			focusableElements = Array.prototype.slice.call(focusableElements),
+			firstTabStop = focusableElements[0],
+			lastTabStop = focusableElements[focusableElements.length - 1];
+
+		$($modal).removeClass('modal_close');
+		firstTabStop.focus();
+
+		if(fn.exists($('.modal_content'))){
+			$('.modal_content').scrollTop(0);  
+		}
+
+		function trapTabKey(e) {
+			// Check for TAB key press
+			if (e.keyCode === 9) {
+				// SHIFT + TAB
+				if (e.shiftKey) {
+					if (document.activeElement === firstTabStop) {
+						e.preventDefault();
+						lastTabStop.focus();
+					}
+				} else {
+					if (document.activeElement === lastTabStop) {
+						e.preventDefault();
+						firstTabStop.focus();
+					}
+				}
+			}
+			// ESCAPE
+			if (e.keyCode === 27) {
+				ProjectName.closeModal();
+			}
+		}
+
+		if(type == "hospital"){
+			$(".modal_hospital .modal_body").empty();
+			$(".modal_hospital .modal_body").append(`
+				<div class="modal_thumb">
+					<div class="thumb">
+						<img class="img" src="${hsData[id_idx].modalSrc}" onerror="this.src='./frontLayer/images/@/@error_hospital.jpg';" alt=""/>
+					</div>
+				</div>
+				<div class="hospital_intro_area">
+					<span class="hospital_category">
+						Seoul <span class="badge bg_secondary">${hsData[id_idx].tag}</span>
+					</span>
+					<strong class="hospital_name">${hsData[id_idx].name}</strong>
+					<p class="hospital_txt">
+						${hsData[id_idx].desc.replace(/\n/g, '<br/>')}
+					</p>
+				</div>
+				<div class="modal_content">
+					<div class="hospital_desc_area">
+						<ul class="hospital_desc_list">
+							<li class="hospital_desc_item">
+								<dl class="hospital_dl">
+									<dt class="hospital_dt">
+										<i class="ico ico_map_gray">
+											<span class="blind">위치</span>
+										</i>
+									</dt>
+									<dd class="hospital_dd">
+										<span class="hospital_txt">${hsData[id_idx].engLocation}</span>
+									</dd>
+								</dl>
+							</li>
+							<li class="hospital_desc_item">
+								<dl class="hospital_dl">
+									<dt class="hospital_dt">
+										<i class="ico ico_screen_gray">
+											<span class="blind">페이지 주소</span>
+										</i>
+									</dt>
+									<dd class="hospital_dd py_0">
+										<div class="link_area">
+											
+										</div>
+									</dd>
+								</dl>
+							</li>
+							<li class="hospital_desc_item">
+								<dl class="hospital_dl">
+									<dt class="hospital_dt">
+										<i class="ico ico_call_gray">
+											<span class="blind">연락처</span>
+										</i>
+									</dt>
+									<dd class="hospital_dd">
+										<span class="hospital_txt">
+											<a class="link f_inherit" href='tel:${hsData[id_idx].phoneNumberLink ? hsData[id_idx].phoneNumberLink : hsData[id_idx].phoneNumber}'>${hsData[id_idx].phoneNumber}</a>
+										</span>
+									</dd>
+								</dl>
+							</li>
+							<li class="hospital_desc_item">
+								<dl class="hospital_dl">
+									<dt class="hospital_dt">
+										<i class="ico ico_plus_gray">
+											<span class="blind">진료과</span>
+										</i>
+									</dt>
+									<dd class="hospital_dd">
+										<p class="hospital_txt medical_department"></p>
+									</dd>
+								</dl>
+							</li>
+						</ul>
+					</div>
+				</div>
+			`);
+
+			function link_name_switch(item){
+				switch(item.name) {
+					case 'homepage':
+						return `
+							<a class="link" target="_blank" href="${item.url}" title="${item?.title ? item.title : "홈페이지 (새창)"}">
+								<i class="ico ico_home_circle">
+									<span class="blind">홈페이지 바로가기 (새창)</span>
+								</i>
+							</a>
+						`
+					case 'youtube':
+						return `
+							<a class="link" target="_blank" href="${item.url}" title="${item?.title ? item.title : "유튜브 (새창)"}">
+								<i class="ico ico_youtube_circle">
+									<span class="blind">유튜브 바로가기 (새창)</span>
+								</i>
+							</a>
+						`
+					case 'naverblog':
+						return `
+							<a class="link" target="_blank" href="${item.url}" title="${item?.title ? item.title : "네이버블로그 (새창)"}">
+								<i class="ico ico_blog_circle">
+									<span class="blind">${item?.title ? item.title : "네이버블로그 바로가기 (새창)"}</span>
+								</i>
+							</a>
+						`
+					case 'instagram':
+						return `
+							<a class="link" target="_blank" href="${item.url}" title="${item?.title ? item.title : "인스타그램 (새창)"}">
+								<i class="ico ico_instagram_circle">
+									<span class="blind">인스타그램 바로가기 (새창)</span>
+								</i>
+							</a>
+						`
+					case 'facebook':
+						return `
+							<a class="link" target="_blank" href="${item.url}" title="${item?.title ? item.title : "페이스북 (새창)"}">
+								<i class="ico ico_facebook_circle">
+									<span class="blind">페이스북 바로가기 (새창)</span>
+								</i>
+							</a>
+							`
+					case 'kakaoTalk':
+						return `
+							<a class="link" target="_blank" href="${item.url}" title="${item?.title ? item.title : "카카오톡 (새창)"}">
+								<i class="ico ico_kakaotalk_circle">
+									<span class="blind">카카오톡 바로가기 (새창)</span>
+								</i>
+							</a>
+						`
+				}
+			}
+
+			$(".modal_hospital .modal_body .link_area").empty()
+			hsData[id_idx].link.forEach((item,idx)=>{
+				$(".modal_hospital .modal_body .link_area").append(`
+					${link_name_switch(item)}
+				`);
+			});
+
+			$(".modal_hospital .modal_body .medical_department").empty()
+			hsData[id_idx].medicalDepartment.forEach((item,idx)=>{
+				if (idx == hsData[id_idx].medicalDepartment.length - 1){
+					$(".modal_hospital .modal_body .medical_department").append(`
+						${item}
+					`);
+				} else {
+					$(".modal_hospital .modal_body .medical_department").append(`
+						${item} ,
+					`);
+				}
+			});
+		}
+	},
+	button : function(){
+		$(document).on('click','.hospital_more',function(e){
+			e.preventDefault();
+			let id_idx = $(e.currentTarget).closest('.hospital_item').attr('data-id');
+			ProjectName.openModal($('.modal_hospital'),'hospital',id_idx);
+		});
+		$(document).on('click','.searh_btn_area .searh_btn',function(e){
+			e.preventDefault();
+			$('.searh_btn').removeClass('active');
+			let hasCheck;
+			if($(this).hasClass('searh_map_btn')){
+				hasCheck = true;
+				$('.searh_list_btn').addClass('active');
+				$('.sec_hospital').addClass('d_none');
+				$('.sec_map').removeClass('d_none');
+				map.relayout();
+				map.setBounds(bounds);
+			} else {
+				hasCheck = false;
+				$('.searh_map_btn').addClass('active');
+				$('.sec_hospital').removeClass('d_none');
+				$('.sec_map').addClass('d_none');
+			}
+			let bnr_scrollTop = $('.bnr_area').offset().top;
+			let bnr_h= $('.bnr_area').outerHeight();
+			$("html, body").animate({ scrollTop: bnr_scrollTop + bnr_h + 5}, 450, function(){
+				if(hasCheck){
+					$('.sec_map').attr("tabindex", -1).focus().attr("tabindex", null);
+				} else {
+					$('.sec_hospital').attr("tabindex", -1).focus().attr("tabindex", null);
+				}
+			});
+		});
+	},
+}
+$(function () {
+	ProjectName.init();
+});
+
+</script>
+</body>
+</html>
