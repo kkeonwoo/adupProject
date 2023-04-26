@@ -1,0 +1,125 @@
+/* datepicker Style */
+.ui-datepicker { width: 270px; padding: 0; display: none; border: 0; margin-top: 10px;}
+.ui-widget.ui-widget-content { border: 0; border-radius: 3px; overflow: hidden; background: #fff; box-shadow: 0 0 8px rgba(0,0,0,0.3) }
+.ui-datepicker .ui-widget-header { position: relative; padding: 6px 0 36px 0; border: 0; background: #333; color: #fff; border-radius: 0; }
+.ui-datepicker select.ui-datepicker-month, 
+.ui-datepicker select.ui-datepicker-year { width: 70px; height: 26px; line-height: 26px; background: rgba(0,0,0,0.15) url('../images/icons/date/arrow-button.png') 100% -27px no-repeat; margin: 0 4px; padding: 0 6px; border: 0; border-radius: 3px; color: #fff; font-size: 13px; -webkit-appearance: none; -moz-appearance: none; appearance: none; /* 화살표 없애기 */ }
+.ui-datepicker select.ui-datepicker-month:hover, 
+.ui-datepicker select.ui-datepicker-year:hover { background: rgba(0,0,0,0.3) url('../images/icons/date/arrow-button.png') 100% -27px no-repeat; }
+.ui-datepicker select::-ms-expand { display: none; }
+.ui-datepicker .ui-datepicker-title { line-height: 1.8em; text-align: center; margin: 0px 2.3em; font-size: 14px; color: #fff; letter-spacing:0; }
+.ui-datepicker .ui-datepicker-title * { font-weight: inherit; font-size: inherit; color: #fff;}
+.ui-datepicker-title .ui-datepicker-year option, .ui-datepicker-title .ui-datepicker-month option { background: #fff; color: #333; }
+.ui-datepicker .ui-datepicker-calendar { position: relative; width: 260px; padding-top: 100px; margin: 0 auto; }
+.ui-datepicker-calendar thead tr { position: absolute; top: -24px; left: 5px; right: 5px; }
+.ui-datepicker-calendar thead th { float: left; display: block; padding: 0; width: 14.2857%; color: #fff; font-size:14px; letter-spacing:1px; }
+.ui-datepicker-calendar thead * { font-size: inherit; color: #fff;}
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { position: absolute; top: 5px; width: 1.8em; height: 1.8em; text-indent: -9999px; cursor: pointer }
+.ui-datepicker .ui-datepicker-prev { left: 5px; }
+.ui-datepicker .ui-datepicker-prev.ui-state-hover { background: rgba(0,0,0,0.1); border: 0; }
+.ui-datepicker .ui-datepicker-prev .ui-icon { background: url('../images/icons/date/arrow-button.png') 0 0 no-repeat; }
+.ui-datepicker .ui-datepicker-next { right: 5px; }
+.ui-datepicker .ui-datepicker-next.ui-state-hover { background: rgba(0,0,0,0.1); border: 0; }
+.ui-datepicker .ui-datepicker-next .ui-icon { background: url('../images/icons/date/arrow-button.png') -16px 0 no-repeat; }
+.ui-datepicker .ui-state-default { display: block; border: 0; border-radius: 15px; width: 30px; height: 30px; line-height: 30px; padding: 0; margin: 4px auto; font-size: 12px; text-align: center; background: #fff; font-weight: normal; color: #333; box-sizing: border-box; }
+.ui-datepicker .ui-state-default.ui-state-hover { background: rgba(0,0,0,0.05); }
+.ui-datepicker-today .ui-state-default { color: #333; font-weight: bold; }
+.ui-datepicker-current-day .ui-state-default { background: #333 !important; color: #fff; font-weight: bold; }
+.ui-datepicker-buttonpane { overflow: hidden; border-top: 1px solid #eee; }
+.ui-datepicker-buttonpane button[data-handler="today"] { color: #333; opacity: 0.75; }
+
+/* ie add Style */
+.ui-datepicker td, 
+.ui-datepicker th { border: 0 }
+.ui-datepicker .ui-datepicker-buttonpane button { float: right; cursor: pointer; width: auto; margin: 0.5em 0.2em 0.4em; padding: 0.2em 0.6em 0.3em; overflow: visible; }
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current { float: left; }
+.ui-datepicker .ui-datepicker-prev span, 
+.ui-datepicker .ui-datepicker-next span { display: block; position: absolute; left: 50%; margin-left: -8px; top: 50%; margin-top: -8px; }
+.ui-corner-all { border-radius: 3px; }
+.ui-icon { display: block; width: 16px; height: 16px; }
+
+/* buygo datepicker */
+[color-theme='dark'] .buygo.ui-widget.ui-widget-content { background: var(--fn-gray-dark-400);}
+.buygo.ui-widget.ui-widget-content {border-radius: 0; border: 1px solid var(--fn-gray-500);z-index: 999;box-shadow: none;}
+.buygo.ui-datepicker .ui-widget-header {background-color: var(--fn-gray-250); color: var(--fn-black); padding: 6px 0; border-bottom: 1px solid var(--fn-gray-500);}
+[color-theme='dark'] .buygo.ui-datepicker .ui-state-default {background-color: var(--fn-gray-dark-400); color: var(--fn-gray-400);}
+[color-theme='dark'] .buygo.ui-datepicker .ui-widget-header {background-color: var(--fn-gray-dark-500); color: var(--fn-gray-400);}
+.buygo.ui-datepicker select.ui-datepicker-month, .buygo.ui-datepicker select.ui-datepicker-year {background:var(--fn-white) url('../images/icons/ico_arw_down.png') no-repeat calc(100% - 5px) center / 12px 6px; color: var(--fn-black); font-size: 14px; border-radius: 0; border: 1px solid var(--fn-gray-500);}
+[color-theme='dark'] .buygo.ui-datepicker select.ui-datepicker-month, [color-theme='dark'] .buygo.ui-datepicker select.ui-datepicker-year {background:var(--fn-gray-dark-400) url('../images/icons/arw_down_gray_sm.svg') no-repeat calc(100% - 5px) center / 14px 100%; color: var(--fn-gray-400);}
+.buygo.ui-datepicker .ui-datepicker-prev,
+.buygo.ui-datepicker .ui-datepicker-next {width: 0.625em; height: 0.625em; top: 50%; transform: translateY(-50%);}
+.buygo.ui-datepicker .ui-datepicker-prev {left: 25px;}
+.buygo.ui-datepicker .ui-datepicker-next {right: 25px;}
+.buygo.ui-datepicker .ui-datepicker-prev span, .buygo.ui-datepicker .ui-datepicker-next span {width: 0.625em; height: 0.625em; margin: 0; left: 0;top: 0;}
+.buygo.ui-datepicker .ui-datepicker-prev .ui-icon {background: url('../images/icons/ico_arw_left_fill.png') no-repeat left top / auto 100%;}
+.buygo.ui-datepicker .ui-datepicker-next .ui-icon {background: url('../images/icons/ico_arw_right_fill.png') no-repeat left top / auto 100%;}
+[color-theme='dark'] .buygo.ui-datepicker .ui-datepicker-prev .ui-icon,
+[color-theme='dark'] .buygo.ui-datepicker .ui-datepicker-next .ui-icon { filter: invert(1);}
+.buygo.ui-datepicker select.ui-datepicker-year {margin-right: 2px;}
+.buygo.ui-datepicker select.ui-datepicker-month {margin-left: 2px;}
+.buygo .ui-datepicker-calendar {width: 210px; margin: 15px auto;}
+.buygo .ui-datepicker-calendar thead { position: relative; height: calc(13px + 5px * 2 + 1px);}
+.buygo .ui-datepicker-calendar thead * {color: var(--fn-black);}
+[color-theme='dark'] .buygo .ui-datepicker-calendar thead * {color: var(--fn-gray-400);}
+.buygo .ui-datepicker-calendar thead tr { top: auto; left: 50%; width: 100%; border-right: 1px solid var(--fn-gray-500); transform: translateX(-50%);}
+.buygo .ui-datepicker-calendar thead th { font-size: 13px;padding: 5px 0;text-align: center; background-color: var(--fn-gray-250); border-right: none; border-bottom: none;}
+[color-theme='dark'] .buygo .ui-datepicker-calendar thead th { background-color: var(--fn-gray-dark-600);}
+.buygo .ui-datepicker-calendar th,
+.buygo .ui-datepicker-calendar td { border: 1px solid var(--fn-gray-500);}
+.buygo .ui-datepicker-current-day .ui-state-default {background: none !important; color: var(--fn-black); font-weight: normal;}
+.buygo.ui-datepicker .ui-state-default { font-size: 14px; height: auto; margin: 5px 0; line-height: 1;}
+.buygo.ui-datepicker .ui-state-default.ui-state-hover {background: none;}
+/* // buygo datepicker */
+
+/* mobile Responsive */
+@media screen and (max-width:480px) {
+    .ui-datepicker { width: 270px !important; left: 50% !important; margin-left: -135px !important; }
+}
+
+@media screen and (min-width:768px) {
+    .buygo.ui-datepicker { width: 180px;}
+    .buygo .ui-datepicker-buttonpane { display: none;}
+    .buygo.ui-datepicker .ui-widget-header { padding: 3px 0;}
+    .buygo .ui-datepicker-calendar { width: 160px; margin: 10px auto;}
+    .buygo.ui-datepicker .ui-datepicker-title { line-height: 1;}
+    .buygo.ui-datepicker .ui-datepicker-prev span,
+    .buygo.ui-datepicker .ui-datepicker-next span { top: 50%; left: 50%; width: 0.3125rem; height: 0.3125rem; transform: translate(-50%,-50%);}
+    .buygo.ui-datepicker select.ui-datepicker-month,
+    .buygo.ui-datepicker select.ui-datepicker-year { width: 40px; height: 14px; padding: 0 4px; line-height: 14px; background-size: 6px 3px; background-position: calc(100% - 4px) center;}
+    .buygo.ui-datepicker select.ui-datepicker-month,
+    .buygo.ui-datepicker select.ui-datepicker-year,
+    .buygo.ui-datepicker .ui-state-default,
+    .buygo .ui-datepicker-calendar thead th { font-size: 10px;}
+    .buygo .ui-datepicker-calendar thead { height: calc(10px + 5px * 2 + 1px);}
+    .buygo.ui-datepicker td { width: 14.2857%; word-break: keep-all; text-align: center;}
+    .buygo.ui-datepicker .ui-state-default { display: block; width: 100%; margin: 3px auto;}
+}
+
+@media screen and (max-width:767px) {
+    .buygo.ui-widget.ui-widget-content { overflow: visible;}
+    .buygo.ui-datepicker { position: fixed !important; top: 50% !important; left: 50% !important; width: 100% !important; max-width: 336px; transform: translate(-50%,-50%); -webkit-transform: translate(-50%,-50%); -moz-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%); margin-left: 0 !important; border-bottom: none !important;}
+    .buygo.ui-datepicker + .dim { position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0,0,0,0.5);}
+    .buygo .ui-datepicker-calendar { width: 100%; margin: 0; padding: 0;}
+    .buygo.ui-datepicker select.ui-datepicker-month, .buygo.ui-datepicker select.ui-datepicker-year { font-size: 18px;}
+    .ui-datepicker-title .ui-datepicker-year option, .ui-datepicker-title .ui-datepicker-month option { color: var(--fn-gray-750);}
+    .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year { width: 100px; height: 33px; line-height: 33px;}
+    .ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span { position: relative;}
+    .buygo.ui-datepicker .ui-datepicker-prev { left: 12px;}
+    .buygo.ui-datepicker .ui-datepicker-next { right: 12px;}
+    .buygo.ui-datepicker .ui-datepicker-prev, .buygo.ui-datepicker .ui-datepicker-next { display: flex; justify-content: center; align-items: center; width: 25px; height: 25px; background-color: var(--fn-white); border: 1px solid var(--fn-gray-500); border-radius: 100%;}
+    [color-theme='dark'] .buygo.ui-datepicker .ui-datepicker-prev, [color-theme='dark'] .buygo.ui-datepicker .ui-datepicker-next { background-color: var(--fn-gray-dark-400);}
+    .buygo.ui-datepicker .ui-datepicker-next .ui-icon {background: url('../images/icons/arw_next_gray.svg') no-repeat center / auto 10px;}
+    .buygo.ui-datepicker .ui-datepicker-prev .ui-icon {background: url('../images/icons/arw_next_gray.svg') no-repeat center / auto 10px; transform: rotate(180deg); -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -ms-transform: rotate(180deg); -o-transform: rotate(180deg); }
+    .buygo.ui-datepicker .ui-widget-header { padding: 8px 0; border-bottom: none;}
+    .buygo .ui-datepicker-calendar thead { height: 32px}
+    .buygo .ui-datepicker-calendar thead * { font-size: 16px;}
+    .buygo .ui-datepicker-calendar thead tr { border: none;}
+    .buygo .ui-datepicker-calendar thead th { padding: 0; height: 32px; line-height: 32px; border-bottom: 1px solid var(--fn-gray-500);}
+    .buygo .ui-datepicker-calendar th, .buygo .ui-datepicker-calendar td { border-right: none;}
+    .buygo .ui-datepicker-calendar th:nth-child(1), .buygo .ui-datepicker-calendar td:nth-child(1) { border-left: none;}
+    .buygo.ui-datepicker .ui-state-default { width: auto; height: 35px; margin: 0; line-height: 35px; font-size: 16px;}
+    .ui-datepicker-buttonpane { height: 0; border: none;}
+    .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current { display: none;}
+    .ui-datepicker .ui-datepicker-buttonpane button { clear: both; position: absolute; top: -12px; right: 0; width: 25px !important; height: 25px !important; border: 1px solid var(--fn-gray-500); border-radius: 100%; background: url('../images/icons/ico_close_gray.svg') no-repeat center / 10px auto var(--fn-white) !important; line-height: 1 !important; transform: translateY(-100%); -webkit-transform: translateY(-100%); -moz-transform: translateY(-100%); -ms-transform: translateY(-100%); -o-transform: translateY(-100%); }
+    [color-theme='dark'] .ui-datepicker .ui-datepicker-buttonpane button {  background: url('../images/icons/ico_close_gray.svg') no-repeat center / 10px auto var(--fn-gray-dark-400) !important;}
+}

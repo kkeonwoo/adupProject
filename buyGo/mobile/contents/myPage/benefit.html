@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>사자고</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="../../frontLayer/images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../frontLayer/images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../frontLayer/images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../frontLayer/images/favicons/apple-touch-icon-76x76.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../frontLayer/images/favicons/apple-touch-icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../frontLayer/images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../frontLayer/images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../frontLayer/images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../frontLayer/images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../frontLayer/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../frontLayer/images/favicons/android-icon-192x192.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../../frontLayer/css/package.css">
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../frontLayer/js/fn.js"></script>
+    <script src="../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrap -->
+    <div id="wrap" class="page_main">
+
+        <!-- s:skip -->
+        <div class="skip">
+            <a href="#container">본문 바로가기</a>
+        </div>
+        <!-- e:skip -->
+
+        <!-- s:order_aera -->
+        <div class="order_wrap">
+            <div class="order_area">
+                <div class="center">
+                    <div class="order_header d_none d_md_block">
+                        <button type="button" class="btn btn_back_circle">
+                            <span class="blind">사이드바 닫기</span>
+                        </button>
+                        <span class="txt">주문건수</span>
+                    </div>
+                    <div class="order_ttl_area">
+                        <div class="user_box">
+                            <!-- <span class="grade_label color_dark">일반</span>
+                            <span class="grade_label grade_type1" aria-label="마켓무"></span>
+                            <span class="grade_label grade_type2" aria-label="사자고"></span>
+                            <span class="grade_label grade_family">Family</span>
+                            <span class="grade_label grade_silver">Silver</span>
+                            <span class="grade_label grade_gold">Gold</span>
+                            <span class="grade_label grade_diamond">Diamond</span>
+                            <span class="grade_label grade_vip">VIP</span> -->
+                            <span class="grade_label grade_vvip">VVIP</span>
+                            <span class="txt">김사자 / 주식회사더이음 회원님</span>
+                        </div>
+                        <div class="user_address">
+                            <span class="tag">택배송</span>
+                            <span class="txt">00도 00시 00구 00000로 00</span>
+                        </div>
+                    </div>
+                    <div class="order_content">
+                        <div class="order_month_box">
+                            <span class="name">당월<br> 배송금액</span>
+                            <span class="won">
+                                <b class="txt">3,600,000</b>원
+                            </span>
+                        </div>
+                        <div class="order_delivery_box">
+                            <ul class="order_delivery_list">
+                                <li class="order_delivery_item">
+                                    <div class="order_delivery_ttl">
+                                        <b class="txt">택배송</b>
+                                        <span class="order d_none d_md_block">주문금액</span>
+                                    </div>
+                                    <div class="order_delivery_content">
+                                        <div class="order_delivery_info">
+                                            <span class="tag bg_danger">상온</span>
+                                            <span class="won">
+                                                <b class="txt">1,500,000</b>원
+                                            </span>
+                                        </div>
+                                        <div class="order_delivery_info">
+                                            <span class="tag bg_primary">저온</span>
+                                            <span class="won">
+                                                <b class="txt">500,000</b>원
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="order_delivery_item">
+                                    <div class="order_delivery_ttl">
+                                        <b class="txt">직배송</b>
+                                        <span class="order d_none d_md_block">주문금액</span>
+                                    </div>
+                                    <div class="order_delivery_content">
+                                        <div class="order_delivery_info">
+                                            <span class="tag bg_danger">상온</span>
+                                            <span class="won">
+                                                <b class="txt">1,500,000</b>원
+                                            </span>
+                                        </div>
+                                        <div class="order_delivery_info">
+                                            <span class="tag bg_primary">저온</span>
+                                            <span class="won">
+                                                <b class="txt">600,000</b>원
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="order_dim"></div>
+        </div>
+        <!-- e:order_aera -->
+
+        <!-- s:header -->
+        <header class="header">
+            <div class="center">
+                <h1 class="logo">
+                    <a class="logo_link" href="#">
+                        <span class="blind">사자고 로고</span>
+                    </a>
+                </h1>
+                <div class="etc_area">
+                    <ul class="etc_list d_md_none">
+                        <li class="etc_item">
+                            <a class="etc_link" href="#">
+                                <i class="ico ico_user"></i>
+                                <span class="etc_txt">마이페이지</span>
+                            </a>
+                        </li>
+                        <li class="etc_item">
+                            <a class="etc_link" href="#">
+                                <i class="ico ico_prot"></i>
+                                <span class="etc_txt">최근 본 상품</span>
+                            </a>
+                        </li>
+                        <li class="etc_item">
+                            <a class="etc_link" href="#">
+                                <i class="ico ico_cart">
+                                    <span class="count">4</span>
+                                </i>
+                                <span class="etc_txt">장바구니</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- s: 비회원 방문 시 -->
+                    <!-- <ul class="etc_list type2">
+                        <li class="etc_item">
+                            <a class="etc_link" href="#">
+                                <span class="etc_txt">회원</span>
+                            </a>
+                        </li>
+                        <li class="etc_item">
+                            <a class="etc_link" href="#">
+                                <span class="etc_txt">로그인</span>
+                            </a>
+                        </li>
+                    </ul> -->
+                    <!-- e: 비회원 방문 시 -->
+                    <ul class="m_etc_list d_none d_lg_none d_md_flex">
+                        <li class="etc_item">
+                            <a class="etc_link ico_order" href="#">
+                                <i class="ico ico_order"></i>
+                            </a>
+                        </li>
+                        <li class="etc_item">
+                            <a class="etc_link ico_prot" href="#">
+                                <i class="ico ico_prot"></i>
+                            </a>
+                        </li>
+                        <li class="etc_item">
+                            <a class="etc_link" href="#">
+                                <i class="ico ico_cart">
+                                    <span class="count">4</span>
+                                </i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="search_wrap pc">
+                    <div class="search_area">
+                        <div class="search_box">
+                            <div class="search_select">
+                                <button type="button" class="search_select_btn">전체</button>
+                                <div class="dropdown_area">
+                                    <ul class="dropdown_list">
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">면류/즉석식품</a>
+                                        </li>
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">스낵</a>
+                                        </li>
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">커피/음료/건강식품</a>
+                                        </li>
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">식자재</a>
+                                        </li>
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">신선식품</a>
+                                        </li>
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">냉장/냉동식품</a>
+                                        </li>
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">선물세트</a>
+                                        </li>
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">생활잡화</a>
+                                        </li>
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">MRO</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="search_input">
+                                <input type="text" class="input" placeholder="검색어나 상품코드를 입력하세요." />
+                                <button type="button" class="search_btn">
+                                    <span class="blind">검색</span>
+                                </button>
+                                <div class="dropdown_area">
+                                    <ul class="dropdown_list">
+                                        <li class="dropdown_item active">
+                                            <a href="#" class="dropdown_link">
+                                                <span class="dropdown_txt color_danger">라면</span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">
+                                                컵<span class="dropdown_txt color_danger">라면</span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">
+                                                신<span class="dropdown_txt color_danger">라면</span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">
+                                                진<span class="dropdown_txt color_danger">라면</span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">
+                                                열<span class="dropdown_txt color_danger">라면</span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">
+                                                삼양<span class="dropdown_txt color_danger">라면</span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">
+                                                참깨<span class="dropdown_txt color_danger">라면</span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">
+                                                컵<span class="dropdown_txt color_danger">라면</span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">
+                                                김통깨<span class="dropdown_txt color_danger">라면</span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">
+                                                틈새<span class="dropdown_txt color_danger">라면</span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown_item">
+                                            <a href="#" class="dropdown_link">
+                                                김치<span class="dropdown_txt color_danger">라면</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- e:header -->
+
+        <!-- s:visual -->
+        <div class="visual">
+            <nav class="nav">
+                <div class="center">
+                    <div class="category">
+                        <div class="category_area">
+                            <div class="category_header">
+                                <button type="button" class="btn btn_back_circle d_none d_md_block">
+                                    <span class="blind">사이드바 닫기</span>
+                                </button>
+                                <button type="button" class="category_btn pc">카테고리</button>
+                                <h3 type="button" class="category_btn mobile">카테고리</h3>
+                            </div>
+                            <div class="depth1_area">
+                                <ul class="depth1_list">
+                                    <li class="depth1_item">
+                                        <a href="#" class="depth1_link">면류/즉석식품</a>
+                                        <div class="depth2_area">
+                                            <div class="depth2_content d_md_none">
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">봉지라면</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">컵라면</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">즉석밥류</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">즉석죽/스프/탕</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">카레/짜장</a>
+                                                    </li>
+                                                </ul>
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">기타가공</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="depth2_content d_none d_md_flex">
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">봉지라면</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">컵라면</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">즉석밥류</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">즉석죽/스프/탕</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">카레/짜장</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">기타가공</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="ad_area d_md_none">
+                                                <a href="#" class="ad_link">
+                                                    <div class="ad_thumb">
+                                                        <img src="../../frontLayer/images/@/@ad01.jpg" alt=""
+                                                            class="thumb" />
+                                                    </div>
+                                                    <span class="ad_txt">프로모션 제품</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="depth1_item">
+                                        <a href="#" class="depth1_link">스낵</a>
+                                        <div class="depth2_area">
+                                            <div class="depth2_content d_md_none">
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">과자</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">시리얼</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">쿠키/비스킷</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">파이/케익</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">초콜릿/초코바</a>
+                                                    </li>
+                                                </ul>
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">캔디/껌/젤리</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">수입/잡과자</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">완구류</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="depth2_content d_none d_md_flex">
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">과자</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">시리얼</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">쿠키/비스킷</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">파이/케익</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">초콜릿/초코바</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">캔디/껌/젤리</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">수입/잡과자</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">완구류</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="ad_area d_md_none">
+                                                <a href="#" class="ad_link">
+                                                    <div class="ad_thumb">
+                                                        <img src="../../frontLayer/images/@/@ad01.jpg" alt=""
+                                                            class="thumb" />
+                                                    </div>
+                                                    <span class="ad_txt">프로모션 제품</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="depth1_item">
+                                        <a href="#" class="depth1_link">커피/음료/건강식품</a>
+                                        <div class="depth2_area">
+                                            <div class="depth2_content d_md_none">
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">커피믹스/원두/캡슐</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">차류</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">생수/탄산수</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">과일/야채음료</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">탄산/이온음료</a>
+                                                    </li>
+                                                </ul>
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">어린이/건강음료</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">건강식품</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="depth2_content d_none d_md_flex">
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">커피믹스/원두/캡슐</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">차류</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">생수/탄산수</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">과일/야채음료</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">탄산/이온음료</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">어린이/건강음료</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">건강식품</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link"></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="ad_area d_md_none">
+                                                <a href="#" class="ad_link">
+                                                    <div class="ad_thumb">
+                                                        <img src="../../frontLayer/images/@/@ad01.jpg" alt=""
+                                                            class="thumb" />
+                                                    </div>
+                                                    <span class="ad_txt">커피/음료/건강식품</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="depth1_item">
+                                        <a href="#" class="depth1_link">식자재</a>
+                                        <div class="depth2_area">
+                                            <div class="depth2_content d_md_none">
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">캔/통조림</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">면/밀가루/분말</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">쌀/잡곡/견과</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">반찬류</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">소스/양념/육수</a>
+                                                    </li>
+                                                </ul>
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">유지류</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">장류/조미료</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="depth2_content d_none d_md_flex">
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">캔/통조림</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">면/밀가루/분말</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">쌀/잡곡/견과</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">반찬류</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">소스/양념/육수</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">유지류</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">장류/조미료</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link"></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="ad_area d_md_none">
+                                                <a href="#" class="ad_link">
+                                                    <div class="ad_thumb">
+                                                        <img src="../../frontLayer/images/@/@ad01.jpg" alt=""
+                                                            class="thumb" />
+                                                    </div>
+                                                    <span class="ad_txt">식자재</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="depth1_item">
+                                        <a href="#" class="depth1_link">신선식품</a>
+                                        <div class="depth2_area">
+                                            <div class="depth2_content d_md_none">
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">축산</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">계란/가공란</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">수산</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">유제품</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">김치/젓갈/장류</a>
+                                                    </li>
+                                                </ul>
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">건어물</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">김/해조류</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="depth2_content d_none d_md_flex">
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">축산</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">계란/가공란</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">수산</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">유제품</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">김치/젓갈/장류</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">건어물</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">김/해조류</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link"></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="ad_area d_md_none">
+                                                <a href="#" class="ad_link">
+                                                    <div class="ad_thumb">
+                                                        <img src="../../frontLayer/images/@/@ad01.jpg" alt=""
+                                                            class="thumb" />
+                                                    </div>
+                                                    <span class="ad_txt">신선식품</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="depth1_item">
+                                        <a href="#" class="depth1_link">냉장/냉동식품</a>
+                                        <div class="depth2_area">
+                                            <div class="depth2_content d_md_none">
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">햄/어묵/맛살</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">두부/샐러드/도시락</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">만두/돈까스/치킨</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">분식/피자/핫도그</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">밀키트</a>
+                                                    </li>
+                                                </ul>
+                                                <ul class="depth2_list"></ul>
+                                            </div>
+                                            <div class="depth2_content d_none d_md_flex">
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">햄/어묵/맛살</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">두부/샐러드/도시락</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">만두/돈까스/치킨</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">분식/피자/핫도그</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">밀키트</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link"></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="ad_area d_md_none">
+                                                <a href="#" class="ad_link">
+                                                    <div class="ad_thumb">
+                                                        <img src="../../frontLayer/images/@/@ad01.jpg" alt=""
+                                                            class="thumb" />
+                                                    </div>
+                                                    <span class="ad_txt">냉장/냉동식품</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="depth1_item">
+                                        <a href="#" class="depth1_link">선물세트</a>
+                                        <div class="depth2_area">
+                                            <div class="depth2_content d_md_none">
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">과일</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">나물/버섯</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">견과</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">축산</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">수산/건어물</a>
+                                                    </li>
+                                                </ul>
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">과일</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">나물/버섯</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">견과</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">축산</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">수산/건어물</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="depth2_content d_none d_md_flex">
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">과일</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">나물/버섯</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">견과</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">축산</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">수산/건어물</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">과일</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">나물/버섯</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">견과</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">축산</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">수산/건어물</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="ad_area d_md_none">
+                                                <a href="#" class="ad_link">
+                                                    <div class="ad_thumb">
+                                                        <img src="../../frontLayer/images/@/@ad01.jpg" alt=""
+                                                            class="thumb" />
+                                                    </div>
+                                                    <span class="ad_txt">선물세트</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="depth1_item">
+                                        <a href="#" class="depth1_link">생활잡화</a>
+                                        <div class="depth2_area">
+                                            <div class="depth2_content d_md_none">
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">헤어/바디/구강케어 </a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">제지/위생용품</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">세탁/주방세제</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">제습/탈취/방향제</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">기타잡화</a>
+                                                    </li>
+                                                </ul>
+                                                <ul class="depth2_list"></ul>
+                                            </div>
+                                            <div class="depth2_content d_none d_md_flex">
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">헤어/바디/구강케어 </a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">제지/위생용품</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">세탁/주방세제</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">제습/탈취/방향제</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">기타잡화</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link"></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="ad_area d_md_none">
+                                                <a href="#" class="ad_link">
+                                                    <div class="ad_thumb">
+                                                        <img src="../../frontLayer/images/@/@ad01.jpg" alt=""
+                                                            class="thumb" />
+                                                    </div>
+                                                    <span class="ad_txt">생활잡화</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="depth1_item">
+                                        <a href="#" class="depth1_link">MRO</a>
+                                        <div class="depth2_area">
+                                            <div class="depth2_content d_md_none">
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">사무용품</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">안전용품</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">컴퓨터/가전/전산</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">수공구/전동공구</a>
+                                                    </li>
+                                                </ul>
+                                                <ul class="depth2_list"></ul>
+                                            </div>
+                                            <div class="depth2_content d_none d_md_flex">
+                                                <ul class="depth2_list">
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">사무용품</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">안전용품</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">컴퓨터/가전/전산</a>
+                                                    </li>
+                                                    <li class="depth2_item">
+                                                        <a href="#" class="depth2_link">수공구/전동공구</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="ad_area d_md_none">
+                                                <a href="#" class="ad_link">
+                                                    <div class="ad_thumb">
+                                                        <img src="../../frontLayer/images/@/@ad01.jpg" alt=""
+                                                            class="thumb" />
+                                                    </div>
+                                                    <span class="ad_txt">MRO</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="category_dim d_none d_md_block"></div>
+                    </div>
+                    <ul class="service_list d_md_none">
+                        <li class="service_item">
+                            <a href="#" class="service_link">특가상품</a>
+                        </li>
+                        <li class="service_item">
+                            <a href="#" class="service_link">BEST</a>
+                        </li>
+                        <li class="service_item">
+                            <a href="#" class="service_link">신상품</a>
+                        </li>
+                        <li class="service_item">
+                            <a href="#" class="service_link">브랜드몰</a>
+                        </li>
+                        <li class="service_item">
+                            <a href="#" class="service_link">통합배송관</a>
+                        </li>
+                        <li class="service_item">
+                            <a href="#" class="service_link">우수기업관</a>
+                        </li>
+                    </ul>
+                    <ul class="etc_list d_md_none">
+                        <li class="etc_item">
+                            <a href="#" class="etc_link">로그인</a>
+                        </li>
+                        <li class="etc_item">
+                            <a href="#" class="etc_link">회원가입</a>
+                        </li>
+                        <li class="etc_item">
+                            <a href="#" class="etc_link">고객센터</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="center">
+                <div class="banner_area">
+                    <div class="banner_swiper_wrap">
+                        <div class="swiper banner-swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a href="#" class="banner_link">
+                                        <img class="banner_img" src="../../frontLayer/images/@/@banner_ak.png" alt="" />
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#" class="banner_link">
+                                        <img class="banner_img" src="../../frontLayer/images/@/@banner02.jpg" alt="" />
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper_controller">
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="bottom_area">
+                                    <div class="pagination_control">
+                                        <div class="swiper-pagination"></div>
+                                        <button type="button" class="play_btn">
+                                            <span class="blind">재생/멈춤</span>
+                                        </button>
+                                    </div>
+                                    <button type="button" class="more_btn">
+                                        <span class="blind">배너 전체보기</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner_all_swiper_wrap">
+                        <div class="banner_header">
+                            <button type="button" class="btn btn_back_circle">
+                                <span class="blind">닫기</span>
+                            </button>
+                            <span class="txt d_none d_md_block">이벤트</span>
+                        </div>
+                        <div class="swiper banner-all-swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="banner_list">
+                                        <a href="#" class="banner_link">
+                                            <img class="banner_img" src="../../frontLayer/images/@/@banner02.jpg" alt="" />
+                                        </a>
+                                        <a href="#" class="banner_link">
+                                            <img class="banner_img" src="../../frontLayer/images/@/@banner01.jpg" alt="" />
+                                        </a>
+                                        <a href="#" class="banner_link">
+                                            <img class="banner_img" src="../../frontLayer/images/@/@banner03.jpg" alt="" />
+                                        </a>
+                                        <a href="#" class="banner_link">
+                                            <img class="banner_img" src="../../frontLayer/images/@/@banner04.jpg" alt="" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="banner_list">
+                                        <a href="#" class="banner_link">
+                                            <img class="banner_img" src="../../frontLayer/images/@/@banner02.jpg" alt="" />
+                                        </a>
+                                        <a href="#" class="banner_link">
+                                            <img class="banner_img" src="../../frontLayer/images/@/@banner01.jpg" alt="" />
+                                        </a>
+                                        <a href="#" class="banner_link">
+                                            <img class="banner_img" src="../../frontLayer/images/@/@banner03.jpg" alt="" />
+                                        </a>
+                                        <a href="#" class="banner_link">
+                                            <img class="banner_img" src="../../frontLayer/images/@/@banner04.jpg" alt="" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper_controller">
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner_all_swiper_dim"></div>
+                </div>
+            </div>
+        </div>
+        <!-- e:visual -->
+
+        <!-- s:aside -->
+        <div class="aside_wrap">
+            <aside class="aside">
+                <div class="aside_header d_md_none">
+                    <button type="button" class="close_btn">
+                        <span class="blind">사이드바 닫기</span>
+                    </button>
+                    <span class="info_txt">김사자 / 주식회사더이음님</span>
+                    <a href="#" class="page_link">마이페이지로 이동</a>
+                </div>
+                <div class="aside_body">
+                    <div class="aside_tab_area">
+                        <ul class="aside_tab_list">
+                            <li class="aside_tab_item active">
+                                <button type="button" class="btn btn_back_circle d_none d_md_block">
+                                    <span class="blind">사이드바 닫기</span>
+                                </button>
+                                <button type="button" class="aside_tab_btn">최근 본 상품</button>
+                            </li>
+                            <li class="aside_tab_item">
+                                <button type="button" class="aside_tab_btn">관심상품</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="aside_content_list">
+                        <div class="aside_content_item active">
+                            <!-- 항목이 없을때 화면 -->
+                            <!-- <div class="null_area">
+                                <i class="ico ico_exclamation"></i>
+                                <span class="null_txt">최근 본 상품이 없습니다.</span>
+                            </div> -->
+                            <div class="recent_area">
+                                <ul class="recent_list">
+                                    <li class="recent_item">
+                                        <div class="recent_ttl_box">
+                                            <span class="txt bg_danger">10.7 금</span>
+                                        </div>
+                                        <div class="recent_content_box">
+                                            <div class="row g_px_22">
+                                                <div class="col_4">
+                                                    <div class="recent_prot">
+                                                        <a href="#" class="recent_link">
+                                                            <div class="recent_img">
+                                                                <img class="img"
+                                                                    src="../../frontLayer/images/@/@prot01.png" alt="" />
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="zzim_btn active">
+                                                            <span class="blind">즐겨찾기 추가</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col_4">
+                                                    <div class="recent_prot">
+                                                        <a href="#" class="recent_link">
+                                                            <div class="recent_img">
+                                                                <img class="img"
+                                                                    src="../../frontLayer/images/@/@best01_01.png"
+                                                                    alt="" />
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="zzim_btn">
+                                                            <span class="blind">즐겨찾기 추가</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col_4">
+                                                    <div class="recent_prot">
+                                                        <a href="#" class="recent_link">
+                                                            <div class="recent_img">
+                                                                <img class="img"
+                                                                    src="../../frontLayer/images/@/@best01_02.png"
+                                                                    alt="" />
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="zzim_btn">
+                                                            <span class="blind">즐겨찾기 추가</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col_4">
+                                                    <div class="recent_prot">
+                                                        <a href="#" class="recent_link">
+                                                            <div class="recent_img">
+                                                                <img class="img"
+                                                                    src="../../frontLayer/images/@/@best02_01.png"
+                                                                    alt="" />
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="zzim_btn">
+                                                            <span class="blind">즐겨찾기 추가</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col_4">
+                                                    <div class="recent_prot">
+                                                        <a href="#" class="recent_link">
+                                                            <div class="recent_img">
+                                                                <img class="img"
+                                                                    src="../../frontLayer/images/@/@best02_03.png"
+                                                                    alt="" />
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="zzim_btn">
+                                                            <span class="blind">즐겨찾기 추가</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col_4">
+                                                    <div class="recent_prot">
+                                                        <a href="#" class="recent_link">
+                                                            <div class="recent_img">
+                                                                <img class="img"
+                                                                    src="../../frontLayer/images/@/@best03_01.png"
+                                                                    alt="" />
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="zzim_btn">
+                                                            <span class="blind">즐겨찾기 추가</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="recent_item">
+                                        <div class="recent_ttl_box">
+                                            <span class="txt">10.5 수</span>
+                                        </div>
+                                        <div class="recent_content_box">
+                                            <div class="row g_px_22">
+                                                <div class="col_4">
+                                                    <div class="recent_prot">
+                                                        <a href="#" class="recent_link">
+                                                            <div class="recent_img">
+                                                                <img class="img"
+                                                                    src="../../frontLayer/images/@/@best04_02.png"
+                                                                    alt="" />
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="zzim_btn">
+                                                            <span class="blind">즐겨찾기 추가</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col_4">
+                                                    <div class="recent_prot">
+                                                        <a href="#" class="recent_link">
+                                                            <div class="recent_img">
+                                                                <img class="img"
+                                                                    src="../../frontLayer/images/@/@best04_03.png"
+                                                                    alt="" />
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="zzim_btn">
+                                                            <span class="blind">즐겨찾기 추가</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col_4">
+                                                    <div class="recent_prot">
+                                                        <a href="#" class="recent_link">
+                                                            <div class="recent_img">
+                                                                <img class="img"
+                                                                    src="../../frontLayer/images/@/@best02_02.png"
+                                                                    alt="" />
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="zzim_btn">
+                                                            <span class="blind">즐겨찾기 추가</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col_4">
+                                                    <div class="recent_prot">
+                                                        <a href="#" class="recent_link">
+                                                            <div class="recent_img">
+                                                                <img class="img"
+                                                                    src="../../frontLayer/images/@/@prot01.png" alt="" />
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="zzim_btn">
+                                                            <span class="blind">즐겨찾기 추가</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col_4">
+                                                    <div class="recent_prot">
+                                                        <a href="#" class="recent_link">
+                                                            <div class="recent_img">
+                                                                <img class="img"
+                                                                    src="../../frontLayer/images/@/@new01_01.png" alt="" />
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="zzim_btn">
+                                                            <span class="blind">즐겨찾기 추가</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col_4">
+                                                    <div class="recent_prot">
+                                                        <a href="#" class="recent_link">
+                                                            <div class="recent_img">
+                                                                <img class="img"
+                                                                    src="../../frontLayer/images/@/@new01_02.png" alt="" />
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="zzim_btn">
+                                                            <span class="blind">즐겨찾기 추가</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="aside_content_item">
+                            <!-- 항목이 없을때 화면 -->
+                            <!-- <div class="null_area">
+                                <i class="ico ico_exclamation"></i>
+                                <span class="null_txt">최근 등록된 관심상품이 없습니다.</span>
+                            </div> -->
+                            <div class="zzim_area">
+                                <ul class="zzim_list">
+                                    <li class="zzim_item">
+                                        <div class="zzim_ttl_box">
+                                            <span class="txt">최근 10일간의 관심상품을 표시합니다.</span>
+                                        </div>
+                                        <div class="zzim_content_box">
+                                            <div class="row g_px_32">
+                                                <div class="col_12">
+                                                    <div class="prot_card">
+                                                        <a href="#" class="prot_link">
+                                                            <div class="thumb_area">
+                                                                <div class="thumb_img">
+                                                                    <img src="../../frontLayer/images/@/@prot01.png"
+                                                                        alt="">
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <div class="prot_info">
+                                                            <ul class="tag_list">
+                                                                <li class="tag_item">
+                                                                    <span class="tag bg_danger">상온</span>
+                                                                </li>
+                                                                <li class="tag_item">
+                                                                    <span class="tag">택배송</span>
+                                                                </li>
+                                                            </ul>
+                                                            <a href="#" class="prot_ttl">동의홍삼 동백 홍삼 트리트먼트 250ml</a>
+                                                            <div class="prot_each_area">
+                                                                <span class="prot_each_txt">
+                                                                    <b class="prot_each_num">19,200</b>원
+                                                                </span>
+                                                                <span class="prot_each_sale">개당 960원</span>
+                                                            </div>
+                                                            <div class="prot_price_area">
+                                                                <div class="prot_choose">
+                                                                    <div class="num_ctrl">
+                                                                        <button type="button" class="decrease_btn">
+                                                                            <span class="blind">감소</span>
+                                                                        </button>
+                                                                        <input type="number" class="num_count"
+                                                                            value="1">
+                                                                        <button type="button" class="increase_btn">
+                                                                            <span class="blind">증가</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <button type="button" class="cart_btn">
+                                                                        <span class="blind">장바구니 추가</span>
+                                                                    </button>
+                                                                    <button type="button" class="zzim_btn active">
+                                                                        <span class="blind">즐겨찾기 추가</span>
+                                                                    </button>
+                                                                </div>
+                                                                <span class="prot_price_unit">낱개0</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col_12">
+                                                    <div class="prot_card">
+                                                        <a href="#" class="prot_link">
+                                                            <div class="thumb_area">
+                                                                <div class="thumb_img">
+                                                                    <img src="../../frontLayer/images/@/@prot02.png"
+                                                                        alt="">
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <div class="prot_info">
+                                                            <ul class="tag_list">
+                                                                <li class="tag_item">
+                                                                    <span class="tag bg_danger">상온</span>
+                                                                </li>
+                                                                <li class="tag_item">
+                                                                    <span class="tag">택배송</span>
+                                                                </li>
+                                                            </ul>
+                                                            <a href="#" class="prot_ttl">포인트 딥 클린 비타 휩 클렌징 폼</a>
+                                                            <div class="prot_each_area">
+                                                                <span class="prot_each_txt">
+                                                                    <b class="prot_each_num">19,200</b>원
+                                                                </span>
+                                                                <span class="prot_each_sale">개당 960원</span>
+                                                            </div>
+                                                            <div class="prot_price_area">
+                                                                <div class="prot_choose">
+                                                                    <div class="num_ctrl">
+                                                                        <button type="button" class="decrease_btn">
+                                                                            <span class="blind">감소</span>
+                                                                        </button>
+                                                                        <input type="number" class="num_count"
+                                                                            value="1">
+                                                                        <button type="button" class="increase_btn">
+                                                                            <span class="blind">증가</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <button type="button" class="cart_btn">
+                                                                        <span class="blind">장바구니 추가</span>
+                                                                    </button>
+                                                                    <button type="button" class="zzim_btn active">
+                                                                        <span class="blind">즐겨찾기 추가</span>
+                                                                    </button>
+                                                                </div>
+                                                                <span class="prot_price_unit">낱개0</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col_12">
+                                                    <div class="prot_card">
+                                                        <a href="#" class="prot_link">
+                                                            <div class="thumb_area">
+                                                                <div class="thumb_img">
+                                                                    <img src="../../frontLayer/images/@/@prot03.png"
+                                                                        alt="">
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <div class="prot_info">
+                                                            <ul class="tag_list">
+                                                                <li class="tag_item">
+                                                                    <span class="tag bg_danger">상온</span>
+                                                                </li>
+                                                                <li class="tag_item">
+                                                                    <span class="tag">택배송</span>
+                                                                </li>
+                                                            </ul>
+                                                            <a href="#" class="prot_ttl">본결 케라피 카페인 샴푸</a>
+                                                            <div class="prot_each_area">
+                                                                <span class="prot_each_txt">
+                                                                    <b class="prot_each_num">19,200</b>원
+                                                                </span>
+                                                                <span class="prot_each_sale">개당 960원</span>
+                                                            </div>
+                                                            <div class="prot_price_area">
+                                                                <div class="prot_choose">
+                                                                    <div class="num_ctrl">
+                                                                        <button type="button" class="decrease_btn">
+                                                                            <span class="blind">감소</span>
+                                                                        </button>
+                                                                        <input type="number" class="num_count"
+                                                                            value="1">
+                                                                        <button type="button" class="increase_btn">
+                                                                            <span class="blind">증가</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <button type="button" class="cart_btn">
+                                                                        <span class="blind">장바구니 추가</span>
+                                                                    </button>
+                                                                    <button type="button" class="zzim_btn active">
+                                                                        <span class="blind">즐겨찾기 추가</span>
+                                                                    </button>
+                                                                </div>
+                                                                <span class="prot_price_unit">낱개0</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <div class="aside_dim"></div>
+        </div>
+        <!-- e:aside -->
+
+        <!-- s:container -->
+        <div id="container" class="container mypage_mobile">
+
+            <!-- s: 모바일 navbar -->
+            <div class="nav_bar_container mobile">
+                <div class="nav_bar_header">
+                    <div class="ttl_box">
+                        <button type="button" class="btn btn_back_circle"></button>
+                        <div class="txt_area">
+                            <h2 class="ttl">등급 혜택 소개</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- e: 모바일 navbar -->
+
+            <div class="center">
+                <div class="mypage_area">
+                    <div class="mypage_logo_panel d_md_none">
+                        <h2 class="ttl">마이 사자고</h2>
+                    </div>
+                    <div class="mypage_info_panel d_md_none">
+                        <div class="mypage_info_header">
+                            <div class="user_box">
+                                <!-- <span class="grade_label color_dark">일반</span>
+                                <span class="grade_label grade_type1" aria-label="마켓무"></span>
+                                <span class="grade_label grade_type2" aria-label="사자고"></span>
+                                <span class="grade_label grade_family">Family</span>
+                                <span class="grade_label grade_silver">Silver</span>
+                                <span class="grade_label grade_gold">Gold</span>
+                                <span class="grade_label grade_diamond">Diamond</span>
+                                <span class="grade_label grade_vip">VIP</span> -->
+                                <span class="grade_label grade_vvip">VVIP</span>
+                                <span class="txt">김사자 / 주식회사더이음 회원님</span>
+                            </div>
+                            <div class="count_box">
+                                <span class="question">질문: 0건</span>
+                                <span class="slash">/</span>
+                                <span class="answer">답변: 0건</span>
+                            </div>
+                        </div>
+                        <div class="mypage_info_body">
+                            <div class="col row2">
+                                <span class="ttl">당월 주문금액</span>
+                                <span class="txt">
+                                    <span class="num">4,303,760</span>원
+                                </span>
+                            </div>
+                            <div class="col row2">
+                                <span class="ttl">당월 주문금액</span>
+                                <span class="txt">
+                                    <span class="num">4,303,760</span>원
+                                </span>
+                            </div>
+                            <div class="col">
+                                <span class="ttl">관심상품</span>
+                                <span class="txt">
+                                    <span class="num">0</span>
+                                </span>
+                            </div>
+                            <div class="col">
+                                <span class="ttl">할인쿠폰</span>
+                                <span class="txt">
+                                    <span class="num">0</span>장
+                                </span>
+                            </div>
+                            <div class="col">
+                                <span class="ttl">장바구니</span>
+                                <span class="txt">
+                                    <span class="num">0</span>
+                                </span>
+                            </div>
+                            <div class="col">
+    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mypage_lnb_panel d_md_none">
+                        <div class="depth1_area">
+                            <ul class="depth1_list">
+                                <li class="depth1_item">
+                                    <span class="depth1_txt">쇼핑</span>
+                                    <div class="depth2_area">
+                                        <ul class="depth2_list">
+                                            <li class="depth2_item">
+                                                <a class="depth2_link" href="../../contents/myPage/orderList.html">주문배송조회</a>
+                                            </li>
+                                            <li class="depth2_item">
+                                                <a class="depth2_link" href="../../contents/myPage/orderCancel/orderCancelList.html">취소환불내역</a>
+                                            </li>
+                                            <li class="depth2_item">
+                                                <a class="depth2_link" href="../../contents/myPage/favoriteGoods.html">관심상품</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="depth1_item">
+                                    <span class="depth1_txt">혜택</span>
+                                    <div class="depth2_area">
+                                        <ul class="depth2_list">
+                                            <li class="depth2_item">
+                                                <a class="depth2_link" href="../../contents/myPage/coupon.html">쿠폰</a>
+                                            </li>
+                                            <li class="depth2_item">
+                                                <a class="depth2_link" href="../../contents/myPage/benefit.html">등급 혜택 소개</a>
+                                            </li>
+                                            <li class="depth2_item">
+                                                <a class="depth2_link" href="#">장바구니 혜택 소개</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="depth1_item">
+                                    <span class="depth1_txt">My 활동</span>
+                                    <div class="depth2_area">
+                                        <ul class="depth2_list">
+                                            <li class="depth2_item">
+                                                <a class="depth2_link" href="../../contents/myPage/confirm/confirmInquiry.html">문의하기/답변확인</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="depth1_item">
+                                    <span class="depth1_txt">My 정보</span>
+                                    <div class="depth2_area">
+                                        <ul class="depth2_list">
+                                            <li class="depth2_item">
+                                                <a class="depth2_link" href="../../contents/myPage/myPage.html">회원정보 확인/수정</a>
+                                            </li>
+                                            <li class="depth2_item">
+                                                <a class="depth2_link" href="#">장려금 확인</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mypage_content_panel">
+                        <section class="benefit_sec">
+                            <div class="benefit_header pc">
+                                <div class="ttl_area">
+                                    <h3 class="ttl">등급 혜택 소개</h3>
+                                </div>
+                            </div>
+                            <div class="benefit_body">
+                                <div class="guide_area">
+                                    <span class="grade_label grade_vvip">VVIP</span>
+                                    <p class="txt">김사자 / 주식회사더이음 회원님의 등급은 <b>브이브이아이피 등급</b> 입니다.</p>
+                                </div>
+                                <div class="benefit_wrap content_wrap">
+                                    <div class="ttl_area">
+                                        <h4 class="ttl">분기별 등급기준 및 혜택 <span>(3개월 평균 구매금액)</span></h4>
+                                    </div>
+                                    <div class="tbl_area pc">
+                                        <table class="rtl_user_tbl tbl">
+                                            <caption>소매/일반 회원 등급 <span>소매/일반 회원 등급으로 등급별 등급 기준, 등급 혜택의 정보 제공</span></caption>
+                                            <colgroup>
+                                                <col class="w_12">
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col>
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col"><span class="txt">소매/일반 <br> 회원 등급</span></th>
+                                                    <th scope="col"><span class="grade_label color_dark">일반</span><span class="txt txt_sm">일반</span></th>
+                                                    <th scope="col"><span class="grade_label grade_family">Family</span><span class="txt txt_sm">패밀리</span></th>
+                                                    <th scope="col"><span class="grade_label grade_silver">Silver</span><span class="txt txt_sm">실버</span></th>
+                                                    <th scope="col"><span class="grade_label grade_gold">Gold</span><span class="txt txt_sm">골드</span></th>
+                                                    <th scope="col"><span class="grade_label grade_diamond">Diamond</span><span class="txt txt_sm">다이아몬드</span></th>
+                                                    <th scope="col"><span class="grade_label grade_vip">VIP</span><span class="txt txt_sm">브이아이피</span></th>
+                                                    <th scope="col"><span class="grade_label grade_vvip">VVIP</span><span class="txt txt_sm">브이브이아이피</span></th>
+                                                    <th scope="col"><span class="grade_label grade_type1" aria-label="마켓무"></span><span class="txt txt_sm">마켓무</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>
+                                                        <span class="txt">등급기준</span>
+                                                        <span class="txt txt_grade_strd pc">3개월 평균<br> 구매금액</span>
+                                                        <span class="txt txt_grade_strd mobile">(3개월 평균 구매금액)</span>
+                                                    </th>
+                                                    <td><span class="txt"><u class="f_tahoma">30</u> 만 원</span></td>
+                                                    <td><span class="txt"><u class="f_tahoma">30</u> 만 원</span></td>
+                                                    <td><span class="txt"><u class="f_tahoma">50</u> 만 원</span></td>
+                                                    <td><span class="txt"><u class="f_tahoma">100</u> 만 원</span></td>
+                                                    <td><span class="txt"><u class="f_tahoma">300</u> 만 원</span></td>
+                                                    <td><span class="txt"><u class="f_tahoma">500</u> 만 원</span></td>
+                                                    <td><span class="txt"><u class="f_tahoma">1,000</u> 만 원</span></td>
+                                                    <td><span class="txt">마켓무 가맹점</span></td>
+                                                </tr>
+                                                <tr class="h_px_75">
+                                                    <th><span class="txt">등급혜택</span></th>
+                                                    <td><span class="txt">-</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="whs_user_tbl tbl">
+                                            <caption>도매 회원 등급 <span>도매 회원 등급으로 등급별 등급 기준, 등급 혜택의 정보 제공</span></caption>
+                                            <colgroup>
+                                                <col class="w_12">
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col>
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col"><span class="txt">도매 <br> 회원 등급</span></th>
+                                                    <th scope="col"><span class="grade_label color_dark">일반</span><span class="txt txt_sm">일반</span></th>
+                                                    <th scope="col"><span class="grade_label grade_family">Family</span><span class="txt txt_sm">패밀리</span></th>
+                                                    <th scope="col"><span class="grade_label grade_silver">Silver</span><span class="txt txt_sm">실버</span></th>
+                                                    <th scope="col"><span class="grade_label grade_gold">Gold</span><span class="txt txt_sm">골드</span></th>
+                                                    <th scope="col"><span class="grade_label grade_diamond">Diamond</span><span class="txt txt_sm">다이아몬드</span></th>
+                                                    <th scope="col"><span class="grade_label grade_vip">VIP</span><span class="txt txt_sm">브이아이피</span></th>
+                                                    <th scope="col"><span class="grade_label grade_vvip">VVIP</span><span class="txt txt_sm">브이브이아이피</span></th>
+                                                    <th scope="col"><span class="grade_label grade_type2" aria-label="사자고"></span><span class="txt txt_sm">사자고</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th><span class="txt">등급기준</span>
+                                                        <span class="txt txt_grade_strd pc">3개월 평균<br>구매금액</span>
+                                                        <span class="txt txt_grade_strd mobile">(3개월 평균 구매금액)</span>
+                                                    </th>
+                                                    <td><span class="txt"><u class="f_tahoma">30</u> 만 원</span></td>
+                                                    <td><span class="txt"><u class="f_tahoma">100</u> 만 원</span></td>
+                                                    <td><span class="txt"><u class="f_tahoma">300</u> 만 원</span></td>
+                                                    <td><span class="txt"><u class="f_tahoma">500</u> 만 원</span></td>
+                                                    <td><span class="txt"><u class="f_tahoma">1,000</u> 만 원</span></td>
+                                                    <td><span class="txt"><u class="f_tahoma">1,500</u> 만 원</span></td>
+                                                    <td><span class="txt"><u class="f_tahoma">3,000</u> 만 원</span></td>
+                                                    <td><span class="txt"><u class="f_tahoma">3,000</u> 만 원</span></td>
+                                                </tr>
+                                                <tr class="h_px_75">
+                                                    <th><span class="txt">등급혜택</span></th>
+                                                    <td><span class="txt">-</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="tbl_area mobile">
+                                        <table class="rtl_user_tbl tbl">
+                                            <caption>소매/일반 회원 등급 <span>소매/일반 회원 등급으로 등급별 등급 기준, 등급 혜택의 정보 제공</span></caption>
+                                            <colgroup>
+                                                <col class="d_md_w_22">
+                                                <col class="d_md_w_30">
+                                                <col>
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col"><span class="txt">소매/일반 <br> 회원 등급</span></th>
+                                                    <th>
+                                                        <span class="txt">등급기준</span>
+                                                        <span class="txt txt_grade_strd pc">3개월 평균<br> 구매금액</span>
+                                                        <span class="txt txt_grade_strd mobile">(3개월 평균 구매금액)</span>
+                                                    </th>
+                                                    <th><span class="txt">등급혜택</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row"><span class="grade_label grade_type1" aria-label="마켓무"></span><span class="txt txt_sm">마켓무</span></th>
+                                                    <td><span class="txt">마켓무 가맹점</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><span class="grade_label grade_vvip">VVIP</span><span class="txt txt_sm">브이브이아이피</span></th>
+                                                    <td><span class="txt"><u class="f_tahoma">1,000</u> 만 원</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><span class="grade_label grade_vip">VIP</span><span class="txt txt_sm">브이아이피</span></th>
+                                                    <td><span class="txt"><u class="f_tahoma">500</u> 만 원</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><span class="grade_label grade_diamond">Diamond</span><span class="txt txt_sm">다이아몬드</span></th>
+                                                    <td><span class="txt"><u class="f_tahoma">300</u> 만 원</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><span class="grade_label grade_gold">Gold</span><span class="txt txt_sm">골드</span></th>
+                                                    <td><span class="txt"><u class="f_tahoma">100</u> 만 원</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><span class="grade_label grade_silver">Silver</span><span class="txt txt_sm">실버</span></th>
+                                                    <td><span class="txt"><u class="f_tahoma">50</u> 만 원</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><span class="grade_label grade_family">Family</span><span class="txt txt_sm">패밀리</span></th>
+                                                    <td><span class="txt"><u class="f_tahoma">30</u> 만 원</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><span class="grade_label color_dark">일반</span><span class="txt txt_sm">일반</span></th>
+                                                    <td><span class="txt"><u class="f_tahoma">30</u> 만 원</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="whs_user_tbl tbl">
+                                            <caption>도매 회원 등급 <span>도매 회원 등급으로 등급별 등급 기준, 등급 혜택의 정보 제공</span></caption>
+                                            <colgroup>
+                                                <col class="d_md_w_22">
+                                                <col class="d_md_w_30">
+                                                <col>
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col"><span class="txt">도매<br>회원 등급</span></th>
+                                                    <th>
+                                                        <span class="txt">등급기준</span>
+                                                        <span class="txt txt_grade_strd pc">3개월 평균<br> 구매금액</span>
+                                                        <span class="txt txt_grade_strd mobile">(3개월 평균 구매금액)</span>
+                                                    </th>
+                                                    <th><span class="txt">등급혜택</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="col"><span class="grade_label grade_type2" aria-label="사자고"></span><span class="txt txt_sm">사자고</span></th>
+                                                    <td><span class="txt">3,000 만 원</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><span class="grade_label grade_vvip">VVIP</span><span class="txt txt_sm">브이브이아이피</span></th>
+                                                    <td><span class="txt"><u class="f_tahoma">1,000</u> 만 원</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><span class="grade_label grade_vip">VIP</span><span class="txt txt_sm">브이아이피</span></th>
+                                                    <td><span class="txt"><u class="f_tahoma">500</u> 만 원</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><span class="grade_label grade_diamond">Diamond</span><span class="txt txt_sm">다이아몬드</span></th>
+                                                    <td><span class="txt"><u class="f_tahoma">300</u> 만 원</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><span class="grade_label grade_gold">Gold</span><span class="txt txt_sm">골드</span></th>
+                                                    <td><span class="txt"><u class="f_tahoma">100</u> 만 원</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><span class="grade_label grade_silver">Silver</span><span class="txt txt_sm">실버</span></th>
+                                                    <td><span class="txt"><u class="f_tahoma">50</u> 만 원</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><span class="grade_label grade_family">Family</span><span class="txt txt_sm">패밀리</span></th>
+                                                    <td><span class="txt"><u class="f_tahoma">30</u> 만 원</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><span class="grade_label color_dark">일반</span><span class="txt txt_sm">일반</span></th>
+                                                    <td><span class="txt"><u class="f_tahoma">30</u> 만 원</span></td>
+                                                    <td><span class="txt">-</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="user_guide_area">
+                                        <span class="ttl">[회원등급 관련 안내]</span>
+                                        <p class="txt">- 가입 3개월 미만 회원은 가입월 기준 평균 실적으로 반영됩니다.</p>
+                                        <p class="txt">- 등급 기준 구매 금액은 통합배송관 구매 상품에 한해 적용됩니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- e:container -->
+
+        <!-- s:footer -->
+        <footer class="footer">
+            <div class="center">
+                <div class="utility_area">
+                    <div class="center">
+                        <ul class="utility_list">
+                            <li class="utility_item">
+                                <a href="#" class="utility_link">사자고 소개</a>
+                            </li>
+                            <li class="utility_item">
+                                <a href="#" class="utility_link">이용안내</a>
+                            </li>
+                            <li class="utility_item">
+                                <a href="#" class="utility_link">개인정보 처리 방침</a>
+                            </li>
+                            <li class="utility_item">
+                                <a href="#" class="utility_link">마켓무 가맹신청</a>
+                            </li>
+                            <li class="utility_item">
+                                <a href="#" class="utility_link">제조사 입점신청</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md_company_area d_none d_md_block">
+                    <div class="etc_box">
+                        <a class="sns" href="#">APP 설치</a>
+                        <a class="sns" href="#">SNS 채널</a>
+                        <a class="sns" href="#">로그아웃</a>
+                    </div>
+                </div>
+                <div class="company_area">
+                    <div class="md_company_btn d_none d_md_block">
+                        <button type="button" class="company_info_btn">사업자 정보 / 고객센터</button>
+                        <dl class="company_info">
+                            <div class="d_md_flex">
+                                <dt>업체명</dt>
+                                <dd>주식회사 더이음</dd>
+                            </div>
+                            <div class="d_md_flex">
+                                <dt>대표자</dt>
+                                <dd>김미경</dd>
+                            </div>
+                            <div class="d_md_flex">
+                                <dt>사업자 등록 번호</dt>
+                                <dd>214-88-97306</dd>
+                            </div>
+                            <div class="d_md_flex">
+                                <dt>통신판매업신고</dt>
+                                <dd>2021-서울송파-2135호</dd>
+                            </div>
+                            <div class="d_md_flex">
+                                <dt>주소</dt>
+                                <dd>서울특별시 송파구 법원로 114 (문정동) <br>
+                                    엠스테이트 에이동 1306호</dd>
+                            </div>
+                            <div class="d_md_flex">
+                                <dt>고객센터</dt>
+                                <dd>0000-0000(유료전화) <br>
+                                    00-000-0000(팩스) <br>
+                                    juno@marketmoo.co.kr</dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="company_box d_md_none">
+                        <span class="company_name">주식회사 더이음</span>
+                        <div class="company_content">
+                            <p class="company_txt">
+                                대표자 : 김미경<br />
+                                서울특별시 송파구 법원로 114 (문정동) 엠스테이트 에이동 1306호<br />
+                                사업자 등록 번호 : 214-88-97306<br />
+                                통신판매업제 2021-서울송파-2135호
+                            </p>
+                            <a class="business_link" href="#" target="_blank">사업자정보 확인 ></a>
+                        </div>
+                    </div>
+                    <div class="cs_box d_md_none">
+                        <span class="cs_name">고객센터</span>
+                        <div class="cs_content">
+                            <a href="#" class="txt">
+                                <b class="num">0000-0000</b> (유료)
+                            </a>
+                            <dl class="cs_dl">
+                                <dt class="cs_dt">Fax:</dt>
+                                <dd class="cs_dd">00-000-0000</dd>
+                            </dl>
+                            <dl class="cs_dl">
+                                <dt class="cs_dt">Mail:</dt>
+                                <dd class="cs_dd">juno@marketmoo.co.kr</dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="etc_box d_md_none">
+                        <div class="sns_group">
+                            <a class="sns sns_instagram" href="#" target="_blank" title="인스타그램 바로가기">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path fill-rule="evenodd"
+                                        d="M22.431,30.315 L7.487,30.315 C3.460,30.315 0.180,27.039 0.180,23.008 L0.180,8.064 C0.180,4.037 3.460,0.757 7.487,0.757 L22.431,0.757 C26.463,0.757 29.738,4.037 29.738,8.064 L29.738,23.008 C29.738,27.039 26.463,30.315 22.431,30.315 ZM27.611,8.064 C27.611,5.208 25.287,2.889 22.431,2.889 L7.487,2.889 C4.631,2.889 2.312,5.208 2.312,8.064 L2.312,23.008 C2.312,25.864 4.631,28.188 7.487,28.188 L22.431,28.188 C25.287,28.188 27.611,25.864 27.611,23.008 L27.611,8.064 ZM22.759,9.056 C22.196,9.056 21.740,8.600 21.740,8.033 C21.740,7.470 22.196,7.014 22.759,7.014 C23.323,7.014 23.778,7.470 23.778,8.033 C23.778,8.600 23.323,9.056 22.759,9.056 ZM14.960,23.023 C10.835,23.023 7.474,19.663 7.474,15.538 C7.474,11.408 10.835,8.052 14.960,8.052 C19.085,8.052 22.446,11.408 22.446,15.538 C22.446,19.663 19.085,23.023 14.960,23.023 ZM14.960,10.184 C12.006,10.184 9.606,12.584 9.606,15.538 C9.606,18.492 12.006,20.892 14.960,20.892 C17.914,20.892 20.314,18.492 20.314,15.538 C20.314,12.584 17.914,10.184 14.960,10.184 Z" />
+                                </svg>
+                            </a>
+                            <a class="sns sns_youtube" href="#" target="_blank" title="유튜브 바로가기">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path fill-rule="evenodd"
+                                        d="M16.049,20.116 L16.049,7.645 L26.595,13.881 L16.049,20.116 ZM33.251,0.479 L7.697,0.479 C3.623,0.479 0.293,3.873 0.293,8.024 L0.293,19.737 C0.293,23.884 3.623,27.282 7.697,27.282 L33.251,27.282 C37.325,27.282 40.655,23.884 40.655,19.737 L40.655,8.024 C40.655,3.873 37.325,0.479 33.251,0.479 " />
+                                </svg>
+                            </a>
+                            <a class="sns sns_facebook" href="#" target="_blank" title="페이스북 바로가기">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path fill-rule="evenodd"
+                                        d="M9.213,31.112 L9.213,16.965 L13.391,16.965 L14.018,11.448 L9.213,11.448 L9.213,7.931 C9.213,6.332 9.603,5.247 11.615,5.247 L14.188,5.243 L14.188,0.310 C13.744,0.244 12.217,0.093 10.441,0.093 C6.740,0.093 4.205,2.664 4.205,7.384 L4.205,11.448 L0.015,11.448 L0.015,16.965 L4.205,16.965 L4.205,31.112 L9.213,31.112 Z" />
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="qr_group">
+                            <div class="qr_box">
+                                <span class="txt">IOS APP</span>
+                                <a href="#" target="_blank" class="qrcode">
+                                    <img src="../../frontLayer/images/icons/ico_qr_ios.svg" alt="ios app qrcode" />
+                                </a>
+                            </div>
+                            <div class="qr_box">
+                                <span class="txt">Android<br /> APP</span>
+                                <a href="#" target="_blank" class="qrcode">
+                                    <img src="../../frontLayer/images/icons/ico_qr_ios.svg" alt="android app qrcode" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- e:footer -->
+
+        <!-- s:floating -->
+        <div class="floating_area fixed">
+            <button type="button" class="floating_btn scroll_top_btn">
+                <span class="blind">최상단으로 이동</span>
+            </button>
+        </div>
+        <!-- e:floating -->
+
+        <!-- s:bottom menu -->
+        <div class="bottom_menu_area d_none d_md_flex">
+            <button type="button" class="bottom_btn home">
+                <span class="blind">홈버튼</span>
+            </button>
+            <button type="button" class="bottom_btn category">
+                <span class="blind">카테고리</span>
+            </button>
+            <button type="button" class="bottom_btn mypage">
+                <span class="blind">마이페이지</span>
+            </button>
+            <button type="button" class="bottom_btn dark_mode_btn">
+                <span class="blind">다크모드</span>
+            </button>
+        </div>
+        <!-- e:bottom menu -->
+
+    </div>
+    <!-- e:wrap -->
+
+    <script>
+        $(document).ready(() => {
+            const fnSwiper = {
+                init: function () {
+                },
+                // 비주얼 배너
+                bannerSwiper: function() {
+                    bannerSwiper = new Swiper(".banner-swiper", {
+                        loop: true,
+                        touchRatio: 0,
+                        loopedSlides: 2,
+                        autoplay: {
+                            delay: 2500,
+                            disableOnInteraction: false,
+                        },
+                        pagination: {
+                            el: ".banner-swiper .swiper-pagination",
+                            type: "fraction",
+                        },
+                        navigation: {
+                            nextEl: ".banner-swiper .swiper-button-next",
+                            prevEl: ".banner-swiper .swiper-button-prev",
+                        },
+                        on: {
+                            init: function () {
+                                $('.banner-swiper .play_btn').click(function () {
+                                    if ($(this).hasClass('active')) {
+                                        $(this).removeClass('active');
+                                        bannerSwiper.autoplay.start();
+                                    } else {
+                                        $(this).addClass('active');
+                                        bannerSwiper.autoplay.stop();
+                                    }
+                                });
+                            },
+                        },
+                    });
+                },
+                // 비주얼 배너 전체보기
+                bannerAllSwiper: function() {
+                    bannerAllSwiper = new Swiper(".banner-all-swiper", {
+                        slidesPerView: 1,
+                        // touchRatio: 0,
+                        observer: true,
+                        observeParents: true,
+                        navigation: {
+                            nextEl: ".banner-all-swiper .swiper-button-next",
+                            prevEl: ".banner-all-swiper .swiper-button-prev",
+                        },
+                    });
+                },
+            }
+
+            const breakpoint = window.matchMedia('(max-width:767px)');
+            let checkMo = breakpoint.matches;
+
+            // 비주얼 배너
+            let bannerSwiper;
+            fnSwiper.bannerSwiper();
+            let bannerAllSwiper;
+            fnSwiper.bannerAllSwiper();
+
+            // 분기점 리사이즈 체크 swiper 모드 변경
+            const breakpointChecker = function () {
+                checkMo = breakpoint.matches;
+                if (checkMo) bannerAllSwiper?.destroy(true, true);
+                return [
+                    fnSwiper.bannerAllSwiper()
+                ]
+            };
+            breakpoint.addListener(breakpointChecker);
+        });
+    </script>
+
+</body>
+
+</html>

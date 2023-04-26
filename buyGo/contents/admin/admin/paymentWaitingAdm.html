@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <!-- -----------윤희상 html 추가부분 START------------- -->
+    <link rel="shortcut icon" href="../../../adminLayer/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../../adminLayer/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../../adminLayer/main/resources/css/admin/admin.css">
+    <link rel="stylesheet" href="../../../adminLayer/main/resources/css/admin/jquery-ui.css">
+    <link rel="stylesheet" href="../../../adminLayer/main/resources/css/admin/swiper.css">
+    
+    <!-- <script src="../../../adminLayer/resources/js/plugin/jquery.min.js?"></script>
+    <script src="../../../adminLayer/resources/js/plugin/jquery-ui.min.js?"></script>
+    <script src="../../../adminLayer/resources/js/plugin/jquery.form.min.js?"></script>
+    <script src="../../../adminLayer/resources/js/plugin/jquery.cookie.js?"></script>
+    <script src="../../../adminLayer/resources/js/plugin/jquery.fileDownload.js?"></script> -->
+
+    <!-- <script src="../../../adminLayer/resources/js/plugin/ckeditor/ckeditor.js?"></script><style>.cke{visibility:hidden;}</style>
+    <script src="../../../adminLayer/resources/js/plugin/ckeditor/adapters/jquery.js?"></script>
+    <script src="../../../adminLayer/resources/js/plugin/microfiche.js?"></script>
+    <script src="../../../adminLayer/resources/js/plugin/Chart.min.js?"></script>
+    <script src="../../../adminLayer/resources/js/plugin/printThis.js?"></script> -->
+
+    <!-- <script src="../../../adminLayer/resources/js/common/common.js?"></script>
+    <script src="../../../adminLayer/resources/js/common/base.js?"></script>
+    <script src="../../../adminLayer/resources/js/common/swiper.js?"></script>
+    <script src="../../../adminLayer/resources/js/common/zipcode.js?"></script>
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?"></script><script charset="UTF-8" type="text/javascript" src="../../../adminLayer//t1.daumcdn.net/postcode/api/core/211103/1635999227231/211103.js"></script>
+    <script type="text/javascript" src="../../../adminLayer/resources/js/admin/orderManagement/OrderList.js"></script> -->
+    <!-- -----------윤희상 html 추가부분 END------------- -->
+    
+    <!-- -----------윤희상 html 공통부분 START------------- -->
+	<script defer type="text/javascript" src="../../../adminLayer/main/js/common/cFuncs.js"></script>
+    <script defer type="text/javascript" src="../../../adminLayer/main/js/common/cPagingModule.js"></script>
+    <script defer type="text/javascript" src="../../../adminLayer/main/js/admin/cGetAdminCommonModule.js"></script>
+    <script defer type="text/javascript" src="../../../adminLayer/main/js/admin/cGetAdminPageMenu.js"></script>
+    <script defer type="text/javascript" src="../../../adminLayer/main/js/admin/cPaymentWaitingAdm.js"></script>
+    <script defer type="text/javascript" src="../../../adminLayer/main/js/admin/cOrderAdm.js"></script>
+    <script defer type="text/javascript" src="../../../adminLayer/main/js/admin/cOrderListPop.js"></script>
+    
+    <!-- 엑셀 다운로드를 위해서 필요한 모듈임 -->
+    <script defer type="text/javascript" src="../../../adminLayer/main/js/common/jsonToXMLToExcel.js"></script>
+    <!-- <script type="text/javascript" src="../../../adminLayer/xlsx.full.min.js"></script> -->
+    <script type="text/javascript" src="../../../adminLayer/FileSaver.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- <link rel="stylesheet" type="text/css" href="../../../adminLayer/commonpf2.css"/> -->
+    <script type="text/javascript" src="../../../adminLayer/common/resources/jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../adminLayer/common/resources/jquery/jquery.ajax-cross-origin.min.js"></script>
+    <!-- <script type="text/javascript" src="../../../adminLayer/jquery-ui.js"></script> -->
+    <script type="text/javascript" src="../../../adminLayer/main/js/jquery-ui.min.js"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+    <!--이미지 도구모음 금지-->
+    <meta http-equiv="imagetoolbar" context="no"></head>
+    <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- iOS Part -->
+    <!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 상태 바의 스타일을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+    <!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-title" content="Timer">-->
+    <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+    <!-- <link rel="apple-touch-icon" href="icons/icon-152x152.png">-->
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+    <!-- Android part -->
+    <!-- 웹 앱 매니페스트를 읽어 들이기 -->
+    <link rel="manifest" type="text/json"  href="../../../adminLayer/manifest.json">
+    <script>history.replaceState({}, null, location.pathname);</script>
+    <!-- -----------윤희상 html 공통부분 END------------- -->
+    <title>입금대기 더이음몰 통합관리자</title>
+</head>
+<body>
+<div class="wrap">
+    <div class="header">
+        <div class="top">
+            <h1>
+                <img src="../../../adminLayer/main/resources/images/admin/admin_header_logo.png" alt="나들가게 이음몰" onclick="location.href='/main/html/admin/totalOrderListAdm.html';" style="cursor:pointer;"> 
+                <img src="../../../adminLayer/main/resources/images/admin/sitetit.gif" alt="통합관리자" onclick="location.href='/main/html/admin/totalOrderListAdm.html';" style="cursor:pointer;">
+            </h1>
+            <div class="logout">
+            </div>
+        </div>
+        <ul class="gnb" id="gnb">
+            <!-- <li><a href="buyerListAdm.html">사용자관리</a></li>
+            <li><a href="">카테고리관리</a></li>
+            <li><a href="goodsCategoryAdm.html">상품관리</a></li>		
+            <li><a href="totalOrderListAdm.html">주문관리</a></li>
+            <li><a href="settlementManagementAdm.html">정산관리</a></li>
+            <li><a href="">통계</a></li>
+            <li><a href="">사이트관리</a></li> -->
+        </ul>
+    </div>
+    <!-- //header -->
+    <!-- container -->
+    <div class="container">
+        <div class="lnb" id="lnb">
+            <!-- <h2><span>주문관리</span></h2>
+            <ul>
+                <li><a href="totalOrderListAdm.html">전체주문조회</a></li>
+                <li class="on"><a href="paymentWaitingAdm.html">입금대기</a></li>
+                <li><a href="paymentCompleteAdm.html">입금완료</a></li>
+                <li><a href="">배송준비중</a></li>
+                <li><a href="">배송중</a></li>
+                <li><a href="">배송완료</a></li>
+                <li><a href="orderCancleAdm.html">주문취소/반품</a></li>
+                <li><a href="">공급자결품률</a></li>
+            </ul> -->
+        </div>
+        <!-- contents -->
+        <div class="contents">
+            <h3>입금대기</h3>
+            <input type="hidden" id="layoutGB" value="paymentWaitingAdm">
+            <form name="frm" id="frm" action="../../../adminLayer/admin/productManagement/pmList" method="post">
+            <div class="search_area">
+                <table class="table_row">
+                    <colgroup>
+                        <col width="12%">
+                        <col width="38%">
+                        <col width="12%">
+                        <col width="38%">
+                    </colgroup>					
+                    <tbody><tr>
+                        <th><span>행사여부</span></th>
+                        <td class="checks">
+                            <label><input type="radio" id="radio01_1" name="search_fate_yn" value="" val=""> 전체</label>
+                            <label><input type="radio" id="radio01_2" name="search_fate_yn" value="XX" val=""> 일반</label>
+                            <label><input type="radio" id="radio01_3" name="search_fate_yn" value="WW" val=""> 주간</label>
+                            <label><input type="radio" id="radio01_4" name="search_fate_yn" value="CC" val=""> 카테고리</label>
+                        </td>
+                        <th><span>상품카테고리</span></th>
+                        <td>
+                            <select name="search_cate1_idx" id="search_cate1_idx" style="width:120px;" value="">
+                            </select>
+                            <select name="search_cate2_idx" id="search_cate2_idx" style="width:120px;" value="">
+                            </select>
+                            <select name="search_cate3_idx" id="search_cate3_idx" style="width:120px;" value="">
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <span>주문일자</span>
+                        </th>
+                        <td colspan="3">
+                            <span class="search_scope">
+                                <input type="text" name="search_order_date_start" id="search_order_date_start" class="w100 datepicker1" value=""> ~ 
+                                <input type="text" name="search_order_date_end" id="search_order_date_end" class="w100 datepicker1" value="">
+                                <!-- <button type="button" class="btn_ss01" onclick="setDatePrev('search_order_date_start',2); setDatePrev('search_order_date_end',2);"><span>D-2</span></button>
+                                <button type="button" class="btn_ss01" onclick="setDatePrev('search_order_date_start',1); setDatePrev('search_order_date_end',1);"><span>D-1</span></button> -->
+                                <button type="button" class="btn_ss01" onclick="setToday('search_order_date_start'); setToday('search_order_date_end');"><span>오늘</span></button>
+                                <button type="button" class="btn_ss01" onclick="setDatePrev('search_order_date_start',7); setToday('search_order_date_end');"><span>7일간</span></button>
+                                <button type="button" class="btn_ss01" onclick="setDatePrev('search_order_date_start',15); setToday('search_order_date_end');"><span>15일간</span></button>
+                                <button type="button" class="btn_ss01" onclick="setDatePrev('search_order_date_start',30); setToday('search_order_date_end');"><span>30일간</span></button>
+                                <button type="button" class="btn_ss01" onclick="setDatePrev('search_order_date_start',60); setToday('search_order_date_end');"><span>60일간</span></button>
+                                <button type="button" class="btn_ss01" onclick="clearRegDate('search_order_date_start','search_order_date_end');"><span>전체</span></button>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span>공급사</span></th>
+                        <td>
+                            <select name="search_supplier_ssn" id="search_supplier_ssn" style="width:130px;" value=""><option value="">-전체-</option>
+                            </select>
+                        </td>
+                        <th><span>주문번호</span></th>
+                        <td>
+                            <input type="text" name="search_order_no" class="w210" value="">
+                        </td>
+                    </tr>			
+                    <tr>
+                        <th><span>주문자검색</span></th>
+                        <td>
+                            <select name="search_orderer_type" style="width:115px;" value="">
+                                <option value="1">주문자(상호명)</option>
+                                <option value="2">사업자등록번호</option>
+                            </select>
+                            <input type="text" name="search_orderer_string" style="width:160px;" value="">
+                        </td>
+                        <th><span>통합검색</span></th>
+                        <td>
+                            <select name="search_type" style="width:100px;" value="">
+                                <!-- <option value="1">주문자</option>
+                                <option value="2">받는분</option> -->
+                                <option value="3">상품명</option>
+                            </select>
+                            <input type="text" name="search_string" style="width:160px;" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span>주문금액</span></th>
+                        <td colspan="3">
+                            <span class="search_scope">
+                                <input type="text" name="search_payment_sum_from" id="search_payment_sum_from" class="w100" value="" numberonly="">원 ~ 
+                                <input type="text" name="search_payment_sum_to" id="search_payment_sum_to" class="w100" value="" numberonly="">원
+                            </span>
+                        </td>
+                    </tr>
+                </tbody></table>
+                <div class="search_btn">
+                    <!-- <button type="button" class="btn_bic" onclick="sendSelfForm('frm');">검색</button> -->
+                    <button type="button" class="btn_bic">검색</button>
+                </div>
+            </div>
+            <div class="result_area">
+                <table class="table_summary">
+                    <colgroup>
+                        <col width="120"><col width="150"><col width="120"><col width="150"><col width="150"><col width="">
+                    </colgroup>					
+                    <tbody>
+                </tbody></table>
+            </div>	
+            <div class="result_area">
+                <div class="result_info">
+                    <p class="txt_total">상품 총 <strong class="comma"></strong> 건</p>
+                    <div class="btn_down">
+                        <button type="button" class="btn_ss01" onclick="orderListToExcel();"><span class="btn_excel">목록 다운로드</span></button>
+                        <select name="list_cnt" id="list_cnt" style="width:55px;" value="5" onchange="sendSelfForm('frm');">
+                            <option value="5">5</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="300">300</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="table_over">
+                    <table class="table_col ordertable" id="orderList">
+                        <colgroup>
+                            <col width="45">
+                            <col width="90">
+                            <col width="85">
+                            <col width="60">
+                            <col width="100">
+                            <col width="100">
+                            <col width="100">
+                            <col width="70">
+                            <col width="200">
+                            <col width="80">
+                            <col width="80">
+                            <col width="120">
+                            <col width="100">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>번호</th>
+                                <th>주문번호</th>
+                                <th>주문일<br>(결제완료일)</th>
+                                <th>구매매체</th>
+                                <th>주문자(상호명)<br>[사업자등록번호]</th>
+                                <th>받는분</th>
+                                <th>공급사</th>
+                                <th>배송구분</th>
+                                <th>상품명</th>
+                                <th>주문금액(원)</th>
+                                <th>포인트결제</th>
+                                <th>고정계좌</th>
+                                <th>주문상태</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="page" id="pagingDiv">
+                </div>
+            </div>
+            </form>
+        </div>
+        <!-- //contents -->
+    </div>
+    <!-- //container -->
+</div>
+<style type="text/css">
+    .sitePopup { position:absolute; background-color:#ffffff; border:1px solid #333333; display:none; }
+    .sitePopup .popupLayout { position:relative; }
+    .sitePopup .popupLayout .close { position:absolute; right:15px; top:6px; font-size:12px; font-weight:bold; color:#ffffff; cursor:pointer; }
+    .sitePopup .popupLayout .title { padding:7px; font-size:14px; font-weight:bold; background-color:#333333; color:#ffffff; }
+</style>
+<!-- 팝업부분 시작 -->
+<div class="layerPopArea" style="height: 1041px; display: none; top: 0px;">
+</div>
+<!-- 팝업부분 끝 -->
+</body></html>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26.969" height="52.969" viewBox="0 0 26.969 52.969">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #1d1d1d;
+        stroke-width: 1px;
+      }
+
+      .cls-1, .cls-2 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #e8380c;
+      }
+    </style>
+  </defs>
+  <path id="모양_1618" data-name="모양 1618" class="cls-1" d="M672,683.972a12.982,12.982,0,1,1-12.982-12.982A12.982,12.982,0,0,1,672,683.972Z" transform="translate(-645.531 -644.5)"/>
+  <path id="모양_1618_copy" data-name="모양 1618 copy" class="cls-1" d="M672,657.972a12.982,12.982,0,1,1-12.982-12.982A12.982,12.982,0,0,1,672,657.972Z" transform="translate(-645.531 -644.5)"/>
+  <path id="check" class="cls-2" d="M666.43,683.868a7.337,7.337,0,1,1-7.337-7.337A7.336,7.336,0,0,1,666.43,683.868Z" transform="translate(-645.531 -644.5)"/>
+</svg>

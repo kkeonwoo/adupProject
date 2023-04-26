@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    
+    <!-- -----------윤희상 html 추가부분 START------------- -->
+    <link rel="shortcut icon" href="../../../adminLayer/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../../adminLayer/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../../adminLayer/main/resources/css/admin/admin.css">
+    <link rel="stylesheet" href="../../../adminLayer/main/resources/css/admin/jquery-ui.css">
+    <link rel="stylesheet" href="../../../adminLayer/main/resources/css/admin/swiper.css">
+    <script src="../../../adminLayer//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <!-- -----------윤희상 html 추가부분 END------------- -->
+
+    <!-- 엑셀 다운로드를 위해서 필요한 모듈임 -->
+    <script defer type="text/javascript" src="../../../adminLayer/main/js/common/jsonToXMLToExcel.js"></script>
+    <!-- <script type="text/javascript" src="../../../adminLayer/xlsx.full.min.js"></script> -->
+    <script type="text/javascript" src="../../../adminLayer/FileSaver.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+
+    <!-- -----------윤희상 html 공통부분 START------------- -->
+	<script defer type="text/javascript" src="../../../adminLayer/main/js/common/cFuncs.js"></script>
+    <script defer type="text/javascript" src="../../../adminLayer/common/js/cPagingModule.js"></script>
+    <script defer type="text/javascript" src="../../../adminLayer/main/js/common/cCheckClientPattern.js"></script>
+    <script defer type="text/javascript" src="../../../adminLayer/main/js/admin/cBuyerListAdm.js"></script>
+    <script defer type="text/javascript" src="../../../adminLayer/main/js/admin/cBuyerListPopAdm.js"></script>
+    <script defer type="text/javascript" src="../../../adminLayer/main/js/admin/cGetAdminCommonModule.js"></script>
+    <script defer type="text/javascript" src="../../../adminLayer/main/js/admin/cGetAdminPageMenu.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="text/javascript" src="../../../adminLayer/common/resources/jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../adminLayer/common/resources/jquery/jquery.ajax-cross-origin.min.js"></script>
+    <!-- <script type="text/javascript" src="../../../adminLayer/jquery-ui.js"></script> -->
+    <!-- <script type="text/javascript" src="../../../adminLayer/main/js/jquery-ui.min.js"></script> -->
+    <script type="text/javascript" src="../../../adminLayer/resources/jquery-ui.js"></script>
+	<script type="text/javascript" src="../../../adminLayer/node_modules/crypto-js/crypto-js.js"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+    <!--이미지 도구모음 금지-->
+    <meta http-equiv="imagetoolbar" context="no">
+    <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- iOS Part -->
+    <!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 상태 바의 스타일을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+    <!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-title" content="Timer">-->
+    <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+    <!-- <link rel="apple-touch-icon" href="icons/icon-152x152.png">-->
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png"> 
+    <!-- Android part -->
+    <!-- 웹 앱 매니페스트를 읽어 들이기 -->
+    <link rel="manifest" type="text/json"  href="../../../adminLayer/manifest.json">
+    <script>history.replaceState({}, null, location.pathname);</script>
+    <!-- -----------윤희상 html 공통부분 END------------- -->
+    <title>구매회원 더이음몰 통합관리자</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <div class="top">
+                <h1>
+                    <img src="../../../adminLayer/main/resources/images/admin/admin_header_logo.png" alt="나들가게 이음몰" onclick="location.href='/main/html/admin/totalOrderListAdm.html';" style="cursor:pointer;"> 
+                    <img src="../../../adminLayer/main/resources/images/admin/sitetit.gif" alt="통합관리자" onclick="location.href='/main/html/admin/totalOrderListAdm.html';" style="cursor:pointer;">
+                </h1>
+                <div class="logout">
+                </div>
+        </div>
+        <ul class="gnb" id="gnb">
+        </ul>
+    </div>
+    <!-- //header -->
+    <!-- container -->
+    <div class="container">
+        <div class="lnb" id="lnb">
+        </div>
+            <!-- contents -->
+        <div class="contents">
+            <h3>구매회원</h3>
+            <div class="search_area">
+                <table class="table_row">
+                    <colgroup>
+                        <col width="120">
+                        <col width="280">
+                        <col width="120">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th><span>사용자ID</span></th>
+                            <td><input type="text" name="" class="w210" value=""></td>
+                            <th><span>사업자등록번호</span></th>
+                            <td><input type="text" name="biz_ssn" class="w210" value="" maxlength="10"></td>
+                        </tr>
+                        <tr style="border-bottom : 1px solid #ddd">
+                            <th><span>상호명</span></th>
+                            <td><input type="text" name="biz_name" class="w210" value=""></td>
+                            <th><span>대표자</span></th>
+                            <td><input type="text" name="biz_ceo" class="w210" value=""></td>
+                        </tr>
+                        <tr>
+                            <th><span>전화번호</span></th>
+                            <td><input type="text" name="biz_tel" class="w210" value=""></td>
+                            <th><span>메세지발송여부</span></th>
+                            <td>
+                                <select id="search_mms_yn" name="search_mms_yn" style="width:130px;" value="">
+                                    <option value="">전체</option>
+                                    <option value="Y">발송</option>
+                                    <option value="N">미발송</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span>주소</span></th>
+                            <td><input type="text" name="" class="w210" value=""></td>
+                            <th><span>상태</span></th>
+                            <td>
+                                <select id="search_reg_status" name="search_reg_status" style="width:130px;" value="">
+                                    <option value="">전체</option>
+                                    <option value="0">승인대기</option>
+                                    <option value="1">승인</option>
+                                    <option value="2">사용중지</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span>가입일</span></th>
+                            <td colspan="3">
+                                <input type="text" name="search_reg_date_start" id="search_reg_date_start" class="w100 datepicker1" value=""> ~ 
+                                <input type="text" name="search_reg_date_end" id="search_reg_date_end" class="w100 datepicker1" value="">
+                                <span class="search_scope">
+                                    <button type="button" class="btn_ss01" onclick="setDatePrev('search_reg_date_start',2); setToday('search_reg_date_end');"><span>D-2</span></button>
+                                    <button type="button" class="btn_ss01" onclick="setDatePrev('search_reg_date_start',1); setToday('search_reg_date_end');"><span>D-1</span></button>
+                                    <button type="button" class="btn_ss01" onclick="setToday('search_reg_date_start'); setToday('search_reg_date_end');"><span>오늘</span></button>
+                                    <button type="button" class="btn_ss01" onclick="setDatePrev('search_reg_date_start',7); setToday('search_reg_date_end');"><span>7일간</span></button>
+                                    <button type="button" class="btn_ss01" onclick="setDatePrev('search_reg_date_start',15); setToday('search_reg_date_end');"><span>15일간</span></button>
+                                    <button type="button" class="btn_ss01" onclick="clearRegDate('search_reg_date_start', 'search_reg_date_end');"><span>전체</span></button>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="search_btn">
+                    <button type="button" id="data_grid" class="btn_bic">검색</button>
+                </div>
+            </div>			
+            
+            <div class="result_area">
+                <div class="result_info">
+                    <p class="txt_total">총 <strong id="txt_total_count"></strong> 명</p>
+                    <input type="hidden" id="totalCount" value="12813">
+                    <input type="hidden" id="TP" name="TP" value="">
+                    <div class="btn_down">
+                        <button type="button" id="btn_excel_download" class="btn_ss01"><span class="btn_excel">목록 다운로드</span></button>
+                        <select name="list_cnt" id="list_cnt" style="width:55px;" value="10">
+                            <option value="10">10</option>
+                        </select>
+                    </div>	
+                </div>
+                <table class="table_col" id="id_table_col">
+                    <colgroup>
+                        <col width="45">
+                        <col width="65">
+                        <col width="*">
+                        <col width="80">
+                        <col width="80">
+                        <col width="80">
+                        <col width="80">
+                        <col width="115">
+                        <col width="90">
+                        <col width="115">
+                        <col width="115">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>상태</th>
+                            <th>상호명<br>[사업자등록번호]</th>
+                            <th>대표자명</th>
+                            <th>메세지발송</th>
+                            <th>보유포인트</th>
+                            <th>전체<br>방문횟수</th>
+                            <th>최근<br>접속일</th>
+                            <th>전체<br>구매횟수</th>
+                            <th>최근<br>구매일</th>
+                            <th>가입일</th>
+                        </tr>
+                    </thead>
+                    <tbody id="buyer_tbody_id">
+                        <tr>
+                            <td colspan="11">-</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>승인</td>
+                            <td>
+                                <a href="#">룰루랄라(담양)<br>[2031296559]</a>
+                            </td>
+                            <td>오서연</td>
+                            <td>발송</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>2023-04-11</td>
+                            <td>0</td>
+                            <td></td>
+                            <td>2023-04-11</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="table_btns">
+                    <span class="float_r"><button type="button" class="btn01 btn_b" onclick="drawBuyerRegisterPop();"><span>등록</span></button></span>
+                </div>								
+                <div class="page" id="pagingDiv">
+                </div>
+            </div>
+        </div>
+        <!-- //contents -->
+    </div>
+    
+    <!-- s:등록모달 -->
+    <div class="layerPopArea" style="height: 948px; display: block; top: 0px;">
+        <div class="layerPop" align="center" style="display: block;">
+            <div class="popup w_px_900">
+                <div class="pop_tit">구매회원</div>
+                <div class="pop_cont">
+                    <form id="" name="img_form" action="/sitePopup" method="post" enctype="multipart/form-data"> 
+                        <div class="text_r mb05">
+                            <span class="important">*</span>필수입력
+                        </div>
+                        <table class="table_row table_va_middle">
+                            <colgroup>
+                                <col width="18%">
+                                <col width="32%">
+                                <col width="18%">
+                                <col width="32%">
+                            </colgroup>
+                            <tbody> 
+                                <tr>
+                                    <th>
+                                        <span>사용자ID <span class="important">*</span></span>
+                                    </th>
+                                    <td colspan="3">
+                                        <input type="text" class="w_px_210"/>
+                                        <button type="button" class="btn_ss01"><span>중복확인</span></button> 
+                                        <span class="tbl_txt">8~16자 영문+숫자 조합</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>비밀번호 <span class="important">*</span></span>
+                                    </th>
+                                    <td colspan="3"> 
+                                        <input type="password" class="w_px_210"/>
+                                        <span>8~16자 영문+숫자+특수문자 조합</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>비밀번호 확인 <span class="important">*</span></span>
+                                    </th>
+                                    <td colspan="3">
+                                        <input type="password" class="w_px_210"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>상호 <span class="important">*</span></span>
+                                    </th>
+                                    <td>
+                                        <input type="text" class="w_px_210">
+                                    </td>
+                                    <th>
+                                        <span>대표자명 <span class="important">*</span></span>
+                                    </th>
+                                    <td>
+                                        <input type="text" class="w_px_210">
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>사업자번호 <span class="important">*</span></span>
+                                    </th>
+                                    <td>
+                                        <input type="text" class="w_px_120">
+                                        <button type="button" class="btn_ss01"><span>중복확인</span></button> 
+                                    </td>
+                                    <th>
+                                        <span>개업연월일 <span class="important">*</span></span>
+                                    </th>
+                                    <td> 
+                                        <input type="text" class="w_px_120">
+                                        <span>예시&rpar;20170101</span>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>업태 <span class="important">*</span></span>
+                                    </th>
+                                    <td>
+                                        <input type="text" class="w_px_210">
+                                    </td>
+                                    <th>
+                                        <span>종목 <span class="important">*</span></span>
+                                    </th>
+                                    <td>
+                                        <input type="text" class="w_px_210">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>핸드폰 번호 <span class="important">*</span></span>
+                                    </th>
+                                    <td colspan="3">
+                                        <select class="w_px_60"> 
+                                            <option value="010">010</option>
+                                            <option value="011">011</option>
+                                            <option value="016">016</option>
+                                            <option value="017">017</option>
+                                            <option value="018">018</option>
+                                            <option value="019">019</option>
+                                            <option value="0130">0130</option>
+                                            <option value="0502">0502</option>
+                                            <option value="070">070</option>
+                                        </select> -
+                                        <input type="text" class="w_px_60" maxlength="4" value=""> -
+                                        <input type="text" class="w_px_60" maxlength="4" value="">
+                                        <div class="form_check_list d_inline_flex ml_px_50">
+                                            <label class="form_check">
+                                                <input type="checkbox" value=""> 
+                                                <span class="txt">배송 등 안내문자 동의</span>
+                                            </label>
+                                            <label class="form_check">
+                                                <input type="checkbox" value="">
+                                                <span class="txt">상품 등이벤트 정보 안내문자 동의</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <th>
+                                        <span>이메일 <span class="important">*</span></span>
+                                    </th> 
+                                    <td colspan="3"> 
+                                        <input type="text" name="biz_email1" class="w100"> @  
+                                        <input type="text" name="biz_email2" id="biz_email2" class="w100"> 
+                                        <select id="biz_email3" style="width:100px;" onchange="onChangeEmail();"> 
+                                            <option value="">- 직접입력 -</option> 
+                                            <option value="gmail.com">gmail.com</option> 
+                                            <option value="naver.com">naver.com</option> 
+                                            <option value="hanmail.net">hanmail.net</option> 
+                                            <option value="kakao.com">kakao.com</option> 
+                                            <option value="nate.com">nate.com</option>   
+                                        </select> 
+                                    </td> 
+                                </tr>
+                                <tr> 
+                                    <th>
+                                        <span>사업장주소 <span class="important">*</span></span>
+                                    </th> 
+                                    <td colspan="3"> 
+                                        <div class="d_flex jc_space_between ai_center">
+                                            <div class="d_block">
+                                                <span class="block"> 
+                                                    <input type="text" class="w55" maxlength="6" placeholder="우편번호">  
+                                                    <button type="button" class="btn_ss01" onclick="postPop('biz_zipcode', 'biz_addr1', 'biz_addr2');"><span>우편번호 찾기</span></button> 
+                                                </span> 
+                                                <span class="block mt05"><input type="text" class="w380" maxlength="300" placeholder="사업자 주소"></span> 
+                                                <span class="block mt05"><input type="text" class="w380" maxlength="300" placeholder="사업자 상세주소"></span> 
+                                            </div>
+                                        </div>
+                                    </td> 
+                                </tr>
+                                <tr> 
+                                    <th>
+                                        <span>배송지1 <span class="important">*</span></span>
+                                    </th> 
+                                    <td colspan="3"> 
+                                        <div class="d_flex jc_space_between ai_center">
+                                            <div class="d_block">
+                                                <span class="block"> 
+                                                    <input type="text" class="w55" maxlength="6" placeholder="우편번호">  
+                                                    <button type="button" class="btn_ss01" onclick="postPop('biz_zipcode', 'biz_addr1', 'biz_addr2');"><span>우편번호 찾기</span></button> 
+                                                    <div class="form_check_list d_inline_flex ml_px_20">
+                                                        <label class="form_check">
+                                                            <input type="checkbox" value=""> 
+                                                            <span class="txt">사업장 주소와 동일</span>
+                                                        </label>
+                                                    </div>
+                                                </span> 
+                                                <span class="block mt05"><input type="text" class="w380" maxlength="300" placeholder="사업자 주소"></span> 
+                                                <span class="block mt05"><input type="text" class="w380" maxlength="300" placeholder="사업자 상세주소"></span> 
+                                            </div>
+                                            <div class="d_block">
+                                                <button type="button" class="btn01 btn_g"><span>배송지 추가</span></button>
+                                            </div>
+                                        </div>
+                                    </td> 
+                                </tr>
+                                <tr> 
+                                    <th>
+                                        <span>배송지2 <span class="important">*</span></span>
+                                    </th> 
+                                    <td colspan="3"> 
+                                        <div class="d_flex jc_space_between ai_center">
+                                            <div class="d_block">
+                                                <span class="block"> 
+                                                    <input type="text" class="w55" maxlength="6" placeholder="우편번호">  
+                                                    <button type="button" class="btn_ss01" onclick="postPop('biz_zipcode', 'biz_addr1', 'biz_addr2');"><span>우편번호 찾기</span></button> 
+                                                    <div class="form_check_list d_inline_flex ml_px_20">
+                                                        <label class="form_check">
+                                                            <input type="checkbox" value=""> 
+                                                            <span class="txt">사업장 주소와 동일</span>
+                                                        </label>
+                                                    </div>
+                                                </span> 
+                                                <span class="block mt05"><input type="text" class="w380" maxlength="300" placeholder="사업자 주소"></span> 
+                                                <span class="block mt05"><input type="text" class="w380" maxlength="300" placeholder="사업자 상세주소"></span> 
+                                            </div>
+                                            <div class="d_block">
+                                                <button type="button" class="btn01 btn_b"><span>배송지 삭제</span></button>
+                                            </div>
+                                        </div>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>가상계좌 <span class="important">*</span></span>
+                                    </th>
+                                    <td colspan="3">
+                                        <select class="w_px_100"> 
+                                            <option value="">선택</option> 
+                                        </select> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>환불계좌 <span class="important">*</span></span>
+                                    </th>
+                                    <td>
+                                        <select class="w_px_100">
+                                            <option value="">선택</option> 
+                                        </select>
+                                        <input type="text" class="w_px_150" placeholder="계좌번호 입력">
+                                    </td>
+                                    <th>
+                                        <span>환불예금주 <span class="important">*</span></span>
+                                    </th>
+                                    <td>
+                                        <input type="text" class="w_px_150">
+                                    </td>
+                                </tr>
+                                <tr class="tr_hr">
+                                    <th>
+                                        <span>담당자 연락처1</span>
+                                    </th>
+                                    <td>
+                                        <select class="w_px_60"> 
+                                            <option value=""></option>
+                                        </select> -
+                                        <input type="text" class="w_px_60" maxlength="4" value=""> -  
+                                        <input type="text" class="w_px_60" maxlength="4" value=""> 
+                                    </td>
+                                    <th>
+                                        <span>담당자 연락처2</span>
+                                    </th>
+                                    <td>
+                                        <select class="w_px_60"> 
+                                            <option value=""></option>
+                                        </select> -
+                                        <input type="text" class="w_px_60" maxlength="4" value=""> -  
+                                        <input type="text" class="w_px_60" maxlength="4" value=""> 
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table> 
+                        <div class="table_btns text_c">  
+                            <button type="button" class="btn01" onclick=""><span>취소</span></button> 
+                            <button type="button" class="btn01 btn_b" onclick=""><span>등록</span></button> 
+                        </div>
+                    </form>
+                </div> 
+                <div class="pop_close">
+                    <a href="javascript:removeLayerPop();"><img src="../../../adminLayer/resources/images/admin/btn_pop_close01.gif" alt="닫기"></a> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- e:등록모달 -->
+
+    <!-- s:수정모달 -->
+    <div class="layerPopArea" style="height: 948px; display: block; top: 0px;">
+        <div class="layerPop" align="center" style="display: block;">
+            <div class="popup w_px_900">
+                <div class="pop_tit">구매회원</div>
+                <div class="pop_cont">
+                    <form id="" name="img_form" action="/sitePopup" method="post" enctype="multipart/form-data"> 
+                        <div class="text_r mb05">
+                            <span class="important">*</span>필수입력
+                        </div>
+                        <table class="table_row table_va_middle">
+                            <colgroup>
+                                <col width="18%">
+                                <col width="32%">
+                                <col width="18%">
+                                <col width="32%">
+                            </colgroup>
+                            <tbody> 
+                                <tr>
+                                    <th>
+                                        <span>사용자ID <span class="important">*</span></span>
+                                    </th>
+                                    <td colspan="3">
+                                        <input type="text" class="w_px_210" value="dalcom123"/>
+                                        <button type="button" class="btn_ss01"><span>중복확인</span></button> 
+                                        <span class="tbl_txt">8~16자 영문+숫자 조합</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>비밀번호 <span class="important">*</span></span>
+                                    </th>
+                                    <td colspan="3"> 
+                                        <input type="password" class="w_px_210"/>
+                                        <span>8~16자 영문+숫자+특수문자 조합</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>비밀번호 확인 <span class="important">*</span></span>
+                                    </th>
+                                    <td colspan="3">
+                                        <input type="password" class="w_px_210"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>상호 <span class="important">*</span></span>
+                                    </th>
+                                    <td>
+                                        <input type="text" class="w_px_210" value="달콤샤베트">
+                                    </td>
+                                    <th>
+                                        <span>대표자명 <span class="important">*</span></span>
+                                    </th>
+                                    <td>
+                                        <input type="text" class="w_px_210" value="김민정">
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>사업자번호 <span class="important">*</span></span>
+                                    </th>
+                                    <td>
+                                        <span>1793801142</span>
+                                    </td>
+                                    <th>
+                                        <span>개업연월일 <span class="important">*</span></span>
+                                    </th>
+                                    <td> 
+                                        <span>20230102</span>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>업태 <span class="important">*</span></span>
+                                    </th>
+                                    <td>
+                                        <input type="text" class="w_px_210" value="소매업">
+                                    </td>
+                                    <th>
+                                        <span>종목 <span class="important">*</span></span>
+                                    </th>
+                                    <td>
+                                        <input type="text" class="w_px_210" value="종합도소매">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>핸드폰 번호 <span class="important">*</span></span>
+                                    </th>
+                                    <td colspan="3">
+                                        <select class="w_px_60"> 
+                                            <option value="010">010</option>
+                                            <option value="011">011</option>
+                                            <option value="016">016</option>
+                                            <option value="017">017</option>
+                                            <option value="018">018</option>
+                                            <option value="019">019</option>
+                                            <option value="0130">0130</option>
+                                            <option value="0502">0502</option>
+                                            <option value="070">070</option>
+                                        </select> -
+                                        <input type="text" class="w_px_60" maxlength="4" value="6356"> -
+                                        <input type="text" class="w_px_60" maxlength="4" value="1217">
+                                        <div class="form_check_list d_inline_flex ml_px_50">
+                                            <label class="form_check">
+                                                <input type="checkbox" value="" checked> 
+                                                <span class="txt">배송 등 안내문자 동의</span>
+                                            </label>
+                                            <label class="form_check">
+                                                <input type="checkbox" value="" checked>
+                                                <span class="txt">상품 등이벤트 정보 안내문자 동의</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <th>
+                                        <span>이메일 <span class="important">*</span></span>
+                                    </th> 
+                                    <td colspan="3"> 
+                                        <input type="text" name="biz_email1" class="w100" value="faymin1"> @  
+                                        <input type="text" name="biz_email2" id="biz_email2" class="w100" value="naver.com"> 
+                                        <select id="biz_email3" style="width:100px;" onchange="onChangeEmail();"> 
+                                            <option value="">- 직접입력 -</option> 
+                                            <option value="gmail.com">gmail.com</option> 
+                                            <option value="naver.com">naver.com</option> 
+                                            <option value="hanmail.net">hanmail.net</option> 
+                                            <option value="kakao.com">kakao.com</option> 
+                                            <option value="nate.com">nate.com</option>   
+                                        </select> 
+                                    </td> 
+                                </tr>
+                                <tr> 
+                                    <th>
+                                        <span>사업장주소 <span class="important">*</span></span>
+                                    </th> 
+                                    <td colspan="3"> 
+                                        <div class="d_flex jc_space_between ai_center">
+                                            <div class="d_block">
+                                                <span class="block"> 
+                                                    <input type="text" class="w55" maxlength="6" placeholder="우편번호">  
+                                                    <button type="button" class="btn_ss01" onclick="postPop('biz_zipcode', 'biz_addr1', 'biz_addr2');"><span>우편번호 찾기</span></button> 
+                                                </span> 
+                                                <span class="block mt05"><input type="text" class="w380" maxlength="300" placeholder="사업자 주소" value="경기 수원시 팔달구 화서동 71-81"></span> 
+                                                <span class="block mt05"><input type="text" class="w380" maxlength="300" placeholder="사업자 상세주소" value="1층 달콤샤베트"></span> 
+                                            </div>
+                                        </div>
+                                    </td> 
+                                </tr>
+                                <tr> 
+                                    <th>
+                                        <span>배송지1 <span class="important">*</span></span>
+                                    </th> 
+                                    <td colspan="3"> 
+                                        <div class="d_flex jc_space_between ai_center">
+                                            <div class="d_block">
+                                                <span class="block"> 
+                                                    <input type="text" class="w55" maxlength="6" placeholder="우편번호">  
+                                                    <button type="button" class="btn_ss01" onclick="postPop('biz_zipcode', 'biz_addr1', 'biz_addr2');"><span>우편번호 찾기</span></button> 
+                                                    <div class="form_check_list d_inline_flex ml_px_20">
+                                                        <label class="form_check">
+                                                            <input type="checkbox" value=""> 
+                                                            <span class="txt">사업장 주소와 동일</span>
+                                                        </label>
+                                                    </div>
+                                                </span> 
+                                                <span class="block mt05"><input type="text" class="w380" maxlength="300" placeholder="사업자 주소" value="경기 수원시 팔달구 화서동 71-81"></span> 
+                                                <span class="block mt05"><input type="text" class="w380" maxlength="300" placeholder="사업자 상세주소" value="1층 달콤샤베트"></span> 
+                                            </div>
+                                            <div class="d_block">
+                                                <button type="button" class="btn01 btn_g"><span>배송지 추가</span></button>
+                                            </div>
+                                        </div>
+                                    </td> 
+                                </tr>
+                                <tr> 
+                                    <th>
+                                        <span>배송지2 <span class="important">*</span></span>
+                                    </th> 
+                                    <td colspan="3"> 
+                                        <div class="d_flex jc_space_between ai_center">
+                                            <div class="d_block">
+                                                <span class="block"> 
+                                                    <input type="text" class="w55" maxlength="6" placeholder="우편번호">  
+                                                    <button type="button" class="btn_ss01" onclick="postPop('biz_zipcode', 'biz_addr1', 'biz_addr2');"><span>우편번호 찾기</span></button> 
+                                                    <div class="form_check_list d_inline_flex ml_px_20">
+                                                        <label class="form_check">
+                                                            <input type="checkbox" value=""> 
+                                                            <span class="txt">사업장 주소와 동일</span>
+                                                        </label>
+                                                    </div>
+                                                </span> 
+                                                <span class="block mt05"><input type="text" class="w380" maxlength="300" placeholder="사업자 주소"></span> 
+                                                <span class="block mt05"><input type="text" class="w380" maxlength="300" placeholder="사업자 상세주소"></span> 
+                                            </div>
+                                            <div class="d_block">
+                                                <button type="button" class="btn01 btn_b"><span>배송지 삭제</span></button>
+                                            </div>
+                                        </div>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>가상계좌 <span class="important">*</span></span>
+                                    </th>
+                                    <td>
+                                        <select class="w_px_100"> 
+                                            <option value="">선택</option> 
+                                        </select> 
+                                    </td>
+                                    <th>
+                                        <span>점포고정계좌</span>
+                                    </th>
+                                    <td>
+                                        <span>79016238941712</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>환불계좌</span>
+                                    </th>
+                                    <td>
+                                        <select class="w_px_100">
+                                            <option value="">국민은행</option> 
+                                        </select>
+                                        <input type="text" class="w_px_150" placeholder="계좌번호 입력" value="123456-78-901234">
+                                    </td>
+                                    <th>
+                                        <span>환불예금주</span>
+                                    </th>
+                                    <td>
+                                        <input type="text" class="w_px_150" value="김민정">
+                                    </td>
+                                </tr>
+                                <tr class="tr_hr">
+                                    <th>
+                                        <span>담당자 연락처1</span>
+                                    </th>
+                                    <td>
+                                        <select class="w_px_60"> 
+                                            <option value=""></option>
+                                        </select> -
+                                        <input type="text" class="w_px_60" maxlength="4" value=""> -  
+                                        <input type="text" class="w_px_60" maxlength="4" value=""> 
+                                    </td>
+                                    <th>
+                                        <span>담당자 연락처2</span>
+                                    </th>
+                                    <td>
+                                        <select class="w_px_60"> 
+                                            <option value=""></option>
+                                        </select> -
+                                        <input type="text" class="w_px_60" maxlength="4" value=""> -  
+                                        <input type="text" class="w_px_60" maxlength="4" value=""> 
+                                    </td>
+                                </tr>
+                                <tr class="tr_hr">
+                                    <th>
+                                        <span>상태 <span class="important">*</span></span>
+                                    </th>
+                                    <td>
+                                        <select class="w_px_100"> 
+                                            <option value="">승인</option>
+                                        </select>
+                                    </td>
+                                    <th>
+                                        <span>승인자 정보</span>
+                                    </th>
+                                    <td>
+                                        <span>NOT_DEF7</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>회원가입일</span>
+                                    </th>
+                                    <td>
+                                        <span>2023-01-10</span>
+                                    </td>
+                                    <th>
+                                        <span>최근로그인</span>
+                                    </th>
+                                    <td>
+                                        <span>2023-04-10</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span>메세지 발송여부</span>
+                                    </th>
+                                    <td colspan="3">
+                                        <select class="w_px_100"> 
+                                            <option value="">발송</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table> 
+                        <div class="table_btns text_c">  
+                            <button type="button" class="btn01" onclick=""><span>취소</span></button> 
+                            <button type="button" class="btn01 btn_b" onclick=""><span>수정</span></button> 
+                        </div>
+                    </form>
+                </div> 
+                <div class="pop_close">
+                    <a href="javascript:removeLayerPop();"><img src="../../../adminLayer/resources/images/admin/btn_pop_close01.gif" alt="닫기"></a> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- e:수정모달 -->
+
+    <script>
+        $(document).ready(function(){
+            getMenuListAjax("buyerListAdm.html", initPage);
+            initPage();
+        });
+        function initPage(){
+            $.datepicker.setDefaults({
+                dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+                dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], 
+                monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+                monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                yearSuffix: '년',
+                dateFormat: 'yy-mm-dd',
+                showOn: "both",
+                buttonImage : "../../../adminLayer/eum/resources/images/common/calendar.png",
+                buttonImageOnly: true,
+                showMonthAfterYear:true,
+                constrainInput: true,
+                changeMonth: true,
+                changeYear: true
+            });
+            $('input[name="search_reg_date_start"]').datepicker();
+            $('input[name="search_reg_date_end"]').datepicker();
+            $('input[name="search_reg_date_start"]').datepicker("setDate", "today");
+            $('input[name="search_reg_date_end"]').datepicker("setDate", "today");
+
+            //화면 초기값 설정
+            setInitValueToUI();
+            
+            //초기값
+            document.body.style.cursor = "wait";
+            getBuyerData(1);
+            document.body.style.cursor = "default";
+
+            $("#btn_excel_download").on("click", function()
+            {
+                excelDownload();
+            });
+
+            //검색버튼 클릭
+            $("#data_grid").click(function(){
+                document.body.style.cursor = "wait";
+                getBuyerData(1);
+                document.body.style.cursor = "default";
+            });
+        }
+        // 임시 추가 - 레이어팝업 닫기
+        $('.layerPop .pop_close').click((e)=>{
+            e.preventDefault();
+            const $this = e.currentTarget;
+            $($this).closest('.layerPopArea').hide();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>사자고 사이트맵</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📋</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+        @font-face {
+            font-family: 'S-CoreDream-3Light';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'S-CoreDream-6Bold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        * { margin:0; padding:0; font-size: 16px; color: #303C47; font-family: 'S-CoreDream-3Light'; }
+        html ,body { height:100%; margin:0; padding:0; border:0px; font-weight: 400; font-family: 'S-CoreDream-3Light', 'Noto Sans KR', sans-serif; color:#303C47; }
+        th,td { word-break:break-all; word-wrap:break-word; vertical-align: middle; }
+        table { border-spacing:0; border-collapse:collapse; width:100%; }
+        ol,ul,li { list-style:none; }
+        h1,h2,h3,h4,h5,h6 { font-size:100%; line-height:normal; }
+        img, fieldset { border:0 none; }
+        label { cursor:pointer; }
+        a:focus, a:hover, a:active { color:#01a0e2; text-decoration:underline; }
+
+        .title { font-family: 'S-CoreDream-6Bold'; font-weight: 700; }
+        .guide-wrap { padding: 10px; }
+        .guide-wrap .guide-head { margin-bottom: 50px; padding-bottom: 10px; border-bottom: 1px solid #303C47; }
+        .guide-wrap .guide-head .title { display: inline-block; font-size: 40px; color: #303C47; }
+        .guide-wrap .guide-head .title span { color: inherit; }
+
+        .hd { position: relative; margin-bottom: 10px; border-bottom: 4px solid #d7d7d7; }
+        .hd .title { font-size: 18px; color:#303C47; display: inline-block; border-bottom: 4px solid #01a0e2; padding: 10px; margin-bottom: -4px; }
+        .hd .num { margin-left: 5px; }
+        .hd .top { position: absolute; right: 5px; bottom: 5px; font-size: 16px; font-weight: bold; letter-spacing: -1px; padding: 0 4px; }
+        .hd .top:hover { background-color:#01a0e2; color:#fff; }
+
+        .section { border-bottom:1px solid #ddd; margin-bottom:20px; position:relative; }
+        .section table caption { display: none; }
+        .section table thead th { color:#fff; background-color:#303C47; padding: 15px; border: 1px solid #ddd; border-top:0; font-size: 14px; }
+        .section table tbody tr:first-child th,
+        .section table tbody tr:first-child td { border-top: 1px solid #303C47; }
+        .section table tbody th { padding: 10px; color:#303C47; border-left:1px solid #ddd; border-top: 1px solid #ddd; font-weight: 500; font-size: 20px; }
+        .section table tbody th:first-child { font-family: 'S-CoreDream-6Bold';}
+        .section table tbody .gp { border-top: 0; }
+        .section table tbody td { padding: 10px 15px; border: 1px solid #ddd; border-bottom: 0; color:#303C47; font-size: 16px; text-align: left; }
+        .section table tbody th.depth { font-weight: 700; font-size: 18px; text-align:center; }
+        .section table tbody td.ico_inner { font-weight: 400; }
+        .section table tbody tr.del th,
+        .section table tbody tr.del td,
+        .section table tbody tr.del td a { background-color: #fafafa !important; color: #c0c0c0 !important; font-style: normal; }
+        .section table tbody tr:hover th,
+        .section table tbody tr:hover td { background-color:#F1F6F9; }
+        .section table tbody td a + a { margin-top: 5px; }
+        .section a { font-size: 14px; }
+        .section a.keycode { color:#666; }
+        .section a.ja { color:#c81528; }
+        .section a.en { color:#0070bf; }
+        .section a:hover { font-style: italic; }
+
+        .ico_inner { font-weight: 700; font-size: 20px; color:#303C47; }
+        .emoji { font-family: apple color emoji,segoe ui emoji,noto color emoji,android emoji,emojisymbols,emojione mozilla,twemoji mozilla,segoe ui symbol; font-size: inherit; font-weight: 400; }
+    </style>
+
+</head>
+
+<body>
+    <!-- s:wrap -->
+    <div id="wrap" class="guide-wrap">
+        <div class="guide-head">
+            <h1 class="title"><span class="emoji">📋</span> 사자고 사이트맵<span>(파일명 항목 링크 새창 열기)</span></h1>
+            <span class="state"></span>
+        </div>
+ 
+        <div class="hd">
+            <h2 class="title" id="sectionKo">한국어<span class="num"></span></h2>
+        </div>
+
+        <!-- s: 코딩리스트 -->
+        <div class="section">
+            <table>
+                <colgroup>
+                    <col width="15%" />
+                    <col width="10%" />
+                    <col width="25%" />
+                    <col width="*"/>
+                    <col width="15%" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col">1Depth</th>
+                        <th scope="col">2Depth</th>
+                        <th scope="col">3Depth 이하</th>
+                        <th scope="col">URL</th>
+                        <th scope="col">참고주석</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="depth">메인</th>
+                        <td class="depth"></td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/index.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">검색</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/searchResult.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="depth">리스트 영역</th>
+                        <td class="depth"></td>
+                        <td class="depth"></td>
+                        <td>
+                            <!-- <a href="./contents/"></a> -->
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">카테고리 상품</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/category.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">특가상품</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/specialOffer.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">BEST</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/bestSale.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">신상품</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/newGoods.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">브랜드몰</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/brandmall.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth ico_inner"></td>
+                        <td class="depth">개별브랜드몰</td>
+                        <td>
+                            <a href="./contents/subBrandmall.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">통합배송관</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/combinedDelivery.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">우수기업관</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/excellentBusiness.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="depth">로그인</th>
+                        <td class="depth"></td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/accounts/login.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">아이디 찾기</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/accounts/findId.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth ico_inner"></td>
+                        <td class="depth">아이디 찾기 결과</td>
+                        <td>
+                            <a href="./contents/accounts/findIdResult.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">비밀번호 찾기</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/accounts/findPassword.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth ico_inner"></td>
+                        <td class="depth">비밀번호 재설정</td>
+                        <td>
+                            <a href="./contents/accounts/findPasswordResult.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="depth">회원가입</th>
+                        <td class="depth">약관동의</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/join/signUp.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">회원정보입력</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/join/enterMemberInfo.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth ico_inner"></td>
+                        <td class="depth">가입완료</td>
+                        <td>
+                            <a href="./contents/join/signUpCompleted.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="depth">고객센터</th>
+                        <td class="depth"></td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/cs/cs.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="depth">마이페이지(로그인 시)</th>
+                        <td class="depth">주문배송조회</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/myPage/orderList.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth ico_inner"></td>
+                        <td class="depth">주문취소 완료</td>
+                        <td>
+                            <a href="./contents/myPage/detail/orderCancelCompleted.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth ico_inner"></td>
+                        <td class="depth">상세 내역 - 배송전</td>
+                        <td>
+                            <a href="./contents/myPage/detail/detailOrderList.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth ico_inner"></td>
+                        <td class="depth">상세 내역 - 배송후</td>
+                        <td>
+                            <a href="./contents/myPage/detail/detailOrderList2.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth ico_inner"></td>
+                        <td class="depth">상세 내역 - 반품완료</td>
+                        <td>
+                            <a href="./contents/myPage/detail/detailOrderList3.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth ico_inner"></td>
+                        <td class="depth">배송조회</td>
+                        <td>
+                            <a href="./contents/myPage/detail/deliveryCheck.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth ico_inner"></td>
+                        <td class="depth">교환/반품 신청</td>
+                        <td>
+                            <a href="./contents/myPage/detail/exchangeReturn.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth ico_inner"></td>
+                        <td class="depth">교환/반품 신청 - 교환완료</td>
+                        <td>
+                            <a href="./contents/myPage/detail/exchangeCompleted.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth ico_inner"></td>
+                        <td class="depth">교환/반품 신청 - 반품완료</td>
+                        <td>
+                            <a href="./contents/myPage/detail/returnCompleted.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">취소환불내역</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/myPage/orderCancel/orderCancelList.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth ico_inner"></td>
+                        <td class="depth">상세내역</td>
+                        <td>
+                            <a href="./contents/myPage/orderCancel/cancelDetailList.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">관심상품</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/myPage/favoriteGoods.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">할인쿠폰</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/myPage/coupon.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">등급 혜택 소개</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/myPage/benefit.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">장바구니 혜택 소개</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/myPage/cartBenefit.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">문의하기/답변확인</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/myPage/confirm/confirmInquiry.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth ico_inner"></td>
+                        <td class="depth">질문하기</td>
+                        <td>
+                            <a href="./contents/myPage/confirm/inquiry.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">회원정보 확인/수정</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/myPage/myPage.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth"></td>
+                        <td class="depth">회원 탈퇴</td>
+                        <td>
+                            <a href="./contents/myPage/deleteAccount.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth"></td>
+                        <td class="depth">회원 탈퇴 완료</td>
+                        <td>
+                            <a href="./contents/myPage/deleteAccountCompleted.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">장려금 확인</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/myPage/incentive.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="depth">장바구니</th>
+                        <td class="depth"></td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/cartStep1.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth">주문하기</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/cartStep2.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth">주문완료</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/cartStep3.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="depth">푸터 영역</th>
+                        <td class="depth">사자고 소개</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/introduction.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">이용안내</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/usageGuide.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">개인정보 처리방침</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/personalInfoPolicy.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth ico_inner"></th>
+                        <td class="depth">제조사 입점신청</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/entryManufacturer.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="depth">프로모션</th>
+                        <td class="depth">상품 목록</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/promotion.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- e: 코딩리스트 -->
+
+    </div>
+    <!-- e:wrap -->
+    <script>
+
+        $(document).ready(function(){
+
+            $("tr").each(function (index, item) {
+                // depth
+                for(var i = 0;i < 2;i++){
+                    if ($(this).find(".depth").eq(i).text() == ""){
+                        $(this).find(".depth").eq(i).addClass("ico_inner");
+                        $(this).find(".depth").eq(i).text("⤷");
+                    }
+                }
+                if ($(this).find(".depth").eq(2).text() == "" && $(this).find(".depth").eq(1).text() == "⤷"){
+                    $(this).find(".depth").eq(1).removeClass("ico_inner");
+                    $(this).find(".depth").eq(1).text("");
+                }
+                if ($(this).find(".depth").eq(0).text() == "⤷" && $(this).find(".depth").eq(1).text() == "⤷"){
+                    $(this).find(".depth").eq(0).removeClass("ico_inner");
+                    $(this).find(".depth").eq(0).text("");
+                }
+                // href
+                var txt = $(item).find("a").attr("href");
+                $(item).find("a").text(txt);
+                $(item).find("a").attr("target","_blank");
+            });
+
+            $(".hd .top").on("click", function(){
+                $("html, body").animate({
+                    "scrollTop" : 0
+                }, 300);
+                return false;
+            })
+
+            $(".hd .title .num").each(function(){
+                var $this = $(this);
+                $this.text( "(" + $this.closest(".hd").next(".section").find("tbody tr:not('.del')").length + " page)" );
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

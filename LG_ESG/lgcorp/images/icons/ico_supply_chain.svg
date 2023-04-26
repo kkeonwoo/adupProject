@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="107" height="106" viewBox="0 0 107 106">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_86" data-name="사각형 86" width="107" height="106" transform="translate(0.306 -0.078)" fill="none" stroke="#707070" stroke-width="5"/>
+    </clipPath>
+  </defs>
+  <g id="그룹_1271" data-name="그룹 1271" transform="translate(-0.306 0.078)">
+    <g id="그룹_1270" data-name="그룹 1270" transform="translate(0 0)" clip-path="url(#clip-path)">
+      <ellipse id="타원_6" data-name="타원 6" cx="17" cy="16.5" rx="17" ry="16.5" transform="translate(30.306 37.922)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      <circle id="타원_7" data-name="타원 7" cx="11.5" cy="11.5" r="11.5" transform="translate(75.306 41.922)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      <ellipse id="타원_8" data-name="타원 8" cx="11" cy="11.5" rx="11" ry="11.5" transform="translate(13.306 10.922)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      <ellipse id="타원_9" data-name="타원 9" cx="11" cy="11.5" rx="11" ry="11.5" transform="translate(13.306 74.922)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      <line id="선_139" data-name="선 139" x1="11" transform="translate(64.306 53.922)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      <line id="선_140" data-name="선 140" x1="6.449" y1="9.271" transform="translate(31.107 30.96)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      <line id="선_141" data-name="선 141" x1="6.453" y2="9.268" transform="translate(31.107 67.977)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      <line id="선_142" data-name="선 142" x2="4.523" y2="6.522" transform="translate(56.66 68.109)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      <line id="선_143" data-name="선 143" y1="7.069" x2="5.138" transform="translate(57.057 33.312)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      <line id="선_144" data-name="선 144" x1="8" transform="translate(22.306 53.922)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      <ellipse id="타원_10" data-name="타원 10" cx="5.5" cy="6" rx="5.5" ry="6" transform="translate(11.306 48.922)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      <ellipse id="타원_11" data-name="타원 11" cx="6.5" cy="6" rx="6.5" ry="6" transform="translate(57.306 73.922)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      <ellipse id="타원_12" data-name="타원 12" cx="6" cy="5.5" rx="6" ry="5.5" transform="translate(59.306 22.922)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+    </g>
+  </g>
+</svg>

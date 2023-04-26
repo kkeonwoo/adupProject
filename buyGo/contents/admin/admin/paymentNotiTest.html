@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="../../../adminLayer/resources/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="../../../adminLayer/resources/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../../adminLayer/resources/css/admin.css?">
+	<link rel="stylesheet" href="../../../adminLayer/resources/css/jquery-ui.css?">
+	<link rel="stylesheet" href="../../../adminLayer/resources/css/swiper.css?">
+	
+	<!-- -----------윤희상 html 공통부분 START------------- -->
+    <!-- <script defer type="text/javascript" src="../../../adminLayer/eum/js/common/cPagingModule.js"></script>
+	<script defer type="text/javascript" src="../../../adminLayer/eum/js/common/cCheckClientPattern.js"></script>
+    <script defer type="text/javascript" src="../../../adminLayer/eum/js/admin/cGetAdminCommonModule.js"></script>
+    <script defer type="text/javascript" src="../../../adminLayer/eum/js/admin/cGetAdminPageMenu.js"></script>
+	<script defer type="text/javascript" src="../../../adminLayer/eum/js/admin/cAdminListAdm.js"></script>
+	<script defer type="text/javascript" src="../../../adminLayer/eum/js/admin/cAdminListPopAdm.js"></script>
+	 -->
+	<!-- <script type="text/javascript" src="../../../adminLayer/crypto-js.js"></script> -->
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="text/javascript" src="../../../adminLayer/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../adminLayer/jquery-ui.js"></script>
+    <script type="text/javascript" src="../../../adminLayer/jquery-ui.min.js"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+    <!--이미지 도구모음 금지-->
+    <meta http-equiv="imagetoolbar" context="no"></head>
+    <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- iOS Part -->
+    <!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 상태 바의 스타일을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+    <!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-title" content="Timer">-->
+    <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+    <!-- <link rel="apple-touch-icon" href="icons/icon-152x152.png">-->
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+    <!-- Android part -->
+    <!-- 웹 앱 매니페스트를 읽어 들이기 -->
+    <link rel="manifest" type="text/json"  href="../../../adminLayer/manifest.json">
+    <script>history.replaceState({}, null, location.pathname);</script>
+    <!-- -----------윤희상 html 공통부분 END------------- -->
+
+	<title>더이음몰 통합관리자 (KICC PAYMENT NOTIFICATION 수신 TEST PAGE)</title>
+</head>
+<body>
+	<div class="wrap">
+		<div class="header">
+			<div class="top">
+				<h1>
+					<img src="../../../adminLayer/resources/images/admin/logo.gif" width="105" height="40" alt="나들가게 이음몰" onclick="location.href='/admin/orderManagement/fullOrderList?initPage=Y';" style="cursor:pointer;"> 
+					<img src="../../../adminLayer/resources/images/admin/sitetit.gif" alt="통합관리자" onclick="location.href='/admin/orderManagement/fullOrderList?initPage=Y';" style="cursor:pointer;">
+				</h1>
+				<div class="logout">
+                </div>
+			</div>
+		</div>
+		<!-- //header -->
+		<!-- container -->
+		<div class="container">
+			<div class="contents">
+				<h3>Setting Params 입금완료 Notification Test (KICC는 Real계: euc-kr 로 전송해야 함)</h3>
+                <!-- 실제로 송신 테스트 할때는 sajago로 송신하고 자체적으로 쏠때는 local로 송신하도록 주석처리를 바꿀 것 -->
+				<!-- <form id="frmIF" name="frm" action="http://www.sajago.co.kr/eum/uKicc" method="post" enctype="application/x-www-form-urlencoded" accept-charset="euc-kr" onsubmit="document.charset='euc-kr';">  -->
+                <!-- <form id="frmIF" name="frm" action="http://localhost:3737/eum/uKicc" method="post" enctype="application/x-www-form-urlencoded" accept-charset="euc-kr" onsubmit="document.charset='euc-kr';"></form> -->
+                <form id="frmIF" name="frm" action="http://localhost:3737/eum/uKicc" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8" onsubmit="document.charset='utf-8';"></form>
+					<div class="search_area">
+						<table class="table_row">
+							<colgroup>
+                                <col width="220">
+                                <col width="*">
+                            </colgroup>
+							<tbody>
+								<tr>
+									<th><span>1. 응답코드</span></th>
+									<td><input type="text" name="r_res_cd" class="w210" value=""></td>
+                                </tr>
+                                <tr>
+									<th><span>2. 응답메시지</span></th>
+									<td><input type="text" name="r_res_msg" class="w210" value=""></td>
+                                </tr>
+                                <tr>
+                                    <th><span>3. PG거래번호</span></th>
+                                    <td><input type="text" name="r_cno" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>4. 가맹점ID</span></th>
+                                    <td><input type="text" name="r_memb_id" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>5. 총결제금액</span></th>
+                                    <td><input type="text" name="r_amount" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>6. 주문번호</span></th>
+                                    <td><input type="text" name="r_order_no" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>7. 노티구분</span></th>
+                                    <td><input type="text" name="r_noti_type" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>8. 승인번호</span></th>
+                                    <td><input type="text" name="r_auth_no" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>9. 승인,변경일시</span></th>
+                                    <td><input type="text" name="r_tran_date" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>10. 카드번호</span></th>
+                                    <td><input type="text" name="r_card_no" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>11. 발급사코드</span></th>
+                                    <td><input type="text" name="r_issuer_cd" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>12. 발급사명</span></th>
+                                    <td><input type="text" name="r_issuer_nm" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>13. 매입사코드</span></th>
+                                    <td><input type="text" name="r_acquirer_cd" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>14. 매입사명</span></th>
+                                    <td><input type="text" name="r_acquirer_nm" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>15. 할부개월</span></th>
+                                    <td><input type="text" name="r_install_period" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>16. 무이자여부</span></th>
+                                    <td><input type="text" name="r_noint" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>17. 은행코드</span></th>
+                                    <td><input type="text" name="r_bank_cd" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>18. 은행명</span></th>
+                                    <td><input type="text" name="r_bank_nm" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>19. 계좌번호</span></th>
+                                    <td><input type="text" name="r_account_no" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>20. 입금자명</span></th>
+                                    <td><input type="text" name="r_deposit_nm" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>21. 에스크로 사용유무</span></th>
+                                    <td><input type="text" name="r_escrow_yn" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>22. 결제수단</span></th>
+                                    <td><input type="text" name="r_pay_type" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>23. 현금영수증 발급유무</span></th>
+                                    <td><input type="text" name="r_cash_issue_yn" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>24. 현금영수증 결과코드</span></th>
+                                    <td><input type="text" name="r_cash_res_cd" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>25. 현금영수증 발행일시</span></th>
+                                    <td><input type="text" name="r_cash_tran_date" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>26. 현금영수증 승인번호</span></th>
+                                    <td><input type="text" name="r_cash_auth_no" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>27. 에스크로 상태코드 </span></th>
+                                    <td><input type="text" name="r_stat_cd" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>28. 에스크로 상태메시지</span></th>
+                                    <td><input type="text" name="r_stat_msg" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>29. 채번 거래번호</span></th>
+                                    <td><input type="text" name="r_tlf_sno" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>30. 채번계좌 타입</span></th>
+                                    <td><input type="text" name="r_account_type" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>31. 고객ID(거래처코드)</span></th>
+                                    <td><input type="text" name="r_user_id" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>32. 고객명(영업자코드)</span></th>
+                                    <td><input type="text" name="r_user_nm" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>33. 가맹점 DATA</span></th>
+                                    <td><input type="text" name="r_reserve3" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>34. 취소일시</span></th>
+                                    <td><input type="text" name="r_canc_date" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>35. 가맹점 DATA</span></th>
+                                    <td><input type="text" name="r_reserve1" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>36. 가맹점 DATA</span></th>
+                                    <td><input type="text" name="r_reserve2" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>37. 가맹점 DATA</span></th>
+                                    <td><input type="text" name="r_reserve4" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>38. 가맹점 DATA</span></th>
+                                    <td><input type="text" name="r_reserve5" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>39. 가맹점 DATA</span></th>
+                                    <td><input type="text" name="r_reserve6" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>40. 결제상세수단</span></th>
+                                    <td><input type="text" name="r_noti_subtype" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>41. 입금은행코드</span></th>
+                                    <td><input type="text" name="r_depo_bkcd" class="w210" value=""></td>
+								</tr>
+                                <tr>
+                                    <th><span>42. 입금은행명</span></th>
+                                    <td><input type="text" name="r_depo_bknm" class="w210" value=""></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+                    <div class="search_btn">
+                        <button type="submit" id="send_if" class="btn_bic">전송!!</button>
+                    </div>
+				</form>
+				
+			</div>
+			<!-- //contents -->
+		</div>
+		<!-- //container -->
+	</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		//검색버튼 클릭
+		$("#send_if").click(function(){
+			//$("#frmIF").submit();
+            //ajax POST방식으로 전송
+            var sendData={};
+            sendData.res_cd         = "0000";
+            sendData.r_res_msg      = "OK";
+            sendData.cno            =  document.getElementsByName("r_cno")[0].value;;// PG거래번호         
+            sendData.memb_id        =  document.getElementsByName("r_memb_id")[0].value;// 가맹점 ID          
+            sendData.amount         =  document.getElementsByName("r_amount")[0].value;// 총 결제금액        
+            sendData.order_no       =  document.getElementsByName("r_order_no")[0].value;// 주문번호           
+            sendData.noti_type      =  document.getElementsByName("r_noti_type")[0].value;// 노티구분           
+            sendData.auth_no        =  document.getElementsByName("r_auth_no")[0].value;// 승인번호           
+            sendData.tran_date      =  document.getElementsByName("r_tran_date")[0].value;// 승인/변경 일시     
+            sendData.card_no        =  document.getElementsByName("r_card_no")[0].value;// 카드번호           
+            sendData.issuer_cd      =  document.getElementsByName("r_issuer_cd")[0].value;// 발급사코드         
+            sendData.issuer_nm      =  document.getElementsByName("r_issuer_nm")[0].value;// 발급사명           
+            sendData.acquirer_cd    =  document.getElementsByName("r_acquirer_cd")[0].value;// 매입사코드         
+            sendData.acquirer_nm    =  document.getElementsByName("r_acquirer_nm")[0].value;// 매입사명           
+            sendData.install_period =  document.getElementsByName("r_install_period")[0].value;// 할부개월           
+            sendData.noint          =  document.getElementsByName("r_noint")[0].value;// 무이자여부         
+            sendData.bank_cd        =  document.getElementsByName("r_bank_cd")[0].value;// 은행코드           
+            sendData.bank_nm        =  document.getElementsByName("r_bank_nm")[0].value;// 은행명             
+            sendData.account_no     =  document.getElementsByName("r_account_no")[0].value;// 계좌번호           
+            sendData.deposit_nm     =  document.getElementsByName("r_deposit_nm")[0].value;// 입금자명           
+            sendData.escrow_yn      =  document.getElementsByName("r_escrow_yn")[0].value;// 에스크로 사용유무  
+            sendData.pay_type       =  document.getElementsByName("r_pay_type")[0].value;// 결제수단           
+            sendData.cash_issue_yn  =  document.getElementsByName("r_cash_issue_yn")[0].value;// 현금영수증 발급유무
+            sendData.cash_res_cd    =  document.getElementsByName("r_cash_res_cd")[0].value;// 현금영수증 결과코드
+            sendData.cash_tran_date =  document.getElementsByName("r_cash_tran_date")[0].value;// 현금영수증 발행일시
+            sendData.cash_auth_no   =  document.getElementsByName("r_cash_auth_no")[0].value;// 현금영수증 승인번호
+            sendData.stat_cd        =  document.getElementsByName("r_stat_cd")[0].value;// 에스크로 상태코드  
+            sendData.stat_msg       =  document.getElementsByName("r_stat_msg")[0].value;// 에스크로 상태메시지
+            sendData.tlf_sno        =  document.getElementsByName("r_tlf_sno")[0].value;// 채번 거래번호      
+            sendData.account_type   =  document.getElementsByName("r_account_type")[0].value;// 채번계좌 타입      
+            sendData.user_id        =  document.getElementsByName("r_user_id")[0].value;// 고객ID(거래처코드) 
+            sendData.user_nm        =  document.getElementsByName("r_user_nm")[0].value;// 고객명(영업자코드) 
+            sendData.reserve3       =  document.getElementsByName("r_reserve3")[0].value;// 가맹점 DATA        
+            sendData.canc_date      =  document.getElementsByName("r_canc_date")[0].value;// 취소일시           
+            sendData.reserve1       =  document.getElementsByName("r_reserve1")[0].value;// 가맹점 DATA        
+            sendData.reserve2       =  document.getElementsByName("r_reserve2")[0].value;// 가맹점 DATA      	  
+            sendData.reserve4       =  document.getElementsByName("r_reserve4")[0].value;// 가맹점 DATA        
+            sendData.reserve5       =  document.getElementsByName("r_reserve5")[0].value;// 가맹점 DATA        
+            sendData.reserve6       =  document.getElementsByName("r_reserve6")[0].value;// 가맹점 DATA        
+            sendData.noti_subtype   =  document.getElementsByName("r_noti_subtype")[0].value;// 결제상세수단       
+            sendData.depo_bkcd      =  document.getElementsByName("r_depo_bkcd")[0].value;// 입금은행코드       
+            sendData.depo_bknm      =  document.getElementsByName("r_depo_bknm")[0].value;// 입금은행명 
+
+            try
+            {
+                $.ajax({
+                    //url: "http://www.sajago.co.kr/eum/uKicc",
+                    //url: "http://localhost:3737/eum/uKicc",
+                    url: "http://localhost:3721/eum/uKiccInternal",
+                    type: "POST", async: false, dataType: "JSON", crossOrigin: true, cache: false, crossDomain: true,
+                    //contentType: "application/x-www-form-urlencoded; charset=euc-kr",
+                    contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                    //data:JSON.stringify(sendData),
+                    data:sendData,
+                    success: function(response){
+                        alert("send success!");
+                    },
+                    error: function(qXHR, textStatus, errorThrown){
+                        alert("[err messager]:" + textStatus);
+                        console.log("error #### = "+textStatus);
+                    }
+                });
+            }
+            catch(e)
+            {
+                console.log("exception!="+e.message);
+            };
+		});
+	});
+</script>
+</body>
+</html>

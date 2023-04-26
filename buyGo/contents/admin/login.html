@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- 푸시테스트 -->
+    <!-- <meta http-equiv="Expires" content="-1" /> -->
+    <!-- 페이지 로드시마다 페이지를 캐싱하지 않음. (HTTP 1.0) -->
+    <meta http-equiv="Pragma" content="no-cache" />
+    <!-- 페이지 로드시마다 페이지를 캐싱하지 않음. (HTTP 1.1) -->
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <!-- <link rel="stylesheet" href="../../../adminLayer/main/resources/css/web.css"> -->
+    <link rel="stylesheet" type="text/css" href="../../../adminLayer/main/resources/css/admin/commonpf2.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../adminLayer/main/resources/css/admin/dropDownList.css"/>
+    <link rel="shortcut icon" href="../../../adminLayer/main/resources/images/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=yes,maximum-scale=1,width=400" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"/> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+    <!--이미지 도구모음 금지-->
+    <meta http-equiv="imagetoolbar" context="no"></head>
+    <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+    <script type="text/javascript" src="../../../adminLayer/common/resources/jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../adminLayer/common/resources/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../../adminLayer/node_modules/crypto-js/crypto-js.js"></script>
+    <script defer type="text/javascript" src="../../../adminLayer/common/js/commonUI.js"></script>
+    <link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <script>history.replaceState({}, null, location.pathname);</script>
+    <title>the SAJAGO Shop login</title>
+	<script type="text/javascript" src="../../../adminLayer/main/js/common/cFuncs.js"></script>
+    <style>
+        :root {
+            --fn-blue: #0c4fe8;
+            /* --fn-indigo: #6610f2; */
+            --fn-purple: #890b84;
+            /* --fn-pink: #d63384; */
+            --fn-red: #e8380c;
+            --fn-orange: #e8380c;
+            /* --fn-yellow: #ffc107; */
+            /* --fn-green: #28a745; */
+            /* --fn-teal: #20c997; */
+            /* --fn-cyan: #0dcaf0; */
+            --fn-diamond: #65b1d3;
+            --fn-gold: #caa650;
+            --fn-brown: #d0885f;
+            --fn-silver: #b5b6b6;
+            --fn-white: #fff;
+            --fn-gray: #9a9a9a;
+            --fn-black: #1d1d1d;
+            --fn-gray-dark-100: #c1c1c1;
+            --fn-gray-dark-200: #939292;
+            --fn-gray-dark-250: #979797;
+            --fn-gray-dark-300: #6e6e6e;
+            --fn-gray-dark-400: #303032;
+            --fn-gray-dark-500: #39383d;
+            --fn-gray-dark-600: #2a2a2c;
+            --fn-gray-100: #f1f1f1;
+            --fn-gray-150: #fafafa;
+            --fn-gray-200: #f5f5f5;
+            --fn-gray-250: #efefef;
+            --fn-gray-300: #e4e4e4;
+            --fn-gray-400: #d3d3d3;
+            --fn-gray-500: #b8b8b8;
+            --fn-gray-600: #b1b1b1;
+            --fn-gray-620: #b8b8b8;
+            --fn-gray-650: #adadad;
+            --fn-gray-700: #a8a8a8;
+            --fn-gray-800: #585d68;
+            --fn-gray-900: #333;
+            --fn-primary: var(--fn-blue);
+            --fn-secondary: var(--fn-gray-500);
+            --fn-success: var(--fn-green);
+            --fn-info: var(--fn-cyan);
+            --fn-warning: var(--fn-yellow);
+            --fn-danger: var(--fn-red);
+            --fn-light: var(--fn-gray-100);
+            --fn-dark: var(--fn-gray-900);
+            --fn-focus: var(--fn-gray-900);
+            --fn-Tahoma: 'Tahoma', 'Noto Sans KR', '맑은 고딕', 'sans-serif';
+            --fn-SCoreDream: 'SCoreDream', 'Noto Sans KR', '맑은 고딕', 'sans-serif';
+        }
+
+        body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,tr,td,thead,tbody,form,fieldset,legend,input,textarea,button{margin:0;padding:0;}
+        img,fieldset,iframe {border:none;}
+        table { border: none; border-collapse: collapse; padding: 0; border-spacing: 0; table-layout: fixed; width: 100%;}
+        table td { word-break: break-all;}
+        legend, caption { position: absolute; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important;}
+        button { border: none; background: none; vertical-align: middle; appearance: none; -webkit-appearance: none; border-radius: 0; -webkit-border-radius: 0;}
+        label, button { cursor: pointer;}
+
+        .blind {position: absolute;width: 1px !important;height: 1px !important;padding: 0 !important;margin: -1px !important;overflow: hidden !important;clip: rect(0, 0, 0, 0) !important;white-space: nowrap !important;border: 0 !important;}
+        .hide {display:none;}
+        .hidden {overflow: hidden !important;}
+        
+        .form_check_list { display: flex; flex-wrap: wrap; gap: 10px;}
+        .form_check_item { width: 100%;}
+        .form_check { display: inline-flex; gap: 10px; align-items: center; position: relative; user-select: none;}
+        .form_check .form_check_input { position: absolute; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important;}
+        .form_check .form_check_txt { display: flex; flex-wrap: wrap; align-items: center; position: relative; font-weight: 700; font-size: 21px; line-height: 1.636363; color: var(--fn-black); -ms-user-select: none;  -moz-user-select: -moz-none; -khtml-user-select: none; -webkit-user-select: none; user-select: none;}
+        .form_check .ico { display: inline-block; position: relative; width: 24px; min-width: 24px; height: 24px; border: 1px solid var(--fn-gray-600); }
+        .form_check .form_check_input[type="radio"] ~ .ico { border-radius: 50%;}
+        .form_check .form_check_input[type="checkbox"] ~ .ico { background-image: url("../../adminLayer/resources/images/ico_check.svg"); background-size: 100% auto; background-color:var(--fn-white);}
+        .form_check .form_check_input[type="checkbox"]:checked ~ .ico { background-position: left 0 top 24px;}
+        .form_check .form_check_input[type="radio"]:checked ~ .ico::before { content: ''; display: block; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 14px; min-width: 14px; height: 14px; border-radius: 50%; background-color: var(--fn-orange);}
+        .form_check .form_check_input:focus ~ .ico { outline: 2px solid rgba(0, 0, 0, .5);}
+        .form_check .txt { user-select: none;}
+
+        .form_control { display: flex; width: 100%; min-height: 48px; align-items: center; padding: 10px 20px; border: 1px solid #ccc; border-radius: 6px; background-color: #fff; font-size: 16px; line-height: 1.25; color: #666; outline: none; transition: text-indent 0.45s;}
+        .form_control:focus { border-color: #000;}
+        .form_control::placeholder { transition: all .25s ease;}
+        .form_control:focus::placeholder { transform: translate(0.2em);}
+
+        .btn { display: inline-block; min-width: 100px; font-weight: 400; line-height: 1.53; color: #697a8d; background-color: transparent; border: 2px solid transparent; padding: 10px; font-size: 16px; border-radius: 6px; transition: all .2s ease-in-out; user-select: none; text-align: center; vertical-align: middle; cursor: pointer; outline: none;}
+        .btn_layout .btn { width: 100%; min-width: 200px; border-width: 1px; border-radius: 0;}
+        .btn.lg { height: 55px; padding: 0; font-size: 17px; line-height: 55px;}
+        .btn_fill { background-color: var(--fn-orange); border: 1px solid var(--fn-orange); border-radius: 0; color: #fff;}
+        .btn_fill_purple { background-color: var(--fn-purple); border-color: var(--fn-purple);}
+
+        /*modal*/
+        .modal {display:block;position: fixed;top: 0;left: 0;overflow-y: auto;width: 100%;height: 100%;z-index: 9000;opacity: 1;animation-timing-function: ease-out;animation-name: modal-open;background: rgba(0, 0, 0, 0.6);}
+        .modal_close {display:none;opacity: 0;}
+        .modal_close .modal_centered {transform: translate(0, 100px);}
+        .modal h1 {font-size:28px;font-weight: 700;color: #000;text-align:center;}
+        .modal_centered {display: flex;justify-content: center;align-items: center;overflow: hidden;width: 100%;min-height: 100%;padding: 50px 0;box-sizing: border-box;}
+        .modal_box {position: relative;z-index: 100;width: 88.888888%;max-width: 400px;margin: auto;padding: 28px 20px 20px;border-radius: 4px;background-color: #fff;text-align: center;border-radius:10px;animation-timing-function: ease-out;animation-duration: 0.3s;animation-name: modal-inner;transform: translate(0, 0);transition: transform 0.3s ease-out;box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);}
+        .modal_box.modal_lg { max-width: 700px;}
+        .modal_box.modal_xl { max-width: 920px;}
+        .modal_box.modal_xl .ttl_area .ttl { font-size: 24px;}
+        .modal .btn_modal_close {display:block;position: absolute;right: 14px;top:14px;width:40px;height: 40px;border-radius: 50%; background-image: url('../../adminLayer/resources/images/ico_close.svg'); background-position: center center; background-size: 55% auto; background-color: var(--fn-white); background-repeat: no-repeat;}
+        .modal .btn_wrap {display:flex;flex-direction:row;gap:20px;justify-content:center;margin-top: 40px;}
+        .modal .modal_link img { max-width: 100%; width: 100%;}
+        .modal .modal_close_box { display: flex; justify-content: space-between; align-items: center; padding: 14px; background-color: var(--fn-gray-400);}
+        .modal .modal_close_box .btn_modal_close { position: static; width: 34px; height: 34px; border-radius: 0; background-size: 55% auto; background-color: transparent;}
+        .modal_alert .modal_box {max-width:585px;border-radius:0;border:1px solid #000;background-color: var(--fn-gray-150);}
+        .modal_alert .alert_txt {display:inline-block;position:relative;padding-left:40px;font-size:17px;line-height:19px;text-align:center;}
+        .modal_alert .alert_txt::before {content:'';display:block;position:absolute;left:0;top:50%;width:27px;height:27px;background:url('../../adminLayer/resources/images/ico_caution_purple.svg') no-repeat center/100% 100%;transform:translateY(-50%);}
+        .modal_alert .modal_box .btn_layout {margin-top:30px;}
+        .modal_alert .modal_box .btn {max-width:185px;}
+
+        .scrollbar {overflow-y: auto;overflow-x: hidden;}
+        .scrollbar::-webkit-scrollbar {width: 12px;}
+        .scrollbar::-webkit-scrollbar-thumb {border: 3px solid transparent;background-color: #d3d3d3;border-radius: 6px;background-clip: padding-box;border-right-width: 2px;}
+        .scrollbar::-webkit-scrollbar-track {border-left: 1px solid var(--fn-gray-500);background-color: var(--fn-gray-150);}
+
+        #form_container.form_login { display: flex; justify-content: center; align-items: center; position: static; transform: none; width: 100%; height: auto; min-height: 100vh;}
+        .login_box { width: 100%;}
+        .accounts_wrap { width: 91.111111%; max-width: 555px; margin: 100px auto 0; padding: 28px; background: var(--fn-gray-150); border: 1px solid var(--fn-gray-400);}
+        .accounts_wrap.login { max-width: 465px;}
+        .accounts_wrap.login h1 { margin-bottom: 15px; font-size: 25px; font-weight: 700;}
+        .frm_wrap { position: relative;}
+        .frm_wrap .input_row + .input_row { margin-top: 10px;}
+        .frm_wrap .form_control { padding: 0 10px; border-color: var(--fn-black); border-radius: 0; min-height: 35px; line-height: 35px;}
+        .frm_wrap .form_control.lg { height: 55px; line-height: 55px; padding: 0 10px; font-size: 17px;}
+        .accounts_wrap .keep_check { display: flex; align-items: center; flex-direction: row; flex-wrap: wrap; gap: 10px 50px; margin-top: 10px;}
+        .accounts_wrap.login .btn_layout { margin-top: 55px;}
+
+        .caution_tooltip {position:absolute;left:50%;top:-87px;padding:0 20px;background:var(--fn-gray-150);border:1px solid var(--fn-gray-400);border-radius:50px;transform:translateX(-50%);}
+        .caution_tooltip::after {content:'';display:inline-block;position:absolute;left:50%;bottom:-15px;width:16px;height:15px;margin-left:-8px;background:url('../../adminLayer/resources/images/img_tooltip.png') no-repeat center/100% 100%;}
+        .caution_tooltip span {display:inline-flex;align-items:center;gap:10px;height:60px;font-size:17px;white-space:nowrap;}
+        .caution_tooltip span::before {content: '';display:inline-block;width:27px;height:27px;background:url('../../adminLayer/resources/images/ico_caution_purple.svg') no-repeat center/100% 100%;}
+
+        .login_box #footer { margin-top: 15px; text-align: center;}
+
+        .form_login .txt_area .ttl {display: block;}
+        .form_login .content_box {padding: 20px 0 0; text-align: left;}
+        .form_login .content_box .content{overflow-y: auto;width: 100%;max-width: 916px;height: 700px;margin: 0 auto;padding: 25px 20px;border: 1px solid var(--fn-gray-500);background-color: var(--fn-gray-150);}
+        .form_login .content_box .content .content_ttl,
+        .form_login .content_box .content .txt {font-size: 12px;line-height: 1.8;word-break: keep-all;}
+        .form_login .content_box .content .content_ttl {font-weight: bold;}
+        .form_login .content_box .content .comment {font-size: 10px;line-height: 1.8;}
+        .form_login .content_box .content .txt.num {padding-left: 15px;text-indent: -15px;}
+        .form_login .content_box .content .in_sec {padding-left: 15px;}
+        .form_login .content_box .content .in_sec.num {padding-left: 30px;text-indent: -15px;}
+        .form_login .content_box .content .last_p {padding-bottom: 30px;}
+        .table_area { overflow-x: auto; margin: 25px 0;}
+        .table_area table { min-width: 800px;}
+        .form_login .th {height: 35px;border: 1px solid var(--fn-gray-500);background-color: var(--fn-gray-250);font-weight: bold;font-size: 14px;text-align: center;}
+        .form_login .td {padding: 15px 10px;border: 1px solid var(--fn-gray-500);background-color: var(--fn-white);font-size: 12px;text-align: center;line-height: 1.6;}
+        .form_login .td.align_left {text-align: left;}
+        .form_login .td.align_left .txt {line-height: 1.6;}
+        .form_login tbody tr:first-child .td { border-top: none;}
+
+        @keyframes modal-open {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes modal-inner {
+            from {
+                transform: translate(0, 100px);
+            }
+            to {
+                transform: translate(0, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="form_container" class="form_login">
+        
+        <div class="login_box">
+            <img src="../../adminLayer/main/resources/images/sajago_logo.png" id="logo_img_eum" alt="">
+            <form action="">
+                <fieldset>
+                    <legend>로그인</legend>
+    
+                    <!-- s:로그인 -->
+                    <div class="frm_wrap accounts_wrap login">
+                        <h1>로그인</h1>
+                        <div class="input_row">
+                            <label>
+                                <input type="text" class="form_control lg" placeholder="아이디">
+                            </label>
+                        </div>
+                        <div class="input_row">
+                            <label>
+                                <input type="password" class="form_control lg" placeholder="비밀번호">
+                            </label>
+                        </div>
+                        <div class="keep_check">
+                            <label class="form_check">
+                                <input type="checkbox" class="form_check_input">
+                                <i class="ico"></i>
+                                <span class="txt">로그인 상태 유지</span>
+                            </label>
+                            <label class="form_check">
+                                <input type="checkbox" class="form_check_input">
+                                <i class="ico"></i>
+                                <span class="txt">아이디 저장</span>
+                            </label>
+                        </div>
+                        
+                        <div class="btn_layout">
+                            <button type="button" class="btn btn_fill btn_fill_purple lg">로그인</button>
+                        </div>
+    
+                        <div class="caution_tooltip">
+                            <span>아이디 또는 비밀번호를 다시 확인하세요.</span>
+                        </div>
+                    </div>
+                    <!-- e:로그인 -->
+    
+                    <!-- s:배송지 선택 -->
+                    
+                    <!-- e:배송지 선택 -->
+    
+                </fieldset>
+            </form>
+            <div id="footer" onclick="BuyGo.modalOpen('.modal_privacy')">
+                <img style="margin: 0px;" src="../../../adminLayer/main/resources/images/login_footer_370x149.png">
+            </div>
+        </div>
+
+        <!-- s:modal -->
+        <div class="modal modal_close modal_privacy">
+            <div class="modal_centered" tabindex="0">
+                <div class="modal_box modal_xl">
+                    <div class="ttl_area">
+                        <h3 class="ttl">개인정보 처리방침</h3>
+                    </div>
+                    <button type="button" class="btn_modal_close close">
+                        <span class="blind">닫기</span>
+                    </button>
+                    <div class="content_box">
+                        <div class="content scrollbar">
+                            <p class="txt last_p">
+                                (주)더이음의 사자고(SAJAGO, sajago.shop) (이하 "사자고(SAJAGO)")은 이용자의 자유와 권리보호를 위해
+                                「개인정보 보호법」및
+                                관계 법령이 정한 바를 준수하며, 적법하게 개인정보를 처리하고 안전하게 관리하고 있습니다. 이에 따라 이용자에게 개인정보 처리에 관한 절차 및 기준을 안내하고
+                                이와 관련된 고충을 신속하고
+                                원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립ㆍ공개합니다.
+                            </p>
+                            <p class="txt">제 1 조 총칙</p>
+                            <p class="txt">제 2 조 수집하는 개인정보의 수집 방법</p>
+                            <p class="txt">제 3 조 개인정보의 수집 및 이용목적</p>
+                            <p class="txt">제 4 조 개인정보처리 위탁관리</p>
+                            <p class="txt">제 5 조 개인정보의 보유, 이용기간 및 파기</p>
+                            <p class="txt">제 6 조 정보주체와 법정대리인의 권리ㆍ의무 및 그 행사방법</p>
+                            <p class="txt">제 7 조 개인정보 자동수집 장치의 설치ㆍ운영 및 거부</p>
+                            <p class="txt">제 8 조 개인정보 보호책임자 지정</p>
+                            <p class="txt">제 9 조 개인정보의 안전성 확보조치에 관한 사항</p>
+                            <p class="txt">제 10 조 광고성 정보 전송</p>
+                            <p class="txt last_p">제 11 조 고지의 의무</p>
+                            <h3 class="content_ttl">제 1 조 총칙 </h3>
+                            <p class="txt">
+                                개인정보란 살아있는 개인에 관한 정보로서 성명, 주민등록번호 및 영상을 통해 개인을 알아볼 수 있는 정보(해당 정보만으로는 특정 개인을
+                                알아볼 수 없더라도 다른
+                                정보와 쉽게 결합하여 알아볼 수 있는 정보를 포함)와 가명정보를 말합니다.
+                            </p>
+                            <p class="txt num">
+                                ① "사자고(SAJAGO)"는 이용자의 개인정보를 매우 중요시하며, 「개인정보 보호법」 등의 관련 법률을 준수하고 있으며, 그에
+                                의거한 개인정보 처리방침을
+                                정하여 이용자의 권익보호에 최선을 다하고 있습니다.
+                            </p>
+                            <p class="txt num">
+                                ② "사자고(SAJAGO)"는 개인정보 처리방침을 통하여 이용자가 제공하시는 개인정보가 어떠한 용도와 방식으로 이용되고 있으며,
+                                개인정보보호를 위해 어떠한
+                                조치가 취해지고 있는지 알려드립니다.
+                            </p>
+                            <p class="txt num last_p">
+                                ③ "사자고(SAJAGO)"는 개인정보 처리방침을 홈페이지 첫 화면에 공개함으로서 이용자가 언제나 쉽게 보실 수 있도록
+                                조치하고 있습니다.
+                            </p>
+                            <h3 class="content_ttl">제 2 조 수집하는 개인정보의 수집방법</h3>
+                            <p class="txt">
+                                "사자고(SAJAGO)"는 이용자에게 본인확인, 포인트 적립 및 결제 서비스 등 다양하고 편리한 인터넷서비스를 제공하기 위하여 아래의
+                                방법을 통해 개인정보를
+                                수집하고 있습니다.
+                            </p>
+                            <p class="txt num">① 개인정보의 수집방법</p>
+                            <p class="txt in_sec num">1. 홈페이지를 통한 회원가입</p>
+                            <p class="txt in_sec num">2. 배송요청, 상담게시판</p>
+                            <p class="txt in_sec num">3. 제휴사로부터의 제공(주문정보)</p>
+                            <p class="txt num">② 개인정보의 수집동의</p>
+                            <p class="txt in_sec">
+                                "사자고(SAJAGO)"는 이용자께서 "사자고(SAJAGO)"의 필수 동의와 선택 동의, 이용약관의 각각의 내용에 대해
+                                '동의' 또는 '미동의' 버튼을
+                                클릭할 수 있는 절차를 마련하여, '동의' 버튼을 클릭한 경우 개인정보 수집에 대해 동의한 것으로 봅니다.
+                            </p>
+                            <p class="txt num">③ 허위 정보 입력 시 회사의 조치</p>
+                            <p class="txt in_sec last_p">
+                                이용자는 자신의 정보에 대해 정확성 및 적법성을 보장해야 합니다. 만약 이를 위반하여 타인의 정보를 도용하는 등 각종 방법으로 허위 정보를 입력할 경우<br>
+                                "사자고(SAJAGO)"는 해당 고객을 관계법령에 따라 신고할 수 있으며, 강제 탈퇴를 시킬 수도 있습니다.
+                            </p>
+                            <h3 class="content_ttl">제 3 조 개인정보의 수집 및 이용목적</h3>
+                            <p class="txt num">① "사자고(SAJAGO)" 이용자에게 회원가입, 제휴사 배송, 이벤트 및 프로모션을 위해 다음과 같이 개인정보를 수집하고
+                                있습니다.</p>
+                            <div class="table_area">
+                                <table class="table">
+                                    <caption>제 3조 개인정보의 수집 : 구분, 수집항목, 목적, 보유 및 이용기간</caption>
+                                    <colgroup>
+                                        <col>
+                                        <col width="110px">
+                                        <col>
+                                        <col width="285px">
+                                        <col width="145px">
+                                        <col width="145px">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" colspan="3" class="th">구분</th>
+                                            <th scope="col" class="th">수집항목</th>
+                                            <th scope="col" class="th">목적</th>
+                                            <th scope="col" class="th">보유 및 이용기간</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowspan="4" class="td">SAJAGO</td>
+                                            <td rowspan="2" class="td">회원가입</td>
+                                            <td class="td">필수</td>
+                                            <td class="td align_left">
+                                                대표자명, 아이디, 비밀번호, 이메일, 상호명,
+                                                사업자번호, 업태, 종목, 사업자 주소, 사업장 전화번호,
+                                                개업 연월일, 주소, 환불 계좌번호, 장려금 계좌번호,
+                                                예금주명, 핸드폰번호
+                                            </td>
+                                            <td rowspan="2" class="td">회원서비스 이용</td>
+                                            <td rowspan="4" class="td align_left">회원탈퇴 및 제명시 또는 법정 의무 보유기간</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">선택</td>
+                                            <td class="td align_left">담당자1 연락처, 담당자2 연락처</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">제휴사 배송</td>
+                                            <td class="td">필수</td>
+                                            <td class="td align_left">대표자명, 전화번호, 사업장 주소</td>
+                                            <td class="td">제휴사 주문 배송 처리</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td p_0">이벤트 및 프로모션</td>
+                                            <td class="td">선택</td>
+                                            <td class="td align_left">핸드폰번호, 담당자1 연락처, 담당자2 연락처</td>
+                                            <td class="td">이벤트 및 프로모션 진행</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <h3 class="content_ttl">② 개인정보 수집방법</h3>
+                            <p class="txt in_sec">- 홈페이지, 모바일앱, 서면양식, 게시판, 전화, 팩스, 이벤트 응모, 배송요청</p>
+                            <p class="txt in_sec">- 로그 분석 프로그램을 통한 생성정보수집</p>
+                            <p class="txt in_sec">- 관계사 및 구매자로부터의 제공</p>
+                            <p class="txt in_sec">- 스마트폰용 어플리케이션을 통한 수집</p>
+                            <h3 class="content_ttl">③ 모바일 앱 접근권한</h3>
+                            <p class="txt in_sec">
+                                "사자고(SAJAGO)"는 모바일 앱 서비스를 위하여 아래와 같이 이용자의 이동통신단말기 내 정보 및 기능에 접근, 이용할 수 있습니다. <br>
+                                필수 접근항목은 앱 설치시 또는 최초 실행 시 안내 및 동의를 받으며, 선택 접근항목은 해당 서비스 최초 이용 시 별도 동의를 받습니다. <br>
+                                선택 접근항목의 경우 OS버전에 따라 동의받는 방법이 다를 수 있으나, 이용자가 거부하더라도 기본 서비스 이용에는 제한이 없습니다.
+                            </p>
+                            <div class="table_area">
+                                <table class="table">
+                                    <caption>이용자 이동통신단말기 내 정보 및 기능 접근, 이용 : 구분, 접근 항목, 이용 목적</caption>
+                                    <colgroup>
+                                        <col>
+                                        <col>
+                                        <col>
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="th">구분</th>
+                                            <th scope="col" class="th">접근 항목</th>
+                                            <th scope="col" class="th">이용 목적</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowspan="2" class="td">필수</td>
+                                            <td class="td">전화</td>
+                                            <td class="td">사용자 단말기 여부 확인</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">저장공간</td>
+                                            <td class="td">업데이트 및 버전정보, 파일설치</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <h3 class="content_ttl">제 4 조 개인정보처리 위탁관리</h3>
+                            <p class="txt num">① "사자고(SAJAGO)" 서비스 이행을 위해 아래와 같이 개인정보 처리 업무를 외부업체에 위탁하여 운영하고 있습니다.</p>
+                            <div class="table_area">
+                                <table class="table">
+                                    <caption>개인정보 처리 업무 위탁 운영 : 수탁사, 수탁 업무</caption>
+                                    <colgroup>
+                                        <col>
+                                        <col>
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="th">수탁사</th>
+                                            <th scope="col" class="th">수탁 업무</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="td">삼산물류</td>
+                                            <td class="td">상품 배송업무</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">상품공급 파트너사: 깨끗한나라</td>
+                                            <td class="td">상품 배송업무</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">KICC(한국정보통신)</td>
+                                            <td class="td">본인 확인 서비스</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td align_left p_px_20" colspan="2">
+                                                <p class="txt num">※ 개인정보의 보유 및 이용 기간 : 회원탈퇴 시 혹은 위탁 계약 종료 시 까지</p>
+                                                <p class="txt num">※ 원칙적으로 수탁사에게 위탁한 업무처리의 재위탁을 제한합니다. 다만, 재위탁이 불가피할 경우에 한하여
+                                                    "사자고(SAJAGO)"의 명시적
+                                                    동의를 받아 재위탁을 하며, 이때 해당 업무를 위해 필요한 최소한의 정보만 제공하고 개인정보보호를 위한 책임과 의무를 명확히
+                                                    규정하고 있습니다.</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="txt num">
+                                ② "사자고(SAJAGO)" 이용자의 미리 동의가 있거나, 관련 법령의 규정에 의한 경우를 제외하고는 어떠한 경우에도 본 동의서에서 명시한 범위를 넘어
+                                이용자의 개인정보를
+                                이용하거나 타인 또는 타 기업이나 기관에 제공하지 않습니다. 단, 이용자의 문의 내용이나 불만 내용이 회사와 관련된 협력업체와의 관계라고 판단될 경우에는
+                                신속한 서비스를
+                                위해 해당 협력업체에 이용자의 개인정보 및 접수 내용을 제공할 수 있습니다.
+                            </p>
+                            <p class="txt num last_p">
+                                ③ 위탁계약 시 개인정보보호의 안전을 기하기 위하여 개인정보보호 관련 지시 엄수, 개인정보에 관한 금지 및 사고시의 책임부담 등을 명확히 규정하고 당해 계약
+                                내용을 서면 및
+                                전자적으로 보관하고 있습니다. 동 업체가 변경될 경우, "사자고(SAJAGO)"는 변경된 업체명을 개인정보 처리방침 화면에 공지합니다.
+                            </p>
+                            <h3 class="content_ttl">제 5 조 개인정보의 보유, 이용기간 및 파기</h3>
+                            <p class="txt num">① "사자고(SAJAGO)"는 개인정보의 보유기간의 경과, 수집목적 또는 제공받은 목적이 달성된 때에는 이용자의 개인정보를 지체없이
+                                파기합니다.</p>
+                            <p class="txt in_sec num">1. 회원가입 정보 : 회원 탈퇴 또는 회원에서 제명된 때</p>
+                            <p class="txt in_sec num">2. 설문조사, 이벤트 수집정보 : 해당 설문조사, 이벤트 종료한 때</p>
+                            <p class="txt in_sec num">3. 본인확인 정보 ; 본인임을 확인한 때</p>
+                            <p class="txt num">② 법령에 따라 개인정보를 일정기간 보관해야 하는 경우, 해당 기간동안 법령의 규정에 따라 개인정보를 별도 분리 보관합니다.</p>
+                            <p class="txt in_sec num">1. 계약 또는 청약철회 등에 관한 기록 : 5년</p>
+                            <p class="txt in_sec num">2. 대금결제 및 재화 등의 공급에 관한 기록 : 5년</p>
+                            <p class="txt in_sec num">3. 소비자의 불만 또는 분쟁처리에 관한 기록 : 3년</p>
+                            <p class="txt in_sec num">4. 통신사실 확인자료 기록 : 3개월</p>
+                            <p class="txt num">③ 개인정보 파기방법은 아래와 같습니다.</p>
+                            <p class="txt in_sec num">1. 이에 출력된 개인정보 : 분쇄기로 분쇄하거나 소각</p>
+                            <p class="txt in_sec num">2. 전자적 파일형태로 저장된 개인정보 : 기록을 재생할 수 없는 기술적 방법을 사용하여 삭제</p>
+                            <p class="txt num">④ 개인정보 유효기간 제도 도입</p>
+                            <p class="txt in_sec num">1. 장기간(1년 이상) 서비스 미이용자의 개인정보보호를 위하여 다른 이용자의 개인정보화 분리하여 저장, 관리합니다.
+                            </p>
+                            <p class="txt in_sec num">2. 미이용의 기간은 로그인, 주문/결제 상담 일자 등으로 산정하며, 법령에서 정의한 기간 동안 서비스 미이용자에
+                                대하여 분리, 저장
+                                관리합니다.</p>
+                            <p class="txt in_sec num">3. 미이용자 개인정보 분리/저장시점 도래 1개월 이전에 이메일 등을 통해 해당 이용자에게 관련 내용을 공지합니다.
+                            </p>
+                            <p class="txt in_sec num last_p">4. 분리, 저장된 미이용자 개인정보는 관련 법령에 따라 일정기간 동안 보유하며, 해당 기간 종료 후
+                                파기됩니다. 파기되지 않은
+                                개인정보는 해당 이용자의 요청에 따라 서비스 이용을 재개하는 시점에 다시 제공합니다.</p>
+                            <h3 class="content_ttl">제 6 조 정보주체와 법정대리인의 권리ㆍ의무 및 그 행사방법</h3>
+                            <p class="txt num">① 이용자는 "사자고(SAJAGO)"에 대해 언제든지 개인정보 열람ㆍ정정ㆍ삭제ㆍ처리정지 요구 등의 권리를 행사할 수 있습니다.
+                            </p>
+                            <p class="txt in_sec num">1. "사자고(SAJAGO)" 방문 &gt; 로그인 &gt; 개인정보수정 클릭 후 개인정보 열람, 정정, 탈퇴</p>
+                            <p class="txt in_sec num">2. 개인정보 관련 문의는 02-2283-1645로 또는 개인정보 보호 책임자 또는 개인정보보호 부서에 서면, 전화,
+                                이메일로 연락하시면,
+                                지체없이 조치하겠습니다.</p>
+                            <p class="txt in_sec num">3. 만 14세 미만 아동에 관한 개인정보의 열람 등 요구법정대리인이 직접 해야 하며, 만 14세 이상의 미성년자인
+                                이용자는 이용자의 개인정보에
+                                관하여 본인이 권리를 행사하거나 법정대리인을 통하여 권리를 행사할 수도 있습니다. 다만, "사자고(SAJAGO)"는 만 14세 미만 아동의 회원가입을 받지
+                                않고 있습니다.</p>
+                            <p class="txt num">② 권리 행사는 회사에 대해 「개인정보 보호법」 시행령에 따라 서면, 전자우편, 모사전송(FAX) 등을 통하여 하실 수 있으며,
+                                "사자고(SAJAGO)"는
+                                이에 대해 지체없이 조치하겠습니다.</p>
+                            <p class="txt num">③ 권리 행사는 이용자의 법정 대리인이나 위임을 받은 자 등 대리인을 통하여 하실 수도 있습니다. 이 경우, 개인정보 처리 방법에
+                                관한 고시에 따른 위임장을
+                                제출하셔야 합니다.</p>
+                            <p class="txt num">④ 개인정보 열람 및 처리정지 요구는 「개인정보 보호법」에 의하여 이용자의 권리가 제한될 수 있습니다.</p>
+                            <p class="txt num">⑤ 개인정보의 정정 및 삭제 요구는 다른 법령에서 그 개인정보가 수집 대상으로 명시되어 있는 경우에는 그 삭제를 요구할 수
+                                없습니다.</p>
+                            <p class="txt num">⑥ "사자고(SAJAGO)"는 이용자의 권리에 따른 열람의 요구, 정정ㆍ삭제의 요구, 처리정지의 요구 시 열람 등 요구를 한 자가
+                                본인이거나 정당한
+                                대리인인지를 확인합니다.</p>
+                            <p class="txt num">⑦ 이용자의 개인정보의 오류에 대한 정정을 요청하신 경우에는 정정을 완료하기 전까지 당해 개인정보를 이용 또는 제공하지 않습니다.
+                            </p>
+                            <p class="txt num last_p">⑧ 이용자가 개인정보 제3자 제공에 동의하신 내용은 홈페이지에서 확인하실 수 있으며, 언제든지 동의 철회가 가능합니다.
+                            </p>
+                            <h3 class="content_ttl">제 7 조 개인정보 자동수집 장치의 설치ㆍ운영 및 거부</h3>
+                            <p class="txt num last_p">① "사자고(SAJAGO)"는 개인화된 서비스를 제공하기 위하여 '쿠키(cookie)'를 사용하기도 합니다.
+                                '쿠키(cookie)'는 HTTP
+                                서버에서 이용자의 브라우저에 보내는 아주 작은 데이터 꾸러미로서 이용자의 컴퓨터 하드드라이브에 저장됩니다.</p>
+                            <h3 class="content_ttl">제 8 조 개인정보 보호책임자 지정</h3>
+                            <p class="txt num">① "사자고(SAJAGO)"는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 이용자의 불만처리 및 피해구제
+                                등을 위하여 아래와 같이
+                                개인정보 보호 책임자 및 담당부서를 지정하고 있습니다.</p>
+                            <div class="table_area">
+                                <table class="table">
+                                    <caption>개인정보 보호책임자 지정 : 개인정보 보호 책임자, 개인정보보호 담당부서</caption>
+                                    <colgroup>
+                                        <col>
+                                        <col>
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="th">[개인정보 보호 책임자]</th>
+                                            <th scope="col" class="th">[개인정보보호 담당부서]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="td">지윤호 본부장</td>
+                                            <td class="td">IT본부</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">연락처 : 02-2283-1645 / juno@sajago.co.kr</td>
+                                            <td class="td">연락처 : 02-2283-1644 / sysadm@sajago.co.kr</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="txt num">
+                                ② 이용자는 회사의 서비스를 이용하시면서 발생한 모든 개인정보보호 관련 문의, 불만처리, 피해 등에 관한 사항을 개인정보 보호 책임자에게 문의하실 수
+                                있습니다. <br>
+                                "사자고(SAJAGO)"는 이용자의 문의에 대핸 지체없이 답변 및 처리해드릴 것입니다.
+                            </p>
+                            <p class="txt num">③ 기타 개인정보침해에 대한 신고 또는 상담이 필요하신 경우에는 아래 기관으로 문의하시기 바랍니다.</p>
+                            <p class="txt in_sec">- 개인정보침해신고센터 (https://privacy.kisa.or.kr / 국번없이 118)</p>
+                            <p class="txt in_sec">- 개인정보분쟁조정위원회 (https://www.kopico.go.kr / 1833-6972)</p>
+                            <p class="txt in_sec">- 대검찰청 사이버수사과 (https://www.spo.go.kr / 국번없이 1301)</p>
+                            <p class="txt in_sec last_p">- 사이버범죄 신고시스템 (http://ecrm.cyber.go.kr / 국번없이 182)</p>
+                            <h3 class="content_ttl">제 9 조 개인정보의 안전성 확보조치에 관한 사항</h3>
+                            <p class="txt">"사자고(SAJAGO)"는 이용자의 개인정보를 처리함에 있어 개인정보가 분실, 도난, 유출, 변조 또는 훼손되지 않도록 안전성 확보를
+                                위하여 다음과 같은 기술적
+                                대책을 강구하고 있습니다.</p>
+                            <p class="txt num">① 이용자의 개인정보는 비밀번호에 의해 보호되며, 파일형태로 전송 시 데이터를 암호화하여 사용하고 있으며, 중요한 데이터는 별도의
+                                보안기능을 통해 보호되고
+                                있습니다.</p>
+                            <p class="txt num">② "사자고(SAJAGO)"는 암호 알고리즘을 이용하여 네트워크상의 개인정보를 안전하게 전송할 수 있는 보안서버(SSL)를 구축하여
+                                적용하고 있습니다.
+                            </p>
+                            <p class="txt num">③ 해킹 등에 의해 이용자의 개인정보가 유출 또는 변조되는 것을 방지하고, 허가받지 않은 비정상 접근 등을 차단하기 위한 방화벽 및
+                                침입방지 시스템,
+                                데이터베이스, 보안시스템, 개인정보 암호화 등을 운영하고 있습니다.</p>
+                            <p class="txt num">③ "사자고(SAJAGO)"는 개인정보처리 직원을 최소한으로 제한하고 담당직원에 대한 교육을 통하여 본 방침의 준수를 강조하고
+                                있으며, 이와 관련된 문제가
+                                발견될 경우 바로 시정조치하고 있습니다.</p>
+                            <p class="txt num">④ 그 외 내부 관리자의 실수나 기술관리상의 사고로 인해 개인정보의 상실, 유출 등이 유발될 경우 "사자고(SAJAGO)"는 즉각
+                                이용자에게 사실을 알리고
+                                적절한 대책을 강구할 것입니다.</p>
+                            <p class="txt num last_p">⑤ "사자고(SAJAGO)"는 개인정보의 안전성을 확보하기 위하여 법령에서 규정하고 있는 사항이외에도 다음과 같은
+                                활동을 시행하고 있습니다.
+                            </p>
+                            <h3 class="content_ttl">제 10 조 광고성 정보 전송</h3>
+                            <p class="txt num">① "사자고(SAJAGO)"는 이용자의 명시적인 수신거부의사에 반하여 영리목적의 광고성 정보를 전송하지 않습니다.</p>
+                            <p class="txt num">② "사자고(SAJAGO)"는 상품정보 안내 등 온라인 마케팅을 위해 광고성 정보를 전송할 때는 이용자가 광고성 정보임을 쉽게
+                                알아볼 수 있도록 조치합니다.
+                            </p>
+                            <p class="txt in_sec num">1. 문자 : 광고성 정보가 시작되는 부분에 '(광고)' 표시, 무료수신거부 번호 안내</p>
+                            <p class="txt in_sec num last_p">2. 이메일 : 전자우편 제목이 시작되는 부분에 '(광고)' 표시, 본문에 이용자가 수신거부의 의사표시를
+                                할 수 있는 전송자의
+                                명칭, 전자우편 주소, 전화번호 및 주소 등 이용자가 수신거부의 의사를 쉽게 표시할 수 있는 방법을 명시합니다.</p>
+                            <h3 class="content_ttl">제 11 조 고지의 의무</h3>
+                            <p class="txt last_p">
+                                현 개인정보 처리방침은 2023년 1월1일에 개정되었으며, 정부의 정책 또는 보안기술의 변경에 따라 내용의 추가, 삭제 및 수정이 있을 시에는 <br>
+                                개정 최소 7일 전부터 홈페이지를 통해 고지할 것입니다.
+                            </p>
+                            <p class="txt">개인정보처리방침 시행일자 : 2023년 1월 1일</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+    </div>
+
+    <script>
+        $(document).ready(function()
+        {
+            document.querySelector(".select-wrapper").addEventListener("click", function() {
+                this.querySelector(".select").classList.toggle("open");
+            });
+
+            $(".custom-option").click(function(){   
+                //console.log(this.innerText);
+                //console.log($(this).data("value"));
+                setCookie("myrole",$(this).data("value"));  //나의 역할을 쿠키에 저장
+                //선택된 역할을 화면에 표시
+                $("#selected_myrole").data("value",$(this).data("value"));
+                $("#selected_myrole").text(this.innerText);
+            });
+
+            //쿠키를 읽어서 쿠키가 존재하면 나의 저장된 역할로 초기값을 Set한다.
+            var myrole=getCookie("myrole");
+            if(myrole!=undefined)
+            {
+                if(myrole=="imauser")
+                {
+                    $("#selected_myrole").data("value",myrole);
+                    $("#selected_myrole").text("I'm a User (점주, 구매자, 비나들가게)");
+                }
+                else if(myrole=="imapos")
+                {
+                    $("#selected_myrole").data("value",myrole);
+                    $("#selected_myrole").text("I'm a POS (나들가게 POS전용)");
+                }
+                else if(myrole=="imaseller")
+                {
+                    $("#selected_myrole").data("value",myrole);
+                    $("#selected_myrole").text("I'm a Seller (공급자, 판매자)");
+                }
+                else if(myrole=="iamadmin")
+                {
+                    $("#selected_myrole").data("value",myrole);
+                    $("#selected_myrole").text("I'm a Admin");
+                };
+            };
+
+            // 눈표시 클릭 시 패스워드 보이기
+            $('.eyes').on('click',function(){
+                $('.input.password').toggleClass('active');
+
+                if( $('.input.password').hasClass('active') == true ){
+                    $(this).find('.fa-eye').attr('class',"fas fa-eye-slash").parents('.input').find('#password').attr('type',"text");
+                                // i 클래스                // 텍스트 보이기 i 클래스
+                }
+                else{
+                    $(this).find('.fa-eye-slash').attr('class',"fas fa-eye").parents('.input').find('#password').attr('type','password');
+                }
+            });
+
+            $("#footer img").click(function(){
+                drawImgClickPop();
+            });
+
+            //자동로그인이 켜져 있으면 login을 불러냈을때 쿠키를 읽어서 서버로 보낸다.
+            if(getCookie("autoLoginYN")=="Y"&&getCookie("myrole")!=null&&getCookie("myrole")!="")
+            {
+                //자동로그인이 기록되어 있으면 set해서 보여준다.
+                $("#login_auto_check").attr("checked", true);
+
+                //해당 Role로 set해 준다.   
+                $("#selected_myrole").data("value",getCookie("myrole"));
+                if(getCookie("myrole")=="imauser")
+                {
+                    $("#selected_myrole").text("I'm a User (점주, 구매자, 비나들가게)");
+                }
+                else if(getCookie("myrole")=="imapos")
+                {
+                    $("#selected_myrole").text("I'm a POS (나들가게 POS전용)");
+                }
+                else if(getCookie("myrole")=="imaseller")
+                {
+                    $("#selected_myrole").text("I'm a Seller (공급자, 판매자)");
+                }
+                else if(getCookie("myrole")=="iamadmin")
+                {
+                    $("#selected_myrole").text("I'm a Admin");
+                };
+
+                //자동 로그인이므로 쿠키 값을 가지고 로그인처리를 시도한다. user id, pass는 없다. 단 refresh token은 있어야 한다.
+                if(getCookie("refreshToken")!=undefined&&getCookie("refreshToken")!=null&&getCookie("refreshToken")!="")
+                {
+                    login_proc("로그인","자동");
+                }
+                else
+                {
+                    //refresh token이 없다면 수동 로그인으로 바꾼다.
+                    $("#login_auto_check").attr("checked", false);
+                };
+            }
+            else
+            {
+                $("#login_auto_check").attr("checked", false);
+            };
+
+            function login_proc(clickBtnValue,ploginOption)
+            {
+                if(clickBtnValue=="회원가입")
+                {
+                    //location.href="../../../adminLayer/main/itAddAccount.html";
+                }
+                else if(clickBtnValue=="로그인")
+                {   
+                    //var rtn1=CryptoJS.MD5(pss).toString();
+                    document.getElementById("loginButton").setAttribute("disabled","disabled");  //버튼 비활성화
+                    var loginData={};
+                    var username=$("#username").val();
+                    var pss=$("#pass").val();
+                    var passw="";
+                    if(ploginOption=="수동")
+                    {
+                        if(username.length<1||pss.length<1){alert("id 또는 비밀번호를 입력하여 주세요");return;};
+                        loginData.user=username;
+                        passw=CryptoJS.SHA256(pss).toString();
+                        loginData.passw=passw;
+                    }
+                    else
+                    {
+                        loginData.user="";
+                        loginData.passw="";
+                    };
+
+                    loginData.client=JSON.stringify(getNaviInfo());
+                    var myrole=getCookie("myrole");
+                    //P: Pos가 아니면 빈문자로 입력
+                    if(myrole!=undefined&&myrole!=null&&myrole!="")
+                    {
+                        loginData.myrole=myrole;
+
+                        $fn.ajaxJson('/uLogin',loginData,'POST', function(res){
+                            console.log(res);
+                            if(res.errorcode=="PFERR_CONF_0000"||res.errorcode=="PFERR_CONF_0007")
+                            {
+                                //해상도를 cookie에 set한다
+                                setCookie("resX", screen.width);
+                                //location.href=response.nextpage; //다음 Page로 이동
+                                location.href = '/main/html/admin/totalOrderListAdm.html';
+                            }
+                            else if(res.errorcode=="PFERR_CONF_0054")
+                            {
+                                //SKIP으로 처리되므로 아무것도 하지 않는다.
+                            }
+                            else
+                            {
+                                alert("로그인 정보를 확인 바랍니다.");
+                                document.getElementById("loginButton").removeAttribute("disabled");
+                            };
+                        }, function(req, status, err){
+                            $fn.errorlog(req, status, err);
+                        });
+                        /* 
+                        $.ajax({
+                            url: "/uLogin", type: "POST", async: false, dataType: "JSON", data: loginData, crossOrigin: true, cache: false, traditional: true, contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                            success: function(response){
+                                if(response.errorcode=="PFERR_CONF_0000"||response.errorcode=="PFERR_CONF_0007")
+                                {
+                                    //해상도를 cookie에 set한다
+                                    setCookie("resX", screen.width);
+                                    //location.href=response.nextpage; //다음 Page로 이동
+                                    location.href = '/main/html/admin/totalOrderListAdm.html';
+                                }
+                                else if(response.errorcode=="PFERR_CONF_0054")
+                                {
+                                    //SKIP으로 처리되므로 아무것도 하지 않는다.
+                                }
+                                else
+                                {
+                                    alert("로그인 정보를 확인 바랍니다.");
+                                    document.getElementById("loginButton").removeAttribute("disabled");
+                                };
+                            },
+                            error: function(qXHR) {alert("[err messager]:" + qXHR.statusText);document.getElementById("loginButton").removeAttribute("disabled");},
+                            //complete:function(data,textStatus) {console.log("[complete] : " + textStatus);document.getElementById("loginButton").removeAttribute("disabled");}
+                        }); */
+                    }
+                    else
+                    {
+                        alert("반드시 역할을 선택해 주셔야 합니다.")
+                    };
+                };
+            };
+
+            //비밀번호 창에서 Enter치면 로그인 버튼으로 처리
+            $("#pass").keyup(function(e)
+            {
+                if(e.keyCode==13)
+                {
+                    login_proc("로그인","수동");
+                };
+            });
+
+            //마우스로 클릭하는 로그인
+            $("[type=button]").click(function()
+            {
+                login_proc($(this).val(),"수동");
+            });
+
+            //자동로그인 옵션을 쿠키에다가 저장한다.
+            $("#login_auto_check").click(function(e){
+                if($("#login_auto_check").is(":checked")==true)
+                {
+                    $("#login_auto_check").attr("checked", true);
+                    setCookie("autoLoginYN","Y",14);
+                    //alert("false --> true");
+                }
+                else
+                {
+                    $("#login_auto_check").attr("checked", false);
+                    //alert("true --> false");
+                    setCookie("autoLoginYN","N",14);
+                };
+            });
+        });
+
+        function removeLayerPop(){
+            $(".layerPopArea").css("display" ,"none");
+        };
+    </script>
+    <script>
+        const BuyGo = {
+            init: function () {
+            },
+            modalOpen: function ($el) {
+                $('body, html').addClass('hidden');
+                $($el).addClass('active').removeClass('modal_close');
+            },
+            modalClose: function ($el) {
+                $('body, html').removeClass('hidden');
+                $($el).closest('.modal').addClass('modal_close').removeClass('active');
+            },
+        }
+
+        $(document).on('click','.modal .close',(e)=>{
+            const $this = e.currentTarget;
+            BuyGo.modalClose($this);
+        });
+        $(document).on('click','.modal',(e)=>{
+            const $this = e.currentTarget;
+            if ($(e.target).closest('.modal_box').length < 1 && $('.modal.active').attr('data-dim-click') !== 'false') {
+                BuyGo.modalClose($this);
+            }
+        });
+
+        
+    </script>
+</body>
+</html>
