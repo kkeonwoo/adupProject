@@ -2,9 +2,8 @@
 [color-theme='dark'] .search_brand_area { background-color: var(--fn-gray-dark-500);}
 .search_brand_area .search_swiper_wrapper {position: relative; margin: 0 20px;}
 .search_brand_area .search_swiper_wrapper .search_swiper {margin: 0 45px;}
-.search_brand_area .search_swiper_wrapper .swiper-slide .brand_link {display: flex; width: 90px;height: 90px;margin: 0 auto;background-color: var(--fn-white);justify-content: center;align-items: center;border-radius: 100%;}
-.search_brand_area .search_swiper_wrapper .swiper-slide .brand_link .img_box { width: 100%; max-width: 67px; height: 50%;}
-.search_brand_area .search_swiper_wrapper .swiper-slide .brand_link .img_box img{ width: 100%; height: 100%; object-fit: contain;}
+.search_brand_area .search_swiper_wrapper .swiper-slide .brand_link {display: flex; width: 90px; height: 90px; margin: 0 auto; padding: 15px; background-color: var(--fn-white);justify-content: center;align-items: center;border-radius: 100%;}
+.search_brand_area .search_swiper_wrapper .swiper-slide .brand_link .img_box img{ width: 100%; height: 100%; object-fit: cover;}
 .search_brand_area .search_swiper_wrapper .swiper_btn {position: absolute;top: 50%;width: 25px;height: 45px;margin-top: 0;background-repeat: no-repeat;background-position: center center;transform: translateY(-50%);}
 [color-theme='dark'] .search_brand_area .search_swiper_wrapper .swiper_btn {filter: invert(1);}
 .search_brand_area .search_swiper_wrapper .swiper-button-next {right: 0;background-image: url('../images/icons/arw_next_sm.svg');}
@@ -44,14 +43,13 @@
 
   .brand .ttl_box { text-align: left; padding: 25px 11px 7px; border-top: none;}
   .search_brand_area { padding: 0;}
-  .search_brand_area .search_swiper_wrapper { margin: 0 12px; padding: 12px 0;}
+  .search_brand_area .search_swiper_wrapper { margin: 0; padding: 12px 40px;}
   .search_brand_area .search_swiper_wrapper .search_swiper { margin: 0;}
   .search_brand_area .search_swiper_wrapper .swiper-wrapper { gap: 13px 0;}
-  .search_brand_area .search_swiper_wrapper .swiper-slide { height: 75px;}
-  .search_brand_area .search_swiper_wrapper .swiper-slide .brand_link { width: 75px; height: 75px;}
-  .search_brand_area .search_swiper_wrapper .swiper-slide .brand_link .img_box { display: flex; width: 70%; height: 100%; align-items: center;}
-  .search_brand_area .search_swiper_wrapper .swiper-slide .brand_link .img_box img { width: 100%;}
-  .search_brand_area .search_swiper_wrapper .swiper_btn { width: 11px; background-size: 100% auto;}
+  .search_brand_area .search_swiper_wrapper .swiper-slide { display: flex; flex-wrap: wrap; gap: 13px 32px;}
+  .search_brand_area .search_swiper_wrapper .swiper-slide .brand_link { position: relative; width: calc(100% / 3 - 64px / 3); height: auto; padding: 0; padding-top: calc(100% / 3 - 64px / 3);}
+  .search_brand_area .search_swiper_wrapper .swiper-slide .brand_link .img_box { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+  .search_brand_area .search_swiper_wrapper .swiper_btn { display: none; width: 11px; background-size: 100% auto;}
   .search_brand_area .search_brand { width: 100%; margin: 0; padding: 12px 0; border-top: 2px solid var(--fn-gray-350);}
   .search_brand_area .search_brand .search_box { display: inline; position: relative;}
   .search_brand_area .search_brand .input { width: auto; min-width: 145px; padding: 7px 12px; padding-right: calc(9px * 2 + 15px); border: 1px solid var(--fn-gray-500); background-color: var(--fn-white); text-align: left;}

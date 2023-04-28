@@ -42,6 +42,15 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 500; 
+    font-style: normal; 
+    src: url(../font/SCoreDream/Pretendard-Medium.woff2) format('woff2'),
+         url(../font/SCoreDream/Pretendard-Medium.woff) format('woff');
+    font-display: swap;
+}
+
 /* 
     Grid options
     xm: 360px
@@ -105,6 +114,7 @@
 
     --fn-Tahoma: 'Tahoma', 'Noto Sans KR', '맑은 고딕', 'sans-serif';
     --fn-SCoreDream: 'SCoreDream', 'Noto Sans KR', '맑은 고딕', 'sans-serif';
+    --fn-Pretendard: 'Pretendard', 'Noto Sans KR', '맑은 고딕', 'sans-serif';
 }
 
 /* CSS Document */

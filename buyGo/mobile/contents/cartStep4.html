@@ -32,12 +32,12 @@
     <script src="../frontLayer/js/swiper.min.js"></script>
     <script src="../frontLayer/js/fn.js"></script>
     <script src="../frontLayer/js/common.js"></script>
-    <!-- <script>
+    <script>
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         if (isMobile) {
-            window.location.href = '../mobile/contents/brandmall.html';
+            window.location.href = '../mobile/contents/index.html';
         }
-    </script> -->
+    </script>
 </head>
 
 <body>
@@ -1062,9 +1062,9 @@
                         <div class="aside_content_item active">
                             <!-- 항목이 없을때 화면 -->
                             <!-- <div class="null_area">
-                        <i class="ico ico_exclamation"></i>
-                        <span class="null_txt">최근 본 상품이 없습니다.</span>
-                    </div> -->
+                                <i class="ico ico_exclamation"></i>
+                                <span class="null_txt">최근 본 상품이 없습니다.</span>
+                            </div> -->
                             <div class="recent_area">
                                 <ul class="recent_list">
                                     <li class="recent_item">
@@ -1073,7 +1073,7 @@
                                         </div>
                                         <div class="recent_content_box">
                                             <div class="row g_px_22">
-                                                <div class="col_4 col_md_4">
+                                                <div class="col_4">
                                                     <div class="recent_prot">
                                                         <a href="#" class="recent_link">
                                                             <div class="recent_img">
@@ -1255,9 +1255,9 @@
                         <div class="aside_content_item">
                             <!-- 항목이 없을때 화면 -->
                             <!-- <div class="null_area">
-                        <i class="ico ico_exclamation"></i>
-                        <span class="null_txt">최근 등록된 관심상품이 없습니다.</span>
-                    </div> -->
+                                <i class="ico ico_exclamation"></i>
+                                <span class="null_txt">최근 등록된 관심상품이 없습니다.</span>
+                            </div> -->
                             <div class="zzim_area">
                                 <ul class="zzim_list">
                                     <li class="zzim_item">
@@ -1265,10 +1265,10 @@
                                             <span class="txt">최근 10일간의 관심상품을 표시합니다.</span>
                                         </div>
                                         <div class="zzim_content_box">
-                                            <div class="row">
+                                            <div class="row g_px_32">
                                                 <div class="col_12">
                                                     <div class="prot_card">
-                                                        <a href="#" class="prot_link prot_small_type">
+                                                        <a href="#" class="prot_link">
                                                             <div class="thumb_area">
                                                                 <div class="thumb_img">
                                                                     <img src="../frontLayer/images/@/@prot01.png"
@@ -1318,7 +1318,7 @@
                                                 </div>
                                                 <div class="col_12">
                                                     <div class="prot_card">
-                                                        <a href="#" class="prot_link prot_small_type">
+                                                        <a href="#" class="prot_link">
                                                             <div class="thumb_area">
                                                                 <div class="thumb_img">
                                                                     <img src="../frontLayer/images/@/@prot02.png"
@@ -1368,7 +1368,7 @@
                                                 </div>
                                                 <div class="col_12">
                                                     <div class="prot_card">
-                                                        <a href="#" class="prot_link prot_small_type">
+                                                        <a href="#" class="prot_link">
                                                             <div class="thumb_area">
                                                                 <div class="thumb_img">
                                                                     <img src="../frontLayer/images/@/@prot03.png"
@@ -1430,336 +1430,106 @@
         <!-- e:aside -->
 
         <!-- s:container -->
-        <div id="container" class="container entryManufacturer">
+        <div id="container" class="container">
 
-            <!-- s: 모바일 navbar -->
             <div class="nav_bar_container mobile">
                 <div class="nav_bar_header">
                     <div class="ttl_box">
                         <button type="button" class="btn btn_back_circle"></button>
                         <div class="txt_area">
-                            <h2 class="ttl">제조사 입첨신청</h2>
+                            <h2 class="ttl">주문실패</h2>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- e: 모바일 navbar -->
 
-            <div class="center">
-                <section class="sec d_md_pt_0">
-                    <div class="center">
-                        <h2 class="ttl pc">제조사 입점신청</h2>
-                    </div>
-                    <div class="main_visual">
-                        <div class="txt_area">
-                            <p class="slogan">
-                                "제조와 유통이 상생하는 사자고에서"<br>
-                                <strong>진정한 파트너쉽을 시작하세요.</strong>
-                            </p>
-                            <p class="txt">모두가 함께 사는 유통의 새로운 질서 '사자고'에서 <br class="mobile">입점신청하시고 여러분의 제품을 판매해 보세요.</p>
-                        </div>
-                    </div>
-                </section>
-                <section class="sec">
-                    <div class="inner_center">
-                        <div class="entry_step">
-                            <h3 class="content_ttl">입점절차</h3>
-                            <ol class="entry_step_list">
-                                <li>
-                                    <i class="ico ico01"></i>
-                                    <div class="txt_area">
-                                        <span class="step">01. 입점제안</span>
-                                        <p class="txt">
-                                            당사 홈페이지를 통해서만
-                                            입점제안이 가능합니다.
-                                            아래 ‘입점제안서’를
-                                            작성하세요.
-                                        </p>
-                                    </div>
+            <section class="cart_sec d_md_bg_d9d9d9 d_md_mt_0">
+                <div class="center">
+                    <div class="ttl_area align_items_end d_md_none">
+                        <h2 class="ttl">장바구니</h2>
+                        <!-- <nav class="breadcrumb_area" aria-label="breadcrumb">
+                            <ol class="breadcrumb_list">
+                                <li class="breadcrumb_item">
+                                    <span class="breadcrumb_txt">장바구니</span>
                                 </li>
-                                <li>
-                                    <i class="ico ico02"></i>
-                                    <div class="txt_area">
-                                        <span class="step">02. 제안검토</span>
-                                        <p class="txt">
-                                            영업일 기준 일주일 이내에
-                                            제안서 검토 후 채택 여부를
-                                            이메일, 전화등으로
-                                            안내드립니다.
-                                        </p>
-                                    </div>
+                                <li class="breadcrumb_item">
+                                    <span class="breadcrumb_txt">주문하기</span>
                                 </li>
-                                <li>
-                                    <i class="ico ico03"></i>
-                                    <div class="txt_area">
-                                        <span class="step">03. MD상담</span>
-                                        <p class="txt">
-                                            상품이 채택된 경우, 사자고
-                                            MD가 협력사 관계자와
-                                            대면상담을 진행합니다.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="ico ico04"></i>
-                                    <div class="txt_area">
-                                        <span class="step">04. 상품평가</span>
-                                        <p class="txt">
-                                            사자고 품질담당자가
-                                            제조현장에 대한 평가 및
-                                            상품 안전성 여부를
-                                            검사합니다.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="ico ico05"></i>
-                                    <div class="txt_area">
-                                        <span class="step">05. 계약체결</span>
-                                        <p class="txt">
-                                            상품평가를 마치고 입점이
-                                            결정되면 거래기본계약 및
-                                            입점공급계약을 체결합니다.
-                                        </p>
-                                    </div>
+                                <li class="breadcrumb_item active">
+                                    <span class="breadcrumb_txt">주문완료</span>
                                 </li>
                             </ol>
-                        </div>
-                        <div class="entry_write sign_up_wrap">
-                            <div class="txt_area">
-                                <button class="content_ttl">입점신청서 작성</button>
-                            </div>
-                            <form action="" class="form">
-                                <legend>입점신청서 작성</legend>
-                                <fieldset>
-                                    <div class="field_area">
-                                        <table class="entry_table">
-                                            <caption>입점신청서 작성 : 업체, 사업자 번호, 대표자명, 전화번호, FAX, 업태, 종목, 홈페이지, 이메일, 사업장 주소, 담당자 연락처,
-                                                담당자 이메일, 결제계좌, 예금주, 전달 내용, 회사소개서 등의 정보 제공</caption>
-                                            <colgroup>
+                        </nav> -->
+                    </div>
+                    <div class="obj_order_info_area type2">
+                        <div class="obj_order_info_box">
+                            <div class="obj_order_info_card">
+                                <div class="obj_order_info_header">
+                                    <div class="ico_ttl_area">
+                                        <i class="ico"></i>
+                                        <span class="ttl">주문실패</span>
+                                    </div>
+                                </div>
+                                <div class="obj_order_info_body">
+                                    <div class="tbl_area">
+                                        <table class="tbl">
+                                            <caption>실패 사유</caption>
+                                            <colgroup class="type1">
+                                                <col>
                                                 <col>
                                             </colgroup>
                                             <tbody>
                                                 <tr>
+                                                    <th scope="row">
+                                                        <span class="txt">실패 사유</span>
+                                                    </th>
                                                     <td>
-                                                        <div class="form_box">
-                                                            <label for="company" class="form_label" tabindex="0">업체(법인명)</label>
-                                                            <input type="text" class="form_control" id="company">
-                                                        </div>
-                                                        <div class="form_box note">
-                                                            <label for="businessNum" class="form_label" tabindex="0">사업자 번호</label>
-                                                            <input type="tel" id="businessNum" class="form_control">
-                                                            <span class="guide_txt right">-없이 번호만</span>
-                                                        </div>
-                                                        <div class="form_box">
-                                                            <label for="representative" class="form_label" tabindex="0">대표자명</label>
-                                                            <input type="text" id="representative" class="form_control">
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="form_box note">
-                                                            <label for="phone" class="form_label" tabindex="0">전화번호</label>
-                                                            <input type="tel" id="phone" class="form_control">
-                                                            <span class="guide_txt right">-없이 번호만</span>
-                                                        </div>
-                                                        <div class="form_box note">
-                                                            <label for="fax" class="form_label" tabindex="0">FAX</label>
-                                                            <input type="tel" id="fax" class="form_control">
-                                                            <span class="guide_txt right">-없이 번호만</span>
-                                                        </div>
-                                                        <div class="form_box">
-                                                            <label for="business" class="form_label" tabindex="0">업태</label>
-                                                            <input type="text" id="business" class="form_control">
-                                                        </div>
-                                                        <div class="form_box">
-                                                            <label for="category" class="form_label" tabindex="0">종목</label>
-                                                            <input type="text" id="category" class="form_control">
-                                                        </div>
-                                                        <div class="form_box">
-                                                            <label for="homepage" class="form_label" tabindex="0">홈페이지 주소</label>
-                                                            <input type="url" id="homepage" class="form_control">
-                                                        </div>
-                                                        <div class="form_box">
-                                                            <label for="email" class="form_label" tabindex="0">이메일 주소</label>
-                                                            <input type="email" id="email" class="form_control">
-                                                        </div>
-                                                        <div class="form_box frm_wrap d_flex flex_column address_field">
-                                                            <label for="businessAddrBtn" class="form_label" tabindex="0">사업장 주소</label>
-                                                            <div class="input_row">
-                                                                <label>
-                                                                    <input type="text" class="form_control" id="modalAddAddress" readonly="" placeholder="우편번호 찾기">
-                                                                    <button type="button" class="btn_zipcode" onclick="BuyGo.address('modalAddAddress', 'modalAddAddress2')"></button>
-                                                                </label>
-                                                            </div>
-                                                            <div class="input_row">
-                                                                <label>
-                                                                    <input type="text" class="form_control" id="modalAddAddress2" placeholder="상세주소 입력">
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="form_box note">
-                                                            <label for="managerPhone" class="form_label" tabindex="0">담당자 연락처</label>
-                                                            <input type="tel" id="managerPhone" class="form_control">
-                                                            <span class="guide_txt right">-없이 번호만</span>
-                                                        </div>
-                                                        <div class="form_box">
-                                                            <label for="managerEmailMobile" class="form_label" tabindex="0">담당자 이메일 주소</label>
-                                                            <input type="email" id="managerEmailMobile" class="form_control">
-                                                        </div>
-                                                        <div class="form_box account">
-                                                            <label for="account" class="form_label" tabindex="0">결제계좌</label>
-                                                            <div class="d_flex flex_wrap">
-                                                                <div class="form_select" data-index="0">
-                                                                    <button type="button" class="form_btn">국민은행</button>
-                                                                    <div class="option_area scrollbar entry_option_area">
-                                                                        <ul class="option_list">
-                                                                            <li class="option_item">
-                                                                                <button type="button"
-                                                                                    class="option_btn">국민은행</button>
-                                                                            </li>
-                                                                            <li class="option_item">
-                                                                                <button type="button"
-                                                                                    class="option_btn">기업은행</button>
-                                                                            </li>
-                                                                            <li class="option_item">
-                                                                                <button type="button" class="option_btn">농협</button>
-                                                                            </li>
-                                                                            <li class="option_item">
-                                                                                <button type="button"
-                                                                                    class="option_btn">우리은행</button>
-                                                                            </li>
-                                                                            <li class="option_item">
-                                                                                <button type="button"
-                                                                                    class="option_btn">우체국</button>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                                <input type="text" id="account" class="form_control" placeholder="계좌번호 입력(-없이)">
-                                                                <input type="text" id="accountHolder" class="form_control w_100" placeholder="예금주 입력">
-                                                                <!-- <button class="btn_form btn_danger">계좌인증</button> -->
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr class="textarea">
-                                                    <td>
-                                                        <div class="textarea_control type_footnote">
-                                                            <div class="footnote_box">
-                                                                <div class="footnote">기타 전달 내용(300자 이하 작성)</div>
-                                                            </div>
-                                                            <textarea class="form_control" rows="4" placeholder=""></textarea>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="p_0">
-                                                        <div class="img_upload_area">
-                                                            <label class="btn btn_secondary btn_xs">
-                                                                파일첨부
-                                                                <input type="file" class="upload_file blind" multiple>
-                                                            </label>
-                                                            <div class="img_upload_box">
-                                                                <ul class="img_upload_list">
-                                                                </ul>
-                                                                <div class="footnote_box">
-                                                                    <span class="footnote">
-                                                                        회사소개서/제품소개서 첨부<br>
-                                                                        (10 MB 이하 업로드)
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        <span class="txt">
+                                                            <span class="f_tahoma f_inherit">재고 부족</span>
+                                                        </span>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
-                                </fieldset>
-                            </form>
-                            <div class="btn_wrap">
-                                <button type="button" class="btn btn_outline">취소</button>
-                                <button type="button" class="btn btn_danger">입점신청</button>
+                                </div>
                             </div>
                         </div>
+                        <div class="btn_area">
+                            <button type="button" class="btn btn_outline_dark">메인으로</button>
+                            <button type="button" class="btn btn_danger">마이페이지</button>
+                        </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
 
         </div>
         <!-- e:container -->
 
         <!-- s:footer -->
-        <footer class="footer">
+        <footer class="footer d_md_none">
             <div class="center">
                 <div class="utility_area">
-                    <div class="center">
-                        <ul class="utility_list">
-                            <li class="utility_item">
-                                <a href="#" class="utility_link">사자고 소개</a>
-                            </li>
-                            <li class="utility_item">
-                                <a href="#" class="utility_link">이용안내</a>
-                            </li>
-                            <li class="utility_item">
-                                <a href="#" class="utility_link">개인정보 처리 방침</a>
-                            </li>
-                            <li class="utility_item">
-                                <a href="#" class="utility_link">마켓무 가맹신청</a>
-                            </li>
-                            <li class="utility_item">
-                                <a href="#" class="utility_link">제조사 입점신청</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="md_company_area d_none d_md_block">
-                    <div class="etc_box">
-                        <a class="sns" href="#">APP 설치</a>
-                        <a class="sns" href="#">SNS 채널</a>
-                        <a class="sns" href="#">로그아웃</a>
-                    </div>
+                    <ul class="utility_list">
+                        <li class="utility_item">
+                            <a href="#" class="utility_link">사자고 소개</a>
+                        </li>
+                        <li class="utility_item">
+                            <a href="#" class="utility_link">이용안내</a>
+                        </li>
+                        <li class="utility_item">
+                            <a href="#" class="utility_link">개인정보 처리 방침</a>
+                        </li>
+                        <li class="utility_item">
+                            <a href="#" class="utility_link">마켓무 가맹신청</a>
+                        </li>
+                        <li class="utility_item">
+                            <a href="#" class="utility_link">제조사 입점신청</a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="company_area">
-                    <div class="md_company_btn d_none d_md_block">
-                        <button type="button" class="company_info_btn">사업자 정보 / 고객센터</button>
-                        <dl class="company_info">
-                            <div class="d_md_flex">
-                                <dt>업체명</dt>
-                                <dd>주식회사 더이음</dd>
-                            </div>
-                            <div class="d_md_flex">
-                                <dt>대표자</dt>
-                                <dd>김미경</dd>
-                            </div>
-                            <div class="d_md_flex">
-                                <dt>사업자 등록 번호</dt>
-                                <dd>214-88-97306</dd>
-                            </div>
-                            <div class="d_md_flex">
-                                <dt>통신판매업신고</dt>
-                                <dd>2021-서울송파-2135호</dd>
-                            </div>
-                            <div class="d_md_flex">
-                                <dt>주소</dt>
-                                <dd>서울특별시 송파구 법원로 114 (문정동) <br>
-                                    엠스테이트 에이동 1306호</dd>
-                            </div>
-                            <div class="d_md_flex">
-                                <dt>고객센터</dt>
-                                <dd>0000-0000(유료전화) <br>
-                                    00-000-0000(팩스) <br>
-                                    juno@marketmoo.co.kr</dd>
-                            </div>
-                        </dl>
-                    </div>
-                    <div class="company_box d_md_none">
+                    <div class="company_box">
                         <span class="company_name">주식회사 더이음</span>
                         <div class="company_content">
                             <p class="company_txt">
@@ -1771,7 +1541,7 @@
                             <a class="business_link" href="#" target="_blank">사업자정보 확인 ></a>
                         </div>
                     </div>
-                    <div class="cs_box d_md_none">
+                    <div class="cs_box">
                         <span class="cs_name">고객센터</span>
                         <div class="cs_content">
                             <a href="#" class="txt">
@@ -1787,7 +1557,7 @@
                             </dl>
                         </div>
                     </div>
-                    <div class="etc_box d_md_none">
+                    <div class="etc_box">
                         <div class="sns_group">
                             <a class="sns sns_instagram" href="#" target="_blank" title="인스타그램 바로가기">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -1811,13 +1581,13 @@
                         <div class="qr_group">
                             <div class="qr_box">
                                 <span class="txt">IOS APP</span>
-                                <a href="#" target="_blank" class="qrcode">
+                                <a href="#" target="_blank" class="qrcode" title="IOS APP 다운로드">
                                     <img src="../frontLayer/images/icons/ico_qr_ios.svg" alt="ios app qrcode" />
                                 </a>
                             </div>
                             <div class="qr_box">
                                 <span class="txt">Android<br /> APP</span>
-                                <a href="#" target="_blank" class="qrcode">
+                                <a href="#" target="_blank" class="qrcode" title="Android APP 다운로드">
                                     <img src="../frontLayer/images/icons/ico_qr_ios.svg" alt="android app qrcode" />
                                 </a>
                             </div>
@@ -1829,105 +1599,175 @@
         <!-- e:footer -->
 
         <!-- s:floating -->
-        <div class="floating_area fixed">
-            <button type="button" class="floating_btn dark_mode_btn pc"></button>
+        <div class="floating_area fixed d_md_none">
+            <button type="button" class="floating_btn dark_mode_btn"></button>
             <button type="button" class="floating_btn scroll_top_btn">
                 <span class="blind">최상단으로 이동</span>
             </button>
         </div>
         <!-- e:floating -->
 
-        <!-- s:bottom menu -->
-        <div class="bottom_menu_area d_none d_md_flex">
-            <button type="button" class="bottom_btn home">
-                <span class="blind">홈버튼</span>
-            </button>
-            <button type="button" class="bottom_btn category">
-                <span class="blind">카테고리</span>
-            </button>
-            <button type="button" class="bottom_btn mypage">
-                <span class="blind">마이페이지</span>
-            </button>
-            <button type="button" class="bottom_btn dark_mode_btn">
-                <span class="blind">다크모드</span>
-            </button>
-        </div>
-        <!-- e:bottom menu -->
-
     </div>
     <!-- e:wrap -->
 
+
+
     <script>
         $(document).ready(() => {
-            const fnSwiper = {
-                init: function () {
+            var bannerSwiper = new Swiper(".banner-swiper", {
+                loop: true,
+                touchRatio: 0,
+                loopedSlides: 2,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
                 },
-                // 비주얼 배너
-                bannerSwiper: function() {
-                    bannerSwiper = new Swiper(".banner-swiper", {
-                        loop: true,
-                        touchRatio: 0,
-                        loopedSlides: 2,
-                        autoplay: {
-                            delay: 2500,
-                            disableOnInteraction: false,
-                        },
-                        pagination: {
-                            el: ".banner-swiper .swiper-pagination",
-                            type: "fraction",
-                        },
-                        navigation: {
-                            nextEl: ".banner-swiper .swiper-button-next",
-                            prevEl: ".banner-swiper .swiper-button-prev",
-                        },
-                        on: {
-                            init: function () {
-                                $('.banner-swiper .play_btn').click(function () {
-                                    if ($(this).hasClass('active')) {
-                                        $(this).removeClass('active');
-                                        bannerSwiper.autoplay.start();
-                                    } else {
-                                        $(this).addClass('active');
-                                        bannerSwiper.autoplay.stop();
-                                    }
-                                });
-                            },
-                        },
-                    });
+                pagination: {
+                    el: ".banner-swiper .swiper-pagination",
+                    type: "fraction",
                 },
-                // 비주얼 배너 전체보기
-                bannerAllSwiper: function() {
-                    bannerAllSwiper = new Swiper(".banner-all-swiper", {
-                        slidesPerView: 1,
-                        // touchRatio: 0,
-                        observer: true,
-                        observeParents: true,
-                        navigation: {
-                            nextEl: ".banner-all-swiper .swiper-button-next",
-                            prevEl: ".banner-all-swiper .swiper-button-prev",
-                        },
-                    });
+                navigation: {
+                    nextEl: ".banner-swiper .swiper-button-next",
+                    prevEl: ".banner-swiper .swiper-button-prev",
                 },
-            }
+                on: {
+                    init: function () {
+                        $('.banner-swiper .play_btn').click(function () {
+                            if ($(this).hasClass('active')) {
+                                $(this).removeClass('active');
+                                bannerSwiper.autoplay.start();
+                            } else {
+                                $(this).addClass('active');
+                                bannerSwiper.autoplay.stop();
+                            }
+                        });
+                    },
+                },
+            });
 
-            const breakpoint = window.matchMedia('(max-width:767px)');
-            let checkMo = breakpoint.matches;
+            var bannerAllSwiper = new Swiper(".banner-all-swiper", {
+                // loop: true,
+                // touchRatio: 0,
+                observer: true,
+                observeParents: true,
+                navigation: {
+                    nextEl: ".banner-all-swiper .swiper-button-next",
+                    prevEl: ".banner-all-swiper .swiper-button-prev",
+                },
+                on: {
+                    init: function () {
+                        $('.banner-swiper .more_btn').click(function () {
+                            $('.banner_all_swiper_wrap').addClass('active');
+                        });
+                        $('.banner_all_swiper_wrap .close_btn').click(function () {
+                            $('.banner_all_swiper_wrap').removeClass('active');
+                        });
+                    },
+                },
+            });
 
-            // 비주얼 배너
-            let bannerSwiper;
-            fnSwiper.bannerSwiper();
-            let bannerAllSwiper;
-            fnSwiper.bannerAllSwiper();
+            var protSwiper = new Swiper(".prot-swiper1", {
+                loop: true,
+                touchRatio: 0,
+                speed: 850,
+                pagination: {
+                    el: ".prot_swiper_wrap1 .swiper-pagination",
+                    clickable: true,
+                },
+            });
 
-            // 분기점 리사이즈 체크 swiper 모드 변경
-            const breakpointChecker = function () {
-                checkMo = breakpoint.matches;
-                if (checkMo) bannerAllSwiper?.destroy(true, true);
-                return [
-                    fnSwiper.bannerAllSwiper()
-                ]
-            };
-            breakpoint.addListener(breakpointChecker);
+            var thumbSwiper2 = new Swiper(".thumb-swiper2", {
+                loop: true,
+                speed: 850,
+                pagination: {
+                    el: ".thumb-swiper2 .swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".thumb_swiper_wrap2 .swiper-button-next",
+                    prevEl: ".thumb_swiper_wrap2 .swiper-button-prev",
+                },
+            });
+            var protSwiper2 = new Swiper(".prot-swiper2", {
+                loop: true,
+                touchRatio: 0,
+                speed: 850,
+                pagination: {
+                    el: ".prot_swiper_wrap2 .swiper-pagination",
+                    clickable: true,
+                },
+            });
+
+            var thumbSwiper3 = new Swiper(".thumb-swiper3", {
+                loop: true,
+                speed: 850,
+                pagination: {
+                    el: ".thumb-swiper3 .swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".thumb_swiper_wrap3 .swiper-button-next",
+                    prevEl: ".thumb_swiper_wrap3 .swiper-button-prev",
+                },
+            });
+            var protSwiper3 = new Swiper(".prot-swiper3", {
+                loop: true,
+                touchRatio: 0,
+                speed: 850,
+                pagination: {
+                    el: ".prot_swiper_wrap3 .swiper-pagination",
+                    clickable: true,
+                },
+            });
+
+            var thumbSwiper4 = new Swiper(".thumb-swiper4", {
+                loop: true,
+                speed: 850,
+                pagination: {
+                    el: ".thumb-swiper4 .swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".thumb_swiper_wrap4 .swiper-button-next",
+                    prevEl: ".thumb_swiper_wrap4 .swiper-button-prev",
+                },
+            });
+            var protSwiper4 = new Swiper(".prot-swiper4", {
+                loop: true,
+                touchRatio: 0,
+                speed: 850,
+                pagination: {
+                    el: ".prot_swiper_wrap4 .swiper-pagination",
+                    clickable: true,
+                },
+            });
+
+            thumbSwiper2.controller.control = protSwiper2;
+            protSwiper2.controller.control = thumbSwiper2;
+
+            thumbSwiper3.controller.control = protSwiper3;
+            protSwiper3.controller.control = thumbSwiper3;
+
+            thumbSwiper4.controller.control = protSwiper4;
+            protSwiper4.controller.control = thumbSwiper4;
+
+            var viewListSwiper = new Swiper(".view-list-swiper", {
+                spaceBetween: 7,
+                slidesPerView: 4,
+                freeMode: true,
+                watchSlidesProgress: true,
+            });
+            var viewSwiper = new Swiper(".view-swiper", {
+                spaceBetween: 10,
+                thumbs: {
+                    swiper: viewListSwiper,
+                },
+            });
+
+            $(document).on('click','.prot_link',(e)=>{
+                e.preventDefault();
+                BuyGo.openModal($('.modal_view'))
+            });
         });
     </script>
 

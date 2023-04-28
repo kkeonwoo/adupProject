@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
-    <title>사자고 사이트맵</title>
+    <title>사자고 어드민 사이트맵</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📋</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -59,8 +59,13 @@
         .section table tbody tr.del th,
         .section table tbody tr.del td,
         .section table tbody tr.del td a { background-color: #fafafa !important; color: #c0c0c0 !important; font-style: normal; }
+        .section table tbody tr.new th,
+        .section table tbody tr.new td { background-color: #d8f2fd; color: #01a0e2 !important;}
         .section table tbody tr:hover th,
         .section table tbody tr:hover td { background-color:#F1F6F9; }
+        .section table tbody tr.new:hover th,
+        .section table tbody tr.new:hover td { background-color:#cceefc; }
+        .section table tbody tr.new td:last-child::before { content: '신규수정페이지'; display: inline;}
         .section table tbody td a + a { margin-top: 5px; }
         .section a { font-size: 14px; }
         .section a.keycode { color:#666; }
@@ -78,7 +83,7 @@
     <!-- s:wrap -->
     <div id="wrap" class="guide-wrap">
         <div class="guide-head">
-            <h1 class="title"><span class="emoji">📋</span> 사자고 사이트맵<span>(파일명 항목 링크 새창 열기)</span></h1>
+            <h1 class="title"><span class="emoji">📋</span> 사자고 어드민 사이트맵<span>(파일명 항목 링크 새창 열기)</span></h1>
             <span class="state"></span>
         </div>
  
@@ -107,468 +112,533 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th class="depth">메인</th>
-                        <td class="depth"></td>
-                        <td class="depth"></td>
-                        <td>
-                            <a href="./contents/index.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">검색</td>
-                        <td class="depth"></td>
-                        <td>
-                            <a href="./contents/searchResult.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr>
-                        <th class="depth">리스트 영역</th>
-                        <td class="depth"></td>
-                        <td class="depth"></td>
-                        <td>
-                            <!-- <a href="./contents/"></a> -->
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">카테고리 상품</td>
-                        <td class="depth"></td>
-                        <td>
-                            <a href="./contents/category.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">특가상품</td>
-                        <td class="depth"></td>
-                        <td>
-                            <a href="./contents/specialOffer.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">BEST</td>
-                        <td class="depth"></td>
-                        <td>
-                            <a href="./contents/bestSale.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">신상품</td>
-                        <td class="depth"></td>
-                        <td>
-                            <a href="./contents/newGoods.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">브랜드몰</td>
-                        <td class="depth"></td>
-                        <td>
-                            <a href="./contents/brandmall.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth"></th>
-                        <td class="depth ico_inner"></td>
-                        <td class="depth">개별브랜드몰</td>
-                        <td>
-                            <a href="./contents/subBrandmall.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">통합배송관</td>
-                        <td class="depth"></td>
-                        <td>
-                            <a href="./contents/combinedDelivery.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">우수기업관</td>
-                        <td class="depth"></td>
-                        <td>
-                            <a href="./contents/excellentBusiness.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr>
                         <th class="depth">로그인</th>
                         <td class="depth"></td>
                         <td class="depth"></td>
                         <td>
-                            <a href="./contents/accounts/login.html"></a>
+                            <a href="./contents/admin/login.html"></a>
                         </td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">아이디 찾기</td>
+                </tbody>
+                <tbody>
+                    <tr class="new">
+                        <th class="depth">사용자관리</th>
+                        <td class="depth">구매회원</td>
                         <td class="depth"></td>
                         <td>
-                            <a href="./contents/accounts/findId.html"></a>
+                            <a href="./contents/admin/admin/buyerListAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr class="new">
+                        <th class="depth"></th>
+                        <td class="depth">공급사</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/supplierListAdm.html"></a>
                         </td>
                         <td></td>
                     </tr>
                     <tr>
                         <th class="depth"></th>
-                        <td class="depth ico_inner"></td>
-                        <td class="depth">아이디 찾기 결과</td>
-                        <td>
-                            <a href="./contents/accounts/findIdResult.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">비밀번호 찾기</td>
+                        <td class="depth">운영자</td>
                         <td class="depth"></td>
                         <td>
-                            <a href="./contents/accounts/findPassword.html"></a>
+                            <a href="./contents/admin/admin/adminListAdm.html"></a>
                         </td>
                         <td></td>
                     </tr>
                     <tr>
                         <th class="depth"></th>
-                        <td class="depth ico_inner"></td>
-                        <td class="depth">비밀번호 재설정</td>
+                        <td class="depth">포인트구분</td>
+                        <td class="depth"></td>
                         <td>
-                            <a href="./contents/accounts/findPasswordResult.html"></a>
+                            <a href="./contents/admin/admin/pointTypeListAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth">포인트내역</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/pointListAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr class="new">
+                        <th class="depth"></th>
+                        <td class="depth">구매회원 등급 기준 관리</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/gradeListAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr class="new">
+                        <th class="depth"></th>
+                        <td class="depth">분기별 회원등급 확인 및 쿠폰 발급 여부</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/gradeCheckListAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr class="new">
+                        <th class="depth"></th>
+                        <td class="depth">쿠폰 구분</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/couponTypeListAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr class="new">
+                        <th class="depth"></th>
+                        <td class="depth">쿠폰 내역</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/couponListAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr class="new">
+                        <th class="depth"></th>
+                        <td class="depth">장바구니 할인 구분</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/cartTypeListAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr class="new">
+                        <th class="depth"></th>
+                        <td class="depth">도서산간 배송지역</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/deliveryAreaListAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr class="del">
+                        <th class="depth"></th>
+                        <td class="depth">배송지 관리</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="#"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr class="new">
+                        <th class="depth"></th>
+                        <td class="depth">장려금 지급 기준</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/subsidyListAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr class="new">
+                        <th class="depth"></th>
+                        <td class="depth">장려금 지급 예정 내역</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/salesPointListAdm.html"></a>
                         </td>
                         <td></td>
                     </tr>
                 </tbody>
                 <tbody>
                     <tr>
-                        <th class="depth">회원가입</th>
-                        <td class="depth">약관동의</td>
+                        <th class="depth">카테고리관리</th>
+                        <td class="depth">카테고리관리</td>
                         <td class="depth"></td>
                         <td>
-                            <a href="./contents/join/signUp.html"></a>
+                            <a href="./contents/admin/admin/categoryListAdm.html"></a>
                         </td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">회원정보입력</td>
+                </tbody>
+                <tbody>
+                    <tr class="new">
+                        <th class="depth">상품관리</th>
+                        <td class="depth">상품조회</td>
                         <td class="depth"></td>
                         <td>
-                            <a href="./contents/join/enterMemberInfo.html"></a>
+                            <a href="./contents/admin/admin/goodsCategoryAdm.html"></a>
                         </td>
                         <td></td>
                     </tr>
                     <tr>
                         <th class="depth"></th>
-                        <td class="depth ico_inner"></td>
-                        <td class="depth">가입완료</td>
+                        <td class="depth"></td>
+                        <td class="depth">상품조회2</td>
                         <td>
-                            <a href="./contents/join/signUpCompleted.html"></a>
+                            <a href="./contents/admin/admin/goodsCategoryBanner.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth"></td>
+                        <td class="depth">상품조회3</td>
+                        <td>
+                            <a href="./contents/admin/admin/goodsCategorySuper.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr class="new">
+                        <th class="depth"></th>
+                        <td class="depth">상품마스터 조회</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/goodsMasterAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr class="new">
+                        <th class="depth"></th>
+                        <td class="depth">상품마스터등록</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/addSalesMasterAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr class="new">
+                        <th class="depth"></th>
+                        <td class="depth">상품등록</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/addSalesItemAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr class="new">
+                        <th class="depth"></th>
+                        <td class="depth"></td>
+                        <td class="depth">상품정보가져오기 모달</td>
+                        <td>
+                            <a href="./contents/admin/admin/goodsCategoryCopy.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth"></td>
+                        <td class="depth">상품등록2</td>
+                        <td>
+                            <a href="./contents/admin/admin/addSalesItemSuper.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth">상품일괄등록</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/pmBundleAddAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth">상품일괄변경</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/pmBundleUpdateAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth">인기상품관리</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/popularItemListAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth">상품정렬</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/sortingSalesItemAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth">배너관리</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/bannerListAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr class="new">
+                        <th class="depth"></th>
+                        <td class="depth">배너상품</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/bannerItemAdm.html"></a>
                         </td>
                         <td></td>
                     </tr>
                 </tbody>
                 <tbody>
                     <tr>
-                        <th class="depth">고객센터</th>
-                        <td class="depth"></td>
+                        <th class="depth">정산관리</th>
+                        <td class="depth">정산관리</td>
                         <td class="depth"></td>
                         <td>
-                            <a href="./contents/cs/cs.html"></a>
+                            <a href="./contents/admin/admin/settlementManagementAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth"></td>
+                        <td class="depth">정산관리2</td>
+                        <td>
+                            <a href="./contents/admin/admin/settlementManagementSuper.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth">공급자 정산</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/supplierSettlementAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr class="new">
+                        <th class="depth">주문관리</th>
+                        <td class="depth">전체주문조회</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/totalOrderListAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth"></td>
+                        <td class="depth">전체주문조회2</td>
+                        <td>
+                            <a href="./contents/admin/admin/totalOrderListSuper.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth">입금대기</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/paymentWaitingAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth">입금완료</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/paymentCompleteAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth"></td>
+                        <td class="depth">입금완료2</td>
+                        <td>
+                            <a href="./contents/admin/admin/paymentCompleteSuper.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth">배송준비중</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/deliveryReadyAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth"></td>
+                        <td class="depth">배송준비중2</td>
+                        <td>
+                            <a href="./contents/admin/admin/deliveryReadySuper.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth">배송중</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/deliveryDoingAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth"></td>
+                        <td class="depth">배송중2</td>
+                        <td>
+                            <a href="./contents/admin/admin/deliveryDoingSuper.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth">배송완료</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/deliveryCompletedAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth"></td>
+                        <td class="depth">배송완료2</td>
+                        <td>
+                            <a href="./contents/admin/admin/deliveryCompletedSuper.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth">주문취소/반품</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/orderCancleAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="depth"></th>
+                        <td class="depth">공급자결품률</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/supplierOrderListAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr class="new">
+                        <th class="depth"></th>
+                        <td class="depth">취소요청</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="./contents/admin/admin/cancelRequestListAdm.html"></a>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr class="del">
+                        <th class="depth">통계</th>
+                        <td class="depth">통계</td>
+                        <td class="depth"></td>
+                        <td>
+                            <a href="#"></a>
                         </td>
                         <td></td>
                     </tr>
                 </tbody>
                 <tbody>
                     <tr>
-                        <th class="depth">마이페이지(로그인 시)</th>
-                        <td class="depth">주문배송조회</td>
+                        <th class="depth">사이트관리</th>
+                        <td class="depth">팝업 관리</td>
                         <td class="depth"></td>
                         <td>
-                            <a href="./contents/myPage/orderList.html"></a>
+                            <a href="./contents/admin/admin/popupListAdm.html"></a>
                         </td>
                         <td></td>
                     </tr>
-                    <tr>
+                    <tr class="new">
                         <th class="depth"></th>
-                        <td class="depth ico_inner"></td>
-                        <td class="depth">주문취소 완료</td>
-                        <td>
-                            <a href="./contents/myPage/detail/orderCancelCompleted.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth"></th>
-                        <td class="depth ico_inner"></td>
-                        <td class="depth">상세 내역 - 배송전</td>
-                        <td>
-                            <a href="./contents/myPage/detail/detailOrderList.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth"></th>
-                        <td class="depth ico_inner"></td>
-                        <td class="depth">상세 내역 - 배송후</td>
-                        <td>
-                            <a href="./contents/myPage/detail/detailOrderList2.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth"></th>
-                        <td class="depth ico_inner"></td>
-                        <td class="depth">상세 내역 - 반품완료</td>
-                        <td>
-                            <a href="./contents/myPage/detail/detailOrderList3.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth"></th>
-                        <td class="depth ico_inner"></td>
-                        <td class="depth">배송조회</td>
-                        <td>
-                            <a href="./contents/myPage/detail/deliveryCheck.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth"></th>
-                        <td class="depth ico_inner"></td>
-                        <td class="depth">교환/반품 신청</td>
-                        <td>
-                            <a href="./contents/myPage/detail/exchangeReturn.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth"></th>
-                        <td class="depth ico_inner"></td>
-                        <td class="depth">교환/반품 신청 - 교환완료</td>
-                        <td>
-                            <a href="./contents/myPage/detail/exchangeCompleted.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth"></th>
-                        <td class="depth ico_inner"></td>
-                        <td class="depth">교환/반품 신청 - 반품완료</td>
-                        <td>
-                            <a href="./contents/myPage/detail/returnCompleted.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">취소환불내역</td>
+                        <td class="depth">직배송지역</td>
                         <td class="depth"></td>
                         <td>
-                            <a href="./contents/myPage/orderCancel/orderCancelList.html"></a>
+                            <a href="./contents/admin/admin/directDeliveryAreaListAdm.html"></a>
                         </td>
                         <td></td>
                     </tr>
-                    <tr>
+                    <tr class="new">
                         <th class="depth"></th>
-                        <td class="depth ico_inner"></td>
-                        <td class="depth">상세내역</td>
-                        <td>
-                            <a href="./contents/myPage/orderCancel/cancelDetailList.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">관심상품</td>
+                        <td class="depth">공지사항 관리</td>
                         <td class="depth"></td>
                         <td>
-                            <a href="./contents/myPage/favoriteGoods.html"></a>
+                            <a href="./contents/admin/admin/noticeListAdm.html"></a>
                         </td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">할인쿠폰</td>
-                        <td class="depth"></td>
-                        <td>
-                            <a href="./contents/myPage/coupon.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">등급 혜택 소개</td>
-                        <td class="depth"></td>
-                        <td>
-                            <a href="./contents/myPage/benefit.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">장바구니 혜택 소개</td>
-                        <td class="depth"></td>
-                        <td>
-                            <a href="./contents/myPage/cartBenefit.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">문의하기/답변확인</td>
-                        <td class="depth"></td>
-                        <td>
-                            <a href="./contents/myPage/confirm/confirmInquiry.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
+                    <tr class="new">
                         <th class="depth"></th>
-                        <td class="depth ico_inner"></td>
-                        <td class="depth">질문하기</td>
-                        <td>
-                            <a href="./contents/myPage/confirm/inquiry.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">회원정보 확인/수정</td>
+                        <td class="depth">자주묻는질문 관리</td>
                         <td class="depth"></td>
                         <td>
-                            <a href="./contents/myPage/myPage.html"></a>
+                            <a href="./contents/admin/admin/FAQListAdm.html"></a>
                         </td>
                         <td></td>
                     </tr>
-                    <tr>
+                    <tr class="new">
                         <th class="depth"></th>
-                        <td class="depth ico_inner">⤷</td>
-                        <td class="depth">회원 탈퇴</td>
-                        <td>
-                            <a href="./contents/myPage/deleteAccount.html" target="_blank">./contents/myPage/deleteAccount.html</a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth"></th>
-                        <td class="depth ico_inner">⤷</td>
-                        <td class="depth">회원 탈퇴 완료</td>
-                        <td>
-                            <a href="./contents/myPage/deleteAccountCompleted.html" target="_blank">./contents/myPage/deleteAccountCompleted.html</a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">장려금 확인</td>
+                        <td class="depth">문의하기 관리</td>
                         <td class="depth"></td>
                         <td>
-                            <a href="./contents/myPage/incentive.html"></a>
+                            <a href="./contents/admin/admin/QnAListAdm.html"></a>
                         </td>
                         <td></td>
                     </tr>
                 </tbody>
                 <tbody>
                     <tr>
-                        <th class="depth">장바구니</th>
-                        <td class="depth"></td>
-                        <td class="depth"></td>
-                        <td>
-                            <a href="./contents/cartStep1.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth"></th>
-                        <td class="depth">주문하기</td>
+                        <th class="depth">기준관리</th>
+                        <td class="depth">기준관리</td>
                         <td class="depth"></td>
                         <td>
-                            <a href="./contents/cartStep2.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth"></th>
-                        <td class="depth">주문완료</td>
-                        <td class="depth"></td>
-                        <td>
-                            <a href="./contents/cartStep3.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth"></th>
-                        <td class="depth">주문실패</td>
-                        <td class="depth"></td>
-                        <td>
-                            <a href="./contents/cartStep4.html"></a>
+                            <a href="./contents/admin/admin/codeManageAdm.html"></a>
                         </td>
                         <td></td>
                     </tr>
                 </tbody>
                 <tbody>
                     <tr>
-                        <th class="depth">푸터 영역</th>
-                        <td class="depth">사자고 소개</td>
+                        <th class="depth">etc</th>
+                        <td class="depth">adminMain</td>
                         <td class="depth"></td>
                         <td>
-                            <a href="./contents/introduction.html"></a>
+                            <a href="./contents/admin/admin/adminMain.html"></a>
                         </td>
                         <td></td>
                     </tr>
                     <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">이용안내</td>
+                        <th class="depth"></th>
+                        <td class="depth">imgUploadAdm</td>
                         <td class="depth"></td>
                         <td>
-                            <a href="./contents/usageGuide.html"></a>
+                            <a href="./contents/admin/admin/imgUploadAdm.html"></a>
                         </td>
                         <td></td>
                     </tr>
                     <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">개인정보 처리방침</td>
+                        <th class="depth"></th>
+                        <td class="depth">paymentNotiTest</td>
                         <td class="depth"></td>
                         <td>
-                            <a href="./contents/personalInfoPolicy.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="depth ico_inner"></th>
-                        <td class="depth">제조사 입점신청</td>
-                        <td class="depth"></td>
-                        <td>
-                            <a href="./contents/entryManufacturer.html"></a>
-                        </td>
-                        <td></td>
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr>
-                        <th class="depth">프로모션</th>
-                        <td class="depth">상품 목록</td>
-                        <td class="depth"></td>
-                        <td>
-                            <a href="./contents/promotion.html"></a>
+                            <a href="./contents/admin/admin/paymentNotiTest.html"></a>
                         </td>
                         <td></td>
                     </tr>

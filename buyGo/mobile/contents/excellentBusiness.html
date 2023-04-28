@@ -1953,27 +1953,53 @@
                     });
                 },
                 brandSwiper: function () {
+                    let view, listNum;
+                    const brandSwiperLoop = $('.search_swiper .swiper-slide').length < 6 ? false : true;
                     if (checkMo) {
+                        view = 6;
+                        $('.search_swiper').find('.brand_link').unwrap('.swiper-slide');
+                        $('.brand_link').each((idx, item) => {
+                            $(item).addClass('list' + Math.floor((idx + view) / view));
+                            listNum = Math.floor((idx + view) / view);
+                        }).promise().done(function() {
+                            for (var i = 1; i < listNum + 1; i++) {
+                                $('.search_swiper').find('.list' + i + '').wrapAll('<li class="swiper-slide"></li>');
+                                $('.search_swiper').find('.list' + i + '').removeClass('list' + i + '');
+                            }
+                        })
                         brandSwiper = new Swiper('.search_swiper', {
-                            slidesPerView: 3,
-                            slidesPerGroup: 3,
-                            grid: {
-                                fill: 'row',
-                                rows: 2,
-                            },
-                            navigation: {
-                                nextEl: ".search_swiper_wrapper .swiper-button-next",
-                                prevEl: ".search_swiper_wrapper .swiper-button-prev",
-                            },
+                            slidesPerView: 1,
+                            spaceBetween: 32,
+                            loop: brandSwiperLoop,
+                            // navigation: {
+                            //     nextEl: ".search_swiper_wrapper .swiper-button-next",
+                            //     prevEl: ".search_swiper_wrapper .swiper-button-prev",
+                            // },
+                            // on: {
+                            //     init: () => {
+                            //         $('.search_swiper_wrapper .swiper-button-next').show();
+                            //         $('.search_swiper_wrapper .swiper-button-prev').show();
+                            //     }
+                            // }
                         })
                     } else {
+                        $('.search_swiper').find('.brand_link').unwrap('.swiper-slide');
+                        $('.brand_link').each((idx, item) => {
+                            $(item).wrapAll('<li class="swiper-slide"></li>');
+                        })
                         brandSwiper = new Swiper('.search_swiper', {
                             slidesPerView: 6,
-                            loop: true,
+                            loop: brandSwiperLoop,
                             navigation: {
                                 nextEl: ".search_swiper_wrapper .swiper-button-next",
                                 prevEl: ".search_swiper_wrapper .swiper-button-prev",
                             },
+                            on: {
+                                init: () => {
+                                    $('.search_swiper_wrapper .swiper-button-next').show();
+                                    $('.search_swiper_wrapper .swiper-button-prev').show();
+                                }
+                            }
                         })
                     }
                 }

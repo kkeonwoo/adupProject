@@ -109,32 +109,17 @@
 					<table class="table_row">
 						<colgroup>
 							<col width="120" />
-							<col width="280" />
+							<col width="*" />
 							<col width="120" />
 							<col width="*" />
 						</colgroup>
 						<tr>
 							<th><span>행사여부</span></th>
-							<td class="checks">
+							<td class="checks" colspan="3">
 								<label><input type="radio" id="radio01_1" name="" value="" val=""> 전체</label>
 								<label><input type="radio" id="radio01_2" name="" value="" val=""> 일반</label>
 								<label><input type="radio" id="radio01_3" name="" value="" val=""> 주간</label>
 								<label><input type="radio" id="radio01_4" name="" value="" val=""> 카테고리</label>
-							</td>
-							<th><span>상품카테고리</span></th>
-							<td>
-								<select style="width:120px;" value="">
-									<option value="" hidden selected>전체</option>
-									<option selected>항목1</option>
-								</select>
-								<select style="width:120px;" value="">
-									<option value="" hidden selected>전체</option>
-									<option selected>항목1</option>
-								</select>
-								<select style="width:120px;" value="">
-									<option value="" hidden selected>전체</option>
-									<option selected>항목1</option>
-								</select>
 							</td>
 						</tr>
 						<tr>
@@ -156,24 +141,33 @@
 						</tr>
 						<tr>
 							<th><span>공급사</span></th>
-							<td><input type="text" name="" value="" /></td>
-							<th><span>주문번호</span></th>
 							<td>
 								<select style="width:110px;" value="">
-									<option value="" hidden selected>전체</option>
-									<option selected>항목1</option>
+									<option value="" hidden selected></option>
+									<option selected>전체</option>
 								</select>
+							</td>
+							<th><span>주문번호</span></th>
+							<td>
+								<input type="text" name="" value="" class="w210"/>
 							</td>
 						</tr>
 						<tr>
 							<th><span>주문자검색</span></th>
-							<td><input type="text" name="" value="" /></td>
+							<td>
+								<select style="width:110px;" value="">
+									<option value="" hidden selected></option>
+									<option selected>주문자(상호명)</option>
+								</select>
+								<input type="text" name="" value="" class="w210"/>
+							</td>
 							<th><span>통합검색</span></th>
 							<td>
 								<select style="width:110px;" value="">
-									<option value="" hidden selected>상품명</option>
-									<option selected>항목1</option>
+									<option value="" hidden selected></option>
+									<option selected>상품명</option>
 								</select>
+								<input type="text" name="" value="" class="w210"/>
 							</td>
 						</tr>
 						<tr>
@@ -304,9 +298,6 @@
 				</div>
 				<div class="pop_cont">
 					<!-- 취소요청 상품 정보 -->
-					<div class="pop_s_tit mt00">
-						받는분 정보
-					</div>
 					<table class="table_col tbl_word">
 						<colgroup>
 							<col width="*">
@@ -412,9 +403,6 @@
 				</div>
 				<div class="pop_cont">
 					<!-- 취소요청 상품 정보 -->
-					<div class="pop_s_tit mt00">
-						받는분 정보
-					</div>
 					<table class="table_col tbl_word">
 						<colgroup>
 							<col width="*">

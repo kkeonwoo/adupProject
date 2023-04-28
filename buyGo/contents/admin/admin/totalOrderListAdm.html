@@ -298,7 +298,600 @@
         .sitePopup .popupLayout .title { padding:7px; font-size:14px; font-weight:bold; background-color:#333333; color:#ffffff;}
     </style>
     <!-- 팝업부분 시작 -->
-    <div class="layerPopArea" style="height: 1041px; display: none; top: 0px;">
-    </div>
+    <div class="layerPopArea" style="height: 1041px; display: block; top: 0px;"><script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> 
+        <div class="layerPop" align="center" style="margin-top: 10px; display: block;"> 
+            <!-- <script type="text/javascript" src="/resources/js/common/base.js"></script> 
+            <script type="text/javascript" src="/resources/js/admin/orderManagement/detailPop.js"></script> --> 
+            <!-- 상품 정보 --> 
+            <form id="frmPop" name="frmPop" action="/admin/orderManagement/detailPop_process" method="post"> 
+            <input type="hidden" id="order_idx" name="order_idx" value="230426618446"> 
+            <input type="hidden" id="order_goods_idxs" name="order_goods_idxs" value=""> 
+            <input type="hidden" id="supplier_ssn" value=""> 
+            <input type="hidden" id="payment_bank" value="011"> 
+            <input type="hidden" id="pgCno" value="23042615022010359489"> 
+            <input type="hidden" id="payment_bank_name" value="농협은행"> 
+            <input type="hidden" id="payment_account" value="79016240320841"> 
+            <input type="hidden" id="receiver_mobile" value="01093011897"> 
+            <input type="hidden" id="PG_GBN" value="KICC"> 
+            <div class="popup pop800"> 
+                <div class="pop_tit" style="position:relative;"> 
+                    상품 정보 
+                    <div style="position:absolute;right:10px; top:10px;"> 
+                        <button type="button" class="btn_ss01" onclick="callPrint();"><span><b>인쇄하기</b></span></button> 
+                    </div> 
+                </div> 
+                <div class="pop_cont"> 
+                    <!-- 받는분 정보(주문자정보) --> 
+                    <div class="pop_s_tit mt00"> 
+                        받는분 정보 
+                    </div> 
+                    <table class="table_row"> 
+                        <colgroup><col width="20%"><col width="30%"><col width="20%"><col width="*"></colgroup> 
+                        <tbody><tr> 
+                            <th><span>이름</span></th> 
+                            <td colspan="3" id="receiver_name">에브리데이연일식자재마트(경북 포항)</td> 
+                        </tr> 
+                        <tr> 
+                            <th><span>전화번호</span></th> 
+                            <td>054-286-5100</td> 
+                            <th><span>휴대폰</span></th> 
+                            <td>010-9301-1897</td> 
+                        </tr> 
+                        <tr> 
+                            <th><span>주소</span></th> 
+                            <td colspan="3"> 
+                                (37843)<br> 
+                                경북 포항시 남구 연일읍 연일중앙로 42 (생지리)  에브리데이연일식자재마트 
+                            </td> 
+                        </tr> 
+                    </tbody></table> 
+                    <!-- //받는분 정보(주문자정보) --> 
+                    <!-- 고객 상담메모 --> 
+                    <div class="pop_s_tit"> 
+                        고객 상담메모 
+                    </div> 
+                    <table class="table_col"> 
+                        <colgroup><col width="22%"><col width="18%"><col width="60%"></colgroup> 
+                        <thead> 
+                            <tr class="text-center"> 
+                                <th>작성일자</th> 
+                                <th>작성자(ID)</th> 
+                                <th>메모</th> 
+                            </tr> 
+                        </thead> 
+                        <tbody id="orderMemoArea"> 
+                        </tbody> 
+                        <tfoot> 
+                            <tr> 
+                                <td colspan="3" class="text_l"> 
+                                    <input type="text" style="display: none"> 
+                                    <input type="text" id="consult_msg" onsubmit="return false" class="w600" onenter="createOrderMemo('230426618446'); " maxlength="300">  
+                                    <button type="button" class="btn_ss01" onclick="createOrderMemo('230426618446');"><span>등록</span></button> (300자 이내) 
+                                </td> 
+                            </tr> 
+                        </tfoot> 
+                    </table> 
+                    <!-- //고객 상담메모 --> 
+                    <!-- tab --> 
+                    <ul class="tab01 mt30"> 
+                        <li class="tab01_01 on"><a href="javascript://">주문상품정보</a></li> 
+                        <li class="tab01_02"><a href="javascript://">입금,배송정보</a></li> 
+                        <li class="tab01_03"><a href="javascript://">배송 대상</a></li> 
+                        <li class="tab01_04"><a href="javascript://">배송 진행</a></li> 
+                        <li class="tab01_05"><a href="javascript://">취소/반품 관리</a></li> 
+                    </ul> 
+                    <!-- 주문상품정보 --> 
+                    <div class="tab01_cont01" style="position: relative; display: block;"> 
+                        <div style="position:absolute; right:0px; top:28px;"> 
+                            <button type="button" class="btn_ss01" onclick="btn_delivery_gb('1');"><span>배송 준비중</span></button>	 
+                            <button type="button" class="btn_ss01" onclick="btn_delivery_gb('0');"><span>배송 준비중 취소</span></button>					 
+                            <button type="button" class="btn_ss01" onclick="btn_goods_cancel();"><span>주문 취소/반품</span></button> 
+                        </div>	 
+                        <div> 
+                            <button type="button" class="btn_ss01" onclick="btn_payment_gb(230426618446,'0');"><span>입금취소</span></button>	 
+                        </div> 
+                        <p>주문번호 : 230426618446</p> 
+                        <p>주문일시 : 2023-04-26 15:02:20</p> 
+                        <input type="hidden" id="orderdataDetailOrderNo" value="230426618446"> 
+                        <p class="mb10">-전체-</p> 
+                        <table class="table_col order_goods_list" id="detailPop_orderGoodsList"> 
+                            <colgroup><col width="30"><col width="40"><col width="70"><col width="*"><col width="70"><col width="55"><col width="55"><col width="80"><col width="80"><col width="70" class="printHide"></colgroup> 
+                            <thead> 
+                                <tr class="s_th text-center"> 
+                                    <th rowspan="2"><input type="checkbox" class="checkAll" onclick="selectAll(this, 'gidx')"></th> 
+                                    <th rowspan="2">번호</th> 
+                                    <th rowspan="2">공급사</th> 
+                                    <th rowspan="2">[바코드]<br>상품명</th> 
+                                    <th rowspan="2">판매가(원)</th> 
+                                    <th colspan="3">수량</th> 
+                                    <th rowspan="2">입금금액(원)</th> 
+                                    <th rowspan="2" class="printHide">주문상태</th> 
+                                </tr> 
+                                <tr class="s_th text-center"> 
+                                    <th class="bor_l">낱개</th> 
+                                    <th>볼</th> 
+                                    <th>박스</th> 
+                                </tr> 
+                            </thead> 
+                            <tbody> 
+                                <input type="hidden" class="goods_price" value=""> 
+                                <tr> 
+                                    <td><input type="checkbox" name="gidx" class="checkItem" value="1653430"></td> 
+                                    <td class="NumAsc">1</td> 
+                                    <td class="cancelFld1">한국커피물류</td>	 
+                                    <td class="cancelFld2">[8801037019667]<br>[무배][동서] 맥심 모카골드 믹스 100T*8입</td> 
+                                    <td class="cancelFld3"><span class="comma">104,080</span></td> 
+                                    <td class="cancelFld4"><span class="comma">0</span></td> 
+                                    <td class="cancelFld5"><span class="comma">0</span></td> 
+                                    <td class="cancelFld6"><span class="comma">1</span><br>(입수량 <span class="comma">1</span>)</td> 
+                                    <td class="cancelFld7"><span class="comma">104,080</span></td> 
+                                    <td class="printHide">입금완료</td>						 
+                                </tr>						 
+                            </tbody> 
+                        </table> 
+                        <p class="order_total">총 입금 금액(원) : <span id="detailPop_total_sell_amount">104,080</span></p> 
+                    </div> 
+                    <!-- //주문상품정보 --> 
+                    <!-- 입금/배송정보 --> 
+                    <div class="tab01_cont02" style="display: none;"> 
+                        <div class="pop_s_tit"> 
+                            입금정보 
+                        </div> 
+                        <table class="table_col"> 
+                            <colgroup><col width="25%"><col width="15%"><col width="20%"><col width="40%"></colgroup> 
+                            <thead> 
+                                <tr class="text-center"> 
+                                    <!-- <th>입금방법</th> --> 
+                                    <th>고정계좌(은행)</th> 
+                                    <th>입금금액(원)</th> 
+                                    <th>입금완료일</th> 
+                                    <th>입금TID</th> 
+                                </tr> 
+                            </thead> 
+                            <tbody> 
+                                <tr> 
+                                    <td>79016240320841(농협은행)</td> 
+                                    <td class="comma">104,080</td> 
+                                    <td>2023-04-26 16:37:49</td> 
+                                    <td>null</td> 
+                                </tr> 
+                            </tbody> 
+                        </table> 
+                        <div class="pop_s_tit"> 
+                            받는분 정보 
+                        </div> 
+                            <table class="table_row"> 
+                                <colgroup><col width="20%"><col width="30%"><col width="20%"><col width="*"></colgroup> 
+                                <tbody><tr> 
+                                    <th><span>이름</span></th> 
+                                    <td colspan="3"><input type="text" name="reveiver_name" class="w130" value="에브리데이연일식자재마트(경북 포항)"></td> 
+                                </tr> 
+                                <tr> 
+                                    <th><span>전화번호</span></th> 
+                                    <td> 
+                                        <select name="receiver_tel1" style="width:70px;" value="">						 
+                                            <option value="02">02</option> 
+                                            <option value="031">031</option> 
+                                            <option value="032">032</option> 
+                                            <option value="033">033</option> 
+                                            <option value="041">041</option> 
+                                            <option value="042">042</option> 
+                                            <option value="043">043</option> 
+                                            <option value="051">051</option> 
+                                            <option value="052">052</option> 
+                                            <option value="053">053</option> 
+                                            <option value="054">054</option> 
+                                            <option value="055">055</option> 
+                                            <option value="061">061</option> 
+                                            <option value="062">062</option> 
+                                            <option value="063">063</option> 
+                                            <option value="064">064</option> 
+                                            <option value="0505">0505</option> 
+                                            <option value="0502">0502</option> 
+                                            <option value="070">070</option> 
+                                        </select> 
+                                        <input type="text" name="receiver_tel2" class="w55" maxlength="4" value="286"> -  
+                                        <input type="text" name="receiver_tel3" class="w55" maxlength="4" value="5100"> 
+                                    </td> 
+                                    <th><span>휴대폰</span></th> 
+                                    <td> 
+                                        <select name="receiver_mobile1" style="width:70px;" value="">						 
+                                            <option value="010">010</option> 
+                                            <option value="011">011</option> 
+                                            <option value="016">016</option> 
+                                            <option value="017">017</option> 
+                                            <option value="018">018</option> 
+                                            <option value="019">019</option> 
+                                            <option value="0130">0130</option> 
+                                            <option value="0502">0502</option> 
+                                            <option value="070">070</option> 
+                                        </select> 
+                                        <input type="text" name="receiver_mobile2" class="w55" maxlength="4" value="9301"> -  
+                                        <input type="text" name="receiver_mobile3" class="w55" maxlength="4" value="1897"> 
+                                    </td> 
+                                </tr> 
+                                <tr> 
+                                    <th><span>주소</span></th> 
+                                    <td colspan="3"> 
+                                        <span class="block"> 
+                                            <input type="text" name="receiver_zipcode" id="receiver_zipcode" class="w55" maxlength="6" placeholder="우편번호" value="37843">  
+                                            <button type="button" class="btn_ss01" onclick="postPop('receiver_zipcode', 'receiver_addr1', 'receiver_addr2');"><span>우편번호 찾기</span></button> 
+                                        </span> 
+                                        <span class="block mt05"> 
+                                            <input type="text" name="receiver_addr1" id="receiver_addr1" class="w380" maxlength="300" placeholder="주소" value="경북 포항시 남구 연일읍 연일중앙로 42 (생지리)"> 
+                                            <input type="text" name="receiver_addr2" id="receiver_addr2" class="w210" maxlength="300" placeholder="상세주소" value="에브리데이연일식자재마트"> 
+                                        </span> 
+                                    </td> 
+                                </tr> 
+                                <tr> 
+                                    <th><span>배송시 요청사항</span></th> 
+                                    <td colspan="3"> 
+                                        <input type="text" name="receiver_delivery_demand" style="width:500px" maxlength="50" value="">
+                                    </td> 
+                                </tr> 
+                            </tbody></table> 
+                        <div class="mt05 text_r"> 
+                            <button type="button" class="btn01" onclick="btn_reciver_edit();"><span>수정</span></button> 
+                        </div> 
+                    </div> 
+                    <!-- //입금/배송정보 --> 
+                    <!-- 배송 대상--> 
+                    <div class="tab01_cont03" style="display: none;">			 
+                        <div class="pop_s_tit"> 
+                            배송 번호 입력 
+                        </div> 
+                        <table class="table_col"> 
+                            <colgroup><col width="25%"><col width="25%"><col width="*"><col width="25%"></colgroup> 
+                            <thead> 
+                                <tr class="text-center"> 
+                                    <th>배송일</th> 
+                                    <th>택배사</th> 
+                                    <th>송장번호</th>
+                                    <th>직배송 구분</th>
+                                </tr> 
+                            </thead> 
+                            <tbody> 
+                                <tr> 
+                                    <td> 
+                                        <input type="text" name="delivery_date" id="delivery_date" class="w100 datepicker1 hasDatepicker" value="">
+                                    </td> 
+                                    <td> 
+                                        <select name="delivery_name" id="delivery_name" style="width:150px;" value=""> 
+                                        <option value="">-- 선택 --</option> 
+                                        <option value="한진택배">한진택배</option> 
+                                        <option value="CJ대한통운">CJ대한통운</option> 
+                                        <option value="KGB택배">KGB택배</option> 
+                                        <option value="KG로지스">KG로지스</option> 
+                                        <option value="로젠택배">로젠택배</option> 
+                                        <option value="경동택배">경동택배</option> 
+                                        <option value="롯데택배">롯데택배</option> 
+                                        <option value="현대택배">현대택배</option> 
+                                        <option value="우체국택배">우체국택배</option> 
+                                        <option value="대신택배">대신택배</option> 
+                                        <option value="용마로지스">용마로지스</option> 
+                                        <option value="합동택배">합동택배</option> 
+                                        <option value="일양로지스">일양로지스</option> 
+                                        <option value="천일택배">천일택배</option> 
+                                        <option value="건영택배">건영택배</option> 
+                                        </select> 
+                                    </td> 
+                                    <td> 
+                                        <input type="text" name="delivery_no" id="delivery_no" class="w120" value="">  
+                                        <button type="button" class="btn_ss01" onclick="btn_delivery_send();"><span>저장</span></button> 
+                                    </td>
+                                    <td> 
+                                        <select style="width:150px;" value="">
+                                            <option value="">택배송</option> 
+                                            <option value="">직배송</option>
+                                        </select>
+                                    </td>		
+                                </tr> 
+                            </tbody> 
+                        </table>			 
+                        <div class="pop_s_tit"> 
+                            배송 대상 리스트 
+                        </div> 
+                        <table class="table_col order_goods_list" id="detailPop_orderDeliveryStayList"> 
+                            <colgroup><col width="30"><col width="100"><col width="*"><col width="80"><col width="80"><col width="80"></colgroup> 
+                            <thead> 
+                                <tr class="s_th text-center"> 
+                                    <th rowspan="2"><input type="checkbox" class="checkAll" onclick="selectAll(this, 'ds_idx')"></th> 
+                                    <th rowspan="2">공급사</th> 
+                                    <th rowspan="2">[바코드] 상품명</th> 
+                                    <th colspan="3">수량</th> 
+                                </tr> 
+                                <tr class="s_th text-center"> 
+                                    <th class="bor_l">낱개</th> 
+                                    <th>볼</th> 
+                                    <th>박스</th> 
+                                </tr> 
+                            </thead> 
+                            <tbody> 
+                                <tr> 
+                                    <td colspan="6">배송 대상 상품이 없습니다.</td> 
+                                </tr>						 
+                            </tbody> 
+                        </table>			 
+                    </div>		 
+                    <!-- 배송 대상 --> 
+                    <!-- 배송 진행--> 
+                    <div class="tab01_cont04" style="position: relative; display: none;">		 
+                        <div style="position:absolute; right:0px; top:-5px;"> 
+                            <button type="button" class="btn_ss01" onclick="btn_delivery_complete();"><span>배송 완료</span></button> 
+                            <button type="button" class="btn_ss01" onclick="btn_delivery_remove();"><span>배송 취소(삭제)</span></button> 
+                        </div>	 
+                        <div class="pop_s_tit">				 
+                            배송 현황 리스트		 
+                        </div> 
+                        <table class="table_col order_goods_list rowspanTbl" id="detailPop_orderDeliveryList"> 
+                            <colgroup><col width="30"><col width="100"><col width="100"><col width="*"><col width="70"><col width="70"><col width="70"><col width="70"><col width="70"><col width="70"></colgroup> 
+                            <thead> 
+                                <tr class="s_th text-center"> 
+                                    <th rowspan="2"><input type="checkbox" class="checkAll" onclick="selectAll(this, 'dn_idx')"></th> 
+                                    <th rowspan="2">택배사<br>송장번호</th> 
+                                    <th rowspan="2">공급사</th> 
+                                    <th rowspan="2">상품명</th> 
+                                    <th colspan="3">수량</th> 
+                                    <th rowspan="2">배송일자</th> 
+                                    <th rowspan="2">완료일자</th> 
+                                    <th rowspan="2">직배송 구분</th> 
+                                </tr> 
+                                <tr class="s_th text-center"> 
+                                    <th class="bor_l">낱개</th> 
+                                    <th>볼</th> 
+                                    <th>박스</th> 
+                                </tr> 
+                            </thead> 
+                            <tbody> 
+                                <tr> 
+                                    <td colspan="10">등록된 배송 진행 내역이 없습니다.</td> 
+                                </tr>
+                                <tr> 
+                                    <td><input type="checkbox" name="dn_idx" class="checkItem" value="1748624"></td> 
+                                    <td>롯데택배<br>242703878410</td> 
+                                    <td>제이와이유통판매</td> 
+                                    <td>[무배][옥시] 옥시크린 표백제 분말형 3kg*4입</td> 
+                                    <td>0<br>(주문량 0)</td> 
+                                    <td>0<br>(주문량 0)</td> 
+                                    <td>2<br>(주문량 2)</td> 
+                                    <td>20230426</td> 
+                                    <td></td> 
+                                    <td>택배송</td> 
+                                </tr>
+                                <tr> 
+                                    <td><input type="checkbox" name="dn_idx" class="checkItem" value="1748625"></td> 
+                                    <td>롯데택배<br>242703878410</td> 
+                                    <td>제이와이유통판매</td> 
+                                    <td>[무배][옥시] 옥시크린 표백제 분말형 3kg*4입</td> 
+                                    <td>0<br>(주문량 0)</td> 
+                                    <td>0<br>(주문량 0)</td> 
+                                    <td>2<br>(주문량 2)</td> 
+                                    <td>20230426</td> 
+                                    <td></td> 
+                                    <td>직배송</td> 
+                                </tr>
+                            </tbody> 
+                        </table>			 
+                    </div> 
+                    <!-- 배송 진행--> 
+                    <!-- 취소/환불 관리 --> 
+                    <div class="tab01_cont05" style="display: none;"> 
+                        <!-- 부분취소 --> 
+                        <div id="SingleCancelArea" style="display: none;"> 
+                            <div class="pop_s_tit">				 
+                                상품 정보	 
+                            </div> 
+                            <table class="table_col order_goods_list" id="detailPop_orderCancelGoods"> 
+                                <colgroup><col width="100"><col width="*"><col width="70"><col width="80"><col width="80"><col width="80"><col width="80"><col width="80"><col width="70" class="printHide"><col width="*" class="printHide"></colgroup> 
+                                <thead> 
+                                    <tr class="s_th text-center"> 
+                                        <th rowspan="2">공급사</th> 
+                                        <th rowspan="2">상품명<br>[바코드]</th> 
+                                        <th rowspan="2">판매가(원)</th> 
+                                        <th colspan="3">수량</th> 
+                                        <th rowspan="2">입금금액(원)</th> 
+                                    </tr> 
+                                    <tr class="s_th text-center"> 
+                                        <th class="bor_l">낱개</th> 
+                                        <th>볼</th> 
+                                        <th>박스</th> 
+                                    </tr> 
+                                </thead> 
+                                <tbody> 
+                                    <tr> 
+                                        <td class="cancelFld1"></td> 
+                                        <td class="cancelFld2"></td> 
+                                        <td class="cancelFld3"></td> 
+                                        <td class="cancelFld4"></td> 
+                                        <td class="cancelFld5"></td> 
+                                        <td class="cancelFld6"></td> 
+                                        <td class="cancelFld7"></td> 
+                                    </tr> 
+                                </tbody> 
+                            </table> 
+                            <div class="pop_s_tit">				 
+                                취소/반품 리스트 
+                            </div>				 
+                            <table class="table_col order_goods_list" id="detailPop_orderCancelList"> 
+                                <colgroup><col width="70"><col width="120"><col width="50"><col width="50"><col width="50"><col width="80"><col width="*"><col width="60"></colgroup> 
+                                <thead> 
+                                    <tr class="s_th text-center"> 
+                                        <th rowspan="2">구분</th>	 
+                                        <th rowspan="2">처리일자</th>						 
+                                        <th colspan="3">취소/반품 수량</th> 
+                                        <th rowspan="2">환불금액</th> 
+                                        <th rowspan="2">사유</th> 
+                                        <th rowspan="2">시스템</th> 
+                                    </tr> 
+                                    <tr class="s_th text-center"> 
+                                        <th class="bor_l">낱개</th> 
+                                        <th>볼</th> 
+                                        <th>박스</th> 
+                                    </tr> 
+                                </thead> 
+                                <tbody id="cancel_list_area"></tbody> 
+                                <tfoot>			 
+                                    <!-- //배송조회있는경우 --> 
+                                    <tr> 
+                                        <td> 
+                                            <select name="cancel_status"> 
+                                                <option value="2">취소</option> 
+                                                <option value="3">결품</option> 
+                                                <option value="4">반품</option> 
+                                                <option value="5">파손</option> 
+                                            </select> 
+                                        </td> 
+                                        <td><input type="text" name="cancel_date" class="w84 datepicker1 hasDatepicker" value="" id="dp1648429488985"></td> 
+                                        <td><input type="text" name="cancel_unit" oninput="this.value = this.value.replace(/[^0-9.]/g, '');" style="width:40px; text-align:center;" value="0"></td> 
+                                        <td><input type="text" name="cancel_bundle" oninput="this.value = this.value.replace(/[^0-9.]/g, '');" style="width:40px; text-align:center;" value="0"></td> 
+                                        <td><input type="text" name="cancel_box" oninput="this.value = this.value.replace(/[^0-9.]/g, '');" style="width:40px; text-align:center;" value="0"></td> 
+                                        <td><input type="text" name="cancel_amount" oninput="this.value = this.value.replace(/[^0-9.]/g, '');" style="width:60px; text-align:center;" value="0"></td> 
+                                        <td><input type="text" name="cancel_msg" style="width:90%;"></td> 
+                                        <td><button type="button" class="btn_ss01" onclick="btn_cancel_send();"><span>등록</span></button></td> 
+                                    </tr>			 
+                                </tfoot> 
+                            </table>		 
+                        </div> 
+                        <!-- //부분취소 --> 
+                        <!-- 부분 멀티상품 취소 --> 
+                        <div id="SingleCancelAreaMulti" style="display: none;"> 
+                        </div> 
+                        <!-- //부분 멀티상품 취소 -->		 
+                        <!-- 일괄취소 --> 
+                        <div id="MultiCancelArea" style="display: block;">			 
+                            <div class="pop_s_tit">				 
+                                취소/반품 일괄 입력 
+                            </div>			 
+                            <table class="table_col order_goods_list" id="detailPop_orderCancelList"> 
+                                <colgroup><col width="120"><col width="150"><col width="*"><col width="60"></colgroup> 
+                                <thead> 
+                                    <tr class="s_th text-center"> 
+                                        <th>구분</th>	 
+                                        <th>처리일자</th>	 
+                                        <th>사유</th> 
+                                        <th>시스템</th> 
+                                    </tr> 
+                                </thead> 
+                                <tbody>					 
+                                    <tr> 
+                                        <td> 
+                                            <select name="multi_cancel_status" style="width:100px;"> 
+                                                <option value="2">취소</option> 
+                                                <option value="3">결품</option> 
+                                                <option value="4">반품</option> 
+                                                <option value="5">파손</option> 
+                                            </select> 
+                                        </td> 
+                                        <td><input type="text" name="multi_cancel_date" class="w84 datepicker1 hasDatepicker" value="" id="dp1648429488986"><img class="ui-datepicker-trigger" src="/eum/resources/images/common/calendar.png" alt="..." title="..."></td>						 
+                                        <td><input type="text" name="multi_cancel_msg" style="width:90%;"></td> 
+                                        <td><button type="button" class="btn_ss01" onclick="btn_multi_cancel_send();"><span>등록</span></button></td> 
+                                    </tr>			 
+                                </tbody> 
+                            </table> 
+                            <div class="pop_s_tit">				 
+                                취소/반품 상품 선택 
+                            </div> 
+                            <table class="table_col order_goods_list" id="detailPop_orderCancelList"> 
+                                <colgroup><col width="30"><col width="100"><col width="*"><col width="70"><col width="80"><col width="80"><col width="80"><col width="80"><col width="80"><col width="70" class="printHide"><col width="*" class="printHide"></colgroup> 
+                                <thead> 
+                                    <tr class="s_th text-center"> 
+                                        <th rowspan="2"><input type="checkbox" class="checkAll" checked="checked" onclick="selectAll(this, 'mc_idx')"></th> 
+                                        <th rowspan="2">공급사</th> 
+                                        <th rowspan="2">상품명<br>[바코드]</th> 
+                                        <th rowspan="2">판매가(원)</th> 
+                                        <th colspan="3">수량</th> 
+                                        <th rowspan="2">입금금액(원)</th> 
+                                    </tr> 
+                                    <tr class="s_th text-center"> 
+                                        <th class="bor_l">낱개</th> 
+                                        <th>볼</th> 
+                                        <th>박스</th> 
+                                    </tr> 
+                                </thead> 
+                                <tbody> 
+                                    <tr> 
+                                        <td><input type="checkbox" name="mc_idx" class="checkItem" value="1653430" checked="checked"></td>									 
+                                        <td>한국커피물류</td> 
+                                        <td>[8801037019667]<br>[무배][동서] 맥심 모카골드 믹스 100T*8입</td> 
+                                        <td><span class="comma">104,080</span></td> 
+                                        <td><span class="comma">0</span></td> 
+                                        <td><span class="comma">0</span></td> 
+                                        <td><span class="comma">1</span><br>(입수량 <span class="comma">1</span>)</td> 
+                                        <td><span class="comma">104,080</span></td>		 
+                                    </tr>		 
+                                </tbody> 
+                            </table>						 
+                        </div> 
+                        <!-- //일괄취소 -->		 
+                    </div> 
+                    <!-- 주문 수정 --> 
+                    <div class="tab01_cont06" style="position:relative; display:none;"> 
+                        <div style="position:absolute; right:0px; top:-5px;"> 
+                            <button type="button" class="btn_ss01" onclick="btn_allCancel();"><span class="btn_cancel">전체 주문 삭제</span></button> 
+                            <button type="button" class="btn_ss01" onclick="btn_rePayment();"><span class="btn_repayment">저장 및 가상계좌 재발급</span></button> 
+                        </div> 
+                        <div class="pop_s_tit">				 
+                            주문 수정 리스트 
+                        </div> 
+                        <table class="table_col order_goods_list numGroup" id="detailPop_reorderList"> 
+                            <colgroup><col width="30"><col width="100"><col width="*"><col width="70"><col width="80"><col width="80"><col width="80"><col width="80"><col width="80"><col width="70" class="printHide"><col width="*" class="printHide"><col width="40" class="printHide"></colgroup> 
+                            <thead> 
+                                <tr class="s_th text-center"> 
+                                    <th rowspan="2">No</th> 
+                                    <th rowspan="2">공급사</th> 
+                                    <th rowspan="2">상품명<br>[바코드]</th> 
+                                    <th rowspan="2">판매가(원)</th> 
+                                    <th colspan="3">수량</th> 
+                                    <th rowspan="2">입금금액(원)</th> 
+                                    <th rowspan="2">기능</th> 
+                                </tr> 
+                                <tr class="s_th text-center"> 
+                                    <th class="bor_l">낱개</th> 
+                                    <th>볼</th> 
+                                    <th>박스</th> 
+                                </tr> 
+                            </thead> 
+                            <tbody> 
+                                <tr> 
+                                    <td class="NumAsc">1</td>									 
+                                    <td> 
+                                        한국커피물류 
+                                    </td>	 
+                                    <td>[8801037019667]<br>[무배][동서] 맥심 모카골드 믹스 100T*8입</td> 
+                                    <td><span class="comma rol_sell_price">104,080</span></td> 
+                                    <td> 
+                                        <input type="text" name="rol_Unit_1653430" value="0" class="rol_Unit_cnt" style="width:40px; text-align:center;" onchange="changeOrderCnt(this)" disabled=""> 
+                                        <br>(입수량 <span class="comma rol_Unit_piece">0</span>)									 
+                                    </td> 
+                                    <td> 
+                                        <input type="text" name="rol_Bundle_1653430" value="0" class="rol_Bundle_cnt" style="width:40px; text-align:center;" onchange="changeOrderCnt(this)" disabled=""> 
+                                        <br>(입수량 <span class="comma rol_Bundle_piece">0</span>)</td> 
+                                    <td> 
+                                        <input type="text" name="rol_Box_1653430" value="1" class="rol_Box_cnt" style="width:40px; text-align:center;" onchange="changeOrderCnt(this)"> 
+                                        <br>(입수량 <span class="comma rol_Box_piece">1</span>)</td> 
+                                    <td><span class="comma detailPop_goods_reorder_amount">104,080</span></td> 
+                                    <td> 
+                                        <button type="button" class="btn_ss01 detailPop_goods_reorder_deleteBtn" onclick="btn_goodsCancel('1653430');"><span>주문삭제</span></button> 
+                                        <input type="hidden" name="rol_idx" value="1653430"> 
+                                    </td> 
+                                </tr>		 
+                            </tbody> 
+                        </table> 
+                        <p class="order_total">총 입금 금액(원) : <span id="detailPop_total_reorder_amount">104,080</span></p>			 
+                    </div> 
+                </div>	 
+                <div class="pop_close"> 
+                    <a href="javascript:btn_parentpage_refresh();removeLayerPop();"><img src="../../../adminLayer/resources/images/admin/btn_pop_close01.gif" alt="닫기"></a> 
+                </div> 
+            </div> 
+            </form> 
+        <!-- //상품 정보 --> 
+            <script> 
+                $(".tab01 li").on("click",function (){ 
+                    changeTabClass(this); 
+                }); 
+            </script> 
+            </div> 
+        </div>
     <!-- 팝업부분 끝 -->
 </body></html>
