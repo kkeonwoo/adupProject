@@ -105,8 +105,13 @@ Federation = {
             }
         })
         mGnbItem.on('click',function(e){
-            e.preventDefault();
-            e.stopPropagation();
+
+            if($(this).next('.sub_menu').length){
+                e.preventDefault();
+            }else{
+                e.stopPropagation();
+            }
+
             let last = mGnbItem.parents('li').length - 1;
             let targetParent = $(this).closest('li');
 
