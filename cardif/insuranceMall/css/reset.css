@@ -1,0 +1,147 @@
+
+
+body, h1, h2, h3, h4, h5, h6, ol, ul, dl, li, dl, dt, dd, abbr, q, a,
+blockquote, p, table, tr, th, td, textarea, del, ins, img, input, 
+div, address, form, fieldset, legend, label, hr{padding:0; margin:0;} /* *테그 사용안함- 렌더링시간이 오래걸림*/
+form	{margin:0; padding:0;}
+html{overflow:auto; overflow-x:hidden;
+	font-family:'Noto Sans KR', "돋움", Dotum, Arial, sans-serif ; 
+	font-size:10px; width: 100%; height: 100%;/*word-wrap: break-word; word-break: keep-all;background-color:transparent;*/
+}
+/* HTML5 display-role reset for older browsers 
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary {
+	display:block;
+}*/
+
+/* 박스사이즈 초기화 */ 
+/* *:before, *:after {-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;} */
+*, *::after, * ::before {box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;}
+
+
+img, fieldset{border:0 none;} /* img링크 걸었을때 보더생성금지 */
+img {vertical-align:top;}
+hr{display:none;} /*구분선 보이지않게 가려주기 */
+
+table{
+	border-collapse:collapse; /* 표와 표사이가 벌어지는것 방지*/
+	border-spacing:0;
+}
+
+ul{list-style:none;} /* 블릿기호 가리기*/
+
+legend{
+	overflow:hidden;
+	height:0;
+	width:0;
+	font-size:0;
+	text-indent:-999px;
+	position:absolute;
+	left:-9999px;
+} /* 폼제목 가리기  desplay:none; 으로 지정할경우 구버전 스크린리더기가 읽지못하기 때문에 사용안함 */
+
+q, blockquote{quotes:""  "";} /* 쌍따옴표 삭제 */
+
+address{
+	font-style:normal;
+	font-weight:normal;
+}/* 이태릭체로 표시되는것을 노멀로 바꾸기*/
+
+
+em {font-style:normal;
+	font-weight:bold;}
+
+h1, h2, h3, h4, h5, h6{
+	font-size:100%;
+	font-weight:bold;
+}/* 제목태그 폰트스타일 동일하게 변경 */
+
+
+a, a:link {
+	text-decoration:none; cursor:pointer;/* 링크 밑줄 제거 */
+}
+
+textarea {overflow-y:auto; font-family:'Noto Sans KR', "돋움", Dotum, Arial, sans-serif ; }
+textarea::placeholder {color:#999;}
+/* 2022.04.15 수정 */
+input[type=text], input[type=tel], input[type=number] {
+	font-family:'Noto Sans KR', "돋움", Dotum, Arial, sans-serif ; box-sizing:border-box;
+	border:solid 1px #d8d8d8;
+	border-radius:5px;
+	padding:7px 15px 9px;
+	font-weight:300;
+	font-size:inherit;
+}
+input[type=text]::placeholder, input[type=tel]::placeholder  {color:#999;}
+
+select {
+	font-family:'Noto Sans KR', "돋움", Dotum, Arial, sans-serif ; box-sizing:border-box;
+	border:solid 1px #d8d8d8;
+	border-radius:5px;
+	height:50px;
+	padding:0 50px 0 15px; 
+	font-size:1.8rem;
+	font-weight:300;
+	background-color:#fff;
+	background-image:url('../images/select_arrow.png');
+	background-repeat:no-repeat;
+	background-position:calc(100% - 15px) 50%;
+	background-size:15px;
+	appearance : none;
+	-moz-appearance: none;
+	-webkit-appearance: none; 
+	vertical-align:top;
+}
+select::-ms-expand {display:none;}
+button {
+	font-family:'Noto Sans KR', "돋움", Dotum, Arial, sans-serif ; box-sizing:border-box;
+	letter-spacing:-0.5px;
+	border:0 none;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none; 
+	vertical-align:top;
+	cursor:pointer;
+	font-size:inherit;
+}
+input[type=button] {cursor:pointer;}
+
+/* 2022.04.18 수정 */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* // 2022.04.18 수정 */
+
+
+ /* webfont */
+
+@font-face {
+ font-family:"Noto Sans KR"; font-weight:200; font-style:normal; 
+ src: url("../fonts/NotoSansKR-DemiLight.woff2") format("woff2"), 
+	  url("../fonts/NotoSansKR-DemiLight.woff") format("woff"), 
+	  url("../fonts/NotoSansKR-DemiLight.otf") format("opentype")
+}
+
+@font-face {
+ font-family:"Noto Sans KR"; font-weight:300; font-style:normal; 
+ src: url("../fonts/NotoSansKR-Regular.woff2") format("woff2"), 
+	  url("../fonts/NotoSansKR-Regular.woff") format("woff"), 
+	  url("../fonts/NotoSansKR-Regular.otf") format("opentype")
+}
+
+
+@font-face {
+ font-family:"Noto Sans KR"; font-weight:400; font-style:normal; 
+ src: url("../fonts/NotoSansKR-Medium.woff2") format("woff2"), 
+	  url("../fonts/NotoSansKR-Medium.woff") format("woff"), 
+	  url("../fonts/NotoSansKR-Medium.otf") format("opentype")
+}
+
+@font-face {
+ font-family:"Noto Sans KR"; font-weight:500; font-style:bold; 
+ src: url("../fonts/NotoSansKR-Bold.woff2") format("woff2"), 
+	  url("../fonts/NotoSansKR-Bold.woff") format("woff"), 
+	  url("../fonts/NotoSansKR-Bold.otf") format("opentype")
+}
