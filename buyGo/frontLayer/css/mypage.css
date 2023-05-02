@@ -445,7 +445,7 @@ div[class*="modal_password"] .frm_wrap .form_control {height:40px;min-height:40p
 .cart_sec .obj_order_info_card .obj_order_info_header .ttl_user_area .memo_box .txt { display: block; padding-bottom: 5px; border-bottom: 1px solid var(--fn-gray-700); font-size: 14px;}
 .cart_sec .obj_order_info_card .obj_order_info_header .ttl_area .ttl { font-weight: 700; font-size: 20px;}
 .cart_sec .obj_order_info_card .obj_order_info_header .ico_ttl_area { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; align-items: center; padding: 10px 0;}
-.cart_sec .obj_order_info_card .obj_order_info_header .ico_ttl_area .ico { display: block; width: 92px; background-image: url('../images/icons/ico_orderCompleted.svg'); background-position: center center; background-size: 100% auto; background-repeat: no-repeat;}
+.cart_sec .obj_order_info_card .obj_order_info_header .ico_ttl_area .ico { display: block; width: 92px; background-image: url('../images/icons/ico_orderCompleted.png'); background-position: center center; background-size: 100% auto; background-repeat: no-repeat;}
 .cart_sec .type2 .obj_order_info_card .obj_order_info_header .ico_ttl_area .ico { width: 57px; background-image: url('../images/icons/ico_orderFail.svg'); background-size: cover;}
 .cart_sec .obj_order_info_card .obj_order_info_header .ico_ttl_area .ico::before { content: ''; display: block; padding-top: calc(78 / 92 * 100%);}
 .cart_sec .type2 .obj_order_info_card .obj_order_info_header .ico_ttl_area .ico::before { padding-top: 100%;}
@@ -459,17 +459,16 @@ div[class*="modal_password"] .frm_wrap .form_control {height:40px;min-height:40p
 .cart_sec .obj_order_info_card .obj_order_info_body .f_memo_area { margin-top: 30px;}
 .cart_sec .obj_order_info_card .obj_order_info_body .f_memo_area .f_memo { font-size: 10px; line-height: 1.6;}
 
-.cart_sec .obj_order_info_card .obj_order_info_tbl { width: 350px;}
 .cart_sec .obj_order_info_card .obj_order_info_tbl colgroup col:nth-child(1) { width: 250px;}
 .cart_sec .obj_order_info_card .obj_order_info_tbl th,
 .cart_sec .obj_order_info_card .obj_order_info_tbl td { padding: 6px 0;}
+.cart_sec .obj_order_info_card .obj_order_info_tbl td,
 .cart_sec .obj_order_info_card .obj_order_info_tbl th { text-align: left;}
-.cart_sec .obj_order_info_card .obj_order_info_tbl td { text-align: right;}
 .cart_sec .obj_order_info_card .obj_order_info_tbl th .txt,
 .cart_sec .obj_order_info_card .obj_order_info_tbl td .txt { font-size: 17px;}
 .cart_sec .obj_order_info_card .obj_order_info_tbl th .txt { font-weight: 700; font-size: 17px;}
-.cart_sec .obj_order_info_card .form_select { width: 137px;}
-.cart_sec .obj_order_info_card .sale_tag { padding: 7px 20px; border-radius: 5px; background-color: var(--fn-gray-500); font-size: 14px; color: var(--fn-white);}
+.cart_sec .obj_order_info_card .form_select { width: 137px; margin-left: auto;}
+.cart_sec .obj_order_info_card .sale_tag { padding: 3px 20px; border-radius: 5px; background-color: var(--fn-gray-500); font-size: 14px; color: var(--fn-white);}
 
 .tbl_area colgroup.type1 col:nth-child(1) { width: 120px;}
 .tbl_area .tbl th,
@@ -506,11 +505,17 @@ div[class*="modal_password"] .frm_wrap .form_control {height:40px;min-height:40p
 .grade_label.grade_vip { border-color: var(--fn-purple); background-color: var(--fn-purple);}
 .grade_label.grade_vvip { border-color: var(--fn-orange); background-color: var(--fn-orange);}
 
+.modal_order .modal_box,
 .modal_prd_remove .modal_box { max-width: 555px; padding: 35px 30px 30px; border: 1px solid var(--fn-black); border-radius: 0; background-color: var(--fn-gray-250);}
+.modal_order .modal_box .btn_modal_close,
 .modal_prd_remove .modal_box .btn_modal_close { width: 20px; height: 20px; border-radius: 5px; background-size: 80% auto; background-color: transparent;}
+.modal_order .modal_box .txt,
 .modal_prd_remove .modal_box .txt { font-weight: 700; font-size: 22px; line-height: 1.22;}
+.modal_order .modal_box .btn_area,
 .modal_prd_remove .modal_box .btn_area { display: flex; gap: 12px; max-width: 415px; margin: 40px auto 0;}
+.modal_order .modal_box .btn_area .btn,
 .modal_prd_remove .modal_box .btn_area .btn { width: calc((100% - 12px) / 2); padding-top: 15px; padding-bottom: 15px; flex: 1; border-radius: 0;}
+.modal_order .modal_box .btn_area .btn_outline_dark,
 .modal_prd_remove .modal_box .btn_area .btn_outline_dark { background-color: var(--fn-white);}
 
 .favorite_goods_header { padding-bottom: 30px; border-bottom: 1px solid var(--fn-black);}

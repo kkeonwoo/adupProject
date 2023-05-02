@@ -1736,7 +1736,7 @@
                                             <span class="num">2,749,312</span> 원
                                         </span>
                                     </div>
-                                    <button type="button" class="btn btn_danger">주문하기</button>
+                                    <button type="button" class="btn btn_danger" onclick="BuyGo.openModal($('.modal_order'))">주문하기</button>
                                 </div>
                             </div>
                         </div>
@@ -1887,6 +1887,23 @@
             </button>
         </div>
         <!-- e:floating -->
+        
+        <!-- s:modal -->
+        <div class="modal modal_close modal_order">
+            <div class="modal_centered">
+                <div class="modal_box" tabindex="0">
+                    <button type="button" class="btn_modal_close close">
+                        <span class="blind">닫기</span>
+                    </button>
+                    <span class="txt">상품을 주문하시겠습니까?</span>
+                    <div class="btn_area">
+                        <button class="btn btn_outline_dark" type="button">취소</button>
+                        <button class="btn btn_danger" type="button">주문하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
 
     </div>
     <!-- e:wrap -->

@@ -1233,6 +1233,7 @@
                                             <colgroup>
                                                 <col/>
                                                 <col/>
+                                                <col/>
                                             </colgroup>
                                             <tbody>
                                                 <tr>
@@ -1244,6 +1245,7 @@
                                                             <span class="f_tahoma f_inherit">2,924,800</span> 원
                                                         </span>
                                                     </td>
+                                                    <td></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">
@@ -1254,10 +1256,13 @@
                                                             <span class="f_tahoma f_inherit">87,744</span> 원
                                                         </span>
                                                     </td>
+                                                    <td class="text_end">
+                                                        <span class="sale_tag">3% 할인 자동 적용</span>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <span class="sale_tag">3% 할인 자동 적용</span>
+                                        <!-- <span class="sale_tag">3% 할인 자동 적용</span> -->
                                     </div>
                                 </div>
                             </div>
@@ -1274,6 +1279,7 @@
                                             <colgroup>
                                                 <col/>
                                                 <col/>
+                                                <col/>
                                             </colgroup>
                                             <tbody>
                                                 <tr>
@@ -1285,28 +1291,30 @@
                                                             <span class="f_tahoma f_inherit">87,744 </span> 원
                                                         </span>
                                                     </td>
+                                                    <td>
+                                                        <div class="form_select form_select_sm w_px_176" data-index="1">
+                                                            <button class="form_btn" type="button">3% 할인쿠폰</button>
+                                                            <div class="option_area option_area_sm">
+                                                                <ul class="option_list">
+                                                                    <li class="option_item">
+                                                                        <button class="option_btn" type="button">적용안함</button>
+                                                                    </li>
+                                                                    <li class="option_item">
+                                                                        <button class="option_btn" type="button">3% 할인쿠폰 (-87,744 원)</button>
+                                                                    </li>
+                                                                    <li class="option_item">
+                                                                        <button class="option_btn" type="button">2% 할인쿠폰 (-58,496 원)</button>
+                                                                    </li>
+                                                                    <li class="option_item">
+                                                                        <button class="option_btn" type="button">1% 할인쿠폰 (-29,248 원)</button>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <div class="form_select form_select_sm w_px_176" data-index="1">
-                                            <button class="form_btn" type="button">3% 할인쿠폰</button>
-                                            <div class="option_area option_area_sm">
-                                                <ul class="option_list">
-                                                    <li class="option_item">
-                                                        <button class="option_btn" type="button">적용안함</button>
-                                                    </li>
-                                                    <li class="option_item">
-                                                        <button class="option_btn" type="button">3% 할인쿠폰 (-87,744 원)</button>
-                                                    </li>
-                                                    <li class="option_item">
-                                                        <button class="option_btn" type="button">2% 할인쿠폰 (-58,496 원)</button>
-                                                    </li>
-                                                    <li class="option_item">
-                                                        <button class="option_btn" type="button">1% 할인쿠폰 (-29,248 원)</button>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1399,7 +1407,7 @@
                                     </span>
                                 </div>
                                 <div class="btn_area">
-                                    <button type="button" class="btn btn_danger">주문하기</button>
+                                    <button type="button" class="btn btn_danger" onclick="BuyGo.openModal($('.modal'))">주문하기</button>
                                 </div>
                             </div>
                         </div>
@@ -1510,6 +1518,23 @@
             </button>
         </div>
         <!-- e:floating -->
+
+        <!-- s:modal -->
+        <div class="modal modal_order modal_close">
+            <div class="modal_centered" tabindex="0">
+                <div class="modal_box">
+                    <button type="button" class="btn_modal_close close">
+                        <span class="blind">닫기</span>
+                    </button>
+                    <span class="txt">상품을 주문하시겠습니까?</span>
+                    <div class="btn_area">
+                        <button class="btn btn_outline_dark close" type="button">취소</button>
+                        <button class="btn btn_danger close" type="button">주문하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
 
     </div>
     <!-- e:wrap -->
