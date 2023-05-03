@@ -1,0 +1,33 @@
+.btn {
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 9px;
+    border: 1px solid transparent;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: $font-normal + 2;
+    color: $color-white;
+    vertical-align: middle;
+    line-height: 1.5;
+    transition: all .2s ease-in-out;
+    border-radius: 10px;
+    user-select: none;
+    @include inline-flex();
+
+    &--primary {
+        background-color: $color-blue3;
+    }
+
+    &--success {
+        background-color: $color-blue;
+    }
+
+    &:disabled {
+        background-color: $color-gray3;
+        cursor: not-allowed;
+    }
+
+    &--dark {
+        background-color: $color-black2;
+    }
+}

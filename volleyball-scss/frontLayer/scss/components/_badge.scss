@@ -1,0 +1,27 @@
+.badge {
+    flex-wrap: wrap;
+    min-width: 44px;
+    padding: 3px;
+    background-color: transparent;
+    font-weight: 600;
+    font-size: $font-small - 2;
+    color: $color-white;
+    vertical-align: middle;
+    line-height: 1.5;
+    transition: all .2s ease-in-out;
+    border-radius: 5px;
+    user-select: none;
+    @include inline-flex();
+
+    &--primary {
+        background-color: $color-blue3;
+    }
+
+    &--secondary {
+        background-color: $color-gray3;
+    }
+
+    &--success {
+        background-color: $color-blue;
+    }
+}

@@ -4,9 +4,16 @@
 @import 'base/normalize';
 @import 'base/typography';
 
-@import 'layout/navigation';
-@import 'layout/header';
+@import 'components/badge';
+@import 'components/button';
+@import 'components/checkbox';
+@import 'components/input';
+
 @import 'layout/footer';
+@import 'layout/forms';
+@import 'layout/header';
+@import 'layout/modal';
+@import 'layout/navigation';
 
 @import 'pages/styles';
 
