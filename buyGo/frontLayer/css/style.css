@@ -281,7 +281,7 @@
 
 .aside_wrap.active .aside_dim { position: fixed; left: 0; top: 0; z-index: 499; width: 100%; height: 100%;}
 
-.ttl_area { display: flex; gap: 10px; justify-content: space-between; }
+.ttl_area { display: flex; gap: 10px; align-items: center; justify-content: space-between; }
 .ttl_area.border_type {padding-bottom:13px;margin-bottom:55px;border-bottom:1px solid var(--fn-gray-500);}
 .ttl_area .ttl { font-weight: 700; font-size: 25px; }
 [color-theme='dark'] .ttl_area .ttl { color: var(--fn-white);}

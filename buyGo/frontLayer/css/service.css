@@ -12,7 +12,7 @@
 .notice_area .notice_body .acc_item .acc_header .acc_content { display: flex; padding: 10px 7px;}
 .notice_area .notice_body .acc_item .acc_header .acc_content .ico_headline { width: 10px; min-width: 10px; margin-right: 8px; background-image: url('../images/icons/ico_pin_orange.svg'); background-position: center center; background-size: 100% auto; background-repeat: no-repeat;}
 .notice_area .notice_body .acc_item .acc_header .acc_content .ico_headline::before { content: ''; display: block; padding-top: calc(10 / 15 * 100%);}
-.notice_area .notice_body .acc_item .acc_header .acc_content .category { display: block; margin-right: 20px; font-size: 17px; white-space: nowrap;}
+.notice_area .notice_body .acc_item .acc_header .acc_content .category { display: block; min-width: 150px; font-size: 17px; white-space: nowrap;}
 .notice_area .notice_body .acc_item .acc_header .acc_content .category::before { content: 'Q'; display: inline; margin-right: .4em; font-weight: 700; font-size: inherit;}
 .notice_area .notice_body .acc_item .acc_header .acc_content .ttl { overflow: hidden; padding-right: 10px; text-overflow: ellipsis; white-space: nowrap;}
 .notice_area .notice_body .acc_item .acc_header .acc_content .ttl_link { font-size: 17px;}

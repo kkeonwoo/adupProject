@@ -451,6 +451,7 @@ div[class*="modal_password"] .frm_wrap .form_control {height:40px;min-height:40p
 .cart_sec .type2 .obj_order_info_card .obj_order_info_header .ico_ttl_area .ico::before { padding-top: 100%;}
 .cart_sec .obj_order_info_card .obj_order_info_header .ico_ttl_area .ttl { font-family: var(--fn-SCoreDream); font-size: 22px; line-height: 1.22;}
 .cart_sec .type2 .obj_order_info_card .obj_order_info_header .ico_ttl_area .ttl { font-family: var(--fn-Pretendard); font-size: 18px; font-weight: 500;}
+.cart_sec .obj_order_info_card .obj_order_info_header .btn { min-width: 130px; padding-top: 5px; padding-bottom: 5px; border-width: 1px; font-size: 14px; line-height: 1;}
 .cart_sec .obj_order_info_card .obj_order_info_body { padding: 20px 0 10px;}
 .cart_sec .type2 .obj_order_info_card .obj_order_info_body .tbl_area { max-width: 680px; margin: 0 auto;}
 .cart_sec .type2 .obj_order_info_card .obj_order_info_body .tbl_area .txt { font-size: 17px;}
