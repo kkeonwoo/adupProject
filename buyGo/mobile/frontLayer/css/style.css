@@ -865,6 +865,7 @@ body.scroll_down .floating_area .floating_btn { transform: translateY(0);}
   .sec.type2 .prot_item .prot_price_area { margin-top: 0;}
   .prot_swiper_wrap .prot-swiper,
   .prot_swiper_wrap .prot-swiper.prot-swiper4 { padding-bottom: 56px;}
+  .prot_swiper_wrap.prot_swiper_wrap4 .swiper-pagination-bullets.swiper-pagination-horizontal { bottom: 10px;}
 
   .prot_swiper_wrap .prot-swiper .prot_item .prot_link.prot_small_type { display: grid; padding: 5px; gap: 2px 5px; grid-template-columns: 1fr 1fr; grid-template-rows:minmax(30px, auto) 1fr minmax(19px, auto); grid-template-areas:"thumb tag""thumb info" "price price";}
   .prot_swiper_wrap .prot-swiper .prot_item .prot_link.prot_small_type .tag_list { grid-area: tag;}
