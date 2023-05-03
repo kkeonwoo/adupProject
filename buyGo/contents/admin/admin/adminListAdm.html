@@ -191,8 +191,137 @@
 		<!-- //container -->
 	</div>
 
-<div class="layerPopArea" style="height: 862px; display: none; top: 0px;">
-	<div class="layerPop" align="center" style="display: block;">
+<div class="layerPopArea" style="height: 862px; display: block; top: 0px;">
+	<div class="layerPop" align="center" style="display: block;">			
+		<div class="popup pop800"> 
+			<div class="pop_tit">운영자등록</div> 
+			<div class="pop_cont"> 
+				<div class="text_r mb05"> 
+					<span class="important">*</span> 필수입력 
+				</div> 
+				<table class="table_row" id="table_add"> 
+					<colgroup><col width="15%"><col width="35%"><col width="16%"><col width="*"></colgroup> 
+					<tbody> 
+						<tr> 
+							<th><span>아이디 <span class="important">*</span></span></th> 
+							<td colspan="3"> 
+								<input type="text" name="input_id" id="input_id" class="w210" maxlength="30" value=""> 	 
+								<button type="button" class="btn_ss01" onclick="chkDupId();"><span>중복확인</span></button> 
+							</td> 
+						</tr> 
+						<tr> 
+							<th><span>비밀번호 <span class="important">*</span></span></th> 
+							<td> 
+								<input type="password" name="input_pwd" class="w210" maxlength="20" value=""> 
+								<p class="font11">영문(대소문자), 숫자, 특수문자 조합으로 8자 이상</p> 
+							</td> 
+							<th><span>비밀번호 재확인 <span class="important">*</span></span></th> 
+							<td><input type="password" name="input_pwd_check" class="w210" maxlength="20" value=""></td> 
+						</tr>
+						<!-- ADMIN/SUPER 기본상태 화면 -->
+						<tr>
+							<th><span>ADMIN/SUPER <span class="important">*</span></span></th> 
+							<td colspan="3"> 
+								<select name="input_admin_name" style="width:80px;"> 
+									<option value="ADMIN1">ADMIN1</option> 
+									<option value="ADMIN2">ADMIN2</option> 
+									<option value="SUPER">SUPER</option> 
+								</select> 
+							</td> 
+						</tr> 
+						<!-- //ADMIN/SUPER 기본상태 화면 -->
+						<!-- ADMIN/SUPER 셀렉트값이 SUPER 일때 화면 -->
+						<tr>
+							<th><span>ADMIN/SUPER <span class="important">*</span></span></th> 
+							<td> 
+								<select name="input_admin_name" style="width:80px;"> 
+									<option value="ADMIN1">ADMIN1</option> 
+									<option value="ADMIN2">ADMIN2</option> 
+									<option value="SUPER" selected>SUPER</option> 
+								</select> 
+							</td> 
+							<th><span>공급사 <span class="important">*</span></span></th> 
+							<td> 
+								<select name="" style="width:80px;"> 
+									<option value="">공급사</option>
+								</select> 
+							</td> 
+						</tr> 
+						<!-- //ADMIN/SUPER 셀렉트값이 SUPER 일때 화면 -->
+						<tr> 
+							<th><span>대표자 이름 <span class="important">*</span></span></th> 
+							<td colspan="3"><input type="text" name="input_charger_name" class="w210" maxlength="50" value=""></td> 
+						</tr> 
+						<tr> 
+							<th><span>전화번호</span></th> 
+							<td> 
+								<select name="input_tel_1" style="width:70px;"> 
+									<option value="02">02</option> 
+									<option value="031">031</option> 
+									<option value="032">032</option> 
+									<option value="033">033</option> 
+									<option value="041">041</option> 
+									<option value="042">042</option> 
+									<option value="043">043</option> 
+									<option value="051">051</option> 
+									<option value="052">052</option> 
+									<option value="053">053</option> 
+									<option value="054">054</option> 
+									<option value="055">055</option> 
+									<option value="061">061</option> 
+									<option value="062">062</option> 
+									<option value="063">063</option> 
+									<option value="064">064</option> 
+									<option value="0505">0505</option> 
+									<option value="0502">0502</option> 
+									<option value="070">070</option> 
+								</select> 
+								<input type="text" name="input_tel_2" class="w55" maxlength="4" onkeypress="return checkNumber(event)" value=""> -  
+								<input type="text" name="input_tel_3" class="w55" maxlength="4" onkeypress="return checkNumber(event)" value=""> 
+							</td> 
+							<th><span>휴대폰 <span class="important">*</span></span></th> 
+							<td> 
+								<select name="input_mobile_1" style="width:70px;"> 
+									<option value="010">010</option> 
+									<option value="011">011</option> 
+									<option value="016">016</option> 
+									<option value="017">017</option> 
+									<option value="018">018</option> 
+									<option value="019">019</option> 
+									<option value="0130">0130</option> 
+									<option value="0502">0502</option> 
+									<option value="070">070</option> 
+								</select> 
+								<input type="text" name="input_mobile_2" class="w55" maxlength="4" onkeypress="return checkNumber(event)" value=""> -  
+								<input type="text" name="input_mobile_3" class="w55" maxlength="4" onkeypress="return checkNumber(event)" value=""> 
+							</td> 
+						</tr> 
+						<tr> 
+							<th><span>이메일 <span class="important">*</span></span></th> 
+							<td colspan="2"> 
+								<input type="text" name="input_email_1" class="w100"> @  
+								<input type="text" name="input_email_2" id="input_email2" class="w100"> 
+								<select id="input_email3" style="width:100px;" onchange="changeEmail();"> 
+									<option value="">- 직접입력 -</option> 
+									<option value="gmail.com">gmail.com</option> 
+									<option value="naver.com">naver.com</option> 
+									<option value="hanmail.net">hanmail.net</option> 
+									<option value="kakao.com">kakao.com</option> 
+									<option value="nate.com">nate.com</option> 
+								</select> 
+							</td> 
+						</tr> 
+					</tbody> 
+				</table> 
+				<div class="table_btns text_c"> 
+					<button type="button" class="btn01" onclick="btnSubmitCancel();"><span>취소</span></button> 
+					<button type="button" class="btn01 btn_b" onclick="registerAccount();"><span>등록</span></button>  
+				</div> 
+			</div> 
+			<div class="pop_close"> 
+				<a href="javascript:removeLayerPop();"><img src="../../../adminLayer/resources/images/admin/btn_pop_close01.gif" alt="닫기"></a> 
+			</div> 
+		</div> 
 	</div>
 </div>
 

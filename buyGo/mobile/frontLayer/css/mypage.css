@@ -612,17 +612,18 @@ div[class*="modal_password"] .inc_form .timer { position: absolute; right: 0; wi
 .cart_sec .obj_order_info_card .obj_order_info_body .f_memo_area { margin-top: 15px;}
 .cart_sec .obj_order_info_card .obj_order_info_body .f_memo_area .f_memo { font-size: 10px; line-height: 1.6;}
 
-.cart_sec .obj_order_info_card .obj_order_info_tbl { width: 53%;}
-.cart_sec .obj_order_info_card .obj_order_info_tbl colgroup col:nth-child(1) { width: 64%;}
+.cart_sec .obj_order_info_card .obj_order_info_tbl colgroup col:nth-child(1) { width: calc(330 / 1200 * 100%);}
+.cart_sec .obj_order_info_card .obj_order_info_tbl colgroup col:nth-child(2) { width: calc(300 / 1200 * 100%);}
 .cart_sec .obj_order_info_card .obj_order_info_tbl th,
 .cart_sec .obj_order_info_card .obj_order_info_tbl td { padding: 6px 0;}
 .cart_sec .obj_order_info_card .obj_order_info_tbl th { text-align: left;}
 .cart_sec .obj_order_info_card .obj_order_info_tbl td { text-align: right;}
+.cart_sec .obj_order_info_card .obj_order_info_tbl tr td:last-child * { margin-left: auto;}
 .cart_sec .obj_order_info_card .obj_order_info_tbl th .txt,
 .cart_sec .obj_order_info_card .obj_order_info_tbl td .txt { font-size: 11px;}
 .cart_sec .obj_order_info_card .obj_order_info_tbl th .txt { font-weight: 700; font-size: 11px;}
 .cart_sec .obj_order_info_card .form_select { width: 137px;}
-.cart_sec .obj_order_info_card .sale_tag { padding: 4px 14px; border-radius: 5px; background-color: var(--fn-gray-500); font-size: 11px; color: var(--fn-white);}
+.cart_sec .obj_order_info_card .sale_tag { display: inline-block; padding: 4px 14px; border-radius: 5px; background-color: var(--fn-gray-500); font-size: 11px; color: var(--fn-white);}
 
 .tbl_area colgroup.type1 col:nth-child(1) { width: 80px;}
 .tbl_area .tbl th,
