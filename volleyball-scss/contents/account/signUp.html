@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>한국 9인제 배구연맹</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- SNS share -->
+    <meta property="og:title" content="" />
+    <meta property="og:url" content=""/>
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16"  href="../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32"  href="../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="../../frontLayer/images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../frontLayer/images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../frontLayer/images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../frontLayer/images/favicons/apple-touch-icon-76x76.png">
+    <link rel="icon" type="image/png" sizes="96x96"  href="../../frontLayer/images/favicons/apple-touch-icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../frontLayer/images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../frontLayer/images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../frontLayer/images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../frontLayer/images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../frontLayer/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../../frontLayer/images/favicons/android-icon-192x192.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="canonical" href=""/>
+    <link rel="stylesheet" href="../../frontLayer/css/package.css">
+    <script src="../../frontLayer/js/jquery-3.3.1.min.js"></script>
+    <script src="../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../frontLayer/js/fn.js"></script>
+    <script src="../../frontLayer/js/common.js"></script>
+</head>
+<body>
+    <!-- s:skip -->
+    <div class="skip">
+        <a href="#gnb">주메뉴 바로가기</a>
+        <a href="#container">본문 바로가기</a>
+    </div>
+    <!-- e:skip -->
+
+    <!-- s:wrap -->
+    <div id="wrap">
+
+        <!-- s:header -->
+        <header id="header">
+            <h1 class="logo">
+                <a href="../index.html">
+                    <img src="../../frontLayer/images/common/logo.svg" alt="한국 9인제 배구연맹 로고">
+                    한국9인제배구연맹
+                </a>
+            </h1>
+            <nav id="gnb" class="pc">
+                <h2 class="blind">주메뉴</h2>
+                <div class="gnb_bg"></div>
+                <ul>
+                    <li>
+                        <a href="../about/greeting.html">연맹소개</a>
+                        <div class="sub_menu">
+                            <ul>
+                                <li><a href="../about/greeting.html">인사말</a></li>
+                                <li><a href="../about/history.html">연혁</a></li>
+                                <li><a href="../about/organization.html">조직도</a></li>
+                                <li><a href="../about/executives.html">임원 소개</a></li>
+                                <li><a href="../about/location.html">오시는 길</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="../competition/newsList.html">대회안내</a>
+                        <div class="sub_menu">
+                            <ul>
+                                <li><a href="../competition/newsList.html">대회소식</a></li>
+                                <li><a href="../competition/scheduleAll.html">대회일정</a>
+                                    <ul>
+                                        <li><a href="../competition/scheduleAll.html">전체</a></li>
+                                        <li><a href="../competition/scheduleExpected.html">예정</a></li>
+                                        <li><a href="../competition/scheduleApplication.html">신청중</a></li>
+                                        <li><a href="../competition/scheduleProgress.html">진행중</a></li>
+                                        <li><a href="../competition/scheduleEnd.html">종료</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="../competition/archives.html">기록실</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="../mediaCenter/newsList.html">미디어센터</a>
+                        <div class="sub_menu">
+                            <ul>
+                                <li><a href="../mediaCenter/newsList.html">뉴스</a></li>
+                                <li><a href="../mediaCenter/galleryList.html">포토갤러리</a></li>
+                                <li><a href="../mediaCenter/videoList.html">영상</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="../community/noticeList.html">커뮤니티</a>
+                        <div class="sub_menu">
+                            <ul>
+                                <li><a href="../community/noticeList.html">공지사항</a></li>
+                                <li><a href="../community/referenceList.html">자료실</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">SHOP</a>
+                        <div class="sub_menu"></div>
+                    </li>
+                </ul>
+                <div class="ad_area">
+                    <div class="ad_box">
+                        <div class="img_box">
+                            <img src="../../frontLayer/images/img/img_schedules_03.jpg" alt="" class="img">
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <nav id="gnb" class="m_gnb">
+                <h2 class="blind">주메뉴</h2>
+                <div class="gnb_bg"></div>
+                <div class="util">
+                    <a href="../account/login.html" class="user_util">로그인</a>
+                    <a href="../account/signUp.html" class="user_util sign_up">회원가입</a>
+                    <a href="#" class="link" target="_blank" title="새창열기">
+                        <img src="../../frontLayer/images/icons/ico_daum.svg" alt="">
+                    </a>
+                </div>
+                <ul>
+                    <li>
+                        <a href="#">연맹소개</a>
+                        <div class="sub_menu">
+                            <ul>
+                                <li><a href="../about/greeting.html">인사말</a></li>
+                                <li><a href="../about/history.html">연혁</a></li>
+                                <li><a href="../about/organization.html">조직도</a></li>
+                                <li><a href="../about/executives.html">임원 소개</a></li>
+                                <li><a href="../about/location.html">오시는 길</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">대회안내</a>
+                        <div class="sub_menu">
+                            <ul>
+                                <li><a href="../competition/newsList.html">대회소식</a></li>
+                                <li class="depth03"><a href="../competition/scheduleAll.html">대회일정</a>
+                                    <ul>
+                                        <li><a href="../competition/scheduleAll.html">전체</a></li>
+                                        <li><a href="../competition/scheduleExpected.html">예정</a></li>
+                                        <li><a href="../competition/scheduleApplication.html">신청중</a></li>
+                                        <li><a href="../competition/scheduleProgress.html">진행중</a></li>
+                                        <li><a href="../competition/scheduleEnd.html">종료</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="../competition/archives.html">기록실</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">미디어센터</a>
+                        <div class="sub_menu">
+                            <ul>
+                                <li><a href="../mediaCenter/newsList.html">뉴스</a></li>
+                                <li><a href="../mediaCenter/galleryList.html">포토갤러리</a></li>
+                                <li><a href="../mediaCenter/videoList.html">영상</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">커뮤니티</a>
+                        <div class="sub_menu">
+                            <ul>
+                                <li><a href="../community/noticeList.html">공지사항</a></li>
+                                <li><a href="../community/referenceList.html">자료실</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">SHOP</a>
+                        <div class="sub_menu"></div>
+                    </li>
+                </ul>
+                <div class="ad_area">
+                    <div class="ad_box">
+                        <div class="img_box">
+                            <img src="../../frontLayer/images/img/img_schedules_03.jpg" alt="" class="img">
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="util pc">
+                <a href="../account/login.html" class="user_util">로그인</a>
+                <a href="../account/signUp.html" class="user_util sign_up">회원가입</a>
+                <a href="#" class="link" target="_blank" title="새창열기">
+                    <img src="../../frontLayer/images/icons/ico_daum.svg" alt="">
+                </a>
+            </div>
+            <button type="button" class="btn btn_hamburger mobile"></button>
+        </header>
+        <!-- e:header -->
+
+        <!-- s:container -->
+        <section id="container" class="sec">
+            <div class="content_inner">
+                <h2 class="ttl front_line">회원가입</h2>
+                <form>
+                    <fieldset>
+                        <legend>회원가입 : 이용 약관 동의, 개인정보 처리방침</legend>
+                        <div class="agree_wrap">
+                            <dl>
+                                <dt>이용 약관 동의</dt>
+                                <dd>
+                                    <div class="policy_content">
+                                        <div class="scrollbar">
+                                            <p class="txt ttl">1조 【 목적 】</p>
+                                            <br>
+                                            <p class="txt">
+                                                이 약관은 전기통신사업법령 및 정보통신망이용촉진등에 관한 법령에 의하여 한국9인제배구연맹(이하 "연맹"이라 한다)이 제공하는 홈페이지 서비스(이하 "서비스"라 한다)의 이용조건 및 절차에 관한 사항을 규정함을
+                                                목적으로 합니다.
+                                            </p>
+                                            <br><br>
+                                            <p class="txt ttl">2조 【 약관의 공지 및 준용 】</p>
+                                            <br>
+                                            <p class="txt">
+                                                이 약관의 내용은 서비스 화면에 게시하거나 기타의 방법으로 홈페이지 사용자(이하 사용자)에게 공지함으로써 효력을 발생합니다. 연맹은 이 약관을 임의로 변경할 수 있으며, 변경된 약관은 제1항과 같은 방법으로
+                                                공지함으로써 효력을 발생합니다.
+                                            </p>
+                                            <br><br>
+                                            <p class="txt ttl">3조 【 약관 외 준칙 】</p>
+                                            <br>
+                                            <p class="txt">이 약관에 명시되지 않은 사항은 전기통신기본법,전기통신사업법, 정보통신망이용촉진등에 관한 법률 및 기타 관련법령의 규정에 의합니다.</p>
+                                            <br><br>
+                                            <p class="txt ttl">4조 【 사용자의 의무 】</p>
+                                            <br>
+                                            <p class="txt">사용자는 서비스를 이용할 때 다음 각 호의 행위를 하지 않아야 합니다.</p>
+                                            <br>
+                                            <p class="txt dot">서비스에서 얻은 정보를 연맹의 사전승낙 없이 복제하거나 이를 출판 및 방송 등에 사용하거나 제3자에게 제공하는 행위</p>
+                                            <p class="txt dot">연맹의 저작권, 제3자의 저작권 등 기타 권리를 침해하는 행위</p>
+                                            <p class="txt dot">공공질서 및 미풍양속에 위반되는 내용의 정보, 문장, 도형 등을 타인에게 유포하는 행위</p>
+                                            <p class="txt dot">범죄와 결부된다고 객관적으로 판단되는 행위</p>
+                                            <p class="txt dot">기타 관계법령에 위배되는 행위</p>
+                                            <p class="txt dot">사용자는 이 약관에서 규정하는 사항과 서비스 이용안내 또는 주의사항을 준수하여야 합니다.</p>
+                                            <p class="txt dot">사용자는 내용별로 연맹이 서비스 공지사항에 게시하거나 별도로 공지한 이용제한 사항을 준수하여야 합니다.</p>
+                                            <p class="txt dot">사용자는 연맹의 사전 승낙없이는 서비스를 이용하여 영업활동을 할 수 없으며, 영업활동의 결과와 회원이 약관에 위반한 영업활동을 이용하여 발생한 결과에 대하여 연맹은 책임을 지지 않습니다. 회원은 이와 같은 영업활동에</p>
+                                            <p class="txt dot">대하여 연맹에 대하여 손해배상의무를 집니다.</p>
+                                            <p class="txt dot">사용자는 연맹의 명시적인 동의가 없는 한 서비스의 이용권한, 기타 이용계약상 지위를 타인에게 양도,증여할 수 없으며, 이를 담보로 제공할 수 없습니다.</p>
+                                            <br><br>
+                                            <p class="txt ttl">5조 【 게시물의 저작권 】</p>
+                                            <br>
+                                            <p class="txt">서비스에 게재된 자료에 대한 권리는 다음 각 호와 같습니다.</p>
+                                            <br>
+                                            <p class="txt dot">서비스에 게재된 모든 자료의 저작권은 연맹에 있습니다.</p>
+                                            <p class="txt dot">사용자는 서비스를 이용하여 얻은 정보를 가공, 판매하는 행위 등 서비스에 게재된 자료를 상업적으로 사용할 수 없습니다.</p>
+                                            <br><br>
+                                            <p class="txt ttl">6조 【 서비스 이용시간 】</p>
+                                            <br>
+                                            <p class="txt">
+                                                서비스의 이용은 연맹의 업무상 또는 기술상 특별한 지장이 없는 한 연중무휴 1일 24시간을 원칙으로 합니다. 다만 정기 점검 등의 필요로 연맹이 정한 날이나 시간은 그러하지 않습니다. 연맹은 서비스를 일정범위로
+                                                분할하여 각 범위별로 이용가능 시간을 별도로 정할 수 있습니다. 이 경우 그 내용을 사전에 공지합니다.
+                                            </p>
+                                            <br><br>
+                                            <p class="txt ttl">7조 【 서비스 이용책임 】</p>
+                                            <br>
+                                            <p class="txt">
+                                                사용자는 연맹에서 권한 있는 사원이 서명한 명시적인 서면에 구체적으로 허용한 경우를 제외하고는 서비스를 이용하여 불법상품을 판매하는 영업활동을 할 수 없으며 특히 해킹, 상업적 광고, 음란사이트를 통한 상업행위,
+                                                상용S/W 불법배포 등을 할 수 없습니다. 이를 어기고 발생한 영업활동의 결과 및 손실, 관계기관에 의한 구속 등 법적 조치 등에 관해서는 연맹이 책임을 지지 않습니다.
+                                            </p>
+                                            <br><br>
+                                            <p class="txt ttl">8조 【 서비스 제공의 중지 】</p>
+                                            <br>
+                                            <p class="txt">연맹은 다음 각 호에 해당하는 경우 서비스 제공을 중지할 수 있습니다.</p>
+                                            <br>
+                                            <p class="txt dot">서비스용 설비의 보수 등 공사로 인한 부득이한 경우</p>
+                                            <p class="txt dot">전기통신사업법에 규정된 기간통신사업자가 전기통신 서비스를 중지했을 경우</p>
+                                            <p class="txt dot">기타 불가항력적 사유가 있는 경우</p>
+                                            <p class="txt dot">연맹은 국가비상사태, 정전, 서비스 설비의 장애 또는 서비스 이용의 폭주 등으로 정상적인 서비스 이용에 지장이 있는 때에는 서비스의 전부 또는 일부를 제한하거나 정지할 수 있습니다.</p>
+                                            <br><br>
+                                            <p class="txt ttl">9조 【 손해배상 】</p>
+                                            <br>
+                                            <p class="txt">연맹은 서비스 요금이 무료인 동안의 서비스 이용과 관련하여 연맹의 고의, 과실에 의한 것이 아닌 한 사용자에게 발생한 어떠한 손해에 관하여도 책임을 지지 않습니다.</p>
+                                            <br><br>
+                                            <p class="txt ttl">10조 【 면책조항 】</p>
+                                            <br>
+                                            <p class="txt">
+                                                연맹은 천재지변 또는 이에 준하는 불가항력으로 인하여 서비스를 제공할 수 없는 경우에는 서비스 제공에 관한 책임이 면제됩니다. 연맹은 사용자의 귀책사유로 인한 서비스 이용의 장애에 대하여 책임을 지지 않습니다.
+                                                연맹은 사용자가 서비스를 이용하여 기대하는 수익을 상실한 것에 대하여 책임을 지지 않으며 그 밖에 서비스를 통하여 얻은 자료로 인한 손해에 관하여 책임을 지지 않습니다.
+                                            </p>
+                                            <br><br>
+                                            <p class="txt ttl">11조 【 관할법원 】</p>
+                                            <br>
+                                            <p class="txt">서비스 이용으로 발생한 분쟁에 대해 소송이 제기될 경우 연맹의 본사 소재지를 관할하는 법원을 전속 관할법원으로 합니다.</p>
+                                            <br><br>
+                                            <p class="txt ttl">부칙</p>
+                                            <br>
+                                            <p class="txt">(시행일) 이 약관은 2023년 04월 01일부터 시행합니다.</p>
+                                        </div>
+                                    </div>
+                                    <div class="fancy_img_box">
+                                        <input type="checkbox" id="userTerms">
+                                        <label for="userTerms"><span>위 약관 내용을 확인하였으며 이에 동의합니다.</span></label>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>개인정보 처리방침</dt>
+                                <dd>
+                                    <div class="policy_content">
+                                        <div class="scrollbar">
+                                            <p class="txt">
+                                                한국9인제배구연맹(이하 “연맹”)에서 취급하는 모든 개인정보는 관련법령에 근거하거나 정보주체의 동의에 의하여 수집·보유 및 처리되고 있습니다.
+                                                [개인정보보호법]은 이러한 개인정보의 취급에 대한 일반적 규범을 제시하고 있으며, 연맹은 이러한 법령의 규정에 따라 수집·보유 및 처리하는 개인정보를 공공업무의 적절한 수행과 국민의 권익을 보호하기 위해 적법하고 적정하게 취급할 것입니다.
+                                            </p>
+                                            <br>
+                                            <p class="txt">
+                                                본 연맹이 운영하는 대회운영시스템에서 이용자 여러분의 개인정보를 보호하기 위한 「대회운영시스템 이용자의 개인정보 보호」와 소관업무를 수행하는데 필요한 개인정보 취급에 대한 「전산시스템에 의해 처리되는 개인정보 보호」
+                                                두 가지로 구성되어 있습니다. 연맹은 개인정보보호법 등 관련법령상의 개인정보보호 규정을 준수하며, 개인정보처리방침은 아래와 같습니다.
+                                            </p>
+                                            <br>
+                                            <p class="txt">이 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항을 웹사이트 공지사항을 통하여 고지할 것입니다.</p>
+                                            <br><br>
+                                            <p class="txt ttl">1조 【 개인정보의 처리목적 】</p>
+                                            <br>
+                                            <p class="txt">
+                                                연맹은 선수 및 지도자가 대회에 참가하기 위하여 필요한 사항을 이행하고, 국민의 정보 접근권과 알 권리를 보장하는 사회적 역할을 수행하고, 연맹의 서비스를 활성화함으로써 사회 전반에 대한 자료의 효율적인 제공과 
+                                                유통, 정보접근 및 이용의 격차해소 등 국가 및 사회의 문화발전에 이바지함을 목적으로 다음의 개인정보를 처리합니다.
+                                            </p>
+                                            <br>
+                                            <p class="txt">우리 연맹에서 이용하는 시스템은 개인정보보호법에 따라 목적에 필요한 최소한의 개인정보만 수집하도록 구성되었으며, 처리한 개인정보는 다음의 목적이외의 용도로는 사용되지 않으며 이용 목적이 변경될 시에는 사전 동의를 구할 예정입니다.</p>
+                                            <br>
+                                            <p class="txt num">
+                                                1. 대회운영시스템 회원관리
+                                                회원가입 및 회원제 서비스 이용 및 제한적 본인 확인제에 따른 본인확인, 개인식별, 부정이용방지, 비인가 사용방지, 가입의사 확인, 만14세 미만 아동 개인정보 수집 시 법정대리인 동의여부 확인, 추후 법정 대리인
+                                                본인확인, 분쟁 조정을 위한 기록보존, 불만처리 등 민원처리, 고지사항 전달 등을 목적으로 개인정보를 처리합니다.
+                                            </p>
+                                            <br>
+                                            <p class="txt num">
+                                                2. 제휴사에서 제공하는 서비스로 한국9인제배구연맹 공식사이트에서 제공하는 서비스 선수, 지도자, 대회 관련 안내서비스, E-mail 안내 등을 목적으로 개인정보를 처리합니다.
+                                            </p>
+                                            <br>
+                                            <p class="txt num">
+                                                3. 정보제공 및 마케팅의 활용 선수, 지도자, 대회 관련 안내서비스, E-mail 안내 등을 목적으로 개인정보를 처리합니다.
+                                            </p>
+                                            <br><br>
+                                            <p class="txt ttl">2조 【 개인정보의 수집항목 및 보유기간 】</p>
+                                            <br>
+                                            <p class="txt">개인정보의 처리 및 보유기간 이용자의 개인정보는 원칙적으로 개인정보의 처리목적이 달성되거나 탈퇴 시 지체 없이 파기하며, 법령의 규정과 정보주체의 동의에 의해서만 개인정보를 수집·보유합니다.</p>
+                                            <br>
+                                            <p class="txt num">
+                                                1. 회원정보관리업무 <br>
+                                                * 수집방법 : 온라인 <br>
+                                                * 필수항목 : 성명, 아이디, 비밀번호, 전화번호, 이메일 주소 등 <br>
+                                                * 보유근거 : 본인 동의
+                                            </p>
+                                            <br>
+                                            <p class="txt num">
+                                                2. 정보제공 및 마케팅의 활용 <br>
+                                                * 수집방법 : 전화, 온라인, 서면수집 <br>
+                                                * 보유근거 : 본인 동의<br>
+                                                * 보유기간 : 목적 달성 시 까지(목적 달성 후 즉시파기)
+                                            </p>
+                                            <br><br>
+                                            <p class="txt ttl">3조 【 개인정보의 제3자 제공에 관한 사항 】</p>
+                                            <b></b>
+                                            <p class="txt">
+                                                연맹의 시스템은 아래의 경우에만 서비스 제공에 필요한 최소한의 범위로 제3자 제공을 하고 있으며, 실명확인 인증으로 제공하는 개인정보는 개인정보보호법 제22조 제2항에 따라 정보주체와의 계약체결 등을 위하여
+                                                정보주체의 동의 없이 처리할 수 있는 개인정보로 지정합니다.
+                                            </p>
+                                            <br>
+                                            <p class="txt">1. 제공받는 자</p>
+                                            <br>
+                                            <p class="txt">2. 제공받는자의 개인정보 이용목적</p>
+                                            <br>
+                                            <p class="txt">3. 제공하는 개인정보의 항목</p>
+                                            <br>
+                                            <p class="txt">4. 제공받는 자의 개인정보 보유 및 이용 기간</p>
+                                            <br>
+                                            <p class="txt">5. 한국신용 평가정보</p>
+                                            <br>
+                                            <p class="txt">6. 실명확인</p>
+                                            <br>
+                                            <p class="txt">7. 이름, 주민등록번호/외국인등록번호, 단체명, 사업자등록번호, 14세 미만의 경우 법정대리인(보호자)의 이름 및 주민등록번호</p>
+                                            <br>
+                                            <p class="txt">8. 신용평가 기관에서 이미 보유하고 있는 개인정보로서 별도 저장 하지 않음</p>
+                                            <br>
+                                            <p class="txt">9. 행정안전부</p>
+                                            <br>
+                                            <p class="txt">10. 공공 I-PIN 인증</p>
+                                            <br>
+                                            <p class="txt">11. I-PIN(개인식별번호), 법정대리인(I-PIN(개인식별번호)) 행정안전부에서 이미 보유하고 있는 개인정보로서 별도 저장하지 않음</p>
+                                            <br>
+                                            <p class="txt comment">※ 단, 이외의 제3자 제공은 법률에 특별한 규정이 있는 경우 또는 범죄의 수사와 같이 개인정보보호법 제18조제2항에 해당되는 경우는 예외로 처리됩니다.</p>
+                                            <br>
+                                            <p class="txt dot">정보주체로부터 별도의 동의를 받은 경우</p>
+                                            <br>
+                                            <p class="txt dot">다른 법률에 특별한 규정이 있는 경우</p>
+                                            <br>
+                                            <p class="txt dot">정보주체 또는 그 법정대리인이 의사표시를 할 수 없는 상태에 있거나 주소불명 등으로 사전 동의를 받을 수 없는 경우로서 명백히 정보주체 또는 제3자의 급박한 생명, 신체, 재산의 이익을 위하여 필요하다고 인정되는 경우</p>
+                                            <br>
+                                            <p class="txt dot">통계작성 및 학술연구 등의 목적을 위하여 필요한 경우로서 특정 개인을 알아볼 수 없는 형태로 개인정보를 제공하는 경우</p>
+                                            <br>
+                                            <p class="txt dot">개인정보를 목적 외의 용도로 이용하거나 이를 제3자에게 제공하지 아니하면 다른 법률에서 정하는 소관업무를 수행할 수 없는 경우로서 보호위원회의 심의·의결을 거친 경우</p>
+                                            <br>
+                                            <p class="txt dot">조약, 그 밖의 국제협정의 이행을 위하여 외국정부 또는 국제기구에 제공하기 위하여 필요한 경우</p>
+                                            <br>
+                                            <p class="txt dot">범죄의 수사와 공소의 제기 및 유지를 위하여 필요한 경우</p>
+                                            <br>
+                                            <p class="txt dot">법원의 재판업무 수행을 위하여 필요한 경우</p>
+                                            <br>
+                                            <p class="txt dot">형(刑) 및 감호, 보호처분의 집행을 위하여 필요한 경우정보주체는 개인정보의 제3자 제공에 대한 동의를 거부할 수 있으며, 동의 거부시 탄소포인트제 시스템에서 제공하는 서비스와 인센티브를 받을 수 없습니다.</p>
+                                            <br>
+                                            <p class="txt">
+                                                위탁계약 시 개인정보보호 관련 법규의 준수, 개인정보에 관한 제3자 제공 금지 및 책임부담 등을 명확히 규정하고, 당해 계약내용을 서면 및 전자 보관하고 있습니다. 업체 변경시 공지사항 및 개인정보처리방침을 통해 고지하겠습니다.
+                                                또한 연맹에서 이용하는 시스템에서 취급하는 개인정보를 전부 또는 일부라도 양도, 합병 등의 사유로 다른 기관, 사람에게 이전하는 경우에는 이전사실, 이전받는 자 등에 관한 정보를 홈페이지, 관보 등을 통해 안내하여 정보주체가 알 수 있도록 조치하겠습니다.
+                                            </p>
+                                            <br><br>
+                                            <p class="txt ttl">4조 【 개인정보처리 위탁에 관한 사항 】</p>
+                                            <br>
+                                            <p class="txt">우리 연맹은 정보시스템 유지보수를 위해 다음과 같이 개인정보 처리업무를 위탁하고 있습니다.</p>
+                                            <br>
+                                            <p class="txt dot">수탁자 : (주)애드업</p>
+                                            <p class="txt dot">위탁하는 업무의 내용 : 정보 전산 처리 및 유지/관리</p>
+                                            <p class="txt dot">수탁자의 개인정보 처리 기간 : 2024년 12월 31일까지</p>
+                                            <br>
+                                            <p class="txt">
+                                                우리 연맹은 위탁계약 체결 시 개인정보 보호법 제25조에 따라 위탁업무 수행목적 외 개인정보 처리금지, 기술적/관리적 보호조치, 재위탁 제한, 수탁자에 대한관리/감독, 손해배상 등 책임에 관한 사항을 계약서 등
+                                                문서에 명시하고, 수탁자가 개인정보를 안전하게 처리하는지를 감독하고 있습니다. 위탁업무의 내용이나 수탁자가 변경될 경우에는 지체없이 본 개인정보 처리방침을 통하여 공개하도록 하겠습니다.
+                                            </p>
+                                            <br><br>
+                                            <p class="txt ttl">5조 【 정보주체의 권리/의무 및 그 행사방법에 관한 사항 】</p>
+                                            <br>
+                                            <p class="txt">이용자는 개인정보주체로서 다음과 같은 권리를 행사할 수 있습니다.</p>
+                                            <br>
+                                            <p class="txt num">1. 자신 및 14세 미만 아동의 개인정보의 조회, 수정 및 가입해지의 요청</p>
+                                            <br>
+                                            <p class="txt num">2. 개인정보의 조회, 수정 및 해지, 삭제 등의 요청은 ‘개인정보수정’ 및 ‘회원탈퇴’ 등을 클릭하여 본인 확인 절차를 거치신 후 직접 열람, 정정, 혹은 탈퇴가 가능합니다.</p>
+                                            <br>
+                                            <p class="txt num">3. 이용자의 요청에 의해 해지 또는 삭제되는 개인정보는 개인정보의 처리 및 보유 기간에 따라 처리합니다.</p>
+                                            <br>
+                                            <p class="txt num">
+                                                4. 개인정보보호법 제35조(개인정보의 열람)에 따라 열람을 요구할 수 있습니다. 단, 아래에 해당하는 경우에는 법 제35조 5항에 의하여 열람을 제한할 수 있습니다.
+                                                * 법률에 따라 열람이 금지되거나 제한되는 경우 <br>
+                                                * 다른 사람의 생명·신체를 해할 우려가 있거나 다른 사람의 재산과 그 밖의 이익을 부당하게 침해 할 우려가 있는 경우 <br>
+                                                * 공공기관이 다음 각 목의 어느 하나에 해당하는 업무를 수행할 때 중대한 지장을 초래하는 경우<br>
+                                                - 조세의 부과·징수 또는 환급에 관한 업무<br>
+                                                - 초·중등교육법 및 고등교육법에 따른 각급 학교, 평생교육법에 따른 평생교육시설, 그 밖의 다른 법률에 따라 설치 된 고등교육기관에서의 성적 평가 또는 입학자 선발에 관한 업무<br>
+                                                - 학력·기능 및 채용에 관한 시험, 자격 심사에 관한 업무<br>
+                                                - 보상금·급부금 산정 등에 대하여 진행 중인 평가 또는 판단에 관한 업무<br>
+                                                - 다른 법률에 따라 진행 중인 감사 및 조사에 관한 업무
+                                            </p>
+                                            <br>
+                                            <p class="txt num">5. 개인정보보호법 제36조(개인정보의 정정·삭제)에 따라 정정·삭제를 요구할 수 있습니다. 다만, 다른 법령에서 그 개인정보가 수집 대상으로 명시되어 있는 경우에는 그 삭제를 요구할 수 없습니다.</p>
+                                            <br>
+                                            <p class="txt num">
+                                                6. 개인정보보호법 제37조(개인정보의 처리정지 등)에 따라 처리정지를 요구할 수 있습니다. 단, 아래에 해당하는 경우에는 법 제37조 2항에 의하여 처리정지 요구를 거절 할 수 있습니다. <br>
+                                                * 법률에 특별한 규정이 있거나 법령상 의무를 준수하기 위하여 불가피한 경우 <br>
+                                                * 다른 사람의 생명·신체를 해할 우려가 있거나 다른 사람의 재산과 그 밖의 이익을 부당하게 침해 할 우려가 있는 경우 <br>
+                                                * 공공기관이 개인정보를 처리하지 아니하면 다른 법률에서 정하는 소관 업무를 수행할 수 없는 경우 <br>
+                                                * 개인정보를 처리하지 아니하면 정보주체와 약정한 서비스를 제공하지 못하는 등 계약의 이행이 곤란한 경우로서 정보주체가 그 계약의 해지 의사를 명확하게 밝히지 아니한 경우</p>
+                                            <br><br>
+                                            <p class="txt ttl">6조 【 개인정보의 파기 절차 및 방법 】</p>
+                                            <br>
+                                            <p class="txt">이용자의 개인정보는 개인정보수집 및 이용 목적이 만료되면 지체없이 파기합니다.</p>
+                                            <br>
+                                            <p class="txt num">
+                                                1. 파기 절차 <br>
+                                                목적이 달성된 개인정보는 기록물 파기심의를 거치는 동안 별도의 DB로 옮겨져(종이의 경우에는 별도의 서류함에 보관) 일정기간 저장된 후 파기됩니다.</p>
+                                            <br>
+                                            <p class="txt num">
+                                                2. 파기 기한 <br>
+                                                이용자의 개인정보는 개인정보의 보유기간의 종료일로부터 5일 이내에, 개인정보의 처리 목적 달성, 해당 서비스의 폐지 등 개인정보가 불필요하게 되었을 때에는 개인정보의 처리가 불필요한 것으로 인정되는 날로부터 5일
+                                                이내에 해당 개인정보를 파기합니다.
+                                            </p>
+                                            <br>
+                                            <p class="txt num">
+                                                3. 파기 방법 <br>
+                                                종이에 출력된 개인정보는 분쇄기로 분쇄하거나 소각을 통하여 파기합니다. 전자파일형태로 저장된 개인정보는 기록을 재생할 수 없는 기술적 방법을 사용하여 삭제합니다.</p>
+                                            <br><br>
+                                            <p class="txt ttl">7조 【 개인정보 유출 통지 】</p>
+                                            <br>
+                                            <p class="txt">
+                                                연맹의 개인정보 책임자는 개인정보가 유출되었음을 알게 되었을 때에는 지체 없이 해당 정보주체에게 유출 사실을 알리도록 하겠습니다. <br>
+                                                [정보주체자에게 알려는 내용]에는 유출된 개인정보의 항목, 유출된 시점과 그 경위, 유출로 인하여 발생할 수 있는 피해를 최소화하기 위하여 정보주체가 할 수 있는 방법 등에 관한 정보, 개인정보처리자의 대응조치 및
+                                                피해 구제절차, 정보주체에게 피해가 발생한 경우 신고 등을 접수할 수 있는 담당부서 및 연락처 등 입니다. <br>
+                                                다만, 유출된 개인정보의 확산 및 추가유출을 방지하기 위하여 접속경로의 차단, 취약점 점검·보완, 유출된 개인정보의 삭제 등 긴급한 조치가 필요한 경우에는 그 조치를 취한 후 정보주체에게 알릴 수 있습니다.
+                                            </p>
+                                            <br><br>
+                                            <p class="txt ttl">8조 【 개인정보의 안전성 확보 조치 】</p>
+                                            <br>
+                                            <p class="txt">개인정보보호법 제29조에 따라 다음과 같이 안전성 확보에 필요한 기술적/관리적 및 물리적 조치를 하고 있습니다.</p>
+                                            <br>
+                                            <p class="txt num">
+                                                1. 개인정보의 암호화<br>
+                                                이용자의 중요 개인정보와 비밀번호는 암호화 되어 저장 및관리되고 있어, 본인만이 알 수 있으며 중요한 데이터는 파일 및 전송 데이터를 암호화 하거나 파일 잠금 기능을 사용하는 등의 별도 보안기능을 사용하고 있습니다.</p>
+                                            <br>
+                                            <p class="txt num">
+                                                2.해킹 등에 대비한 기술적 대책 <br>
+                                                해킹이나 컴퓨터 바이러스 등에 의한 개인정보 유출 및 훼손을 막기 위하여 보안프로그램을 설치하고 주기적인 갱신·점검을 하며 외부로부터 접근이 통제된 구역에 시스템을 설치하고 기술적/물리적으로 감시 및 차단하고
+                                                있습니다.
+                                            </p>
+                                            <br>
+                                            <p class="txt">
+                                                3. 개인정보처리시스템 접근 제한<br>
+                                                개인정보를 취급 및 처리하는 시스템과 데이터베이스시스템은 담당인원의 책임과 역할에 따른 접근권한의 부여, 변경, 말소를 통하여 개인정보에 대한 접근통제를 위하여 필요한 조치를 하고 있으며 침입차단시스템을 이용하여
+                                                외부로부터의 무단 접근을 통제하고 개인정보취급자가 정보통신망을 통해 외부에서 개인정보처리시스템에 접속하는 경우에는 가상사설망, 전용선 등 안전한 접속수단을 적용하고 있습니다.</p>
+                                            <br>
+                                            <p class="txt num">4. 접속기록의 보관 및 위변조 방지<br>
+                                                개인정보처리시스템에 접속한 기록(웹 로그, 요약정보 등)을 최소 6개월 이상 보관,관리하고 있으며, 접속 기록이 위변조 및 도난, 분실되지 않도록 관리하고 있습니다.</p>
+                                            <br>
+                                            <p class="txt num">5. 비인가자에 대한 출입 통제<br>
+                                                개인정보를 보관하고 있는 개인정보시스템의 물리적 보관 장소를 별도로 두고 이에 대해 출입통제 절차를 수립, 운영하고 있습니다.</p>
+                                            <br>    
+                                            <p class="txt num">6. 개인정보 취급 직원의 최소화 및 교육<br>
+                                                개인정보를 취급하는 직원을 지정하고 담당자에 한정시켜 최소화 하여 개인정보를관리하는 대책을 시행하고 있습니다.</p>
+                                            <br>
+                                            <p class="txt num">7. 내부관리계획의 수립 및 시행 <br>
+                                                연맹은 ‘개인정보의 안전성 확보조치 기준’(행정안전부고시 제2011-제43호)에 의거하여 내부관리계획을 수립 및 시행하고 있습니다.</p>
+                                            <br><br>
+                                            <p class="txt ttl">9조 【 권익침해 구제방법 】</p>
+                                            <br>
+                                            <p class="txt">
+                                                개인정보주체는 개인정보침해로 인한 구제를 받기 위하여 개인정보분쟁조정위원회, 한국인터넷진흥원 개인정보침해신고센터 등에 분쟁해결이나 상담 등을 신청할 수 있습니다. 이 밖에 기타 개인정보침해의 신고 및 상담에 대하여는
+                                                아래 기관에 문의하시기 바랍니다.
+                                            </p>
+                                            <br>
+                                            <p class="txt dot">개인분쟁조정위원회 : 118번(ARS 내선 3번)</p>
+                                            <p class="txt dot">정보보호마크인증위원회 : 02-580-0533~4</p>
+                                            <p class="txt dot">대검찰청 첨단범죄수사과 : 02-3480-2000</p>
+                                            <p class="txt dot">경찰청 사이버테러대응센터 : 02-392-0330</p>
+                                            <br><br>
+                                            <p class="txt ttl">10조 【 개인정보보호 책임자 및 담당자 연락처 】</p>
+                                            <br>
+                                            <p class="txt">
+                                                개인정보 책임자에 관한 사항 연맹은 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 개인정보 보호책임자가 있으며, 연맹에는 분야별 책임자로 연맹
+                                                개인정보 책임자와 각 부서별 개인정보 취급자가 지정되어 있습니다.
+                                            </p>
+                                            <br>
+                                            <p class="txt">[개인정보 보호책임자]</p>
+                                            <p class="txt dot">성명 : 김원준</p>
+                                            <p class="txt dot">소속 : 기획</p>
+                                            <p class="txt dot">직책 : 이사</p>
+                                            <p class="txt dot">이메일 : dalrinda@naver.com</p>
+                                            <p class="txt dot">전화번호 : 010-3392-1629</p>
+                                            <br>
+                                            <p class="txt">[개인정보 보호담당자]</p>
+                                            <p class="txt dot">성명 : 김진혁</p>
+                                            <p class="txt dot">소속 : 기획</p>
+                                            <p class="txt dot">직책 : 팀장</p>
+                                            <p class="txt dot">이메일 : jh.kim@chansworld.co.kr</p>
+                                            <p class="txt dot">전화번호 : 010-9486-2239</p>
+                                            <br><br>
+                                            <p class="txt ttl">11조 【 고지의 의무 】</p>
+                                            <br>
+                                            <p class="txt">본 개인정보처리방침은 2023년 04월 01일부터 적용됩니다.</p>
+                                        </div>
+                                    </div>
+                                    <div class="fancy_img_box">
+                                        <input type="checkbox" id="userPolicy">
+                                        <label for="userPolicy"><span>위 개인정보 처리방침을 확인하였으며 이에 동의합니다.</span></label>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <div class="btn_wrap">
+                                <button type="button" class="btn btn_primary">취소</button>
+                                <button type="button" class="btn btn_success" onclick="location.href='registration.html'">회원가입</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+        <!-- e:container -->
+
+        <!-- s:footer -->
+        <footer id="footer">
+            <div class="footer_top">
+                <div class="content_inner">
+                    <ul>
+                        <li><a href="../about/greeting.html">연맹소개</a></li>
+                        <li><a href="../competition/newsList.html">대회안내</a></li>
+                        <li><a href="../mediaCenter/newsList.html">미디어센터</a></li>
+                        <li><a href="../community/noticeList.html">커뮤니티</a></li>
+                        <li><a href="#">쇼핑몰</a></li>
+                    </ul>
+                    <a href="#" class="link" target="_blank" title="새창열기">
+                        <img src="../../frontLayer/images/icons/ico_daum.svg" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <div class="content_inner">
+                    <span class="logo">
+                        <img src="../../frontLayer/images/common/logo.svg" alt="">
+                        <em>한국 9인제 배구 연맹</em>
+                    </span>
+                    <div class="dl_wrap">
+                        <dl>
+                            <dt>회장</dt>
+                            <dd>신태호</dd>
+                        </dl>
+                        <div class="d_flex flex_wrap align_items_center gap_px_x_10">
+                            <dl>
+                                <dt>주소</dt>
+                                <dd>
+                                    <address>서울 광진구 능동로49길 16</address>
+                                </dd>
+                            </dl>
+                            <dl class="mt_0">
+                                <dt>전화번호</dt>
+                                <dd>
+                                    <address>02-414-1893</address>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="d_flex flex_wrap align_items_center gap_px_x_10">
+                            <dl>
+                                <dt>팩스</dt>
+                                <dd>
+                                    <address>02-414-1894</address>
+                                </dd>
+                            </dl>
+                            <dl class="mt_0">
+                                <dt>카페</dt>
+                                <dd>
+                                    <a href="cafe.daum.net/knvf" target="_blank" title="새창열기">cafe.daum.net/knvf</a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">Copyright &copy; KNVF All rights reserved.</p>
+        </footer>
+        <!-- e:footer -->
+  
+    </div>
+    <!-- e:wrap -->
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+@include font-face('Pretendard', 300, 'Pretendard-Light', $format: 'woff2');
+@include font-face('Pretendard', 400, 'Pretendard-Regular', $format: 'woff2');
+@include font-face('Pretendard', 500, 'Pretendard-Medium', $format: 'woff2');
+@include font-face('Pretendard', 600, 'Pretendard-SemiBold', $format: 'woff2');
+@include font-face('Pretendard', 700, 'Pretendard-Bold', $format: 'woff2');
+@include font-face('Pretendard', 900, 'Pretendard-Black', $format: 'woff2');
+@include font-face('Roboto', 300, 'Roboto-Thin');
+@include font-face('Roboto', 400, 'Roboto-Regular');
+@include font-face('Roboto', 500, 'Roboto-Medium');
+@include font-face('Roboto', 700, 'Roboto-Bold');

@@ -1,0 +1,66 @@
+@mixin ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@mixin multiEllipsis($line: 3, $lineHeight: 1.5) {
+    display: -webkit-box;
+    height: ($lineHeight * 1em * $line);
+    overflow: hidden;
+    line-height: $lineHeight;
+    -webkit-line-clamp: $line;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+}
+
+@mixin absCenter($horizontal: true, $vertical: true) {
+    position: absolute;
+
+    @if ($horizontal and $vertical) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    @else if($horizontal) {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    @else if($vertical) {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: "") {
+    display: $display;
+    position: $pos;
+    content: $content;
+}
+
+@mixin font-face($name, $weight: noraml, $file-name, $format: ttf, $path: "/font/") {
+    @font-face {
+        font-family: "#{$name}";
+        font-weight: $weight;
+        font-display: swap;
+        src: local('#{$file-name}'),
+        url('#{$path}#{$file-name}.#{$format}') format('#{$format}');
+    }
+}
+
+// @mixin box($w: 10px, $h: 10px, $bg: #000) {
+//     display: block;
+//     width: $w;
+//     height: $h;
+//     background-color: $bg;
+// }
+
+// @mixin icon($code, $margin: 10px) {
+//     font-family: "Material Icons";
+//     content: $code;
+//     display: inline-block;
+//     margin-left: $margin;
+// }
