@@ -46,17 +46,15 @@ Federation = {
     },
     gnb : function(){
         const header = $('#header'),
-        gnbItem = $('#gnb.pc > ul > li'),
-        gnbBg = $(".gnb_bg"),
-        subMenu = $("#gnb.pc .sub_menu"),
-        adArea = $('#gnb.pc .ad_area'),
+        gnbItem = $('.nav__item'),
+        gnbBg = $(".nav__bg"),
+        subMenu = $("#gnb.pc .nav__submenu"),
+        adArea = $('#gnb.pc .nav__ad'),
         hamburger = $('.btn_hamburger'),
         mGnb = $('.m_gnb'),
         mGnbItem = $('.m_gnb > ul > li > a'),
         mGnbDepth02 = $('.m_gnb > ul > li > .sub_menu > ul > li > a'),
         mGnbDepth03 = $('.m_gnb > ul > li > .sub_menu > ul > .depth03 > a');
-
-        
 
         gnbItem.on('mouseenter focusin',function(){
             gnbItem.removeClass('on');
@@ -480,9 +478,9 @@ Federation = {
             } else {
                 fn.removeHidden();
 
-                const gnbBg = $(".gnb_bg"),
-                subMenu = $("#gnb.pc .sub_menu"),
-                adArea = $('#gnb.pc .ad_area')
+                const gnbBg = $(".nav__bg"),
+                subMenu = $("#gnb.pc .nav__submenu"),
+                adArea = $('#gnb.pc .nav__ad')
                 
                 const heightArray = subMenu.map(function () {
                     return $(this).outerHeight(true);
@@ -490,7 +488,7 @@ Federation = {
                 const maxHeight = Math.max.apply(Math, heightArray);
     
                 subMenu.css({ height: maxHeight });
-                adArea.css({ height: maxHeight });
+                // adArea.css({ height: maxHeight });
                 gnbBg.css({ height: maxHeight });
             }
         }

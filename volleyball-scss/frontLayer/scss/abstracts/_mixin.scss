@@ -7,10 +7,6 @@ $flex-map: (
     center: center,
 );
 
-@function _get-flex-value($key) {
-    @return map-get($flex-map, $key);
-}
-
 @mixin flex($js: center, $ai: center) {
     display: flex;
     align-items: _get-flex-value($ai);

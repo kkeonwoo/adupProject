@@ -1,20 +1,26 @@
-@import 'abstracts/vars';
+@import 'abstracts/function';
 @import 'abstracts/mixin';
+@import 'abstracts/vars';
 
+/* base */
+@import 'base/base';
 @import 'base/normalize';
 @import 'base/typography';
 
+/* common */
 @import 'components/badge';
 @import 'components/button';
 @import 'components/checkbox';
 @import 'components/input';
 
+/* layout */
 @import 'layout/footer';
 @import 'layout/forms';
 @import 'layout/header';
 @import 'layout/modal';
 @import 'layout/navigation';
 
+/* pages */
 @import 'pages/styles';
 
 @import 'themes/theme';
