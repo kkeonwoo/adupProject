@@ -1,24 +1,24 @@
-(function($){
+(function ($) {
     jQuery.prototype.extend({
-        switchMethod: function(){
-            $('.switch li').on('click',function(e){
+        switchMethod: function () {
+            $('.switch li').on('click', function (e) {
                 e.preventDefault();
 
                 $(this).siblings('li').removeClass('active');
                 $(this).addClass('active');
             });
         },
-        toggleMethod: function(){
-            $(document).on('click','.toggle',function(event){
+        toggleMethod: function () {
+            $(document).on('click', '.toggle', function (event) {
                 event.preventDefault();
-                
+
                 $(this).toggleClass('active');
             });
         }
     });
 })(jQuery);
 
-$.namespace = function() {
+$.namespace = function () {
     var a = arguments, o = null, i, j, d;
     for (i = 0; i < a.length; i = i + 1) {
         d = a[i].split('.');
@@ -33,7 +33,7 @@ $.namespace = function() {
 
 $.namespace('Federation');
 Federation = {
-    init : function(){
+    init: function () {
         Federation.gnb();
         Federation.tab();
         Federation.select();
@@ -44,46 +44,46 @@ Federation = {
         Federation.scrollTop();
         Federation.resize();
     },
-    gnb : function(){
+    gnb: function () {
         const header = $('#header'),
-        gnbItem = $('.nav__item'),
-        gnbBg = $(".nav__bg"),
-        subMenu = $("#gnb.pc .nav__submenu"),
-        adArea = $('#gnb.pc .nav__ad'),
-        hamburger = $('.btn_hamburger'),
-        mGnb = $('.m_gnb'),
-        mGnbItem = $('.m_gnb > ul > li > a'),
-        mGnbDepth02 = $('.m_gnb > ul > li > .sub_menu > ul > li > a'),
-        mGnbDepth03 = $('.m_gnb > ul > li > .sub_menu > ul > .depth03 > a');
+            gnbItem = $('.nav__item'),
+            gnbBg = $(".nav__bg"),
+            subMenu = $("#gnb.pc .nav__submenu"),
+            adArea = $('#gnb.pc .nav__ad'),
+            hamburger = $('.btn_hamburger'),
+            mGnb = $('.m_gnb'),
+            mGnbItem = $('.m_gnb > ul > li > a'),
+            mGnbDepth02 = $('.m_gnb > ul > li > .sub_menu > ul > li > a'),
+            mGnbDepth03 = $('.m_gnb > ul > li > .sub_menu > ul > .depth03 > a');
 
-        gnbItem.on('mouseenter focusin',function(){
+        gnbItem.on('mouseenter focusin', function () {
             gnbItem.removeClass('on');
             $(this).addClass('on');
             gnbBg.stop().slideDown();
             subMenu.stop().slideDown();
             adArea.stop().slideDown();
         });
-        gnbItem.on('mouseleave focusout',function(){
+        gnbItem.on('mouseleave focusout', function () {
             gnbItem.removeClass('on');
         });
-        header.find('a').last().on('focusout',function(){
-            gnbItem.removeClass('on');
-            gnbBg.stop().slideUp();
-            subMenu.stop().slideUp();
-            adArea.stop().slideUp();
-        });
-        header.on('mouseleave',function(){
+        header.find('a').last().on('focusout', function () {
             gnbItem.removeClass('on');
             gnbBg.stop().slideUp();
             subMenu.stop().slideUp();
             adArea.stop().slideUp();
         });
-        hamburger.on('click',function(e){
+        header.on('mouseleave', function () {
+            gnbItem.removeClass('on');
+            gnbBg.stop().slideUp();
+            subMenu.stop().slideUp();
+            adArea.stop().slideUp();
+        });
+        hamburger.on('click', function (e) {
             e.preventDefault();
 
             header.toggleClass('on');
             mGnb.attr('tabindex', 0);
-            if(header.hasClass('on')) {
+            if (header.hasClass('on')) {
                 mGnb.stop().slideDown().focus();
                 fn.addHidden();
             } else {
@@ -92,9 +92,9 @@ Federation = {
             }
         })
         // mobile
-        mGnbItem.parent('li').last().on('keydown',function(e){
+        mGnbItem.parent('li').last().on('keydown', function (e) {
             if (e.keyCode === 9) {
-                if(!e.shiftKey) { 
+                if (!e.shiftKey) {
                     mGnb.stop().slideUp();
                     mGnbDepth03.find('ul').stop().slideUp();
                     header.removeClass('on');
@@ -102,11 +102,11 @@ Federation = {
                 }
             }
         })
-        mGnbItem.on('click',function(e){
+        mGnbItem.on('click', function (e) {
 
-            if($(this).next('.sub_menu').length){
+            if ($(this).next('.sub_menu').length) {
                 e.preventDefault();
-            }else{
+            } else {
                 e.stopPropagation();
             }
 
@@ -118,7 +118,7 @@ Federation = {
             } else {
                 targetParent.stop().toggleClass('active').siblings().removeClass('active');
                 mGnbDepth03.removeClass('active').find('ul').stop().slideUp();
-                if(targetParent.hasClass('active')) {
+                if (targetParent.hasClass('active')) {
                     targetParent.find('.sub_menu').stop().slideDown();
                     targetParent.siblings().find('.sub_menu').stop().slideUp();
                 } else {
@@ -126,27 +126,27 @@ Federation = {
                 }
             }
         })
-        mGnbDepth02.on('keydown', function(e) {
+        mGnbDepth02.on('keydown', function (e) {
             let last = $(this).closest('ul').children('li').length - 1;
 
             if ($(this).closest('li').index() === last && e.keyCode === 9) {
-                if ( !e.shiftKey) {
+                if (!e.shiftKey) {
                     mGnbItem.closest('li').find('.sub_menu').stop().slideUp();
                     mGnbItem.closest('li').removeClass('active');
                 }
             }
         })
-        mGnbDepth03.on('click', function(e){
+        mGnbDepth03.on('click', function (e) {
             e.preventDefault();
 
             $(this).closest('.depth03').toggleClass('active').siblings().removeClass('active');
-            if($(this).closest('.depth03').hasClass('active')) {
+            if ($(this).closest('.depth03').hasClass('active')) {
                 $(this).closest('.depth03').find('ul').stop().slideDown();
             } else {
                 $(this).closest('.depth03').find('ul').stop().slideUp();
             }
         })
-        mGnbDepth03.find('li').last().find('a').on('blur', function(e){
+        mGnbDepth03.find('li').last().find('a').on('blur', function (e) {
             e.preventDefault();
             e.stopPropagation();
 
@@ -155,7 +155,7 @@ Federation = {
         })
 
     },
-    tab : function(){
+    tab: function () {
         // 탭 컨텐츠 숨기기
         $('.tab_content').hide();
 
@@ -165,7 +165,7 @@ Federation = {
             $(this).children('.tab_content').first().show();
         });
         //탭메뉴 클릭 이벤트
-        $('.tabs li button').click(function(e) {
+        $('.tabs li button').click(function (e) {
             e.preventDefault();
 
             var activeTab = $(this).attr('rel');
@@ -175,7 +175,7 @@ Federation = {
             $('#' + activeTab).fadeIn();
         });
     },
-    select : function(){
+    select: function () {
         let $formSelect;
         let $formSelectPrev;
         let selectPrevProt = true;
@@ -186,47 +186,47 @@ Federation = {
             let selectLeft = $($formSelect).offset().left;
             let selectW = $($formSelect).outerWidth();
             let selectH = $($formSelect).outerHeight();
-            $('.fixed_area').css({'top': selectTop + selectH, 'left': selectLeft, 'width': selectW});
-            $('.fixed_area .dim').css({'height': selectH});
+            $('.fixed_area').css({ 'top': selectTop + selectH, 'left': selectLeft, 'width': selectW });
+            $('.fixed_area .dim').css({ 'height': selectH });
         }
         $('html').click(function (e) {
-             if($(e.target).closest('.form_select').length < 1){
+            if ($(e.target).closest('.form_select').length < 1) {
                 selectComplete($selectComplete);
-                $('.form_select').attr('data-fixed-active',"false");
+                $('.form_select').attr('data-fixed-active', "false");
             }
         });
-        $(document).on('click','.form_select .form_btn', function(e) {
+        $(document).on('click', '.form_select .form_btn', function (e) {
             $formSelect = e.currentTarget.parentNode;
 
             let fixedActive = $(e.currentTarget).closest('.form_select').attr('data-fixed-active');
-            
+
             if (fixedActive === "true" && $formSelectPrev == $formSelect && selectPrevProt) {
                 selectComplete($selectComplete);
-                $(e.currentTarget).closest('.form_select').attr('data-fixed-active',"false");
+                $(e.currentTarget).closest('.form_select').attr('data-fixed-active', "false");
                 return
             }
 
             if ($formSelectPrev !== $formSelect && selectPrevProt) {
                 selectComplete($selectComplete);
             }
-            
-            if($formSelectPrev == $formSelect || selectPrevProt){
+
+            if ($formSelectPrev == $formSelect || selectPrevProt) {
                 $selectComplete = $formSelect;
             } else {
-                $selectComplete = $formSelectPrev ;
+                $selectComplete = $formSelectPrev;
             }
             $formSelectPrev = $formSelect;
             selectPrevProt = true;
 
             let active = false;
-            if($(e.currentTarget).closest('.form_select').hasClass('active')){
+            if ($(e.currentTarget).closest('.form_select').hasClass('active')) {
                 active = true;
             } else {
                 let $optionArea = $($formSelect).find('.option_area');
                 $('body').append(`<div class="fixed_area"><div class="dim"></div></div>`);
                 $('.fixed_area').append($optionArea);
 
-                if($formSelect.dataset.index !== undefined) {
+                if ($formSelect.dataset.index !== undefined) {
                     $formSelect.selectIdx = $formSelect.dataset.index;
                     $formSelect.dataset.index !== '' && $('.fixed_area .option_item').removeClass('active').eq($formSelect.selectIdx).addClass('active');
                 }
@@ -234,53 +234,53 @@ Federation = {
             optionAreaSize();
 
             $('.form_select.active').removeClass('active');
-            if(!active){
+            if (!active) {
                 $(e.currentTarget).closest('.form_select').toggleClass('active');
-            } 
-            $(e.currentTarget).closest('.form_select').attr('data-fixed-active',"true");
-            
+            }
+            $(e.currentTarget).closest('.form_select').attr('data-fixed-active', "true");
+
         });
-        
-        $(document).on('click','.option_btn', function() {
+
+        $(document).on('click', '.option_btn', function () {
             $formSelect.selectIdx = $(this).closest('.option_item').index();
             $formSelect.dataset.index = $(this).closest('.option_item').index();
             let textData = $(this).text();
             $(this).closest('.option_list').find('.option_item').removeClass('active').eq($formSelect.dataset.index).addClass('active');
             $($formSelect).find('.form_btn').text(textData).addClass('active');
             selectComplete($selectComplete);
-            $('.form_select').attr('data-fixed-active',"false");
+            $('.form_select').attr('data-fixed-active', "false");
         });
-        
+
         function selectComplete($selectComplete) {
             let $optionArea = $('.fixed_area').find('.option_area');
             $($selectComplete).append($optionArea).removeClass('active');
             $('.fixed_area').remove();
         }
-        $(document).on('keydown','.form_btn', function(e) {
+        $(document).on('keydown', '.form_btn', function (e) {
             $formSelect = $formSelect ? $formSelect : e.currentTarget.parentNode;
             let $optionItem = $($formSelect).hasClass('active') ? $('.fixed_area .option_item') : $(e.currentTarget).closest('.form_select').find('.option_item');
-            if($formSelect.dataset.index == undefined) {
+            if ($formSelect.dataset.index == undefined) {
                 $formSelect.selectIdx = -1;
-            }else {
+            } else {
                 $formSelect.selectIdx = $formSelect.dataset.index;
             }
 
-            if(e.keyCode == 9 || e.keyCode == 27){
+            if (e.keyCode == 9 || e.keyCode == 27) {
                 selectComplete($selectComplete);
             }
 
-            if(e.keyCode == 37 || e.keyCode == 38){
+            if (e.keyCode == 37 || e.keyCode == 38) {
                 e.preventDefault();
-                if (0 < $formSelect.selectIdx){
-                    $formSelect.selectIdx =  Number($formSelect.selectIdx) - 1;
+                if (0 < $formSelect.selectIdx) {
+                    $formSelect.selectIdx = Number($formSelect.selectIdx) - 1;
                     optionChange();
                 }
             }
 
-            if(e.keyCode == 39 || e.keyCode == 40){
+            if (e.keyCode == 39 || e.keyCode == 40) {
                 e.preventDefault();
                 let max = $optionItem.length;
-                if (max - 1 !== $formSelect.selectIdx && max - 1 > $formSelect.selectIdx){
+                if (max - 1 !== $formSelect.selectIdx && max - 1 > $formSelect.selectIdx) {
                     $formSelect.selectIdx = Number($formSelect.selectIdx) + 1;
                     optionChange();
                 }
@@ -291,7 +291,7 @@ Federation = {
                 $optionItem.removeClass('active').eq($formSelect.selectIdx).addClass('active');
                 let textData = $optionItem.eq($formSelect.selectIdx).find('.option_btn').text();
                 $(e.currentTarget).text(textData).addClass('active');
-                if ($($formSelect).hasClass('active')){
+                if ($($formSelect).hasClass('active')) {
                     let h = 0;
                     for (let i = 0; i < $formSelect.selectIdx; i++) {
                         h += $optionItem.eq(i).outerHeight();
@@ -300,62 +300,62 @@ Federation = {
                 }
             }
         });
-        $(window).resize(function(){
+        $(window).resize(function () {
             $('.form_select').hasClass('active') && optionAreaSize();
         });
     },
-    modal : function(){
+    modal: function () {
         var $modal, $modalButton;
         $modalButton = $('.modal_toggle');
-        $modalButton.on('click',function(){
+        $modalButton.on('click', function () {
             $modal = $($(this).data('target'));
             Federation.openModal($modal);
         });
     },
-    closeModal : function(
-        $modal, 
+    closeModal: function (
+        $modal,
         focusedElementBeforeModal = document.activeElement
-    ){
+    ) {
         fn.removeHidden();
-        $('.modal').off('scroll',function(){});
+        $('.modal').off('scroll', function () { });
         $('html, body').removeClass('hidden');
         $modal.addClass('modal_close');
         $modal.removeClass('active');
         focusedElementBeforeModal.focus();
     },
-    openModal : function(
-        $modal, 
-        focusableElementsString = '.modal_centered, a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]', 
+    openModal: function (
+        $modal,
+        focusableElementsString = '.modal_centered, a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]',
         $modalCloseButton = $('.modal .close')
-    ){
+    ) {
         fn.addHidden();
         $modal.addClass('active');
-        $('.modal').on('scroll',function(){
-            if ($('.form_select').hasClass('active')){
+        $('.modal').on('scroll', function () {
+            if ($('.form_select').hasClass('active')) {
                 let $formSelect = $('.form_select.active');
                 let selectTop = $($formSelect).offset().top;
                 let selectLeft = $($formSelect).offset().left;
                 let selectW = $($formSelect).outerWidth();
                 let selectH = $($formSelect).outerHeight();
                 $('.option_area').css({
-                    'top': selectTop + selectH, 
-                    'left': selectLeft, 
+                    'top': selectTop + selectH,
+                    'left': selectLeft,
                     'width': selectW
                 });
             }
         })
 
-        $modal.on('keydown',function(e){
+        $modal.on('keydown', function (e) {
             trapTabKey(e);
         });
 
-        $modal.on('click',function(e){
+        $modal.on('click', function (e) {
             if ($(e.target).closest('.modal_box').length < 1 && $('.modal.active').attr('data-dim-click') !== 'false') {
                 Federation.closeModal($modal);
             }
         });
 
-        $modalCloseButton.on('click',function(){
+        $modalCloseButton.on('click', function () {
             Federation.closeModal($modal);
         })
 
@@ -389,35 +389,35 @@ Federation = {
             }
         }
     },
-    button : function(){
-        $(document).on('click','.tab_btn',function (e) {
+    button: function () {
+        $(document).on('click', '.tabs__btn', function (e) {
             e.preventDefault();
-            let index = $(this).closest('.tab_item').index();
-            $('.tab_item').removeClass('active').eq(index).addClass('active');
-            $('.content_item').removeClass('active').eq(index).addClass('active');
+            let index = $(this).closest('.tabs__item').index();
+            $('.tabs__item').removeClass('tabs__item--active').eq(index).addClass('tabs__item--active');
+            $('.tab-content').removeClass('tab-content--active').eq(index).addClass('tab-content--active');
 
-            if($('.ttl_area').length > 0) {
-                $('.ttl_area').removeClass('active').eq(index).addClass('active');
+            if ($('.ttl-wrap__area').length > 0) {
+                $('.ttl-wrap__area').removeClass('ttl-wrap__area--active').eq(index).addClass('ttl-wrap__area--active');
             }
         });
-        $(document).on('click','.dropdown_item .content_header',function (e) {
+        $(document).on('click', '.dropdown_item .content_header', function (e) {
             e.preventDefault();
             let $el = e.currentTarget;
             $($el).closest('.dropdown_item').toggleClass('active').siblings().removeClass('active');
         })
     },
-    setSwiper : function(){
-        $(".set_swiper").each(function(index, element){
+    setSwiper: function () {
+        $(".set_swiper").each(function (index, element) {
             var tg = $(this);
-                slideView = [5,4],
-                slideTabletView = [4,3],
-                slideMobileView = [1,1];
+            slideView = [5, 4],
+                slideTabletView = [4, 3],
+                slideMobileView = [1, 1];
             tg.addClass('instance_' + index);
 
             var swiper = new Swiper('.instance_' + index + ' .swiper', {
-                loop:true,
+                loop: true,
                 slidesPerView: slideMobileView[index],
-                speed:1000,
+                speed: 1000,
                 autoplay: {
                     delay: 3500,
                 },
@@ -436,7 +436,7 @@ Federation = {
             });
         });
     },
-    datepicker : function(){
+    datepicker: function () {
         if (fn.exists('.form_datepicker')) {
             $('.form_datepicker').datepicker({
                 changeMonth: true,
@@ -458,35 +458,35 @@ Federation = {
             });
         }
     },
-    scrollTop : function(){
-        $(window).on('scroll', function(e){
+    scrollTop: function () {
+        $(window).on('scroll', function (e) {
             let scrollTop = $(window).scrollTop();
-            if(scrollTop > 0) {
+            if (scrollTop > 0) {
                 $('body').addClass('scroll_down');
             } else {
                 $('body').removeClass('scroll_down');
             }
         })
     },
-    resize : function(){
+    resize: function () {
         const breakpoint = window.matchMedia('(max-width:1200px)');
         let resizeMo = breakpoint.matches;
 
         const resizeFunc = function () {
-            if(resizeMo) {
-                
+            if (resizeMo) {
+
             } else {
                 fn.removeHidden();
 
                 const gnbBg = $(".nav__bg"),
-                subMenu = $("#gnb.pc .nav__submenu"),
-                adArea = $('#gnb.pc .nav__ad')
-                
+                    subMenu = $("#gnb.pc .nav__submenu"),
+                    adArea = $('#gnb.pc .nav__ad')
+
                 const heightArray = subMenu.map(function () {
                     return $(this).outerHeight(true);
                 }).get();
                 const maxHeight = Math.max.apply(Math, heightArray);
-    
+
                 subMenu.css({ height: maxHeight });
                 // adArea.css({ height: maxHeight });
                 gnbBg.css({ height: maxHeight });

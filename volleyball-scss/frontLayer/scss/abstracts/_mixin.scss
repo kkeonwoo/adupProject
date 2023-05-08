@@ -26,6 +26,24 @@ $flex-map: (
     justify-content: _get-flex-value($js);
 }
 
+$media: (
+    pc: 1499px,
+    tab: 1200px,
+    mob:768px,
+);
+
+@mixin media($breakpoint) {
+
+    @each $breakpoints,
+    $size in $media {
+        @if $breakpoint==$breakpoints {
+            @media screen and (min-width: $size) {
+                @content;
+            }
+        }
+    }
+}
+
 @mixin absCenter($horizontal: true, $vertical: true) {
     position: absolute;
 
@@ -79,6 +97,8 @@ $flex-map: (
         url('#{$path}#{$file-name}.#{$format}') format('#{$format}');
     }
 }
+
+
 
 // @mixin box($w: 10px, $h: 10px, $bg: #000) {
 //     display: block;

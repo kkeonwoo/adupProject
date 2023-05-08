@@ -33,7 +33,8 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="" />
-    <link rel="stylesheet" href="../frontLayer/css/package.css">
+    <!-- <link rel="stylesheet" href="../frontLayer/css/package.css"> -->
+    <link rel="stylesheet" href="../frontLayer/css/swiper.css">
     <link rel="stylesheet" href="../frontLayer/css/main.css">
     <script src="../frontLayer/js/jquery-3.3.1.min.js"></script>
     <script src="../frontLayer/js/jquery-ui.min.js"></script>
@@ -245,187 +246,181 @@
 
         <!-- s:container -->
         <main id="container" class="main">
-            <section class="main_visual">
-                <button class="swiper_btn swiper-button-prev"></button>
+            <section class="main-visual">
+                <button class="swiper-btn main-visual__btn--prev main-visual__btn"></button>
                 <ul class="swiper-wrapper">
-                    <li class="swiper-slide slide01">
-                        <div class="txt_area">
-                            <h2 class="ttl">
+                    <li class="swiper-slide main-visual__slide01">
+                        <div class="main-visual__txtarea">
+                            <h2 class="main-visual__ttl">
                                 누구나 언제나 즐길 수 있는 <br>
                                 9인제 배구
                             </h2>
                         </div>
                     </li>
-                    <li class="swiper-slide slide02">
-                        <div class="txt_area">
-                            <h2 class="ttl">
+                    <li class="swiper-slide main-visual__slide02">
+                        <div class="main-visual__txtarea">
+                            <h2 class="main-visual__ttl">
                                 누구나 언제나 즐길 수 있는 <br>
                                 9인제 배구
                             </h2>
                         </div>
                     </li>
-                    <li class="swiper-slide slide03">
-                        <div class="txt_area">
-                            <h2 class="ttl">
+                    <li class="swiper-slide main-visual__slide03">
+                        <div class="main-visual__txtarea">
+                            <h2 class="main-visual__ttl">
                                 누구나 언제나 즐길 수 있는 <br>
                                 9인제 배구
                             </h2>
                         </div>
                     </li>
-                    <li class="swiper-slide slide04">
-                        <div class="txt_area">
-                            <h2 class="ttl">
+                    <li class="swiper-slide main-visual__slide04">
+                        <div class="main-visual__txtarea">
+                            <h2 class="main-visual__ttl">
                                 누구나 언제나 즐길 수 있는 <br>
                                 9인제 배구
                             </h2>
                         </div>
                     </li>
-                    <li class="swiper-slide slide05">
-                        <div class="txt_area">
-                            <h2 class="ttl">
+                    <li class="swiper-slide main-visual__slide05">
+                        <div class="main-visual__txtarea">
+                            <h2 class="main-visual__ttl">
                                 누구나 언제나 즐길 수 있는 <br>
                                 9인제 배구
                             </h2>
                         </div>
                     </li>
-                    <li class="swiper-slide slide06">
-                        <div class="txt_area">
-                            <h2 class="ttl">
+                    <li class="swiper-slide main-visual__slide06">
+                        <div class="main-visual__txtarea">
+                            <h2 class="main-visual__ttl">
                                 누구나 언제나 즐길 수 있는 <br>
                                 9인제 배구
                             </h2>
                         </div>
                     </li>
                 </ul>
-                <div class="swiper-pagination"></div>
-                <button class="swiper_btn swiper-button-next"></button>
+                <div class="swiper-pagination main-visual__pagination"></div>
+                <button class="swiper-btn main-visual__btn--next main-visual__btn"></button>
             </section>
 
             <article class="schedule sec">
-                <div class="content_inner">
-                    <h3 class="ttl">대회일정</h3>
-                    <div class="schedule_swiper">
-                        <button class="swiper_btn swiper-button-prev"></button>
-                        <ul class="schedule_list swiper-wrapper">
-                            <li class="swiper-slide">
-                                <div class="schedule_box">
-                                    <a href="./competition/scheduleExpected.html" class="schedule_item">
-                                        <div class="img_box">
+                <div class="sec__inner">
+                    <h3 class="sec__ttl">대회일정</h3>
+                    <div class="schedule__swiper">
+                        <button class="swiper_btn schedule__btn--prev schedule__btn"></button>
+                        <ul class="schedule__list swiper-wrapper">
+                            <li class="swiper-slide schedule__slide">
+                                <div class="schedule__box">
+                                    <a href="./competition/scheduleExpected.html" class="schedule__item">
+                                        <div class="img-box schedule__imgbox">
                                             <img src="../frontLayer/images/img/img_schedules_01.jpg" alt="대회일정 예정"
-                                                class="img">
+                                                class="img-box__img">
                                         </div>
-                                        <span class="txt">예정</span>
+                                        <span class="schedule__txt">예정</span>
                                     </a>
                                 </div>
                             </li>
-                            <li class="swiper-slide">
-                                <div class="schedule_box">
-                                    <a href="./competition/scheduleApplication.html" class="schedule_item">
-                                        <div class="img_box">
+                            <li class="swiper-slide schedule__slide">
+                                <div class="schedule__box">
+                                    <a href="./competition/scheduleApplication.html" class="schedule__item">
+                                        <div class="img-box schedule__imgbox">
                                             <img src="../frontLayer/images/img/img_schedules_02.jpg" alt="대회일정 신청중"
-                                                class="img">
+                                                class="img-box__img">
                                         </div>
-                                        <span class="txt">신청중</span>
+                                        <span class="schedule__txt">신청중</span>
                                     </a>
                                 </div>
                             </li>
-                            <li class="swiper-slide">
-                                <div class="schedule_box">
-                                    <a href="./competition/scheduleProgress.html" class="schedule_item">
-                                        <div class="img_box">
+                            <li class="swiper-slide schedule__slide">
+                                <div class="schedule__box">
+                                    <a href="./competition/scheduleProgress.html" class="schedule__item">
+                                        <div class="img-box schedule__imgbox">
                                             <img src="../frontLayer/images/img/img_schedules_03.jpg" alt="대회일정 진행중"
-                                                class="img">
+                                                class="img-box__img">
                                         </div>
-                                        <span class="txt">진행중</span>
+                                        <span class="schedule__txt">진행중</span>
                                     </a>
                                 </div>
                             </li>
                         </ul>
-                        <div class="swiper-pagination"></div>
-                        <button class="swiper_btn swiper-button-next"></button>
+                        <div class="swiper-pagination schedule__pagination"></div>
+                        <button class="swiper_btn schedule__btn--next schedule__btn"></button>
                     </div>
                 </div>
             </article>
 
             <section class="notice sec">
-                <div class="content_inner">
-                    <div class="ttl_wrap col_4">
-                        <div class="ttl_area ttl_area_01 active">
-                            <h3 class="ttl">NOTICE</h2>
-                                <a href="#"><span class="txt">더보기</span></a>
+                <div class="notice__inner sec__inner">
+                    <div class="ttl-wrap col_4">
+                        <div class="ttl-wrap__area ttl-wrap__area--active">
+                            <h3 class="ttl-wrap__ttl">NOTICE</h2>
+                                <a href="#"><span class="ttl-wrap__txt">더보기</span></a>
                         </div>
-                        <div class="ttl_area ttl_area_02">
-                            <h3 class="ttl">NEWS</h2>
-                                <a href="#"><span class="txt">더보기</span></a>
+                        <div class="ttl-wrap__area">
+                            <h3 class="ttl-wrap__ttl">NEWS</h2>
+                                <a href="#"><span class="ttl-wrap__txt">더보기</span></a>
                         </div>
                     </div>
-                    <div class="notice_content_area col_8">
-                        <div class="notice_tab_container">
-                            <ul class="notice_tabs">
-                                <li class="tab_item active"><button class="tab_btn">공지사항</button></li>
-                                <li class="tab_item"><button class="tab_btn">뉴스</button></li>
+                    <div class="notice__content col_8">
+                        <div class="notice__tab">
+                            <ul class="tabs">
+                                <li class="tabs__item tabs__item--active"><button class="tabs__btn">공지사항</button></li>
+                                <li class="tabs__item"><button class="tabs__btn">뉴스</button></li>
                             </ul>
-                            <ul class="content_item active">
+                            <ul class="tab-content tab-content--active">
                                 <li>
-                                    <a href="#" class="content">
-                                        <p class="content_ttl ellipsis">대회연기안내</p>
-                                        <span class="date">22.11.22</span>
+                                    <a href="#" class="tab-content__item">
+                                        <p class="tab-content__ttl">대회연기안내</p>
+                                        <span class="tab-content__date">22.11.22</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="content">
-                                        <p class="content_ttl ellipsis">제1회 인제내린천배 한국9인제배구연맹 챔피언쉽대회</p>
-                                        <span class="date">22.11.09</span>
+                                    <a href="#" class="tab-content__item">
+                                        <p class="tab-content__ttl">제1회 인제내린천배 한국9인제배구연맹 챔피언쉽대회</p>
+                                        <span class="tab-content__date">22.11.09</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="content">
-                                        <p class="content_ttl ellipsis">제58회 박계조배대회 결과표</p>
-                                        <span class="date">22.11.07</span>
+                                    <a href="#" class="tab-content__item">
+                                        <p class="tab-content__ttl">제58회 박계조배대회 결과표</p>
+                                        <span class="tab-content__date">22.11.07</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="content">
-                                        <p class="content_ttl ellipsis">공지사항</p>
-                                        <span class="date">22.11.02</span>
+                                    <a href="#" class="tab-content__item">
+                                        <p class="tab-content__ttl">공지사항</p>
+                                        <span class="tab-content__date">22.11.02</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="content">
-                                        <p class="content_ttl ellipsis">9인제 종별선수권대회 참가신청 마감 알림</p>
-                                        <span class="date">22.05.03</span>
+                                    <a href="#" class="tab-content__item">
+                                        <p class="tab-content__ttl">9인제 종별선수권대회 참가신청 마감 알림</p>
+                                        <span class="tab-content__date">22.05.03</span>
                                     </a>
                                 </li>
                             </ul>
-                            <ul class="content_item">
+                            <ul class="tab-content">
                                 <li>
-                                    <a href="#" class="content">
-                                        <p class="content_ttl ellipsis">공지사항 제목입니다.</p>
-                                        <span class="date">22.11.22</span>
+                                    <a href="#" class="tab-content__item">
+                                        <p class="tab-content__ttl">공지사항 제목입니다.</p>
+                                        <span class="tab-content__date">22.11.22</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="content">
-                                        <p class="content_ttl ellipsis">공지사항 제목입니다.</p>
-                                        <span class="date">22.11.09</span>
+                                    <a href="#" class="tab-content__item">
+                                        <p class="tab-content__ttl">공지사항 제목입니다.</p>
+                                        <span class="tab-content__date">22.11.09</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="content">
-                                        <p class="content_ttl ellipsis">공지사항 제목입니다.</p>
-                                        <span class="date">22.11.07</span>
+                                    <a href="#" class="tab-content__item">
+                                        <p class="tab-content__ttl">공지사항 제목입니다.</p>
+                                        <span class="tab-content__date">22.11.07</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="content">
-                                        <p class="content_ttl ellipsis">공지사항 제목입니다.</p>
-                                        <span class="date">22.11.02</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="content">
-                                        <p class="content_ttl ellipsis">공지사항 제목입니다.</p>
-                                        <span class="date">22.05.03</span>
+                                    <a href="#" class="tab-content__item">
+                                        <p class="tab-content__ttl">공지사항 제목입니다.</p>
+                                        <span class="tab-content__date">22.11.02</span>
                                     </a>
                                 </li>
                             </ul>
@@ -439,104 +434,108 @@
 
 
         <!-- s:footer -->
-        <footer id="footer">
-            <div class="footer_swiper_wrap">
-                <div class="content_inner">
-                    <div class="footer_swiper">
-                        <div class="swiper_btn swiper-button-prev"></div>
+        <footer id="footer" class="footer">
+            <div class="footer__swiperwrap">
+                <div class="footer__inner">
+                    <div class="footer__swiper">
+                        <div class="swiper-btn footer__btn--prev footer__btn"></div>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <div class="img_box">
-                                    <img src="../frontLayer/images/img/img_footer_logo_01.png" alt="대한배구협회" class="img">
+                                <div class="img-box">
+                                    <img src="../frontLayer/images/img/img_footer_logo_01.png" alt="대한배구협회"
+                                        class="img-box__img">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="img_box">
+                                <div class="img-box">
                                     <img src="../frontLayer/images/img/img_footer_logo_02.png" alt="THE S LAB"
-                                        class="img">
+                                        class="img-box__img">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="img_box">
+                                <div class="img-box">
                                     <img src="../frontLayer/images/img/img_footer_logo_03.png" alt="start sports"
-                                        class="img">
+                                        class="img-box__img">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="img_box">
+                                <div class="img-box">
                                     <img src="../frontLayer/images/img/img_footer_logo_04.svg" alt="법무법인(유) 에이스"
-                                        class="img">
+                                        class="img-box__img">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="img_box">
-                                    <img src="../frontLayer/images/img/img_footer_logo_05.png" alt="adup" class="img">
+                                <div class="img-box">
+                                    <img src="../frontLayer/images/img/img_footer_logo_05.png" alt="adup"
+                                        class="img-box__img">
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper_btn swiper-button-next"></div>
+                        <div class="swiper-btn footer__btn--next footer__btn"></div>
                     </div>
                 </div>
             </div>
-            <div class="footer_top">
-                <div class="content_inner">
-                    <ul class="f_nav">
-                        <li><a href="./about/greeting.html">연맹소개</a></li>
-                        <li><a href="./competition/newsList.html">대회안내</a></li>
-                        <li><a href="./mediaCenter/newsList.html">미디어센터</a></li>
-                        <li><a href="./community/noticeList.html">커뮤니티</a></li>
-                        <li><a href="#">SHOP</a></li>
+            <div class="footer__top">
+                <div class="footer__inner">
+                    <ul class="footer-nav">
+                        <li><a class="footer-nav__link" href="./about/greeting.html">연맹소개</a></li>
+                        <li><a class="footer-nav__link" href="./competition/newsList.html">대회안내</a></li>
+                        <li><a class="footer-nav__link" href="./mediaCenter/newsList.html">미디어센터</a></li>
+                        <li><a class="footer-nav__link" href="./community/noticeList.html">커뮤니티</a></li>
+                        <li><a class="footer-nav__link" href="#">SHOP</a></li>
                     </ul>
-                    <ul class="logo_list">
-                        <li class="logo_item">
-                            <a href="#" class="link" target="_blank" title="새창열기">
-                                <img src="../frontLayer/images/icons/ico_youtube.svg" alt="">
-                            </a>
-                        </li>
-                        <li class="logo_item">
-                            <a href="#" class="link" target="_blank" title="새창열기">
-                                <img src="../frontLayer/images/icons/ico_daum.svg" alt="">
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="util footer__util">
+                        <ul class="util-social__list">
+                            <li class="util-social__item">
+                                <a href="#" class="link" target="_blank" title="새창열기">
+                                    <img src="../frontLayer/images/icons/ico_youtube.svg" alt="유투브 바로가기">
+                                </a>
+                            </li>
+                            <li class="util-social__item">
+                                <a href="#" class="link" target="_blank" title="새창열기">
+                                    <img src="../frontLayer/images/icons/ico_daum.svg" alt="다음 바로가기">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="footer_bottom">
-                <div class="content_inner">
+            <div class="footer__bottom">
+                <div class="footer__inner">
                     <span class="logo">
-                        <img src="../frontLayer/images/common/logo.svg" alt="">
-                        <em>한국 9인제 배구 연맹</em>
+                        <img src="../frontLayer/images/common/logo.svg" alt="한국 9인제 배구 연맹">
                     </span>
-                    <div class="dl_wrap">
-                        <dl>
-                            <dt>회장</dt>
-                            <dd>신태호</dd>
+                    <div>
+                        <dl class="dl-wrap__content">
+                            <dt class="dl-wrap__ttl">회장</dt>
+                            <dd class="dl-wrap__txt">신태호</dd>
                         </dl>
-                        <div class="d_flex flex_wrap align_items_center gap_px_x_10">
-                            <dl>
-                                <dt>주소</dt>
-                                <dd>
-                                    <address>서울 광진구 능동로49길 16</address>
+                        <div class="dl-wrap">
+                            <dl class="dl-wrap__content">
+                                <dt class="dl-wrap__ttl">주소</dt>
+                                <dd class="dl-wrap__txt">
+                                    서울 광진구 능동로49길 16
                                 </dd>
                             </dl>
-                            <dl class="mt_0">
-                                <dt>전화번호</dt>
-                                <dd>
-                                    <address>02-414-1893</address>
+                            <dl class="dl-wrap__content mt_0">
+                                <dt class="dl-wrap__ttl">전화번호</dt>
+                                <dd class="dl-wrap__txt">
+                                    02-414-1893
                                 </dd>
                             </dl>
                         </div>
-                        <div class="d_flex flex_wrap align_items_center gap_px_x_10">
-                            <dl>
-                                <dt>팩스</dt>
-                                <dd>
-                                    <address>02-414-1894</address>
+                        <div class="dl-wrap">
+                            <dl class="dl-wrap__content">
+                                <dt class="dl-wrap__ttl">팩스</dt>
+                                <dd class="dl-wrap__txt">
+                                    02-414-1894
                                 </dd>
                             </dl>
-                            <dl class="mt_0">
-                                <dt>카페</dt>
-                                <dd>
-                                    <a href="cafe.daum.net/knvf" target="_blank" title="새창열기">cafe.daum.net/knvf</a>
+                            <dl class="dl-wrap__content mt_0">
+                                <dt class="dl-wrap__ttl">카페</dt>
+                                <dd class="dl-wrap__txt">
+                                    <a href="cafe.daum.net/knvf" target="_blank" title="새창열기"
+                                        class="dl-wrap__link">cafe.daum.net/knvf</a>
                                 </dd>
                             </dl>
                         </div>
@@ -569,10 +568,10 @@
                 if (mainSwiper !== undefined) mainSwiper.destroy(true, true);
                 if (scheduleSwiper !== undefined) {
                     scheduleSwiper.destroy(true, true);
-                    $('.schedule_swiper .swiper-pagination').css({
+                    $('.schedule__swiper .swiper-pagination').css({
                         'display': 'none'
                     })
-                    $('.schedule_swiper .swiper_btn').css({
+                    $('.schedule__swiper .swiper_btn').css({
                         'display': 'none'
                     });
                 }
@@ -582,62 +581,62 @@
         };
 
         const enablePcSwiper = function () {
-            mainSwiper = new Swiper(".main_visual", {
-                touchRatio: 0,
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false,
-                },
-                pagination: {
-                    el: ".main_visual .swiper-pagination",
-                },
-                navigation: {
-                    nextEl: ".main_visual .swiper-button-next",
-                    prevEl: ".main_visual .swiper-button-prev",
-                }
-            });
-            footerSwiper = new Swiper(".footer_swiper", {
-                slidesPerView: 5,
-                spaceBetween: 52,
-                touchRatio: 0,
+            mainSwiper = new Swiper(".main-visual", {
                 loop: true,
                 autoplay: {
                     delay: 5000,
                     disableOnInteraction: false,
                 },
                 pagination: {
-                    el: ".footer_swiper .swiper-pagination",
+                    clickable: true,
+                    el: ".main-visual .swiper-pagination",
                 },
                 navigation: {
-                    nextEl: ".footer_swiper .swiper-button-next",
-                    prevEl: ".footer_swiper .swiper-button-prev",
+                    nextEl: ".main-visual .main-visual__btn--next",
+                    prevEl: ".main-visual .main-visual__btn--prev",
+                }
+            });
+            footerSwiper = new Swiper(".footer__swiper", {
+                slidesPerView: 5,
+                spaceBetween: 52,
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".footer__swiper .swiper-pagination",
+                },
+                navigation: {
+                    nextEl: ".footer__swiper .footer__btn--next",
+                    prevEl: ".footer__swiper .footer__btn--prev",
                 }
             });
         };
         const enableMobileSwiper = function () {
-            mainSwiper = new Swiper(".main_visual", {
-                touchRatio: 0,
+            mainSwiper = new Swiper(".main-visual", {
+                loop: true,
                 autoplay: {
                     delay: 5000,
                     disableOnInteraction: false,
                 },
                 pagination: {
                     type: "fraction",
-                    el: ".main_visual .swiper-pagination",
+                    el: ".main-visual .swiper-pagination",
                 },
                 navigation: {
-                    nextEl: ".main_visual .swiper-button-next",
-                    prevEl: ".main_visual .swiper-button-prev",
+                    nextEl: ".main-visual .main-visual__btn--next",
+                    prevEl: ".main-visual .main-visual__btn--prev",
                 }
             });
-            scheduleSwiper = new Swiper('.schedule_swiper', {
+            scheduleSwiper = new Swiper('.schedule__swiper', {
                 slidesPerView: 'auto',
                 pagination: {
                     el: ".schedule .swiper-pagination"
                 },
                 navigation: {
-                    nextEl: ".schedule .swiper-button-next",
-                    prevEl: ".schedule .swiper-button-prev",
+                    nextEl: ".schedule .schedule__btn--next",
+                    prevEl: ".schedule .schedule__btn--prev",
                 },
                 on: {
                     init: function () {
@@ -650,21 +649,20 @@
                     }
                 }
             })
-            footerSwiper = new Swiper(".footer_swiper", {
+            footerSwiper = new Swiper(".footer__swiper", {
                 slidesPerView: 2,
                 spaceBetween: 30,
-                touchRatio: 0,
                 loop: true,
                 autoplay: {
                     delay: 5000,
                     disableOnInteraction: false,
                 },
                 pagination: {
-                    el: ".footer_swiper .swiper-pagination",
+                    el: ".footer__swiper .swiper-pagination",
                 },
                 navigation: {
-                    nextEl: ".footer_swiper .swiper-button-next",
-                    prevEl: ".footer_swiper .swiper-button-prev",
+                    nextEl: ".footer__swiper .footer__btn--next",
+                    prevEl: ".footer__swiper .footer__btn--prev",
                 }
             });
         };
