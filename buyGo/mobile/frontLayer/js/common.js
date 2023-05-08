@@ -1021,19 +1021,18 @@ BuyGo = {
             let fileList = $($this).closest('.img_upload_area').find('.img_upload_list');
             let fileItem = $($this).closest('.img_upload_area').find('.img_upload_item');
             let fileArr = this.files;
-            let fileCount = 0;
 
             $($this).closest('.img_upload_area').addClass('active');
 
             if (this.files && this.files[0]) {
                 $.each(fileArr, function (idx, item) {
-                    if(fileCount >= 4) {
+                    if(idx >= 4) {
                         return false;
                     }
                     const reader = new FileReader();
                     reader.onload = function (e) {
                         if(isImageFile(item.name)){
-                            fileItem.eq(idx).removeClass('add').find('img').attr('src',`${e.target.result}`)
+                            fileItem.eq(idx).addClass('active').find('img').attr('src',`${e.target.result}`)
                         } else {
                             let fileName = getFilenameFromPath(item.name);
                             const $txt = `
@@ -1050,19 +1049,11 @@ BuyGo = {
             } 
 
         })
-
-        $(document).on('click','.img_upload_area .img_upload_item.add', function (e) {
-            let $this = e.currentTarget;
-            $($this).closest('.img_upload_area').find('.upload_file').trigger('click');
-        })
         
         $(document).on('click', '.img_upload_area .btn', function (e) {
-            let fileArr = '';
-            let $this = e.currentTarget;
-            if ($(this).closest('.img_upload_item')) {
-                $(this).closest('.img_upload_item').addClass('add');
-            }
-            $(this).closest('.img_upload_area').removeClass('active');
+            $(this).closest('.img_upload_item').removeClass('active');
+            $(this).closest('.img_upload_item').find('.img').attr('src','');
+            $(this).closest('.img_upload_item').find('.upload_file').val('');
             $(this).closest('.txt_box').remove();
         })
 

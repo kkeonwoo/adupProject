@@ -516,14 +516,10 @@ BuyGo = {
             $(this).parents('.entry_write').toggleClass('on');
         })
         $(document).on('change','.img_upload_area .upload_file', function (e) {
-            let fileName = $(this).val().replace(/.*(\/|\\)/, '');
-            $(this).closest('.img_upload_area').find('.txt_box').find('.txt').text(fileName);
-            $(this).closest('.img_upload_area').find('.txt_box').addClass('active');
+            $(this).closest('.img_upload_item').addClass('active');
         })
-        $(document).on('click','.img_upload_area .btn_close', function (e) {
-            let fileName = null;
-            $(this).closest('.img_upload_area').find('.txt_box').find('.txt').text(fileName);
-            $(this).closest('.img_upload_area').find('.txt_box').removeClass('active');
+        $(document).on('click','.img_upload_area .btn', function (e) {
+            $(this).closest('.img_upload_item').removeClass('active');
         })
         $(document).on('click','.acc_item .ttl_link, .acc_item .close_btn', function (e) {
             e.preventDefault();
@@ -625,54 +621,30 @@ BuyGo = {
         }).open();
     },
     fileUpload: function () {
-        $(document).on('change','.img_upload_area .upload_file', function (e) {
-            let $this = e.currentTarget;
-            let fileList = $($this).closest('.img_upload_area').find('.img_upload_list');
-            let fileItem = $($this).closest('.img_upload_area').find('.img_upload_item');
-            let fileArr = this.files;
-            let fileCount = 0;
-
-            $($this).closest('.img_upload_area').addClass('active');
-
+        $(`.upload_file`).on(`change`, function () {
+            console.log($(this).closest(`.img_upload_item`).find(`img`).attr(`class`));
             if (this.files && this.files[0]) {
-                $.each(fileArr, function (idx, item) {
-                    if(fileCount >= 4) {
-                        return false;
-                    }
-                    const reader = new FileReader();
-                    reader.onload = function (e) {
-                        if(isImageFile(item.name)){
-                            fileItem.eq(idx).removeClass('add').find('img').attr('src',`${e.target.result}`)
-                        } else {
-                            let fileName = getFilenameFromPath(item.name);
-                            const $txt = `
-                                <li class="txt_box">
-                                    <span class="txt" data-placeholder="">${fileName}</span>
-                                    <button type="button" class="btn btn_close_rounded"></button>
-                                </li>
-                            `;
-                            fileList.append($txt);
-                        }
-                    }
-                    reader.readAsDataURL(fileArr[idx]);
-                })
-            } 
-
-        })
-
-        $(document).on('click','.img_upload_area .img_upload_item.add', function (e) {
-            let $this = e.currentTarget;
-            $($this).closest('.img_upload_area').find('.upload_file').trigger('click');
-        })
+                var file = this.files[0];
+                console.log(file);
+                var type = file.type;
+                if (type.indexOf(`image`) != 0) {
+                    console.log(`type`, type);
+                    alert(`이미지만 등록 가능합니다.`);
+                    return false;
+                }
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    console.log(`files.onload`, e);
+                    $(this).closest(`.img_upload_item`).find(`img`).attr(`src`, `${e.target.result}`);
+                }
+                reader.readAsDataURL(file);
+            } else {
+                console.log(`not files`);
+            }
+        });  
         
         $(document).on('click', '.img_upload_area .btn', function (e) {
-            let fileArr = '';
-            let $this = e.currentTarget;
-            if ($(this).closest('.img_upload_item')) {
-                $(this).closest('.img_upload_item').addClass('add');
-            }
             $(this).closest('.img_upload_area').removeClass('active');
-            $(this).closest('.txt_box').remove();
         })
 
         function isImageFile(filename) {
