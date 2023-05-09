@@ -63,7 +63,7 @@
                         </a>
                     </div>
                 </h1>
-                <button type="button" class="btn btn_hamburger mobile"></button>
+                <button type="button" class="btn--hamburger mobile"></button>
                 <nav id="gnb" class="header__nav nav pc">
                     <h2 class="blind">주메뉴</h2>
                     <div class="nav__bg"></div>
@@ -134,7 +134,7 @@
                     </ul>
                     <div class="nav__ad">
                         <div class="nav-ad">
-                            <div class="nav-ad__imgbox img-box">
+                            <div class="nav-ad__imgBox img-box">
                                 <img src="../frontLayer/images/img/img_header_bannder_01.png"
                                     alt="APRCHS ambassador 9인제 배구 회원분들을 어프로치S의 엠배서더 회원으로 모십니다. 엠배서더 회원이 되시면 다양한 상품과 혜택을 받으실 수 있으십니다."
                                     class="img-box__img">
@@ -142,80 +142,106 @@
                         </div>
                     </div>
                 </nav>
-                <!-- <nav id="gnb" class="m_gnb" tabindex="0">
+                <nav id="gnb" class="mGnb" tabindex="0">
                     <h2 class="blind">주메뉴</h2>
                     <div class="gnb_bg"></div>
                     <div class="util">
-                        <a href="./account/login.html" class="user_util">로그인</a>
-                        <a href="./account/signUp.html" class="user_util sign_up">회원가입</a>
-                        <a href="#" class="link" target="_blank" title="새창열기">
-                            <img src="../frontLayer/images/icons/ico_daum.svg" alt="">
-                        </a>
+                        <div class="util-auth">
+                            <ul class="util-auth__list">
+                                <li class="util-auth__item">
+                                    <a href="./account/login.html" class="util-auth__link">로그인</a>
+                                </li>
+                                <li class="util-auth__item">
+                                    <a href="./account/signUp.html"
+                                        class="util-auth__link util-auth__link--blue">회원가입</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="util-social">
+                            <ul class="util-social__list">
+                                <li class="util-social__item">
+                                    <a href="#" class="link" target="_blank" title="새창열기">
+                                        <img src="../frontLayer/images/icons/ico_daum.svg" alt="다음 바로가기">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul>
-                        <li>
-                            <a href="#">연맹소개</a>
-                            <div class="sub_menu">
-                                <ul>
-                                    <li><a href="./about/greeting.html">인사말</a></li>
-                                    <li><a href="./about/history.html">연혁</a></li>
-                                    <li><a href="./about/organization.html">조직도</a></li>
-                                    <li><a href="./about/executives.html">임원 소개</a></li>
-                                    <li><a href="./about/location.html">오시는 길</a></li>
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a class="nav__link" href="#">연맹소개</a>
+                            <div class="nav__submenu">
+                                <ul class="nav-submenu">
+                                    <li><a class="nav-submenu__link" href="./about/greeting.html">인사말</a></li>
+                                    <li><a class="nav-submenu__link" href="./about/history.html">연혁</a></li>
+                                    <li><a class="nav-submenu__link" href="./about/organization.html">조직도</a></li>
+                                    <li><a class="nav-submenu__link" href="./about/executives.html">임원 소개</a></li>
+                                    <li><a class="nav-submenu__link" href="./about/location.html">오시는 길</a></li>
                                 </ul>
                             </div>
                         </li>
-                        <li>
-                            <a href="#">대회안내</a>
-                            <div class="sub_menu">
-                                <ul>
-                                    <li><a href="./competition/newsList.html">대회소식</a></li>
-                                    <li class="depth03"><a href="./competition/scheduleAll.html">대회일정</a>
-                                        <ul>
-                                            <li><a href="./competition/scheduleAll.html">전체</a></li>
-                                            <li><a href="./competition/scheduleExpected.html">예정</a></li>
-                                            <li><a href="./competition/scheduleApplication.html">신청중</a></li>
-                                            <li><a href="./competition/scheduleProgress.html">진행중</a></li>
-                                            <li><a href="./competition/scheduleEnd.html">종료</a></li>
+                        <li class="nav__item">
+                            <a class="nav__link" href="#">대회안내</a>
+                            <div class="nav__submenu">
+                                <ul class="nav-submenu">
+                                    <li><a class="nav-submenu__link" href="./competition/newsList.html">대회소식</a></li>
+                                    <li><a class="nav-submenu__link--arrow" href="#">대회일정</a>
+                                        <ul class="nav-depth03 nav-submenu__depth03">
+                                            <li><a class="nav-depth03__link"
+                                                    href="./competition/scheduleAll.html">전체</a>
+                                            </li>
+                                            <li><a class="nav-depth03__link"
+                                                    href="./competition/scheduleExpected.html">예정</a>
+                                            </li>
+                                            <li><a class="nav-depth03__link"
+                                                    href="./competition/scheduleApplication.html">신청중</a></li>
+                                            <li><a class="nav-depth03__link"
+                                                    href="./competition/scheduleProgress.html">진행중</a>
+                                            </li>
+                                            <li><a class="nav-depth03__link"
+                                                    href="./competition/scheduleEnd.html">종료</a>
+                                            </li>
                                         </ul>
                                     </li>
-                                    <li><a href="./competition/archives.html">기록실</a></li>
+                                    <li><a class="nav-submenu__link" href="./competition/archives.html">기록실</a></li>
                                 </ul>
                             </div>
                         </li>
-                        <li>
-                            <a href="#">미디어센터</a>
-                            <div class="sub_menu">
-                                <ul>
-                                    <li><a href="./mediaCenter/newsList.html">뉴스</a></li>
-                                    <li><a href="./mediaCenter/galleryList.html">포토갤러리</a></li>
-                                    <li><a href="./mediaCenter/videoList.html">영상</a></li>
+                        <li class="nav__item">
+                            <a class="nav__link" href="#">미디어센터</a>
+                            <div class="nav__submenu">
+                                <ul class="nav-submenu">
+                                    <li><a class="nav-submenu__link" href="./mediaCenter/newsList.html">뉴스</a></li>
+                                    <li><a class="nav-submenu__link" href="./mediaCenter/galleryList.html">포토갤러리</a>
+                                    </li>
+                                    <li><a class="nav-submenu__link" href="./mediaCenter/videoList.html">영상</a></li>
                                 </ul>
                             </div>
                         </li>
-                        <li>
-                            <a href="#">커뮤니티</a>
-                            <div class="sub_menu">
-                                <ul>
-                                    <li><a href="./community/noticeList.html">공지사항</a></li>
-                                    <li><a href="./community/referenceList.html">자료실</a></li>
+                        <li class="nav__item">
+                            <a class="nav__link" href="#">커뮤니티</a>
+                            <div class="nav__submenu">
+                                <ul class="nav-submenu">
+                                    <li><a class="nav-submenu__link" href="./community/noticeList.html">공지사항</a></li>
+                                    <li><a class="nav-submenu__link" href="./community/referenceList.html">자료실</a></li>
                                 </ul>
                             </div>
                         </li>
-                        <li>
-                            <a href="http://www.aprchs.com/" target="_blank">SHOP</a>
+                        <li class="nav__item">
+                            <a class="nav__link" href="http://www.aprchs.com/" target="_blank">SHOP</a>
+                            <div class="nav__submenu"></div>
                         </li>
                     </ul>
-                    <div class="ad_area">
-                        <div class="ad_box">
-                            <div class="img_box">
+                    <div class="nav__ad">
+                        <div class="nav-ad">
+                            <div class="nav-ad__imgBox img-box">
                                 <img src="../frontLayer/images/img/img_header_bannder_01.png"
                                     alt="APRCHS ambassador 9인제 배구 회원분들을 어프로치S의 엠배서더 회원으로 모십니다. 엠배서더 회원이 되시면 다양한 상품과 혜택을 받으실 수 있으십니다."
-                                    class="img">
+                                    class="img-box__img">
                             </div>
                         </div>
                     </div>
-                </nav> -->
+                </nav>
                 <div class="header__util pc">
                     <div class="util">
                         <div class="util-auth">
@@ -551,7 +577,7 @@
     <script>
         // breakpoint where swiper will be destroyed
         // and switches to a dual-column layout
-        const breakpoint = window.matchMedia('(max-width:767px)');
+        const breakpoint = window.matchMedia('(max-width:1200px)');
         // keep track of swiper instances to destroy later
         let mainSwiper,
             scheduleSwiper;
@@ -566,15 +592,7 @@
                 // else if a small viewport and single column layout needed
             } else if (breakpoint.matches === false) {
                 if (mainSwiper !== undefined) mainSwiper.destroy(true, true);
-                if (scheduleSwiper !== undefined) {
-                    scheduleSwiper.destroy(true, true);
-                    $('.schedule__swiper .swiper-pagination').css({
-                        'display': 'none'
-                    })
-                    $('.schedule__swiper .swiper_btn').css({
-                        'display': 'none'
-                    });
-                }
+                if (scheduleSwiper !== undefined) scheduleSwiper.destroy(true, true);
                 // or/and do nothing
                 return enablePcSwiper();
             }
@@ -623,10 +641,6 @@
                 pagination: {
                     type: "fraction",
                     el: ".main-visual .swiper-pagination",
-                },
-                navigation: {
-                    nextEl: ".main-visual .main-visual__btn--next",
-                    prevEl: ".main-visual .main-visual__btn--prev",
                 }
             });
             scheduleSwiper = new Swiper('.schedule__swiper', {

@@ -30,4 +30,14 @@
     &--dark {
         background-color: $color-black2;
     }
+
+    &--hamburger {
+        width: 40px;
+        height: 40px;
+        background: url('../images/icons/ico_hamburger.svg') no-repeat center center / 100% auto;
+        @at-root .header.on & {
+            background-image: url('../images/icons/ico_close.svg');
+            background-size: 20px 20px;
+        }
+    }
 }

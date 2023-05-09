@@ -28,11 +28,11 @@ fn = {
             }
         });
     },
-    exists : function(target){
+    exists: function (target) {
         return ($(target).length > 0);
     },
-    getScrollBarWidth : function(){
-        if(!fn.exists('#fullpage')){
+    getScrollBarWidth: function () {
+        if (!fn.exists('#fullpage')) {
             $('body').append('<div id="fakescrollbar" style="width:50px;height:50px;overflow:hidden;position:absolute;top:-200px;left:-200px;"></div>');
             fakeScrollBar = $('#fakescrollbar');
             fakeScrollBar.append('<div style="height:100px;">&nbsp;</div>');
@@ -40,38 +40,38 @@ fn = {
             fakeScrollBar.css('overflow-y', 'scroll');
             var w2 = $('#fakescrollbar').find('div').html('html is required to init new width.').innerWidth();
             fakeScrollBar.remove();
-            return (w1-w2);
+            return (w1 - w2);
         }
         return 0;
     },
-    getWindowWidth: function(){
-        return $(window).outerWidth() + fn.getScrollBarWidth() ;
+    getWindowWidth: function () {
+        return $(window).outerWidth() + fn.getScrollBarWidth();
     },
-    getWindowHeight: function(){
+    getWindowHeight: function () {
         return $(window).outerHeight();
     },
-    getTargetWidth: function(target){
-        return $(target).outerWidth() + fn.getScrollBarWidth() ;
+    getTargetWidth: function (target) {
+        return $(target).outerWidth() + fn.getScrollBarWidth();
     },
-    getTargetHeight: function(target){
+    getTargetHeight: function (target) {
         return $(target).outerHeight();
     },
-    getScrollTop: function(target){
+    getScrollTop: function (target) {
         return $(target).scrollTop();
     },
-    getOffsetTop: function(target){
+    getOffsetTop: function (target) {
         return $(target).offset().top;
     },
-    getDate: function(date){
+    getDate: function (date) {
         let dayOfWeek = new Date(date).getDay();
         return dayOfWeek;
     },
-    addHidden: function(){
+    addHidden: function () {
         $('html, body').addClass("hidden");
-        $('body').css("paddingRight", fn.getScrollBarWidth());
+        // $('body').css("paddingRight", fn.getScrollBarWidth());
     },
-    removeHidden: function(){
+    removeHidden: function () {
         $('html, body').removeClass("hidden");
-        $('body').css("paddingRight",0);
+        // $('body').css("paddingRight", 0);
     },
 }

@@ -50,11 +50,11 @@ Federation = {
             gnbBg = $(".nav__bg"),
             subMenu = $("#gnb.pc .nav__submenu"),
             adArea = $('#gnb.pc .nav__ad'),
-            hamburger = $('.btn_hamburger'),
-            mGnb = $('.m_gnb'),
-            mGnbItem = $('.m_gnb > ul > li > a'),
-            mGnbDepth02 = $('.m_gnb > ul > li > .sub_menu > ul > li > a'),
-            mGnbDepth03 = $('.m_gnb > ul > li > .sub_menu > ul > .depth03 > a');
+            hamburger = $('.btn--hamburger'),
+            mGnb = $('.mGnb'),
+            mGnbItem = $('.mGnb > ul > li > a'),
+            mGnbDepth02 = $('.mGnb > ul > li > .nav__submenu > ul > li > a'),
+            mGnbDepth03 = $('.mGnb > ul > li > .nav__submenu > ul > li > .nav-depth03')
 
         gnbItem.on('mouseenter focusin', function () {
             gnbItem.removeClass('on');
@@ -88,6 +88,9 @@ Federation = {
                 fn.addHidden();
             } else {
                 mGnb.stop().slideUp();
+                mGnbItem.closest('li').find('.nav__submenu').stop().slideUp();
+                mGnbItem.closest('li').removeClass('nav__item--active');
+                mGnbDepth03.stop().slideUp();
                 fn.removeHidden();
             }
         })
@@ -96,7 +99,7 @@ Federation = {
             if (e.keyCode === 9) {
                 if (!e.shiftKey) {
                     mGnb.stop().slideUp();
-                    mGnbDepth03.find('ul').stop().slideUp();
+                    mGnbDepth03.stop().slideUp();
                     header.removeClass('on');
                     fn.removeHidden();
                 }
@@ -104,7 +107,7 @@ Federation = {
         })
         mGnbItem.on('click', function (e) {
 
-            if ($(this).next('.sub_menu').length) {
+            if ($(this).next('.nav__submenu').length) {
                 e.preventDefault();
             } else {
                 e.stopPropagation();
@@ -116,13 +119,13 @@ Federation = {
             if (targetParent.index() === last) {
                 return;
             } else {
-                targetParent.stop().toggleClass('active').siblings().removeClass('active');
-                mGnbDepth03.removeClass('active').find('ul').stop().slideUp();
-                if (targetParent.hasClass('active')) {
-                    targetParent.find('.sub_menu').stop().slideDown();
-                    targetParent.siblings().find('.sub_menu').stop().slideUp();
+                targetParent.stop().toggleClass('nav__item--active').siblings().removeClass('nav__item--active');
+                mGnbDepth03.removeClass('nav__item--active').find('ul').stop().slideUp();
+                if (targetParent.hasClass('nav__item--active')) {
+                    targetParent.find('.nav__submenu').stop().slideDown();
+                    targetParent.siblings().find('.nav__submenu').stop().slideUp();
                 } else {
-                    targetParent.find('.sub_menu').stop().slideUp();
+                    targetParent.find('.nav__submenu').stop().slideUp();
                 }
             }
         })
@@ -131,27 +134,29 @@ Federation = {
 
             if ($(this).closest('li').index() === last && e.keyCode === 9) {
                 if (!e.shiftKey) {
-                    mGnbItem.closest('li').find('.sub_menu').stop().slideUp();
-                    mGnbItem.closest('li').removeClass('active');
+                    mGnbItem.closest('li').find('.nav__submenu').stop().slideUp();
+                    mGnbItem.closest('li').removeClass('nav__item--active');
                 }
             }
         })
-        mGnbDepth03.on('click', function (e) {
-            e.preventDefault();
+        mGnbDepth02.on('click', function (e) {
+            if($(this).next('.nav-depth03').length > 0) {
+                e.preventDefault();
+            }
 
-            $(this).closest('.depth03').toggleClass('active').siblings().removeClass('active');
-            if ($(this).closest('.depth03').hasClass('active')) {
-                $(this).closest('.depth03').find('ul').stop().slideDown();
+            mGnbDepth03.prev('.nav-submenu__link--arrow').toggleClass('nav-submenu__link--arrow--active');
+            mGnbDepth03.toggleClass('nav__depth03--active').siblings().removeClass('nav__depth03--active');
+            if (mGnbDepth03.hasClass('nav__depth03--active')) {
+                mGnbDepth03.stop().slideDown();
             } else {
-                $(this).closest('.depth03').find('ul').stop().slideUp();
+                mGnbDepth03.stop().slideUp();
             }
         })
         mGnbDepth03.find('li').last().find('a').on('blur', function (e) {
             e.preventDefault();
-            e.stopPropagation();
 
-            mGnbDepth03.removeClass('active');
-            $(this).closest('ul').stop().slideUp();
+            mGnbDepth03.removeClass('nav__depth03--active');
+            mGnbDepth03.stop().slideUp();
         })
 
     },
@@ -474,7 +479,8 @@ Federation = {
 
         const resizeFunc = function () {
             if (resizeMo) {
-
+                const mGnb = $('.mGnb');
+                mGnb.css({'display':'none'})
             } else {
                 fn.removeHidden();
 

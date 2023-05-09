@@ -36,11 +36,26 @@
 
 .pc {
     display: block !important;
+
+    @include media-down(tab) {
+        display: none !important;
+    }
 }
 
-.blind,
 .mobile {
     display: none !important;
+
+    @include media-down(tab) {
+        display: block !important;
+    }
+}
+
+.blind {
+    display: none !important;
+}
+
+.hidden {
+    overflow: hidden !important;
 }
 
 .col_1 {

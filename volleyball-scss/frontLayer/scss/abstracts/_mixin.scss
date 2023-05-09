@@ -27,17 +27,31 @@ $flex-map: (
 }
 
 $media: (
-    pc: 1499px,
+    xl: 1599px,
+    lg: 1399px,
+    pc: 1201px,
     tab: 1200px,
     mob:768px,
 );
 
-@mixin media($breakpoint) {
+@mixin media-down($breakpoint) {
 
     @each $breakpoints,
     $size in $media {
         @if $breakpoint==$breakpoints {
-            @media screen and (min-width: $size) {
+            @media all and (max-width: $size) {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin media-up($breakpoint) {
+
+    @each $breakpoints,
+    $size in $media {
+        @if $breakpoint==$breakpoints {
+            @media all and (min-width: $size) {
                 @content;
             }
         }
