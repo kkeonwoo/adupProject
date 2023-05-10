@@ -47,7 +47,7 @@ BuyGo = {
         this.fileUpload();
 
         //visual 닫기
-        if(!$('#container').find('.prot_area').length){
+        if (!$('#container').find('.prot_area').length) {
             $('.visual').removeClass('active');
         }
     },
@@ -75,14 +75,14 @@ BuyGo = {
     tab2: function () {
         $('.initial_btn').on('click', (e) => {
             e.preventDefault();
-    
+
             let clickedValue = $(e.target).text();
             let matchContent = $('.brand_list .initial_ttl:contains("' + clickedValue + '")')
             $('.brand_list').hide();
             matchContent.parent().show().addClass('active').siblings().removeClass('active');
         })
     },
-    select : function(){
+    select: function () {
         let $formSelect;
         let $formSelectPrev;
         let selectPrevProt = true;
@@ -93,47 +93,47 @@ BuyGo = {
             let selectLeft = $($formSelect).offset().left;
             let selectW = $($formSelect).outerWidth();
             let selectH = $($formSelect).outerHeight();
-            $('.fixed_area').css({'top': selectTop + selectH, 'left': selectLeft, 'width': selectW});
-            $('.fixed_area .dim').css({'height': selectH});
+            $('.fixed_area').css({ 'top': selectTop + selectH, 'left': selectLeft, 'width': selectW });
+            $('.fixed_area .dim').css({ 'height': selectH });
         }
         $('html').click(function (e) {
-            if($(e.target).closest('.form_select').length < 1){
+            if ($(e.target).closest('.form_select').length < 1) {
                 selectComplete($selectComplete);
-                $('.form_select').attr('data-fixed-active',"false");
+                $('.form_select').attr('data-fixed-active', "false");
             }
         });
-        $(document).on('click','.form_select .form_btn', function(e) {
+        $(document).on('click', '.form_select .form_btn', function (e) {
             $formSelect = e.currentTarget.parentNode;
 
             let fixedActive = $(e.currentTarget).closest('.form_select').attr('data-fixed-active');
-            
+
             if (fixedActive === "true" && $formSelectPrev == $formSelect && selectPrevProt) {
                 selectComplete($selectComplete);
-                $(e.currentTarget).closest('.form_select').attr('data-fixed-active',"false");
+                $(e.currentTarget).closest('.form_select').attr('data-fixed-active', "false");
                 return
             }
 
             if ($formSelectPrev !== $formSelect && selectPrevProt) {
                 selectComplete($selectComplete);
             }
-            
-            if($formSelectPrev == $formSelect || selectPrevProt){
+
+            if ($formSelectPrev == $formSelect || selectPrevProt) {
                 $selectComplete = $formSelect;
             } else {
-                $selectComplete = $formSelectPrev ;
+                $selectComplete = $formSelectPrev;
             }
             $formSelectPrev = $formSelect;
             selectPrevProt = true;
 
             let active = false;
-            if($(e.currentTarget).closest('.form_select').hasClass('active')){
+            if ($(e.currentTarget).closest('.form_select').hasClass('active')) {
                 active = true;
             } else {
                 let $optionArea = $($formSelect).find('.option_area');
                 $('body').append(`<div class="fixed_area"><div class="dim"></div></div>`);
                 $('.fixed_area').append($optionArea);
 
-                if($formSelect.dataset.index !== undefined) {
+                if ($formSelect.dataset.index !== undefined) {
                     $formSelect.selectIdx = $formSelect.dataset.index;
                     $formSelect.dataset.index !== '' && $('.fixed_area .option_item').removeClass('active').eq($formSelect.selectIdx).addClass('active');
                 }
@@ -141,53 +141,53 @@ BuyGo = {
             optionAreaSize();
 
             $('.form_select.active').removeClass('active');
-            if(!active){
+            if (!active) {
                 $(e.currentTarget).closest('.form_select').toggleClass('active');
-            } 
-            $(e.currentTarget).closest('.form_select').attr('data-fixed-active',"true");
-            
+            }
+            $(e.currentTarget).closest('.form_select').attr('data-fixed-active', "true");
+
         });
-        
-        $(document).on('click','.option_btn', function() {
+
+        $(document).on('click', '.option_btn', function () {
             $formSelect.selectIdx = $(this).closest('.option_item').index();
             $formSelect.dataset.index = $(this).closest('.option_item').index();
             let textData = $(this).text();
             $(this).closest('.option_list').find('.option_item').removeClass('active').eq($formSelect.dataset.index).addClass('active');
             $($formSelect).find('.form_btn').text(textData).addClass('active');
             selectComplete($selectComplete);
-            $('.form_select').attr('data-fixed-active',"false");
+            $('.form_select').attr('data-fixed-active', "false");
         });
-        
+
         function selectComplete($selectComplete) {
             let $optionArea = $('.fixed_area').find('.option_area');
             $($selectComplete).append($optionArea).removeClass('active');
             $('.fixed_area').remove();
         }
-        $(document).on('keydown','.form_btn', function(e) {
+        $(document).on('keydown', '.form_btn', function (e) {
             $formSelect = $formSelect ? $formSelect : e.currentTarget.parentNode;
             let $optionItem = $($formSelect).hasClass('active') ? $('.fixed_area .option_item') : $(e.currentTarget).closest('.form_select').find('.option_item');
-            if($formSelect.dataset.index == undefined) {
+            if ($formSelect.dataset.index == undefined) {
                 $formSelect.selectIdx = -1;
-            }else {
+            } else {
                 $formSelect.selectIdx = $formSelect.dataset.index;
             }
 
-            if(e.keyCode == 9 || e.keyCode == 27){
+            if (e.keyCode == 9 || e.keyCode == 27) {
                 selectComplete($selectComplete);
             }
 
-            if(e.keyCode == 37 || e.keyCode == 38){
+            if (e.keyCode == 37 || e.keyCode == 38) {
                 e.preventDefault();
-                if (0 < $formSelect.selectIdx){
-                    $formSelect.selectIdx =  Number($formSelect.selectIdx) - 1;
+                if (0 < $formSelect.selectIdx) {
+                    $formSelect.selectIdx = Number($formSelect.selectIdx) - 1;
                     optionChange();
                 }
             }
 
-            if(e.keyCode == 39 || e.keyCode == 40){
+            if (e.keyCode == 39 || e.keyCode == 40) {
                 e.preventDefault();
                 let max = $optionItem.length;
-                if (max - 1 !== $formSelect.selectIdx && max - 1 > $formSelect.selectIdx){
+                if (max - 1 !== $formSelect.selectIdx && max - 1 > $formSelect.selectIdx) {
                     $formSelect.selectIdx = Number($formSelect.selectIdx) + 1;
                     optionChange();
                 }
@@ -198,7 +198,7 @@ BuyGo = {
                 $optionItem.removeClass('active').eq($formSelect.selectIdx).addClass('active');
                 let textData = $optionItem.eq($formSelect.selectIdx).find('.option_btn').text();
                 $(e.currentTarget).text(textData).addClass('active');
-                if ($($formSelect).hasClass('active')){
+                if ($($formSelect).hasClass('active')) {
                     let h = 0;
                     for (let i = 0; i < $formSelect.selectIdx; i++) {
                         h += $optionItem.eq(i).outerHeight();
@@ -207,7 +207,7 @@ BuyGo = {
                 }
             }
         });
-        $(window).resize(function(){
+        $(window).resize(function () {
             $('.form_select').hasClass('active') && optionAreaSize();
         });
     },
@@ -402,21 +402,21 @@ BuyGo = {
         });
         $(document).on('focus', '.depth1_item a', function (e) {
             const $this = e.currentTarget;
-            if(!($($this).closest('.type2').length)){
+            if (!($($this).closest('.type2').length)) {
                 $(this).closest('.depth1_item').siblings().removeClass('active');
                 $(this).closest('.depth1_item').addClass('active');
             }
         });
         $(document).on('focus', '.depth1_item a', function (e) {
             const $this = e.currentTarget;
-            if(!($($this).closest('.type2').length)){
+            if (!($($this).closest('.type2').length)) {
                 $($this).closest('.depth1_item').siblings().removeClass('active');
                 $($this).closest('.depth1_item').addClass('active');
             }
         });
         $(document).on('blur', '.depth1_item a', function (e) {
             const $this = e.currentTarget;
-            if(!($($this).closest('.type2').length)){
+            if (!($($this).closest('.type2').length)) {
                 let a_legth = $(this).closest('.depth1_item').find('a').length;
                 let $a_last = $(this).closest('.depth1_item').find('a').removeClass('last')[a_legth - 1];
                 $($a_last).addClass('last');
@@ -440,28 +440,32 @@ BuyGo = {
             const $this = e.currentTarget;
             if ($($this).find('.ico').hasClass('ico_prot')) {
                 let tl = gsap.timeline()
-                .add(()=>{$('.aside_wrap').addClass('active')})
-                .set(".aside_wrap .aside", {autoAlpha: 1,})
-                .to(".aside_wrap .aside", {xPercent: -100, autoAlpha: 1, duration: .45, ease: Power1.easeInOuteaseInOut})
-                .add(()=>{
-                    const x = window.scrollX;
-                    const y = window.scrollY;
-                    $('.aside_wrap').attr("tabindex", -1).focus().attr("tabindex", null);
-                    window.scrollTo(x, y);
-                })
+                    .add(() => {
+                        $('.aside_wrap').addClass('active');
+                        fn.addHidden();
+                    })
+                    .set(".aside_wrap .aside", { autoAlpha: 1, })
+                    .to(".aside_wrap .aside", { xPercent: -100, autoAlpha: 1, duration: .45, ease: Power1.easeInOuteaseInOut })
+                    .add(() => {
+                        const x = window.scrollX;
+                        const y = window.scrollY;
+                        $('.aside_wrap').attr("tabindex", -1).focus().attr("tabindex", null);
+                        window.scrollTo(x, y);
+                    })
             }
         });
         $(document).on('click', '.aside .close_btn, .aside_dim', function () {
             let tl = gsap.timeline()
-            .to(".aside_wrap .aside", {xPercent: 0, duration: .45, ease: Power1.easeInOuteaseInOut})
-            .set(".aside_wrap .aside", {autoAlpha: 0,})
-            .add(()=>{
-                $('.aside_wrap').removeClass('active');
-                const x = window.scrollX;
-                const y = window.scrollY;
-                $('.header .ico_prot').closest('.etc_link').attr("tabindex", -1).focus().attr("tabindex", null);
-                window.scrollTo(x, y);
-            })
+                .to(".aside_wrap .aside", { xPercent: 0, duration: .45, ease: Power1.easeInOuteaseInOut })
+                .set(".aside_wrap .aside", { autoAlpha: 0, })
+                .add(() => {
+                    $('.aside_wrap').removeClass('active');
+                    const x = window.scrollX;
+                    const y = window.scrollY;
+                    $('.header .ico_prot').closest('.etc_link').attr("tabindex", -1).focus().attr("tabindex", null);
+                    window.scrollTo(x, y);
+                    fn.removeHidden();
+                })
         });
         $(document).on('click', '.prot_area .pagination .num', function (e) {
             $(e.currentTarget).toggleClass('active').siblings().removeClass('active')
@@ -511,17 +515,17 @@ BuyGo = {
         $(document).on('blur  ', '.search_input input', function () {
             $('.search_input .dropdown_area').removeClass('active');
         });
-        $(document).on('click','.entry_write .content_ttl', function (e) {
+        $(document).on('click', '.entry_write .content_ttl', function (e) {
             e.preventDefault();
             $(this).parents('.entry_write').toggleClass('on');
         })
-        $(document).on('change','.img_upload_area .upload_file', function (e) {
+        $(document).on('change', '.img_upload_area .upload_file', function (e) {
             $(this).closest('.img_upload_item').addClass('active');
         })
-        $(document).on('click','.img_upload_area .btn', function (e) {
+        $(document).on('click', '.img_upload_area .btn', function (e) {
             $(this).closest('.img_upload_item').removeClass('active');
         })
-        $(document).on('click','.acc_item .ttl_link, .acc_item .close_btn', function (e) {
+        $(document).on('click', '.acc_item .ttl_link, .acc_item .close_btn', function (e) {
             e.preventDefault();
             let $el = e.currentTarget;
             let idx = $($el).closest('.acc_item').index();
@@ -545,7 +549,7 @@ BuyGo = {
         $(document).on('click', '.sort_select_ico .sort_select_btn', function (e) {
             e.preventDefault();
             $(this).addClass('active').siblings().removeClass('active');
-            if($('.sort_big_num').hasClass('active')) {
+            if ($('.sort_big_num').hasClass('active')) {
                 $('.prot_link').addClass('prot_small_type');
             } else {
                 $('.prot_link').removeClass('prot_small_type');
@@ -614,7 +618,7 @@ BuyGo = {
                 // 커서를 상세주소 필드로 이동한다.
                 document.getElementById(address3).focus();
 
-                if(button === 'y'){
+                if (button === 'y') {
                     document.querySelector('.btn_zipcode').style.display = "none";
                 }
             },
@@ -641,8 +645,8 @@ BuyGo = {
             } else {
                 console.log(`not files`);
             }
-        });  
-        
+        });
+
         $(document).on('click', '.img_upload_area .btn', function (e) {
             $(this).closest('.img_upload_area').removeClass('active');
         })

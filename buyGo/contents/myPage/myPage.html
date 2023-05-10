@@ -1461,7 +1461,10 @@
                                                                 <div class="form_txt">경기도 일산서구 킨텍스로 240 gifc타워</div>
                                                                 <span class="badge">직배송</span>
                                                             </div>
-                                                            <button type="button" class="btn_add_address" onclick="BuyGo.openModal($('.modal_add_address'))">배송지 추가</button>
+                                                            <div class="btn_layout row btn_address_wrap flex_column">
+                                                                <button type="button" class="form_inc_btn btn_address btn_delete_address max_width" onclick="BuyGo.openModal($('.modal_delete_address'))">삭제</button>
+                                                                <button type="button" class="btn_add_address" onclick="BuyGo.openModal($('.modal_add_address'))">배송지 추가</button>
+                                                            </div>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -1480,7 +1483,6 @@
                                                             </div>
                                                             <div class="btn_layout row btn_address_wrap">
                                                                 <button type="button" class="form_inc_btn btn_address btn_delete_address max_width" onclick="BuyGo.openModal($('.modal_delete_address'))">삭제</button>
-                                                                <button type="button" class="form_inc_btn btn_address btn_outline max_width" onclick="BuyGo.openModal($('.modal_add_address'))">수정</button>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -1500,7 +1502,6 @@
                                                             </div>
                                                             <div class="btn_layout row btn_address_wrap">
                                                                 <button type="button" class="form_inc_btn btn_address btn_delete_address max_width" onclick="BuyGo.openModal($('.modal_delete_address'))">삭제</button>
-                                                                <button type="button" class="form_inc_btn btn_address btn_outline max_width" onclick="BuyGo.openModal($('.modal_add_address'))">수정</button>
                                                             </div>
                                                         </div>
                                                     </td>
