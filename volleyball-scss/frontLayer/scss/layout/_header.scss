@@ -4,26 +4,10 @@
     height: 120px;
     border-bottom: 1px solid $color-gray5;
 
-    @include media-down(tab) {
-        height: 96px;
-    }
-
     &__inner {
         height: 100%;
         margin: 0 56px;
         @include flex(between);
-
-        @include media-down(xl) {
-            margin: 0 44px;
-        }
-
-        @include media-down(lg) {
-            margin: 0 34px;
-        }
-
-        @include media-down(tab) {
-            margin: 0 24px;
-        }
     }
 
     &__nav {
@@ -42,16 +26,6 @@
     }
 }
 
-.logo {
-    &__link {
-        img {
-            @include media-down(tab) {
-                height: 64px;
-            }
-        }
-    }
-}
-
 .nav {
     &__bg {
         display: none;
@@ -66,11 +40,6 @@
 
     &__list {
         @include flex();
-
-        @include media-down(tab) {
-            @include column-flex(center, start);
-            overflow-y: auto;
-        }
     }
 
     &__item {
@@ -81,27 +50,6 @@
 
         &:first-child .nav__submenu {
             border-left: none;
-        }
-
-        @include media-down(xl) {
-            width: 138px;
-        }
-
-        @include media-down(lg) {
-            width: calc(110 / 1399 * 100%);
-        }
-
-        @include media-down(tab) {
-            width: 100%;
-            border-bottom: 1px solid $color-gray5;
-            &--active .nav__link {
-                background-color: $color-blue;
-                color: $color-white;
-                &::after {
-                    filter: invert(1);
-                    transform: rotate(180deg);
-                }
-            }
         }
     }
 
@@ -114,17 +62,6 @@
         width: 100%;
         padding: 24px 0;
         border-right: 1px solid $color-gray5;
-        @include media-up(pc) {
-            @at-root .nav__item.on &:before {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-        @include media-down(tab) {
-            position: static;
-            padding: 0;
-            border: none;
-        }
 
         @at-root .nav__item:first-child & {
             border-left: 1px solid $color-gray5;
@@ -145,32 +82,21 @@
     }
 
     &-submenu {
-        @include media-down(tab) {
-            padding: 16px 24px;
-            text-align: left;
-        }
         &__link {
             display: inline-block;
             padding: 8px 0;
             font-size: $font-normal + 2;
 
-            @include media-down(xl) {
-                font-size: $font-small;
-            }
-
-            @include media-down(tab) {
-                width: 100%;
-                padding: 15px 0;
-                font-size: $font-normal + 4;
-            }
             &--arrow {
                 @extend .nav-submenu__link;
                 display: flex;
+
                 &--active::after {
                     transform: rotate(180deg) !important;
                 }
+
                 &::after {
-                    @include pseudo(inline-block, $pos:null);
+                    @include pseudo(inline-block, $pos: null);
                     width: 24px;
                     height: 24px;
                     margin-left: auto;
@@ -186,20 +112,6 @@
             padding: 4px 0;
             border-top: 1px solid $color-gray5;
             border-bottom: 1px solid $color-gray5;
-
-            @include media-down(xl) {
-                margin: 0 32px;
-            }
-
-            @include media-down(lg) {
-                margin: 0 26px;
-            }
-
-            @include media-down(tab) {
-                display: none;
-                margin: 0;
-                padding: 12px 0;
-            }
         }
     }
 
@@ -209,17 +121,6 @@
             padding: 4px 0;
             font-size: $font-normal;
             text-align: center;
-
-            @include media-down(xl) {
-                font-size: $font-small - 2;
-            }
-
-            @include media-down(tab) {
-                width: 100%;
-                padding: 12px 16px;
-                text-align: left;
-                font-size: $font-normal + 2;
-            }
         }
     }
 
@@ -230,39 +131,6 @@
         font-size: $font-medium - 2;
         line-height: 120px;
         transition: color .3s;
-
-        @include media-down(xl) {
-            font-size: $font-normal + 2;
-        }
-
-        @include media-down(tab) {
-            @include flex(between);
-            padding: 32px 24px;
-            font-size: $font-medium ;
-            line-height: 1.5;
-            text-align: left;
-
-            &::after {
-                @include pseudo(inline-block,$pos:null);
-                width: 24px;
-                height: 24px;
-                margin-left: auto;
-                background: url('../images/icons/arw_down_black2.svg') no-repeat center / cover;
-                transition: transform .4s;
-            }
-        }
-        
-        @include media-up(pc) {
-            @at-root .nav__item.on &::before {
-                transform: scaleX(1);
-            }
-
-            @at-root .nav__item.on &,
-            &:hover,
-            &:focus {
-                color: $color-blue;
-            }
-        }
 
         &::before {
             bottom: 0;
@@ -282,16 +150,6 @@
         right: 0;
         width: calc((100% - 865px) / 2);
         padding: 32px 80px 0;
-
-        @include media-down(xl) {
-            width: calc((100% - 690px) / 2);
-            padding: 32px 64px 0;
-        }
-
-        @include media-down(lg) {
-            width: calc((100% - 40%) / 2);
-            padding: 32px 50px 0;
-        }
     }
 }
 
@@ -309,15 +167,6 @@
 .util {
     gap: 24px;
     @include flex();
-
-    @include media-down(tab) {
-        position: static;
-        height: 60px;
-        padding: 16px 24px;
-        border-bottom: 1px solid $color-gray5;
-        // background-color: $color-white;
-        transform: translateY(0);
-    }
 
     &-auth__list,
     &-social__list {
@@ -350,12 +199,6 @@
             }
         }
     }
-
-    &-social {
-        @include media-down(tab) {
-            margin-left: auto;
-        }
-    }
 }
 
 .mGnb {
@@ -368,4 +211,214 @@
     background-color: $color-white;
     overflow-y: auto;
     height: 100%;
+}
+
+@include media-up(pc) {
+    .nav {
+        &__submenu {
+            @at-root .nav__item.on &:before {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            &::before {
+                top: 0;
+                left: 0;
+                z-index: -1;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(180deg, #F6F9FB 0%, rgba(255, 255, 255, 0) 100%);
+                transform: scale(.8);
+                transition: opacity .1s, transform .3s;
+                opacity: 0;
+                @include pseudo();
+            }
+        }
+
+        &__link {
+            @at-root .nav__item.on &::before {
+                transform: scaleX(1);
+            }
+
+            @at-root .nav__item.on &,
+            &:hover,
+            &:focus {
+                color: $color-blue;
+            }
+        }
+    }
+}
+
+@include media-down(xl) {
+    .header {
+        &__inner {
+            margin: 0 44px;
+        }
+    }
+
+    .nav {
+        &__item {
+            width: 138px;
+        }
+
+        &-submenu {
+            &__link {
+                font-size: $font-small;
+            }
+
+            &__depth03 {
+                margin: 0 32px;
+            }
+        }
+
+        &-depth03 {
+            &__link {
+                font-size: $font-small - 2;
+            }
+        }
+
+        &__link {
+            font-size: $font-normal + 2;
+        }
+
+        &__ad {
+            width: calc((100% - 690px) / 2);
+            padding: 32px 64px 0;
+        }
+    }
+}
+
+@include media-down(lg) {
+    .header {
+        &__inner {
+            margin: 0 34px;
+        }
+    }
+
+    .nav {
+        &__item {
+            width: calc(110 / 1399 * 100%);
+        }
+
+        &__ad {
+            width: calc((100% - 40%) / 2);
+            padding: 32px 50px 0;
+        }
+    }
+}
+
+@include media-down(tab) {
+    .header {
+        height: 96px;
+
+        &__inner {
+            margin: 0 24px;
+        }
+    }
+
+    .logo {
+        &__link {
+            img {
+                height: 64px;
+            }
+        }
+    }
+
+    .nav {
+        &__list {
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        &__item {
+            width: 100%;
+            border-bottom: 1px solid $color-gray5;
+
+            &:last-child .nav__link::after {
+                content: none;
+            }
+
+            &--active .nav__link {
+                background-color: $color-blue;
+                color: $color-white;
+
+                &::after {
+                    filter: invert(1);
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        &__submenu {
+            position: static;
+            padding: 0;
+            border: none;
+        }
+
+        &-submenu {
+            padding: 16px 24px;
+            text-align: left;
+
+            &__link {
+                width: 100%;
+                padding: 15px 0;
+                font-size: $font-normal + 4;
+            }
+
+            &__depth03 {
+                display: none;
+                margin: 0;
+                padding: 12px 0;
+            }
+        }
+
+        &-depth03 {
+            &__link {
+                width: 100%;
+                padding: 12px 16px;
+                text-align: left;
+                font-size: $font-normal + 2;
+            }
+        }
+
+        &__link {
+            @include flex(between);
+            padding: 32px 24px;
+            font-size: $font-medium ;
+            line-height: 1.5;
+            text-align: left;
+
+            &::after {
+                @include pseudo(inline-block, $pos: null);
+                width: 24px;
+                height: 24px;
+                margin-left: auto;
+                background: url('../images/icons/arw_down_black2.svg') no-repeat center / cover;
+                transition: transform .4s;
+            }
+        }
+
+        &__ad {
+            display: block;
+            position: static;
+            padding: 38px 10px;
+            width: 100%;
+        }
+    }
+
+    .nav-ad {
+        margin: 0 auto;
+    }
+
+    .util {
+        position: static;
+        height: 60px;
+        padding: 16px 24px;
+        border-bottom: 1px solid $color-gray5;
+        transform: translateY(0);
+
+        &-social {
+            margin-left: auto;
+        }
+    }
 }

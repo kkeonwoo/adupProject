@@ -62,6 +62,14 @@
         opacity: 1;
         border-radius: 4px;
 
+        @at-root .schedule & {
+            background-color: #E2E2E2;
+
+            &-active {
+                background-color: $color-blue3;
+            }
+        }
+
         &-active {
             width: 24px;
             background-color: $color-blue3;
@@ -176,6 +184,9 @@
 }
 
 .schedule {
+    @include media-down(mob) {
+        position: relative;
+    }
 
     &__pagination,
     &__btn {
@@ -183,21 +194,38 @@
     }
 
     &__pagination{
-        @include media-down(mob) {
+        @include media-down(tab) {
             display: block;
+            left: 50% !important;
+            bottom: 0 !important;
         }
     }
 
     &__list {
         justify-content: space-between;
+        @include media-down(mob) {
+            gap: 16px;
+            padding-bottom: 32px;
+        }
     }
 
     &__slide {
         width: calc((100% - 24px * 2) / 3);
+        @include media-down(tab) {
+            width: calc((100% - 16px * 2) / 3);
+        }
+        @include media-down(mob) {
+            width: 256px;
+        }
     }
 
     &__imgbox {
         padding-top: calc(200 / 368 * 100%);
+        border-radius: 10px;
+        overflow: hidden;
+        @include media-down(tab) {
+            padding-top: calc(180 / 256 * 100%);
+        }
     }
 
     &__txt {
@@ -209,12 +237,24 @@
         color: $color-white;
         gap: 5px;
         @include flex(null, center);
+        @include media-down(tab) {
+            font-size: $font-normal + 4;
+            right: 12px;
+            bottom: 12px;
+        }
+        @include media-down(mob) {
+            font-size: $font-normal;
+        }
 
         &::after {
             width: 24px;
             height: 24px;
             background: url('../images/icons/arw_right_white_sm.svg') no-repeat center / 100% auto;
             @include pseudo($pos: null);
+            @include media-down(mob) {
+                width: 16px;
+                height: 16px;
+            }
         }
     }
 }
@@ -222,11 +262,19 @@
 .notice {
     &__inner {
         display: flex;
+        @include media-down(mob) {
+            flex-direction: column;
+        }
     }
 
     .ttl-wrap {
         position: relative;
         padding-right: 80px;
+        @include media-down(mob) {
+            max-width: 100%;
+            flex: 1 1 100%;
+            padding-right: 0;
+        }
 
         &::before {
             top: 0;
@@ -236,11 +284,20 @@
             z-index: -1;
             background-color: $color-gray6;
             @include pseudo();
+            @include media-down(mob) {
+                right: calc(136 / 768 * 100%);
+            }
         }
 
         &__area {
             display: none;
             padding: 40px 0;
+            @include media-down(tab) {
+                padding: 32px 0;
+            }
+            @include media-down(mob) {
+                padding: 16px 0;
+            }
 
             &--active {
                 display: block;
@@ -254,6 +311,13 @@
             line-height: 1.5;
             gap: 16px;
             @include flex(null, center);
+            @include media-down(tab) {
+                font-size: $font-xl - 4;
+            }
+            @include media-down(mob) {
+                font-size: $font-large;
+                gap: 8px;
+            }
 
             &::after {
                 width: 32px;
@@ -262,6 +326,10 @@
                 background-position: center center;
                 background-size: 100% auto;
                 @include pseudo($pos: null);
+                @include media-down(mob) {
+                    width: 24px;
+                    height: 24px;
+                }
             }
 
             &:nth-child(1)::after {
@@ -290,6 +358,14 @@
 
     &__content {
         padding: 40px 60px;
+        @include media-down(tab) {
+            padding: 32px 0 32px 48px;
+        }
+        @include media-down(mob) {
+            padding: 24px 0;
+            max-width: 100%;
+            flex: 1 1 100%;
+        }
     }
 
     &__tab {

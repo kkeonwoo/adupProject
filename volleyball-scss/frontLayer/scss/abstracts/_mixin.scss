@@ -26,10 +26,12 @@ $flex-map: (
     justify-content: _get-flex-value($js);
 }
 
-$media: (
+$media-up: (
+    pc: 1201px,
+);
+$media-down: (
     xl: 1599px,
     lg: 1399px,
-    pc: 1201px,
     tab: 1200px,
     mob:768px,
 );
@@ -37,7 +39,7 @@ $media: (
 @mixin media-down($breakpoint) {
 
     @each $breakpoints,
-    $size in $media {
+    $size in $media-down {
         @if $breakpoint==$breakpoints {
             @media all and (max-width: $size) {
                 @content;
@@ -49,7 +51,7 @@ $media: (
 @mixin media-up($breakpoint) {
 
     @each $breakpoints,
-    $size in $media {
+    $size in $media-up {
         @if $breakpoint==$breakpoints {
             @media all and (min-width: $size) {
                 @content;
