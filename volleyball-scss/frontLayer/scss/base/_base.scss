@@ -50,68 +50,21 @@
     overflow: hidden !important;
 }
 
-.col_1 {
-    flex: 0 0 calc(100% / 12 * 1);
-    max-width: calc(100% / 12 * 1);
+@for $i from 1 through 12 {
+    .col_#{$i} {
+        flex: 0 0 calc(100% / 12 * #{$i});
+        max-width: calc(100% / 12 * #{$i});
+    }
 }
 
-.col_2 {
-    flex: 0 0 calc(100% / 12 * 2);
-    max-width: calc(100% / 12 * 2);
-}
+@for $i from 0 through 20 {
+    .mt_#{$i * 5} {
+        margin-top: calc(#{$i} * 5px);
+    }
 
-.col_3 {
-    flex: 0 0 calc(100% / 12 * 3);
-    max-width: calc(100% / 12 * 3);
-}
-
-.col_4 {
-    flex: 0 0 calc(100% / 12 * 4);
-    max-width: calc(100% / 12 * 4);
-}
-
-.col_5 {
-    flex: 0 0 calc(100% / 12 * 5);
-    max-width: calc(100% / 12 * 5);
-}
-
-.col_6 {
-    flex: 0 0 calc(100% / 12 * 6);
-    max-width: calc(100% / 12 * 6);
-}
-
-.col_7 {
-    flex: 0 0 calc(100% / 12 * 7);
-    max-width: calc(100% / 12 * 7);
-}
-
-.col_8 {
-    flex: 0 0 calc(100% / 12 * 8);
-    max-width: calc(100% / 12 * 8);
-}
-
-.col_9 {
-    flex: 0 0 calc(100% / 12 * 9);
-    max-width: calc(100% / 12 * 9);
-}
-
-.col_10 {
-    flex: 0 0 calc(100% / 12 * 10);
-    max-width: calc(100% / 12 * 10);
-}
-
-.col_11 {
-    flex: 0 0 calc(100% / 12 * 11);
-    max-width: calc(100% / 12 * 11);
-}
-
-.col_12 {
-    flex: 0 0 calc(100% / 12 * 12);
-    max-width: calc(100% / 12 * 12);
-}
-
-.mt_0 {
-    margin-top: 0;
+    .w_#{$i * 5} {
+        width: #{$i * 5%};
+    }
 }
 
 @include media-down(tab) {

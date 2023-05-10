@@ -97,7 +97,6 @@ $media-down: (
     word-break: break-all;
 }
 
-
 @mixin pseudo($display: block, $pos: absolute, $content: "") {
     display: $display;
     position: $pos;
@@ -113,8 +112,6 @@ $media-down: (
         url('#{$path}#{$file-name}.#{$format}') format('#{$format}');
     }
 }
-
-
 
 // @mixin box($w: 10px, $h: 10px, $bg: #000) {
 //     display: block;

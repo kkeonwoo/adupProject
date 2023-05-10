@@ -464,10 +464,11 @@ Federation = {
     scrollTop: function () {
         $(window).on('scroll', function (e) {
             let scrollTop = $(window).scrollTop();
+            let headerHeight = $('.header').outerHeight();
             if (scrollTop > 0) {
-                $('body').addClass('scroll_down');
+                $('body').css('padding-top', headerHeight).addClass('scroll_down');
             } else {
-                $('body').removeClass('scroll_down');
+                $('body').css('padding-top', 0).removeClass('scroll_down');
             }
         })
     },
