@@ -48,8 +48,8 @@ Federation = {
         const header = $('#header'),
             gnbItem = $('.nav__item'),
             gnbBg = $(".nav__bg"),
-            subMenu = $("#gnb.pc .nav__submenu"),
-            adArea = $('#gnb.pc .nav__ad'),
+            subMenu = $(".nav.pc .nav__submenu"),
+            adArea = $('.nav.pc .nav__ad'),
             hamburger = $('.btn--hamburger'),
             mGnb = $('.mGnb'),
             mGnbItem = $('.mGnb > ul > li > a'),
@@ -107,10 +107,8 @@ Federation = {
         })
         mGnbItem.on('click', function (e) {
 
-            if ($(this).next('.nav__submenu').length) {
+            if ($(this).next('.nav__submenu').find('.nav-submenu').length) {
                 e.preventDefault();
-            } else {
-                e.stopPropagation();
             }
 
             let last = mGnbItem.parents('li').length - 1;
@@ -140,7 +138,7 @@ Federation = {
             }
         })
         mGnbDepth02.on('click', function (e) {
-            if($(this).next('.nav-depth03').length > 0) {
+            if ($(this).next('.nav-depth03').length > 0) {
                 e.preventDefault();
             }
 
@@ -479,14 +477,14 @@ Federation = {
 
         const resizeFunc = function () {
             if (resizeMo) {
-                const mGnb = $('.mGnb');
-                mGnb.css({'display':'none'})
             } else {
                 fn.removeHidden();
+                const mGnb = $('.mGnb');
+                mGnb.css({ 'display': 'none' })
+                $('.header').removeClass('on');
 
                 const gnbBg = $(".nav__bg"),
-                    subMenu = $("#gnb.pc .nav__submenu"),
-                    adArea = $('#gnb.pc .nav__ad')
+                    subMenu = $(".nav.pc .nav__submenu");
 
                 const heightArray = subMenu.map(function () {
                     return $(this).outerHeight(true);
@@ -494,7 +492,6 @@ Federation = {
                 const maxHeight = Math.max.apply(Math, heightArray);
 
                 subMenu.css({ height: maxHeight });
-                // adArea.css({ height: maxHeight });
                 gnbBg.css({ height: maxHeight });
             }
         }

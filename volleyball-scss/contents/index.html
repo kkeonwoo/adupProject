@@ -64,7 +64,7 @@
                     </div>
                 </h1>
                 <button type="button" class="btn--hamburger mobile"></button>
-                <nav id="gnb" class="header__nav nav pc">
+                <nav class="header__nav nav pc">
                     <h2 class="blind">주메뉴</h2>
                     <div class="nav__bg"></div>
                     <ul class="nav__list">
@@ -142,7 +142,7 @@
                         </div>
                     </div>
                 </nav>
-                <nav id="gnb" class="mGnb" tabindex="0">
+                <nav class="mGnb nav" tabindex="0">
                     <h2 class="blind">주메뉴</h2>
                     <div class="gnb_bg"></div>
                     <div class="util">
@@ -257,6 +257,11 @@
                         </div>
                         <div class="util-social">
                             <ul class="util-social__list">
+                                <li class="util-social__item">
+                                    <a href="#" class="link" target="_blank" title="새창열기">
+                                        <img src="../frontLayer/images/icons/ico_youtube.svg" alt="유튜브 바로가기">
+                                    </a>
+                                </li>
                                 <li class="util-social__item">
                                     <a href="#" class="link" target="_blank" title="새창열기">
                                         <img src="../frontLayer/images/icons/ico_daum.svg" alt="다음 바로가기">
@@ -474,12 +479,6 @@
                             </div>
                             <div class="swiper-slide">
                                 <div class="img-box">
-                                    <img src="../frontLayer/images/img/img_footer_logo_02.png" alt="THE S LAB"
-                                        class="img-box__img">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="img-box">
                                     <img src="../frontLayer/images/img/img_footer_logo_03.png" alt="start sports"
                                         class="img-box__img">
                                 </div>
@@ -528,10 +527,14 @@
             </div>
             <div class="footer__bottom">
                 <div class="footer__inner">
-                    <span class="logo">
-                        <img src="../frontLayer/images/common/logo.svg" alt="한국 9인제 배구 연맹">
+                    <span class="footer__logo logo">
+                        <a href="./index.html" class="logo__link">
+                            <img src="../frontLayer/images/common/logo.svg" alt="한국 9인제 배구 연맹" class="pc">
+                            <img src="../frontLayer/images/common/logo_only.svg" alt="한국 9인제 배구 연맹" class="mobile">
+                        </a>
                     </span>
                     <div>
+                        <span class="mobile logoTxt">한국 9인제 배구 연맹</span>
                         <dl class="dl-wrap__content">
                             <dt class="dl-wrap__ttl">회장</dt>
                             <dd class="dl-wrap__txt">신태호</dd>
@@ -615,7 +618,7 @@
                 }
             });
             footerSwiper = new Swiper(".footer__swiper", {
-                slidesPerView: 5,
+                slidesPerView: 4,
                 spaceBetween: 52,
                 loop: true,
                 autoplay: {

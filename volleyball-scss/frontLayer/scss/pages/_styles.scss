@@ -1,20 +1,11 @@
 .sec {
     margin: 90px 0 120px;
-    @include media-down(tab) {
-        margin: 72px 0 96px;
-    }
-    @include media-down(mob) {
-        margin: 60px 0;
-    }
 
     &__inner {
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 24px;
-        @include media-down(tab) {
-            max-width: 100%;
-        }
     }
 
     &__ttl {
@@ -23,13 +14,6 @@
         font-size: $font-large;
         text-align: center;
         line-height: 1.5;
-        @include media-down(tab) {
-            padding-bottom: 44px;
-            font-size: $font-medium;
-        }
-        @include media-down(mob) {
-            padding-bottom: 32px;
-        }
     }
 }
 
@@ -81,11 +65,11 @@
     position: relative;
     overflow: hidden;
     height: 560px;
-    @include media-down(tab) {
-        height: 450px;
-    }
-    @include media-down(mob) {
-        height: 240px;
+
+    @for $i from 1 through 6 {
+        &__slide0#{$i} {
+            background-image: url('../images/img/img_slides_0#{$i}.jpg');
+        }
     }
 
     ul {
@@ -94,79 +78,30 @@
         left: 0;
     }
 
-    @for $i from 1 through 6 {
-        &__slide0#{$i} {
-            background-image: url('../images/img/img_slides_0#{$i}.jpg');
-        }
-    }
-
     &__btn {
         width: 56px;
         height: 56px;
-        @include media-down(tab) {
-            display: none;
-        }
 
         &--prev {
             left: 64px;
             background-image: url('../images/icons/arw_slider_prev.svg');
-            @include media-down(tab) {
-                left: 24px;
-            }
         }
-        
+
         &--next {
             right: 64px;
             background-image: url('../images/icons/arw_slider_next.svg');
-            @include media-down(tab) {
-                right: 24px;
-            }
         }
     }
 
     &__pagination {
         position: absolute;
         bottom: 16px !important;
-        @include media-up(pc) {
-            left: 50% !important;
-        }
-        @include media-down(tab) {
-            left: auto;
-            right: 24px;
-            width: 48px;
-            padding: 4px;
-            border-radius: 24px;
-            background-color: rgba(116, 158, 197, 0.6);
-            font-weight: 400;
-            font-size: 14px;
-            color: $color-white;
-            line-height: 17px;
-            transform: translateX(0);
-
-            & span {
-                color: inherit;
-            }
-
-            &-total {
-                font-weight: 400;
-                opacity: 0.8;
-            }
-        }
     }
 
     &__txtarea {
         height: 100%;
         @extend .sec__inner;
         @include flex(null, center);
-        @include media-down(lg) {
-            padding: 0 144px;
-        }
-        @include media-down(tab) {
-            padding: 0 calc(90 / 1200 * 100%);
-        }
-        @include media-down(mob) {
-            padding: 0 24px;
-        }
     }
 
     &__ttl {
@@ -174,58 +109,29 @@
         font-size: $font-xl;
         color: $color-white;
         line-height: 1.3;
-        @include media-down(tab) {
-            font-size: $font-large + 6;
-        }
-        @include media-down(mob) {
-            font-size: $font-medium + 2;
-        }
     }
 }
 
 .schedule {
-    @include media-down(mob) {
-        position: relative;
-    }
 
     &__pagination,
     &__btn {
         display: none;
     }
 
-    &__pagination{
-        @include media-down(tab) {
-            display: block;
-            left: 50% !important;
-            bottom: 0 !important;
-        }
-    }
-
     &__list {
         justify-content: space-between;
-        @include media-down(mob) {
-            gap: 16px;
-            padding-bottom: 32px;
-        }
+
     }
 
     &__slide {
         width: calc((100% - 24px * 2) / 3);
-        @include media-down(tab) {
-            width: calc((100% - 16px * 2) / 3);
-        }
-        @include media-down(mob) {
-            width: 256px;
-        }
     }
 
     &__imgbox {
+        overflow: hidden;
         padding-top: calc(200 / 368 * 100%);
         border-radius: 10px;
-        overflow: hidden;
-        @include media-down(tab) {
-            padding-top: calc(180 / 256 * 100%);
-        }
     }
 
     &__txt {
@@ -237,24 +143,12 @@
         color: $color-white;
         gap: 5px;
         @include flex(null, center);
-        @include media-down(tab) {
-            font-size: $font-normal + 4;
-            right: 12px;
-            bottom: 12px;
-        }
-        @include media-down(mob) {
-            font-size: $font-normal;
-        }
 
         &::after {
             width: 24px;
             height: 24px;
             background: url('../images/icons/arw_right_white_sm.svg') no-repeat center / 100% auto;
             @include pseudo($pos: null);
-            @include media-down(mob) {
-                width: 16px;
-                height: 16px;
-            }
         }
     }
 }
@@ -262,19 +156,11 @@
 .notice {
     &__inner {
         display: flex;
-        @include media-down(mob) {
-            flex-direction: column;
-        }
     }
 
     .ttl-wrap {
         position: relative;
         padding-right: 80px;
-        @include media-down(mob) {
-            max-width: 100%;
-            flex: 1 1 100%;
-            padding-right: 0;
-        }
 
         &::before {
             top: 0;
@@ -284,25 +170,25 @@
             z-index: -1;
             background-color: $color-gray6;
             @include pseudo();
-            @include media-down(mob) {
-                right: calc(136 / 768 * 100%);
-            }
         }
 
         &__area {
             display: none;
             padding: 40px 0;
-            @include media-down(tab) {
-                padding: 32px 0;
-            }
-            @include media-down(mob) {
-                padding: 16px 0;
-            }
 
             &--active {
                 display: block;
             }
+
+            &:nth-child(1) .ttl-wrap__ttl::after {
+                background-image: url('../images/icons/ico_notice.svg');
+            }
+
+            &:nth-child(2) .ttl-wrap__ttl::after {
+                background-image: url('../images/icons/ico_asteriskSimple.svg');
+            }
         }
+
 
         &__ttl {
             padding-bottom: 8px;
@@ -311,13 +197,6 @@
             line-height: 1.5;
             gap: 16px;
             @include flex(null, center);
-            @include media-down(tab) {
-                font-size: $font-xl - 4;
-            }
-            @include media-down(mob) {
-                font-size: $font-large;
-                gap: 8px;
-            }
 
             &::after {
                 width: 32px;
@@ -326,18 +205,6 @@
                 background-position: center center;
                 background-size: 100% auto;
                 @include pseudo($pos: null);
-                @include media-down(mob) {
-                    width: 24px;
-                    height: 24px;
-                }
-            }
-
-            &:nth-child(1)::after {
-                background-image: url('../images/icons/ico_notice.svg');
-            }
-
-            &:nth-child(2)::after {
-                background-image: url('../images/icons/ico_asteriskSimple.svg');
             }
         }
 
@@ -358,14 +225,6 @@
 
     &__content {
         padding: 40px 60px;
-        @include media-down(tab) {
-            padding: 32px 0 32px 48px;
-        }
-        @include media-down(mob) {
-            padding: 24px 0;
-            max-width: 100%;
-            flex: 1 1 100%;
-        }
     }
 
     &__tab {
@@ -425,15 +284,256 @@
             }
 
             &__ttl {
+                display: block;
+                width: 100%;
                 @include ellipsis();
             }
 
             &__date {
                 display: inline-block;
-                width: 112px;
+                min-width: 112px;
                 color: $color-gray2;
                 text-align: center;
                 line-height: 1.5;
+            }
+        }
+    }
+}
+
+@include media-down(lg) {
+    .main-visual {
+        &__txtarea {
+            padding: 0 144px;
+        }
+    }
+}
+
+@include media-down(tab) {
+    .sec {
+        margin: 72px 0 96px;
+
+        &__inner {
+            max-width: 100%;
+        }
+
+        &__ttl {
+            padding-bottom: 44px;
+            font-size: $font-medium;
+        }
+    }
+
+    .main-visual {
+        height: 450px;
+
+        &__btn {
+            display: none;
+
+            &--prev {
+                left: 24px;
+            }
+
+            &--next {
+                right: 24px;
+            }
+        }
+
+        &__pagination {
+            right: 24px;
+            left: auto;
+            width: 48px;
+            padding: 4px;
+            background-color: rgba(116, 158, 197, 0.6);
+            font-weight: 400;
+            font-size: 14px;
+            color: $color-white;
+            line-height: 17px;
+            transform: translateX(0);
+            border-radius: 24px;
+
+            & span {
+                color: inherit;
+            }
+
+            &-total {
+                font-weight: 400;
+                opacity: 0.8;
+            }
+        }
+
+        &__txtarea {
+            padding: 0 calc(90 / 1200 * 100%);
+        }
+
+        &__ttl {
+            font-size: $font-large + 6;
+        }
+    }
+
+    .schedule {
+        &__pagination {
+            display: block;
+            bottom: 0 !important;
+            left: 50% !important;
+        }
+
+        &__slide {
+            width: calc((100% - 16px * 2) / 3);
+        }
+
+        &__imgbox {
+            padding-top: calc(180 / 256 * 100%);
+        }
+
+        &__txt {
+            right: 12px;
+            bottom: 12px;
+            font-size: $font-normal + 4;
+        }
+    }
+
+    .notice {
+        .ttl-wrap {
+            &__area {
+                padding: 32px 0;
+            }
+
+            &__ttl {
+                font-size: $font-xl - 4;
+            }
+        }
+
+        &__content {
+            padding: 32px 0 32px 48px;
+        }
+
+        &__tab {
+            .tabs {
+                &__btn {
+                    font-size: $font-medium - 4;
+                }
+            }
+        }
+
+        .tab-content {
+            &__date {
+                min-width: 90px;
+                font-size: $font-small;
+            }
+        }
+    }
+}
+
+@include media-down(mob) {
+    .sec {
+        margin: 60px 0;
+
+        &__ttl {
+            padding-bottom: 32px;
+        }
+    }
+
+    .main-visual {
+        height: 240px;
+
+        &__txtarea {
+            padding: 0 24px;
+        }
+
+        &__ttl {
+            font-size: $font-medium + 2;
+        }
+    }
+
+    .schedule {
+        position: relative;
+        overflow: hidden;
+
+        &__list {
+            padding-bottom: 32px;
+            gap: 16px;
+        }
+
+        &__slide {
+            width: 256px;
+        }
+
+        &__txt {
+            font-size: $font-normal;
+
+            &::after {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+
+    .notice {
+        &__inner {
+            flex-direction: column;
+        }
+
+        .ttl-wrap {
+            max-width: 100%;
+            padding-right: 0;
+            flex: 1 1 100%;
+
+            &::before {
+                right: calc(136 / 768 * 100%);
+            }
+
+            &__area {
+                padding: 16px 0;
+            }
+
+            &__ttl {
+                font-size: $font-large;
+                gap: 8px;
+
+                &::after {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+
+        &__content {
+            max-width: 100%;
+            padding: 24px 0;
+            flex: 1 1 100%;
+
+            &__tab {
+                .tabs {
+                    &__btn {
+                        font-size: $font-normal + 2;
+                    }
+                }
+            }
+
+            .tab-content {
+                &__item {
+                    flex-direction: column;
+                    align-items: start;
+                    gap: 4px;
+                }
+
+                &__ttl {
+                    font-size: $font-small;
+                }
+
+                &__date {
+                    min-width: auto;
+                    font-size: $font-small - 2;
+                }
+            }
+        }
+    }
+}
+
+@include media-up(pc) {
+    .main-visual {
+        &__pagination {
+            @include media-up(pc) {
+                left: 50% !important;
             }
         }
     }

@@ -36,18 +36,10 @@
 
 .pc {
     display: block !important;
-
-    @include media-down(tab) {
-        display: none !important;
-    }
 }
 
 .mobile {
     display: none !important;
-
-    @include media-down(tab) {
-        display: block !important;
-    }
 }
 
 .blind {
@@ -120,4 +112,14 @@
 
 .mt_0 {
     margin-top: 0;
+}
+
+@include media-down(tab) {
+    .pc {
+        display: none !important;
+    }
+
+    .mobile {
+        display: block !important;
+    }
 }
