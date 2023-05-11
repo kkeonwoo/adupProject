@@ -174,7 +174,7 @@ div[class*="modal_password"] .frm_wrap .form_control {height:40px;min-height:40p
 .field_area .field_caution_ttl {margin-bottom:5px;font-size:10px;line-height:16px;font-weight:700;}
 .field_area .badge {display:inline-block;padding:4px 7px;border-radius:5px;border:1px solid var(--fn-gray-400);font-size:14px;}
 .field_area .btn_address_wrap { position: absolute; top: 50%; right: 18px; transform: translateY(-50%); align-items: end; gap: 10px;}
-.field_area .d_flex .btn_add_address {position: static; width: auto; transform: translateY(0);}
+.field_area .btn_address_wrap .btn_add_address {position: static; width: auto; transform: translateY(0);}
 
 .select_address {width:465px;margin:156px auto 0;padding:28px;background:var(--fn-gray-150);border:1px solid var(--fn-gray-400);}
 [color-theme='dark'] .select_address {background:var(--fn-black);}
@@ -289,6 +289,7 @@ div[class*="modal_password"] .frm_wrap .form_control {height:40px;min-height:40p
 .confirm_inquiry_tbl .null_box .txt { display: block; margin-top: 20px; font-size: 20px; line-height: 1.22; color: var(--fn-gray-500); text-align: center;}
 .confirm_inquiry_tbl .qna_wrap { position: relative;}
 .confirm_inquiry_tbl .qna_area { max-height: 300px; background-color: var(--fn-gray-150);}
+[color-theme='dark'] .confirm_inquiry_tbl .qna_area { background-color: var(--fn-gray-dark-600);}
 .confirm_inquiry_tbl .qna_header,
 .confirm_inquiry_tbl .qna_body { display: flex; gap: 45px; padding: 20px 10px;}
 .confirm_inquiry_tbl .qna_header::before,
@@ -300,6 +301,7 @@ div[class*="modal_password"] .frm_wrap .form_control {height:40px;min-height:40p
 .confirm_inquiry_tbl .qna_body .qna_content .txt { font-size: 16px; line-height: 1.625;}
 .confirm_inquiry_tbl .qna_header .qna_content .txt { display: block; min-height: calc(1em * 1.625 * 3);}
 .confirm_inquiry_tbl .qna_wrap .close_btn { position: absolute; right: 20px; bottom: 10px; width: 22px; height: 22px; background-image: url('../images/icons/arw_up_sm.svg'); background-position: center center; background-size: 80% auto; background-repeat: no-repeat;}
+[color-theme='dark'] .confirm_inquiry_tbl .qna_wrap .close_btn { filter:invert(1);}
 
 /* 장바구니 */
 .cart_sec { margin-top: 25px;}
@@ -497,7 +499,7 @@ div[class*="modal_password"] .frm_wrap .form_control {height:40px;min-height:40p
 .pay_tbl_wrap .pay_tbl th .txt { font-weight: 700;}
 
 .grade_label { display: block; min-width: 60px; padding: 3px 8px; border: 1px solid var(--fn-black); border-radius: 100px; background-color: var(--fn-white); font-family: var(--fn-Tahoma); font-size: 15px; color: var(--fn-white); text-align: center;}
-.grade_label[class*="grade_type"] { display: inline-block; width: 62px; height: 24px; border: none; background-position: center center; background-size: 100% auto; background-repeat: no-repeat;}
+.grade_label[class*="grade_type"] { display: inline-block; width: 62px; height: 24px; border: none; background-position: center center; background-size: cover; background-color: transparent; background-repeat: no-repeat;}
 .grade_label.grade_type1 { background-image: url('../images/icons/ico_grade_type1.svg');}
 .grade_label.grade_type2 { background-image: url('../images/icons/ico_grade_type2.svg');}
 .grade_label.grade_family { border-color: var(--fn-brown); background-color: var(--fn-brown);}

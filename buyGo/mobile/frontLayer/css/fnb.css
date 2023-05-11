@@ -136,6 +136,7 @@
 .entryManufacturer .entry_write .btn_wrap {display: none;margin: 0 auto;margin-top: 35px;text-align: center;}
 .entryManufacturer .entry_write .btn_wrap .btn {min-width: 125px;font-size: 15px;border-radius: 4px;}
 .entryManufacturer .entry_write .btn_wrap .btn_outline {border: 1px solid var(--fn-gray-500);color: var(--fn-black);}
+[color-theme='dark'] .entryManufacturer .entry_write .btn_wrap .btn_outline {color: var(--fn-gray-400);}
 /* // entryManufacturer */
 /* usageGuide, personalInfoPolicy */
 [color-theme='dark'] .usageGuide .content_box .content *,

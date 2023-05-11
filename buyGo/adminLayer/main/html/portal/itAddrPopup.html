@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" type="text/css" href="/commonpf2.css"/>
+    <!--<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, width=device-width"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+    <!--이미지 도구모음 금지-->
+    <meta http-equiv="imagetoolbar" context="no"></head>
+    <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- iOS Part -->
+    <!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 상태 바의 스타일을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+    <!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-title" content="Timer">-->
+    <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+    <!-- <link rel="apple-touch-icon" href="icons/icon-152x152.png">-->
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+
+    <!-- Android part -->
+    <!-- 웹 앱 매니페스트를 읽어 들이기 -->
+    <link rel="manifest" type="text/json"  href="/manifest.json">
+    <!-- ----------------------------------------------------------------------- -->
+
+    <script type="text/javascript" src="/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/jquery.ajax-cross-origin.min.js"></script>
+    <script type="text/javascript" src="/crypto-js.js"></script>
+    <!-- <script>history.replaceState({}, null, location.pathname);</script> -->
+    <title>주소 검색</title>
+</head>
+<body>      
+    <div class="addrpopup">
+    <h1>주소검색 (도로 및 지번 주소)</h1>
+        <form method="post" id="fsearch" name="fsearch" method="post" onsubmit="return false;">
+            <!--<input type="text" id="fsearch_addr" name="keyword" placeholder="지번, 도로명, 지하철역 입력" required="required" style="ime-mode:active;" onchange="GetAddr();" onkeydown="GetAddr();"/>-->
+            <input type="text" id="fsearch_addr" name="keyword" placeholder="지번, 도로명, 지하철역 입력" required="required" style="ime-mode:active;"/>
+            <input type="text" id="addr_detail" name="addr_detail" placeholder="상세주소 (반드시 정확하게 입력하세요)" required="required"/>
+            <input type="hidden" name="currentPage" value="1"/>
+            <input type="hidden" name="countPerPage" value="100"/>
+            <input type="hidden" name="resultType" value="json"/> 
+            <input type="hidden" name="confmKey" value="devU01TX0FVVEgyMDIxMTIzMDE1MzcxMjExMjA4NDI="/>
+        </form>
+        <ul tabindex="1" id="addr_list_inbox" class="addr_list_inbox" style="height: 50%; overflow: auto;"></ul>
+        <p></p>
+        <!--<button id="closeButton" type="button" class="btn btn-primary btn-block btn-large" value="닫기">닫기</button><p></p>-->
+        <button id="closeButton" name="closeButton" type="button" class="btn btn-primary btn-block btn-large" value="닫기" >닫기</button><p></p>
+    </div>
+    <script>
+        $(document).ready(function(){
+            try
+            {
+                var whocallMe=localStorage.getItem("btn");
+                localStorage.removeItem("btn");
+                $("#fsearch_addr").keyup(function(){GetAddr();});
+                $("#closeButton").click(function(){returnPage();});
+                var returnAddressString="";
+                $("#fsearch_addr").focus();
+                //var whocallMe="";
+                searchResultULInit();
+                function searchResultULInit()
+                {
+                    // 결과 값 초기화
+                    $("ul[tabindex='1']").hide();
+                    $(".addr_list_inbox li").remove();
+                    $(".search_result_ul").remove();
+                    $(".search_result_title").remove();
+                };
+
+                const inputBox=document.getElementById("fsearch_addr");
+                const inputBoxDetail=document.getElementById("addr_detail");
+                var currentFocus=0;
+
+                function returnPage()
+                {
+                    //아무것도 입력하지 않았으면 그대로 return
+                    //주소가 입력되었으면 parameter 를 같이 넘긴다. 단 1개만 입력되었으면 못나가게 한다.
+                    //console.log("111111");
+                    var addr1=inputBox.value;
+                    var addr2=inputBoxDetail.value;
+                    if(addr1.length>0&&addr2.length>0)
+                    {
+                        returnAddressString=addr1+" "+addr2;
+                        if(whocallMe=="addr1Button")
+                        {   
+                            localStorage.setItem("addr1ButtonReceive",returnAddressString);
+                            //localStorage.removeItem("addr2ButtonReceive");
+                        }
+                        else if(whocallMe=="addr2Button")
+                        {
+                            localStorage.setItem("addr2ButtonReceive",returnAddressString);
+                            //localStorage.removeItem("addr1ButtonReceive");
+                        };
+
+                        location.href="itAddAccount.html";
+                    }
+                    else if((addr1.length>0&&addr2.length<1)||(addr1.length<1&&addr2.length>0))
+                    {
+                        alert("기본주소 및 상세주소가 모두 있어야 하거나, 둘다 비어있어야 닫을 수 있습니다.");
+                    }
+                    else if(addr1.length<1&&addr2.length<1)
+                    {
+                        //둘다 비어 있으면 단순히 돌아간다. 기존 Key가 있을지도 모르므로 모두 지움
+                        returnAddressString="";
+                        if(whocallMe=="addr1Button")
+                        {   
+                            localStorage.setItem("addr1ButtonReceive",returnAddressString);
+                            localStorage.removeItem("addr2ButtonReceive");
+                        }
+                        else if(whocallMe=="addr2Button")
+                        {
+                            localStorage.setItem("addr2ButtonReceive",returnAddressString);
+                            localStorage.removeItem("addr1ButtonReceive");
+                        };
+
+                        location.href="itAddAccount.html";
+                    };
+                };
+
+                //목록중 하나를 선택하면 input에 넣어주고 자신은 초기화
+                $(".addr_list_inbox").on("click", "li", function(e){
+                    e.preventDefault();
+                    inputBox.value=$(this).text();
+                    $("ul[tabindex='1']").hide();
+                    document.getElementById("addr_list_inbox").innerHTML="";
+                    inputBox.focus();
+                });
+
+                //상세주소를 클릭하면 기존 결과를 초기화(목록을 보여줄 필요가 없다)
+                $("#addr_detail").on("click", function(e){
+                    searchResultULInit();
+                });
+
+                //목록창에 방향키로 이동하면 list를 순환하면서 selection을 한다.
+                $("ul[tabindex='1']").on("keyup", function(e){
+                    if(e.keyCode==38||e.keyCode==40)
+                    {
+                        //맨위에서 다시 위를 누르면 여기를 떠난다.
+                        if(currentFocus==0&&e.keyCode==38){inputBox.focus();};
+                        e.preventDefault();
+                        var children=$(".search_result_ul").children(); //하위 li 속성을 모두 가져오기
+                        currentFocus += e.keyCode === 38 ? -1 : 1;
+                        currentFocus < 0 && (currentFocus = children.length - 1);
+                        currentFocus >= children.length && (currentFocus = 0);
+
+                        children.removeClass("--focus");
+                        children.eq(currentFocus).addClass("--focus"); 
+                    }
+                    else if(e.keyCode==13)
+                    {
+                        //선택한 문장(단어)를 입력박스에 넣어준다.
+                        var children=$(".search_result_ul").children(); //하위 li 속성을 모두 가져오기
+                        inputBox.value=children[currentFocus].innerText;
+                        $("ul[tabindex='1']").hide();
+                        document.getElementById("addr_list_inbox").innerHTML="";
+                        inputBox.focus();
+                    };
+                });
+
+                //주소검색창에서 처음 아래 화살표 누르면 목록으로 focus를 넘긴다.
+                inputBox.addEventListener("keyup", function(e){
+                    if(e.keyCode==40)
+                    {
+                        //방향키가 눌러지면 focus를 변동한다.
+                        if($(".search_result_li").length>0)
+                        {
+                            $("ul[tabindex='1']").focus();
+                        };
+                    };
+                });
+
+                function checkSearchedWord(obj)
+                {
+                    if(obj.value.length >0)
+                    {
+                        //특수문자 제거
+                        var expText = /[%=><]/ ;
+                        if(expText.test(obj.value)==true)
+                        {
+                            alert("특수문자를 입력 할수 없습니다.") ;
+                            obj.value = obj.value.split(expText).join(""); 
+                            return false;
+                        };
+
+                        //특정문자열(sql예약어의 앞뒤공백포함) 제거
+                        var sqlArray=new Array(
+                            //sql 예약어
+                            "OR", "SELECT", "INSERT", "DELETE", "UPDATE", "CREATE", "DROP", "EXEC",
+                            "UNION",  "FETCH", "DECLARE", "TRUNCATE" 
+                        );
+
+                        var regex;
+                        for(var i=0; i<sqlArray.length; i++)
+                        {
+                            regex=new RegExp(sqlArray[i] ,"gi");
+                            if(regex.test(obj.value))
+                            {
+                                alert("\"" + sqlArray[i]+"\"와(과) 같은 특정문자로 검색할 수 없습니다.");
+                                obj.value =obj.value.replace(regex, "");
+                                return false;
+                            };
+                        };
+                    };
+
+                    return true;
+                };
+
+                function GetAddr()
+                {
+                    // 도로명주소API 검색어 필터링 검사
+                    if(checkSearchedWord(document.fsearch.keyword)==false)
+                    {
+                        $("#fsearch_addr").val("");
+                        return false;
+                    };
+                    
+                    var txt = $("#fsearch_addr").val();
+                    if(txt.length >= 2)
+                    {
+                        $.ajax({
+                            url :"https://www.juso.go.kr/addrlink/addrLinkApiJsonp.do",
+                            type:"post", data:$("#fsearch").serialize(), dataType:"jsonp", crossDomain:true, async: false,
+                            success:function(data)
+                            {
+                                // 결과 값 초기화
+                                $(".search_result_title").remove();
+                                $(".search_result_ul").remove();              
+                                
+                                // 에러코드
+                                var errCode = data.results.common.errorCode;
+                                var errDesc = data.results.common.errorMessage;
+                                // errorCode가 0인 경우 정상
+                                if(errCode=="0")
+                                {
+                                    // 받아온 결과가 1개 이상인 경우
+                                    if(data.results.common.totalCount > 0)
+                                    {
+                                        $(".addr_list_inbox").show();
+                                        $(".addr_list_inbox").append(
+                                        '<p class="search_result_title">검색 결과</p>'+
+                                        '<ul class="search_result_ul"></ul>'
+                                        );
+                                        $.each(data.results.juso, function(i, v) {                  
+                                            $(".search_result_ul").append(                  
+                                                "<li class='search_result_li'>"+
+                                                    "<span class='search_result_addr'>"+
+                                                    v['roadAddr']+
+                                                    "</span>"+
+                                                "</li>"                  
+                                            );
+                                            //$(".search_result_addr").highlight(v['roadAddr']);
+                                        });
+                                    }
+                                    else
+                                    {
+                                        $(".addr_list_inbox").append(
+                                            '<p class="search_result_title">검색 결과가 존재하지 않습니다.</p>'
+                                        );
+                                    };
+                                }
+                                else
+                                {
+                                    $("ul[tabindex='1']").hide();
+                                    alert(errCode + '=' + errDesc);
+                                };
+                            },
+                            error: function(xhr,status,error)
+                            {
+                                $("ul[tabindex='1']").hide();
+                                alert("에러발생");
+                            },
+                            fail:function(r)
+                            {
+                                $("ul[tabindex='1']").hide();
+                                alert('알 수 없는 오류로 인해 실패하였습니다.');
+                                return false;
+                            }
+                        });
+                    }
+                    else
+                    {
+                        //문자열이 없으면 초기화하고 숨긴다.
+                        searchResultULInit();
+                    };
+                };
+
+                //$(document).ready(function(){
+                //    
+                //    //넘어온 이전 Page에서 parameter받기 (어느 버튼에서 나를 부른 것인지 식별할 필요가 있음)
+                //    whocallMe=localStorage.getItem("btn");
+                //    localStorage.removeItem("btn");
+                //});
+            }
+            catch(e)
+            {
+                alert(e.message);
+            };
+        });
+    </script>
+    
+</body>
+</html>

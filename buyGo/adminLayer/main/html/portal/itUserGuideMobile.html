@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=1004, user-scalable=yes, maximum-scale=1"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+        <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+        <!--이미지 도구모음 금지-->
+        <meta http-equiv="imagetoolbar" context="no">
+        <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+        <meta name="_csrf" th:content="${_csrf.token}"/>
+        <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+        <!-- ----------------------------------------------------------------------- -->
+        <!-- iOS Part -->
+        <!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <!-- 상태 바의 스타일을 지정 -->
+        <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+        <!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+        <!-- <meta name="apple-mobile-web-app-title" content="Timer">-->
+        <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+        <!-- <link rel="apple-touch-icon" href="icons/icon-152x152.png">-->
+        <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+        <!-- Android part -->
+        <!-- 웹 앱 매니페스트를 읽어 들이기 -->
+        <!-- <link rel="manifest" type="text/json"  href="/manifest.json"> -->
+        <!-- ----------------------------------------------------------------------- -->
+
+        <link rel="stylesheet" href="/eum/resources/css/style_mobile.css">
+        <link rel="stylesheet" href="/eum/resources/css/mobile.css">
+        <link rel="stylesheet" href="/eum/resources/css/itUserGuideMobile.css">
+
+        <!-- <script type="text/javascript" src="/crypto-js.js"></script> -->
+        <!-- <script type="text/javascript" src="/jquery.ajax-cross-origin.min.js"></script> -->
+        <!-- <script defer type="text/javascript" src="cGoodsCategoryAdm.js"></script> -->
+        <script type="text/javascript" src="/jquery-3.6.0.min.js"></script>
+        
+        <script defer type="text/javascript" src="/eum/js/portal/citUserGuide.js"></script>
+        <script defer type="text/javascript" src="/eum/js/common/cSearch.js"></script>
+        <script defer type="text/javascript" src="/eum/js/portal/cPortalCommon.js"></script>
+        <!-- <script>history.replaceState({}, null, location.pathname);</script> -->
+        <!-- css 연동 -->
+        <title>더이음</title>
+    </head>
+<body>
+	<div id="content" style="display:flex; justify-content:center;">
+        <div>
+            <!-- 우측 상단 태그 버튼 -->
+            <div class="header">
+                <a href="/eum/html/portal/itSalesMobile.html">
+                    <img src="/eum/resources/images/main_header_logo.png" class="logo" alt="logo">
+                </a>
+
+                <!-- 우측 상단 태그 버튼 -->
+                <div class="menu_container">
+                    
+                </div>
+            </div>
+
+    <!-- container -->
+            <div id="contentsBox">
+                <div class="tabArea">
+                    <li class="tab_btn active" id="tab_btn1" onclick="tab_view(0);">
+                        <div>이용안내</div>
+                    </li>
+                    <li class="tab_btn" id="tab_btn2" onclick="tab_view(1);">
+                        <div>주문방법</div>
+                    </li>
+                    <li class="tab_btn" id="tab_btn3" onclick="tab_view(2);">
+                        <div>이용약관</div>
+                    </li>
+                    <div class="warning_text">
+                        <span style = "color : red">마감</span>
+                        상온:10시|아이스크림:11시|냉장/냉동:오전10시마감(익일출고)
+                        <br>※ 제주/도서산간지역:택배비 추가, 아이스크림 배송불가
+                    </div>
+                </div>
+                <div id="tab_1"></div>
+                <div id="tab_2"></div>
+                <div id="tab_3"></div>          
+            </div>
+            <div class="footer">
+                <div class="copyright">
+                    ㈜이음몰 / 대표이사 : 김미경 / 사업자등록번호 : 214-88-97306<br>
+                    본사 : 서울특별시 송파구 법원로114 (엠스테이트 A동 1306호)<br>
+                    대표전화 : 1670-8485 / FAX. 02-2283-1647<br>
+                    통신판매사업신고 : 제2021-서울송파-2135 / 개인정보관리책임자 : (주)더이음 안상현<br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style type="text/css">
+        .footer { width:1004px; border-top:2px solid #7a7a7a; background-color:#f2f2f2; }
+        .footer .copyright { font-size:23px; font-weight:100; line-height:28px; color:#7a7a7a; margin-left:10px; margin-top:20px; padding-bottom:36px; }
+    </style>
+</body>
+<script>
+$(document).ready(function(){
+    
+	drawHeaderMenu();
+    var rtn;
+    //주문방법 tab 클릭 시 addEventListener
+    for(var jx=1; jx<4; jx++){
+        rtn = subjectView(""+jx+"");
+        // console.log("rtn = " + rtn.returnvalue.length);
+        if (rtn ==null || rtn == "undefined"){
+            alert("화면에 표시할 수 없습니다. 오류입니다.");
+        }
+        else{
+            //로직 작성
+            drawUi(rtn,""+jx+"");
+        };
+    };
+
+    // // 화면 이벤트 처리 
+    // var tab_btn1 = document.getElementById("tab_btn1");
+    // var tab_btn2 = document.getElementById("tab_btn2");
+    // var tab_btn3 = document.getElementById("tab_btn3");
+    // // tab_btn = document.getElementsByClassName("tab_btn");
+
+    // tab_btn1.addEventListener("click", function(){tab_view(0)});
+    // tab_btn2.addEventListener("click", function(){tab_view(1)});
+    // tab_btn3.addEventListener("click", function(){tab_view(2)});
+});
+</script>
+</html>

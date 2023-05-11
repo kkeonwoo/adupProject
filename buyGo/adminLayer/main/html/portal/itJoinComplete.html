@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <title>더이음몰</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, width=device-width"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+    <!--이미지 도구모음 금지-->
+    <meta http-equiv="imagetoolbar" context="no">
+    <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- iOS Part -->
+    <!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 상태 바의 스타일을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+    <!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-title" content="Timer">-->
+    <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+    <!-- <link rel="apple-touch-icon" href="icons/icon-152x152.png">-->
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+    <!-- Android part -->
+    <!-- 웹 앱 매니페스트를 읽어 들이기 -->
+    <link rel="manifest" type="text/json"  href="/manifest.json">
+    <!-- ----------------------------------------------------------------------- -->
+    <script type="text/javascript" src="/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/jquery.ajax-cross-origin.min.js"></script>
+    <!-- <script>history.replaceState({}, null, location.pathname);</script> -->
+    <!-- css 연동 -->
+    <link rel="stylesheet" href="/eum/resources/css/style_pos.css">
+    <link rel="stylesheet" href="/resources/css/web.css?20180709_01">
+    <link rel="stylesheet" href="/resources/css/jquery-ui.css?20180709_01">
+    <style type="text/css">.ui-datepicker-year { margin-right: -5px; }</style>
+</head>
+<body>
+    <div class="join">
+        <h1><img src="/resources/images/sajago_new_eum_logo_94x58.png" alt="나들가게 이음몰"></h1>
+
+        <!-- container -->
+        <div class="container">
+            <!-- contents -->
+            <div class="contents">
+                <h2><span>회원가입</span></h2>
+                <div class="join_finish">
+                    <p class="finish_txt01"><span>더 이음몰 회원가입이 정상적으로 완료</span>되었습니다.</p>
+                    <!-- <p>회원가입되셨습니다.</p> -->
+                </div>
+                <div class="join_info">
+                    <ul>
+                        <li><h3>회원가입 후 이음몰 자동 승인처리됩니다.</h3></li>
+                        <span>&nbsp;&nbsp;- 개인슈퍼, 편의점, PC방 등 소상공업자 외에는 구매가 불가합니다.</span><br><br>
+                        <li><h3>이음몰은 일반고객들에게 소상공업자의 구매단가를 보호하기 위해 가격노출이 안되는 폐쇄몰입니다.</h3></li><br>
+                        <li><h3>승인처리 후 이음몰의 최저가 상품을 만나보실 수 있습니다.</h3></li><br>
+                        <li><h3>고객센터 : 1670-8485</h3></li>
+                        <span>&nbsp;&nbsp;- 운영시간 : 평일 9~12시, 13~18시(토요일 및 공휴일 휴무)</span>
+                    </ul>
+                </div>
+                
+                <div class="join_btn">
+                    <button type="button" class="btn02" onclick="location.href='/eum/login.html';"><span class="bul01">확인완료</span></button>
+                </div>
+            </div>
+            <!-- //contents -->
+        </div>
+        <!-- //container -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- <meta http-equiv="Expires" content="-1" /> -->
+    <!-- 페이지 로드시마다 페이지를 캐싱하지 않음. (HTTP 1.0) -->
+    <meta http-equiv="Pragma" content="no-cache" />
+    <!-- 페이지 로드시마다 페이지를 캐싱하지 않음. (HTTP 1.1) -->
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <link rel="stylesheet" href="/main/resources/css/admin/web.css">
+    <link rel="stylesheet" type="text/css" href="/main/resources/css/admin/commonpf2.css"/>
+    <link rel="stylesheet" type="text/css" href="/main/resources/css/admin/dropDownList.css"/>
+    <link rel="shortcut icon" href="/main/resources/images/favicon.ico" type="image/x-icon">
+    <!-- 웹 앱 매니페스트를 읽어 들이기 -->
+    <link rel="manifest" type="text/json"  href="/manifest.json">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=yes,maximum-scale=1,width=400" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"/> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
+    <!--이미지 도구모음 금지-->
+    <meta http-equiv="imagetoolbar" context="no"></head>
+    <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+    <!-- firebase push 알림 -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-messaging.js"></script>
+
+    <!-- 엑셀업로드 -->
+    <style type="text/css">.upFile {width:100%;}</style>
+    <link rel="stylesheet" href="/main/resources/css/admin/admin.css">
+    <script defer type="text/javascript" src="/common/js/jsonToXMLToExcel.js"></script>
+    <script type="text/javascript" src="/node_modules/xlsx/dist/xlsx.full.min.js"></script>
+    <script type="text/javascript" src="/node_modules/file-saver/dist/FileSaver.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+    <script type="text/javascript" src="/common/resources/jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/common/resources/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/node_modules/crypto-js/crypto-js.js"></script>
+    <script defer type="text/javascript" src="/common/js/commonUI.js"></script>
+    <link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <script>history.replaceState({}, null, location.pathname);</script>
+    <title>Admin Main</title>
+</head>
+<body>
+    <br><br>
+    <button type="button" class="btn_ss01" id="logout" value="로그아웃">로그아웃 기능</button>
+    <div id="footer" style="margin-top:15px">
+        <img style="margin: 0px;" src="/main/resources/images/login_footer_370x149.png">
+    </div>
+    <br><br>
+    <form id="frmBundleUpdate" name="frmBundleUpdate" action="/common/resources/template/SMS_LIST.xlsx" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+        <table class="table_row font11">
+            <colgroup><col width="15%"><col width="*"></colgroup>
+            <tbody><tr>
+                <th><span>단체문자발송 양식파일 받기</span></th>
+                <td>
+                    <button type="button" class="btn_ss01"><a class="btn_excel" href="/common/resources/template/SMS_LIST.xlsx">샘플</a></button><span class="font11">← 다운받아서 등록하세요</span>
+                </td>
+            </tr>
+            <tr>
+                <th><span>연락처 리스트 등록<span class="important">*</span></span></th>
+                <td>
+                    <input type="file" name="excelFile" id="excelFile" class="upFile">					
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <p><textarea id="message" cols="50" rows="10" placeholder="한글 최대 70자, 영문 130자"></textarea></p>
+        <br>
+        <p><button type="button" id="sendmessage" class="btn_ss01" onclick="sendSMS()">Send Message 기능</button></p>
+    </form>
+    <br><br><br><br>
+    <script>
+        var notification;
+        function isNumber(s){s+=''; s=s.replace(/^\s*|\s*$/g,''); if(s==''||isNaN(s)){return false;}; return true;};
+
+        function checkSalesItemHeadAndDetailInfo(rows)
+        {
+            //엑셀이 등록된 항목에 대한 컬럼별 정합성 Check
+            var regex = RegExp(/^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/);
+
+            //check가 필요하면 쓰고 필요 없으면 이 함수는 제거해도 된다.
+            //여기서는 입력되어 있을지도 모르는 특수문자와 숫자로만 되어 있는지 확인한다.
+            for(var rx=0; rx<rows.length; rx++)
+            {
+                if(isNumber(rows[rx]["phone_no"])!=true)
+                {
+                    return false;
+                };
+            };
+            return true;
+        };
+
+        function createSalesItemObject(rows)
+        {
+            var phoneJson={};
+            var itemArr=new Array();
+            for(var rx=0; rx<rows.length; rx++)
+            {
+                phoneJson={};
+                phoneJson.phone=rows[rx]["phone_no"];
+                itemArr.push(phoneJson);
+            };
+            return itemArr;
+        };
+
+        //Send Message (단체문자발송)
+        function sendSMS()
+        {
+            var input=document.getElementById("excelFile");
+            var reader=new FileReader();
+            var rows;
+            try
+            {
+                //console.log($("#message").val().length);
+                if($("#message").val().length>0)
+                {
+                    if ($("#excelFile").val()!=""&&$("#excelFile").val().indexOf(".xls")>0)
+                    {
+                        reader.onload=function(){
+                            var data=reader.result;
+                            var workBook=XLSX.read(data, {type: 'binary'});
+                            if(workBook.SheetNames.length > 1){
+                                alert("파일의 형태가 잘못되었습니다.");
+                                //return;
+                            }
+                            else
+                            {
+                                workBook.SheetNames.forEach(function(sheetName){rows=XLSX.utils.sheet_to_json(workBook.Sheets[sheetName]);});
+                                var tf=checkSalesItemHeadAndDetailInfo(rows);   //입력된 항목을 체크
+                                if(tf==true)
+                                {
+                                    //JSON생성하고 ajax호출
+                                    var rstRows=createSalesItemObject(rows);
+
+                                    var postData={};
+                                    postData.phone=JSON.stringify(rstRows);
+                                    postData.message=$("#message").val();
+                                    postData.client=JSON.stringify(getNaviInfo());
+                                    postData.realTestGbn="real";
+                                    $.ajax({
+                                        url: "/uSendSMSBulk", type: "POST", async: false, dataType: "JSON", data: postData, crossOrigin: true, cache: false, traditional: true, contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                                        success: function(response){
+                                            alert(response.errormessage);
+                                        },
+                                        error: function(qXHR){alert("[err messager]:" + qXHR.statusText);}
+                                    });
+                                    return;
+                                }
+                                else
+                                {
+                                    alert("입력한 항목을 다시 한번 체크 부탁드립니다. 숫자로만 입력되어야 합니다.")
+                                };
+                            };
+                        };
+
+                        reader.readAsBinaryString(input.files[0]);
+                    }
+                    else
+                    {
+                        alert("업로드할 엑셀파일을 선택하고 열기를 누르세요");
+                    };
+                }
+                else
+                {
+                    alert("입력 가능한 문자 갯수는 한글 10 ~ 70자 이내입니다. 영어만으로는 최대 140자 가능");
+                };
+            }
+            catch(e)
+            {
+                alert(e.message);
+            };
+        };
+        
+        // Send the Instance ID token your application server, so that it can:
+        // - send messages back to this app
+        // - subscribe/unsubscribe the token from topics
+        function sendTokenToServer(currentToken)
+        {
+            if (!isTokenSentToServer())
+            {
+                console.log('Sending token to server...');
+                // TODO(developer): Send the current token to your server.
+                setTokenSentToServer(true, currentToken);
+            }
+            else
+            {
+                console.log('Token already sent to server so won\'t send it again ' +'unless it changes');
+            };
+        };
+
+        function isTokenSentToServer()
+        {
+            return window.localStorage.getItem('sentToServer') === '1';
+        };
+
+        function setTokenSentToServer(sent, currentToken)
+        {
+            window.localStorage.setItem('sentToServer', sent ? '1' : '0');
+
+            //20221021 sajago 서버에 토큰을 등록한다.
+            console.log("currentToken=", currentToken);
+            //console.log("currentToken.length=", currentToken.length);
+            //if(currentToken.length>0)
+            if(currentToken)
+            {
+                var clientPushToken={};
+                clientPushToken.client=JSON.stringify(getNaviInfo());
+                clientPushToken.myPushToken=currentToken;
+                clientPushToken.myrole=getCookie("myrole");
+                console.log("setTokenSentToServer ajax() clientPushToken=",clientPushToken);
+                $.ajax({
+                    url: "/uSetClientPushToken", type: "POST", async: false, dataType: "JSON", data: clientPushToken, crossOrigin: true, cache: false, traditional: true, contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                    success: function(response){
+                        console.log("setTokenSentToServer=",currentToken, " / response.errorcode=", response.errorcode);
+                    },
+                    error: function(qXHR){console.log("setTokenSentToServer Error Token=",currentToken, " / response.errorcode=", response.errorcode);}
+                });
+            };
+        };
+
+        function deleteToken()
+        {
+            // Delete Instance ID token.
+            // [START delete_token]
+            messaging.getToken().then(function(currentToken) {
+                messaging.deleteToken(currentToken).then(function() {
+                    console.log('Token deleted.');
+                    setTokenSentToServer(false, currentToken);
+                    // [START_EXCLUDE]
+                    // Once token is deleted update UI.
+                    resetUI();
+                    // [END_EXCLUDE]
+                }).catch(function(err){
+                    console.log('Unable to delete token. ', err);
+                });
+            // [END delete_token]
+            }).catch(function(err){
+                console.log('Error retrieving Instance ID token. ', err);
+                showToken('Error retrieving Instance ID token. ', err);
+            });
+        };
+
+        function showToken(currentToken)
+        {
+            // Show token in console and UI.
+            // var tokenElement = document.querySelector('#token');
+            // tokenElement.textContent = currentToken;
+
+            console.log("showToken",currentToken);
+        };
+
+        function updateUIForPushEnabled(currentToken)
+        {
+            //showHideDiv(tokenDivId, true);
+            //showHideDiv(permissionDivId, false);
+            showToken(currentToken);
+        };
+
+        //*****************************************************
+        //웹앱 초기화 (반드시 수행되어야 한다. 아래 설정은 구글 firebase console에 가서 우리 프로젝트 설정한 것을 보면 나오는 내용을 가지고 온 것이다.)
+        //firebase에 등록된 사자고 push 알림 서비스 프로젝트 설정이므로 함부로 바꾸면 안 된다.
+        
+        //초기화가 안되어 있으면 초기화 한다.
+        if(!firebase.apps.length)
+        {
+            console.log("firebase.initializeApp !!!!");
+            firebase.initializeApp({
+                apiKey: "AIzaSyDR2TWMptSoYjkOq4vxVwJHTXQ9cBBf8mM",
+                authDomain: "eumpushservice.firebaseapp.com",
+                projectId: "eumpushservice",
+                storageBucket: "eumpushservice.appspot.com",
+                messagingSenderId: "968765550255",
+                appId: "1:968765550255:web:389c594d0fd1d0047f6e5a",
+                measurementId: "G-H6VDQP9R0V"
+            });
+        };
+
+        console.log("firebase.apps.length=",firebase.apps.length);
+        console.log("firebase.messaging.isSupported()=",firebase.messaging.isSupported());
+        //처리할 message object생성
+        const messaging = firebase.messaging();
+        
+        //이 페이지에서 알림 수신 식별을 위한 public key를 지정
+        //이 Key는 firebase console에서 프로젝트 개요 하단 메뉴 (웹 구성)에서 현재 키 부분에 표시된 공개 키입니다.
+        messaging.usePublicVapidKey("BKmSaivclUz4UpzyHANhx205Ze8iqg0Ect8AnfUZWWSHwlf3il844ADd0Mm4Qz57ZXRuNKiCft3tFgirXL46riY");
+        console.log("usePublicVapidKey !");
+
+        //브라우저에서 알림 설정 (차단, 허용, 요청)을 이용해서 처리한다.
+        //요청상태일때 비로소 허용/차단 팝업이 표시된다. (사용자 개인이 알아서 할 일임)
+        Notification.requestPermission().then((permission)=>{
+            if(permission==="granted")
+            {
+                console.log("granted");
+                messaging.getToken().then((token)=>{
+                    if(token)
+                    {
+                        console.log("token="+token);
+                        //알림 허용을 누르면 여기에서 token을 받아서 서버에 등록한다.
+                        sendTokenToServer(token);
+                        updateUIForPushEnabled(token);
+                    }
+                    else
+                    {
+                        // Show permission request.
+                        console.log("No Instance ID token available. Request permission to generate one.");
+                        // Show permission UI.
+                        updateUIForPushPermissionRequired();
+                        setTokenSentToServer(false);
+                    };
+                }).catch((err)=>{
+                    var guide="푸시 알림 서버 (FCM) 준비가 안되었습니다. getToken() Exception Error발생으로 잠시(최장 30분 정도) 기다렸다 새로고침 하세요! 이 화면에 다른 기능은 사용 가능합니다. \n \n"
+                    guide+="테스트 시 방법은 송신 테스트 화면을 먼저 띄우고 (이때는 login을 하기 때문에 자동으로 메인으로 들어가게 되므로 서비스워커, 로컬저장소(Local Storage)에서 sentToServer Key를 마우스 우측 클릭으로 삭제를 먼저하고 \n"
+                    guide+="그 다음으로 다른 브라우저 (한쪽은 엣지, 한쪽은 크롬)를 열어서 로그인을 하면 자동으로 서비스워커 및 notification 수신 브라우저 상태가 됩니다.";
+                    guide+="그리고 나서 송신에 타이틀 및 메세지를 넣고 테스트 합니다. 두번째 브라우저 띄울 때 getToken() Exception이 나면 최장 30분 정도까지 기다려야 합니다.";
+                    alert(guide);
+
+                    console.log("getToken() Exceptio 발생 err=",err);
+                    //showToken("Error retrieving Instance ID token. ", err);
+                    setTokenSentToServer(false);
+                });
+            }
+            else if(permission==="denied")
+            {
+                console.log("denied!!!! 브라우저 설정에서 차단을 누른 상태이거나, 차단을 선택하게 되면 기존 token을 지운다.");
+                messaging.deleteToken(messaging).then(()=>{
+                    console.log('Token deleted.');
+                }).catch((err) => {
+                    console.log("delete token exception 발생 ", err);
+                });
+            }
+            else
+            {
+                console.log("브라우저 설정-쿠키및사이트권한-사이트사용권한메뉴의 최근활동을 보면 도메일별로 알림설정을 볼 수 있고 거기에 가서 보면 상태는 허용도 차단도 아닌, 요청상태이다.");
+            };
+        });
+
+        //토큰이 새로 생성될 때마다 onTokenRefresh 콜백이 실행되므로 이 콜백의 컨텍스트에서 getToken을 호출하면 사용 가능한 현재 등록 토큰에 항상 엑세스하게 된다.
+        messaging.onTokenRefresh(function() {
+            messaging.getToken().then(function(refreshedToken) {
+                console.log("Token refreshed. refreshedToken=",refreshedToken);
+                // Indicate that the new Instance ID token has not yet been sent to the app server.
+                setTokenSentToServer(false, refreshedToken);
+                // Send Instance ID token to app server.
+                sendTokenToServer(refreshedToken);
+            }).catch(function(err) {
+                console.log("Unable to retrieve refreshed token ", err);
+                showToken("Unable to retrieve refreshed token ", err);
+            });
+        });
+
+        // //웹앱이 켜져 있는 경우 foreground 이고 on message 이벤트에서 처리되고
+        // //백그라운드 이거나 웹이 죽어 있는 경우는 서비스워커가 onBackgroundMessage 로 처리하여 적절한 방법으로 처리하고 나중에 보여준다.
+        messaging.onMessage((payload)=>{
+            console.log("[adminMain.html script] Received 포그라운드 message 수신", payload.notification);
+            //notification이 지원되는 브라우저인지 먼저 Check한다.
+            if (!("Notification" in window))
+            {
+                console.log("This browser does not support notifications.");
+            }
+            else
+            {
+                if(payload!=undefined&&payload.notification!=undefined)
+                {
+                    const data=payload.notification;
+                    const {title, body}=data;
+
+                    console.log("@@@ title:", title, " / body:", body);
+
+                    if(!("Notification" in window))
+                    {
+                        // Check if the browser supports notifications
+                        console.log("This browser does not support desktop notification");
+                    }
+                    else if(Notification.permission === "granted")
+                    {
+                        // Notofication 생성
+                        notification = new Notification(title, {body, icon: "/favicon72x72.png"});
+
+                        notification.onclick = (event) => {
+                            event.preventDefault(); // prevent the browser from focusing the Notification's tab
+                            // 희상님 나중에는 사자고 계시판이라든지 원하는 Link를 보내서 클릭으로 열든지 하시면 되겠습니다.
+                            window.open('https://www.sajago.shop/main/login.html', '_blank');
+                        };
+                    }
+                    else if (Notification.permission !== "denied")
+                    {
+                        // We need to ask the user for permission
+                        Notification.requestPermission().then((permission) => {
+                            // If the user accepts, let's create a notification
+                            if (permission === "granted") {
+                                notification = new Notification(title, {body, icon: "/favicon72x72.png"});
+                                notification.onclick = (event) => {
+                                    event.preventDefault(); // prevent the browser from focusing the Notification's tab
+                                    // 희상님 나중에는 사자고 계시판이라든지 원하는 Link를 보내서 클릭으로 열든지 하시면 되겠습니다.
+                                    window.open('https://www.sajago.shop/main/login.html', '_blank');
+                                }
+                            }
+                        });
+                    };
+                }
+                else
+                {
+                    console.log("onMessage() payload notification is undefined!");
+                };
+            };
+        });
+
+        $(document).ready(async function()
+        {
+            //서비스워커를 지원하는 브라우저에서만 동작해야 한다.(사파리는 안됨)
+            //20221022 확인결과 firebase는 app 초기화만 해도 자동으로 서비스워커를 등록하므로 아래 주석 처리된 문장은 필요히지 않다.
+            //다만 firebase를 사용하지 않는 서비스워커를 구현해야 할 경우 참고하라고 여기에 이력을 남긴다. 당장은 주석 부분은 불필요함
+            // if("serviceWorker" in navigator){
+            //     //이미 등록되어 있다면 건너뛴다.
+            //     var registration = await navigator.serviceWorker.getRegistration();
+            //     if(!registration){
+            //         console.log("서비스워커가 없으므로 등록을 시도한다.");
+            //         navigator.serviceWorker.register('/firebase-messaging-sw.js').then(registration => {
+            //             console.log("서비스워커가 없으므로 등록 성공");
+            //             firebase.messaging().useServiceWorker(registration);
+            //         });
+            //     }
+            //     else
+            //     {
+            //         console.log("이미 서비스워커가 있으므로 다시 등록하지 않는다.");
+            //     };
+            // };
+            //logout sample
+            $("#logout").click(function(){
+                var logoutData={};
+                logoutData.client=JSON.stringify(getNaviInfo());
+                logoutData.myrole=getCookie("myrole");
+                $.ajax({
+                    url: "/uLogout", type: "POST", async: false, dataType: "JSON", data: logoutData, crossOrigin: true, cache: false, traditional: true, contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                    success: function(response){
+                        if(response.errorcode=="PFERR_CONF_0000")
+                        {
+                            alert(response.errormessage);
+                            //location.href="http://localhost:3786/main/login.html";
+                            location.href="/main/login.html";
+                        }
+                        else
+                        {
+                            alert("LOGOUT ERROR!");
+                        };
+                    },
+                    error: function(qXHR) {alert("[err messager]:" + qXHR.statusText);}
+                });
+            });
+        });
+    </script>
+</body>
+</html>

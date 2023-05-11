@@ -1,0 +1,28 @@
+[
+    {
+        "pg":"KICC",
+        "startDate":"2022.9.13",
+        "companyUser":"sajago",
+        "syspos":"real",
+        "mallid":"05564724",
+        "salt":"easypay!SJeGntnM",
+        "URL":"https://pgapi.easypay.co.kr/api/etc/send-alert-msg",
+        "usage":"SMS",
+        "remarks":"git ignore로 설정해야 함",
+        "remarker":"안상현",
+        "comments":"2022.9.13 KICC 휴대폰인증 자체 구현"
+    },
+    {
+        "pg":"KICC",
+        "startDate":"2022.9.13",
+        "companyUser":"sajago",
+        "syspos":"test",
+        "mallid":"T0011350",
+        "salt":"easypay!KICCTEST",
+        "URL":"https://testpgapi.easypay.co.kr/api/etc/send-alert-msg",
+        "usage":"SMS",
+        "remarks":"git ignore로 설정해야 함",
+        "remarker":"안상현",
+        "comments":"2022.9.13 KICC 휴대폰인증 자체 구현"
+    }
+]

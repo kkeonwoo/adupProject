@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+
+<!-- 1990년 이후 이 페이지의 캐시를 만료시킴. -->
+<meta http-equiv="Expires" content="Mon, 06 Jan 1990 00:00:01 GMT" />
+<!-- 캐시를 바로 만료시킴. -->
+<meta http-equiv="Expires" content="-1" />
+<!-- 페이지 로드시마다 페이지를 캐싱하지 않음. (HTTP 1.0) -->
+<meta http-equiv="Pragma" content="no-cache" />
+<!-- 페이지 로드시마다 페이지를 캐싱하지 않음. (HTTP 1.1) -->
+<meta http-equiv="Cache-Control" content="no-cache" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1"/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+<meta http-equiv="imagetoolbar" context="no">
+<meta name="_csrf" th:content="${_csrf.token}"/>
+<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+<!-- ----------------------------------------------------------------------- -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="touch-icon-iphone.png">
+<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+<link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+<link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+<!-- Android part -->
+<link rel="manifest" type="text/json"  href="/manifest.json">
+<!-- ----------------------------------------------------------------------- -->
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script> -->
+
+<!-- <script type="text/javascript" src="/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/jquery.ajax-cross-origin.min.js"></script> -->
+<script type="text/javascript" src="/eum/resources/plugin/jquery.min.js"></script>
+
+<!-- <script type="text/javascript" src="/crypto-js.js"></script> -->
+<script defer type="text/javascript" src="/eum/js/portal/citSalesPos.js"></script>
+<script defer type="text/javascript" src="/eum/js/portal/cOrderGoodsPos.js"></script>
+<!-- <script defer type="text/javascript" src="/eum/js/common/cSearch.js"></script> -->
+<script defer type="text/javascript" src="/eum/js/common/cPagingModule.js"></script>
+<script defer type="text/javascript" src="/eum/js/portal/cPortalCommon.js"></script>
+
+<!-- <script>history.replaceState({}, null, location.pathname);</script> -->
+<link rel="stylesheet" href="/eum/resources/css/style_pos.css">
+<link rel="stylesheet" href="/resources/css/web.css?20180709_01">
+<link rel="stylesheet" href="/resources/css/jquery-ui.css?20180709_01">
+<!-- <style type="text/css">.ui-datepicker-year { margin-right: -5px; }</style> -->
+<link rel="stylesheet" href="/resources/css/swiper.css?20180709_01">
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<title>더이음</title>
+</head>
+
+<body>
+	<div id="itSalesPos">
+		<img src="/eum/resources/images/main_header_logo.png" class="logo" alt="logo" style="cursor: pointer;" onclick="location.reload()">
+		<div class="search_bar">
+			<img src="/eum/resources/images/test/search_32.png" class="search" alt="검색">
+			<input type="text" class="search_input" id="search_input" placeholder="상품 검색" style="ime-mode:active;">
+			<ul class="ul_result" id="ul_result">
+			</ul>
+		</div>
+
+		<div class="menu_container">
+		</div>
+
+		<div id="navbar">
+			<input type="hidden" id="selected_menu_val" val="">
+			<ul id="id_navbar_menu" class="class_navbar_menu">
+			</ul>
+		</div>
+		<div id="selectedMenu_child" style="display: none;">				
+		</div>
+
+		<div id="viewAll" style="cursor: pointer;">
+			<div id="Text_bt">
+				<span>전체보기</span>
+			</div>
+			<img src="/eum/resources/images/test/menubar_20.png" alt="전체보기">
+		</div>
+
+		<div id="sales_item_container" class="sales_class_item_container">
+		</div>
+		<div id="aside">
+			<div class="cart_head">장바구니
+			</div>
+			<div class="purchase_card_container">
+			</div>
+			<div class="cart_order">
+				<div class="order_btn">주문</div>
+				<div class="cart_item_price">
+					<span class="purchase_total_price"></span>
+					<span class="purchase_total_price_won">원</span>
+				</div>
+			</div>
+		</div>
+		<div class="paging_arrayList" id="pagingDiv">
+		</div>
+		<div class="user_point" id="user_point">
+			<a href="/eum/html/portal/myPoint.html"><span class="comma">0</span> 포인트</a>
+		</div>
+		<div id="userInfo">
+		</div>
+	</div>
+	<script>
+		function clickTab(No){
+			if (No == "1"){
+				$("#tab01").addClass("on");
+				$("#tab02").removeClass("on");
+				$("#tabArea01").show();
+				$("#tabArea02").hide();
+			} else {
+				$("#tab01").removeClass("on");
+				$("#tab02").addClass("on");
+				$("#tabArea01").hide();
+				$("#tabArea02").show();
+			};
+		};
+		$(document).ready(function(){
+			drawHeaderMenu(); ////
+
+			drawMenuNavBar();
+
+			getSitePopup("BUY");
+
+			$(".cart_order").click(function(){
+				drawCartItem('btn');
+			});
+			$(".search").click(function(){
+				$("#viewAll").click();
+				$(".ul_result").hide();
+			});
+   			drawCartItem(); ////
+
+			var inputBox=document.getElementById("search_input");
+			if(inputBox.addEventListener){
+				inputBox.addEventListener("keyup", function(e){
+					if(e.keyCode==13){
+						$(".search").click();
+					};
+				});
+			}
+			else{
+				inputBox.attachEvent("onkeyup", function(e){
+					if(e.keyCode==13){
+						$(".search").click();
+					};
+				});
+			};
+		});
+	</script>
+<div class="layerPopArea" style="height: 2133px; display: none; top: 0px;">
+	<div class="layerPop" align="center" style="display: block;">
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+
+<!-- 1990년 이후 이 페이지의 캐시를 만료시킴. -->
+<meta http-equiv="Expires" content="Mon, 06 Jan 1990 00:00:01 GMT" />
+<!-- 캐시를 바로 만료시킴. -->
+<meta http-equiv="Expires" content="-1" />
+<!-- 페이지 로드시마다 페이지를 캐싱하지 않음. (HTTP 1.0) -->
+<meta http-equiv="Pragma" content="no-cache" />
+<!-- 페이지 로드시마다 페이지를 캐싱하지 않음. (HTTP 1.1) -->
+<meta http-equiv="Cache-Control" content="no-cache" />
+
+<meta name="viewport" content="width=1004, user-scalable=yes, maximum-scale=1"/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+<!--이미지 도구모음 금지-->
+<meta http-equiv="imagetoolbar" context="no">
+<!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+<meta name="_csrf" th:content="${_csrf.token}"/>
+<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+<!-- iOS Part -->
+<!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- 상태 바의 스타일을 지정 -->
+<!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+<!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+<!-- <meta name="apple-mobile-web-app-title" content="Timer">-->
+<!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+<!-- <link rel="apple-touch-icon" href="icons/icon-152x152.png">-->
+<link rel="apple-touch-icon" href="touch-icon-iphone.png">
+<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+<link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+<link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+<!-- Android part -->
+<!-- 웹 앱 매니페스트를 읽어 들이기 -->
+<link rel="manifest" type="text/json"  href="/manifest.json">
+<!-- <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css"> -->
+<!-- <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" /> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.js"></script>
+
+<script type="text/javascript" src="/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/jquery.ajax-cross-origin.min.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<!-- <script type="text/javascript" src="/crypto-js.js"></script> -->
+<!--[if lt IE 9]>
+	<script>location.href = '/eum/html/portal/itSalesPos.html';</script>
+<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> 
+	<script defer type="text/javascript" src="/eum/js/portal/citSales2.js"></script>
+	<script defer type="text/javascript" src="/eum/js/portal/cOrderGoods2.js"></script>
+<!--<![endif]-->
+<!-- <script defer type="text/javascript" src="/eum/js/portal/citSales.js"></script>
+<script defer type="text/javascript" src="/eum/js/portal/cOrderGoods.js"></script> -->
+<script defer type="text/javascript" src="/eum/js/common/cSearch.js"></script>
+<script defer type="text/javascript" src="/eum/js/common/cPagingModule.js"></script>
+<script defer type="text/javascript" src="/eum/js/portal/cPortalCommon.js"></script>
+
+<!-- <script>history.replaceState({}, null, location.pathname);</script> -->
+<!-- css 연동 -->
+<link rel="stylesheet" href="/eum/resources/css/style.css">
+<link rel="stylesheet" href="/resources/css/web.css?20180709_01">
+<link rel="stylesheet" href="/resources/css/jquery-ui.css?20180709_01">
+<style type="text/css">.ui-datepicker-year { margin-right: -5px; }</style>
+<link rel="stylesheet" href="/eum/resources/css/swiper.css">
+<title>더이음몰</title>
+<meta name="description" content="회원전용 사업자몰, B2B, 도소매, 슈퍼마켓, 식품, 음료, 과자, 스낵, 라면, 커피, 통조림, 생활용품, 잡화, 냉장, 냉동, 아이스크림.">
+<meta property="og:type" content="website"> 
+<meta property="og:title" content="더 이음몰">
+<meta property="og:description" content="회원전용 사업자몰, B2B, 도소매, 슈퍼마켓, 식품, 음료, 과자, 스낵, 라면, 커피, 통조림, 생활용품, 잡화, 냉장, 냉동, 아이스크림.">
+<meta property="og:image" content="http://www.sajago.co.kr/eum/resources/images/logo_img_eum_orange.png">
+<meta property="og:url" content="http://www.sajago.co.kr/eum/html/portal/itSales.html">
+<link rel="canonical" href="http://www.sajago.co.kr/eum/html/portal/itSales.html">
+</head>
+
+<body>
+	<div id="content" style="display:flex; justify-content:center; overflow :auto; height: -webkit-fill-available;">
+		<div id="itSalesPos">
+			<!-- 로고 -->
+			<img src="/eum/resources/images/main_header_logo.png" class="logo" alt="logo" style="cursor: pointer;" onclick="location.reload()">
+			<!-- 상단 검색 -->
+			<div class="search_bar">
+					<!-- 돋보기 -->
+				<img src="/eum/resources/images/test/search_32.png" class="search" alt="검색">
+				<input type="text" class="search_input" id="search_input" placeholder="상품 검색" style="ime-mode:active;">
+				<input type="checkbox" name="search_YN" id="search_YN" value="Y" checked="checked"> <label for="search_YN" class="font14">초성검색 사용</label>
+				<ul class="ul_result" id="ul_result">
+				</ul>
+			</div>
+
+			<!-- 우측 상단 태그 버튼 -->
+			<div class="menu_container">
+			</div>
+
+			<!-- 중앙 네브바 -->
+			<div id="navbar">
+				<input type="hidden" id="selected_menu_val" val="">
+				<ul id="id_navbar_menu" class="class_navbar_menu">
+				</ul>
+			</div>
+
+			<!-- 햄버거 메뉴바 -->
+			<div id="viewAll" style="cursor: pointer;">
+				<div id="Text_bt">
+					<span>전체보기</span>
+				</div>
+				<img src="/eum/resources/images/test/menubar_20.png" alt="전체보기">
+			</div>
+			<!-- 배너시작 -->
+			<input type="hidden" id="selected_banner_idx" val="">
+			<div class="swiper-container banner-img" style="display:block">
+				<div class="swiper-wrapper" style="height:315px;">
+				</div>
+				<!-- Add Arrows -->
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			</div>
+			<ul id="banner-swiper-ul" style="display:block; cursor: pointer;">
+			</ul>
+			<!-- 끝 -->
+			<!-- 아이템 컨테이너 -->
+			<div>
+			<div id="sales_item_container" class="sales_class_item_container">
+			</div>
+			<!-- 카트 -->
+			<div id="aside">
+				<div class="cart_head">장바구니
+				</div>
+				<div class="purchase_card_container">
+				</div>
+				<div class="cart_order">
+					<div class="order_btn">주문</div>
+					<div class="cart_item_price">
+						<span class="purchase_total_price"></span>
+						<span class="purchase_total_price_won">원</span>
+					</div>
+				</div>
+			</div>
+			<!-- 하단 페이징 -->
+			<div class="paging_arrayList" id="pagingDiv">
+			</div>
+			<div class="user_point" id="user_point">
+				<a href="/eum/html/portal/myPoint.html"><span class="comma">0</span> 포인트</a>
+			</div>
+			<div id="userInfo">
+			</div>
+		</div>
+
+			<!-- site popup 20220721 end -->
+			<style type="text/css">
+				.sitePopup { position:absolute; background-color:#ffffff; border:1px solid #333333; display:none; }
+				.sitePopup .popupLayout { position:relative; }
+				.sitePopup .popupLayout .close { position:absolute; right:15px; top:6px; font-size:12px; font-weight:bold; color:#ffffff; cursor:pointer; }
+				.sitePopup .popupLayout .title { padding:7px; font-size:14px; font-weight:bold; background-color:#333333; color:#ffffff; }
+			</style>
+			<div id="sitePopupBox">
+			</div>
+
+		</div>
+	</div>
+	<script>
+		function clickTab(No){
+			if (No == "1"){
+				$("#tab01").addClass("on");
+				$("#tab02").removeClass("on");
+				$("#tabArea01").show();
+				$("#tabArea02").hide();
+			} else {
+				$("#tab01").removeClass("on");
+				$("#tab02").addClass("on");
+				$("#tabArea01").hide();
+				$("#tabArea02").show();
+			}
+		};
+		$(document).ready(function(){
+			if(isMobile()) location.href="/eum/html/portal/itSalesMobile.html"; 
+			//계정정보
+			drawHeaderMenu();
+			//상품명 검색을 위한 Data를 준비한다.
+			drawbannerMenu();
+
+			getGoodsInfoForSearch();
+
+			drawMenuNavBar();
+			//초기에 조회되는 기능
+			//eventSearchData('first', 6, 1, 1);
+
+			//20220721 ash sitepopup add - start
+			getSitePopup("BUY");
+			//20220721 ash sitepopup add - end
+
+			$(".cart_order").click(function(){
+				drawCartItem('btn');
+			});
+			$(".search").click(function(){
+				$("#viewAll").click();
+				$(".ul_result").hide();
+				//eventSearchData("menu", 6, 1, $("#selected_menu_val").val(), $("#search_input").val());
+			});
+
+			//장바구니 스크롤 따라가게끔
+			var currentPosition = parseInt($("#aside").css("top"));
+            $(window).scroll(function() {
+                var position = $(window).scrollTop(); 
+                if($(".swiper-container").css("display") == "block"){
+                    if(position > 490) $("#aside").stop().animate({"top":position+10+"px"},500);
+                    else $("#aside").stop().animate({"top":490+"px"},500);
+                }
+                else{
+                    if(position > 130) $("#aside").stop().animate({"top":position+10+"px"},500);
+                    else $("#aside").stop().animate({"top":130+"px"},500);
+                };
+               //else $("#aside").stop().animate({"top":position+currentPosition+"px"},1000);
+            });
+			// $("#search_input").keyup(function(e){
+			// });
+
+			$(".ul_result").hide();
+
+			// if (banner_count > 1) {
+				
+			// 	var swiper = new Swiper('.swiper-container',{
+			// 		autoplay: {
+			// 		    delay: 3000,
+			// 	        disableOnInteraction: false,
+			// 		},
+			// 		on: {
+			// 			slideChangeTransitionStart: function(){
+			// 				//alert(this.activeIndex); // this.activeIndex 에 현재 슬라이드 번호가 들어있습니다
+			// 				$("#banner-swiper-ul li").css({"background-color":"", "color":"", "font-weight":"" });
+			// 				$("#banner-swiper-ul li:eq("+(this.activeIndex-1)%banner_count+")").css({"background-color":"#ff3333", "color":"#fff" , "font-weight":"bold"});
+			// 			},
+			// 		},
+			//         loop:true,
+			// 	    speed: 400,
+			// 	    spaceBetween: 0,
+			// 	    paginationType: 'fraction',
+			// 	    navigation: {
+			// 	        nextEl: '.swiper-button-next',
+			// 	        prevEl: '.swiper-button-prev',
+			// 	      },
+			// 	});
+				
+			// }
+
+			var inputBox=document.getElementById("search_input");
+				//목록중 하나를 선택하면 input에 넣어주고 자신은 초기화
+			$(".ul_result").on("click", "li", function(e){
+				e.preventDefault();
+				inputBox.value=$(this).text();
+				$(".ul_result").hide();
+				document.getElementById("ul_result").innerHTML="";
+				inputBox.focus();
+			});
+
+			//검색창에 글자를 입력할때마다 초성검색 수행
+			var currentFocus=-1;
+			inputBox.addEventListener("keyup", function(e){
+				if($("#search_YN").prop("checked")){
+					var rtnstr=XSSCheck(e.srcElement.value,0); //보안필터 적용
+					rtnstr=rtnstr.replace(/function/gim,"");rtnstr=rtnstr.replace(/WHERE/gim,"");
+					rtnstr=rtnstr.replace(/return/gim,"");rtnstr=rtnstr.replace(/where/gim,"");
+					rtnstr=rtnstr.replace(/SELECT/gim,"");rtnstr=rtnstr.replace(/select/gim,"");
+					rtnstr=rtnstr.replace(/DELETE/gim,"");rtnstr=rtnstr.replace(/delete/gim,"");
+					rtnstr=rtnstr.replace(/INSERT/gim,"");rtnstr=rtnstr.replace(/insert/gim,"");
+					rtnstr=rtnstr.replace(/UPDATE/gim,"");rtnstr=rtnstr.replace(/update/gim,"");
+
+					rtnstr=regExp(rtnstr);//특수문자 제거
+					rtnstr=rtnstr.replace(/script/gim,"");
+					var searchArr=rtnstr;
+					var res=SEARCH_KEYWORD(searchArr, compars);
+					if(typeof(res)!="undefined")
+					{
+						//처음 아래 화살표 누르면 목록으로 focus를 넘긴다.
+						var children=$(".ul_result").children();
+						if(e.keyCode==40 || e.keyCode==38)
+						{
+							//방향키가 눌러지면 focus를 변동한다.
+							if($(".ul_result li").length>0)
+							{
+								//e.preventDefault();
+								var children=$(".ul_result").children(); //하위 li 속성을 모두 가져오기
+								if(currentFocus==0&&e.keyCode==38){
+									inputBox.focus(); currentFocus=-1;
+								}
+								else{
+									currentFocus += e.keyCode === 38 ? -1 : 1;
+									currentFocus < 0 && (currentFocus = children.length - 1);
+									currentFocus >= children.length && (currentFocus = 0);
+								};
+								children.removeClass("--focus");
+								if(currentFocus > -1){
+									children.eq(currentFocus).addClass("--focus"); 
+								}
+							};
+						}
+						else if(e.keyCode==13){
+							if($(".--focus").length == 1){
+								$("#search_input").val($(".--focus").text());
+								document.getElementById("ul_result").innerHTML="";
+							}
+							$(".search").click();
+						}
+						else
+						{
+							//그외에는 계속 검색결과를 보여준다.
+							//li 맥수는 255개이다. 그 이상 들어가지 않음
+							if(res.length>0&&res.length<255)
+							{
+								document.getElementById("ul_result").innerHTML="";
+								$(".ul_result").show();
+								res.forEach(function(el, ix){
+									document.getElementById("ul_result").innerHTML += "<li class='noselect'>"+el+"</li>";
+								});
+							}
+							else
+							{
+								//보여줄게 없으면 hidden
+								$(".ul_result").hide();
+								console.log("검색결과 건수가 0 이거나 255건이 넘어서 표현불가능합니다. res.length="+res.length);
+							};
+						};
+					}
+					else
+					{
+						$(".ul_result").hide();
+						document.getElementById("ul_result").innerHTML="";
+					};
+				}
+				else{
+					$(".ul_result").hide();
+					document.getElementById("ul_result").innerHTML="";
+				};
+			});
+			drawCartItem();
+		});
+	</script>
+<div class="layerPopArea" style="height: 2133px; display: none; top: 0px;">
+	<div class="layerPop" align="center" style="display: block;">
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- 푸시테스트 -->
+    <!-- <meta http-equiv="Expires" content="-1" /> -->
+    <!-- 페이지 로드시마다 페이지를 캐싱하지 않음. (HTTP 1.0) -->
+    <meta http-equiv="Pragma" content="no-cache" />
+    <!-- 페이지 로드시마다 페이지를 캐싱하지 않음. (HTTP 1.1) -->
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <!-- <link rel="stylesheet" href="/main/resources/css/web.css"> -->
+    <link rel="stylesheet" type="text/css" href="/main/resources/css/admin/commonpf2.css"/>
+    <link rel="stylesheet" type="text/css" href="/main/resources/css/admin/dropDownList.css"/>
+    <link rel="shortcut icon" href="/main/resources/images/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=yes,maximum-scale=1,width=400" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"/> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+    <!--이미지 도구모음 금지-->
+    <meta http-equiv="imagetoolbar" context="no"></head>
+    <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+    <script type="text/javascript" src="/common/resources/jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/common/resources/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/node_modules/crypto-js/crypto-js.js"></script>
+    <script defer type="text/javascript" src="/common/js/commonUI.js"></script>
+    <link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <script>history.replaceState({}, null, location.pathname);</script>
+    <title>the SAJAGO Shop login</title>
+	<script type="text/javascript" src="/main/js/common/cFuncs.js"></script>
+</head>
+<body>
+    <div id="form_container">
+        <!-- <img src="/main/resources/images/logo_img_eum_orange.png" id="logo_img_eum" alt=""> -->
+        <img src="/main/resources/images/sajago_logo.png" id="logo_img_eum" alt="">
+        <!-- <div id="login_titleBox"> -->
+            <!-- <img src="/main/resources/images/logo_365.png"  id="logo_img_365" alt=""> -->
+            <!-- <img src="/main/resources/images/login_text_bold.png"  id="logo_text" alt=""> -->
+        <!-- </div> -->
+        <form method="post">
+            <div id="login_inputBox">
+                <input type="text" class="login_input" id="username"  name="username" value="" placeholder="사업자번호 또는 email id" required="required">
+                <input type="password" autocomplete="new-password" class="login_input password" id="pass"  name="password" value="" placeholder="비밀번호" required="required">
+                <div class="eyes">
+                    <i class="fas fa-eye"></i>
+                </div>
+                
+                <div class="select-wrapper">
+                    <div class="select">
+                        <div class="select__trigger"><span id="selected_myrole" data-value="init">Select Role (역할을 선택하세요)</span>
+                            <div class="arrow"></div>
+                        </div>
+                        <div id="rolelist" class="custom-options">
+                            <span class="custom-option" data-value="imauser">I'm a User (점주, 구매자, 비나들가게)</span>
+                            <span class="custom-option" data-value="imapos">I'm a POS (나들가게 POS전용)</span>
+                            <span class="custom-option" data-value="imaseller">I'm a Seller (공급자, 판매자)</span>
+                            <span class="custom-option" data-value="iamadmin">I'm a Admin</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" id="loginButton" value="로그인">로그인</button>
+            </div>
+            
+            <div id="login_bottom">
+                <div id="login_auto">
+                    <input type="checkbox" id="login_auto_check" class="checkBox"/>자동로그인
+                </div>
+                <div id="add_account">
+                    <a href="/main/html/portal/itAddB2BAccount.html">B2B 회원가입 (User Only)</a>
+                </div>
+            </div>
+        </form>
+        <div id="footer" style="margin-top:15px">
+            <img style="margin: 0px;" src="/main/resources/images/login_footer_370x149.png">
+        </div>
+        <div class="layerPopArea" style="display: none; top: 0px;">
+        </div>
+    </div>
+    <style>
+        /* 레이어 팝업 */
+        .layerPopArea { position:absolute; top:0px; left:0px; width:100%; height:100%; display:none; background:url('/main/resources/images/block_bg.png'); }
+        .layerPop { position:relative; margin:70px auto; display:none;text-align: left; border:2px}
+    </style>
+    <script>
+        $(document).ready(function()
+        {
+            document.querySelector(".select-wrapper").addEventListener("click", function() {
+                this.querySelector(".select").classList.toggle("open");
+            });
+
+            $(".custom-option").click(function(){   
+                //console.log(this.innerText);
+                //console.log($(this).data("value"));
+                setCookie("myrole",$(this).data("value"));  //나의 역할을 쿠키에 저장
+                //선택된 역할을 화면에 표시
+                $("#selected_myrole").data("value",$(this).data("value"));
+                $("#selected_myrole").text(this.innerText);
+            });
+
+            //쿠키를 읽어서 쿠키가 존재하면 나의 저장된 역할로 초기값을 Set한다.
+            var myrole=getCookie("myrole");
+            if(myrole!=undefined)
+            {
+                if(myrole=="imauser")
+                {
+                    $("#selected_myrole").data("value",myrole);
+                    $("#selected_myrole").text("I'm a User (점주, 구매자, 비나들가게)");
+                }
+                else if(myrole=="imapos")
+                {
+                    $("#selected_myrole").data("value",myrole);
+                    $("#selected_myrole").text("I'm a POS (나들가게 POS전용)");
+                }
+                else if(myrole=="imaseller")
+                {
+                    $("#selected_myrole").data("value",myrole);
+                    $("#selected_myrole").text("I'm a Seller (공급자, 판매자)");
+                }
+                else if(myrole=="iamadmin")
+                {
+                    $("#selected_myrole").data("value",myrole);
+                    $("#selected_myrole").text("I'm a Admin");
+                };
+            };
+
+            // 눈표시 클릭 시 패스워드 보이기
+            $('.eyes').on('click',function(){
+                $('.input.password').toggleClass('active');
+
+                if( $('.input.password').hasClass('active') == true ){
+                    $(this).find('.fa-eye').attr('class',"fas fa-eye-slash").parents('.input').find('#password').attr('type',"text");
+                                // i 클래스                // 텍스트 보이기 i 클래스
+                }
+                else{
+                    $(this).find('.fa-eye-slash').attr('class',"fas fa-eye").parents('.input').find('#password').attr('type','password');
+                }
+            });
+
+            $("#footer img").click(function(){
+                drawImgClickPop();
+            });
+
+            //자동로그인이 켜져 있으면 login을 불러냈을때 쿠키를 읽어서 서버로 보낸다.
+            if(getCookie("autoLoginYN")=="Y"&&getCookie("myrole")!=null&&getCookie("myrole")!="")
+            {
+                //자동로그인이 기록되어 있으면 set해서 보여준다.
+                $("#login_auto_check").attr("checked", true);
+
+                //해당 Role로 set해 준다.   
+                $("#selected_myrole").data("value",getCookie("myrole"));
+                if(getCookie("myrole")=="imauser")
+                {
+                    $("#selected_myrole").text("I'm a User (점주, 구매자, 비나들가게)");
+                }
+                else if(getCookie("myrole")=="imapos")
+                {
+                    $("#selected_myrole").text("I'm a POS (나들가게 POS전용)");
+                }
+                else if(getCookie("myrole")=="imaseller")
+                {
+                    $("#selected_myrole").text("I'm a Seller (공급자, 판매자)");
+                }
+                else if(getCookie("myrole")=="iamadmin")
+                {
+                    $("#selected_myrole").text("I'm a Admin");
+                };
+
+                //자동 로그인이므로 쿠키 값을 가지고 로그인처리를 시도한다. user id, pass는 없다. 단 refresh token은 있어야 한다.
+                if(getCookie("refreshToken")!=undefined&&getCookie("refreshToken")!=null&&getCookie("refreshToken")!="")
+                {
+                    login_proc("로그인","자동");
+                }
+                else
+                {
+                    //refresh token이 없다면 수동 로그인으로 바꾼다.
+                    $("#login_auto_check").attr("checked", false);
+                };
+            }
+            else
+            {
+                $("#login_auto_check").attr("checked", false);
+            };
+
+            function login_proc(clickBtnValue,ploginOption)
+            {
+                if(clickBtnValue=="회원가입")
+                {
+                    //location.href="/main/itAddAccount.html";
+                }
+                else if(clickBtnValue=="로그인")
+                {   
+                    //var rtn1=CryptoJS.MD5(pss).toString();
+                    document.getElementById("loginButton").setAttribute("disabled","disabled");  //버튼 비활성화
+                    var loginData={};
+                    var username=$("#username").val();
+                    var pss=$("#pass").val();
+                    var passw="";
+                    if(ploginOption=="수동")
+                    {
+                        if(username.length<1||pss.length<1){alert("id 또는 비밀번호를 입력하여 주세요");return;};
+                        loginData.user=username;
+                        passw=CryptoJS.SHA256(pss).toString();
+                        loginData.passw=passw;
+                    }
+                    else
+                    {
+                        loginData.user="";
+                        loginData.passw="";
+                    };
+
+                    loginData.client=JSON.stringify(getNaviInfo());
+                    var myrole=getCookie("myrole");
+                    //P: Pos가 아니면 빈문자로 입력
+                    if(myrole!=undefined&&myrole!=null&&myrole!="")
+                    {
+                        loginData.myrole=myrole;
+
+                        $fn.ajaxJson('/uLogin',loginData,'POST', function(res){
+                            console.log(res);
+                            if(res.errorcode=="PFERR_CONF_0000"||res.errorcode=="PFERR_CONF_0007")
+                            {
+                                //해상도를 cookie에 set한다
+                                setCookie("resX", screen.width);
+                                //location.href=response.nextpage; //다음 Page로 이동
+                                location.href = '/main/html/admin/totalOrderListAdm.html';
+                            }
+                            else if(res.errorcode=="PFERR_CONF_0054")
+                            {
+                                //SKIP으로 처리되므로 아무것도 하지 않는다.
+                            }
+                            else
+                            {
+                                alert("로그인 정보를 확인 바랍니다.");
+                                document.getElementById("loginButton").removeAttribute("disabled");
+                            };
+                        }, function(req, status, err){
+                            $fn.errorlog(req, status, err);
+                        });
+                        /* 
+                        $.ajax({
+                            url: "/uLogin", type: "POST", async: false, dataType: "JSON", data: loginData, crossOrigin: true, cache: false, traditional: true, contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                            success: function(response){
+                                if(response.errorcode=="PFERR_CONF_0000"||response.errorcode=="PFERR_CONF_0007")
+                                {
+                                    //해상도를 cookie에 set한다
+                                    setCookie("resX", screen.width);
+                                    //location.href=response.nextpage; //다음 Page로 이동
+                                    location.href = '/main/html/admin/totalOrderListAdm.html';
+                                }
+                                else if(response.errorcode=="PFERR_CONF_0054")
+                                {
+                                    //SKIP으로 처리되므로 아무것도 하지 않는다.
+                                }
+                                else
+                                {
+                                    alert("로그인 정보를 확인 바랍니다.");
+                                    document.getElementById("loginButton").removeAttribute("disabled");
+                                };
+                            },
+                            error: function(qXHR) {alert("[err messager]:" + qXHR.statusText);document.getElementById("loginButton").removeAttribute("disabled");},
+                            //complete:function(data,textStatus) {console.log("[complete] : " + textStatus);document.getElementById("loginButton").removeAttribute("disabled");}
+                        }); */
+                    }
+                    else
+                    {
+                        alert("반드시 역할을 선택해 주셔야 합니다.")
+                    };
+                };
+            };
+
+            //비밀번호 창에서 Enter치면 로그인 버튼으로 처리
+            $("#pass").keyup(function(e)
+            {
+                if(e.keyCode==13)
+                {
+                    login_proc("로그인","수동");
+                };
+            });
+
+            //마우스로 클릭하는 로그인
+            $("[type=button]").click(function()
+            {
+                login_proc($(this).val(),"수동");
+            });
+
+            //자동로그인 옵션을 쿠키에다가 저장한다.
+            $("#login_auto_check").click(function(e){
+                if($("#login_auto_check").is(":checked")==true)
+                {
+                    $("#login_auto_check").attr("checked", true);
+                    setCookie("autoLoginYN","Y",14);
+                    //alert("false --> true");
+                }
+                else
+                {
+                    $("#login_auto_check").attr("checked", false);
+                    //alert("true --> false");
+                    setCookie("autoLoginYN","N",14);
+                };
+            });
+        });
+
+        function removeLayerPop(){
+            $(".layerPopArea").css("display" ,"none");
+        };
+    </script>
+</body>
+</html>

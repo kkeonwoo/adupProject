@@ -1567,7 +1567,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="pb_px_30 dropdown">
-                                                            <div class="form_box d_flex note">
+                                                            <div class="form_box d_flex note align_items_start">
                                                                 <div class="inc_hypen flex_1">
                                                                     <label class="form_label" tabindex="0" for="userNumber">핸드폰 번호</label>
                                                                     <input type="number" class="form_control" id="userNumber">
@@ -1627,7 +1627,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="pb_px_30 dropdown">
-                                                            <div class="form_box d_flex">
+                                                            <div class="form_box d_flex align_items_start">
                                                                 <div class="flex_1">
                                                                     <label class="form_label" tabindex="0" for="companyAddressBtn">사업장 주소</label>
                                                                     <label for="companyAddress" class="blind">우편번호</label>
@@ -1684,14 +1684,14 @@
                                                                 </div>
                                                                 <div class="d_flex flex_column align_items_end">
                                                                     <div class="d_flex btn_wrap align_items_center gap_px_10">
-                                                                        <button type="button" class="form_inc_btn w_px_90" id="userAddress02_1Btn" onclick="BuyGo.address('userAddress02_1', 'userAddress02_2', 'userAddress02_3')">우편번호 검색</button>
+                                                                        <!-- <button type="button" class="form_inc_btn w_px_90" id="userAddress02_1Btn" onclick="BuyGo.address('userAddress02_1', 'userAddress02_2', 'userAddress02_3')">우편번호 검색</button> -->
                                                                         <button type="button" class="form_inc_btn btn_outline btn_danger btn_delete_address" onclick="BuyGo.openModal($('.modal_delete_address'))">삭제</button>
                                                                     </div>
-                                                                    <label class="form_check">
+                                                                    <!-- <label class="form_check">
                                                                         <input type="checkbox" class="form_check_input">
                                                                         <i class="ico"></i>
                                                                         <span class="txt">사업장 주소와 동일</span>
-                                                                    </label>
+                                                                    </label> -->
                                                                 </div>
                                                             </div>
                                                             <div class="form_box address">
@@ -1708,7 +1708,7 @@
                                                     <!-- e: 배송지 2부터 주소 삭제 버튼 추가 -->
                                                     <tr>
                                                         <td class="pb_px_30 dropdown">
-                                                            <div class="form_box d_flex">
+                                                            <div class="form_box d_flex align_items_start">
                                                                 <div class="flex_1">
                                                                     <label class="form_label" tabindex="0" for="bankNumber">가상계좌</label>
                                                                     <input type="text" class="form_control" id="bankNumber">
@@ -1737,7 +1737,7 @@
                                                                     <input type="text" class="form_control" style="flex:1;" id="bankNumber2">
                                                                 </div>
                                                                 <div class="d_flex flex_column align_items_end">
-                                                                    <button type="button" class="form_inc_btn w_px_70" onclick="BuyGo.openModal($('.modal_certification'))">본인인증</button>
+                                                                    <!-- <button type="button" class="form_inc_btn w_px_70" onclick="BuyGo.openModal($('.modal_certification'))">본인인증</button> -->
                                                                     <div class="form_select" data-index="0">
                                                                         <button type="button" class="form_btn">국민은행</button>
                                                                         <div class="option_area scrollbar entry_option_area">
@@ -1844,7 +1844,39 @@
                     </ul>
                 </div>
                 <div class="company_area">
-                    <div class="company_box">
+                    <div class="md_company_btn d_none d_md_block">
+                        <button type="button" class="company_info_btn">사업자 정보 / 고객센터</button>
+                        <dl class="company_info">
+                            <div class="d_md_flex">
+                                <dt>업체명</dt>
+                                <dd>주식회사 더이음</dd>
+                            </div>
+                            <div class="d_md_flex">
+                                <dt>대표자</dt>
+                                <dd>김미경</dd>
+                            </div>
+                            <div class="d_md_flex">
+                                <dt>사업자 등록 번호</dt>
+                                <dd>214-88-97306</dd>
+                            </div>
+                            <div class="d_md_flex">
+                                <dt>통신판매업신고</dt>
+                                <dd>2021-서울송파-2135호</dd>
+                            </div>
+                            <div class="d_md_flex">
+                                <dt>주소</dt>
+                                <dd>서울특별시 송파구 법원로 114 (문정동) <br>
+                                    엠스테이트 에이동 1306호</dd>
+                            </div>
+                            <div class="d_md_flex">
+                                <dt>고객센터</dt>
+                                <dd>1670-8485(유료전화) <br>
+                                    02-2283-1647(팩스) <br>
+                                    juno@sajago.co.kr</dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="company_box d_md_none">
                         <span class="company_name">주식회사 더이음</span>
                         <div class="company_content">
                             <p class="company_txt">
@@ -1856,19 +1888,19 @@
                             <a class="business_link" href="#" target="_blank">사업자정보 확인 ></a>
                         </div>
                     </div>
-                    <div class="cs_box">
+                    <div class="cs_box d_md_none">
                         <span class="cs_name">고객센터</span>
                         <div class="cs_content">
-                            <a href="#" class="txt">
-                                <b class="num">0000-0000</b> (유료)
+                            <a href="tel:1670-8485" class="txt">
+                                <b class="num">1670-8485</b> (유료)
                             </a>
                             <dl class="cs_dl">
                                 <dt class="cs_dt">Fax:</dt>
-                                <dd class="cs_dd">00-000-0000</dd>
+                                <dd class="cs_dd">02-2283-1647</dd>
                             </dl>
                             <dl class="cs_dl">
                                 <dt class="cs_dt">Mail:</dt>
-                                <dd class="cs_dd">juno@marketmoo.co.kr</dd>
+                                <dd class="cs_dd">juno@sajago.co.kr</dd>
                             </dl>
                         </div>
                     </div>
@@ -1957,8 +1989,8 @@
                             <h4>주소 입력</h4>
                             <div class="input_row">
                                 <label>
-                                    <input type="text" class="form_control" id="modalAddAddress" readonly>
-                                    <button type="button" class="btn_zipcode" onclick="BuyGo.address('modalAddAddress', 'modalAddAddress2', '', 'y')">우편번호 찾기</button>
+                                    <input type="text" class="form_control" id="modalAddAddress" placeholder="우편번호 찾기" readonly>
+                                    <button type="button" class="btn_zipcode" onclick="BuyGo.address('modalAddAddress', 'modalAddAddress2', '', 'y')"></button>
                                 </label>
                             </div>
                             <div class="input_row">

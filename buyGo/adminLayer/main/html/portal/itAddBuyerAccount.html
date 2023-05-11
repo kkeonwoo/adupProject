@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<title>더이음몰</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1004, user-scalable=yes, maximum-scale=1"/>
+<meta name="description" content="<나들가게 공식 상품공급사> 개인슈퍼(편의점), PC방 등 소상공을 위한 최저가 B2B온라인 도매몰 ※카테고리 : 식품, 라면, 과자, 음료, 잡화/세제, 냉장/냉동, 아이스크림(박스 또는 소분몰 구성)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="더이음몰">
+<meta property="og:description" content="<나들가게 공식 상품공급사> 개인슈퍼(편의점), PC방 등 소상공을 위한 최저가 B2B온라인 도매몰 ※카테고리 : 식품, 라면, 과자, 음료, 잡화/세제, 냉장/냉동, 아이스크림(박스 또는 소분몰 구성)">
+<!-- <meta property="og:image" content="http://www.theeummall.com/resources/images/web/logo01.gif"> -->
+<!-- <meta property="og:url" content="http://www.theeummall.com"> -->
+<!-- <link rel="shortcut icon" href="/resources/images/favicon.ico" type="image/x-icon"> -->
+<!-- <link rel="icon" href="/resources/images/favicon.ico" type="image/x-icon"> -->
+<!-- <link rel="canonical" href="http://www.theeummall.com"> -->
+<!-- <link rel="stylesheet" href="/resources/css/web.css?20180709_01"> -->
+<!-- <link rel="stylesheet" href="/resources/css/jquery-ui.css?20180709_01"> -->
+<style type="text/css">.ui-datepicker-year { margin-right: -5px; }</style>
+<!-- <link rel="stylesheet" href="/resources/css/swiper.css?20180709_01"> -->
+
+
+<!-- <script src="/resources/js/plugin/jquery.min.js?20180709_01"></script> -->
+<!-- <script src="/resources/js/plugin/jquery-ui.min.js?20180709_01"></script> -->
+<!-- <script src="/resources/js/plugin/jquery.form.min.js?20180709_01"></script> -->
+<!-- <script src="/resources/js/plugin/jquery.cookie.js?20180709_01"></script> -->
+<!-- <script src="/resources/js/plugin/ckeditor/ckeditor.js?20180709_01"></script><style>.cke{visibility:hidden;}</style> -->
+<!-- <script src="/resources/js/plugin/ckeditor/adapters/jquery.js?20180709_01"></script> -->
+<!-- <script src="/resources/js/plugin/microfiche.js?20180709_01"></script> -->
+<!-- <script src="/resources/js/plugin/Chart.min.js?20180709_01"></script> -->
+<!-- <script src="/resources/js/plugin/printThis.js?20180709_01"></script> -->
+<!-- <script src="/resources/js/common/common.js?20180709_01"></script> -->
+<!-- <script src="/resources/js/common/base.js?20180709_01"></script> -->
+<!-- <script src="/resources/js/common/zipcode.js?20180709_01"></script> -->
+<!-- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script><script charset="UTF-8" type="text/javascript" src="//t1.daumcdn.net/postcode/api/core/211103/1635999227231/211103.js"></script> -->
+<!-- <script type="text/javascript" src="/resources/js/web/signup/join.js"></script> -->
+
+	<!-------------------------------------- sajago에서 추가한 부분 ------------------------------------>
+	<link rel="stylesheet" href="/eum/resources/css/web.css">
+    <link rel="stylesheet" type="text/css" href="/commonpf2.css"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+    <!--이미지 도구모음 금지-->
+    <meta http-equiv="imagetoolbar" context="no"></head>
+    <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+    <script type="text/javascript" src="/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/jquery.ajax-cross-origin.min.js"></script>
+    <!-- <script type="text/javascript" src="/crypto-js.js"></script> -->
+	<!-- ie지원문제로 버전다운 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+	<script type="text/javascript" src="/eum/js/portal/cItAddBuyerAccount.js"></script>
+	<!-- cxcxcx 2022.5.31 아래 행은 나중에 common모듈이 옮겨지면 바꿔서 걸 것!!! -->
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script type="text/javascript" src="/eum/js/common/cCheckClientPattern.js"></script>
+	
+    <!-- <script>history.replaceState({}, null, location.pathname);</script> -->
+</head>
+<body>
+<div class="join">
+	<h1><img src="/eum/resources/images/sajago_new_eum_logo_94x58.png" alt="나들가게 이음몰"></h1>
+	<!-- container -->
+	<form name="frm" id="frm" action="/web/signup/join_process" method="post">
+	<input type="hidden" name="temp_zipcode" id="temp_zipcode">
+	<input type="hidden" name="temp_addr1" id="temp_addr1">
+	<input type="hidden" name="temp_addr2" id="temp_addr2">
+	<div class="container">
+		<!-- contents -->
+		<div class="contents">
+			<h2><span>회원가입</span></h2>
+			<h3>이용약관</h3>
+			<div class="agreement">
+				<div id="agreement_cont0" class="agreement_cont">
+					<!-- 이용약관자리 -->
+				</div>
+				<div class="agreement_check">
+					<span class="type_01">
+						<input type="radio" name="agree_type" value="Y" id="agree_type01" onclick="radio1_y()">
+						<label for="agree_type01" id="radio1_y" >동의</label>
+					</span>
+					<span class="type_02">
+						<input type="radio" name="agree_type" value="N" id="agree_type02" checked="checked" onclick="radio1_n()">
+						<label for="agree_type02" id="radio1_n" >비동의</label>
+					</span>
+				</div>
+			</div>
+			<h3>개인정보 수집 및 이용에 대한 안내</h3>
+			<div class="agreement">
+				<div id="agreement_cont1" class="agreement_cont2">
+					<!-- 개인정보 수집 및 이용에 대한 안내 -->
+				</div>
+				<div class="agreement_check">
+					<span class="type_03">
+						<input type="radio" name="agree_type_1" value="Y" id="agree_type03" onclick="radio2_y()">
+						<label for="agree_type03" id="radio2_y" >동의</label>
+					</span>
+					<span class="type_04">
+						<input type="radio" name="agree_type_1" value="N" id="agree_type04" checked="checked" onclick="radio2_n()">
+						<label for="agree_type04" id="radio2_n" >비동의</label>
+					</span>
+				</div>
+			</div>
+
+			<h3>점포 주문방법</h3>
+			<div class="agreement">
+				<div id="agreement_cont2" class="agreement_cont3">
+					<!-- 점포 주문방법 -->
+				</div>
+			</div>
+
+			<div class="after">
+				<h3 class="float_l">사업자정보 입력</h3>
+				<div class="float_r mb05">
+					<span class="important">*</span> 필수입력
+				</div>
+			</div>
+			<table class="table_row">
+				<colgroup><col width="140"><col width="*"></colgroup>
+				<tbody>
+				<tr>
+					<th><span>대표자 <span class="important">*</span></span></th>
+					<td><input type="text" id="biz_ceo" name="biz_ceo" class="w210" maxlength="100" value=""></td>
+				</tr>
+				<tr>
+					<th><span>개업연월일 <span class="important">*</span></span></th>
+					<td><input type="text" id="biz_date" name="biz_date" class="w210" maxlength="100" value="">
+						<strong>* 19990101 과 같은 형식으로 입력. </strong>
+					</td>
+				</tr>
+				<tr>
+					<th><span>사업자등록번호 <span class="important">*</span></span></th>
+					<td>
+						<!-- <input type="text" id="biz_ssn" name="biz_ssn" class="w210" maxlength="10" value="" numberonly="" onkeyup="bizSsnKeyup()"> -->
+						<input type="text" id="biz_ssn" name="biz_ssn" class="w210" maxlength="10" value="" numberonly="" oninput="bizSsnKeyup(event)">
+						<strong> - 없이 숫자만 입력 </strong>
+						<button type="button" id="check_dup_id" value="N" class="btn_ss btn_ss02" onclick="checkDuplicationId()";"><span>중복확인</span></button>
+					</td>
+				</tr>
+				<tr>
+					<th><span>비밀번호 <span class="important">*</span></span></th>
+					<td>
+						<input type="password" id="pwd1" name="biz_pwd" class="w210" maxlength="20" value="">
+						<strong class="important">* 비밀번호는 8자 이상, 숫자/대문자/소문자/특수문자를 모두 포함해야하고 공백을 허용하지 않음. </strong>
+					</td>
+				</tr>
+				<tr>
+					<th><span>비밀번호 재확인 <span class="important">*</span></span></th>
+					<td><input type="password" id="pwd2" name="biz_pwd_check" class="w210" maxlength="20" value=""></td>
+				</tr>
+				<tr>
+					<th><span>상호 <span class="important">*</span></span></th>
+					<td><input type="text" id="biz_name" name="biz_name" class="w210" maxlength="100" value=""></td>
+				</tr>
+				<tr>
+					<th><span>업태 </span></th>
+					<td><input type="text" id="biz_type" name="biz_type" class="w210" maxlength="50" value=""></td>
+				</tr>
+				<tr>
+					<th><span>종목 </span></th>
+					<td><input type="text" id="biz_cate" name="biz_cate" class="w210" maxlength="50" value=""></td>
+				</tr>
+				<tr>
+					<th><span>사업자 주소 <span class="important">*</span></span></th>
+					<td>
+						<span class="block">
+							<input type="text" name="biz_zipcode" id="biz_zipcode" class="w55" maxlength="6" placeholder="우편번호"> 
+							<button type="button" class="btn_ss btn_ss02" onclick="postPop('biz_zipcode', 'biz_addr1', 'biz_addr2');"><span>우편번호 찾기</span></button>
+						</span>
+						<span class="block mt05"><input type="text" name="biz_addr1" id="biz_addr1" class="w300" maxlength="300" placeholder="사업자 주소"></span>
+						<span class="block mt05"><input type="text" name="biz_addr2" id="biz_addr2" class="w300" maxlength="300" placeholder="사업자 상세주소"></span>				
+					</td>
+				</tr>
+				<tr>
+					<th><span>전화번호 <span class="important">*</span></span></th>
+					<td>
+						<select id="biz_tel1" name="biz_tel1" style="width:130px;">						
+							<option value="02">02</option>
+							<option value="031">031</option>
+							<option value="032">032</option>
+							<option value="033">033</option>
+							<option value="041">041</option>
+							<option value="042">042</option>
+							<option value="043">043</option>
+							<option value="051">051</option>
+							<option value="052">052</option>
+							<option value="053">053</option>
+							<option value="054">054</option>
+							<option value="055">055</option>
+							<option value="061">061</option>
+							<option value="062">062</option>
+							<option value="063">063</option>
+							<option value="064">064</option>
+							<option value="0505">0505</option>
+							<option value="0502">0502</option>
+							<option value="070">070</option>
+						</select>
+						<input type="text" id="biz_tel2" name="biz_tel2" class="w130" maxlength="4" value="" numberonly=""> - 
+						<input type="text" id="biz_tel3" name="biz_tel3" class="w130" maxlength="4" value="" numberonly="">
+					</td>
+				</tr>
+				<tr>
+					<th><span>휴대폰 <span class="important">*</span></span></th>
+					<td>
+						<select id="biz_mobile1" name="biz_mobile1" style="width:130px;">						
+							<option value="010">010</option>
+							<option value="011">011</option>
+							<option value="0130">0130</option>
+							<option value="0502">0502</option>
+							<option value="070">070</option>
+						</select>
+						<input type="text" id="biz_mobile2" name="biz_mobile2" class="w130" maxlength="4" value="" numberonly=""> - 
+						<input type="text" id="biz_mobile3" name="biz_mobile3" class="w130" maxlength="4" value="" numberonly="">				
+					</td>
+				</tr>
+				<tr>
+					<th><span>이메일 <span class="important">*</span></span></th>
+					<td>
+						<input type="text" id="biz_email1" name="biz_email1" class="w210"> @ 
+						<input type="text" name="biz_email2" id="biz_email2" class="w210">
+						<select id="biz_email3" style="width:100px;" onchange="changeEmail1();">
+							<option value="">- 직접입력 -</option>
+							<option value="gmail.com">gmail.com</option>
+							<option value="naver.com">naver.com</option>
+							<option value="hanmail.net">daum.net</option>
+							<option value="kakao.com">nate.com</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th><span>배송지 주소 <span class="important">*</span></span></th> 
+					<td>
+						<span class="block">
+							<input type="text" name="deli_zipcode" id="deli_zipcode" class="w55" maxlength="6" placeholder="우편번호"> 
+							<button type="button" class="btn_ss btn_ss02" onclick="postPop('deli_zipcode', 'deli_addr1', 'deli_addr2');"><span>우편번호 찾기</span></button>
+							&nbsp;&nbsp;&nbsp;<input type="checkbox" id="copyCheck" name="copyCheck" value="N" onclick="copyAddress();">사업자주소와 동일
+						</span>
+						<span class="block mt05"><input type="text" name="deli_addr1" id="deli_addr1" class="w300" maxlength="300" placeholder="배송지 주소"></span>
+						<span class="block mt05"><input type="text" name="deli_addr2" id="deli_addr2" class="w300" maxlength="300" placeholder="배송지 상세주소"></span>				
+					</td>
+				</tr>
+			</tbody></table>
+			<!-- <div>
+				회원가입 후 "몰"에서 승인처리 후에 이용가능합니다.<br>
+	 			* 이음몰 고객센터로 전화주시기 바랍니다.
+			</div> -->
+			<div class="join_btn">
+				<button type="button" id="addB2BAccount" class="btn02" onclick="procAddAccount();"><span class="bul02">가입하기</span></button>
+				<button type="button" class="btn03" onclick="askCancel();"><span class="bul03">취소하기</span></button>
+			</div>
+			<br><br>
+			
+<style type="text/css">
+.footer { width:100%; border-top:2px solid #7a7a7a; background-color:#f2f2f2; }
+.footer .copyright { font-size:13px; font-weight:100; line-height:18px; color:#7a7a7a; margin-left:10px; margin-top:20px; padding-bottom:36px; }
+</style>
+<div class="footer">
+	<div class="copyright">
+		㈜이음몰 / 대표이사 : 김미경 / 사업자등록번호 : 214-88-97306<br>
+		본사 : 서울특별시 송파구 법원로 114(문정동, 엠스테이트 A동 1306호)<br>
+		대표전화 : 1670-8485 / FAX. 02-2283-1647<br>
+		통신판매사업신고 : 제2021-서울송파-2135 / 개인정보관리책임자 : (주)더이음 안상현<br>
+	</div>
+</div>
+		</div>
+		<!-- //contents -->
+	</div>
+	</form>
+	<!-- //container -->
+</div>
+<script>
+	$(document).ready(function()
+	{
+		initUI();
+
+		//약관 정보를 가지고 온다.
+		get_agreement_info();
+	});
+</script>
+</body>
+</html>

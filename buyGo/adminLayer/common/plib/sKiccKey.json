@@ -1,0 +1,56 @@
+[
+    {
+        "pg":"KICC",
+        "startDate":"2022.7.1",
+        "companyUser":"sajago",
+        "syspos":"real",
+        "mallid":"05564724",
+        "salt":"easypay!SJeGntnM",
+        "URL":"https://pgapi.easypay.co.kr/api/etc/send-alert-msg",
+        "usage":"SMS",
+        "remarks":"git ignore로 설정해야 함",
+        "remarker":"안상현",
+        "comments":"2022.9.13 KICC 일단 KICC 방식을 가지고 왔음"
+    },
+    {
+        "pg":"KICC",
+        "startDate":"2022.7.1",
+        "companyUser":"sajago",
+        "syspos":"test",
+        "mallid":"T0011350",
+        "salt":"easypay!KICCTEST",
+        "URL":"https://testpgapi.easypay.co.kr/api/etc/send-alert-msg",
+        "usage":"SMS",
+        "remarks":"git ignore로 설정해야 함",
+        "remarker":"안상현",
+        "comments":"2022.9.13 KICC 일단 KICC 방식을 가지고 왔음"
+    },
+    {
+        "pg":"KICC",
+        "startDate":"2022.7.1",
+        "companyUser":"sajago",
+        "syspos":"real",
+        "mallid":"05564724",
+        "salt":"easypay!SJeGntnM",
+        "URL":"https://pgapi.easypay.co.kr/directapi/trades/directVacctApproval",
+        "CANCLE_URL":"https://pgapi.easypay.co.kr/api/trades/revise",
+        "usage":"VIRTUAL_ACCOUNT",
+        "remarks":"git ignore로 설정해야 함",
+        "remarker":"안상현",
+        "comments":"2022.9.13 KICC 일단 KICC 방식을 가지고 왔음"
+    },
+    {
+        "pg":"KICC",
+        "startDate":"2022.7.1",
+        "companyUser":"sajago",
+        "syspos":"test",
+        "mallid":"T0011350",
+        "salt":"easypay!KICCTEST",
+        "URL":"https://testpgapi.easypay.co.kr/directapi/trades/directVacctApproval",
+        "CANCLE_URL":"https://testpgapi.easypay.co.kr/api/trades/revise",
+        "usage":"VIRTUAL_ACCOUNT",
+        "remarks":"git ignore로 설정해야 함",
+        "remarker":"안상현",
+        "comments":"2022.9.13 KICC 일단 KICC 방식을 가지고 왔음"
+    }
+]

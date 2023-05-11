@@ -537,6 +537,10 @@ a:hover{text-decoration:none;}
 .modal.modal_close_type .btn { min-width: 85px; min-height: 28px; line-height: 28px; padding: 0 4px; font-size: 13px;}
 .btn_prot { min-width: 100%; margin-top: 15px; padding: 5px 10px; font-weight: 700; font-size: 18px; line-height: 19px;}
 .btn_sold { background-color: var(--fn-gray-750); border: 1px solid var(--fn-gray-750); border-radius: 0;}
+.btn_add_address { position: relative; display: block; margin: 30px auto 0; font-size: 16px; color:var(--fn-gray-750);}
+[color-theme='dark'] .btn_add_address {color: var(--fn-gray-400);}
+.btn_add_address::before {content:''; display:block; margin: 0 auto 10px; width: 42px; height: 42px; border-radius: 100%; background: url('../images/icons/ico_remove_round_white.svg') no-repeat center/20px 20px var(--fn-gray-300);}
+[color-theme='dark'] .btn_add_address::before { background-color: var(--fn-gray-dark-600); border: 1px solid var(--fn-gray-400);}
 
 /*input*/
 .form_group { display: flex; align-items: center; gap: 10px;}
@@ -1053,6 +1057,7 @@ a:hover{text-decoration:none;}
     .d_md_py_px_32 { padding-top: 32px !important; padding-bottom: 32px !important;}
 
     .d_md_w_auto { width: auto !important;}
+    .d_md_w_0 { width: 0 !important;}
     .d_md_w_14 { width: 14% !important;}
     .d_md_w_16 { width: 16% !important;}
     .d_md_w_19 { width: 19% !important;}

@@ -91,7 +91,7 @@
 .entryManufacturer .entry_write.on .txt_area {border-bottom: none;}
 .entryManufacturer .entry_write.on .txt_area .content_ttl::after{transform: translateY(-50%) rotate(180deg);}
 .entryManufacturer .entry_write.on .form{height: 100%;transform: scaleY(1);}
-.entryManufacturer .entry_write.on .btn_wrap{display: block;}
+.entryManufacturer .entry_write.on .btn_wrap{display: flex; gap: 5px; justify-content: center;}
 .entryManufacturer .entry_write .txt_area .content_ttl {display: inline-block; position: relative; padding-right: calc(27px + 16px);}
 .entryManufacturer .entry_write .txt_area .content_ttl:after {display: block; position: absolute; top: 50%; right: 0; width: 16px;height: 9px;background: url('../images/icons/ico_arw_down.png') no-repeat center center / cover; transform: translateY(-50%); transition: transform 0.45s; content: '';}
 [color-theme='dark'] .entryManufacturer .entry_write .txt_area .content_ttl:after {height: 16px; background-image: url('../images/icons/arw_down_gray_sm.svg');}
@@ -123,6 +123,7 @@
 .entryManufacturer .entry_write .btn_wrap {display: none;margin: 0 auto;margin-top: 35px;text-align: center;}
 .entryManufacturer .entry_write .btn_wrap .btn {min-width: 125px;font-size: 15px;border-radius: 4px;}
 .entryManufacturer .entry_write .btn_wrap .btn_outline {border: 1px solid var(--fn-gray-500);color: var(--fn-black);}
+[color-theme='dark'] .entryManufacturer .entry_write .btn_wrap .btn_outline { color: var(--fn-gray-400); }
 .entry_option_area.option_area_sm .option_item .option_btn {padding: 4px 5px; }
 .entryManufacturer .entry_write .img_upload_area .img_upload_box > .txt_box { padding: 0;}
 /* // entryManufacturer */

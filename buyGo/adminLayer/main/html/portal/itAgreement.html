@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" type="text/css" href="/commonpf2.css"/>
+    <!--<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, width=device-width"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+    <!--이미지 도구모음 금지-->
+    <meta http-equiv="imagetoolbar" context="no"></head>
+    <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- iOS Part -->
+    <!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 상태 바의 스타일을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+    <!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-title" content="Timer">-->
+    <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+    <!-- <link rel="apple-touch-icon" href="icons/icon-152x152.png">-->
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+
+    <!-- Android part -->
+    <!-- 웹 앱 매니페스트를 읽어 들이기 -->
+    <link rel="manifest" type="text/json"  href="/manifest.json">
+    <!-- ----------------------------------------------------------------------- -->
+
+    <script type="text/javascript" src="/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/jquery.ajax-cross-origin.min.js"></script>
+    <script type="text/javascript" src="/crypto-js.js"></script>
+    <!-- <script>history.replaceState({}, null, location.pathname);</script> -->
+    <title>이용정책 및 약관동의</title>
+</head>
+<body>      
+    <div class="addrpopup">
+    <h1>이용정책 및 약관동의(필수)</h1>
+        <textarea readonly autocomplete="off" type="text" id="txt_agreement" name="txt_agreement">약관 준비하셔야 합니다. Data ajax처리및 scroll bar확인하세요</textarea>
+        <input type="checkbox" id="agreecheck" name="agreecheck" value="no" unchecked/><label>이용정책 및 약관에 동의합니다.</label>
+        <button id="closeButton" name="closeButton" type="button" class="btn btn-primary btn-block btn-large" value="닫기">닫기</button><p></p>
+    </div>
+    <script>
+        $(document).ready(function(){
+            try
+            {
+                var chkbox=document.getElementById("agreecheck");
+                chkbox.addEventListener("click", function(){chkbox.checked=true});
+                $("#closeButton").click(function(){returnPage();});
+                function returnPage()
+                {
+                    //약관에 동의했는지 check박스를 검사하고 기록한다.
+                    if(chkbox.checked==true)
+                    {
+                        localStorage.setItem("agreementcheck","yes");
+                    }
+                    else
+                    {
+                        localStorage.setItem("agreementcheck","no");
+                    };
+
+                    localStorage.setItem("agreementpage","yes");
+                    location.href="itAddAccount.html";
+                };
+            }
+            catch(e)
+            {
+                alert(e.message);
+            };
+        });
+    </script>
+    
+</body>
+</html>

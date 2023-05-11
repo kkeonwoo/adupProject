@@ -1,0 +1,103 @@
+/****************************************************************************************************
+module명: cPagingModule.js
+creator: 윤희상
+date: 2022.03.11
+version 1.0
+설명: 페이징 그리는 Module
+***************** 아래는 공통 주석 사항임 (모든 프로그램 주석에 필수)**********************************
+server side 개발자 유의사항
+1. 모듈(export)시 전역 변수 사용 금지 (http 서비스 유지되는 동안 값 유지됨), 상수는 가능
+2. DB에 저장하는 data중 id를 제외한 개인식별 정보는 복호화 가능한 AES Ecrypion을 할 것 (법적 의무사항)
+3. password SHA-256 기반 복호화 불가능한 암호를 사용해야 함 (운영자도 볼 수 없음, 법적 의무사항)
+4. 가급적 var 선언을 하지말고 var 선언을 사용해야 함 (Type 혼선 방지) 단 safari브라우저 지원등의 문제로
+   Client로 내려가는 모듈은 var를 사용한다. (safari가 let을 인지하지 못함)
+5. 모든 서버-서버, 서버-클라이언트는 JSON 객체 통신을 원칙으로 함
+6. Applicaiton Message JSON을 사용할 것, App Message무단 작성 금지 (표준)
+7. 지역 변수 선언시 Server Component명을 prefix로 사용할 것. 다소 길더라도 운영성(Debug용이) 측면 고려임
+8. 한글자 변수 사용 금지 (i, j, k등) debug곤란
+9. 모든 서버 모듈 Naming은 s*로 시작할 것
+10.서버 모듈도 배포시 반드시 JS Compress후 난독화하여 배포해야 한다.
+
+client (front) 개발자 유의 사항
+1. 반드시 client package는 압축(JS Compress) 및 난독화 해서 올릴 것 (소스 유출 방지)
+2. 보안검사 (SQL Injection, JS Injection)를 받을 것
+3. Client 소스에서는 eval() 함수 사용 금지!!!
+4. 모든 Client 도듈 Naming은 c*로 시작할 것
+
+기타 본 SW자산은 Plaform 제작사 소유로 소스의 무단복제, 재배포, 사유화를 금지함. 이에 대해서는 
+정보보안서약을 반드시 준수하고 위반시 민.형사상 책임을 져야 함 (보안에 각별히 유의할 것)
+또한 Open소스를 무단으로 사용하면 안됨 (MIT, Apcahe License여도 IT책임자에게 보고 하고 사용유무에
+대해서는 관련 기관의 유권해석을 받아야 함)
+
+본 자산은 (주)더이음의 자산임 Copyrights (c) All rights reserved.
+****************************************************************************************************/
+"use strict";
+
+var gJSCurrentPage = 1;
+
+function paging(ptotalData, pdataPerPage, pcurrentPage){
+    if(ptotalData == 0) {
+        $("#pagingDiv").empty().html("");
+        return;
+    }
+    var totalPage = Math.ceil(ptotalData / pdataPerPage); //총 페이지 수
+    var pageCount = 10; //그룹내 페이지버튼 수
+ 
+    if(totalPage<pageCount){
+        pageCount=totalPage;
+    }
+ 
+    var pageGroup = Math.ceil(pcurrentPage / pageCount); // 페이지 그룹
+    var last = pageGroup * pageCount; //화면에 보여질 마지막 페이지 번호
+ 
+    if (last > totalPage) {
+        last = totalPage;
+    }
+ 
+    var first = last - (pageCount - 1); //화면에 보여질 첫번째 페이지 번호
+ 
+    var pageHtml = "";
+ 
+    pageHtml += '<a href="#none" class="page_arr" id="first"><img src="/eum/resources/images/common/left2_25.png" alt="첫페이지"></a>';
+    pageHtml += '<a href="#none" class="page_arr" id="minus"><img src="/eum/resources/images/common/left_25.png" alt="이전"></a>';
+    for (var i = first; i <= last; i++) {
+        if (pcurrentPage == i) {
+            pageHtml += "<a href='#' class='on' id='" + i + "'>" + i + "</a>";
+        } 
+        else {
+            pageHtml += "<a href='#' id='" + i + "'>" + i + "</a>";
+        }
+    }
+   
+    pageHtml += '<a href="#none" class="page_arr" id="plus"><img src="/eum/resources/images/common/right_25.png" alt="다음"></a>';
+    pageHtml += '<a href="#none" class="page_arr" id="last"><img src="/eum/resources/images/common/right2_25.png" alt="마지막페이지"></a>';
+    
+    $("#pagingDiv").empty().html(pageHtml);
+
+    $("#pagingDiv a").on("click",function (){
+        
+        var totalPage = Math.ceil(ptotalData/pdataPerPage);
+        var $id = $(this).attr("id");
+        var selectedPage = $(this).text();
+
+        if ($id == "minus" && gJSCurrentPage == 1) return;
+        if ($id == "plus" && gJSCurrentPage == totalPage) return;
+        if ($id == "first" && gJSCurrentPage == 1) return;
+        if ($id == "last" && gJSCurrentPage == totalPage) return;
+        if (gJSCurrentPage == selectedPage) return;
+
+        if ($id == "minus" && gJSCurrentPage != 1) selectedPage = Number(gJSCurrentPage)-1;
+        if ($id == "plus" && gJSCurrentPage != totalPage) selectedPage = Number(gJSCurrentPage)+1;
+        if ($id == "first" && gJSCurrentPage != 1) selectedPage = 1;
+        if ($id == "last" && gJSCurrentPage != totalPage) selectedPage = totalPage;
+
+        gJSCurrentPage = selectedPage;
+
+        document.body.style.cursor = "wait";
+        //paging(ptotalData, pdataPerPage, selectedPage);
+        reDrawData(selectedPage);
+        document.body.style.cursor = "default";
+       
+    });
+    gJSCurrentPage = pcurrentPage;
+};

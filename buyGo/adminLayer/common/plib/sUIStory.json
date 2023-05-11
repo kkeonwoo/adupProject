@@ -1,0 +1,18 @@
+[
+    {
+        "localBizCompCode":"sj001",
+        "defaultStartingPage":"main/portal/main.html",
+        "loginPage":"login.html",
+        "loginAdminPage":"",
+        "errorPage":"main/html/error.html",
+        "mainPage":"main/html/portal/main.html",
+        "superPage":"???",
+        "adminPage":"main/html/admin/totalOrderListAdm.html",
+        "posPage":"???",
+        "WebPage":"???",
+        "MobilePage":"???",
+        "UserResoulutionCheckYN":"Y",
+        "uDirectory":"main",
+        "comments":"사자고 초기화면 시나리오 정의"
+    }
+]

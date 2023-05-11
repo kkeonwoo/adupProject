@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/main/resources/css/admin/admin.css">
+    <link rel="stylesheet" href="/main/resources/css/admin/jquery-ui.css">
+    <link rel="stylesheet" href="/main/resources/css/admin/swiper.css">
+    
+    <!-- <script src="/resources/js/plugin/jquery.min.js?"></script>
+    <script src="/resources/js/plugin/jquery-ui.min.js?"></script>
+    <script src="/resources/js/plugin/jquery.form.min.js?"></script>
+    <script src="/resources/js/plugin/jquery.cookie.js?"></script>
+    <script src="/resources/js/plugin/jquery.fileDownload.js?"></script> -->
+
+    <!-- <script src="/resources/js/plugin/ckeditor/ckeditor.js?"></script><style>.cke{visibility:hidden;}</style>
+    <script src="/resources/js/plugin/ckeditor/adapters/jquery.js?"></script>
+    <script src="/resources/js/plugin/microfiche.js?"></script>
+    <script src="/resources/js/plugin/Chart.min.js?"></script>
+    <script src="/resources/js/plugin/printThis.js?"></script> -->
+    
+    <!-- <script src="/resources/js/common/common.js?"></script>
+    <script src="/resources/js/common/base.js?"></script>
+    <script src="/resources/js/common/swiper.js?"></script>
+    <script src="/resources/js/common/zipcode.js?"></script>
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?"></script><script charset="UTF-8" type="text/javascript" src="//t1.daumcdn.net/postcode/api/core/211103/1635999227231/211103.js"></script> -->
+    <!-- -----------윤희상 html 공통부분 START------------- -->
+    <!-- <script type="text/javascript" src="/resources/js/admin/productManagement/pmAdd.js"></script> -->
+	<script defer type="text/javascript" src="/main/js/common/cFuncs.js"></script>
+    <script defer type="text/javascript" src="/main/js/admin/cGetAdminCommonModule.js"></script>
+    <script defer type="text/javascript" src="/main/js/admin/cGetAdminPageMenu.js"></script>
+    <script defer type="text/javascript" src="/main/js/admin/cBannerItemAdm.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- <link rel="stylesheet" type="text/css" href="/commonpf2.css"/> -->
+    <script type="text/javascript" src="/common/resources/jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/common/resources/jquery/jquery.ajax-cross-origin.min.js"></script>
+    <!-- <script type="text/javascript" src="/jquery-ui.js"></script> -->
+    <script type="text/javascript" src="/main/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/node_modules/crypto-js/crypto-js.js"></script>
+    <!-- <script src="/exif-js.js"></script> -->
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+    <!--이미지 도구모음 금지-->
+    <meta http-equiv="imagetoolbar" context="no"></head>
+    <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- iOS Part -->
+    <!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 상태 바의 스타일을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+    <!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-title" content="Timer">-->
+    <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+    <!-- <link rel="apple-touch-icon" href="icons/icon-152x152.png">-->
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+    <!-- Android part -->
+    <!-- 웹 앱 매니페스트를 읽어 들이기 -->
+    <link rel="manifest" type="text/json"  href="/manifest.json">
+    <script>history.replaceState({}, null, location.pathname);</script>
+    <!-- -----------윤희상 html 공통부분 END------------- -->
+    <style>
+        .sb-selected {
+            background : #e9e9e9;
+        }
+        .banner-wrap {
+            width:100%;
+            height:260px;
+            border-top:1px solid #494949;
+            border-bottom:1px solid #494949;
+            overflow-x:scroll;
+        }
+        .banner-list {
+            width:10000px;
+            height:235px;
+            border-top:1px solid #494949;
+            border-bottom:1px solid #494949;
+        }
+        .banner-list:after {content:'';display:block;clear:both;}
+        .banner {
+            float:left;
+            width:194px;
+            height:185px;
+            margin:5px;
+        }
+        .banner-title {
+            width:188px;
+            height:22px;
+            padding: 3px;
+            border-top:1px solid #c9c9c9;
+            text-align:center;
+        }
+        .image-upload {
+            border-bottom:1px solid #494949;
+            padding:5px;
+            margin:0px 0px 10px 0px;
+        }
+        .image-upload div {
+            margin:10px 0px;
+        }
+        .label-title {
+            display:inline-block;
+            width:90px;
+            text-align:right;
+            margin-right:15px;
+        }
+        .image-upload > div {
+            margin:10px 0px;
+        }
+    </style>
+    
+    <script>
+        jQuery(function(){
+            getMenuListAjax("bannerItemAdm.html", initPage);
+        });
+        function initPage(){
+            drawBannerinfo();
+            
+            var attach_cd = CryptoJS.MD5(new Date().toString());
+            $("input[name=attach_cd]").val(attach_cd);
+            
+            $("#sb-id-up").on("click", function(){
+                if($("#sb-sortable li.sb-selected:first").prev().length > 0) {
+                    $("#sb-sortable li.sb-selected").each(function(index, elem){
+                        $(this).prev().before(this);
+                    });
+                }
+            });
+    
+            $("#sb-id-down").on("click", function(){
+                if($("#sb-sortable li.sb-selected:last").next().length > 0) {
+                    var length = $("#sb-sortable li.sb-selected").length;
+                    for(var i = length-1 ; i >= 0  ; i--){
+                        var source = $("#sb-sortable li.sb-selected")[i];
+                        $(source).next().after(source);
+                    }
+                }
+            });
+    
+            
+            $("#sb-id-all-up").on("click", function(){
+                $("#sb-sortable li.sb-selected").each(function(index, elem){
+                    while($(this).prev().not(".sb-selected").length > 0){
+                        $(this).prev().before(this);
+                    }
+                });
+            });
+    
+            $("#sb-id-all-down").on("click", function(){
+                
+                var length = $("#sb-sortable li.sb-selected").length;
+    
+                for(var i = length-1 ; i >= 0  ; i--){
+                    var source = $("#sb-sortable li.sb-selected")[i];
+                    while($(source).next().not(".sb-selected").length > 0){
+                        $(source).next().after(source);							
+                    }
+                }
+            });
+            
+            $("#sb-id-all-notselect").on("click", function(){
+                $("#sb-sortable li.sb-selected").each(function(index, elem){
+                    $(this).trigger('click');
+                });
+            });
+    
+            // $("input[name=ORIGIN]").change(function(){
+            $("input[name=ORIGIN]").on('change', function(){
+                var file = document.getElementById('imgFile');
+                // 업로드 파일 읽기
+                
+                if(!file.files[0]){
+                    return;
+                };
+                
+                var reader = new FileReader(); 
+                reader.readAsDataURL(file.files[0]);
+                reader.onload = function(){ 
+                    var image = new Image();
+                    image.src = reader.result;
+                    image.onload=function(){
+                        if($("input[name='image_web_type']:checked").val() == "WEB"){
+                            if(this.width != 974 || this.height != 315){
+                                alert("사이즈가 다릅니다.");
+                                file.value = "";
+                            };
+                        }
+                        else if($("input[name='image_web_type']:checked").val() == "MOBILE"){
+                            if(this.width != 720 || this.height != 418){
+                                alert("사이즈가 다릅니다.");
+                                file.value = "";
+                            };
+                        }
+                    };
+                };    
+            });
+    
+            // $("input[name=image_web_type]").change(function(){
+            $("input[name=image_web_type]").on('change', function(){
+                document.getElementById('imgFile').value = "";
+            });
+            
+            $(".banner-list").sortable({
+                connectWith:".banner"//,
+                //handle:".banner-handle"
+            });
+        }
+        function openWin() {
+            if($("[name=banner_idx]").val() == "" || $("[name=banner_idx]").val() == undefined){
+                alert("배너 선택 후 상품 등록이 가능합니다.");
+                return;
+            }
+            var url = "/main/html/admin/goodsCategoryBanner.html";
+            var win = window.open(url,"new_window1","width=1024,height=768,toolba=no");
+        };
+
+    </script>
+    
+    <title>배너상품 더이음몰 통합관리자</title>
+</head>
+<body>
+<div class="wrap">
+    <div class="header">
+        <div class="top">
+            <h1>
+                <img src="/main/resources/images/admin/admin_header_logo.png" alt="나들가게 이음몰" onclick="location.href='/main/html/admin/totalOrderListAdm.html';" style="cursor:pointer;"> 
+                <img src="/main/resources/images/admin/sitetit.gif" alt="통합관리자" onclick="location.href='/main/html/admin/totalOrderListAdm.html';" style="cursor:pointer;">
+            </h1>
+            <div class="logout">
+            </div>
+        </div>
+        <ul class="gnb" id="gnb">
+        </ul>
+    </div>
+    <!-- //header -->
+    <!-- container -->
+    <div class="container">
+        <div class="lnb" id="lnb">
+        </div>
+        <!-- contents -->
+        <div class="contents">
+            <h3>배너상품</h3>
+            <div class="search_area">
+                <form name="frm" id="frm" action="/admin/productManagement/pmBannerGoodsList" method="post">
+                <input type="hidden" name="banner_idx" id ="banner_idx" value="">
+                <div class="banner-wrap">
+                    <div class="banner-list ui-sortable">
+                    </div>
+                </div>
+                </form>
+                <div class="image-upload">
+                <form id="frm_banner_image" name="frm_banner_image" action="/single/upload" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="banner_idx" value="">
+                    <input type="hidden" name="type" value="Banner">
+                    <input type="hidden" name="attach_cd" value="">
+                    <input type="hidden" name="storagePath" value="main/resources/banner/">
+                    <div>
+                        <label class="label-title">배너이미지</label>
+                        <input type="radio" name="image_web_type" value="WEB" checked=""> Web(974 x 315)
+                        <input type="radio" name="image_web_type" value="MOBILE"> Mobile (720p x 418)
+                        <input type="file" name="ORIGIN" id="imgFile" accept='image/*'> <button type="button" class="btn01 btn_b" onclick="btnImageUp();"><span>이미지등록</span></button> 
+                    </div>
+                </form>
+                <form name="frm_Banner" id="frm_Banner" action="/editBannerInfo" method="post">
+                    <input type="hidden" name="banner_idx" value="">
+                    <input type="hidden" name="banner_dis" value="">
+                    <input type="hidden" name="bannertype" value="bannerInfo">
+                    <div><label class="label-title">제목</label> <input type="text" name="banner_title" value=""></div>
+                    <div>
+                        <label class="label-title">상태</label> 
+                        <input type="radio" name="banner_status" value="1" val="1">사용 
+                        <input type="radio" name="banner_status" value="2" val="1">중단
+                    </div>
+                </form></div>
+                <div class="search_btn" style="text-align:center; margin-bottom:15px;">
+                    <button type="button" class="btn_bic" onclick="btnBannerUpdate();">수정</button>
+                </div>
+            </div>
+            <div class="result_area">
+                <form name="frm_sort" id="frm_sort" action="/admin/productManagement/pmBannerGoods_process" method="post">
+                    <input type="hidden" name="banner_idx" value="">
+                    <input type="hidden" name="cmd_banner_goods" value="">
+                    <input type="hidden" name="no_goods_idx" value="">
+                    <input type="hidden" name="goods_idx" value="">
+                    <input type="hidden" name="db_dis_sort" value="">
+                    <input type="hidden" name="type" value="bannerDetail">
+                    <div class="result_info" style="margin-top:10px; margin-bottom:10px; ">
+                        <p class="txt_total">총 <strong></strong> 건</p>
+                        <div class="btn_down">
+                            <button type="button" class="btn01 btn_b" style="height:22px;" onclick="openWin();">상품등록</button>
+                            <button id="sb-id-all-notselect" type="button" class="btn01 btn_b" style="height:22px;">★</button>
+                            <button id="sb-id-all-up" type="button" class="btn01 btn_b" style="height:22px;">▲</button>
+                            <button id="sb-id-up" type="button" class="btn01 btn_b" style="height:22px;">△</button>
+                            <button id="sb-id-down" type="button" class="btn01 btn_b" style="height:22px;">▽</button>
+                            <button id="sb-id-all-down" type="button" class="btn01 btn_b" style="height:22px;">▼</button>
+                            <select name="list_cnt" id="list_cnt" style="width:55px;" value="">
+                                <option value="300">300</option>
+                                <option value="500">500</option>
+                                <option value="800">800</option>
+                                <option value="8000">8000</option>
+                            </select>
+                        </div>
+                    </div>
+                <ul id="sb-sortable" style="overflow-y: scroll; width:100%; height:450px; padding:1px 10px 10px 1px; margin:auto; border-top: 1px solid #356; border-bottom: 1px solid #356;">
+                </ul>
+                <div class="text_c table_btns">
+                    <button type="button" class="btn_bic" onclick="saveSortGoods();"><span>정렬저장</span></button>
+                    <button type="button" class="btn_bic" onclick="deleteGoods();"><span>선택삭제</span></button>
+                </div>
+            </form>
+            </div>
+        </div>
+        <!-- //contents -->
+    </div>
+    <!-- //container -->
+</div>
+</body></html>

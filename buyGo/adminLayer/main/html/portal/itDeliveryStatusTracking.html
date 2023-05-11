@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <!-- -----------20220627 안상현 점주용화면 공통부문 예상 START------------- -->
+        <link rel="shortcut icon" href="/eum/resources/images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/eum/resources/images/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="/resources/css/jquery-ui.css?">
+        <link rel="stylesheet" href="/resources/css/web.css">
+        <link rel="stylesheet" href="/resources/css/swiper.css?">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!-- -----------20220627 안상현 점주용화면 공통부문 예상 END ------------- -->
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+        <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+        <!--이미지 도구모음 금지-->
+        <meta http-equiv="imagetoolbar" context="no"></head>
+        <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+        <meta name="_csrf" th:content="${_csrf.token}"/>
+        <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+        <!-- ----------------------------------------------------------------------- -->
+        <!-- iOS Part -->
+        <!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <!-- 상태 바의 스타일을 지정 -->
+        <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+        <!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+        <!-- <meta name="apple-mobile-web-app-title" content="Timer">-->
+        <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+        <!-- <link rel="apple-touch-icon" href="icons/icon-152x152.png">-->
+        <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png"> 
+        <!-- Android part -->
+        <!-- 웹 앱 매니페스트를 읽어 들이기 -->
+        <link rel="manifest" type="text/json"  href="/manifest.json">
+        <!-- <script>history.replaceState({}, null, location.pathname);</script> -->
+        <script type="text/javascript" src="/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="/jquery.ajax-cross-origin.min.js"></script>
+        <!-- <script type="text/javascript" src="/jquery-ui.js"></script>
+        <script type="text/javascript" src="/jquery-ui.min.js"></script> -->
+        <!-- -----------윤희상 html 공통부분 END------------- -->
+    </head>
+    <body>
+        <div class="wrap">	
+            <!-- container -->
+            <div class="container02">
+                <!-- contents -->
+                <div class="contents02 delivery_wrap">
+                    <h2 class="delivery"><span>배송현황상세</span></h2>
+                    <br>
+                    <table id="deliv" cellpadding="0" cellspacing="0" border="0" class="table_col ordertable">
+                        <colgroup>
+                            <col width="140">
+                            <col width="100">
+                            <col width="200">
+                            <col width="60">
+                            <col width="*">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>시각</th>
+                                <th>상태</th>
+                                <th>위치</th>
+                                <th>발송자</th>
+                                <th>비고</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultTable" class="cResultTable">
+                        </tbody>
+                    </table>
+                    <div class="page" id="pagingDiv">
+					</div>
+                </div>
+                <!-- //contents -->
+            </div>
+            <!-- //container -->
+            
+        <style type="text/css">
+            .footer { width:100%; border-top:2px solid #7a7a7a; background-color:#f2f2f2; }
+            .footer .copyright { font-size:13px; font-weight:100; line-height:18px; color:#7a7a7a; margin-left:10px; margin-top:20px; padding-bottom:36px; }
+        </style>
+
+        <div class="footer">
+            <div class="copyright">
+                ※ 택배사 정보관리 및 처리 시간 관련 기준 등에 의하여 지연되어 조회되거나, 조회되지 않을 수 있습니다. (조회기간 만료 등)
+            </div>
+        </div>
+    </body>
+    <script>
+        $(document).ready(function(){
+            //get params
+            var company = opener.document.getElementById("company").value;
+            var tmp = opener.document.getElementById("deliveryNo").value;
+
+            if(company!=undefined&&company!=null&&company!="")
+            {
+                //송장번호는 - 제거
+                var deliveryNo="";
+                for(var ix=0; ix<tmp.length; ix++)
+                {
+                    if(tmp[ix]!="-"&&tmp[ix]!=" ")
+                    {
+                        deliveryNo+=tmp[ix];
+                    };
+                };
+
+                //운송회사는 like 매칭
+                var rtnDeliveryCompanyName=getDeliveryCompany(company);
+                if(rtnDeliveryCompanyName==undefined||rtnDeliveryCompanyName==null||rtnDeliveryCompanyName.length<1)
+                {
+                    alert("조회 가능한 운송사가 아닙니다.");
+                }
+                else
+                {
+                    if(deliveryNo.length<1||deliveryNo==undefined||deliveryNo==null)
+                    {
+                        alert("송장번호가 내용이 없거나 부적절합니다.");
+                    }
+                    else
+                    {
+                        try{
+                            var tf="";
+                            var APIurl="https://apis.tracker.delivery/carriers/"+rtnDeliveryCompanyName+"/tracks/"+deliveryNo;
+                            $.ajax({
+                                url: APIurl, type: "GET", async: false,  dataType: "text", crossDomain: true, cache: false, contentType: "charset=utf-8",
+                                success: function(response)
+                                {
+                                    var rtn=JSON.parse(response);
+                                    var rowText="";
+                                    var tmpTime="";
+                                    for(var ix=0; ix<rtn.progresses.length; ix++)
+                                    {
+                                        tmpTime=rtn.progresses[ix].time;
+                                        tmpTime=tmpTime.replace("T"," ");
+                                        tmpTime=tmpTime.replace("+09:00","");
+                                        rowText+='<tr><td>'+tmpTime+'</td><td>'+rtn.progresses[ix].status.text+'</td><td>'+rtn.progresses[ix].location.name+'</td><td>'+rtn.from.name+'</td><td style="text-align: left;">'+rtn.progresses[ix].description+'</td></tr>';
+                                    };
+                                    $("#resultTable").html(rowText);
+                                    tf="true";
+                                },
+                                error: function(request, textStatus, error) 
+                                {
+                                    if(error==="timeout")
+                                    {
+                                        tf="false2";
+                                    }
+                                    else
+                                    {
+                                        tf="false3";
+                                    };
+                                },
+                                complete:function(data,textStatus)
+                                {
+                                    if(tf=="false")
+                                    {
+                                        alert("운송 택배사 정보 관리 기준 등 제반 사정에 의하여 조회되지 않습니다! code-003 송장번호="+deliveryNo);
+                                    }
+                                    else if(tf=="false2")
+                                    {
+                                        alert("서버 응답 제한시간 초과! code-004");
+                                    }
+                                    else if(tf=="false3")
+                                    {
+                                        alert("시스템 내부 또는 주변 환경으로 인하여 오류가 발생하였습니다. 죄송합니다만, 잠시 후 다시 시도해 주시기 바랍니다. code-001");
+                                    };
+                                },
+                                timeout:5000 //응답제한시간 5초
+                            });
+                        }
+                        catch(e)
+                        {
+                            alert("시스템 내부 또는 주변 환경으로 인하여 오류가 발생하였습니다. 죄송합니다만, 잠시 후 다시 시도해 주시기 바랍니다. code-002")
+                        };
+                    };
+                };
+            };
+
+            function getDeliveryCompany(company)
+            {  
+                //공백제거
+                company.trim();
+                company.replace(/(\s*)/g, "");
+                if(company.toLowerCase().indexOf("DHL")>-1)
+                {
+                    return "de.dhl";
+                }
+                else if(company.toLowerCase().indexOf("천일")>-1)
+                {
+                    return "kr.chunilps";
+                }
+                else if(company.toLowerCase().indexOf("대한통운")>-1)
+                {
+                    return "kr.cjlogistics";
+                }
+                else if(company.toLowerCase().indexOf("CU편의")>-1)
+                {
+                    return "kr.cupost";
+                }
+                else if(company.toLowerCase().indexOf("GSPostbox")>-1)
+                {
+                    return "kr.cvsnet";
+                }
+                else if(company.toLowerCase().indexOf("대신")>-1)
+                {
+                    return "kr.daesin";
+                }
+                else if(company.toLowerCase().indexOf("우체국")>-1)
+                {
+                    return "kr.epost";
+                }
+                else if(company.toLowerCase().indexOf("한의사랑")>-1)
+                {
+                    return "kr.hanips";
+                }
+                else if(company.toLowerCase().indexOf("한진")>-1)
+                {
+                    return "kr.hanjin";
+                }
+                else if(company.toLowerCase().indexOf("합동")>-1)
+                {
+                    return "kr.hdexp";
+                }
+                else if(company.toLowerCase().indexOf("홈픽")>-1)
+                {
+                    return "kr.homepick";
+                }
+                else if(company.toLowerCase().indexOf("한서호남")>-1)
+                {
+                    return "kr.honamlogis";
+                }
+                else if(company.toLowerCase().indexOf("일양로지")>-1)
+                {
+                    return "kr.ilyanglogis";
+                }
+                else if(company.toLowerCase().indexOf("경동")>-1)
+                {
+                    return "kr.kdexp";
+                }
+                else if(company.toLowerCase().indexOf("건영")>-1)
+                {
+                    return "kr.kunyoung";
+                }
+                else if(company.toLowerCase().indexOf("로젠")>-1)
+                {
+                    return "kr.logen";
+                }
+                else if(company.toLowerCase().indexOf("롯데")>-1)
+                {
+                    return "kr.lotte";
+                }
+                else if(company.toLowerCase().indexOf("SLX")>-1)
+                {
+                    return "kr.slx";
+                }
+                else if(company.toLowerCase().indexOf("성원글로벌")>-1)
+                {
+                    return "kr.swgexp";
+                };
+            };
+        });
+    </script>
+</html>

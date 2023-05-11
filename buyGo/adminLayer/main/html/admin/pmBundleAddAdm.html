@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+	<meta charset="UTF-8">
+    <!-- -----------윤희상 html 추가부분 START------------- -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/main/resources/css/admin/admin.css">
+    <link rel="stylesheet" href="/main/resources/css/admin/jquery-ui.css">
+    <link rel="stylesheet" href="/main/resources/css/admin/swiper.css">
+    
+    <style type="text/css">.upFile { width:100%; }</style>
+	<!-- -----------윤희상 html 공통부분 START------------- -->
+	<script defer type="text/javascript" src="/main/js/common/cFuncs.js"></script>
+	<script defer type="text/javascript" src="/main/js/common/cPagingModule.js"></script>
+    <script defer type="text/javascript" src="/main/js/admin/cGetAdminCommonModule.js"></script>
+    <script defer type="text/javascript" src="/main/js/admin/cGetAdminPageMenu.js"></script>
+    <script defer type="text/javascript" src="/main/js/admin/cPmBundleAddAdm.js"></script>
+
+    <!-- 엑셀 다운로드를 위해서 필요한 모듈임 -->
+    <script defer type="text/javascript" src="/main/js/common/jsonToXMLToExcel.js"></script>
+    <script type="text/javascript" src="/node_modules//xlsx/dist/xlsx.full.min.js"></script>
+    <script type="text/javascript" src="/FileSaver.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script type="text/javascript" src="/common/resources/jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/common/resources/jquery/jquery.ajax-cross-origin.min.js"></script>
+	<!-- <script type="text/javascript" src="/jquery-ui.js"></script> -->
+	<script type="text/javascript" src="/main/js/jquery-ui.min.js"></script>
+
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+	<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+	<!--이미지 도구모음 금지-->
+	<meta http-equiv="imagetoolbar" context="no"></head>
+	<!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+	<meta name="_csrf" th:content="${_csrf.token}"/>
+	<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+	<!-- ----------------------------------------------------------------------- -->
+	<!-- iOS Part -->
+	<!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- 상태 바의 스타일을 지정 -->
+	<!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+	<!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+	<!-- <meta name="apple-mobile-web-app-title" content="Timer">-->
+	<!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+	<!-- <link rel="apple-touch-icon" href="icons/icon-152x152.png">-->
+	<link rel="apple-touch-icon" href="touch-icon-iphone.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+	<link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+	<!-- Android part -->
+	<!-- 웹 앱 매니페스트를 읽어 들이기 -->
+	<link rel="manifest" type="text/json"  href="/manifest.json">
+	<script>history.replaceState({}, null, location.pathname);</script>
+	<!-- -----------윤희상 html 공통부분 END------------- -->	</script>
+
+    <title>상품일괄등록 더이음몰 통합관리자</title>
+</head>
+<body>
+
+<div class="wrap">
+    <div class="header">
+        <div class="top">
+            <h1>
+                <img src="/main/resources/images/admin/logo.gif" width="105" height="40" alt="나들가게 이음몰" onclick="location.href='/admin/orderManagement/fullOrderList?initPage=Y';" style="cursor:pointer;"> 
+                <img src="/main/resources/images/admin/sitetit.gif" alt="통합관리자" onclick="location.href='/admin/orderManagement/fullOrderList?initPage=Y';" style="cursor:pointer;">
+            </h1>
+            <div class="logout">
+            </div>
+        </div>
+        <ul class="gnb" id="gnb">
+        </ul>
+    </div>
+    <!-- //header -->
+    
+    <!-- container -->
+    <div class="container">
+        <div class="lnb" id="lnb">
+        </div>
+        <!-- contents -->
+        <div class="contents">
+            <h3>상품일괄등록</h3>
+            <!-- 상품일괄변경 정보 -->
+            <!-- <form id="frmBundleUpdate" name="frmBundleUpdate" action="/main/resources/template/SAJAGO_EUM_MALL_ALL_ITEM_UPLOAD_TEMPLATE_1.0.xlsx" method="post" accept-charset="utf-8" enctype="multipart/form-data"> -->
+                <table class="table_row font11">
+                    <colgroup><col width="15%"><col width="*"></colgroup>
+                    <tbody>
+                        <tr>
+                            <th><span>일괄등록 샘플파일</span></th>
+                            <td>
+                                <button type="button" class="btn_ss01"><a class="btn_excel" href="/main/resources/template/SAJAGO_EUM_MALL_ALL_ITEM_UPLOAD_TEMPLATE_1.0.xlsx">샘플파일 </a></button>  <span class="font11">← 다운받아서 등록하세요</span>			
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span>일괄등록파일 <span class="important">*</span></span></th>
+                            <td>
+                                <input type="file" name="excelFile" id="excelFile" class="upFile">					
+                            </td>
+                        </tr>		
+                        <tr>
+                            <th><span>일괄등록 이미지파일 <span class="important">*</span></span></th>
+                            <td>
+                                <form name="frm_multi" id="frm_multi" action="/multi/upload" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="storagePath" value="main/resources/goods/">
+                                <input type="hidden" name="attach_dt" value="">
+                                <input type="file" multiple name="imgFile" id="imgFile" class="upFile" accept='image/*'>	
+                                </form>
+                            </td>
+                        </tr>		
+                        <tr>
+                            <th><span>처리내역</span></th>
+                            <td>
+                                <div id="returnList" style="color:red; font-size:14px; font-weight:bold;">
+                                    <div></div>
+                                </div>
+                            </td>
+                        </tr>					
+                    </tbody>
+                </table>
+                <div class="table_btns text_c">
+                    <button type="button" id="" class="btn01 btn_b" onclick="btnExcelUpSubmit();"><span>등록</span></button> 
+                </div>
+            <!-- </form> -->
+        </div>
+        <!-- //contents -->
+    </div>
+    <!-- //container -->
+</div>
+
+<script type="text/javascript">
+    jQuery(function(){
+        getMenuListAjax("pmBundleAddAdm.html");
+    });
+</script>
+</body>    
+</html>

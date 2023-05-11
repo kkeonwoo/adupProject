@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+
+
+<meta charset="utf-8">
+<link rel="shortcut icon" href="/resources/images/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="/resources/images/favicon.ico" type="image/x-icon" />
+<title>더이음몰 통합관리자</title>
+<!--[if lt IE 9]>
+<script>
+	document.createElement('nav');
+	document.createElement('main');
+	document.createElement('aside');
+	document.createElement('header');
+	document.createElement('footer');
+	document.createElement('section');
+</script>
+<![endif]-->
+<link rel="stylesheet" href="/resources/css/admin.css?">
+<link rel="stylesheet" href="/resources/css/jquery-ui.css?">
+<link rel="stylesheet" href="/resources/css/swiper.css?">
+
+
+<script src="/resources/js/plugin/jquery.min.js?"></script>
+<script src="/resources/js/plugin/jquery-ui.min.js?"></script>
+<script src="/resources/js/plugin/jquery.form.min.js?"></script>
+<script src="/resources/js/plugin/jquery.cookie.js?"></script>
+<script src="/resources/js/plugin/jquery.fileDownload.js?"></script>
+<script src="/resources/js/plugin/ckeditor/ckeditor.js?"></script>
+<script src="/resources/js/plugin/ckeditor/adapters/jquery.js?"></script>
+<script src="/resources/js/plugin/microfiche.js?"></script>
+<script src="/resources/js/plugin/Chart.min.js?"></script>
+<script src="/resources/js/plugin/printThis.js?"></script>
+<script src="/resources/js/common/common.js?"></script>
+<script src="/resources/js/common/base.js?"></script>
+<script src="/resources/js/common/swiper.js?"></script>
+<script src="/resources/js/common/zipcode.js?"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?"></script>
+<style type="text/css">.upFile { width:100%; }</style>
+<script type="text/javascript">
+
+var goodsImage = [];
+
+//이미지 업로드 버튼
+function btnImageUpSubmit() {
+
+	var objCount = {"reqIdx": "" , "resCount": 0};
+	
+	$("#total-count").html("/"+goodsImage.length);
+	$("#return-count").html(0);
+	   
+	for(var pmt = 0 ; pmt < goodsImage.length ; pmt++){
+		
+		objCount.reqIdx = pmt;
+		
+	 	sendAjaxMultipartImage('frmBundleImageUpdate', '/admin/productManagement/imageUpload_process', 'formComplete', objCount);
+	}
+
+}
+
+//변경 결과 호출
+function formComplete(data){
+	alert(data);	
+}
+
+$(document).ready(function() {
+	
+	
+	$('#imgFile').on("change", function(){
+        //const target = document.getElementsByName('files[]');
+        var targetFiles = this.files;
+        goodsImage.splice(0, goodsImage.length);
+        
+    	$("#total-count").html("");
+    	$("#return-count").html("");
+    	
+        var html = '';
+        
+        if(targetFiles){
+        	
+	        $.each(targetFiles, function(index, file){
+	        	goodsImage.push(file);
+	        });
+	        
+        	$('#preview').empty();
+	        $.each(goodsImage, function(index, file){
+	        	
+	            var fileName = file.name;
+	            html += '<tr>';
+	            html += '<td width="80"><img src="'+URL.createObjectURL(file)+'" width="70px" /></td>'
+	            html += '<td width="250">'+fileName+'</td>';
+	            html += '<td><span ><button type="button" class="btn01 btn_b btn_del">삭제</button></span></td>';
+	            html += '<td><span class="return-span">준비중</span></td>';
+	            html += '</tr>';
+	            var fileEx = fileName.slice(fileName.indexOf(".") + 1).toLowerCase();
+	            if(fileEx != "jpg" && fileEx != "gif"  && fileEx != "png" ){
+	                html = "";
+	            } else {
+		            $('#preview').append(html);
+		            html = "";
+	            }
+	        });
+        	
+        }
+        
+    });
+	
+	$("body").on("click", ".btn_del",  function(){	
+		var that = this;	
+		$(".btn_del").each(function(index){
+			if($(this).is(that)){
+				goodsImage.splice(index, 1);
+				$("#preview tr").eq(index).remove();
+			}	
+		});
+	})
+	
+});
+
+</script>
+</head>
+<body>
+<div class="wrap">
+	
+
+
+
+<div class="header">
+	<div class="top">
+		<h1>
+			
+				<img src="/resources/images/admin/logo.gif" width="105" height="40" alt="나들가게 이음몰" onclick="location.href='/admin/orderManagement/fullOrderList?initPage=Y';" style="cursor:pointer;" /> 
+				<img src="/resources/images/admin/sitetit.gif" alt="통합관리자"  onclick="location.href='/admin/orderManagement/fullOrderList?initPage=Y';" style="cursor:pointer;" />
+			
+			
+		</h1>
+		<div class="logout">
+		</div>
+	</div>
+	<ul class="gnb">
+		
+		<li><a href="/admin/member/buyerList">사용자관리</a></li>
+		<li><a href="/admin/productCategory/list">카테고리관리</a></li>
+			
+		<li><a href="/admin/productManagement/pmList">상품관리</a></li>			
+		
+			
+			<li><a href="/admin/orderManagement/fullOrderList?initPage=Y">주문관리</a></li>
+			
+			
+				
+		<li><a href="/admin/calculateManagement/cmList?initPage=Y">정산관리</a></li>
+		
+		<li><a href="/admin/statistics/statisticsSale">통계</a></li>
+		<li><a href="/admin/siteManagement/popupList">사이트관리</a></li>
+		 
+	</ul>
+</div>
+<!-- //header -->
+
+	<!-- container -->
+	<div class="container">
+		
+<div class="lnb">
+	<h2><span>상품관리</span></h2>
+	<ul>
+		<li><a href="/admin/productManagement/pmList">상품조회</a></li>
+		<li><a href="/admin/productManagement/pmAdd">상품등록</a></li>
+		
+		<li><a href="/admin/productManagement/pmBundleAdd">상품일괄등록</a></li>
+		<li><a href="/admin/productManagement/pmBundleImageUpdate">이미지등록</a></li>
+		<li><a href="/admin/productManagement/pmBundleUpdate">상품일괄변경</a></li>
+		<li><a href="/admin/productManagement/pmFanList?initPage=Y">인기상품관리</a></li>
+		<li><a href="/admin/productManagement/pmSortList">상품 정렬</a></li>
+		<li><a href="/admin/productManagement/pmBannerList">배너관리</a></li>
+		<li><a href="/admin/productManagement/pmBannerGoodsList">배너상품</a></li>
+		
+	</ul>
+</div>
+
+		<!-- contents -->
+		<div class="contents">
+			<h3>이미지등록</h3>
+			<!-- 상품일괄변경 정보 -->
+			<form id="frmBundleImageUpdate" name="frmBundleImageUpdate" action="/admin/productManagement/imageUpload_process" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+				<table class="table_row font11">
+					<colgroup><col width="15%" /><col width="*" /></colgroup>
+					<tr>
+						<th><span>파일선택 <span class="important">*</span></span></th>
+						<td>
+							<input type="file" name="imgFile" id="imgFile" multiple />
+							<button type="button" class="btn01 btn_b" onclick="btnImageUpSubmit();"><span>이미지등록</span></button>
+							
+							<span id="return-count"></span><span id="total-count"></span>
+							
+						</td>
+					</tr>
+					<tr>
+						<th><span>미리보기</span></th>
+						<td>
+						<table><tbody  id="preview"></tbody></table>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<!-- //contents -->
+	</div>
+	<!-- //container -->
+</div>
+</body>
+</html>

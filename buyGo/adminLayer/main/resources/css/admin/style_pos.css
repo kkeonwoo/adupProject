@@ -1,0 +1,654 @@
+:root {
+	/* 자주 쓰는 색상 */
+	--color-font: #666666;
+	--color-border: #CCCCCC;
+	--color-card: #EEEEEE;
+	--color-orange: #DF5A20;
+	--color-blue: #2592C9;
+	--color-green: #94C11E;
+	--color-price: #D17EAC;
+	--color-white: #ffffff;
+	--color-free: #F1A5AD;
+	--color-star:#EBD33A;
+
+	/* 자주 쓰는 폰트 굵기 */
+	--font-regular: 400;
+	--font-medium: 500;
+	--font-bold: 700;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+ul {
+	list-style: none;
+}
+li {
+	list-style: none;
+}
+#itSalesPos {
+	position: absolute;
+	width: 1004px;
+	height: 700px;
+	background-color: rgba(255,255,255,1);
+	overflow: hidden;
+}
+.user_point{
+	position: absolute;
+    right: 15px;
+    top: 630px;
+    font-size: 16px;
+    text-align: right;
+    font-weight: bold;
+    color: #000;
+}
+.sales_itme_list_card {border:0.5px solid #CCCCCC; position:absolute; z-index: 1; background-color:transparent}
+/* 주간행사 스티커 */
+.sale_type_img{
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+.sale_type {
+	position: absolute;
+	width: 0px;
+	height: 0px;
+	border-top: 74px solid;
+	border-left: 0px solid transparent;
+	border-right: 74px solid transparent;
+}
+
+.sale_type_nm{
+	position: absolute;
+	top: 20px;
+	left: 0px;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+	z-index: 100;
+	text-align: center;
+	transform: rotate(-45deg);
+}
+
+.delivery_sticker{
+	position: absolute;
+	right: 0;
+	width: 54px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	font-size: 17px;
+	font-weight: bold;
+	background-color: #EEEEEE;
+}
+
+/*관심상품*/
+.sales_item_interest{
+	position: absolute;
+	top: 83px;
+	right: 16px;
+	cursor: pointer;
+}
+
+/* 아이템 목록 컨테이너*/
+.sales_class_item_container{
+	width: 720px;
+	height: 492px;
+	position: absolute;
+	left: 15px;
+	top: 130px;
+}
+
+.search{
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	right: -26px;
+	top: 6px;
+}
+
+.ul_result{
+	position: absolute;
+	z-index: 30;
+	background-color: #fff;
+	border: solid #CCCCCC;
+	padding-left: 10px;
+	width: 466px;
+	height: 110px;
+	overflow-y: scroll;
+	display: none;
+	color: #000000;
+}
+
+.ul_result li.--focus {
+	background-color: rgb(155, 194, 247);
+	cursor: pointer; 
+}
+
+.logo{
+	position:relative;
+	left: 36px;
+	top: 26px;
+	overflow: visible;
+}
+
+.icon{
+	margin-top: 10px;
+	margin-left : auto;
+	margin-right : auto;
+	display: block;
+}
+
+.search_input{
+	line-height: 28px;
+	font-size: 16px;
+	color: #000000;
+	padding-left: 20px;
+	padding-right: 20px;
+	border: solid 1px #94C11E;
+	width: 440px;	
+	height:30px;
+}
+
+input:focus{
+	outline:none;
+}
+
+.menu_container {
+	position: relative;
+	height:max-content;
+	width:max-content;
+	left: 750px;
+	top: -30px;
+	overflow: visible;
+	text-align: center;
+	font-size: 12px;
+	color: rgba(102,102,102,1);
+	display: flex;
+}
+
+.header_menu{
+	align-items: center;
+	width: 50px;
+	position: relative;
+	margin: 0 0 0 5px;
+	float:left;
+}
+
+/* navbar */
+.class_navbar_menu{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+.class_navbar_menu li{
+	display: block;
+	color: #000000;
+	cursor: pointer;
+	padding: 5px 10px;
+	text-align: center;
+	float:left;
+}
+
+.class_navbar_menu li.on {color :white; background-color:#94C11E}
+.class_navbar_menu li.on2 {color :white; background-color:#94C11E}
+
+.menuBoxChildClass{
+	position: absolute;
+	top: 20px;
+	left: 0px;
+	background-color: #fff;
+	z-index: 99;
+	border: solid #CCCCCC 0.5px;
+	width: max-content;
+	height: max-content;
+	display: none;
+	min-width: 120px;
+}
+
+.menuBoxClass_L2{
+	background-color: #fff;
+}
+	
+.L1_menuClass{
+	width: auto;
+	padding: 10px;
+	display: block;
+}
+.class_L1_li_float{
+	width: max-content;
+	height: auto;
+	display: block;
+	float: left;
+	max-width : 100%
+}
+
+.changeColorL1Menu{
+	height: auto;
+	padding: 5px 0px 0px 0px;
+	margin-bottom: 10px;
+	display: block;
+	color: white;
+	background-color: #94C11E;
+	float: left;
+	min-width : 90%;
+	text-align: center;
+}
+
+/* .L2_menuClass{
+	margin: 10px 0px;
+} */
+
+.sales_item_selectBox{
+	z-index: 5;
+	width: 100%;
+	position:absolute;
+	bottom: 0;
+	padding: 100px 0 9px 13px;
+	font-size: 12px;
+	padding-top: 3px;
+	margin: 0 auto;
+	color: #000000;
+}
+
+.sales_item_inventory {
+	left: 175px;
+	bottom: 34px;
+	position: absolute;
+	overflow: visible;
+	width: 46px;
+	white-space: nowrap;
+	text-align: right;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 12px;
+	color: rgba(102,102,102,1);
+	background-color: transparent;
+}
+.sales_item_price_box {
+	left: 9px;
+	bottom: 32px;
+	position: absolute;
+	overflow: visible;
+	width: 84px;
+	white-space: nowrap;
+	text-align: left;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 22px;
+	color: rgba(209,126,172,1);
+}
+.sales_item_title{
+	left: 15px;
+	top: 121px;
+	position: absolute;
+	overflow: visible;
+	width: 213px;
+	height: 47px;
+	line-height: 16px;
+	margin-top: -3px;
+	text-align: center;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	color: #000000;
+	cursor: pointer;
+}
+
+.sales_item_price_won{
+	color: #000000;
+	font-size: 12px;
+	font-weight: 400;
+}
+.cart_item_price_box{
+	position: relative;
+	text-align: left;
+}
+.sales_item_select_value{
+	color: #000000;
+	padding-left: 5px;
+	width: 40px;
+	height: 20px;
+	border: 0.5px solid #CCCCCC;
+	margin-left: 3px;
+	margin-right: 10px;
+}
+.list_box_bowl{
+	padding-left: 7px;
+	width: 40px;
+	height: 20px;
+}
+.sales_item_bottom_box{
+	position:absolute;
+	bottom: 0;
+	width: 100%;
+	background-color: #EEEEEE;
+	height: 66px;
+}
+.cart_list_box{
+	width: 40px;
+	margin-right: 10px;
+	margin-left: 2px;
+	border: solid 0.5px #CCCCCC;
+}
+.interested_icon{
+	position: absolute;
+	width: 22px;
+	height: 22px;
+	right: 16px;
+	top: 84px;
+}
+
+.purchase_total_price_won{
+	font-style:normal; 
+	font-weight:normal; 
+	font-size: 12px; 
+	color:#fff;
+}
+
+.cart_container{
+	position: absolute;
+	bottom: 68px;
+	right: 17px;
+}
+
+.class_navbar_menu{
+	display: flex;
+	font-size: 14px;
+	position: absolute;
+}
+
+.search_bar {
+	position: absolute;
+	width: 440px;
+	height: 30px;
+	left: 160px;
+	top: 35px;
+	overflow: visible;
+}
+
+#navbar {
+	position: absolute;
+	width: 867px;
+	height: 30px;
+	left: 120px;
+	top: 80px;
+	overflow: visible;
+}
+#myMenu {
+	left: 648px;
+	top: 5px;
+	position: absolute;
+	overflow: visible;
+	width: 87px;
+	white-space: nowrap;
+	text-align: left;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	color: rgba(102,102,102,1);
+}
+
+#viewAll {
+	position: absolute;
+	width: 80px;
+	height: 20px;
+	left: 15px;
+	top: 85px;
+	overflow: visible;
+}
+#Text_bt {
+	left: 23px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 60px;
+	white-space: nowrap;
+	text-align: left;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	color: rgba(102,102,102,1);
+}
+
+#n_50800 {
+	left: 886px;
+	top: 594px;
+	position: absolute;
+	overflow: visible;
+	width: 87px;
+	white-space: nowrap;
+	text-align: left;
+	
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(148,193,30,1);
+}
+
+.sales_item_image {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	left: 70px;
+	top: 10px;
+	overflow: visible;
+	cursor: pointer;
+}
+
+
+/* 카트 */
+#aside{
+	position: absolute;
+	width: 242px;
+	height: 492px;
+	top: 130px;
+	left : 745px;
+	border: solid 0.5px #94C11E;
+}
+.cart_head{
+	background-color: #94C11E;
+	width: 100%;
+	height: 40px;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	line-height: 40px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+}
+.cart_card
+{
+	width: 214px;
+	padding-bottom: 6px;
+	border-bottom: solid  1px #CCCCCC;
+	position: rel
+	ative;
+}
+.cart_post_title{
+	color: #DF5A20;
+	font-size: 12px;
+	font-weight: normal;
+	margin: 10px 0;
+}
+.cart_card_title{
+	font-size: 12px;
+	font-weight: normal;
+	margin: 10px 0;
+	color: #000000;
+}
+.cart_item_price_cancel{
+	position:absolute;
+	right: -5px;
+	bottom: 0px;
+	color: #000000;
+	font-size: 30px;
+	font-weight: bold;
+}
+.close_btn_1,
+.close_btn_2,
+.close_btn_3{
+	font-weight: 700;
+	position: absolute;
+	top:3px;
+	right: 10px;
+	cursor: pointer;
+}
+.cart_page{
+	position: absolute;
+	bottom: 100px;
+	width: 95px;
+	height: 20px;
+	left: 72.5px;
+	justify-content: space-between;
+	display: flex;
+}
+.cart_total{
+	position: absolute;
+	width: 210px;
+	bottom: 50px;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 15px 5px 15px;
+	font-size: 14px;
+}
+.cart_direct_total{
+	font-weight: 700;
+}
+.cart_post_total{
+	font-weight: 700;
+	text-align: right;
+}
+.cart_page_view{
+	font-size: 12px;
+}
+.direct_total_price{
+	color: #2592C9;
+	font-weight: bold;
+}
+.post_total_price{
+	color: #DF5A20;
+	font-weight: bold;
+}
+.cart_direct_cnt{
+	color: #2592C9;
+	font-weight: bold;
+}
+.cart_post_cnt{
+	color: #DF5A20;
+	font-weight: bold;
+}
+.cart_order{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	display: flex;
+	padding: 5px 15px 5px 15px;
+	background-color: #D71D1E;
+	vertical-align: bottom;
+	justify-content: space-between;
+	font-weight: bold;
+	cursor:pointer;
+}
+.order_btn{
+	color:#fff;
+	font-size: 22px;
+	padding-top: 6px;
+}
+.left_arrow{
+	transform: rotate(180deg);
+	cursor: pointer;
+}
+.right_arrow{
+	cursor: pointer;
+}
+.cart_select_item{
+	z-index: 5;
+	width: 100%;
+	position:relative;
+	font-size: 11px;
+	margin: 0 auto;
+	color: #000000;
+}
+.cart_item_price_box{
+	vertical-align: sub;
+	position:relative;
+	font-weight: 700;
+	padding-top: 6px;
+	color: #000000;
+}
+.cart_item_price_won{
+	font-size: 12px;
+	font-weight: 400;
+}
+
+.purchase_total_price{
+	color: #fff;
+	font-size: 24px;
+}
+.purchase_card_container{
+	position: absolute;
+	width: 100%;
+	height: 350px;
+	top: 40px;
+	padding-left: 10px;
+	/* border : dotted black; */
+	overflow-y: auto;
+	overflow-x: hidden;
+	border-bottom: 1px solid #94C11E;
+}
+
+/* 페이지번호 */
+.paging_arrayList{
+	position:absolute;
+    width: 500px;
+    height: 25px;
+    left: 125px;
+    top: 630px;
+    overflow: visible;
+	text-align:center;
+}
+
+.paging_arrayList a{
+	display:inline-block;
+	color:#000000;
+	width:40px;
+	height:25px;
+	overflow:hidden;
+	text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+	top: 0px;
+	text-decoration-line:none;
+}
+
+.paging_arrayList a.on{
+	background-color:#94C11E;
+	color:#ffffff;
+}
+.paging_arrayList a.page_arr{
+	width:25px;
+}
+.paging_arrayList a.page_arr img{
+	display:inline-block;
+	height:25px;
+    font-size:20px;
+}
+
+#userInfo{
+	position: absolute;
+    height: 20px;
+    left: 15px;
+    top: 660px;
+    overflow: visible;
+}
+
+select:disabled {
+	background: #cccccc;
+}

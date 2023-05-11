@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="/resources/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/resources/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/main/resources/css/admin/admin.css">
+    <link rel="stylesheet" href="/main/resources/css/admin/jquery-ui.css">
+    <link rel="stylesheet" href="/main/resources/css/admin/swiper.css">
+	
+	<!-- <script src="/resources/js/plugin/jquery.min.js?"></script>
+	<script src="/resources/js/plugin/jquery-ui.min.js?"></script>
+	<script src="/resources/js/plugin/jquery.form.min.js?"></script>
+	<script src="/resources/js/plugin/jquery.cookie.js?"></script> -->
+	<!-- <script src="/resources/js/plugin/jquery.fileDownload.js?"></script> -->
+
+	<!-- <script src="/resources/js/plugin/ckeditor/ckeditor.js?"></script><style>.cke{visibility:hidden;}</style>
+	<script src="/resources/js/plugin/ckeditor/adapters/jquery.js?"></script>
+	<script src="/resources/js/plugin/microfiche.js?"></script>
+	<script src="/resources/js/plugin/Chart.min.js?"></script>
+	<script src="/resources/js/plugin/printThis.js?"></script> -->
+
+	<!-- <script src="/resources/js/common/common.js?"></script>
+	<script src="/resources/js/common/base.js?"></script>
+	<script src="/resources/js/common/swiper.js?"></script>
+	<script src="/resources/js/common/zipcode.js?"></script>
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?"></script><script charset="UTF-8" type="text/javascript" src="//t1.daumcdn.net/postcode/api/core/211103/1635999227231/211103.js"></script>
+	<link rel="stylesheet" href="/resources/css/admin/member/adminList.css">
+	<script src="/resources/js/admin/member/adminList.js"></script> -->
+	
+	<!-- -----------윤희상 html 공통부분 START------------- -->
+	<script defer type="text/javascript" src="/main/js/common/cFuncs.js"></script>
+    <script defer type="text/javascript" src="/main/js/common/cPagingModule.js"></script>
+	<script defer type="text/javascript" src="/main/js/common/cCheckClientPattern.js"></script>
+    <script defer type="text/javascript" src="/main/js/admin/cGetAdminCommonModule.js"></script>
+    <script defer type="text/javascript" src="/main/js/admin/cGetAdminPageMenu.js"></script>
+	<script defer type="text/javascript" src="/main/js/admin/cAdminListAdm.js"></script>
+	<script defer type="text/javascript" src="/main/js/admin/cAdminListPopAdm.js"></script>
+	
+	<script type="text/javascript" src="/node_modules/crypto-js/crypto-js.js"></script>
+
+
+    <!-- <script type="text/javascript" src="/resources/js/admin/productManagement/pmList.js?"></script> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- <link rel="stylesheet" type="text/css" href="/commonpf2.css"/> -->
+    <script type="text/javascript" src="/common/resources/jquery/jquery-3.6.0.min.js"></script>
+    <!-- <script type="text/javascript" src="/jquery.ajax-cross-origin.min.js"></script> -->
+    <!-- <script type="text/javascript" src="/jquery-ui.js"></script> -->
+    <script type="text/javascript" src="/main/js/jquery-ui.min.js"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+    <!--이미지 도구모음 금지-->
+    <meta http-equiv="imagetoolbar" context="no"></head>
+    <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- iOS Part -->
+    <!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 상태 바의 스타일을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+    <!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-title" content="Timer">-->
+    <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+    <!-- <link rel="apple-touch-icon" href="icons/icon-152x152.png">-->
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+    <!-- Android part -->
+    <!-- 웹 앱 매니페스트를 읽어 들이기 -->
+    <link rel="manifest" type="text/json"  href="/manifest.json">
+    <script>history.replaceState({}, null, location.pathname);</script>
+    <!-- -----------윤희상 html 공통부분 END------------- -->
+
+	<title>더이음몰 통합관리자</title>
+</head>
+<body>
+	<div class="wrap">
+		<div class="header">
+			<div class="top">
+				<h1>
+					<img src="/main/resources/images/admin/admin_header_logo.png" alt="나들가게 이음몰" onclick="location.href='/main/html/admin/totalOrderListAdm.html';" style="cursor:pointer;"> 
+					<img src="/main/resources/images/admin/sitetit.gif" alt="통합관리자" onclick="location.href='/main/html/admin/totalOrderListAdm.html';" style="cursor:pointer;">
+				</h1>
+				<div class="logout">
+				</div>
+			</div>
+			<ul class="gnb" id="gnb">
+			</ul>
+		</div>
+		<!-- //header -->
+	
+		<!-- container -->
+		<div class="container">
+			<div class="lnb" id="lnb">
+			</div>
+			<!-- contents -->
+			<div class="contents">
+				<h3>운영자</h3>
+				<form id="frm" name="frm" action="/admin/member/adminList" method="post">
+					<div class="search_area">
+						<table class="table_row">
+							<colgroup><col width="120"><col width="280"><col width="120"><col width="*"></colgroup>
+							<tbody>
+								<tr>
+									<th><span>상호명</span></th>
+									<td><input type="text" name="supplier_name" class="w210" value=""></td>
+									<th><span>사업자번호</span></th>
+									<td><input type="text" name="supplier_ssn" class="w210" value=""></td>
+								</tr>
+								<tr>
+									<th><span>계정상태</span></th>
+									<td colspan="1">
+										<select name="account_status" style="width:130px;" value="">
+											<option value="">전체</option>
+											<option value="1">Active</option>
+											<option value="2">Stop</option>
+											<option value="3">Cancel</option>
+											<option value="3">Expired</option>
+										</select>
+									</td>
+									<th><span>ADMIN/SUPER</span></th>
+									<td colspan="1">
+										<select name="admin_status" style="width:130px;" value="">
+											<option value="">전체</option>
+											<option value="ADMIN1">ADMIN1</option>
+											<option value="ADMIN2">ADMIN2</option>
+											<option value="SUPER">SUPER</option>
+										</select>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="search_btn">
+							<button type="button" class="btn_bic">검색</button>
+						</div>
+					</div>
+				</form>
+				<div class="result_area">
+					<div class="result_info">
+						<p class="txt_total">총 <strong id="txt_total_count"></strong> 명</p>
+						<input type="hidden" id="totalCount" value="2">
+						<input type="hidden" id="tp" value="">
+					</div>
+					<table class="table_col">
+						<colgroup>
+							<col width="30"> 
+							<col width="50"> 
+							<col width="190">
+							<col width="80">
+							<col width="80">
+							<col width="80">
+							<col width="80">
+							<col width="80">
+							<col width="130">
+							<col width="130">
+							<col width="80">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>번호</th>
+								<th>사업자번호</th>
+								<th>상호명</th>
+								<th>담당자</th>
+								<th>ID</th>
+								<th>계정상태</th>
+								<th>라이센스상태</th>
+								<th>역할</th>
+								<th>라이센스 시작일자</th>
+								<th>라이센스 종료일자</th>
+								<th>등록자</th>
+							</tr>
+						</thead>
+						<tbody id="adm_admin_list">
+						</tbody>
+					</table>
+					<div class="table_btns">
+						<span class="float_r"><button type="button" class="btn01 btn_b" onclick="drawAdminListPopUp();"><span>등록</span></button></span>
+					</div>
+					<div class="page" id="pagingDiv">
+					</div>
+				</div>
+			</div>
+			<!-- //contents -->
+		</div>
+		<!-- //container -->
+	</div>
+
+<div class="layerPopArea" style="height: 862px; display: none; top: 0px;">
+	<div class="layerPop" align="center" style="display: block;">
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		//lnb, rnb 만들어주는 함수
+		getMenuListAjax("adminListAdm.html", iniitPage);
+	});
+	function iniitPage(){
+		if ( $.trim($("input[name='search_cancel_date_start']").val()) != "" || $.trim($("input[name='search_cancel_date_end']").val()) != "" ){
+			$("#searchOpt").show();
+		};
+	
+		//전역변수
+		var gTotalData;
+		var globalCurrentPage = 1;
+		var globalgetListCount;
+	
+		document.body.style.cursor = "wait";
+		eventSearchAdminList(1);
+		document.body.style.cursor = "default";
+	
+		//검색버튼 클릭
+		$(".btn_bic").click(function(){
+			document.body.style.cursor = "wait";
+			eventSearchAdminList(1);
+			document.body.style.cursor = "default";
+		});
+	}
+</script>
+</body>
+</html>

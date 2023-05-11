@@ -1,0 +1,20 @@
+[
+    {
+        "localBizCompCode":"sj001",
+        "accessTokenCycle":"1d",
+        "refreshTokenCycle":"14d",
+        "uDirectory":"main",
+        "commonSchema":"sjcommon",
+        "ownerSchema":"sjgo",
+        "comments":"사자고 메인 토큰 발행기준"
+    },
+    {
+        "localBizCompCode":"mkmoo",
+        "accessTokenCycle":"1m",
+        "refreshTokenCycle":"1d",
+        "uDirectory":"mkmoo",
+        "commonSchema":"sjcommon",
+        "ownerSchema":"mkmoo",
+        "comments":"마켓무 토큰 발행기준"
+    }
+]

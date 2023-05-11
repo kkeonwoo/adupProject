@@ -294,7 +294,7 @@ BuyGo = {
         });
 
         $modal.on('click', function (e) {
-            if ($(e.target).closest('.modal_box').length < 1 && $('.modal.active').attr('data-dim-click') !== 'false') {
+            if ($(e.target).closest('.modal_box').length < 1 && $('.modal.active').attr('data-dim-click') !== 'false' && !$modal.hasClass('modal_certification')) {
                 BuyGo.closeModal($modal);
             }
         });

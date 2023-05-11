@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=1004, user-scalable=yes, maximum-scale=1"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+        <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+        <!--이미지 도구모음 금지-->
+        <meta http-equiv="imagetoolbar" context="no">
+        <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+        <meta name="_csrf" th:content="${_csrf.token}"/>
+        <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+        <!-- ----------------------------------------------------------------------- -->
+        <!-- iOS Part -->
+        <!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <!-- 상태 바의 스타일을 지정 -->
+        <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+        <!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+        <!-- <meta name="apple-mobile-web-app-title" content="Timer">-->
+        <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+        <!-- <link rel="apple-touch-icon" href="icons/icon-152x152.png">-->
+        <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+        <!-- Android part -->
+        <!-- 웹 앱 매니페스트를 읽어 들이기 -->
+        <!-- <link rel="manifest" type="text/json"  href="/manifest.json"> -->
+        <!-- ----------------------------------------------------------------------- -->
+
+        <link rel="stylesheet" href="/eum/resources/css/style_pos.css">
+        <link rel="stylesheet" href="/eum/resources/css/web.css">
+        <link rel="stylesheet" href="/eum/resources/css/itUserGuidePos.css">
+
+        <!-- <script type="text/javascript" src="/crypto-js.js"></script> -->
+        <!-- <script type="text/javascript" src="/jquery.ajax-cross-origin.min.js"></script> -->
+        <!-- <script defer type="text/javascript" src="cGoodsCategoryAdm.js"></script> -->
+        <script type="text/javascript" src="/jquery-3.6.0.min.js"></script>
+        
+        <script defer type="text/javascript" src="/eum/js/portal/cPortalCommon.js"></script>
+        <!-- <script>history.replaceState({}, null, location.pathname);</script> -->
+        <!-- css 연동 -->
+        <title>더이음</title>
+    </head>
+<body>
+	<div id="content" style="display:flex; justify-content:center;">
+        <div>
+            <!-- 우측 상단 태그 버튼 -->
+            <div class="header">
+                <a href="/eum/html/portal/itSales.html">
+                    <img src="/eum/resources/images/main_header_logo.png" class="logo" alt="logo">
+                </a>
+
+                <!-- 우측 상단 태그 버튼 -->
+                <div class="menu_container">
+                    
+                </div>
+            </div>
+
+    <!-- container -->
+            <div id="contentsBox">
+                <div class="tabArea">
+                    <li class="tab_btn active" id="tab_btn1">
+                        <div>이용약관</div>
+                    </li>
+                </div>
+                <div id="tab_1">
+                    <h4 style="font-size:12px"> 
+                        ■ 수집하는 개인정보 항목<br> 
+                        회사는 회원가입, 상담, 서비스 신청 등등을 위해 아래와 같은 개인정보를 수집하고 있습니다.<br> 
+                        &nbsp;&nbsp;ο 수집항목 : 사업자등록번호, 상호, 대표자, 업태, 종목, 사업자주소, 전화번호, 휴대폰번호, 이메일, 배송지주소<br> 
+                        &nbsp;&nbsp;ο 개인정보 수집방법 : 홈페이지(회원가입)<br> 
+                        &nbsp;&nbsp;또한, 서비스 이용과정이나 사업 처리 과정에서 아래와 같은 정보들이 생성되어 수집될 수 있습니다.<br> 
+                        &nbsp;&nbsp;ο 이용자의 브라우저 종류 및 OS, 검색어, 서비스 이용 기록<br> 
+                        &nbsp;&nbsp;ο IP Address, 방문 일시, 서비스 이용기록, 불량 이용 기록<br> 
+                        &nbsp;&nbsp;ο 주소, 쿠키<br><br> 
+                        ■ 개인정보의 수집 및 이용 목적<br> 
+                        회사는 다음과 같은 방법으로 개인정보를 수집합니다.<br> 
+                        &nbsp;&nbsp;ο 홈페이지, 서면양식, 팩스, 전화, 상담 게시판, 이메일, 이벤트 응모, 배송요청<br> 
+                        &nbsp;&nbsp;ο 협력회사로부터의 제공<br> 
+                        &nbsp;&nbsp;ο 생성정보 수집 툴을 통한 수집<br> 
+                        &nbsp;&nbsp;회사는 수집한 개인정보를 다음의 목적을 위해 활용합니다.<br> 
+                        &nbsp;&nbsp;ο 서비스 제공에 관한 계약 이행 및 서비스 제공에 따른 콘텐츠 제공<br> 
+                        &nbsp;&nbsp;ο 회원 관리<br> 
+                        &nbsp;&nbsp;- 회원제 서비스 이용에 따른 본인확인 , 개인 식별 , 불량회원의 부정 이용 방지와 비인가 사용 방지 , 가입 의사 확인 , 연령확인, 불만처리 등 민원처리 , 고지사항 전달<br> 
+                        &nbsp;&nbsp;ο 마케팅 및 광고에 활용<br> 
+                        &nbsp;&nbsp;- 신규 서비스(제품) 개발 및 특화 , 이벤트 등 광고성 정보 전달 , 인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 접속 빈도 파악 또는 회원의 서비스 이용에 대한 통계<br><br> 
+                        ■ 개인정보의 보유 및 이용기간<br> 
+                        회사는 개인정보 수집 및 이용목적이 달성된 후에는 예외 없이 해당 정보를 지체 없이 파기합니다. 단, 다음의 정보에 대해서는 아래의 이유로 명시한 기간 동안 보존합니다.<br> 
+                        가. 회사 내부 방침에 의한 정보보유 사유<br> 
+                        &nbsp;&nbsp;o 부정이용기록<br> 
+                        &nbsp;&nbsp;- 보존 이유 : 부정 이용 방지<br> 
+                        &nbsp;&nbsp;- 보존 기간 : 1년<br> 
+                        나. 관련법령에 의한 정보보유 사유<br> 
+                        상법, 전자상거래 등에서의 소비자보호에 관한 법률 등 관계법령의 규정에 의하여 보존할 필요가 있는 경우 회사는 관계법령에서 정한 일정한 기간 동안 회원정보를 보관합니다. 이 경우 회사는<br> 
+                        보관하는 정보를 그 보관의 목적으로만 이용하며 보존기간은 아래와 같습니다.<br> 
+                        &nbsp;&nbsp;o 계약 또는 청약철회 등에 관한 기록<br> 
+                        &nbsp;&nbsp;- 보존 이유 : 전자상거래 등에서의 소비자보호에 관한 법률<br> 
+                        &nbsp;&nbsp;- 보존 기간 : 5년<br> 
+                        &nbsp;&nbsp;o 대금결제 및 재화 등의 공급에 관한 기록<br> 
+                        &nbsp;&nbsp;- 보존 이유 : 전자상거래 등에서의 소비자보호에 관한 법률<br> 
+                        &nbsp;&nbsp;- 보존 기간 : 5년<br> 
+                        &nbsp;&nbsp;o 소비자의 불만 또는 분쟁처리에 관한 기록<br> 
+                        &nbsp;&nbsp;- 보존 이유 : 전자상거래 등에서의 소비자보호에 관한 법률<br> 
+                        &nbsp;&nbsp;- 보존 기간 : 3년<br> 
+                        &nbsp;&nbsp;o 본인확인에 관한 기록<br> 
+                        &nbsp;&nbsp;- 보존 이유 : 정보통신 이용촉진 및 정보보호 등에 관한 법률<br> 
+                        &nbsp;&nbsp;- 보존 기간 : 6개월<br> 
+                        &nbsp;&nbsp;o 방문에 관한 기록<br> 
+                        &nbsp;&nbsp;- 보존 이유 : 통신비밀보호법<br> 
+                        &nbsp;&nbsp;- 보존 기간 : 3개월<br><br> 
+                        </h4>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="copyright">
+                    ㈜이음몰 / 대표이사 : 김미경 / 사업자등록번호 : 214-88-97306<br>
+                    본사 : 서울특별시 송파구 법원로114 (엠스테이트 A동 1306호)<br>
+                    대표전화 : 1670-8485 / FAX. 02-2283-1647<br>
+                    통신판매사업신고 : 제2021-서울송파-2135 / 개인정보관리책임자 : (주)더이음 안상현<br>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+$(document).ready(function(){
+    
+	drawHeaderMenu();
+    var rtn;
+    //주문방법 tab 클릭 시 addEventListener
+    for(var jx=1; jx<4; jx++){
+        rtn = subjectView(""+jx+"");
+        // console.log("rtn = " + rtn.returnvalue.length);
+        if (rtn ==null || rtn == "undefined"){
+            alert("화면에 표시할 수 없습니다. 오류입니다.");
+        }
+        else{
+            //로직 작성
+            drawUi(rtn,""+jx+"");
+        };
+    };
+
+    // // 화면 이벤트 처리 
+    // var tab_btn1 = document.getElementById("tab_btn1");
+    // var tab_btn2 = document.getElementById("tab_btn2");
+    // var tab_btn3 = document.getElementById("tab_btn3");
+    // // tab_btn = document.getElementsByClassName("tab_btn");
+
+    // tab_btn1.addEventListener("click", function(){tab_view(0)});
+    // tab_btn2.addEventListener("click", function(){tab_view(1)});
+    // tab_btn3.addEventListener("click", function(){tab_view(2)});
+});
+</script>
+</html>

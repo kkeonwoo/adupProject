@@ -1,0 +1,580 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+/* 버튼 스타일링 제거 */
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+html{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255,255,255);
+}
+
+a:link{
+  color:#3797cb;
+}
+
+a:visited{
+  color:#3797cb;
+}
+
+a:active{
+  color:#3797cb;
+}
+
+#form_container{
+  width: 380px;
+  height: 682px;
+  background-color: rgb(255,255,255);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#logo_img_eum{
+  /* width: 160px;
+  height: 160px; */
+  display: flex;
+  margin: 0 auto;
+}
+
+#adminTxt{
+  display: flex;
+  margin: 0 auto;
+  float: right;
+}
+
+#login_titleBox{
+  position: relative;
+  display: block;
+  border-bottom: solid 1px #3797cb;
+  width: 100%;
+  height: 55px;
+  margin-top: 40px;
+  line-height: 55px;
+
+}
+
+#logo_img_365{
+  /* width: 80px;
+  height: 39px; */
+  /* background-color: #3797cb; */
+  position: absolute;
+}
+
+#logo_text{
+  /* width: 80px;
+  height: 39px; */
+  /* background-color: #3797cb; */
+  position: relative;
+  margin: 30px 0px 0px 90px;
+}
+
+/* #login_titleText{
+  font-size: 14px;
+  color: #3797cb;
+  font-weight: bold;
+  position: relative;
+  display: block;
+  margin-left: 80px;
+  width: 300px;
+  text-align:left;
+} */
+
+#login_inputBox{
+  margin: 0 auto;
+  padding-top: 40px;
+  position: relative;
+}
+.login_input{
+  width: 100%;
+  height: 50px;
+  border: solid 0.5px #3797cb;
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 30px;
+  font-size: 14px;
+  color: #3797cb;
+  font-weight: bold;
+}
+#loginButton{
+  width: 100%;
+  height: 50px;
+  background-color: #3797cb;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  border: none;
+}
+
+#login_bottom{
+  position:relative;
+  display: flex;
+  justify-content: space-between;
+  color: #3797cb;
+  font-weight: medium;
+  padding-top: 25px;
+  height: 47px;
+}
+
+#login_auto{
+  display: flex;
+  width: auto;
+  font-weight:bold;
+}
+
+#add_account{
+  font-weight:bold;
+}
+
+#posyndiv{
+  display: flex;
+  width: auto;
+  font-weight:bold;
+}
+
+input{
+  outline: none;
+}
+
+.checkBox{
+  width: 20px;
+  height: 20px;
+  cursor:pointer;
+  margin-right: 5px;
+};
+
+
+/*
+input[type="checkbox"]:checked + label {
+  background-color: #3797cb;
+};
+
+input[type="checkbox"] {
+  display: none;
+};
+*/
+
+#login_info{
+  cursor: pointer;
+};
+
+/* 로그인 화면 */
+/* 
+.login { 
+  position: relative;
+  background-color: rgb(188,198,208);
+  width: 50%;
+  height: 700px;
+  border-radius: 10px;
+  border-style: solid;
+  margin: 10rem auto;
+}
+.login h1 {
+  color: #fff;
+  text-align: center; 
+  padding: 30px;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-size: 50px;
+}
+.input-box{
+  padding-left: 20px;
+}
+.input-user{
+  width: 80%;
+  display: flex;
+  line-height: 38px;
+  align-items: center;
+  font-size: 20px;
+  margin: 0 auto;
+}
+.input-password{
+  width: 80%;
+  display: flex;
+  line-height: 38px;
+  align-items: center;
+  font-size: 20px;
+  margin: 0 auto;
+  padding-top: 20px;
+
+}
+.user-icon{
+  padding-right: 1rem;
+} 
+.password-icon{
+  padding-right: 1rem;
+  border-radius: 4px;
+}
+#username{
+  width: 80%;
+}
+#pass{
+  width: 80%;
+}
+input { 
+  width: 50%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 20px;
+  color: black;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 4px;
+  box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+  -webkit-transition: box-shadow .5s ease;
+  -moz-transition: box-shadow .5s ease;
+  -o-transition: box-shadow .5s ease;
+  -ms-transition: box-shadow .5s ease;
+  transition: box-shadow .5s ease;
+}
+.btn-box{
+  width: 78%;
+  margin-top: 30px;
+  margin-left: 6%;
+  display: flex;
+}
+#loginButton{
+  border: 4px;
+  border-style: solid;
+  border-radius: 20px;
+  border-color:  #1CB5ED;
+  background-color: white;
+  color: #1CB5ED;
+  font-size: 30px;
+  width: 300px;
+  height: 70px;
+  margin: 30px auto;
+  position: relative;
+  display: block;
+}
+
+#loginButton:hover{
+  cursor: pointer;
+  background-color: #1CB5ED;
+  color: #fff;
+  transition: 0.5s;
+}
+
+#addAccount{ 
+  border: 4px;
+  border-style: solid;
+  border-radius: 20px;
+  border-color:  #1CB5ED;
+  background-color: #1CB5ED;
+  color: #fff;
+  font-size: 20px;
+  width: 300px;
+  height: 70px;
+  margin: 30px auto;
+  margin-left: 100px;
+  position: relative;
+  display: block;
+}
+#addAccount:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #1CB5ED;
+  transition: 0.5s;
+} */
+
+.sales_item_paging_div{
+  position: absolute;
+  width: 100%;
+  top: 90%;
+  height: 10%;
+  margin-top: 30px;
+  margin:0 auto;  
+}
+.searchdiv{
+  width: 100%;
+  height: 10%;
+  position: absolute;
+  margin: 30px;
+}
+
+ul {
+  float:left;
+  text-align: center;
+  display :unset;
+  /* border: 1px solid #ccc; */
+  border-right: 0;
+  list-style: none;
+}
+
+ul li {
+  text-align: center;
+  float: left;
+  background: #fff;
+}
+
+ul li a {
+  display: block;
+  font-size: 14px;
+  padding: 9px 12px;
+  border-right: solid 1px #ccc;
+  box-sizing: border-box;
+  color: #eda712;
+  text-decoration:none
+}
+
+ul li.on {
+  background: #eda712;
+}
+
+ul li.on a {
+  color: #fff;
+}
+.sales_item_total_div{
+  position: absolute;
+  width: 100%;
+  top: 10%;
+  height: 80%;
+}
+.sales_item_div{
+  position: absolute;
+  width: 500px;
+  height: 300px;
+}
+.sales_item_img{
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0%;
+  left: 20%;
+  top: 10px;
+  width: 200px;
+  height: 200px;
+}
+.sales_item_name{
+  display: block;
+  height: 28px;
+  position: absolute;
+  width: 400px;
+  left: 10%;
+  top: 220px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.div_search { 
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  margin: none;
+  width:350px;
+  height:350px;
+}
+
+[id="fsearch_addr1"],[id="fsearch_addr2"],[id="searchInput"],[id="phone1"]{ 
+  width: 100%; 
+  margin-bottom: 5px; 
+  background: rgba(0,0,0,0.3);
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 13px;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 4px;
+  box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+  -webkit-transition: box-shadow .5s ease;
+  -moz-transition: box-shadow .5s ease;
+  -o-transition: box-shadow .5s ease;
+  -ms-transition: box-shadow .5s ease;
+  transition: box-shadow .5s ease;
+}
+
+[id="txt_agreement"]{ 
+  width: 100%; 
+  height: 100%; 
+  margin-bottom: 5px; 
+  background: rgba(0,0,0,0.3);
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 13px;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 4px;
+  box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+  -webkit-transition: box-shadow .5s ease;
+  -moz-transition: box-shadow .5s ease;
+  -o-transition: box-shadow .5s ease;
+  -ms-transition: box-shadow .5s ease;
+  transition: box-shadow .5s ease;
+}
+
+textarea:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
+
+.addr_list_inbox{
+  left: 50px;
+  top: 5%;
+  list-style: none;
+  margin: 0px;
+  padding: 10px;
+  line-height: 100%;
+  border: 1px solid #666666;
+  background-color: #dbdbdb;
+}
+
+/* ul focus 처리를 위한 css */
+ul:focus{
+  outline: solid 1px rgb(231, 185, 115);
+}
+
+/* 검색된 결과 li 목록을 방향키로 이동 및 선택하기 위한 소스
+4개 다 쓸 경우 시계 방향으로 [위 오른쪽 아래 왼쪽]
+3개 쓸 경우 [위 오른쪽,왼쪽 아래]
+2개 쓸 경우 [위,아래 오른쪽,왼쪽]
+1개 쓸 경우 [위,오른쪽,아래,왼쪽]
+*/
+.addr_list_inbox li:hover,
+.addr_list_inbox li.--focus {
+  background-color: rgb(155, 194, 247);
+  cursor: pointer; 
+}
+
+.addrpopup { 
+  position: absolute;
+  top: 1%;
+  left: 5%;
+  margin: 0 0 0 0;
+  width:350px;
+  height:500px;
+}
+.addrpopup h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:left; font-size: 25px;}
+
+.modal_pop { 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  display: none; 
+  background-color: #e7e7e7
+}
+
+.modal.show { display: block; }
+.modal_body { 
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  width: 400px; 
+  height: 600px; 
+  padding: 40px; 
+  text-align: center; 
+  background-color: rgb(255, 255, 255); 
+  border-radius: 10px; 
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15); 
+  transform: translateX(-50%) translateY(-50%); 
+}
+
+/* progress loading image */
+.Progress_Loading
+{
+ position: absolute;
+ left: 40%;
+ top: 30%;
+ background: rgba(255,255,255,0);
+}
+
+/* cursor control */
+body.waiting * {
+  cursor: progress;
+}
+
+/* 팝업창 */
+.pop_background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  
+  /* 숨기기 */
+  z-index: -1;
+  opacity: 0;
+}
+
+.pop_show {
+  opacity: 1;
+  z-index: 1000;
+  transition: all .5s;
+}
+
+.pop_show .pop_popup {
+  transform: translate(-50%, -50%);
+  transition: all .5s;
+}
+
+.pop_window {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.pop_popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+  
+  /* 임시 지정 */
+  width: 500px;
+  height: 500px;
+  
+  /* 초기에 약간 아래에 배치 */
+  transform: translate(-50%, -40%);
+}
+
+/* The Close Button */
+.pop_close {
+  color: rgb(8, 8, 8);
+  /* float: right; */
+  top:100%;
+  left:100%;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  /* font-weight: bold; */
+}
+.pop_close:hover,
+.pop_close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.login_inputBox .eyes {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto 2px;
+  height: 30px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/****************** end of css *************************************************/

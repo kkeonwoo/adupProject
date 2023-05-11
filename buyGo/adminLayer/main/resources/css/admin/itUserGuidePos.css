@@ -1,0 +1,177 @@
+:root {
+    /* 자주 쓰는 색상 */
+    --color-font: #666666;
+    --color-border: #CCCCCC;
+    --color-card: #EEEEEE;
+    --color-guide: #fafafa;
+    --color-orange: #DF5A20;
+    --color-blue: #2592C9;
+    --color-green: #94C11E;
+    --color-price: #D17EAC;
+    --color-white: #ffffff;
+    --color-free: #F1A5AD;
+    --color-star:#EBD33A;
+}  
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    list-style: none;
+    color: #666666;
+    text-decoration: none;
+}
+body{
+}
+input:focus{
+    outline:none;
+}
+
+.warning_text{
+    font-size: 12px;
+    padding-top: 18px;
+    text-align: right;
+}
+
+.close_text{
+    position: absolute;
+    right: 0;
+    font-size: 10px;
+}
+#contentsBox{
+    width: 1004px;
+    margin: 0;
+    padding: 10px 10px 80px 10px;
+}
+.tabArea{
+    border-bottom: 1px solid #CCCCCC;
+    width: 100%;
+    height: 64px;
+    margin-bottom: 20px;
+}
+.tabArea li{
+    float: left;
+    width: 151px;
+    height: 64px;
+    border: solid 1px #CCCCCC;
+    background-color: #EEEEEE;
+    text-align: center;
+    cursor: pointer;
+}
+.active{
+    background-color: #fff !important; 
+    border-bottom: 1px solid white !important;
+    height: 65px !important;
+}
+.tabArea li div{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 18px;
+}
+#stitle_1,
+#stitle_2,
+#stitle_3{
+    color: #D17EAC;
+    font-weight: bold;
+    font-size: 12px;
+}
+.stitle{
+    color: #D17EAC;
+    font-weight: bold;
+    font-size: 12px;
+}
+#contentsBox h3{
+    padding-left: 10px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    background: no-repeat 0 50%;
+    color: #666666;
+}
+.guideBox01,
+.guideBox02,
+.guideBox03{
+    padding: 20px;
+    background-color: #fafafa;
+    border: 1px solid #CCCCCC;
+}
+.guideBox01 h4,
+.guideBox02 h4,
+.guideBox03 h4{
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+    margin: 16px 0;
+}
+.guideBox01 p,
+.guideBox02 p,
+.guideBox03 p{
+    font-size: 12px;
+    padding-left: 10px;
+}
+
+.fixed_account_pic{
+    width: 810px;
+    height: 305px;
+}
+.footer{
+    width: 100%;
+    border-top: 2px solid #CCCCCC;
+    background-color: #EEEEEE;
+    margin-top: 10px;
+    font-weight: 100;
+    color: #666666;
+    font-size: 13px;
+}
+.copyright{
+    margin-top: 20px;
+    margin-left: 10px;
+    line-height: 18px;
+    padding-bottom: 36px;
+}
+#tab_3_textArea_1{
+    padding: 20px;
+    background-color: #fafafa;
+    border: solid 1px #CCCCCC;
+    height: 500px;
+    overflow-y: scroll;
+    font-size: 12px;
+}
+#tab_3_textArea_2{
+    padding: 20px;
+    background-color: #fafafa;
+    border: solid 1px #CCCCCC;
+    height: 400px;
+    overflow-y: scroll;
+    font-size: 12px;
+}
+#tab_1{
+}
+#tab_2{
+    display: none;
+}
+#tab_3{
+    display: none;
+}
+
+
+.order_img_1{
+    width: 810px;
+    height: 100px;
+    background-color: beige;
+}
+.order_h4{
+    font-size: 12px;
+    margin: 15px 0;
+}
+.order_img_2{
+    width: 810px;
+    height: 332px;
+    background-color: beige;
+}
+#tab3 h3{
+    margin: 40px 0 10px 0;
+    padding-left: 10px;
+}

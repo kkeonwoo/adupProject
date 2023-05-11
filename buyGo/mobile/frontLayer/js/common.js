@@ -362,7 +362,7 @@ BuyGo = {
         });
 
         $modal.on('click', function (e) {
-            if ($(e.target).closest('.modal_box').length < 1 && $('.modal.active').attr('data-dim-click') !== 'false') {
+            if ($(e.target).closest('.modal_box').length < 1 && $('.modal.active').attr('data-dim-click') !== 'false' && !$modal.hasClass('modal_certification')) {
                 BuyGo.closeModal($modal);
             }
         });
@@ -793,8 +793,8 @@ BuyGo = {
             $($this).closest('.form_box').find('.form_control').eq(0).focus();
             $($this).closest('tr').find('.guide_txt').show();
             $($this).closest('tr').find('.check_item').show();
-            $($this).closest('tr').find('.btn_add_address').show();
-            if($($parentTarget).find('.form_inc_btn').length) {
+            $($this).closest('tr').find('.btn_add_address').show().css({display:'block'});
+            if($($parentTarget).find('.form_inc_btn').length || $($parentTarget).find('.form_select').length) {
                 $($parentTarget).find('.guide_txt').hide();
             }
         })

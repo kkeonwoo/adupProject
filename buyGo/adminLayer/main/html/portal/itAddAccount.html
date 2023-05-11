@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" type="text/css" href="/commonpf2.css"/>
+    <!--<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, width=device-width"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+    <!--이미지 도구모음 금지-->
+    <meta http-equiv="imagetoolbar" context="no"></head>
+    <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- iOS Part -->
+    <!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 상태 바의 스타일을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+    <!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-title" content="Timer">-->
+    <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+    <!-- <link rel="apple-touch-icon" href="icons/icon-152x152.png">-->
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+
+    <!-- Android part -->
+    <!-- 웹 앱 매니페스트를 읽어 들이기 -->
+    <link rel="manifest" type="text/json"  href="/manifest.json">
+    <!-- ----------------------------------------------------------------------- -->
+
+    <script type="text/javascript" src="/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/jquery.ajax-cross-origin.min.js"></script>
+    <script type="text/javascript" src="/crypto-js.js"></script>
+    <!-- <script>history.replaceState({}, null, location.pathname);</script> -->
+    <title>개인회원가입</title>
+</head>
+<body>
+    <div id="Progress_Loading" class="Progress_Loading" style="z-index: 1">
+        <img src="Progress_Loading.gif" alt="Alternative text"/>
+    </div>
+    <div class="addaccount">
+        <h1>회원가입 (개인회원 전용)</h1>
+        <form method="post" autocomplete="off">
+            <input autocomplete="off" type="text" id="username" name="username" placeholder="email id" required="required"/>
+            <input autocomplete="off" type="text" id="authcode" name="authcode" placeholder="가입 인증코드 입력" required="required"/>
+            <button id="checkauth" type="button" class="btn btn-primary btn-block btn-large" value="이메일인증">(1) 메일 인증코드 받기</button><p></p>
+            <input autocomplete="off" type="password" id="pass1" name="pass1" placeholder="암호입력: 영문대소,특수기호,숫자(공백, 연속숫자 불가)" required="required">
+            <input autocomplete="off" type="password" id="pass2" name="pass2" placeholder="암호확인: 위에서 입력한 값과 동일하게 입력해 주세요" required="required"/>
+            <input autocomplete="off" type="text" id="phone1" name="phone1" placeholder="연락처 (-없이 숫자만 입력)" required="required"/>
+            <!--팝업은 호출한 화면위치와 같은 폴더에 배치한다. windows.open은 새창에서 팝업을 뛰울때 이므로 사용하지 않고 현재창에서 Page전환방법으로 동작시킨다. (팝업차단등이 있기 떄문)-->
+            <textarea autocomplete="off" required="required" type="text" id="fsearch_addr1" name="keyword1" placeholder="(필수)배송지 주소1 (지번, 도로명, 지하철역 검색)" onclick="onClickAddr1()"></textarea>
+            <textarea autocomplete="off" type="text" id="fsearch_addr2" name="keyword2" placeholder="(선택)배송지 주소2 (지번, 도로명, 지하철역 검색)" onclick="onClickAddr2()"></textarea>
+            <input autocomplete="off" type="text" id="temp4" name="temp4" placeholder="향후 부가 항목 넣기"/>
+            <button id="addaccount" type="button" class="btn btn-primary btn-block btn-large" value="이용정책 및 약관동의" onclick="onClickAgreement()">(2)이용정책 및 약관동의</button><p></p>
+            <button id="accountAcquire" type="button" class="btn btn-primary btn-block btn-large" value="가입하기">(3)가입하기</button><p></p>
+            <button id="passpop" type="button" class="btn btn-primary btn-block btn-large" value="비밀번호 생성규칙 안내" onclick="onShowPasswordRule()">비밀번호 생성규칙 안내</button><p></p>
+        </form>
+    </div>
+    <script>
+        var PageStatusCode="";
+        var aggreementCheck="";
+        try{
+            //2022.01.06 윤희상 비밀번호 생성규칙 안내 버튼 이벤트 작성
+            function onShowPasswordRule()
+            {
+                SET_PREVIOUS_PAGE_FILED_VALUE("saveaddrall");
+                location.href="itPasswordPattern.html";
+                localStorage.setItem("btn","addrAllButton");
+            };
+
+            function onClickAgreement()
+            {
+                SET_PREVIOUS_PAGE_FILED_VALUE("saveaddrall");
+                location.href="itAgreement.html";
+                localStorage.setItem("btn","addrAllButton");
+            };
+
+            function onClickAddr1()
+            {
+                //값이 있으면 Page전환을 하지 않는다.
+                var tmp=document.getElementById("fsearch_addr1").value;
+                if(tmp.length<1)
+                {
+                    SET_PREVIOUS_PAGE_FILED_VALUE("save2addr");
+                    localStorage.setItem("btn","addr1Button");
+                    location.href="itAddrPopup.html";
+                };
+            };
+
+            function onClickAddr2()
+            {
+                var tmp=document.getElementById("fsearch_addr2").value;
+                if(tmp.length<1)
+                {
+                    SET_PREVIOUS_PAGE_FILED_VALUE("save1addr");
+                    localStorage.setItem("btn","addr2Button");
+                    location.href="itAddrPopup.html";
+                };
+            };
+
+            function SET_PREVIOUS_PAGE_FILED_VALUE(whoSaveAddr)
+            {
+                //주소 검색 Page로 가기전에 기존 값을 저장한다.
+                localStorage.setItem("username",document.getElementById("username").value);
+                localStorage.setItem("authcode",document.getElementById("authcode").value);
+                localStorage.setItem("pass1",document.getElementById("pass1").value);
+                localStorage.setItem("pass2",document.getElementById("pass2").value);
+                localStorage.setItem("phone1",document.getElementById("phone1").value);
+
+                //저장 요청된 주소만을 저장한다.
+                if(whoSaveAddr=="save2addr")
+                {
+                    localStorage.setItem("fsearch_addr2",document.getElementById("fsearch_addr2").value);
+                }
+                else if(whoSaveAddr=="save1addr")
+                {
+                    localStorage.setItem("fsearch_addr1",document.getElementById("fsearch_addr1").value);
+                }
+                else if(whoSaveAddr=="saveaddrall")
+                {
+                    //둘다 모두 저장해 놓는다.
+                    localStorage.setItem("fsearch_addr1",document.getElementById("fsearch_addr1").value);
+                    localStorage.setItem("fsearch_addr2",document.getElementById("fsearch_addr2").value);
+                };
+            };
+            
+            function GET_PREVIOUS_PAGE_FILED_VALUE(whoGetAddrInfo)
+            {
+                //가져오고 나면 반드시 key를 지울것(remove)
+                var tmp=localStorage.getItem("username");
+                if(tmp!="undefined"&&tmp!=null)
+                {
+                    document.getElementById("username").value=tmp;
+                    localStorage.removeItem("username");
+                };
+
+                tmp=localStorage.getItem("authcode");
+                if(tmp!="undefined"&&tmp!=null)
+                {
+                    document.getElementById("authcode").value=tmp;
+                    localStorage.removeItem("authcode");
+                };
+
+                tmp=localStorage.getItem("pass1");
+                if(tmp!="undefined"&&tmp!=null)
+                {
+                    document.getElementById("pass1").value=tmp;
+                    localStorage.removeItem("pass1");
+                };
+
+                tmp=localStorage.getItem("pass2");
+                if(tmp!="undefined"&&tmp!=null)
+                {
+                    document.getElementById("pass2").value=tmp;
+                    localStorage.removeItem("pass2");
+                };
+
+                tmp=localStorage.getItem("phone1");
+                if(tmp!="undefined"&&tmp!=null)
+                {
+                    document.getElementById("phone1").value=tmp;
+                    localStorage.removeItem("phone1");
+                };
+
+                tmp=localStorage.getItem("PageStatusCode");
+                if(tmp!="undefined"&&tmp!=null)
+                {
+                    PageStatusCode=tmp;
+                    localStorage.removeItem("PageStatusCode");
+                };
+
+                localStorage.setItem("PageStatusCode",PageStatusCode);
+
+                if(whoGetAddrInfo=="getaddr1")
+                {
+                    tmp=localStorage.getItem("fsearch_addr1");
+                    document.getElementById("fsearch_addr1").value=tmp;
+                    localStorage.removeItem("fsearch_addr1");
+                }
+                else if(whoGetAddrInfo=="getaddr2")
+                {
+                    tmp=localStorage.getItem("fsearch_addr2");
+                    document.getElementById("fsearch_addr2").value=tmp;
+                    localStorage.removeItem("fsearch_addr2");
+                }
+                else if(whoGetAddrInfo=="getaddrall")
+                {
+                    //여기에서 이용약관 동의 여부를 검사한다.
+                    tmp=localStorage.getItem("agreementcheck");
+                    if(tmp==null||tmp=="no")
+                    {
+                        aggreementCheck="no";
+                    }
+                    else
+                    {
+                        aggreementCheck="yes";
+                    };
+
+                    tmp=localStorage.getItem("fsearch_addr1");
+                    document.getElementById("fsearch_addr1").value=tmp;
+                    localStorage.removeItem("fsearch_addr1");
+                    tmp=localStorage.getItem("fsearch_addr2");
+                    document.getElementById("fsearch_addr2").value=tmp;
+                    localStorage.removeItem("fsearch_addr2");
+                };
+            };
+
+            function DELETE_ALL_LOCAL_KEY()
+            {
+                localStorage.removeItem("username");
+                localStorage.removeItem("authcode");
+                localStorage.removeItem("pass1");
+                localStorage.removeItem("pass2");
+                localStorage.removeItem("phone1");
+                localStorage.removeItem("fsearch_addr1");
+                localStorage.removeItem("fsearch_addr2");
+                localStorage.removeItem("PageStatusCode");
+                localStorage.removeItem("aggreementCheck");
+            };
+
+            $(document).ready(function(){
+                $(".Progress_Loading").hide(); //첫 시작시 로딩바를 숨겨준다. - 모래시계 GIF 이미지 잠시 막음: 모바일에서 동작안함(자동 움짤 차단 등 문제 있음)
+                //되돌아온 값이 있는지 확인해서 화면에 Set해준다.
+
+                var rtnpagename=localStorage.getItem("agreementpage");
+                localStorage.removeItem("agreementpage");
+                if(rtnpagename!=null&&rtnpagename=="yes")
+                {
+                    GET_PREVIOUS_PAGE_FILED_VALUE("getaddrall");
+                }
+                else
+                {
+                    var rtnValue=localStorage.getItem("addr1ButtonReceive");
+                    localStorage.removeItem("addr1ButtonReceive");
+                    //key가 존재하지 않으면 null이 return된다.
+                    if(rtnValue!="undefined"&&rtnValue!=null)
+                    {
+                        document.getElementById("fsearch_addr1").value=rtnValue;
+                        GET_PREVIOUS_PAGE_FILED_VALUE("getaddr2");
+                    };
+
+                    rtnValue=localStorage.getItem("addr2ButtonReceive");
+                    localStorage.removeItem("addr2ButtonReceive");
+                    if(rtnValue!="undefined"&&rtnValue!=null)
+                    {
+                        document.getElementById("fsearch_addr2").value=rtnValue;
+                        GET_PREVIOUS_PAGE_FILED_VALUE("getaddr1");
+                    };
+                    
+                    //2022.01.06 윤희상 비밀번호 생성규칙 안내 닫기 버튼 클릭
+                    rtnValue=localStorage.getItem("passwordPatternCloseBtn");
+                    localStorage.removeItem("passwordPatternCloseBtn");
+                    if(rtnValue!="undefined"&&rtnValue!=null)
+                    {
+                        //document.getElementById("fsearch_addr2").value=rtnValue;
+                        GET_PREVIOUS_PAGE_FILED_VALUE("getaddrall");
+                    };
+                };
+
+                $("[type=button]").click(function(){
+                    var clickBtnValue = $(this).val();  //해당 그룹 중 누구인지를 알아야 하므로 this를 사용
+                    if(clickBtnValue=="이메일인증")
+                    {
+                        //ussr cxcxcx ----- 이메일 인증, 휴대폰 인증 모두 구현해야 함
+                        //각단계 상태코드를 관리, Page 로딩되면 최초 상태 모두 지우고, 이 Page를 떠날때 시작을 한했거나, 끝이 안난 경우말고는
+                        // 모두 유실된다는 경고문구를 보여주어야 함
+                        //(0)-이용약관 동의여부 확인
+                        //(1)-혹시 Platform내 법인계정이 존재하는지 확인하고 법인 계정으로 다른회사의 개인계정으로 가입하는 시도가 있는지 확인할 것
+                        //(2)-이메일 인증코드 입력
+                        //(3)-휴대폰 문자코드 입력
+                        //(4)-비밀번호 패턴 확인
+                        //(5)-주소 정보 확인
+                        //(6)-그리고 법인코드+계정중복 확인
+                        //(7)-암호화 저장
+                        //(8)-최종 완료 또는 Error유무 알림
+
+                        var username=$("#username").val();
+                        var pss=$("#pass").val();
+
+                        if(username.length<1){alert("인증요청에 필요한 email id 를 입력하여 주세요");}
+                        else
+                        {
+                            if(username.length>60||username.indexOf("@")<0){alert("사용자id 는 e-mail형식이어야 합니다."); return;};
+                            document.getElementById("checkauth").setAttribute("disabled","disabled");  //버튼 비활성화
+                            document.body.style.cursor="wait";
+                            $.ajax({
+                                url: "/itSendEmailAuth?"+$.param({"user": username}),
+                                type: "POST", async: true, dataType: "JSON", crossOrigin: true, cache: false,
+                                contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                                success: function(response){
+                                    document.body.style.cursor="default";
+                                    if(response.errorcode=="PFERR_CONF_0000")
+                                    {
+                                        localStorage.setItem("PageStatusCode","001_emailAuthStart_OK");
+                                        alert("입력하신 이메일로 가입코드를 발송하였습니다. 이메일을 확인하신 후 상단 인증코드란에 발송된 코드를 입력해 주세요");
+                                    }
+                                    else
+                                    {
+                                        document.body.style.cursor="wait";
+                                        alert(response.errormessage+" "+response.returnvalue);
+                                        document.getElementById("checkauth").removeAttribute("disabled");
+                                    };
+                                },
+                                error: function(xhr)
+                                {
+                                    document.body.style.cursor="default";
+                                    localStorage.setItem("PageStatusCode","001_emailAuthStart_Fail");
+                                    alert("[error] : " + xhr);
+                                    document.getElementById("checkauth").removeAttribute("disabled");
+                                },
+                                complete:function(data,textStatus)
+                                {
+                                    document.body.style.cursor="default";
+                                    console.log("[complete] : " + textStatus);
+                                    document.getElementById("checkauth").removeAttribute("disabled");
+                                }
+                            });
+                        };
+                    }
+                    else if(clickBtnValue=="가입하기")
+                    {
+                        var totalCheck="";
+                        //이메일인증코드 발번했는가?
+                        PageStatusCode=localStorage.getItem("PageStatusCode");
+                        if(PageStatusCode===undefined||PageStatusCode===null)
+                        {
+                            alert("메일 인증하기 버튼을 눌러서 인증코드를 받아주세요");
+                            totalCheck="Error";
+                        };
+
+                        if(PageStatusCode!="001_emailAuthStart_OK")
+                        {
+                            alert("메일 인증하기 버튼을 눌러서 인증코드를 받아주세요");
+                            totalCheck="Error";
+                        };
+
+                        if(totalCheck!="Error")
+                        {
+                            //인증코드 입력했는가?
+                            var authCode=document.getElementById("authcode").value;
+                            if(authCode.length<1)
+                            {
+                                alert("메일인증 코드를 입력해주세요");
+                                totalCheck="Error";
+                            };
+                        };
+                        
+                        //비밀번호 일치하나?
+                        if(totalCheck!="Error")
+                        {
+                            var password1=document.getElementById("pass1").value;
+                            var password2=document.getElementById("pass2").value;
+                            if(password1.length<1||password2.length<1)
+                            {
+                                alert("암호입력 및 확인입력 모두 값이 있어야 합니다.");
+                                totalCheck="Error";
+                            }
+                            else
+                            {
+                                if(password1!=password2)
+                                {
+                                    alert("암호입력 값과 확인 값이 서로 일치하지 않습니다.");
+                                    totalCheck="Error";
+                                };
+                                
+                            };
+                        };
+
+                        //연락처 입력했는가?
+                        if(totalCheck!="Error")
+                        {
+                            var phone1Check=document.getElementById("phone1").value;
+                            if(phone1Check.length<1)
+                            {
+                                alert("연락처를 입력해 주세요.");
+                                totalCheck="Error";
+                            };
+                        };
+
+                        //배송자를 입력했는가?
+                        if(totalCheck!="Error")
+                        {
+                            var addr1Check=document.getElementById("fsearch_addr1").value;
+                            if(addr1Check.length<1)
+                            {
+                                alert("배송지를 정확하게 입력해 주세요.");
+                                totalCheck="Error";
+                            };
+                        };
+
+                        //이용정책약관 동의헀는가?
+                        if(totalCheck!="Error")
+                        {
+                            if(aggreementCheck===undefined||aggreementCheck===null)
+                            {
+                                alert("이용정책 및 약관동의 버튼을 눌러서 확인 후 동의 부탁드립니다.");
+                                totalCheck="Error";
+                            };
+                        };
+
+                        if(totalCheck!="Error")
+                        {
+                            if(aggreementCheck!="yes")
+                            {
+                                alert("이용정책 및 약관동의 버튼을 눌러서 확인 후 동의 부탁드립니다.");
+                                totalCheck="Error";
+                            };
+                        };
+
+                        //모두 되었다면 인증코드 일치여부 확인
+                        if(totalCheck!="Error")
+                        {
+                            //ajax 비밀번호 패턴 및 인증코드 일치여부, 회원가입중복여부 확인
+                            var username=document.getElementById("username").value;
+                            var pass1=document.getElementById("pass1").value;
+                            var authcode=document.getElementById("authcode").value;
+                            var phone=document.getElementById("phone1").value;
+                            var address1=document.getElementById("fsearch_addr1").value;
+                            var address2=document.getElementById("fsearch_addr2").value;
+                            document.getElementById("accountAcquire").setAttribute("disabled","disabled");
+                            document.body.style.cursor="wait";
+                            $.ajax({
+                                url: "/uAcquireAccount?"+$.param({"user": username, "pass1": pass1, "authcode": authcode, "phone": phone, "address1": address1, "address2": address2}),
+                                type: "POST", async: true, dataType: "JSON", crossOrigin: true, cache: false,
+                                contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                                success: function(response){
+                                    document.body.style.cursor="default";
+                                    if(response.errorcode=="PFERR_CONF_0000")
+                                    {
+                                        //정상적으로 가입하기가 되면 모든 localitem삭제처리
+                                        alert(response.errormessage);
+                                        DELETE_ALL_LOCAL_KEY();
+                                        location.href="login.html";
+                                    }
+                                    else
+                                    {
+                                        document.body.style.cursor="default";
+                                        alert(response.errormessage+" "+response.returnvalue);
+                                        document.getElementById("accountAcquire").removeAttribute("disabled");
+                                    };
+                                },
+                                error: function(xhr)
+                                {
+                                    document.body.style.cursor="default";
+                                    localStorage.setItem("PageStatusCode","001_emailAuthStart_Fail");
+                                    alert("[error] : " + xhr);
+                                    document.getElementById("accountAcquire").removeAttribute("disabled");
+                                },
+                                complete:function(data,textStatus)
+                                {
+                                    document.body.style.cursor="default";
+                                    console.log("[complete] : " + textStatus);
+                                    document.getElementById("accountAcquire").removeAttribute("disabled");
+                                }
+                            });
+                        };
+                    };
+                });
+            }).ajaxStart(function(){
+                $(".Progress_Loading").show(); //ajax실행시 로딩바를 보여준다.
+            })
+            .ajaxStop(function(){
+                $(".Progress_Loading").hide(); //ajax종료시 로딩바를 숨겨준다.
+            });
+        }
+        catch(e)
+        {
+            alert(e.message);
+        };
+    </script>
+    
+</body>
+</html>

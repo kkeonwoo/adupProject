@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>이음몰 주문내역서</title>
+        
+        <!-- -----------20220627 안상현 점주용화면 공통부문 예상 START------------- -->
+        <link rel="shortcut icon" href="/eum/resources/images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/eum/resources/images/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="/resources/css/jquery-ui.css?">
+        <link rel="stylesheet" href="/resources/css/web.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!-- <script type="text/javascript" src="/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="/jquery.ajax-cross-origin.min.js"></script> -->
+        <script type="text/javascript" src="/eum/resources/plugin/jquery.min.js"></script>
+        <script type="text/javascript" src="/jquery-ui.js"></script>
+        <script type="text/javascript" src="/jquery-ui.min.js"></script>
+        <!-- -----------20220627 안상현 점주용화면 공통부문 예상 END ------------- -->
+        <link rel="stylesheet" type="text/css" href="/resources/css/common.css">
+    </head>
+    <body>
+        <object id="factory" style="display:none" classid="clsid:1663ed61-23eb-11d2-b92f-008048fdd814" codebase="https://www.hooni.net/ScriptX.cab#Version=6,1,429,14"></object>
+        <!-- 20180130_이음몰주문내역서 -->
+        <div class="orderWrap">		
+            <div class="orderHead">
+                <h1><span>이음몰</span> 주문내역서</h1>
+                <p class="url">
+                    (http://www.sajago.co.kr/eum/html/portal/itSalesPos.html)
+                    <a class="btn_print" href="javascript:void(0);" onclick="callPrint();" style="margin-left: 500px;" "=""><span><b>인쇄하기</b></span></a>
+                </p>
+                <div class="titleList">
+                    <ul id="headlist">
+                        <li id="titleOrderDate"><span class="tit"></span><span class="txt"></span></li>
+                        <li><span class="tit">▶ 판매처명 : </span><span class="txt">(주)이음몰</span></li>
+                        <li id="titleOrderNo"><span class="tit"></span><span class="txt"></span></li>
+                        <li><span class="tit">▶ 사업자등록번호 : </span><span class="txt">214-88-97306</span></li>
+                        <li id="titleOrdererBizName"><span class="tit"></span><span class="txt"></span></li>
+                        <li><span class="tit">▶ 대표전화 : </span><span class="txt">1670-8485</span></li>
+                        <li id="paymentInfo"><span class="tit"></span><span class="txt"></span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="orderBody">
+                <div class="tbl">
+                    <table summary="이음몰 주문내역서" class="tbm">
+                        <colgroup>
+                            <col width="5%">
+                            <col width="10%">
+                            <col width="*">
+                            <col width="5%">
+                            <col width="5%">
+                            <col width="5%">
+                            <col width="10%">
+                            <col width="10%">
+                        </colgroup>
+                        <thead>
+                             <tr>
+                                  <th scope="col">NO</th>
+                                  <th scope="col">공급사</th>
+                                  <th scope="col">상품명</th>
+                                  <th scope="col">낱개</th>
+                                  <th scope="col">볼</th>
+                                  <th scope="col">박스</th>
+                                  <th scope="col">결제금액</th>
+                                  <th scope="col">주문상태</th>
+                             </tr>
+                        </thead>
+                        <tbody id="detailInfo">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="orderFooter">
+                <p>★ 이용해주셔서 감사합니다.★</p>
+            </div>
+        </div>
+        <script type="text/javascript">
+            function callPrint() {
+                $(".btn_print").hide();
+                window.print();
+                setTimeout(function(){ $(".btn_print").show(); },2000);
+            };
+
+            $(document).ready(function() {
+                //get params
+                var orderDate = opener.document.getElementById("orderDate").value;
+                var orderNo = opener.document.getElementById("orderNo").value;
+                var buyerName = opener.document.getElementById("buyerName").value;
+                var paymentInfo = opener.document.getElementById("paymentInfo").value;
+                // var fromDate = opener.document.getElementById("fromDate").value;
+                // var toDate = opener.document.getElementById("toDate").value;
+
+                //정보전체를 조회한다.
+                var tmpSearchOption={};
+                // tmpSearchOption.fromDate=fromDate;
+                // tmpSearchOption.toDate=toDate;
+                tmpSearchOption.rowsPerPage=10;
+                tmpSearchOption.nowPage=1;
+                tmpSearchOption.orderNo=orderNo;
+                $.ajax({
+                    url: "/uMyOrderInfo?" + $.param({"authPage": "myOrderInfoDetaul.js", "searchCondition": tmpSearchOption, "excelOption": "yes"}),
+                    type: "POST", async: false,  dataType: "JSON", crossOrigin: true, cache: false, traditional: true,
+                    contentType: "application/json; charset=utf-8",
+                    success: function(response){
+                        // console.log("response", response)
+                        if(response.errorcode == "PFERR_CONF_0000"){
+                            rtn = response.returnvalue;
+                            document.body.style.cursor = "wait";
+                            //data를 표에 보여준다.
+                            if(rtn==undefined||rtn==""||rtn[1][0].TOTAL_COUNT<1){
+                                //불러온 DB가 없는 경우
+                                $("#detailInfo").empty();
+                                $("#detailInfo").append('<tr><td colspan="12" align="center" style="height:100px;">등록된 데이터가 없습니다</td></tr>');
+                            }
+                            else
+                            {
+                                var innerText="";
+                                $("#detailInfo").empty();
+                                var totalPrice=0;
+                                var totalUnit=0;
+                                var totalBundle=0;
+                                var totalBox=0;
+                                for(var ix=0; ix<rtn[0].length; ix++)
+                                {
+                                    if(rtn[0][ix].STATUS.indexOf("취소")<0)
+                                    {
+                                        innerText ='<tr>';
+                                        innerText = innerText + '<td class="c01">'+rtn[0][ix].ROWNUM+'</td>'; // 번호
+                                        innerText = innerText + '<td class="c04">'+rtn[0][ix].BIZ_NICK+'</td>';
+                                        innerText = innerText + '<td class="c05" style="text-align:left;">'+rtn[0][ix].SALES_ITEM_NAME+' </td>';
+
+                                        innerText = innerText + '<td class="c06">'+rtn[0][ix].ORDER_UNIT+'</td>';
+                                        totalUnit=totalUnit+Number(rtn[0][ix].ORDER_UNIT);
+
+                                        innerText = innerText + '<td class="c07">'+rtn[0][ix].ORDER_BUNDLE+'</td>';
+                                        totalBundle=totalBundle+Number(rtn[0][ix].ORDER_BUNDLE);
+
+                                        innerText = innerText + '<td class="c08">'+rtn[0][ix].ORDER_BOX+'</td>';
+                                        totalBox=totalBox+Number(rtn[0][ix].ORDER_BOX);
+
+                                        innerText = innerText + '<td class="c09">'+rtn[0][ix].TOT_SALES_ITEM_PRICE.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+'</td>';
+                                        totalPrice=totalPrice+Number(rtn[0][ix].TOT_SALES_ITEM_PRICE);
+                                        innerText = innerText + '<td class="c12">'+rtn[0][ix].STATUS+'</td>';
+
+                                        // if(rtn[0][ix].FN_DELIVERY_STATUS.indexOf("ERROR")<0)
+                                        // {
+                                        //     //송장상태까지 나간 경우는 그 이후의 판단 값을 가져온다.
+                                        //     innerText = innerText + '<td class="c12">'+rtn[0][ix].FN_DELIVERY_STATUS+'</td>';
+                                        // }
+                                        // else
+                                        // {
+                                        //     innerText = innerText + '<td class="c12">'+rtn[0][ix].LEDGER_STATUS_NM+'</td>';
+                                        // };
+                                        
+                                        innerText+='</tr>';
+                                        $("#detailInfo").append(innerText);
+                                    };
+                                };
+                                //합계넣기
+                                innerText ='<tr>';
+                                innerText = innerText + '<td class="c01" colspan="3">합계</td>';
+                                innerText = innerText + '<td class="c04">'+totalUnit+'</td>';
+                                innerText = innerText + '<td class="c05">'+totalBundle+'</td>';
+                                innerText = innerText + '<td class="c06">'+totalBox+'</td>';
+                                innerText = innerText + '<td class="c06">'+totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+'</td>';
+                                innerText = innerText + '<td class="c07"></td>';
+                                innerText+='</tr>';
+                                $("#detailInfo").append(innerText);
+
+                                //제목넣기
+                                innerText="";
+                                $("#headlist > li").remove();
+                                innerText  ='<li><span class="tit">▶ 주문완료 : </span><span class="txt">'+orderDate+'</span></li>';
+                                innerText +='<li><span class="tit">▶ 판매처명 : </span><span class="txt">(주)이음몰</span></li>';
+                                innerText +='<li><span class="tit">▶ 주문번호 : </span><span class="txt">'+orderNo+'</span></li>';
+                                innerText +='<li><span class="tit">▶ 사업자등록번호 : </span><span class="txt">214-88-97306</span></li>';
+                                innerText +='<li><span class="tit">▶ 정포명 : </span><span class="txt">'+buyerName+'</span></li>';
+                                innerText +='<li><span class="tit">▶ 대표전화 : </span><span class="txt">1670-8485</span></li>';
+                                innerText +='<li><span class="tit">▶ 입금계좌 : </span><span class="txt">'+paymentInfo+'</span></li>';
+                                $("#headlist").append(innerText);
+                            };
+                            document.body.style.cursor = "default";
+                        }
+                        else if(response.errorcode == "PFERR_CONF_0059"){
+                            alert(response.errormessage);
+                        };
+                    },
+                    error: function(xhr, textStatus, e) {
+                        // console.log("[error]: " + textStatus);
+                        return null;
+                    },
+                    complete:function(data,textStatus) {
+                    }
+                });
+            });
+        </script>
+    </body>
+    </html>

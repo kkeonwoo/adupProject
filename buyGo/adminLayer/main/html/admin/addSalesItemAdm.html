@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- -----------윤희상 html 추가부분 START------------- -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/main/resources/css/admin/admin.css">
+    <link rel="stylesheet" href="/main/resources/css/admin/jquery-ui.css">
+    <link rel="stylesheet" href="/main/resources/css/admin/swiper.css">
+    
+    <!-- -----------윤희상 html 추가부분 END------------- -->
+
+    <!-- -----------윤희상 html 공통부분 START------------- -->
+	<script defer type="text/javascript" src="/main/js/common/cFuncs.js"></script>
+    <!-- <script type="text/javascript" src="/resources/js/admin/productManagement/pmAdd.js"></script> -->
+    <script defer type="text/javascript" src="/main/js/admin/cGetAdminCommonModule.js"></script>
+    <script defer type="text/javascript" src="/main/js/admin/cGetAdminPageMenu.js"></script>
+    <script defer type="text/javascript" src="/main/js/admin/cAddSalesItemAdm.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- <link rel="stylesheet" type="text/css" href="/commonpf2.css"/> -->
+    <script type="text/javascript" src="/common/resources/jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/common/resources/jquery/jquery.ajax-cross-origin.min.js"></script>
+    <!-- <script type="text/javascript" src="/main/js/jquery-ui.js"></script> -->
+    <script type="text/javascript" src="/main/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/node_modules/crypto-js/crypto-js.js"></script>
+    <!-- <script type="text/javascript" src="/ckeditor4.js"></script> -->
+    <script src="https://cdn.ckeditor.com/4.5.11/full/ckeditor.js"></script>
+    <!-- <script src="/exif-js.js"></script> -->
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+    <!--이미지 도구모음 금지-->
+    <meta http-equiv="imagetoolbar" context="no"></head>
+    <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- iOS Part -->
+    <!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 상태 바의 스타일을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+    <!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-title" content="Timer">-->
+    <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+    <!-- <link rel="apple-touch-icon" href="icons/icon-152x152.png">-->
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+    <!-- Android part -->
+    <!-- 웹 앱 매니페스트를 읽어 들이기 -->
+    <link rel="manifest" type="text/json"  href="/manifest.json">
+    <script>history.replaceState({}, null, location.pathname);</script>
+    <!-- -----------윤희상 html 공통부분 END------------- -->
+    <title>상품등록 더이음몰 통합관리자</title>
+</head>
+<body>
+    <script type="text/javascript">
+        jQuery(function() {
+            getMenuListAjax("addSalesItemAdm.html", initPage);
+        });
+        function initPage() {
+            CKEDITOR.replace("editor_textarea");
+
+            var attach_cd = CryptoJS.MD5(new Date().toString());
+            $("input[name=key]").val(attach_cd);
+            $("input[name=attach_cd]").val(attach_cd);
+            var now = new Date();
+            var fateToString = now.getFullYear().toString() +"-"+ ((now.getMonth() + 2).toString().length == 1 ? "0" + (now.getMonth() + 2).toString() : (now.getMonth() + 2).toString())
+                            +"-"+ (now.getDate().toString().length == 1 ? "0" + now.getDate().toString() : now.getDate().toString());
+
+            $.datepicker.setDefaults({
+                dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+                dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], 
+                monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+                monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                yearSuffix: '년',
+                dateFormat: 'yy-mm-dd',
+                showOn: "both",
+                showButtonPanel: true,
+                gotoCurrent: true,
+                closeText: "Clear",
+                currentText: "오늘",
+                buttonImage : "/main/resources/images/common/calendar.png",
+                buttonImageOnly: true,
+                showMonthAfterYear:true,
+                constrainInput: true,
+                changeMonth: true,
+                changeYear: true    
+            });
+            $('input[name="sales_start"]').datepicker();
+            $('input[name="sales_end"]').datepicker();
+            $('input[name="sales_start"]').datepicker("setDate", "today");
+            $('input[name="sales_end"]').datepicker("setDate", "2090-12-31");
+
+            
+            $('input[name="fate_start"]').datepicker();
+            $('input[name="fate_end"]').datepicker();
+            $('input[name="fate_start"]').datepicker("setDate", "today");
+            $('input[name="fate_end"]').datepicker("setDate", "10year");
+            
+            //초기 카테고리 조회
+            //LV0 카테고리 조회
+            searchCategory(0, "", "cate1_idx",  function(){
+                //LV1 카테고리 조회
+                searchCategory(1, $("#cate1_idx option:selected").val(), "cate2_idx", function(){
+                    //LV2 카테고리 조회
+                    searchCategory(2, $("#search_cate2_idx option:selected").val(), "cate3_idx", function(){
+                        searchSupplierList("supplier_ssn");
+                    });
+                });
+            });
+
+            // LV0 카테고리가 바꼈을 때
+            // $("#cate1_idx").change(function(){
+            $("#cate1_idx").on('change', function(){
+                //LV1 카테고리 조회
+                searchCategory(1, $(this).val(), "cate2_idx", function(){
+                    //LV2 카테고리 조회
+                    searchCategory(2, $("#cate2_idx option:selected").val(), "cate3_idx");
+                });
+            });
+
+            //LV1 카테고리가 바꼈을 때
+            // $("#cate2_idx").change(function(){
+            $("#cate2_idx").on('change', function(){
+                searchCategory(2, $(this).val(), "cate3_idx"); //LV2 카테고리 조회
+            });
+
+            $("input[name=ORIGIN]").change(function(){
+                var file = document.getElementById('origin_file');
+                // 업로드 파일 읽기
+                if(!file.files[0]){
+                    return;
+                }
+                
+                if(file.files[0].size > (1024*1024*10)){
+                    alert("사이즈가 너무 큽니다.");
+                };
+
+                //크기 제한 해제
+                // var reader = new FileReader(); 
+                // reader.readAsDataURL(file.files[0]);
+                // reader.onload = function(){ 
+                //     var image = new Image();
+                //     image.src = reader.result;
+                //     image.onload=function(){
+                //         if(this.width > 600 || this.height > 600){
+                //             alert("사이즈가 너무 큽니다.");
+                //             file.value = "";
+                //         };
+                //     };
+                // };    
+            });
+
+            // $("#piece_unit_none").change(function(){
+            $("#piece_unit_none").on('change', function(){
+                if($(this).is(":checked"))$("#piece_unit").val("");
+                else $("#piece_unit").prop("disabled", false);
+            });
+            // $("#piece_bundle_none").change(function(){
+            $("#piece_bundle_none").on('change', function(){
+                if($(this).is(":checked"))$("#piece_bundle").val("");
+                else $("#piece_bundle").prop("disabled", false);
+            });
+            // $("#piece_box_none").change(function(){
+            $("#piece_box_none").on('change', function(){
+                if($(this).is(":checked"))$("#piece_box").val("");
+                else $("#piece_box").prop("disabled", false);
+            });
+
+            // $(".text-right").keyup(function(){
+            $(".text-right").on('keyup', function(){
+                var inputVal = $(this).val();
+                $(this).val(inputVal.replace(/[^0-9]/gi, ""));
+            });
+
+            // $("#sell_cost").keyup(function(){
+            $("#sell_cost").on('keyup', function(){
+                var inputVal = $(this).val();
+                var margin = Math.round((($("#sell_price").val() - inputVal)/$("#sell_price").val()) * 10000)/100;
+                $("#sell_margin").val(margin);
+            });
+
+            // $("#sell_price").keyup(function(){
+            $("#sell_cost").on('keyup', function(){
+                var inputVal = $(this).val();
+                var margin = Math.round(((inputVal - $("#sell_cost").val())/inputVal) * 10000)/100;
+                $("#sell_margin").val(margin);
+
+                var fate_margin = Math.round(((inputVal - $("#fate_price").val())/inputVal) * 10000)/100;
+                $("#fate_disrate").val(fate_margin)
+            });
+
+            // $("#fate_price").keyup(function(){
+            $("#fate_price").on('keyup', function(){
+                var inputVal = $(this).val();
+                var margin = Math.round((($("#sell_price").val() - inputVal)/$("#sell_price").val()) * 10000)/100;
+                $("#fate_disrate").val(margin);
+            });
+        }
+    </script>
+<div class="wrap">  
+    <div class="header">
+        <div class="top">
+            <h1>
+                <img src="/main/resources/images/admin/admin_header_logo.png" alt="나들가게 이음몰" onclick="location.href='/main/html/admin/totalOrderListAdm.html';" style="cursor:pointer;"> 
+                <img src="/main/resources/images/admin/sitetit.gif" alt="통합관리자" onclick="location.href='/main/html/admin/totalOrderListAdm.html';" style="cursor:pointer;">
+            </h1>
+            <div class="logout">
+            </div>
+        </div>
+        <ul class="gnb" id="gnb">
+        </ul>
+    </div>
+<!-- //header -->
+<!-- container -->
+<div class="container">
+    <div class="lnb" id="lnb">
+    </div>
+    <!-- contents -->
+    <div class="contents">
+        <h3>상품등록
+        <button type="button" class="btn01" onclick="btnCopy();" style="float:right;"><span>상품정보가져오기</span></button></h3>
+        <form name="frm" id="frm" action="/single/upload" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="type" value="Add">
+        <input type="hidden" name="attach_cd" value="">
+        <input type="hidden" id="copy_idx" value="">
+        <input type="hidden" name="storagePath" value="main/resources/goods/">
+        <div class="text_r mb05">
+            <span class="important">*</span> 필수입력
+        </div>
+        <!-- 기본정보 -->
+        <table class="table_row">
+            <colgroup>
+                <col width="15%">
+                <col width="35%">
+                <col width="16%">
+                <col width="34%">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th><span>공급사 <span class="important">*</span></span></th>
+                    <td colspan="3">
+                        <select name="supplier_ssn" id="supplier_ssn" style="width:205px;">     
+                            <!-- 2022.03.07 윤희상 화면 html로딩 될 때 공급사 정보 가져오는 함수 호출 -->
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th><span>상품카테고리 <span class="important">*</span></span></th>
+                    <td colspan="3">
+                        <select name="cate1_idx" id="cate1_idx" style="width:100px;">
+                        </select>
+                        <select name="cate2_idx" id="cate2_idx" style="width:100px;">
+                        </select>
+                        <select name="cate3_idx" id="cate3_idx" style="width:100px;">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th><span>상품명 <span class="important">*</span></span></th>
+                    <td colspan="3"><input type="text" name="goods_name" maxlength="100" style="width:528px;"> <input type="checkbox" name="shipping_free" value="Y"> <label for="" class="font11">무료배송 아이콘 표시</label></td>
+                </tr>
+                <tr>
+                    <th><span>단가정보</span></th>
+                    <td colspan="3">
+                        <select name="unit_price_div" id="unit_price_div" style="width:100px;">
+                            <option value="">선택</option>
+                            <option value="개당">개당</option>
+                            <option value="세트당">세트당</option>
+                            <option value="번들당">번들당</option>
+                            <option value="박스당">박스당</option>
+                        </select>&nbsp;
+                        <input type="text" name="unit_price1" id="unit_price1" class="w84 text-right padding-right" maxlength="8" value="" numberonly="">&nbsp;/
+                        <input type="text" name="unit_price2" id="unit_price2" class="w84 text-right padding-right" maxlength="8" value="" numberonly="">&nbsp;/
+                        <input type="text" name="unit_price3" id="unit_price3" class="w84 text-right padding-right" maxlength="8" value="" numberonly="">&nbsp;/
+                        <input type="text" name="unit_price4" id="unit_price4" class="w84 text-right padding-right" maxlength="8" value="" numberonly=""> 원
+                    </td>
+                </tr>
+                <tr>
+                    <th><span>바코드</span></th>
+                    <td colspan="3">
+                        박스<input type="text" name="goods_barcode" class="w100" maxlength="20">&nbsp;/
+                        미들<input type="text" name="goods_barcode2" class="w100" maxlength="20">&nbsp;/
+                        유닛<input type="text" name="goods_barcode3" class="w100" maxlength="20">&nbsp;
+                        *20자(공백포함)
+                    </td>
+                </tr>
+                <tr>
+                    <th><span>원산지</span></th>
+                    <td>
+                        <input type="text" name="goods_place" class="w100" maxlength="20"> <span class="font11">*20자(공백포함)</span>
+                    </td>
+                    <th><span>제조사</span></th>
+                    <td>
+                        <input type="text" name="goods_maker" class="w100" maxlength="20"> <span class="font11">*20자(공백포함)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><span>정렬순서</span></th>
+                    <td>
+                        <input type="text" name="dis_sort" class="w100" maxlength="20" value="99999999" numberonly="">
+                    </td>
+                    <th><span></span></th>
+                    <td><span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><span>상품상태 <span class="important">*</span></span></th>
+                    <td class="checks">
+                        <input type="radio" id="radio01_1" name="sales_chilled" value="0" checked="checked"> <label for="radio01_1">상온</label>
+                        <input type="radio" id="radio01_2" name="sales_chilled" value="1"> <label for="radio01_2">냉장</label>
+                        <input type="radio" id="radio01_3" name="sales_chilled" value="2"> <label for="radio01_3">냉동</label>
+                    </td>
+                    <th><span>출시일</span></th>
+                    <td>
+                        <input type="text" name="goods_date" class="w100" maxlength="8"> <span class="font11">*ex)20150720</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><span>판매기간</span></th>
+                    <td>
+                        <input type="text" name="sales_start" class="w84 datepicker2" maxlength="10">~ 
+                        <input type="text" name="sales_end" class="w84 datepicker2" maxlength="10">
+                    </td>
+                    <th><span>유통기한</span></th>
+                    <td>
+                        <input type="text" name="expiration_date" class="w250" maxlength="25">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- //기본정보 -->
+        <!-- 가격 정보 -->
+        <div class="pop_s_tit">
+            가격 정보
+        </div>
+        <table class="table_row">
+            <colgroup><col width="15%"><col width="*"></colgroup>
+            <tbody><tr>
+                <th><span>낱개판매가/<br>마진율  <span class="important">*</span></span></th>
+                <td>
+                    <p>고객 낱개 구입가격 입니다.(부가세 포함가격으로 10원 단위까지 입력 가능)</p>
+                    <p class="mt10">
+                        <strong>공급원가(VAT포함)</strong> 
+                        <input type="text" name="sell_cost" id="sell_cost" class="w84 text-right padding-right" maxlength="8" value="0" numberonly=""> 원  &nbsp;  
+                        <strong>낱개판매가(VAT포함)</strong> 
+                        <input type="text" name="sell_price" id="sell_price" class="w84 text-right padding-right" maxlength="8" value="0" numberonly=""> 원 &nbsp; &nbsp; 
+                        <strong>마진율</strong> 
+                        <input type="text" name="sell_margin" id="sell_margin" class="w84 text-right padding-right" maxlength="3" value="0" readonly="readonly" style="background-color:#FEFDE0;"> %
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <th><span>과세/면세 구분  <span class="important">*</span></span></th>
+                <td colspan="3" class="checks">
+                    <input type="radio" id="radio02_1" name="tax_gb" value="0" checked="checked"> <label for="radio02_1">과세</label>
+                    <input type="radio" id="radio02_2" name="tax_gb" value="1"> <label for="radio02_2">면세</label>
+                </td>
+            </tr>
+        </tbody></table>
+        <!-- //가격 정보 -->
+
+        <!-- 재고 정보 -->
+        <div class="pop_s_tit">
+            재고 정보
+        </div>
+        <table class="table_row">
+            <colgroup><col width="15%"><col width="*"></colgroup>
+            <tbody><tr>
+                <th><span>재고량  <span class="important">*</span></span></th>
+                <td>
+                    <input type="text" name="stock_piece" class="w100 text-right padding-right" maxlength="8" value="99999"> * 총 낱개 재고량
+                </td>
+            </tr>
+            <tr>
+                <th><span>최대/최소수량 <span class="important">*</span></span></th>
+                <td>
+                    최소 <input type="text" name="sell_min" class="w84 text-right padding-right" value="0"> * 0이면 제한없음. &nbsp; &nbsp; 
+                    최대 <input type="text" name="sell_max" class="w84 text-right padding-right" value="0"> * 0이면 제한없음.
+                </td>
+            </tr>
+        </tbody></table>
+        <!-- //재고 정보 -->
+
+        <!-- 입수량 정보 -->
+        <div class="pop_s_tit">
+            입수량 정보
+        </div>
+        <table class="table_row">
+            <colgroup><col width="15%"><col width="35%"><col width="15%"><col width="*"></colgroup>
+            <tbody><tr>
+                <th><span>낱개입수량  <span class="important">*</span></span></th>
+                <td>
+                    <input type="text" name="piece_unit" id="piece_unit" class="w100 text-right padding-right" maxlength="8" value="1" numberonly="">  
+                    <input type="checkbox" name="piece_unit_none" id="piece_unit_none" value="Y"> <label for="piece_unit_none" class="font11">없음</label>
+                </td>
+                <th><span>볼 입수량  <span class="important">*</span></span></th>
+                <td>
+                    <input type="text" name="piece_bundle" id="piece_bundle" class="w100 text-right padding-right" maxlength="8" numberonly="" disabled="disabled">  
+                    <input type="checkbox" name="piece_bundle_none" id="piece_bundle_none" value="Y" checked="checked"> <label for="piece_bundle_none" class="font11">없음</label>
+                </td>
+            </tr>
+            <tr>
+                <th><span>박스 입수량 <span class="important">*</span></span></th>
+                <td colspan="3">
+                    <input type="text" name="piece_box" id="piece_box" class="w100 text-right padding-right" maxlength="8" numberonly="" disabled="disabled">  
+                    <input type="checkbox" name="piece_box_none" id="piece_box_none" value="Y" checked="checked"> <label for="piece_box_none" class="font11">없음</label>
+                </td>
+            </tr>
+        </tbody></table>
+        <!-- //입수량 정보 -->
+
+    <!-- 행사제품 등록 -->
+    <div class="pop_s_tit">
+        행사제품 등록
+    </div>
+    <table class="table_row">
+        <colgroup><col width="15%"><col width="*"></colgroup>
+        <tbody><tr>
+            <th><span>행사진행 여부  <span class="important">*</span></span></th>
+            <td class="checks">
+                <input type="radio" id="radio04_1" name="fate_yn" value="XX" val="" checked="checked"> <label for="radio04_1">미진행</label>
+                <input type="radio" id="radio04_2" name="fate_yn" value="WW" val=""> <label for="radio04_2">주간행사</label>
+                <input type="radio" id="radio04_3" name="fate_yn" value="CC" val=""> <label for="radio04_3">카테고리 행사</label>
+                <input type="radio" id="radio04_4" name="fate_yn" value="SS" val=""> <label for="radio04_4">특가</label>
+            </td>
+        </tr>
+        <tr>
+            <th><span>행사기간 <span class="important">*</span></span></th>
+            <td>
+                <input type="text" name="fate_start" class="w100 datepicker2" maxlength="8" placeholder="" value="" numberonly="" id="dp1646614395641">
+                ~  
+                <input type="text" name="fate_end" class="w100 datepicker2" maxlength="8" placeholder="" value="" numberonly="" id="dp1646614395642">
+            </td>
+        </tr>
+        <tr>
+            <th><span>행사금액 <span class="important">*</span></span></th>
+            <td>
+                <strong>행사판매가(VAT포함)</strong> 
+                <input type="text" name="fate_price" id="fate_price" class="w84 text-right padding-right" maxlength="8" value="" numberonly=""> 원 &nbsp; &nbsp; 
+                <strong>할인율</strong> 
+                <input type="text" name="fate_disrate" id="fate_disrate" class="w84 text-right padding-right" maxlength="3" value="" readonly="readonly" style="background-color:#FEFDE0;"> %
+            </td>
+        </tr>			
+        <tr>
+            <th><span>행사기간 최소/<br>최대수량 <span class="important">*</span></span></th>
+            <td>
+                최소 <input type="text" name="fate_sales_min" class="w84 text-right padding-right" maxlength="5" numberonly="" value="1"> * 필수 &nbsp; &nbsp; 
+                최대 <input type="text" name="fate_sales_max" class="w84 text-right padding-right" maxlength="5" numberonly="" value="100"> * 필수
+            </td>
+        </tr>
+    </tbody></table>
+    <!-- //행사제품 등록 -->
+
+        <!-- 상품이미지 -->
+        <div class="pop_s_tit">
+            상품 이미지
+        </div>
+        <table class="table_row">
+            <colgroup><col width="15%"><col width="*"></colgroup>
+            <tbody><tr>
+                <th><span>상품 이미지</span></th>
+                <td>
+                    <!-- cxcxcx 2022.03.07 윤희상 이미지 가져오기 -->
+                    <input type="file" name="ORIGIN" id="origin_file" class="imgFile" accept='image/*'>
+                    <input type="hidden" name="key" value="">
+                    <input type="hidden" name="code" value="ORIGIN">
+                    <p>사이즈 : 600 * 600 / 파일 : jpg, gif, png, jpeg / 용량 : 최대 10MB</p>
+                </td>
+            </tr>
+        </tbody></table>
+        <!-- //상품이미지 -->
+        
+        <!-- 참고사항 -->
+        <div class="pop_s_tit">
+            참고사항
+        </div>			
+        <table class="table_row">
+            <colgroup><col width="15%"><col width="*"></colgroup>
+            <tbody><tr>
+                <th><span>참고사항</span></th>
+                <td>
+                    <textarea name="goods_summary" style="width:100%; height:100px;" placeholder="제품에 대한 간략한 설명을 입력하세요"></textarea>
+                </td>
+            </tr>				
+        </tbody></table>
+        <!-- 참고사항 -->
+        
+        <!-- 상품상세정보 -->
+        <div class="pop_s_tit">
+            상품상세정보
+        </div>
+        <textarea name="editor_textarea" id="editor_textarea"></textarea>
+
+        <!-- //상품상세정보 -->
+
+        <div class="table_btns text_c">
+            <button type="button" class="btn01" onclick="btnCancel();"><span>취소</span></button>
+            <button type="button" class="btn01 btn_b" onclick="btnSubmit();"><span>등록</span></button> 
+        </div>
+        </form>
+    </div>
+    <!-- //contents -->
+</div>
+<!-- //container -->
+</div>
+</body>
+</html>

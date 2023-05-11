@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- -----------윤희상 html 추가부분 START------------- -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/eum/resources/css/admin.css">
+    <link rel="stylesheet" href="/eum/resources/css/jquery-ui.css">
+    <link rel="stylesheet" href="/eum/resources/css/swiper.css">
+
+    <!-- <script src="/resources/plugin/jquery.min.js?"></script>
+    <script src="/resources/plugin/jquery-ui.min.js?"></script>
+    <script src="/resources/plugin/jquery.form.min.js?"></script>
+    <script src="/resources/plugin/jquery.cookie.js?"></script>
+    <script src="/resources/plugin/jquery.fileDownload.js?"></script> -->
+
+    <!-- <script src="/resources/plugin/ckeditor/ckeditor.js?"></script><style>.cke{visibility:hidden;}</style>
+    <script src="/resources/plugin/ckeditor/adapters/jquery.js?"></script>
+    <script src="/resources/plugin/microfiche.js?"></script>
+    <script src="/resources/plugin/Chart.min.js?"></script>
+    <script src="/resources/plugin/printThis.js?"></script> -->
+
+    <!-- <script src="/resources/js/common/common.js?"></script>
+    <script src="/resources/js/common/base.js?"></script>
+    <script src="/resources/js/common/swiper.js?"></script>
+    <script src="/resources/js/common/zipcode.js?"></script>
+
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?"></script>
+    <script charset="UTF-8" type="text/javascript" src="//t1.daumcdn.net/postcode/api/core/211103/1635999227231/211103.js"></script> -->
+    <!-- -----------윤희상 html 추가부분 END------------- -->
+
+    <!-- -----------윤희상 html 공통부분 START------------- -->
+    <script defer type="text/javascript" src="/eum/js/common/cPagingModule.js"></script>
+    <script defer type="text/javascript" src="/eum/js/admin/cGetAdminCommonModule.js"></script>
+    <script defer type="text/javascript" src="/eum/js/admin/cGetAdminPageMenu.js"></script>
+    <script defer type="text/javascript" src="/eum/js/admin/cGoodsCategoryAdm.js"></script>
+    <script defer type="text/javascript" src="/eum/js/admin/cSalesItemDetailPopAdm.js"></script>
+    
+    <!-- 엑셀 다운로드를 위해서 필요한 모듈임 -->
+    <script defer type="text/javascript" src="/eum/js/common/jsonToXMLToExcel.js"></script>
+    <!-- <script type="text/javascript" src="/xlsx.full.min.js"></script> -->
+    <script type="text/javascript" src="/FileSaver.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- <link rel="stylesheet" type="text/css" href="/commonpf2.css"/> -->
+    <script type="text/javascript" src="/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/jquery.ajax-cross-origin.min.js"></script>
+    <script type="text/javascript" src="/jquery-ui.js"></script>
+    <script type="text/javascript" src="/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/crypto-js.js"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+    <!--이미지 도구모음 금지-->
+    <meta http-equiv="imagetoolbar" context="no"></head>
+    <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- iOS Part -->
+    <!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 상태 바의 스타일을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+    <!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-title" content="Timer">-->
+    <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+    <!-- <link rel="apple-touch-icon" href="icons/icon-152x152.png">-->
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+    <!-- Android part -->
+    <!-- 웹 앱 매니페스트를 읽어 들이기 -->
+    <link rel="manifest" type="text/json"  href="/manifest.json">
+    <script>history.replaceState({}, null, location.pathname);</script>
+    <!-- -----------윤희상 html 공통부분 END------------- -->
+    <title>상품조회 더이음몰 통합관리자</title>
+</head>
+<body>
+    <div class="wrap">
+<!-- container -->
+<div class="container">
+        <!-- contents -->
+        <div class="contents">
+            <h3>상품조회</h3>
+            <input type="hidden" id="banner_idx" value="">
+            <form name="frm" id="frm" action="/admin/productManagement/pmList" method="post">
+            <input type="hidden" id="tp" name="TP" value="">
+            <input type="hidden" name="idx" value="0">
+            <input type="hidden" name="type" value="ADMIN">
+            <div class="search_area">
+                <table class="table_row">
+                    <colgroup><col width="120"><col width="280"><col width="120"><col width="*"></colgroup>
+                    <tbody>
+                        <!-- 2022.02.28 윤희상 화면의 종류에 따라 카테고리가 다를 수 있기에 추가 됨 -->
+                        <tr>
+                            <th><span>공급사</span></th>
+                            <td>
+                                <select name="search_supplier_ssn" id="search_supplier_ssn" style="width:130px;" value="">
+                                    <!-- 2022.02.28 윤희상 화면 html로딩 될 때 공급사 정보 가져오는 함수 호출 -->
+                                </select>
+                            </td>
+                            <th><span>상품카테고리</span></th>
+                            <td>
+                                <select name="search_cate1_idx" id="search_cate1_idx" style="width:120px;" value="">
+                                </select>
+                                <select name="search_cate2_idx" id="search_cate2_idx" style="width:120px;" value="" >
+                                </select>
+                                <select name="search_cate3_idx" id="search_cate3_idx" style="width:120px;" value="">
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span>상품명</span></th>
+                            <td><input type="text" name="search_goods_name" class="w210" value="" onkeydown="searchKeyDown();"></td>
+                            <th><span>상품코드</span></th>
+                            <td><input type="text" name="search_goods_cd" class="w210" value="" onkeydown="searchKeyDown();"></td>
+                        </tr>
+                        <tr>
+                            <th><span>바코드</span></th>
+                            <td><input type="text" name="search_goods_barcode" class="w210" value=""></td>
+                            <th><span>판매가격</span></th>
+                            <td>
+                                <input type="text" name="search_sell_price_min" class="w100 text-right padding-right" value="" numberonly=""> 원 ~ 
+                                <input type="text" name="search_sell_price_max" class="w100 text-right padding-right" value="" numberonly=""> 원
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span>행사여부</span></th>
+                            <td class="checks">
+                                <input type="radio" id="radio01_1" name="search_fate_yn" value="" val=""> <label for="radio01_1">전체</label>
+                                <input type="radio" id="radio01_2" name="search_fate_yn" value="XX" val=""> <label for="radio01_2">일반상품</label>
+                                <input type="radio" id="radio01_3" name="search_fate_yn" value="WW" val=""> <label for="radio01_3">주간행사</label>
+                                <input type="radio" id="radio01_4" name="search_fate_yn" value="CC" val=""> <label for="radio01_4">카테고리 행사</label>
+                                <input type="radio" id="radio01_5" name="search_fate_yn" value="SS" val=""> <label for="radio01_5">특가</label>
+                            </td>
+                            <th><span>판매상태</span></th>
+                            <td class="checks">
+                                <input type="radio" id="radio02_1" name="search_sales_gb" value="" val=""> <label for="radio02_1">전체</label>
+                                <input type="radio" id="radio02_2" name="search_sales_gb" value="1" val=""> <label for="radio02_2">판매중</label>
+                                <input type="radio" id="radio02_3" name="search_sales_gb" value="2" val=""> <label for="radio02_3">판매중지</label>
+                                <input type="radio" id="radio02_4" name="search_sales_gb" value="0" val=""> <label for="radio02_4">품절</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span>승인여부</span></th>
+                            <td>
+                                <span class="checks">
+                                    <input type="radio" id="radio03_1" name="search_appr_gb" value="" val=""> <label for="radio03_1">전체</label>
+                                    <input type="radio" id="radio03_2" name="search_appr_gb" value="1" val=""> <label for="radio03_2">승인</label>
+                                    <input type="radio" id="radio03_3" name="search_appr_gb" value="0" val=""> <label for="radio03_3">승인대기</label>
+                                </span>
+                            </td>
+                            <th><span>상품형태</span></th>
+                            <td class="checks">
+                                <input type="radio" id="radio04_1" name="search_sales_chilled" value="" val=""> <label for="radio04_1">전체</label>
+                                <input type="radio" id="radio04_2" name="search_sales_chilled" value="0" val=""> <label for="radio04_2">상온</label>
+                                <input type="radio" id="radio04_3" name="search_sales_chilled" value="1" val=""> <label for="radio04_3">냉장</label>
+                                <input type="radio" id="radio04_4" name="search_sales_chilled" value="2" val=""> <label for="radio04_4">냉동</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span>정렬</span></th>
+                            <td class="checks">
+                                <input type="radio" id="search_sort" name="search_sort" value="1" val="1"> <label for="search_sort">등록순</label>
+                                <input type="radio" id="search_sort" name="search_sort" value="2" val="1"> <label for="search_sort">정렬순</label>
+                            </td>
+                            <th><span>재고구간</span></th>
+                            <td>
+                                <input type="text" name="search_stock1" class="w100" value=""> ~ 
+                                <input type="text" name="search_stock2" class="w100" value="">
+                                <!-- <span class="checks">
+                                    <input type="radio" id="radio03_1" name="search_equalnumber" value="1"  val="3" /> <label for="radio03_1">&lt;</label>
+                                    <input type="radio" id="radio03_2" name="search_equalnumber" value="2"  val="3" /> <label for="radio03_2">&gt;</label>
+                                    <input type="radio" id="radio03_3" name="search_equalnumber" value="3"  val="3" /> <label for="radio03_3">=</label>
+                                    <input type="radio" id="radio03_4" name="search_equalnumber" value="4"  val="3" /> <label for="radio03_4">&lt;=</label>
+                                    <input type="radio" id="radio03_5" name="search_equalnumber" value="5"  val="3" /> <label for="radio03_5">&gt;=</label>
+                                </span> -->
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span>등록일</span></th>
+                            <td colspan="3">
+                                <!-- <input type="text" name="search_reg_date_start" id="search_reg_date_start" class="w100 datepicker1" value=""><img class="ui-datepicker-trigger" src="/eum/resources/images/common/calendar.png" alt="..." title="..."> ~ 
+                                <input type="text" name="search_reg_date_end" id="search_reg_date_end" class="w100 datepicker1" value=""><img class="ui-datepicker-trigger" src="/eum/resources/images/common/calendar.png" alt="..." title="..."> -->
+                                <input type="text" name="search_reg_date_start" id="search_reg_date_start" class="w100 datepicker1" value=""> ~ 
+                                <input type="text" name="search_reg_date_end" id="search_reg_date_end" class="w100 datepicker1" value="">
+                                <span class="search_scope">
+                                    <button type="button" class="btn_ss01" onclick="setDatePrev('search_reg_date_start',2); setToday('search_reg_date_end');"><span>D-2</span></button>
+                                    <button type="button" class="btn_ss01" onclick="setDatePrev('search_reg_date_start',1); setToday('search_reg_date_end');"><span>D-1</span></button>
+                                    <button type="button" class="btn_ss01" onclick="setToday('search_reg_date_start'); setToday('search_reg_date_end');"><span>오늘</span></button>
+                                    <button type="button" class="btn_ss01" onclick="setDatePrev('search_reg_date_start',7); setToday('search_reg_date_end');"><span>7일간</span></button>
+                                    <button type="button" class="btn_ss01" onclick="setDatePrev('search_reg_date_start',15); setToday('search_reg_date_end');"><span>15일간</span></button>
+                                    <button type="button" class="btn_ss01" onclick="clearRegDate('search_reg_date_start', 'search_reg_date_end');"><span>전체</span></button>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody></table>
+    
+                    <div class="search_btn">
+                        <!-- 2022-02-15윤희상 검색버튼 클릭 이벤트 -->
+                        <button type="button" class="btn_bic">검색</button>
+                    </div>
+                </div>
+                
+                <div class="result_area">
+                    <table class="table_summary">
+                        <colgroup>
+                            <col width="*"><col width="80"><col width="80"><col width="80"><col width="80"><col width="80"><col width="80"><col width="80"><col width="80">
+                        </colgroup>	
+                        <tbody><tr>
+                            <th>전체</th><th>승인</th><th>대기</th><th>주간</th><th>카테고리</th><th>상시</th><th>판매중</th><th>중지</th><th>품절</th>
+                        </tr>
+                        <tr id = "summary_count">				
+                            <!-- 2022.02.28 윤희상 전체 Summary Data ajax 호출 -->
+                        </tr>
+                    </tbody></table>
+                </div>
+                
+                <div class="result_area">
+                    <div class="result_info">
+                        <p class="txt_total">총 <strong id="txt_total_count"></strong> 건</p>
+                        <div class="btn_down">
+                            <!-- cxcxcx 2022-02-15윤희상 엑셀 다운로드 버튼 -->
+                            <button type="button" class="btn_ss01" onclick="salesItemListToExcel();"><span class="btn_excel">목록 다운로드</span></button>
+                            <select name="list_cnt" id="list_cnt" style="width:55px;" value="5">
+                                <option value="5">5</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                                <option value="300">300</option>
+                            </select>
+                        </div>
+                    </div>
+                    <table class="table_col">
+                        <colgroup>
+                            <col width="40">
+                            <col width="45">
+                            <col width="40">
+                            <col width="78">
+                            <col width="60">
+                            <col width="*">
+                            <col width="65">
+                            <col width="65">
+                            <col width="65">
+                            <col width="65">
+                            <col width="65">
+                            <col width="65">
+                            <col width="65">
+                            <col width="65">
+                            <col width="65">
+                            <col width="65">
+                            <col width="65">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="checkAll" onclick="selectAll(this, 'idx')"></th>
+                                <th>번호</th>
+                                <th>이미지</th>
+                                <th>카테고리</th>
+                                <th>상품상태</th>
+                                <th>상품명</th>
+                                <th>공급사</th>
+                                <th>재고량</th>
+                                <th>판매단가</th>
+                                <th>행사단가</th>
+                                <th>단가1</th>
+                                <th>단가2</th>
+                                <th>단가3</th>
+                                <th>단가4</th>
+                                <th>정렬</th>
+                                <th>판매상태</th>
+                                <th>승인여부</th>
+                            </tr>
+                        </thead>
+                        <tbody id = "adm_sales_list">		
+                            <!-- 2022-02-15윤희상 검색버튼으로 조회해서 나온 상품 리스트를 보여주는 곳-->
+                        </tbody>
+                    </table>
+                    <!--  2022-02-15윤희상 페이징 처리 만들어서 내려주는 부분 -->
+                    <div class="page" id="pagingDiv">
+                    </div>
+                    <div class="text_c table_btns">
+                        <button type="button" class="btn01 btn_b"><span>상품등록</span></button>
+                    </div>
+                </div>
+                </form>
+                
+            </div>
+            <!-- //contents -->
+        </div>
+        <!-- //container -->
+    </div>
+    <!-- 상품 정보 -->
+    <div class="layerPopArea" style="height: 1553px; display: none; top: 0px;">
+        <div class="layerPop" align="center" style="margin-top: 210px; display: block;">
+        </div>
+    </div>
+    <!-- //상품 정보 -->
+    <script>
+        function searchKeyDown(){
+            if(event.keyCode == 13) {
+                globalgetListCount = $("#list_cnt option:selected").val(); //한 페이지에 보여주는 List 갯수
+                eventSearchSalesItem('btn', globalgetListCount, 1);
+            };
+        };
+        $(document).ready(function() {
+            document.getElementById("banner_idx").value = opener.document.getElementById("banner_idx").value;
+
+            //datepicker 설정 
+            $.datepicker.setDefaults({
+                dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+                dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], 
+                monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+                monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                yearSuffix: '년',
+                dateFormat: 'yy-mm-dd',
+                showOn: "both",
+                buttonImage : "/eum/resources/images/common/calendar.png",
+                buttonImageOnly: true,
+                showMonthAfterYear:true,
+                constrainInput: true, 
+                changeMonth: true,
+                changeYear: true    
+            });
+            $("#search_reg_date_start,#search_reg_date_end").datepicker();
+            $("#search_reg_date_start").datepicker("setDate", "");
+            $("#search_reg_date_end").datepicker("setDate", "");
+
+            //전역변수
+            var gTotalData;
+            var globalCurrentPage = 1;
+            var globalgetListCount;
+
+            //초기화면 셋팅
+            $('#radio01_1').prop('checked', true); //행사여부 - 전체
+            $('#radio02_1').prop('checked', true); //판매상태 - 전체
+            $('#radio03_1').prop('checked', true); //승인여부 - 전체
+            $('#radio04_1').prop('checked', true); //상품형태 - 전체
+            $('#search_sort').prop('checked', true); //정렬
+
+            //초기 화면 조회조건
+            var getSearchCondition = setSearchConditionToJson();
+            globalgetListCount = $("#list_cnt option:selected").val(); //한 페이지에 보여주는 List 갯수
+
+            //상품 리스트 조회
+            searchSalesItemListAdmin(getSearchCondition, globalgetListCount, 1);
+            //Summary
+            searchSalesItemSummaryAdmin(getSearchCondition);
+            
+            //초기 카테고리 조회
+            searchCategory(0, "", "search_cate1_idx"); //LV0 카테고리 조회
+            searchCategory(1, $("#search_cate1_idx option:selected").val(), "search_cate2_idx"); //LV1 카테고리 조회
+            searchCategory(2, $("#search_cate2_idx option:selected").val(), "search_cate3_idx"); //LV2 카테고리 조회
+            searchSupplierList("search_supplier_ssn");
+
+            //LV0 카테고리가 바꼈을 때
+            $("#search_cate1_idx").change(function(){
+                searchCategory(1, $(this).val(), "search_cate2_idx"); //LV1 카테고리 조회
+                searchCategory(2, $("#search_cate2_idx option:selected").val(), "search_cate3_idx"); //LV2 카테고리 조회
+            });
+
+            //LV1 카테고리가 바꼈을 때
+            $("#search_cate2_idx").change(function(){
+                searchCategory(2, $(this).val(), "search_cate3_idx"); //LV2 카테고리 조회
+            });
+
+            //검색버튼 클릭
+            $(".btn_bic").click(function(){
+                globalgetListCount = $("#list_cnt option:selected").val(); //한 페이지에 보여주는 List 갯수
+                eventSearchSalesItem('btn', globalgetListCount, 1);
+            });
+
+            //리스트보여주는 갯수 변경 
+            $("#list_cnt").change(function(){
+                globalgetListCount = $("#list_cnt option:selected").val(); //한 페이지에 보여주는 List 갯수
+                eventSearchSalesItem('selectBox', globalgetListCount ,1);
+            });
+            
+            $(".btn_b").click(function(){
+                btnAddItemToBanner();
+            });
+        });
+    </script>
+</body>
+</html>

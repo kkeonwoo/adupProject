@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>더이음몰</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1004, user-scalable=yes, maximum-scale=1"/>
+
+<link rel="stylesheet" href="/resources/css/mobile.css?">
+<link rel="stylesheet" href="/resources/css/jquery-ui.css?20180709_01">
+<link rel="stylesheet" href="/resources/css/swiper.css?20180709_01">
+<link rel="stylesheet" href="/eum/resources/css/style_mobile.css">
+
+
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+<!--이미지 도구모음 금지-->
+<meta http-equiv="imagetoolbar" context="no">
+<!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+<meta name="_csrf" th:content="${_csrf.token}"/>
+<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+<!-- ----------------------------------------------------------------------- -->
+<!-- iOS Part -->
+<!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="touch-icon-iphone.png">
+<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+<link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+<link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+<!-- Android part -->
+<!-- 웹 앱 매니페스트를 읽어 들이기 -->
+<link rel="manifest" type="text/json"  href="/manifest.json">
+<!-- <script>history.replaceState({}, null, location.pathname);</script> -->
+<!-- <script type="text/javascript" src="/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/jquery.ajax-cross-origin.min.js"></script> -->
+<script type="text/javascript" src="/eum/resources/plugin/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="/crypto-js.js"></script>
+<script type="text/javascript" src="/request.js"></script> -->
+<script defer type="text/javascript" src="/eum/js/portal/cOrderGoods.js"></script>
+<script defer type="text/javascript" src="/eum/js/portal/citOrderBuyerMobile.js"></script>
+<script defer type="text/javascript" src="/eum/js/portal/cPortalCommon.js"></script>
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script defer type="text/javascript" src="/eum/js/common/cCommonModules.js"></script>
+
+</head>
+<body>
+    <div id="content">	
+        <div>	
+<div class="wrap">	
+    <div class="header">
+        <a id="logo_a" href="/eum/html/portal/itSalesMobile.html">
+            <img src="/eum/resources/images/main_header_logo_mobile.png" class="logo" alt="logo">
+        </a>
+
+		<!-- 우측 상단 태그 버튼 -->
+		<div class="menu_container">
+		</div>
+    </div>
+        <!-- container -->
+        <form style="margin-top:100px;" name="frm" id="frm" action="/web/order/payment_process" method="post">
+        <input type="hidden" name="sys" id="sys" value="">
+        <input type="hidden" name="goods_idx" id="goods_idx" value="">
+        <input type="hidden" name="order_unit" id="order_unit" value="">
+        <input type="hidden" name="order_bundle" id="order_bundle" value="">
+        <input type="hidden" name="order_box" id="order_box" value="">
+        <input type="hidden" id="btnFlag" value="1">
+        <div class="container02">
+            <!-- contents -->
+            <div class="contents02 ordernpayment_wrap">
+                <h2 class="ordernpayment"><span>주문/결제</span></h2>
+    
+                <h3>주문 확인</h3>
+                <div class="orderbox">
+                    <div>
+                        <table cellpadding="0" cellspacing="0" border="0" class="totalorder partTotalArea">
+                            <!-- Script에서 동적으로 생성해주는 구간 -->
+                            <tbody>
+                                <tr class="fir">	
+                                    <th class="partSupplierTit">무료배송 총 상품금액</th>	
+                                    <td><strong class="partTotalPrice"></strong>원</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <table cellpadding="0" cellspacing="0" border="0" class="totalorder02">
+                            <tbody>
+                                <tr>
+                                    <th>총 주문금액</th>
+                                    <td><strong id="TotalPrice"></strong>원</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>				
+                    <div>
+                        <table cellpadding="0" cellspacing="0" border="0" class="totalorder02">
+                            <tbody><tr>
+                                <th>결제포인트</th>
+                                <td><span>가용포인트 : </span><span id="buyerPoint"></span><span> 원</span> <input type="text" id="payment_point" name="payment_point" value="0" style="font-size:26px;text-align:right;"></td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                    
+                    <div>
+                        <table cellpadding="0" cellspacing="0" border="0" class="totalorder02">
+                            <tbody><tr>
+                                <th>가상계좌입금</th>
+                                <td><strong id="TotalPayGWPrice"></strong>원</td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                </div>
+                <h3>배송지 정보</h3>
+                <div style="margin-bottom:10px;">
+                    <input type="radio" id="deliType1" name="deliType" value="default" checked="checked"><label for="deliType1">기본배송지</label>&nbsp;&nbsp;
+                    <input type="radio" id="deliType2" name="deliType" value="recent"><label for="deliType2">최근배송지</label>
+                </div>
+                <table class="table_row">
+                    <colgroup><col width="200"><col width="*"></colgroup>
+                    <tbody><tr>
+                        <th><span>받는사람 <span class="important">*</span></span></th>
+                        <td><input type="text" name="receiver_name" class="w210" maxlength="100" onkeyup="chkChar(this)"></td>
+                    </tr>
+                    <tr>
+                        <th><span>전화번호 <span class="important">*</span></span></th>
+                        <td>
+                            <select name="receiver_tel1" style="width:130px;">
+                                <option value="02">02</option>
+                                <option value="031">031</option>
+                                <option value="032">032</option>
+                                <option value="033">033</option>
+                                <option value="041">041</option>
+                                <option value="042">042</option>
+                                <option value="043">043</option>
+                                <option value="051">051</option>
+                                <option value="052">052</option>
+                                <option value="053">053</option>
+                                <option value="054">054</option>
+                                <option value="055">055</option>
+                                <option value="061">061</option>
+                                <option value="062">062</option>
+                                <option value="063">063</option>
+                                <option value="064">064</option>
+                                <option value="0505">0505</option>
+                                <option value="0502">0502</option>
+                                <option value="070">070</option>
+                            </select>
+                            <input type="text" name="receiver_tel2" class="w130" maxlength="4"> - 
+                            <input type="text" name="receiver_tel3" class="w130" maxlength="4">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span>휴대폰 <span class="important">*</span></span></th>
+                        <td>
+                            <select name="receiver_mobile1" style="width:130px;">
+                                <option value="010">010</option>
+                                <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="017">017</option>
+                                <option value="018">018</option>
+                                <option value="019">019</option>
+                                <option value="0130">0130</option>
+                                <option value="0502">0502</option>
+                                <option value="070">070</option>
+                            </select>
+                            <input type="text" name="receiver_mobile2" class="w130" maxlength="4"> - 
+                            <input type="text" name="receiver_mobile3" class="w130" maxlength="4">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span>배송지 주소 <span class="important">*</span></span></th> 
+                        <td>
+                            <span class="block">
+                                <input type="text" name="receiver_zipcode" id="receiver_zipcode" class="w55" maxlength="6"> 
+                                <button type="button" class="btn_ss btn_ss02" onclick="postPop('receiver_zipcode', 'receiver_addr1', 'receiver_addr2');"><span>우편번호 찾기</span></button>							
+                            </span>
+                            <span class="block mt05">
+                                <input type="text" name="receiver_addr1" id="receiver_addr1" class="w700" maxlength="300" onkeyup="chkChar(this)"> 
+                            </span>
+                            <span class="block mt05">
+                                <input type="text" name="receiver_addr2" id="receiver_addr2" class="w700" maxlength="300" onkeyup="chkChar(this)">
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span>배송시 요청사항</span></th>
+                        <td>
+                            <input type="text" name="receiver_delivery_demand" style="width:680px;" maxlength="50" onkeyup="chkChar(this)">
+                            <br>
+                            최대 50글자까지 입력 가능합니다.
+                        </td>
+                    </tr>
+                </tbody></table>
+                <h3>결제 방법</h3>
+                <table class="table_row" id="accountBox">
+                    <colgroup><col width="200"><col width="*"></colgroup>
+                    <tbody>
+                        <tr>
+                            <th><span>계좌은행선택 <span class="important">*</span></span></th>
+                            <td id="bankRadio">
+                                <!-- <input type="radio" id="bank_code11" name="bank_code" value="11" bankname="농협"><label for="bank_code11">&nbsp;농협</label>
+                                &nbsp;&nbsp;&nbsp;
+                                <input type="radio" id="bank_code04" name="bank_code" value="04" bankname="국민은행"><label for="bank_code04">&nbsp;국민은행</label>
+                                &nbsp;&nbsp;&nbsp;
+                                <input type="radio" id="bank_code88" name="bank_code" value="88" bankname="신한은행"><label for="bank_code88">&nbsp;신한은행</label>
+                                &nbsp;&nbsp;&nbsp;
+                                <input type="radio" id="bank_code03" name="bank_code" value="03" bankname="기업은행"><label for="bank_code03">&nbsp;기업은행</label>
+                                &nbsp;&nbsp;&nbsp; -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span>점포고정계좌 <span class="important">*</span></span></th>
+                            <td style="background-color:#FFBB00;font-weight:bold;font-size:32px;color:#0100FF;">
+                                <span class="bankInfo"></span>
+                                <input type="hidden" name="payment_bank" id="payment_bank" value="">
+                                <input type="hidden" name="payment_account" id="payment_account" value="">
+                            </td>
+                        </tr>
+                </tbody></table>
+    
+                <div class="join_btn">
+                    <button type="button" class="btn01" onclick="OrderConfirm();" id="OrderConfirmBtn"><span class="bul01">주문하기</span></button>
+                    <button type="button" class="btn03"><span class="bul03">취소하기</span></button>
+                </div>
+            </div>
+            <!-- //contents -->
+        </div>
+    </form>
+        <!-- //container -->
+    <style type="text/css">
+    .footer { width:1004px; border-top:2px solid #7a7a7a; background-color:#f2f2f2; }
+    .footer .copyright { font-size:23px; font-weight:100; line-height:28px; color:#7a7a7a; margin-left:10px; margin-top:20px; padding-bottom:36px; }
+    </style>
+    <div class="footer">
+        <div class="copyright">
+            ㈜이음몰 / 대표이사 : 김미경 / 사업자등록번호 : 214-88-97306<br>
+            본사 : 서울특별시 송파구 법원로114 (엠스테이트 A동 1306호)<br>
+            대표전화 : 1670-8485 / FAX. 02-2283-1647<br>
+            통신판매사업신고 : 제2021-서울송파-2135 / 개인정보관리책임자 : (주)더이음 안상현<br>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        
+        function chkChar(obj){
+            var RegExp = /\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g;	//정규식 구문
+            if (RegExp.test(obj.value)) {
+                // 특수문자 모두 제거    
+                obj.value = obj.value.replace(RegExp , '');
+            };
+        };
+        
+        function getCookie(name)
+        {
+            var value=document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            return value? unescape(value[2]) : null;
+        };
+
+        $(document).ready(function(){
+            drawHeaderMenu();
+            eventSearchData("first");
+    
+            $("input[name='deliType']").change(function(){
+                var checkedDeli = $("input[name='deliType']:checked").val(); 
+                changeDeliInfo(checkedDeli);
+            });
+    
+            $("#payment_point").change(function(){
+                var totalPoint = Number($("#buyerPoint").text().replace(/,/g, ""));
+                var totalPrice = Number($("#TotalPrice").text().replace(/,/g, ""));
+                var usePoint = Number($(this).val());
+
+                if(totalPoint < usePoint){
+                    alert("포인트 사용 금액이 보유 포인트를 넘을 수 없습니다.");
+                    $(this).val(0);
+                    return;
+                };
+
+                if(usePoint > totalPrice){
+                    alert("포인트 사용 금액이 주문 금액을 넘을 수 없습니다.");
+                    $(this).val(0);
+                    return;
+                };
+                var accountPrice = totalPrice-usePoint;
+                $("#TotalPayGWPrice").text(accountPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+            });
+
+            $(".btn03").click(function(){
+                if(getCookie("device_pos_gbn") == "P"){
+                    location.href='/eum/html/portal/itSalesPos.html';
+                }
+                else{
+                    location.href='/eum/html/portal/itSales.html';
+                }
+            })
+
+            if(getCookie("device_pos_gbn") == "P"){
+                $("#logo_a").attr("href", "/eum/html/portal/itSalesPos.html");
+            }
+            else{
+                        if(isMobile()){
+                            $("#logo_a").attr("href", "/eum/html/portal/itSalesMobile.html");
+                        }
+                        else $("#logo_a").attr("href", "/eum/html/portal/itSales.html");
+                $("#content").css("display", "flex");
+                $("#content").css("justify-content", "center"); 
+            }
+        });
+    </script>
+</div>
+</div>
+</div>
+</body>
+</html>

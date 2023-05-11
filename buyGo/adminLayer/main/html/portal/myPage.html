@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="/commonpf2.css"/>
+    <script type="text/javascript" src="/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/jquery.ajax-cross-origin.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--아래 한줄은 http, https reidirection에 따른 ajax 통신 문제시 content mixed문제를 조정하기 위해 추가함-->
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> -->
+    <!--이미지 도구모음 금지-->
+    <meta http-equiv="imagetoolbar" context="no"></head>
+    <!--아래 2줄은 ajax호출시 header, token을 같이 넘길때 undefined error가 발생하므로 반드시 추가해야 함-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- iOS Part -->
+    <!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 상태 바의 스타일을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+    <!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+    <!-- <meta name="apple-mobile-web-app-title" content="Timer">-->
+    <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+    <!-- <link rel="apple-touch-icon" href="icons/icon-152x152.png">-->
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+
+    <!-- <script>history.replaceState({}, null, location.pathname);</script> -->
+    <title>My Page</title>
+</head>
+<body>
+    <div class="div_myPage">
+        <h1>마이페이지</h1>
+        <p></p>
+        <p id="emailId"></p>
+        <textarea autocomplete="off" type="text" id="phone1" name="phone1" placeholder="연락처 (-없이 숫자만 입력)" required="required"></textarea>
+        <textarea autocomplete="off" required="required" type="text" id="fsearch_addr1" name="keyword1" placeholder="(필수)배송지 주소1 (지번, 도로명, 지하철역 검색)" ></textarea>
+        <textarea autocomplete="off" type="text" id="fsearch_addr2" name="keyword2" placeholder="(선택)배송지 주소2 (지번, 도로명, 지하철역 검색)" ></textarea>
+    </div>
+    <!-- <ul tabindex="1" id="result" class="ul_result" style="height: 75%; overflow: auto;"></ul> -->
+    <script>
+        try{
+
+        }
+        catch(e){
+            alert(e.message);
+        }
+        $(document).ready(function(){
+            console.log("1");
+            $.ajax({
+                url: "/uGetUserAccountInfo?"  + $.param({}),
+                type: "POST", async: false,  dataType: "JSON", crossOrigin: true, cache: false,
+                contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                success: function(response){
+                    var rtnVal = response.returnvalue[0];
+                    console.log(rtnVal);
+                    document.getElementById("emailId").innerText = rtnVal.ACCOUNT_EMAIL_ID;
+                    document.getElementById("phone1").innerText = rtnVal.ACCOUNT_PHONE1;
+                    document.getElementById("fsearch_addr1").innerText = rtnVal.ACCOUNT_ADDRESS1;
+                    document.getElementById("fsearch_addr2").innerText = rtnVal.ACCOUNT_ADDRESS2;
+
+                },
+                error: function(xhr) {
+                    console.log("[error] : " + xhr);
+                },
+                complete:function(data,textStatus) {console.log("[complete] : " + textStatus);}
+            });
+        });
+    </script>
+</body>
+</html>

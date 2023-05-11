@@ -19,7 +19,7 @@
 .notice_area .notice_body .acc_item .acc_header .acc_content .ttl_link:hover,
 .notice_area .notice_body .acc_item .acc_header .acc_content .ttl_link:focus { text-decoration: underline;}
 .notice_area .notice_body .acc_item .acc_header .acc_content  .date { margin-left: auto; font-size: 17px; white-space: nowrap;}
-.notice_area .notice_body .acc_item .acc_body { display: none; position: absolute; z-index: 10; left: 0; top: 100%; width: 100%; background-color: var(--fn-gray-150);}
+.notice_area .notice_body .acc_item .acc_body { display: none; width: 100%; background-color: var(--fn-gray-150);}
 [color-theme='dark'] .notice_area .notice_body .acc_item .acc_body { background-color: var(--fn-gray-dark-600);}
 .notice_area .notice_body .acc_item.active .acc_body { display: block;}
 .notice_area .notice_body .acc_item .acc_body_scroll { max-height: 250px; padding: 13px 25px; }
