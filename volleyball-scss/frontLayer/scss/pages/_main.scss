@@ -1,3 +1,4 @@
+/* s: common */
 .sec {
     margin: 90px 0 120px;
 
@@ -60,7 +61,9 @@
         }
     }
 }
+/* e: common */
 
+/* s: index */
 .main-visual {
     position: relative;
     overflow: hidden;
@@ -299,6 +302,7 @@
         }
     }
 }
+/* e: index */
 
 @include media-down(lg) {
     .main-visual {

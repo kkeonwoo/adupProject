@@ -33,7 +33,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="" />
-    <link rel="stylesheet" href="../../frontLayer/css/main.css">
+    <link rel="stylesheet" href="../../frontLayer/css/styles.css">
     <link rel="stylesheet" href="../../frontLayer/css/swiper.css">
     <script src="../../frontLayer/js/jquery-3.3.1.min.js"></script>
     <script src="../../frontLayer/js/jquery-ui.min.js"></script>
@@ -51,7 +51,7 @@
     <!-- e:skip -->
 
     <!-- s:wrap -->
-    <div id="wrap">
+    <div id="wrap" class="login">
 
         <!-- s:header -->
         <header id="header" class="header">
@@ -281,37 +281,39 @@
         <!-- e:header -->
 
         <!-- s:container -->
-        <section id="container" class="sec">
-            <div class="center">
-                <form>
+        <section id="container" class="login__container">
+            <div class="login__inner">
+                <form class="form">
                     <fieldset>
                         <legend>로그인</legend>
-                        <div class="account_wrap login_wrap">
-                            <h2>로그인</h2>
-                            <div class="my_px_40 md_my_px_32">
-                                <div class="form_group column">
-                                    <label for="user_id">아이디</label>
-                                    <input type="text" id="user_id" class="form_control" placeholder="아이디를 입력해주세요.">
+                        <div class="form__container">
+                            <h2 class="form__ttl">로그인</h2>
+                            <div class="form__wrap">
+                                <div class="form-group form-group--column form__item">
+                                    <label for="user_id" class="form-group__label form__label">아이디</label>
+                                    <input type="text" id="user_id" class="form-control" placeholder="아이디를 입력해주세요.">
                                 </div>
-                                <div class="form_group column">
-                                    <label for="user_pw">비밀번호</label>
-                                    <input type="password" id="user_pw" class="form_control"
-                                        placeholder="비밀번호를 입력해주세요.">
+                                <div class="form-group form-group--column form__item">
+                                    <label for="user_pw" class="form-group__label form__label">비밀번호</label>
+                                    <input type="password" id="user_pw" class="form-control" placeholder="비밀번호를 입력해주세요.">
                                 </div>
-                                <button type="button" class="btn btn_success"
-                                    onclick="$(() => {Federation.openModal($('#modalAlt'))});">로그인</button>
-                                <div class="account_util">
-                                    <a href="./findId.html">아이디 찾기</a>
-                                    <a href="./findPassword.html">비밀번호 찾기</a>
-                                    <a href="./signUp.html" class="account_join">회원가입</a>
+                                <button type="button" class="btn btn--success form__btn" onclick="$(() => {Federation.openModal($('#modalAlt'))});">로그인</button>
+                                <div class="util form__util">
+                                    <div class="util-auth">
+                                        <ul class="util-auth__list">
+                                            <li class="util-auth__item form__util-item"><a class="util-auth__link form__util-link" href="./findId.html">아이디 찾기</a></li>
+                                            <li class="util-auth__item form__util-item"><a class="util-auth__link form__util-link" href="./findPassword.html">비밀번호 찾기</a></li>
+                                            <li class="util-auth__item form__util-item"><a class="util-auth__link util-auth__link--blue form__util-link" href="./signUp.html">회원가입</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </fieldset>
                 </form>
-                <div class="social_login">
-                    <h3>간편 소셜 로그인</h3>
-                    <button type="button" class="btn btn_kakao"><span>카카오 로그인</span></button>
+                <div class="login__social login-social">
+                    <h3 class="login-social__ttl">간편 소셜 로그인</h3>
+                    <button type="button" class="btn btn-social btn--kakao"><span class="btn-social__txt btn__txt--kakao">카카오 로그인</span></button>
                     <!-- <button type="button" class="btn btn_naver"><span>네이버 로그인</span></button>
                     <button type="button" class="btn btn_google"><span>Google 계정으로 로그인</span></button> -->
                 </div>
@@ -321,30 +323,30 @@
 
         <!-- s:footer -->
         <footer id="footer" class="footer">
-            <div class="footer__swiperwrap">
+            <div class="footer__swiper-container">
                 <div class="footer__inner">
                     <div class="footer__swiper">
                         <div class="swiper-btn footer__btn--prev footer__btn"></div>
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
+                            <div class="swiper-slide footer__slide">
                                 <div class="img-box">
                                     <img src="../../frontLayer/images/img/img_footer_logo_01.png" alt="대한배구협회"
                                         class="img-box__img">
                                 </div>
                             </div>
-                            <div class="swiper-slide">
+                            <div class="swiper-slide footer__slide">
                                 <div class="img-box">
                                     <img src="../../frontLayer/images/img/img_footer_logo_03.png" alt="start sports"
                                         class="img-box__img">
                                 </div>
                             </div>
-                            <div class="swiper-slide">
+                            <div class="swiper-slide footer__slide">
                                 <div class="img-box">
                                     <img src="../../frontLayer/images/img/img_footer_logo_04.svg" alt="법무법인(유) 에이스"
                                         class="img-box__img">
                                 </div>
                             </div>
-                            <div class="swiper-slide">
+                            <div class="swiper-slide footer__slide">
                                 <div class="img-box">
                                     <img src="../../frontLayer/images/img/img_footer_logo_05.png" alt="adup"
                                         class="img-box__img">
@@ -434,16 +436,16 @@
     <!-- e:wrap -->
 
     <!-- s:비밀번호 불일치 modal -->
-    <div class="modal modal_close" id="modalAlt">
-        <div class="modal_centered" tabindex="0">
-            <div class="modal_box">
-                <div class="modal_header">
+    <div class="modal modal-close" id="modalAlt">
+        <div class="modal__centered" tabindex="0">
+            <div class="modal__box">
+                <div class="modal__header">
                     <h3 class="ttl blind">비밀번호 불일치</h3>
                 </div>
-                <div class="modal_body">
-                    <p class="alert_txt">비밀번호가 일치하지 않습니다.</p>
-                    <div class="btn_wrap">
-                        <button type="button" class="btn btn_success close">확인</button>
+                <div class="modal__body">
+                    <p class="modal__alert">비밀번호가 일치하지 않습니다.</p>
+                    <div class="modal__btn-wrap">
+                        <button type="button" class="btn btn--success close modal__btn">확인</button>
                     </div>
                 </div>
             </div>

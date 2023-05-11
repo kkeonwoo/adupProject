@@ -1,0 +1,40 @@
+/* s: account */
+.login {
+    &__container {
+        margin: 120px 0 160px;
+    }
+
+    &__inner {
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
+    &-social {
+        padding: 40px 60px;
+        background-color: $color-gray6;
+        text-align: center;
+        border-radius: 10px;
+
+        &__ttl {
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+    }
+}
+/* e: account */
+
+@include media-down(tab) {
+    .login {
+        &__container {
+            margin: 96px 0 128px;
+        }
+        
+        &-social {
+            padding: 32px 48px;
+
+            &__ttl {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}

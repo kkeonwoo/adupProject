@@ -322,13 +322,13 @@ Federation = {
         fn.removeHidden();
         $('.modal').off('scroll', function () { });
         $('html, body').removeClass('hidden');
-        $modal.addClass('modal_close');
+        $modal.addClass('modal-close');
         $modal.removeClass('active');
         focusedElementBeforeModal.focus();
     },
     openModal: function (
         $modal,
-        focusableElementsString = '.modal_centered, a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]',
+        focusableElementsString = '.modal__centered, a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]',
         $modalCloseButton = $('.modal .close')
     ) {
         fn.addHidden();
@@ -353,7 +353,7 @@ Federation = {
         });
 
         $modal.on('click', function (e) {
-            if ($(e.target).closest('.modal_box').length < 1 && $('.modal.active').attr('data-dim-click') !== 'false') {
+            if ($(e.target).closest('.modal__box').length < 1 && $('.modal.active').attr('data-dim-click') !== 'false') {
                 Federation.closeModal($modal);
             }
         });
@@ -367,7 +367,7 @@ Federation = {
             firstTabStop = focusableElements[0],
             lastTabStop = focusableElements[focusableElements.length - 1];
 
-        $($modal).removeClass('modal_close');
+        $($modal).removeClass('modal-close');
         firstTabStop.focus();
 
         function trapTabKey(e) {

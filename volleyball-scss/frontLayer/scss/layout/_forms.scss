@@ -1,0 +1,132 @@
+.form {
+    /* s: block */
+    &-group {
+        @include flex(null, center);
+
+        & + &,
+        .caution + & {
+            margin-top: 16px;
+        }
+
+        &__label {
+            display: inline-block;
+            width: 100%;
+            min-width: 110px;
+            padding: 10px 0;
+            font-weight: 400;
+            font-size: $font-normal;
+            color: $color-gray;
+            letter-spacing: -0.01em;
+            word-break: break-all;
+        }
+
+        &--column {
+            @include column-flex(null, start);
+        }
+    }
+    /* e: block */
+    
+    /* s: elements */
+    &__container {
+        margin: 0 60px;
+    }
+
+    &__ttl {
+        font-weight: 600;
+        font-size: $font-large + 4;
+        text-align: center;
+    }
+    
+    &__wrap {
+        margin: 40px 0;
+    }
+
+    &__item {
+        gap: 8px;
+    }
+
+    &__label {
+        padding: 0;
+    }
+
+    &__btn {
+        margin-top: 24px;
+    }
+    
+    &__util {
+        margin-top: 16px;
+        &-item.util-auth__item {
+            & + &::before {
+                margin: 0 16px;
+            }
+        }
+
+        &-link.util-auth__link {
+            font-size: $font-normal;
+        }
+    }
+    /* e: elements */
+}
+
+@include media-down(tab) {
+    .form {
+        &-group {
+            & + &,
+            .caution + & {
+                margin-top: 12px;
+            }
+    
+            &__label {
+                font-size: $font-normal - 2;
+            }
+        }
+        /* e: block */
+        
+        /* s: elements */
+        &__container {
+            margin: 0 48px;
+        }
+    
+        &__ttl {
+            font-size: $font-medium + 4;
+            text-align: center;
+        }
+        
+        &__wrap {
+            margin: 32px 0;
+        }
+    
+        &__item {
+            gap: 6px;
+        }
+        &__btn {
+            margin-top: 20px;
+        }
+        
+        &__util {
+            margin-top: 12px;
+            &.util {
+                height: auto;
+                padding: 0;
+                border-bottom: none;
+            }
+            &-item.util-auth__item {
+                & + &::before {
+                    margin: 0 12px;
+                }
+            }
+    
+            &-link.util-auth__link {
+                font-size: $font-normal - 2;
+            }
+        }
+    }
+}
+
+@include media-down(sm) {
+    .form {
+        &__container {
+            margin: 0 24px;
+        }
+    }
+}

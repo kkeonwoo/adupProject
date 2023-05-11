@@ -12,7 +12,7 @@
         margin: 0 55px;
     }
 
-    .swiper-slide {
+    &__slide {
         @include flex();
     }
 

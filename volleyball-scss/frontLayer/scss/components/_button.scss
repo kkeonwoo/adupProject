@@ -14,6 +14,28 @@
     user-select: none;
     @include inline-flex();
 
+    /* s: Block */
+    &-social {
+        padding: 15px;
+        font-weight: 500;
+        font-size: $font-small;
+
+        &__txt {
+            @include flex();
+            gap: 6px;
+            &::before {
+                width: 18px;
+                height: 18px;
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 100% auto;
+                @include pseudo(inline-block,null);
+            }
+        }
+    }
+    /* e: Block */
+
+    /* s: Modified */
     &--primary {
         background-color: $color-blue3;
     }
@@ -39,5 +61,52 @@
             background-image: url('../images/icons/ico_close.svg');
             background-size: 20px 20px;
         }
+    }
+
+    &--kakao {
+        background-color: $color-yellow;
+        color: $color-black;
+    }
+
+    &__txt--kakao::before {
+        width: 20px;
+        background-image: url('../images/icons/ico_kakao.svg');
+    }
+    /* e: Modified */
+}
+
+@include media-down(tab) {
+    .btn {
+        padding: 9px;
+        font-size: $font-small;
+    
+        /* s: Block */
+        &-social {
+            padding: 12px;
+            font-size: $font-small - 2;
+    
+            &__txt {
+                gap: 4px;
+                &::before {
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+        }
+        /* e: Block */
+    
+        /* s: Modified */
+        &--hamburger {
+            width: 32px;
+            height: 32px;
+            @at-root .header.on & {
+                background-size: 16px 16px;
+            }
+        }
+
+        &__txt--kakao::before {
+            width: 16px;
+        }
+        /* e: Modified */
     }
 }

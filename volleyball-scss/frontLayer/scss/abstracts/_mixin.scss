@@ -34,6 +34,7 @@ $media-down: (
     lg: 1399px,
     tab: 1200px,
     mob:768px,
+    sm:480px,
 );
 
 @mixin media-down($breakpoint) {
