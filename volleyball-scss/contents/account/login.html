@@ -454,22 +454,15 @@
     <!-- e:비밀번호 불일치 modal -->
 
     <script>
-        // breakpoint where swiper will be destroyed
-        // and switches to a dual-column layout
         const breakpoint = window.matchMedia('(max-width:1200px)');
-        // keep track of swiper instances to destroy later
-        let mainSwiper,
-            scheduleSwiper;
+        let footerSwiper;
 
         const breakpointChecker = function () {
-            // if larger viewport and multi-row layout needed
             if (breakpoint.matches === true) {
-                // clean up old instances and inline styles when available
-                // or/and do nothing
+                if (footerSwiper !== undefined) footerSwiper.destroy(true, true);
                 return enableMobileSwiper();
-                // else if a small viewport and single column layout needed
             } else if (breakpoint.matches === false) {
-                // or/and do nothing
+                if (footerSwiper !== undefined) footerSwiper.destroy(true, true);
                 return enablePcSwiper();
             }
         };
@@ -511,9 +504,7 @@
             });
         };
 
-        // keep an eye on viewport size changes
         breakpoint.addListener(breakpointChecker);
-        // kickstart
         breakpointChecker();
     </script>
 

@@ -57,11 +57,23 @@
     &__alert {
         font-weight: 500;
         font-size: $font-normal + 4;
+
+        &--em {
+            display: inline-block;
+            width: 100%;
+            margin: 16px 0;
+            padding: 16px;
+            border-radius: 10px;
+            background-color: $color-gray6;
+            font-weight: 700;
+            font-size: $font-medium;
+        }
     }
 
     &__btn {
         width: 200px;
     }
+
 }
 
 @include media-down(tab) {
@@ -79,6 +91,12 @@
 
         &__alert {
             font-size: $font-normal;
+
+            &--em {
+                margin: 12px 0;
+                padding: 12px;
+                font-size: $font-normal + 4;
+            }
         }
 
         &__btn {

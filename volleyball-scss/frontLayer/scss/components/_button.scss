@@ -21,8 +21,8 @@
         font-size: $font-small;
 
         &__txt {
-            @include flex();
             gap: 6px;
+            @include flex();
             &::before {
                 width: 18px;
                 height: 18px;
@@ -33,14 +33,23 @@
             }
         }
     }
+
+    &-wrap {
+        @include flex();
+    }
     /* e: Block */
 
     /* s: Modified */
     &--primary {
         background-color: $color-blue3;
     }
+    
+    &--secondary {
+        background-color: $color-gray4;
+    }
 
-    &--success {
+    &--success,
+    &--active {
         background-color: $color-blue;
     }
 
@@ -72,12 +81,16 @@
         width: 20px;
         background-image: url('../images/icons/ico_kakao.svg');
     }
+
+    &--chk-id {
+        width: calc(138 / 400 * 100%);
+    }
     /* e: Modified */
 }
 
 @include media-down(tab) {
     .btn {
-        padding: 9px;
+        padding: 8px;
         font-size: $font-small;
     
         /* s: Block */
@@ -106,6 +119,10 @@
 
         &__txt--kakao::before {
             width: 16px;
+        }
+
+        &--chk-id {
+            width: 100%;
         }
         /* e: Modified */
     }

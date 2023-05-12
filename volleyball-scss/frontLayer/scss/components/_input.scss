@@ -3,8 +3,8 @@
     display: flex;
     align-items: center;
     width: 100%;
-    min-height: 46px;
-    padding: 10px 15px;
+    min-height: 48px;
+    padding: 12px 15px;
     border: 1px solid $color-gray4;
     background-color: $color-white;
     font-size: $font-normal;
@@ -50,15 +50,38 @@
         background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 8V12L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z' stroke='%23878787' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
     }
 }
+
+.input-group {
+    position: relative;
+    flex-wrap: wrap;
+    flex: 1;
+    @include flex(null, stretch);
+
+    &__timer {
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        color: $color-gray2;
+        transform: translateY(-50%);
+    }
+}
+
 /* e: block */
 
 @include media-down(tab) {
     .form-control {
-        min-height: 36px;
-        padding: 8px 12px;
+        min-height: 38px;
+        padding: 10px 12px;
         font-size: $font-small - 2;
         
         &::placeholder {
+            font-size: $font-small - 2;
+        }
+    }
+
+    .input-group {
+        &__timer {
+            right: 12px;
             font-size: $font-small - 2;
         }
     }

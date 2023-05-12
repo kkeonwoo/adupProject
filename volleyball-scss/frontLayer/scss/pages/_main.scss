@@ -15,6 +15,20 @@
         font-size: $font-large;
         text-align: center;
         line-height: 1.5;
+
+        &--front-line {
+            position: relative;
+            text-align: left;
+            @include flex(null, center);
+
+            &::before {
+                width: 4px;
+                height: 30px;
+                margin-right: 16px;
+                background-color: $color-blue;
+                @include pseudo(inline-block,$pos: null);
+            }
+        }
     }
 }
 

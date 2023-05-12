@@ -1,7 +1,7 @@
 .form {
     /* s: block */
     &-group {
-        @include flex(null, center);
+        display: flex;
 
         & + &,
         .caution + & {
@@ -20,8 +20,31 @@
             word-break: break-all;
         }
 
+        &__caution {
+            padding-top: 10px;
+            font-size: $font-small - 2;
+            color:$color-red2;
+
+            & + .form-group {
+                margin-top: 16px;
+            }
+        }
+
+        &__box {
+            gap: 8px;
+            flex: 1;
+            flex-wrap: wrap;
+            @include flex(center, null);
+        }
+
         &--column {
             @include column-flex(null, start);
+        }
+
+        &--active {
+            .form-control {
+                border-color: $color-red2;
+            }
         }
     }
     /* e: block */
@@ -39,10 +62,6 @@
     
     &__wrap {
         margin: 40px 0;
-    }
-
-    &__item {
-        gap: 8px;
     }
 
     &__label {
@@ -79,6 +98,18 @@
             &__label {
                 font-size: $font-normal - 2;
             }
+
+            &__caution {
+                padding-top: 8px;
+    
+                & + .form-group {
+                    margin-top: 12px;
+                }
+            }
+
+            &__box {
+                gap: 6px;
+            }
         }
         /* e: block */
         
@@ -96,9 +127,6 @@
             margin: 32px 0;
         }
     
-        &__item {
-            gap: 6px;
-        }
         &__btn {
             margin-top: 20px;
         }
