@@ -51,21 +51,9 @@
     }
 }
 
-.input-group {
-    position: relative;
-    flex-wrap: wrap;
-    flex: 1;
-    @include flex(null, stretch);
-
-    &__timer {
-        position: absolute;
-        top: 50%;
-        right: 16px;
-        color: $color-gray2;
-        transform: translateY(-50%);
-    }
+.checkbox {
+    display: inline-flex;
 }
-
 /* e: block */
 
 @include media-down(tab) {
@@ -75,13 +63,6 @@
         font-size: $font-small - 2;
         
         &::placeholder {
-            font-size: $font-small - 2;
-        }
-    }
-
-    .input-group {
-        &__timer {
-            right: 12px;
             font-size: $font-small - 2;
         }
     }

@@ -30,6 +30,10 @@
             }
         }
     }
+
+    &--type2 {
+        margin: 80px 0 160px;
+    }
 }
 
 .swiper-slide {
@@ -337,6 +341,10 @@
         &__ttl {
             padding-bottom: 44px;
             font-size: $font-medium;
+        }
+        
+        &--type2 {
+            margin: 64px 0 128px;
         }
     }
 

@@ -338,7 +338,6 @@ a {
 html {
   overflow-y: scroll;
 }
-
 body,
 p,
 h1,
@@ -799,19 +798,8 @@ input[type=number]::-webkit-outer-spin-button {
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 8V12L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z' stroke='%23878787' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
 }
 
-.input-group {
-  position: relative;
-  flex-wrap: wrap;
-  flex: 1;
-  display: flex;
-  align-items: stretch;
-}
-.input-group__timer {
-  position: absolute;
-  top: 50%;
-  right: 16px;
-  color: #6d6d6d;
-  transform: translateY(-50%);
+.checkbox {
+  display: inline-flex;
 }
 
 /* e: block */
@@ -822,10 +810,6 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 12px;
   }
   .form-control::placeholder {
-    font-size: 12px;
-  }
-  .input-group__timer {
-    right: 12px;
     font-size: 12px;
   }
 }
@@ -1073,6 +1057,24 @@ input[type=number]::-webkit-outer-spin-button {
 .form-group--active .form-control {
   border-color: #d7414a;
 }
+.form-agree__wrap + .form-agree__wrap {
+  margin-top: 80px;
+}
+.form-agree__ttl {
+  margin-bottom: 32px;
+  font-weight: 600;
+  font-size: 28px;
+  text-align: center;
+}
+.form-agree__item-cont {
+  height: 304px;
+  margin-bottom: 24px;
+  padding: 16px;
+  padding-right: 8px;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  overflow-y: auto;
+}
 .form__container {
   margin: 0 60px;
 }
@@ -1098,6 +1100,21 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .form__util-link.util-auth__link {
   font-size: 16px;
+}
+
+.input-group {
+  position: relative;
+  flex-wrap: wrap;
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+}
+.input-group__timer {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  color: #6d6d6d;
+  transform: translateY(-50%);
 }
 
 @media all and (max-width: 1200px) {
@@ -1146,6 +1163,10 @@ input[type=number]::-webkit-outer-spin-button {
   }
   .form__util-link.util-auth__link {
     font-size: 14px;
+  }
+  .input-group__timer {
+    right: 12px;
+    font-size: 12px;
   }
 }
 @media all and (max-width: 480px) {
@@ -1658,6 +1679,9 @@ input[type=number]::-webkit-outer-spin-button {
   display: inline-block;
   content: "";
 }
+.sec--type2 {
+  margin: 80px 0 160px;
+}
 
 .swiper-slide {
   position: relative;
@@ -1939,6 +1963,9 @@ input[type=number]::-webkit-outer-spin-button {
     padding-bottom: 44px;
     font-size: 24px;
   }
+  .sec--type2 {
+    margin: 64px 0 128px;
+  }
   .main-visual {
     height: 450px;
   }
@@ -2093,13 +2120,6 @@ input[type=number]::-webkit-outer-spin-button {
   }
 }
 /* s: account */
-.login__container {
-  margin: 120px 0 160px;
-}
-.login__inner {
-  max-width: 520px;
-  margin: 0 auto;
-}
 .login-social {
   padding: 40px 60px;
   background-color: #f9f9f9;
@@ -2110,16 +2130,23 @@ input[type=number]::-webkit-outer-spin-button {
   margin-bottom: 24px;
   font-weight: 500;
 }
+.login__container {
+  margin: 120px 0 160px;
+}
+.login__inner {
+  max-width: 520px;
+  margin: 0 auto;
+}
 
 /* e: account */
 @media all and (max-width: 1200px) {
-  .login__container {
-    margin: 96px 0 128px;
-  }
   .login-social {
     padding: 32px 48px;
   }
   .login-social__ttl {
     margin-bottom: 20px;
+  }
+  .login__container {
+    margin: 96px 0 128px;
   }
 }

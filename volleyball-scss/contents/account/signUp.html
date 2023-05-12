@@ -281,17 +281,17 @@
         <!-- e:header -->
 
         <!-- s:container -->
-        <section id="container" class="sec">
+        <section id="container" class="sec sec--type2">
             <div class="sec__inner">
                 <h2 class="sec__ttl sec__ttl--front-line">회원가입</h2>
-                <form>
+                <form class="form">
                     <fieldset>
                         <legend>회원가입 : 이용 약관 동의, 개인정보 처리방침</legend>
-                        <div class="agree_wrap">
-                            <dl>
-                                <dt>이용 약관 동의</dt>
-                                <dd>
-                                    <div class="policy_content">
+                        <div class="form-agree">
+                            <dl class="form-agree__wrap">
+                                <dt class="form-agree__ttl">이용 약관 동의</dt>
+                                <dd class="form-agree__item">
+                                    <div class="form-agree__item-cont">
                                         <div class="scrollbar">
                                             <p class="txt ttl">1조 【 목적 】</p>
                                             <br>
@@ -376,16 +376,16 @@
                                             <p class="txt">(시행일) 이 약관은 2023년 04월 01일부터 시행합니다.</p>
                                         </div>
                                     </div>
-                                    <div class="fancy_img_box">
+                                    <div class="checkbox">
                                         <input type="checkbox" id="userTerms">
-                                        <label for="userTerms"><span>위 약관 내용을 확인하였으며 이에 동의합니다.</span></label>
+                                        <label for="userTerms" class="checkbox__label"><span>위 약관 내용을 확인하였으며 이에 동의합니다.</span></label>
                                     </div>
                                 </dd>
                             </dl>
-                            <dl>
-                                <dt>개인정보 처리방침</dt>
-                                <dd>
-                                    <div class="policy_content">
+                            <dl class="form-agree__wrap">
+                                <dt class="form-agree__ttl">개인정보 처리방침</dt>
+                                <dd class="form-agree__item">
+                                    <div class="form-agree__item-cont">
                                         <div class="scrollbar">
                                             <p class="txt">
                                                 한국9인제배구연맹(이하 “연맹”)에서 취급하는 모든 개인정보는 관련법령에 근거하거나 정보주체의 동의에 의하여 수집·보유 및 처리되고 있습니다.
@@ -634,9 +634,9 @@
                                             <p class="txt">본 개인정보처리방침은 2023년 04월 01일부터 적용됩니다.</p>
                                         </div>
                                     </div>
-                                    <div class="fancy_img_box">
+                                    <div class="checkbox">
                                         <input type="checkbox" id="userPolicy">
-                                        <label for="userPolicy"><span>위 개인정보 처리방침을 확인하였으며 이에 동의합니다.</span></label>
+                                        <label for="userPolicy" class="checkbox__label"><span>위 개인정보 처리방침을 확인하였으며 이에 동의합니다.</span></label>
                                     </div>
                                 </dd>
                             </dl>

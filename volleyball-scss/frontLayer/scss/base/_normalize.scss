@@ -46,6 +46,17 @@ a {
 
 html {
     overflow-y: scroll;
+    &::-webkit-scrollbar {
+        
+    }
+
+    &::-webkit-scrollbar-thumb {
+
+    }
+
+    &::-webkit-scrollbar-track {
+
+    }
 }
 
 body,
