@@ -105,11 +105,13 @@
         
         &__util {
             margin-top: 12px;
+            
             &.util {
                 height: auto;
                 padding: 0;
                 border-bottom: none;
             }
+
             &-item.util-auth__item {
                 & + &::before {
                     margin: 0 12px;
