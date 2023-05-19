@@ -1466,12 +1466,15 @@ input[type=number]::-webkit-outer-spin-button {
   display: block;
 }
 .option__btn {
-  display: flex;
+  display: block;
   width: 100%;
   padding: 6px 13px;
   font-size: 14px;
   text-align: left;
   line-height: 1.285714;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .option__item:hover .option__btn {
   background-color: #fafafa;

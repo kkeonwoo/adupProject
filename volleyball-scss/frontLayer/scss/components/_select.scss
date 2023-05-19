@@ -67,12 +67,13 @@
     }
 
     &__btn {
-        display: flex;
+        display: block;
         width: 100%;
         padding: 6px 13px;
         font-size: 14px;
         text-align: left;
         line-height: 1.285714;
+        @include ellipsis();
     }
 
     &__item:hover {
