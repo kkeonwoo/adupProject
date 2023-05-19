@@ -193,19 +193,19 @@ Federation = {
             $('.fixed_area .dim').css({ 'height': selectH });
         }
         $('html').click(function (e) {
-            if ($(e.target).closest('.form_select').length < 1) {
+            if ($(e.target).closest('.form-select').length < 1) {
                 selectComplete($selectComplete);
-                $('.form_select').attr('data-fixed-active', "false");
+                $('.form-select').attr('data-fixed-active', "false");
             }
         });
-        $(document).on('click', '.form_select .form_btn', function (e) {
+        $(document).on('click', '.form-select .form-select__btn', function (e) {
             $formSelect = e.currentTarget.parentNode;
 
-            let fixedActive = $(e.currentTarget).closest('.form_select').attr('data-fixed-active');
+            let fixedActive = $(e.currentTarget).closest('.form-select').attr('data-fixed-active');
 
             if (fixedActive === "true" && $formSelectPrev == $formSelect && selectPrevProt) {
                 selectComplete($selectComplete);
-                $(e.currentTarget).closest('.form_select').attr('data-fixed-active', "false");
+                $(e.currentTarget).closest('.form-select').attr('data-fixed-active', "false");
                 return
             }
 
@@ -222,46 +222,46 @@ Federation = {
             selectPrevProt = true;
 
             let active = false;
-            if ($(e.currentTarget).closest('.form_select').hasClass('active')) {
+            if ($(e.currentTarget).closest('.form-select').hasClass('form-select--active')) {
                 active = true;
             } else {
-                let $optionArea = $($formSelect).find('.option_area');
+                let $optionArea = $($formSelect).find('.option');
                 $('body').append(`<div class="fixed_area"><div class="dim"></div></div>`);
                 $('.fixed_area').append($optionArea);
 
                 if ($formSelect.dataset.index !== undefined) {
                     $formSelect.selectIdx = $formSelect.dataset.index;
-                    $formSelect.dataset.index !== '' && $('.fixed_area .option_item').removeClass('active').eq($formSelect.selectIdx).addClass('active');
+                    $formSelect.dataset.index !== '' && $('.fixed_area .option__item').removeClass('option__item--active').eq($formSelect.selectIdx).addClass('option__item--active');
                 }
             }
             optionAreaSize();
 
-            $('.form_select.active').removeClass('active');
+            $('.form-select.form-select--active').removeClass('form-select--active');
             if (!active) {
-                $(e.currentTarget).closest('.form_select').toggleClass('active');
+                $(e.currentTarget).closest('.form-select').toggleClass('form-select--active');
             }
-            $(e.currentTarget).closest('.form_select').attr('data-fixed-active', "true");
+            $(e.currentTarget).closest('.form-select').attr('data-fixed-active', "true");
 
         });
 
-        $(document).on('click', '.option_btn', function () {
-            $formSelect.selectIdx = $(this).closest('.option_item').index();
-            $formSelect.dataset.index = $(this).closest('.option_item').index();
+        $(document).on('click', '.option__btn', function () {
+            $formSelect.selectIdx = $(this).closest('.option__item').index();
+            $formSelect.dataset.index = $(this).closest('.option__item').index();
             let textData = $(this).text();
-            $(this).closest('.option_list').find('.option_item').removeClass('active').eq($formSelect.dataset.index).addClass('active');
-            $($formSelect).find('.form_btn').text(textData).addClass('active');
+            $(this).closest('.option_list').find('.option__item').removeClass('option__item--active').eq($formSelect.dataset.index).addClass('option__item--active');
+            $($formSelect).find('.form-select__btn').text(textData).addClass('form-select__btn--active');
             selectComplete($selectComplete);
-            $('.form_select').attr('data-fixed-active', "false");
+            $('.form-select').attr('data-fixed-active', "false");
         });
 
         function selectComplete($selectComplete) {
-            let $optionArea = $('.fixed_area').find('.option_area');
-            $($selectComplete).append($optionArea).removeClass('active');
+            let $optionArea = $('.fixed_area').find('.option');
+            $($selectComplete).append($optionArea).removeClass('form-select--active');
             $('.fixed_area').remove();
         }
-        $(document).on('keydown', '.form_btn', function (e) {
+        $(document).on('keydown', '.form-select__btn', function (e) {
             $formSelect = $formSelect ? $formSelect : e.currentTarget.parentNode;
-            let $optionItem = $($formSelect).hasClass('active') ? $('.fixed_area .option_item') : $(e.currentTarget).closest('.form_select').find('.option_item');
+            let $optionItem = $($formSelect).hasClass('form-select__btn--active') ? $('.fixed_area .option__item') : $(e.currentTarget).closest('.form-select').find('.option__item');
             if ($formSelect.dataset.index == undefined) {
                 $formSelect.selectIdx = -1;
             } else {
@@ -270,6 +270,7 @@ Federation = {
 
             if (e.keyCode == 9 || e.keyCode == 27) {
                 selectComplete($selectComplete);
+                $('.form-select').attr('data-fixed-active', "false");
             }
 
             if (e.keyCode == 37 || e.keyCode == 38) {
@@ -291,20 +292,20 @@ Federation = {
 
             function optionChange() {
                 $formSelect.dataset.index = Number($formSelect.selectIdx);
-                $optionItem.removeClass('active').eq($formSelect.selectIdx).addClass('active');
-                let textData = $optionItem.eq($formSelect.selectIdx).find('.option_btn').text();
-                $(e.currentTarget).text(textData).addClass('active');
-                if ($($formSelect).hasClass('active')) {
+                $optionItem.removeClass('option__item--active').eq($formSelect.selectIdx).addClass('option__item--active');
+                let textData = $optionItem.eq($formSelect.selectIdx).find('.option__btn').text();
+                $(e.currentTarget).text(textData).addClass('option__item--active');
+                if ($($formSelect).hasClass('form-select__btn--active')) {
                     let h = 0;
                     for (let i = 0; i < $formSelect.selectIdx; i++) {
                         h += $optionItem.eq(i).outerHeight();
                     }
-                    $('.fixed_area .option_area').scrollTop(h);
+                    $('.fixed_area .option').scrollTop(h);
                 }
             }
         });
         $(window).resize(function () {
-            $('.form_select').hasClass('active') && optionAreaSize();
+            $('.form-select').hasClass('form-select--active') && optionAreaSize();
         });
     },
     modal: function () {
@@ -334,13 +335,13 @@ Federation = {
         fn.addHidden();
         $modal.addClass('active');
         $('.modal').on('scroll', function () {
-            if ($('.form_select').hasClass('active')) {
-                let $formSelect = $('.form_select.active');
+            if ($('.form-select').hasClass('active')) {
+                let $formSelect = $('.form-select.active');
                 let selectTop = $($formSelect).offset().top;
                 let selectLeft = $($formSelect).offset().left;
                 let selectW = $($formSelect).outerWidth();
                 let selectH = $($formSelect).outerHeight();
-                $('.option_area').css({
+                $('.option').css({
                     'top': selectTop + selectH,
                     'left': selectLeft,
                     'width': selectW

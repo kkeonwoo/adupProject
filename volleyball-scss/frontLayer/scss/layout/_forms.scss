@@ -18,6 +18,10 @@
             color: $color-gray;
             letter-spacing: -0.01em;
             word-break: break-all;
+
+            @at-root .form--type2 & { 
+                font-weight: 500;
+            }
         }
 
         &__caution {
@@ -28,13 +32,21 @@
             & + .form-group {
                 margin-top: 16px;
             }
+
+            &--ref {
+                color: $color-black2;
+            }
         }
 
         &__box {
+            width: 100%;
             gap: 8px;
             flex: 1;
-            flex-wrap: wrap;
-            @include flex(center, null);
+            @include flex(null, start);
+
+            & + & {
+                margin-top: 8px;
+            }
         }
 
         &--column {
@@ -45,6 +57,11 @@
             .form-control {
                 border-color: $color-red2;
             }
+        }
+
+        &__txt {
+            line-height: 48px;
+            color: $color-gray4;
         }
     }
 
@@ -79,18 +96,37 @@
     /* s: elements */
     &__container {
         margin: 0 60px;
+        @at-root .form--type2 & {
+            max-width: 500px;
+            margin: 0 auto;
+        }
     }
 
     &__ttl {
         font-weight: 600;
         font-size: $font-large + 4;
         text-align: center;
-    }
-    
-    &__wrap {
-        margin: 40px 0;
+
+        @at-root .form--type2 & {
+            font-size: $font-medium + 4;
+            line-height: 1.5;
+            
+            & + .form__desc {
+                margin-top: 8px;
+                color: $color-gray2;
+                text-align: center;
+
+                * {
+                    color: inherit;
+                }
+            }
+        }
     }
 
+    &__ttl-area {
+        margin-bottom: 40px;
+    }
+    
     &__label {
         padding: 0;
     }
@@ -115,8 +151,8 @@
 }
 
 .input-group {
-    position: relative;
     flex-wrap: wrap;
+    position: relative;
     flex: 1;
     @include flex(null, stretch);
 
@@ -151,6 +187,28 @@
 
             &__box {
                 gap: 6px;
+
+                &--wrap {
+                    flex-wrap: wrap;
+                }
+            }
+
+            &__txt {
+                line-height: 38px;
+                font-size: $font-small - 2;
+            }
+        }
+
+        &-agree {
+            &__wrap {
+                & + & {
+                    margin-top: 64px;
+                }
+            }
+    
+            &__ttl {
+                margin-bottom: 25px;
+                font-size: $font-medium - 2;
             }
         }
         /* e: block */

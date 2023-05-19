@@ -10,7 +10,7 @@
     }
 
     &__ttl {
-        padding: 0 0 56px;
+        padding-bottom: 56px;
         font-weight: 700;
         font-size: $font-large;
         text-align: center;
@@ -341,8 +341,16 @@
         &__ttl {
             padding-bottom: 44px;
             font-size: $font-medium;
+
+            &--front-line {
+                &::before {
+                    width: 3px;
+                    height: 24px;
+                    margin-right: 12px;
+                }
+            }
         }
-        
+
         &--type2 {
             margin: 64px 0 128px;
         }

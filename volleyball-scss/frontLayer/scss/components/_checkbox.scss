@@ -1,0 +1,71 @@
+.checkbox {
+    width: 100%;
+
+    .form-group + & {
+        margin-top: 8px;
+    }
+
+    &__input {
+        position: absolute;
+        left: -9999px;
+    }
+
+    &__input ~ &__label {
+        .checkbox__txt {
+            display: table-cell;
+            padding-left:29px;
+            vertical-align: top;
+            word-break: keep-all;
+        }
+    }
+
+    &__input ~ &__label--small {
+        .checkbox__txt {
+            padding-left: 24px;
+        }
+    }
+
+    &__input + &__label {
+        display: table;
+        position: relative;
+        cursor: pointer;
+        
+        &::before {
+            top: 50%;
+            width:24px;
+            height:24px;
+            background:url("../images/icons/ico_checkbox.svg") no-repeat center top/ 100% auto;
+            vertical-align: top;
+            transform: translateY(-50%);
+            outline:none;
+            @include pseudo(inline-block);
+        }
+
+        &--small {
+            &::before {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+
+    &__input:checked + &__label::before {
+        background-position:0 -24px;
+    }
+    
+    &__input:checked + &__label--small::before {
+        background-position:0 -16px;
+    }
+    
+    &__input:focus-within + &__label {
+        outline: 1px dashed #000;
+    }
+}
+
+@include media-down(tab) {
+    .checkbox {
+        &__txt {
+            font-size: $font-small - 2;
+        }
+    }
+}
