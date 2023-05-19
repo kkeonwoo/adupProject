@@ -296,16 +296,30 @@
 									<input type="radio" id="radio03_2" name="radio03" value="N" val="Y"> <label for="radio03_2">비활성</label>
 								</td>
 							</tr>
+							<!-- 할인유형이 정율일때 -->
 							<tr>
 								<th>
 									<span>색상<span class="important">*</span></span>
 								</th>
 								<td colspan="3">
 									<input type="radio" id="radio04_1" name="radio04" value="" val=""> <label for="radio04_1" class="radio_color_circle" style="background-color: #9A0682; background: linear-gradient(90deg, #9A0682 1.09%, #E9380C 91.27%, #E9380C 98.91%);"></label> &nbsp;&nbsp;&nbsp;
-									<input type="radio" id="radio04_2" name="radio04" value="" val=""> <label for="radio04_2" class="radio_color_circle" style="background-color: #E9380C;"></label> &nbsp;&nbsp;&nbsp;
+									<input type="radio" id="radio04_2" name="radio04" value="" val="" checked> <label for="radio04_2" class="radio_color_circle" style="background-color: #E9380C;"></label> &nbsp;&nbsp;&nbsp;
 									<input type="radio" id="radio04_3" name="radio04" value="" val=""> <label for="radio04_3" class="radio_color_circle" style="background-color: #CEAB59;"></label> &nbsp;&nbsp;&nbsp;
 									<input type="radio" id="radio04_4" name="radio04" value="" val=""> <label for="radio04_4" class="radio_color_circle" style="background-color: #B6B6B6;"></label> &nbsp;&nbsp;&nbsp;
 									<input type="radio" id="radio04_5" name="radio04" value="" val=""> <label for="radio04_5" class="radio_color_circle" style="background-color: #C68370;"></label>
+								</td>
+							</tr>
+							<!-- 할인유형이 정액일때 -->
+							<tr>
+								<th>
+									<span>색상<span class="important">*</span></span>
+								</th>
+								<td colspan="3">
+									<input type="radio" id="radio09_1" name="radio09" value="" val=""> <label for="radio09_1" class="radio_color_circle" style="background-color: #9A0682;"></label> &nbsp;&nbsp;&nbsp;
+									<input type="radio" id="radio09_2" name="radio09" value="" val="" checked> <label for="radio09_2" class="radio_color_circle" style="background-color: #E9380C;"></label> &nbsp;&nbsp;&nbsp;
+									<input type="radio" id="radio09_3" name="radio09" value="" val=""> <label for="radio09_3" class="radio_color_circle" style="background-color: #CEAB59;"></label> &nbsp;&nbsp;&nbsp;
+									<input type="radio" id="radio09_4" name="radio09" value="" val=""> <label for="radio09_4" class="radio_color_circle" style="background-color: #B6B6B6;"></label> &nbsp;&nbsp;&nbsp;
+									<input type="radio" id="radio09_5" name="radio09" value="" val=""> <label for="radio09_5" class="radio_color_circle" style="background-color: #C68370;"></label>
 								</td>
 							</tr>
 						</tbody>
@@ -394,16 +408,30 @@
 									<input type="radio" id="radio06_2" name="radio06" value="N" val="Y"> <label for="radio06_2">비활성</label>
 								</td>
 							</tr>
+							<!-- 할인유형이 정율일때 -->
 							<tr>
 								<th>
 									<span>색상<span class="important">*</span></span>
 								</th>
 								<td colspan="3">
 									<input type="radio" id="radio07_1" name="radio07" value="" val=""> <label for="radio07_1" class="radio_color_circle" style="background-color: #9A0682; background: linear-gradient(90deg, #9A0682 1.09%, #E9380C 91.27%, #E9380C 98.91%);"></label> &nbsp;&nbsp;&nbsp;
-									<input type="radio" id="radio07_2" name="radio07" value="" val=""> <label for="radio07_2" class="radio_color_circle" style="background-color: #E9380C;"></label> &nbsp;&nbsp;&nbsp;
+									<input type="radio" id="radio07_2" name="radio07" value="" val="" checked> <label for="radio07_2" class="radio_color_circle" style="background-color: #E9380C;"></label> &nbsp;&nbsp;&nbsp;
 									<input type="radio" id="radio07_3" name="radio07" value="" val=""> <label for="radio07_3" class="radio_color_circle" style="background-color: #CEAB59;"></label> &nbsp;&nbsp;&nbsp;
 									<input type="radio" id="radio07_4" name="radio07" value="" val=""> <label for="radio07_4" class="radio_color_circle" style="background-color: #B6B6B6;"></label> &nbsp;&nbsp;&nbsp;
 									<input type="radio" id="radio07_5" name="radio07" value="" val=""> <label for="radio07_5" class="radio_color_circle" style="background-color: #C68370;"></label>
+								</td>
+							</tr>
+							<!-- 할인유형이 정액일때 -->
+							<tr>
+								<th>
+									<span>색상<span class="important">*</span></span>
+								</th>
+								<td colspan="3">
+									<input type="radio" id="radio08_1" name="radio08" value="" val=""> <label for="radio08_1" class="radio_color_circle" style="background-color: #9A0682;"></label> &nbsp;&nbsp;&nbsp;
+									<input type="radio" id="radio08_2" name="radio08" value="" val="" checked> <label for="radio08_2" class="radio_color_circle" style="background-color: #E9380C;"></label> &nbsp;&nbsp;&nbsp;
+									<input type="radio" id="radio08_3" name="radio08" value="" val=""> <label for="radio08_3" class="radio_color_circle" style="background-color: #CEAB59;"></label> &nbsp;&nbsp;&nbsp;
+									<input type="radio" id="radio08_4" name="radio08" value="" val=""> <label for="radio08_4" class="radio_color_circle" style="background-color: #B6B6B6;"></label> &nbsp;&nbsp;&nbsp;
+									<input type="radio" id="radio08_5" name="radio08" value="" val=""> <label for="radio08_5" class="radio_color_circle" style="background-color: #C68370;"></label>
 								</td>
 							</tr>
 						</tbody>
@@ -428,33 +456,118 @@
 		<div class="popup" style="width:1050px;">
 			<div class="pop_tit">쿠폰 구분 - 미리보기</div>
 			<div class="pop_cont" style="text-align:center;">
-				<!-- 
-					제공된 색상 종류
-					background-color: #9A0682; background: linear-gradient(90deg, #9A0682 1.09%, #E9380C 91.27%, #E9380C 98.91%);
-					background-color: #E9380C;
-					background-color: #CEAB59;
-					background-color: #B6B6B6;
-					background-color: #C68370;
-				 -->
-				<div class="coupon_layer" style="background-color: #9A0682; background: linear-gradient(90deg, #9A0682 1.09%, #E9380C 91.27%, #E9380C 98.91%);">
-					<div class="coupon_side_box">
-						<div class="coupon_side">
-							<i class="ico_triangle ico_triangle1"></i>
-							<i class="ico_path ico_path1"></i>
-							<div class="cnt">
+				<div class="coupon_wrap">
+					<!-- 
+						제공된 색상 종류
+						background-color: #9A0682; background: linear-gradient(90deg, #9A0682 1.09%, #E9380C 91.27%, #E9380C 98.91%);
+						background-color: #E9380C;
+						background-color: #CEAB59;
+						background-color: #B6B6B6;
+						background-color: #C68370;
+					 -->
+					<div class="coupon_layer" style="background-color: #9A0682; background: linear-gradient(90deg, #9A0682 1.09%, #E9380C 91.27%, #E9380C 98.91%);">
+						<div class="coupon_side_box">
+							<div class="coupon_side">
+								<i class="ico_triangle ico_triangle1"></i>
+								<i class="ico_path ico_path1"></i>
+								<div class="cnt">
+								</div>
+								<i class="ico_path ico_path2"></i>
+								<i class="ico_triangle ico_triangle2"></i>
 							</div>
-							<i class="ico_path ico_path2"></i>
-							<i class="ico_triangle ico_triangle2"></i>
+							<i class="ico_dot"></i>
 						</div>
-						<i class="ico_dot"></i>
+						<div class="coupon_cnt">
+							<div class="sale_box">
+								<span class="num">5</span>
+								<span class="unit">%</span>
+							</div>
+							<div class="txt_box">
+								<span class="txt">연말 감사 할인</span>
+							</div>
+						</div>
 					</div>
-					<div class="coupon_cnt">
-						<div class="sale_box">
-							<span class="num">5</span>
-							<span class="unit">%</span>
+					<!-- 
+						제공된 클래스명 종류
+						type_purple,
+						type_orange,
+						type_yellow,
+						type_silver,
+						type_brown
+					 -->
+					<div class="coupon_layer2 type_purple">
+						<div class="coupon_inner">
+							<div class="coupon_side_box">
+								<div class="coupon_side">
+									<div class="cnt" aria-label="COUPON"></div>
+								</div>
+							</div>
+							<div class="coupon_cnt">
+								<div class="sale_box">
+									<span class="num">5,000</span>
+									<span class="unit">원</span>
+								</div>
+							</div>
 						</div>
-						<div class="txt_box">
-							<span class="txt">연말 감사 할인</span>
+					</div>
+					<div class="coupon_layer2 type_orange">
+						<div class="coupon_inner">
+							<div class="coupon_side_box">
+								<div class="coupon_side">
+									<div class="cnt" aria-label="COUPON"></div>
+								</div>
+							</div>
+							<div class="coupon_cnt">
+								<div class="sale_box">
+									<span class="num">5,000</span>
+									<span class="unit">원</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="coupon_layer2 type_yellow">
+						<div class="coupon_inner">
+							<div class="coupon_side_box">
+								<div class="coupon_side">
+									<div class="cnt" aria-label="COUPON"></div>
+								</div>
+							</div>
+							<div class="coupon_cnt">
+								<div class="sale_box">
+									<span class="num">5,000</span>
+									<span class="unit">원</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="coupon_layer2 type_silver">
+						<div class="coupon_inner">
+							<div class="coupon_side_box">
+								<div class="coupon_side">
+									<div class="cnt" aria-label="COUPON"></div>
+								</div>
+							</div>
+							<div class="coupon_cnt">
+								<div class="sale_box">
+									<span class="num">5,000</span>
+									<span class="unit">원</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="coupon_layer2 type_brown">
+						<div class="coupon_inner">
+							<div class="coupon_side_box">
+								<div class="coupon_side">
+									<div class="cnt" aria-label="COUPON"></div>
+								</div>
+							</div>
+							<div class="coupon_cnt">
+								<div class="sale_box">
+									<span class="num">5,000</span>
+									<span class="unit">원</span>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
