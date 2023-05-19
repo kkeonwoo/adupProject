@@ -879,6 +879,56 @@ div[class*="modal_password"] .inc_form .timer { position: absolute; right: 0; wi
 .coupon_layer .coupon_cnt .txt_box { margin-top: 5px; text-align: left;}
 .coupon_layer .coupon_cnt .txt_box .txt { font-family: 'Noto Sans CJK KR', 'Noto Sans KR'; font-weight: 700; font-size: 10px; color: #fff;}
 
+.coupon_layer2 { display: block; position: relative; width: 103px; min-height: 53px; overflow: hidden;}
+.coupon_layer2::before,
+.coupon_layer2::after { content: ''; display: block; position: absolute; top: 50%; width: 15px; height: 15px; border: 2px solid #E8380C; border-radius: 100%; background-color: #fff;}
+.coupon_layer2::before { left: 0; transform: translate(calc(-100% + 10px), -50%);}
+.coupon_layer2::after { right: 0; transform: translate(calc(100% - 10px), -50%);}
+.coupon_layer2 .coupon_inner { width: 100%; height: 100%; padding: 5px 10px; border: 2px solid #E8380C; border-radius: 4px;}
+.coupon_layer2 .coupon_side_box { width: 100%;}
+.coupon_layer2 .coupon_side .cnt { width: 42px; height: 13px; background-image: url('../images/icons/ico_coupon_top.svg'); background-repeat: no-repeat; background-position: center center; background-size: 100% auto;}
+.coupon_layer2 .coupon_cnt .sale_box { position: relative; margin-top: 8px; text-align: right; white-space:nowrap; font-size: 0;}
+.coupon_layer2 .coupon_cnt .sale_box::before { content: ''; display: block; position: absolute; left: 0; right: 0; bottom: -2px; width: 100%; height: 1px; background-color:#E8380C;}
+.coupon_layer2 .coupon_cnt .sale_box .num,
+.coupon_layer2 .coupon_cnt .sale_box .unit { font-family: 'Tahoma', 'Noto Sans KR'; font-weight: 700; line-height: 1;  color: #E8380C;}
+.coupon_layer2 .coupon_cnt .sale_box .num { font-size: 17px;}
+.coupon_layer2 .coupon_cnt .sale_box .unit { margin-left: 2px; font-size: 10px;}
+.coupon_layer2.type_purple::before,
+.coupon_layer2.type_purple::after { border-color: #9A0682;}
+.coupon_layer2.type_purple .coupon_inner { border-color: #9A0682;}
+.coupon_layer2.type_purple .coupon_side .cnt { background-image: url('../images/icons/ico_coupon_top_purple.svg');}
+.coupon_layer2.type_purple .coupon_cnt .sale_box::before { background-color: #9A0682;}
+.coupon_layer2.type_purple .coupon_cnt .sale_box .num,
+.coupon_layer2.type_purple .coupon_cnt .sale_box .unit { color: #9A0682;}
+.coupon_layer2.type_orange::before,
+.coupon_layer2.type_orange::after { border-color: #E9380C;}
+.coupon_layer2.type_orange .coupon_inner { border-color: #E9380C;}
+.coupon_layer2.type_orange .coupon_side .cnt { background-image: url('../images/icons/ico_coupon_top.svg');}
+.coupon_layer2.type_orange .coupon_cnt .sale_box::before { background-color: #E9380C;}
+.coupon_layer2.type_orange .coupon_cnt .sale_box .num,
+.coupon_layer2.type_orange .coupon_cnt .sale_box .unit { color: #E9380C;}
+.coupon_layer2.type_yellow::before,
+.coupon_layer2.type_yellow::after { border-color: #CEAB59;}
+.coupon_layer2.type_yellow .coupon_inner { border-color: #CEAB59;}
+.coupon_layer2.type_yellow .coupon_side .cnt { background-image: url('../images/icons/ico_coupon_top_yellow.svg');}
+.coupon_layer2.type_yellow .coupon_cnt .sale_box::before { background-color: #CEAB59;}
+.coupon_layer2.type_yellow .coupon_cnt .sale_box .num,
+.coupon_layer2.type_yellow .coupon_cnt .sale_box .unit { color: #CEAB59;}
+.coupon_layer2.type_silver::before,
+.coupon_layer2.type_silver::after { border-color: #B6B6B6;}
+.coupon_layer2.type_silver .coupon_inner { border-color: #B6B6B6;}
+.coupon_layer2.type_silver .coupon_side .cnt { background-image: url('../images/icons/ico_coupon_top_silver.svg');}
+.coupon_layer2.type_silver .coupon_cnt .sale_box::before { background-color: #B6B6B6;}
+.coupon_layer2.type_silver .coupon_cnt .sale_box .num,
+.coupon_layer2.type_silver .coupon_cnt .sale_box .unit { color: #B6B6B6;}
+.coupon_layer2.type_brown::before,
+.coupon_layer2.type_brown::after { border-color: #C68370;}
+.coupon_layer2.type_brown .coupon_inner { border-color: #C68370;}
+.coupon_layer2.type_brown .coupon_side .cnt { background-image: url('../images/icons/ico_coupon_top_brown.svg');}
+.coupon_layer2.type_brown .coupon_cnt .sale_box::before { background-color: #C68370;}
+.coupon_layer2.type_brown .coupon_cnt .sale_box .num,
+.coupon_layer2.type_brown .coupon_cnt .sale_box .unit { color: #C68370;}
+
 /* 등급 혜택 */
 .benefit_body .guide_area { padding-right: calc(68px + 72px * 2);}
 .benefit_body .guide_area::after { right: 72px; max-width: 68px; height: 120px; background-image: url('../images/icons/ico_benefit_logo.png');}

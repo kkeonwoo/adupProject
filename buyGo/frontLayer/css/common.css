@@ -787,7 +787,7 @@ a:hover{text-decoration:none;}
 .img_upload_area .img_upload_box .btn { position: absolute; width: 12px; min-width: 12px; height: 12px; margin: 0; padding: 0; background-size: 5px 5px; background-color: var(--fn-white); transform: translate(0);}
 .img_upload_area .img_upload_box > .txt_box { padding: 20px 10px 0;}
 .img_upload_area.active .img_upload_box > .txt_box { display: none;}
-.img_upload_area .img_upload_box .img_upload_list .txt_box { position: relative; padding-left: 15px;}
+.img_upload_area .img_upload_box .img_upload_list .txt_box { position: relative;}
 .img_upload_area .img_upload_box .txt_box .txt { font-size: 14px; line-height: 1.357142;}
 .img_upload_area .img_upload_box .txt_box .txt:empty::before { content: attr(data-placeholder); display: inline; font-size: inherit; line-height: inherit; color: var(--fn-gray-500);}
 .img_upload_area .img_upload_box .txt_box .btn { top: 50%; left: 0; border: none; background-color: transparent; transform: translateY(-50%);}

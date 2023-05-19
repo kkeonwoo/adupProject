@@ -191,6 +191,7 @@ input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none;}
 .me_px_20 { margin-right: 20px !important;}
 .me_px_25 { margin-right: 25px !important;}
 .mt_0 { margin-top: 0 !important;}
+.mt_px_n38 { margin-top: -38px !important;}
 .mt_px_3 { margin-top: 3px !important;}
 .mt_px_5 { margin-top: 5px !important;}
 .mt_px_7 { margin-top: 7px !important;}
@@ -206,6 +207,7 @@ input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none;}
 .mb_px_15 { margin-bottom: 15px !important;}
 .mb_px_20 { margin-bottom: 20px !important;}
 .mb_px_25 { margin-bottom: 25px !important;}
+.mb_px_32 { margin-bottom: 32px !important;}
 
 .mt_px_n5 { margin-top: -5px !important;}
 .mt_px_n10 { margin-top: -10px !important;}
