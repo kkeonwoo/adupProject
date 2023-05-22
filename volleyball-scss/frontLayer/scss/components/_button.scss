@@ -12,6 +12,7 @@
     transition: all .2s ease-in-out;
     border-radius: 10px;
     user-select: none;
+    word-wrap: anywhere;
     @include inline-flex();
 
     /* s: Block */
@@ -93,6 +94,17 @@
     &--sm {
         max-width: 100px;
     }
+
+    &--underline {
+        display: inline;
+        padding: 0;
+        padding-top: 24px;
+        font-weight: 500;
+        color: $color-black2;
+        text-align: initial;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
     /* e: Modified */
 }
 
@@ -136,6 +148,11 @@
 
         &--chk-id {
             max-width: 100%;
+        }
+
+        &--underline {
+            padding-top: 20px;
+            font-size: $font-small - 2;
         }
         /* e: Modified */
     }

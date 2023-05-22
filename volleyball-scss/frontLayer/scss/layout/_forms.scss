@@ -12,7 +12,7 @@
             display: inline-block;
             width: 100%;
             min-width: 110px;
-            padding: 10px 0;
+            padding-bottom: 10px;
             font-weight: 400;
             font-size: $font-normal;
             color: $color-gray;
@@ -126,9 +126,9 @@
     &__ttl-area {
         margin-bottom: 40px;
     }
-    
-    &__label {
-        padding: 0;
+
+    &__wrap {
+        margin: 40px 0;
     }
 
     &__btn {
@@ -221,6 +221,15 @@
         &__ttl {
             font-size: $font-medium + 4;
             text-align: center;
+
+            @at-root .form--type2 & {
+                font-size: $font-medium - 2;
+                
+                & + .form__desc {
+                    margin-top: 6px;
+                    font-size: $font-small - 2;
+                }
+            }
         }
         
         &__wrap {
