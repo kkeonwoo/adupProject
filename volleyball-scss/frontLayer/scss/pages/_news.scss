@@ -1,0 +1,89 @@
+.news {
+    &__content {
+        &-header {
+            @extend .tbl__th
+        ;}   
+        
+        &-body {
+            padding: 10px;
+            border-bottom: 1px solid $color-gray5;
+        }
+
+        &-footer {
+            padding: 16px;
+            @include flex(end, null);
+
+        }
+        
+    }
+    
+    &__ttl {
+        font-weight: 500;
+        font-size: $font-normal + 2;
+    }
+    
+    &__date {
+        display: inline-block;
+        margin-top: 8px;
+        font-size: $font-small;
+        color: $color-gray2;
+    }
+
+    &__upload-txt {
+        position: relative;
+
+        em {
+            font-size: inherit;
+            font-weight: 500;
+        }
+        
+        &::after {
+            @include pseudo(inline-block, $pos:null);
+            width: 1px;
+            height: 16px;
+            background-color: $color-black2;
+            margin: 0 16px;
+            transform: translateY(2px);
+        }
+    }
+
+    &__form {
+        margin-top: 16px;
+    }
+
+    &__btn-wrap {
+        margin-top: 40px;
+    }
+
+    &__tbl-lnb {
+        margin-top: 40px;
+    }
+}
+
+@include media-down(tab) {
+    .news {
+        &__ttl {
+            font-size: $font-small;
+        }
+
+        &__date {
+            font-size: $font-small - 2;
+        }
+
+        &__upload-txt {
+            font-size: $font-small - 2;
+    
+            &::after {
+                height: 12px;
+                transform: translateY(1px);
+            }
+        }
+
+        &__upload-item {
+            line-height: 1;
+            span {
+                font-size: $font-small - 2;
+            }
+        }
+    }
+}

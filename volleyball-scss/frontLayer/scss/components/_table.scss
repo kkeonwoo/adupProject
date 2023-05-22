@@ -1,14 +1,43 @@
 .tbl {
     min-width: 768px;
 
+    &-row {
+        &__th {
+            width: 105px;
+        }
+
+        &__date {
+            width: 125px;
+            @at-root .tbl--type2 & {
+                @extend .tbl-row__date;
+            }
+        }
+    }
+
     &__box {
         white-space: nowrap;
         overflow-x: auto;
-        border-top: 2px solid $color-gray5;
+        border-top: 1px solid $color-gray5;
+    }
+
+    &__writer {
+        width: 160px;
     }
 
     &__order {
         width: 73px;
+    }
+
+    &__date {
+        width: 172px;
+
+        @at-root .tbl--type2 & {
+            @extend .tbl-row__date;
+        }
+    }
+
+    &__ref {
+        @extend .tbl__date;
     }
 
     &__th, &__td {
@@ -19,19 +48,50 @@
 
     &__th {
         background-color: $color-gray6;
+        @at-root .tbl--type2 & {
+            padding: 8px 24px;
+        }
     }
 
     &__td {
         word-wrap: anywhere;
         word-break: keep-all;
         text-align: center;
+        @at-root .tbl--type2 &:nth-child(1) {
+            text-align: left;
+            padding: 16px 24px;
+        }
+    }
+
+    &__ttl {
+        text-align: left;
+        @include ellipsis();
+        @at-root .tbl--type2 & {
+            overflow: initial;
+            white-space: normal;
+            text-overflow: initial;
+        }
     }
 }
 
 @include media-down(tab) {
     .tbl {
+        &-row {
+            &__th {
+                width: 84px;
+            }
+    
+            &__date {
+                width: 100px;
+            }
+        }
+
         &__order {
             width: 58px;
+        }
+        
+        &__date {
+            width: 138px;
         }
     
         &__th, &__td {
@@ -41,10 +101,5 @@
         &__txt {
             font-size: $font-small - 2;
         }
-    }
-}
-
-@include media-down(mob) {
-    .tbl {
     }
 }

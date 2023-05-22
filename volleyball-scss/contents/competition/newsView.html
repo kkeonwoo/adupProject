@@ -33,8 +33,10 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="" />
-  <link rel="stylesheet" href="../../frontLayer/css/package.css">
-  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset-context/cssreset-context-min.css">
+  <link rel="stylesheet" href="../../frontLayer/css/styles.css">
+  <link rel="stylesheet" href="../../frontLayer/css/swiper.css">
+  <link rel="stylesheet" type="text/css"
+    href="http://yui.yahooapis.com/3.18.1/build/cssreset-context/cssreset-context-min.css">
   <script src="../../frontLayer/js/jquery-3.3.1.min.js"></script>
   <script src="../../frontLayer/js/jquery-ui.min.js"></script>
   <script src="../../frontLayer/js/swiper.min.js"></script>
@@ -53,255 +55,318 @@
   <div id="wrap">
 
     <!-- s:header -->
-    <header id="header">
-      <h1 class="logo">
-          <a href="../index.html">
-              <img src="../../frontLayer/images/common/logo.svg" alt="한국 9인제 배구연맹 로고">
-              한국9인제배구연맹
-          </a>
-      </h1>
-      <nav id="gnb" class="pc">
-          <h2 class="blind">주메뉴</h2>
-          <div class="gnb_bg"></div>
-          <ul>
-              <li>
-                  <a href="../about/greeting.html">연맹소개</a>
-                  <div class="sub_menu">
-                      <ul>
-                          <li><a href="../about/greeting.html">인사말</a></li>
-                          <li><a href="../about/history.html">연혁</a></li>
-                          <li><a href="../about/organization.html">조직도</a></li>
-                          <li><a href="../about/executives.html">임원 소개</a></li>
-                          <li><a href="../about/location.html">오시는 길</a></li>
-                      </ul>
-                  </div>
-              </li>
-              <li>
-                  <a href="../competition/newsList.html">대회안내</a>
-                  <div class="sub_menu">
-                      <ul>
-                          <li><a href="../competition/newsList.html">대회소식</a></li>
-                          <li><a href="../competition/scheduleAll.html">대회일정</a>
-                              <ul>
-                                  <li><a href="../competition/scheduleAll.html">전체</a></li>
-                                  <li><a href="../competition/scheduleExpected.html">예정</a></li>
-                                  <li><a href="../competition/scheduleApplication.html">신청중</a></li>
-                                  <li><a href="../competition/scheduleProgress.html">진행중</a></li>
-                                  <li><a href="../competition/scheduleEnd.html">종료</a></li>
-                              </ul>
-                          </li>
-                          <li><a href="../competition/archives.html">기록실</a></li>
-                      </ul>
-                  </div>
-              </li>
-              <li>
-                  <a href="../mediaCenter/newsList.html">미디어센터</a>
-                  <div class="sub_menu">
-                      <ul>
-                          <li><a href="../mediaCenter/newsList.html">뉴스</a></li>
-                          <li><a href="../mediaCenter/galleryList.html">포토갤러리</a></li>
-                          <li><a href="../mediaCenter/videoList.html">영상</a></li>
-                      </ul>
-                  </div>
-              </li>
-              <li>
-                  <a href="../community/noticeList.html">커뮤니티</a>
-                  <div class="sub_menu">
-                      <ul>
-                          <li><a href="../community/noticeList.html">공지사항</a></li>
-                          <li><a href="../community/referenceList.html">자료실</a></li>
-                      </ul>
-                  </div>
-              </li>
-              <li>
-                  <a href="http://www.aprchs.com/" target="_blank">SHOP</a>
-                  <div class="sub_menu"></div>
-              </li>
-          </ul>
-          <div class="ad_area">
-              <div class="ad_box">
-                  <div class="img_box">
-                      <img src="../../frontLayer/images/img/img_schedules_03.jpg" alt="" class="img">
-                  </div>
-              </div>
+    <header id="header" class="header">
+      <div class="header__inner">
+        <h1 class="header__logo">
+          <div class="logo">
+            <a href="../index.html" class="logo__link">
+              <img src="../../frontLayer/images/common/logo.svg" alt="한국 9인제 배구연맹">
+            </a>
           </div>
-      </nav>
-      <nav id="gnb" class="m_gnb">
+        </h1>
+        <button type="button" class="btn--hamburger mobile"></button>
+        <nav class="header__nav nav pc">
+          <h2 class="blind">주메뉴</h2>
+          <div class="nav__bg"></div>
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link" href="../about/greeting.html">연맹소개</a>
+              <div class="nav__submenu">
+                <ul class="nav-submenu">
+                  <li><a class="nav-submenu__link" href="../about/greeting.html">인사말</a></li>
+                  <li><a class="nav-submenu__link" href="../about/history.html">연혁</a></li>
+                  <li><a class="nav-submenu__link" href="../about/organization.html">조직도</a></li>
+                  <li><a class="nav-submenu__link" href="../about/executives.html">임원 소개</a></li>
+                  <li><a class="nav-submenu__link" href="../about/location.html">오시는 길</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="../competition/newsList.html">대회안내</a>
+              <div class="nav__submenu">
+                <ul class="nav-submenu">
+                  <li><a class="nav-submenu__link" href="../competition/newsList.html">대회소식</a></li>
+                  <li><a class="nav-submenu__link" href="../competition/scheduleAll.html">대회일정</a>
+                    <ul class="nav-depth03 nav-submenu__depth03">
+                      <li><a class="nav-depth03__link" href="../competition/scheduleAll.html">전체</a>
+                      </li>
+                      <li><a class="nav-depth03__link" href="../competition/scheduleExpected.html">예정</a>
+                      </li>
+                      <li><a class="nav-depth03__link" href="../competition/scheduleApplication.html">신청중</a></li>
+                      <li><a class="nav-depth03__link" href="../competition/scheduleProgress.html">진행중</a>
+                      </li>
+                      <li><a class="nav-depth03__link" href="../competition/scheduleEnd.html">종료</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="nav-submenu__link" href="../competition/archives.html">기록실</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="../mediaCenter/newsList.html">미디어센터</a>
+              <div class="nav__submenu">
+                <ul class="nav-submenu">
+                  <li><a class="nav-submenu__link" href="../mediaCenter/newsList.html">뉴스</a></li>
+                  <li><a class="nav-submenu__link" href="../mediaCenter/galleryList.html">포토갤러리</a>
+                  </li>
+                  <li><a class="nav-submenu__link" href="../mediaCenter/videoList.html">영상</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="../community/noticeList.html">커뮤니티</a>
+              <div class="nav__submenu">
+                <ul class="nav-submenu">
+                  <li><a class="nav-submenu__link" href="../community/noticeList.html">공지사항</a></li>
+                  <li><a class="nav-submenu__link" href="../community/referenceList.html">자료실</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="http://www.aprchs.com/" target="_blank">SHOP</a>
+              <div class="nav__submenu"></div>
+            </li>
+          </ul>
+          <div class="nav__ad">
+            <div class="nav-ad">
+              <div class="nav-ad__imgBox img-box">
+                <img src="../../frontLayer/images/img/img_header_bannder_01.png"
+                  alt="APRCHS ambassador 9인제 배구 회원분들을 어프로치S의 엠배서더 회원으로 모십니다. 엠배서더 회원이 되시면 다양한 상품과 혜택을 받으실 수 있으십니다."
+                  class="img-box__img">
+              </div>
+            </div>
+          </div>
+        </nav>
+        <nav class="mGnb nav" tabindex="0">
           <h2 class="blind">주메뉴</h2>
           <div class="gnb_bg"></div>
           <div class="util">
-              <a href="../account/login.html" class="user_util">로그인</a>
-              <a href="../account/signUp.html" class="user_util sign_up">회원가입</a>
-              <a href="#" class="link" target="_blank" title="새창열기">
-                  <img src="../../frontLayer/images/icons/ico_daum.svg" alt="">
-              </a>
+            <div class="util-auth">
+              <ul class="util-auth__list">
+                <li class="util-auth__item">
+                  <a href="../account/login.html" class="util-auth__link">로그인</a>
+                </li>
+                <li class="util-auth__item">
+                  <a href="../account/signUp.html" class="util-auth__link util-auth__link--blue">회원가입</a>
+                </li>
+              </ul>
+            </div>
+            <div class="util-social">
+              <ul class="util-social__list">
+                <li class="util-social__item">
+                  <a href="#" class="link" target="_blank" title="새창열기">
+                    <img src="../../frontLayer/images/icons/ico_youtube.svg" alt="유튜브 바로가기">
+                  </a>
+                </li>
+                <li class="util-social__item">
+                  <a href="#" class="link" target="_blank" title="새창열기">
+                    <img src="../../frontLayer/images/icons/ico_daum.svg" alt="다음 바로가기">
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <ul>
-              <li>
-                  <a href="#">연맹소개</a>
-                  <div class="sub_menu">
-                      <ul>
-                          <li><a href="../about/greeting.html">인사말</a></li>
-                          <li><a href="../about/history.html">연혁</a></li>
-                          <li><a href="../about/organization.html">조직도</a></li>
-                          <li><a href="../about/executives.html">임원 소개</a></li>
-                          <li><a href="../about/location.html">오시는 길</a></li>
-                      </ul>
-                  </div>
-              </li>
-              <li>
-                  <a href="#">대회안내</a>
-                  <div class="sub_menu">
-                      <ul>
-                          <li><a href="../competition/newsList.html">대회소식</a></li>
-                          <li class="depth03"><a href="../competition/scheduleAll.html">대회일정</a>
-                              <ul>
-                                  <li><a href="../competition/scheduleAll.html">전체</a></li>
-                                  <li><a href="../competition/scheduleExpected.html">예정</a></li>
-                                  <li><a href="../competition/scheduleApplication.html">신청중</a></li>
-                                  <li><a href="../competition/scheduleProgress.html">진행중</a></li>
-                                  <li><a href="../competition/scheduleEnd.html">종료</a></li>
-                              </ul>
-                          </li>
-                          <li><a href="../competition/archives.html">기록실</a></li>
-                      </ul>
-                  </div>
-              </li>
-              <li>
-                  <a href="#">미디어센터</a>
-                  <div class="sub_menu">
-                      <ul>
-                          <li><a href="../mediaCenter/newsList.html">뉴스</a></li>
-                          <li><a href="../mediaCenter/galleryList.html">포토갤러리</a></li>
-                          <li><a href="../mediaCenter/videoList.html">영상</a></li>
-                      </ul>
-                  </div>
-              </li>
-              <li>
-                  <a href="#">커뮤니티</a>
-                  <div class="sub_menu">
-                      <ul>
-                          <li><a href="../community/noticeList.html">공지사항</a></li>
-                          <li><a href="../community/referenceList.html">자료실</a></li>
-                      </ul>
-                  </div>
-              </li>
-              <li>
-                  <a href="http://www.aprchs.com/" target="_blank">SHOP</a>
-                  <div class="sub_menu"></div>
-              </li>
-          </ul>
-          <div class="ad_area">
-              <div class="ad_box">
-                  <div class="img_box">
-                      <img src="../../frontLayer/images/img/img_schedules_03.jpg" alt="" class="img">
-                  </div>
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link" href="#">연맹소개</a>
+              <div class="nav__submenu">
+                <ul class="nav-submenu">
+                  <li><a class="nav-submenu__link" href="../about/greeting.html">인사말</a></li>
+                  <li><a class="nav-submenu__link" href="../about/history.html">연혁</a></li>
+                  <li><a class="nav-submenu__link" href="../about/organization.html">조직도</a></li>
+                  <li><a class="nav-submenu__link" href="../about/executives.html">임원 소개</a></li>
+                  <li><a class="nav-submenu__link" href="../about/location.html">오시는 길</a></li>
+                </ul>
               </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">대회안내</a>
+              <div class="nav__submenu">
+                <ul class="nav-submenu">
+                  <li><a class="nav-submenu__link" href="../competition/newsList.html">대회소식</a></li>
+                  <li><a class="nav-submenu__link--arrow" href="#">대회일정</a>
+                    <ul class="nav-depth03 nav-submenu__depth03">
+                      <li><a class="nav-depth03__link" href="../competition/scheduleAll.html">전체</a>
+                      </li>
+                      <li><a class="nav-depth03__link" href="../competition/scheduleExpected.html">예정</a>
+                      </li>
+                      <li><a class="nav-depth03__link" href="../competition/scheduleApplication.html">신청중</a></li>
+                      <li><a class="nav-depth03__link" href="../competition/scheduleProgress.html">진행중</a>
+                      </li>
+                      <li><a class="nav-depth03__link" href="../competition/scheduleEnd.html">종료</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="nav-submenu__link" href="../competition/archives.html">기록실</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">미디어센터</a>
+              <div class="nav__submenu">
+                <ul class="nav-submenu">
+                  <li><a class="nav-submenu__link" href="../mediaCenter/newsList.html">뉴스</a></li>
+                  <li><a class="nav-submenu__link" href="../mediaCenter/galleryList.html">포토갤러리</a>
+                  </li>
+                  <li><a class="nav-submenu__link" href="../mediaCenter/videoList.html">영상</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">커뮤니티</a>
+              <div class="nav__submenu">
+                <ul class="nav-submenu">
+                  <li><a class="nav-submenu__link" href="../community/noticeList.html">공지사항</a></li>
+                  <li><a class="nav-submenu__link" href="../community/referenceList.html">자료실</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="http://www.aprchs.com/" target="_blank">SHOP</a>
+              <div class="nav__submenu"></div>
+            </li>
+          </ul>
+          <div class="nav__ad">
+            <div class="nav-ad">
+              <div class="nav-ad__imgBox img-box">
+                <img src="../../frontLayer/images/img/img_header_bannder_01.png"
+                  alt="APRCHS ambassador 9인제 배구 회원분들을 어프로치S의 엠배서더 회원으로 모십니다. 엠배서더 회원이 되시면 다양한 상품과 혜택을 받으실 수 있으십니다."
+                  class="img-box__img">
+              </div>
+            </div>
           </div>
-      </nav>
-      <div class="util pc">
-          <a href="../account/login.html" class="user_util">로그인</a>
-          <a href="../account/signUp.html" class="user_util sign_up">회원가입</a>
-          <a href="#" class="link" target="_blank" title="새창열기">
-              <img src="../../frontLayer/images/icons/ico_daum.svg" alt="">
-          </a>
+        </nav>
+        <div class="header__util pc">
+          <div class="util">
+            <div class="util-auth">
+              <ul class="util-auth__list">
+                <li class="util-auth__item">
+                  <a href="../account/login.html" class="util-auth__link">로그인</a>
+                </li>
+                <li class="util-auth__item">
+                  <a href="../account/signUp.html" class="util-auth__link util-auth__link--blue">회원가입</a>
+                </li>
+              </ul>
+            </div>
+            <div class="util-social">
+              <ul class="util-social__list">
+                <li class="util-social__item">
+                  <a href="#" class="link" target="_blank" title="새창열기">
+                    <img src="../../frontLayer/images/icons/ico_youtube.svg" alt="유튜브 바로가기">
+                  </a>
+                </li>
+                <li class="util-social__item">
+                  <a href="#" class="link" target="_blank" title="새창열기">
+                    <img src="../../frontLayer/images/icons/ico_daum.svg" alt="다음 바로가기">
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <button type="button" class="btn btn_hamburger mobile"></button>
-  </header>
+    </header>
     <!-- e:header -->
 
     <!-- s:container -->
     <div id="container">
-      
-      <section class="sec news_list_detail">
-        <div class="content_inner">
-          <h2 class="ttl front_line">대회소식</h2>
-          <div class="content tbl">
-            <div class="content_header th">
-              <p class="ttl">제목이 노출되는 영역입니다. 줄임 처리 없이 제목 모두 노출합니다.</p>
-              <span class="date">2022-10-07 | 조회 : 25</span>
+
+      <section class="sec sec--type2 news">
+        <div class="sec__inner">
+          <h2 class="sec__ttl sec__ttl--front-line">대회소식</h2>
+          <div class="news__content">
+            <div class="news__content-header">
+              <p class="news__ttl">제목이 노출되는 영역입니다. 줄임 처리 없이 제목 모두 노출합니다.</p>
+              <span class="news__date">2022-10-07 | 조회 : 25</span>
             </div>
-            <div class="content_body yui3-cssreset">
-              <span class="txt">등록 내용 표시</span>
+            <div class="news__content-body yui3-cssreset">
+              <span class="news__txt">등록 내용 표시</span>
             </div>
-            <div class="content_footer">
-              <span class="txt"><em>첨부파일</em></span>
-              <ul class="content_list">
-                <li class="content_item">
+            <div class="news__content-footer">
+              <span class="news__upload-txt"><em>첨부파일</em></span>
+              <ul class="news__upload-list">
+                <li class="news__upload-item">
                   <span class="txt">파일명 1203.33.pdf</span>
                 </li>
-                <li class="content_item">
+                <li class="news__upload-item">
                   <span class="txt">파일명 1203.33.pdf</span>
                 </li>
-                <li class="content_item">
+                <li class="news__upload-item">
                   <span class="txt">파일명 1203.33.pdf</span>
                 </li>
               </ul>
             </div>
           </div>
-          <table class="tbl reply_box">
-            <caption>댓글 : 작성자, 내용, 날짜 정보 확인</caption>
-            <colgroup>
-              <col class="w_px_160 md_w_px_125 sm_w_px_100">
-              <col width="*">
-              <col class="w_px_125 md_w_px_100 sm_w_px_80">
-            </colgroup>
-            <thead class="thead">
-              <tr>
-                <th scope="col" colspan="3" class="th txt_align_left"><span class="txt">댓글 14개</span></th>
-              </tr>
-            </thead>
-            <tbody class="tbody">
-              <tr>
-                <td class="td txt_align_left"><span class="txt">asdf1234</span></td>
-                <td class="td txt_align_left"><div class="d_flex"><span class="txt">작성한 댓글이 노출되는 영역입니다.</span></div></td>
-                <td class="td date"><span class="txt">2023-01-10</span></td>
-              </tr>
-              <tr>
-                <td class="td txt_align_left"><span class="txt">993blueberry</span></td>
-                <td class="td txt_align_left">
-                  <div class="d_flex">
-                    <span class="txt">작성한 댓글이 노출되는 영역입니다.</span>
-                    <button class="btn btn_dark" onclick="$(() => {Federation.openModal($('#modalCheck'))});">삭제</button>
-                  </div>
-                </td>
-                <td class="td date"><span class="txt">2023-01-10</span></td>
-              </tr>
-            </tbody>
-          </table>
-          <form action="" class="reply form">
+          <div class="tbl__box">
+            <table class="tbl tbl--type2">
+              <caption>댓글 : 작성자, 내용, 날짜 정보 확인</caption>
+              <colgroup>
+                <col class="tbl__writer">
+                <col width="*">
+                <col class="tbl__date">
+              </colgroup>
+              <thead class="tbl__thead">
+                <tr>
+                  <th scope="col" colspan="3" class="tbl__th tbl__ttl"><span class="tbl__txt">댓글 14개</span></th>
+                </tr>
+              </thead>
+              <tbody class="tbl__tbody">
+                <tr>
+                  <td class="tbl__td"><span class="tbl__txt">asdf1234</span></td>
+                  <td class="tbl__td tbl__ttl">
+                    <span class="tbl__txt">작성한 댓글이 노출되는 영역입니다.</span>
+                  </td>
+                  <td class="tbl__td"><span class="tbl__txt">2023-01-10</span></td>
+                </tr>
+                <tr>
+                  <td class="tbl__td"><span class="tbl__txt">993blueberry</span></td>
+                  <td class="tbl__td tbl__ttl">
+                    <span class="tbl__txt">작성한 댓글이 노출되는 영역입니다.</span>
+                    <button class="btn btn--dark btn--xs mx_15"
+                      onclick="$(() => {Federation.openModal($('#modalCheck'))});">삭제</button>
+                  </td>
+                  <td class="tbl__td"><span class="tbl__txt">2023-01-10</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <form action="" class="form news__form">
             <legend>댓글 작성</legend>
             <fieldset>
-              <div class="form_group column">
-                <label for="reply">댓글 작성</label>
-                <div class="form_box sm_flex_wrap">
-                  <input type="text" id="reply" class="form_control" placeholder="내용을 입력하세요.">
-                  <button type="button" class="btn btn_dark sm col_sm_12" onclick="$(() => {Federation.openModal($('#modalAlt'))})">작성</button>
+              <div class="form-group form-group--column">
+                <label for="reply" class="form-group__label">댓글 작성</label>
+                <div class="form-group__box">
+                  <input type="text" id="reply" class="form-control" placeholder="내용을 입력하세요.">
+                  <button type="button" class="btn btn--dark btn--sm"
+                    onclick="$(() => {Federation.openModal($('#modalAlt'))})">작성</button>
                 </div>
               </div>
             </fieldset>
           </form>
-          <button type="button" class="btn btn_success lg">목록</button>
-          <table class="tbl news_list_lnb">
-            <caption>이전글, 다음글에 대한 내용, 작성 날짜 정보 확인</caption>
-            <colgroup>
-              <col class='w_px_105 md_w_px_85 sm_w_px_70'>
-              <col>
-              <col>
-            </colgroup>
-            <tbody class="tbody">
-              <tr>
-                <th scope="row" class="th"><span class="txt">이전글</span></th>
-                <td class="td txt_align_left"><a href="#"><span class="txt">대회소식 이전글 제목이 노출 되는 영역입니다…</span></a></td>
-                <td class="td date"><span class="txt">2023-01-10</span></td>
-              </tr>
-              <tr>
-                <th scope="row" class="th"><span class="txt">다음글</span></th>
-                <td class="td txt_align_left"><a href="#"><span class="txt">대회소식 다음글 제목이 노출 되는 영역입니다…</span></a></td>
-                <td class="td date"><span class="txt">2023-01-10</span></td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="btn-wrap news__btn-wrap"><button type="button" class="btn btn--success btn--lg">목록</button></div>
+          <div class="tbl__box news__tbl-lnb">
+            <table class="tbl tbl-row">
+              <caption>이전글, 다음글에 대한 내용, 작성 날짜 정보 확인</caption>
+              <colgroup>
+                <col class="tbl-row__th">
+                <col>
+                <col class="tbl-row__date">
+              </colgroup>
+              <tbody class="tbl__tbody">
+                <tr>
+                  <th scope="row" class="tbl__th"><span class="tbl__txt">이전글</span></th>
+                  <td class="tbl__td tbl__ttl"><a href="#"><span class="tbl__txt">대회소식 이전글 제목이 노출 되는 영역입니다…</span></a></td>
+                  <td class="tbl__td"><span class="tbl__txt">2023-01-10</span></td>
+                </tr>
+                <tr>
+                  <th scope="row" class="tbl__th"><span class="tbl__txt">다음글</span></th>
+                  <td class="tbl__td tbl__ttl"><a href="#"><span class="tbl__txt">대회소식 다음글 제목이 노출 되는 영역입니다…</span></a></td>
+                  <td class="tbl__td"><span class="tbl__txt">2023-01-10</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
@@ -309,61 +374,105 @@
     <!-- e:container -->
 
     <!-- s:footer -->
-    <footer id="footer">
-      <div class="footer_top">
-        <div class="content_inner">
-          <ul>
-            <li><a href="../about/greeting.html">연맹소개</a></li>
-            <li><a href="../competition/newsList.html">대회안내</a></li>
-            <li><a href="../mediaCenter/newsList.html">미디어센터</a></li>
-            <li><a href="../community/noticeList.html">커뮤니티</a></li>
-            <li><a href="#">쇼핑몰</a></li>
-          </ul>
-          <a href="#" class="link" target="_blank" title="새창열기">
-            <img src="../../frontLayer/images/icons/ico_daum.svg" alt="">
-          </a>
+    <footer id="footer" class="footer">
+      <div class="footer__swiper-container">
+        <div class="footer__inner">
+          <div class="footer__swiper">
+            <div class="swiper-btn footer__btn--prev footer__btn"></div>
+            <div class="swiper-wrapper">
+              <div class="swiper-slide footer__slide">
+                <div class="img-box">
+                  <img src="../../frontLayer/images/img/img_footer_logo_01.png" alt="대한배구협회" class="img-box__img">
+                </div>
+              </div>
+              <div class="swiper-slide footer__slide">
+                <div class="img-box">
+                  <img src="../../frontLayer/images/img/img_footer_logo_03.png" alt="start sports" class="img-box__img">
+                </div>
+              </div>
+              <div class="swiper-slide footer__slide">
+                <div class="img-box">
+                  <img src="../../frontLayer/images/img/img_footer_logo_04.svg" alt="법무법인(유) 에이스" class="img-box__img">
+                </div>
+              </div>
+              <div class="swiper-slide footer__slide">
+                <div class="img-box">
+                  <img src="../../frontLayer/images/img/img_footer_logo_05.png" alt="adup" class="img-box__img">
+                </div>
+              </div>
+            </div>
+            <div class="swiper-btn footer__btn--next footer__btn"></div>
+          </div>
         </div>
       </div>
-      <div class="footer_bottom">
-        <div class="content_inner">
-          <span class="logo">
-            <img src="../../frontLayer/images/common/logo.svg" alt="">
-            <em>한국 9인제 배구 연맹</em>
-          </span>
-          <div class="dl_wrap">
-            <dl>
-                <dt>회장</dt>
-                <dd>신태호</dd>
-            </dl>
-            <div class="d_flex flex_wrap align_items_center gap_px_x_10">
-                <dl>
-                    <dt>주소</dt>
-                    <dd>
-                        <address>서울 광진구 능동로49길 16</address>
-                    </dd>
-                </dl>
-                <dl class="mt_0">
-                    <dt>전화번호</dt>
-                    <dd>
-                        <address>02-414-1893</address>
-                    </dd>
-                </dl>
-            </div>
-            <div class="d_flex flex_wrap align_items_center gap_px_x_10">
-                <dl>
-                    <dt>팩스</dt>
-                    <dd>
-                        <address>02-414-1894</address>
-                    </dd>
-                </dl>
-                <dl class="mt_0">
-                    <dt>카페</dt>
-                    <dd>
-                        <a href="cafe.daum.net/knvf" target="_blank" title="새창열기">cafe.daum.net/knvf</a>
-                    </dd>
-                </dl>
-            </div>
+      <div class="footer__top">
+        <div class="footer__inner">
+          <ul class="footer-nav">
+            <li><a class="footer-nav__link" href="../about/greeting.html">연맹소개</a></li>
+            <li><a class="footer-nav__link" href="../competition/newsList.html">대회안내</a></li>
+            <li><a class="footer-nav__link" href="../mediaCenter/newsList.html">미디어센터</a></li>
+            <li><a class="footer-nav__link" href="../community/noticeList.html">커뮤니티</a></li>
+            <li><a class="footer-nav__link" href="#">SHOP</a></li>
+          </ul>
+          <div class="util footer__util">
+            <ul class="util-social__list">
+              <li class="util-social__item">
+                <a href="#" class="link" target="_blank" title="새창열기">
+                  <img src="../../frontLayer/images/icons/ico_youtube.svg" alt="유투브 바로가기">
+                </a>
+              </li>
+              <li class="util-social__item">
+                <a href="#" class="link" target="_blank" title="새창열기">
+                  <img src="../../frontLayer/images/icons/ico_daum.svg" alt="다음 바로가기">
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__inner">
+          <span class="footer__logo logo">
+            <a href="./index.html" class="logo__link">
+              <img src="../../frontLayer/images/common/logo.svg" alt="한국 9인제 배구 연맹" class="pc">
+              <img src="../../frontLayer/images/common/logo_only.svg" alt="한국 9인제 배구 연맹" class="mobile">
+            </a>
+          </span>
+          <div>
+            <span class="mobile logoTxt">한국 9인제 배구 연맹</span>
+            <dl class="dl-wrap__content">
+              <dt class="dl-wrap__ttl">회장</dt>
+              <dd class="dl-wrap__txt">신태호</dd>
+            </dl>
+            <div class="dl-wrap">
+              <dl class="dl-wrap__content">
+                <dt class="dl-wrap__ttl">주소</dt>
+                <dd class="dl-wrap__txt">
+                  서울 광진구 능동로49길 16
+                </dd>
+              </dl>
+              <dl class="dl-wrap__content mt_0">
+                <dt class="dl-wrap__ttl">전화번호</dt>
+                <dd class="dl-wrap__txt">
+                  02-414-1893
+                </dd>
+              </dl>
+            </div>
+            <div class="dl-wrap">
+              <dl class="dl-wrap__content">
+                <dt class="dl-wrap__ttl">팩스</dt>
+                <dd class="dl-wrap__txt">
+                  02-414-1894
+                </dd>
+              </dl>
+              <dl class="dl-wrap__content mt_0">
+                <dt class="dl-wrap__ttl">카페</dt>
+                <dd class="dl-wrap__txt">
+                  <a href="cafe.daum.net/knvf" target="_blank" title="새창열기" class="dl-wrap__link">cafe.daum.net/knvf</a>
+                </dd>
+              </dl>
+            </div>
+          </div>
         </div>
       </div>
       <p class="copyright">Copyright &copy; KNVF All rights reserved.</p>
@@ -374,41 +483,99 @@
   <!-- e:wrap -->
 
   <!-- s: 댓글 삭제 버튼 클릭 시 -->
-  <div class="modal modal_close" id="modalCheck">
-    <div class="modal_centered" tabindex="0">
-        <div class="modal_box">
-            <div class="modal_header">
-                <h3 class="ttl blind">해당 댓글 삭제</h3>
-            </div>
-            <div class="modal_body">
-                <p class="alert_txt">해당 댓글을 삭제하시겠습니까?</p>
-                <div class="btn_wrap">
-                    <button type="button" class="btn btn_primary close">취소</button>
-                    <button type="button" class="btn btn_success close">확인</button>
-                </div>
-            </div>
+  <div class="modal modal-close" id="modalCheck">
+    <div class="modal__centered" tabindex="0">
+      <div class="modal__box">
+        <div class="modal__header">
+          <h3 class="ttl blind">해당 댓글 삭제</h3>
         </div>
-    </div>
-</div>
-<!-- e: 댓글 삭제 버튼 클릭 시 -->
-
-<!-- s: 댓글 작성 누를 시 -->
-<div class="modal modal_close" id="modalAlt">
-  <div class="modal_centered" tabindex="0">
-      <div class="modal_box">
-          <div class="modal_header">
-              <h3 class="ttl blind">비회원 댓글 작성</h3>
+        <div class="modal__body">
+          <p class="modal__alert">해당 댓글을 삭제하시겠습니까?</p>
+          <div class="modal__btn-wrap">
+            <button type="button" class="btn btn--primary close">취소</button>
+            <button type="button" class="btn btn--success close">확인</button>
           </div>
-          <div class="modal_body">
-              <p class="alert_txt">로그인 후 이용 가능합니다</p>
-              <div class="btn_wrap">
-                  <button type="button" class="btn btn_success close">로그인</button>
-              </div>
-          </div>
+        </div>
       </div>
+    </div>
   </div>
-</div>
-<!-- e: 댓글 작성 누를 시 -->
+  <!-- e: 댓글 삭제 버튼 클릭 시 -->
+
+  <!-- s: 댓글 작성 누를 시 -->
+  <div class="modal modal-close" id="modalAlt">
+    <div class="modal__centered" tabindex="0">
+      <div class="modal__box">
+        <div class="modal__header">
+          <h3 class="ttl blind">비회원 댓글 작성</h3>
+        </div>
+        <div class="modal__body">
+          <p class="modal__alert">로그인 후 이용 가능합니다</p>
+          <div class="modal__btn-wrap">
+            <button type="button" class="btn btn--success close">로그인</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- e: 댓글 작성 누를 시 -->
+
+  <!-- s: footer swiper -->
+  <script>
+    const breakpoint = window.matchMedia('(max-width:1200px)');
+    let footerSwiper;
+
+    const breakpointChecker = function () {
+      if (breakpoint.matches === true) {
+        if (footerSwiper !== undefined) footerSwiper.destroy(true, true);
+        return enableMobileSwiper();
+      } else if (breakpoint.matches === false) {
+        if (footerSwiper !== undefined) footerSwiper.destroy(true, true);
+        return enablePcSwiper();
+      }
+    };
+
+    const enablePcSwiper = function () {
+      ;
+      footerSwiper = new Swiper(".footer__swiper", {
+        slidesPerView: 4,
+        spaceBetween: 52,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".footer__swiper .swiper-pagination",
+        },
+        navigation: {
+          nextEl: ".footer__swiper .footer__btn--next",
+          prevEl: ".footer__swiper .footer__btn--prev",
+        }
+      });
+    };
+    const enableMobileSwiper = function () {
+      footerSwiper = new Swiper(".footer__swiper", {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".footer__swiper .swiper-pagination",
+        },
+        navigation: {
+          nextEl: ".footer__swiper .footer__btn--next",
+          prevEl: ".footer__swiper .footer__btn--prev",
+        }
+      });
+    };
+
+    breakpoint.addListener(breakpointChecker);
+    breakpointChecker();
+  </script>
+  <!-- e: footer swiper -->
 
 </body>
 

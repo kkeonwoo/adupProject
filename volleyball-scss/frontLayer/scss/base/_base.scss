@@ -155,8 +155,8 @@
     overflow: hidden !important;
 }
 
-.d_flex {
-    display: flex !important;
+.align-left {
+    text-align: left !important;
 }
 
 @for $i from 1 through 12 {
@@ -179,6 +179,10 @@
     
     .mb_#{$i * 5} {
         margin-bottom: calc(#{$i} * 5px);
+    }
+    .mx_#{$i * 5} {
+        margin-left: calc(#{$i} * 5px);
+        margin-right: calc(#{$i} * 5px);
     }
 
     .w_#{$i * 5} {

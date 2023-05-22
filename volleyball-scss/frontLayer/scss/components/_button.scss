@@ -90,8 +90,24 @@
         max-width: 138px;
     }
 
+    &--xs {
+        max-width: 56px;
+        padding: 2px 0;
+        font-size: $font-small - 2;
+    }
+
     &--sm {
         max-width: 100px;
+    }
+    
+    &--lg {
+        max-width: 200px;
+    }
+
+    &--img {
+        width: 24px;
+        height: 24px;
+        background: url('../images/icons/ico_file_arw_down.svg') no-repeat center center / 100% auto;
     }
 
     &--underline {
@@ -109,8 +125,10 @@
 
 @include media-down(tab) {
     .btn {
-        padding: 8px;
-        font-size: $font-small;
+        &:not(.btn--xs) {
+            padding: 8px;
+            font-size: $font-small;
+        }
     
         /* s: Block */
         &-social {
