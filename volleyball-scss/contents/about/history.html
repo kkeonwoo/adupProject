@@ -33,7 +33,8 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="" />
-  <link rel="stylesheet" href="../../frontLayer/css/package.css">
+  <link rel="stylesheet" href="../../frontLayer/css/styles.css">
+  <link rel="stylesheet" href="../../frontLayer/css/swiper.css">
   <script src="../../frontLayer/js/jquery-3.3.1.min.js"></script>
   <script src="../../frontLayer/js/jquery-ui.min.js"></script>
   <script src="../../frontLayer/js/swiper.min.js"></script>
@@ -52,477 +53,579 @@
   <div id="wrap">
 
     <!-- s:header -->
-    <header id="header">
-      <h1 class="logo">
-        <a href="../index.html">
-          <img src="../../frontLayer/images/common/logo.svg" alt="한국 9인제 배구연맹 로고">
-          한국9인제배구연맹
-        </a>
-      </h1>
-      <nav id="gnb" class="pc">
-        <h2 class="blind">주메뉴</h2>
-        <div class="gnb_bg"></div>
-        <ul>
-          <li>
-            <a href="../about/greeting.html">연맹소개</a>
-            <div class="sub_menu">
-              <ul>
-                <li><a href="../about/greeting.html">인사말</a></li>
-                <li><a href="../about/history.html">연혁</a></li>
-                <li><a href="../about/organization.html">조직도</a></li>
-                <li><a href="../about/executives.html">임원 소개</a></li>
-                <li><a href="../about/location.html">오시는 길</a></li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <a href="../competition/newsList.html">대회안내</a>
-            <div class="sub_menu">
-              <ul>
-                <li><a href="../competition/newsList.html">대회소식</a></li>
-                <li><a href="../competition/scheduleAll.html">대회일정</a>
-                  <ul>
-                    <li><a href="../competition/scheduleAll.html">전체</a></li>
-                    <li><a href="../competition/scheduleExpected.html">예정</a></li>
-                    <li><a href="../competition/scheduleApplication.html">신청중</a></li>
-                    <li><a href="../competition/scheduleProgress.html">진행중</a></li>
-                    <li><a href="../competition/scheduleEnd.html">종료</a></li>
-                  </ul>
-                </li>
-                <li><a href="../competition/archives.html">기록실</a></li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <a href="../mediaCenter/newsList.html">미디어센터</a>
-            <div class="sub_menu">
-              <ul>
-                <li><a href="../mediaCenter/newsList.html">뉴스</a></li>
-                <li><a href="../mediaCenter/galleryList.html">포토갤러리</a></li>
-                <li><a href="../mediaCenter/videoList.html">영상</a></li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <a href="../community/noticeList.html">커뮤니티</a>
-            <div class="sub_menu">
-              <ul>
-                <li><a href="../community/noticeList.html">공지사항</a></li>
-                <li><a href="../community/referenceList.html">자료실</a></li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <a href="#">SHOP</a>
-            <div class="sub_menu"></div>
-          </li>
-        </ul>
-        <div class="ad_area">
-          <div class="ad_box">
-              <div class="img_box">
-                  <img src="../../frontLayer/images/img/img_schedules_03.jpg" alt="" class="img">
-              </div>
+    <header id="header" class="header">
+      <div class="header__inner">
+        <h1 class="header__logo">
+          <div class="logo">
+            <a href="../index.html" class="logo__link">
+              <img src="../../frontLayer/images/common/logo.svg" alt="한국 9인제 배구연맹">
+            </a>
           </div>
-      </div>
-      </nav>
-      <nav id="gnb" class="m_gnb">
-        <h2 class="blind">주메뉴</h2>
-        <div class="gnb_bg"></div>
-        <div class="util">
-          <a href="../account/login.html" class="user_util">로그인</a>
-          <a href="../account/signUp.html" class="user_util sign_up">회원가입</a>
-          <a href="#" class="link" target="_blank" title="새창열기">
-            <img src="../../frontLayer/images/icons/ico_daum.svg" alt="">
-          </a>
+        </h1>
+        <button type="button" class="btn--hamburger mobile"></button>
+        <nav class="header__nav nav pc">
+          <h2 class="blind">주메뉴</h2>
+          <div class="nav__bg"></div>
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link" href="../about/greeting.html">연맹소개</a>
+              <div class="nav__submenu">
+                <ul class="nav-submenu">
+                  <li><a class="nav-submenu__link" href="../about/greeting.html">인사말</a></li>
+                  <li><a class="nav-submenu__link" href="../about/history.html">연혁</a></li>
+                  <li><a class="nav-submenu__link" href="../about/organization.html">조직도</a></li>
+                  <li><a class="nav-submenu__link" href="../about/executives.html">임원 소개</a></li>
+                  <li><a class="nav-submenu__link" href="../about/location.html">오시는 길</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="../competition/newsList.html">대회안내</a>
+              <div class="nav__submenu">
+                <ul class="nav-submenu">
+                  <li><a class="nav-submenu__link" href="../competition/newsList.html">대회소식</a></li>
+                  <li><a class="nav-submenu__link" href="../competition/scheduleAll.html">대회일정</a>
+                    <ul class="nav-depth03 nav-submenu__depth03">
+                      <li><a class="nav-depth03__link" href="../competition/scheduleAll.html">전체</a>
+                      </li>
+                      <li><a class="nav-depth03__link" href="../competition/scheduleExpected.html">예정</a>
+                      </li>
+                      <li><a class="nav-depth03__link" href="../competition/scheduleApplication.html">신청중</a></li>
+                      <li><a class="nav-depth03__link" href="../competition/scheduleProgress.html">진행중</a>
+                      </li>
+                      <li><a class="nav-depth03__link" href="../competition/scheduleEnd.html">종료</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="nav-submenu__link" href="../competition/archives.html">기록실</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="../mediaCenter/newsList.html">미디어센터</a>
+              <div class="nav__submenu">
+                <ul class="nav-submenu">
+                  <li><a class="nav-submenu__link" href="../mediaCenter/newsList.html">뉴스</a></li>
+                  <li><a class="nav-submenu__link" href="../mediaCenter/galleryList.html">포토갤러리</a>
+                  </li>
+                  <li><a class="nav-submenu__link" href="../mediaCenter/videoList.html">영상</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="../community/noticeList.html">커뮤니티</a>
+              <div class="nav__submenu">
+                <ul class="nav-submenu">
+                  <li><a class="nav-submenu__link" href="../community/noticeList.html">공지사항</a></li>
+                  <li><a class="nav-submenu__link" href="../community/referenceList.html">자료실</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="http://www.aprchs.com/" target="_blank">SHOP</a>
+              <div class="nav__submenu"></div>
+            </li>
+          </ul>
+          <div class="nav__ad">
+            <div class="nav-ad">
+              <div class="nav-ad__imgBox img-box">
+                <img src="../../frontLayer/images/img/img_header_bannder_01.png"
+                  alt="APRCHS ambassador 9인제 배구 회원분들을 어프로치S의 엠배서더 회원으로 모십니다. 엠배서더 회원이 되시면 다양한 상품과 혜택을 받으실 수 있으십니다."
+                  class="img-box__img">
+              </div>
+            </div>
+          </div>
+        </nav>
+        <nav class="mGnb nav" tabindex="0">
+          <h2 class="blind">주메뉴</h2>
+          <div class="gnb_bg"></div>
+          <div class="util">
+            <div class="util-auth">
+              <ul class="util-auth__list">
+                <li class="util-auth__item">
+                  <a href="../account/login.html" class="util-auth__link">로그인</a>
+                </li>
+                <li class="util-auth__item">
+                  <a href="../account/signUp.html" class="util-auth__link util-auth__link--blue">회원가입</a>
+                </li>
+              </ul>
+            </div>
+            <div class="util-social">
+              <ul class="util-social__list">
+                <li class="util-social__item">
+                  <a href="#" class="link" target="_blank" title="새창열기">
+                    <img src="../../frontLayer/images/icons/ico_youtube.svg" alt="유튜브 바로가기">
+                  </a>
+                </li>
+                <li class="util-social__item">
+                  <a href="#" class="link" target="_blank" title="새창열기">
+                    <img src="../../frontLayer/images/icons/ico_daum.svg" alt="다음 바로가기">
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link" href="#">연맹소개</a>
+              <div class="nav__submenu">
+                <ul class="nav-submenu">
+                  <li><a class="nav-submenu__link" href="../about/greeting.html">인사말</a></li>
+                  <li><a class="nav-submenu__link" href="../about/history.html">연혁</a></li>
+                  <li><a class="nav-submenu__link" href="../about/organization.html">조직도</a></li>
+                  <li><a class="nav-submenu__link" href="../about/executives.html">임원 소개</a></li>
+                  <li><a class="nav-submenu__link" href="../about/location.html">오시는 길</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">대회안내</a>
+              <div class="nav__submenu">
+                <ul class="nav-submenu">
+                  <li><a class="nav-submenu__link" href="../competition/newsList.html">대회소식</a></li>
+                  <li><a class="nav-submenu__link--arrow" href="#">대회일정</a>
+                    <ul class="nav-depth03 nav-submenu__depth03">
+                      <li><a class="nav-depth03__link" href="../competition/scheduleAll.html">전체</a>
+                      </li>
+                      <li><a class="nav-depth03__link" href="../competition/scheduleExpected.html">예정</a>
+                      </li>
+                      <li><a class="nav-depth03__link" href="../competition/scheduleApplication.html">신청중</a></li>
+                      <li><a class="nav-depth03__link" href="../competition/scheduleProgress.html">진행중</a>
+                      </li>
+                      <li><a class="nav-depth03__link" href="../competition/scheduleEnd.html">종료</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="nav-submenu__link" href="../competition/archives.html">기록실</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">미디어센터</a>
+              <div class="nav__submenu">
+                <ul class="nav-submenu">
+                  <li><a class="nav-submenu__link" href="../mediaCenter/newsList.html">뉴스</a></li>
+                  <li><a class="nav-submenu__link" href="../mediaCenter/galleryList.html">포토갤러리</a>
+                  </li>
+                  <li><a class="nav-submenu__link" href="../mediaCenter/videoList.html">영상</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">커뮤니티</a>
+              <div class="nav__submenu">
+                <ul class="nav-submenu">
+                  <li><a class="nav-submenu__link" href="../community/noticeList.html">공지사항</a></li>
+                  <li><a class="nav-submenu__link" href="../community/referenceList.html">자료실</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="http://www.aprchs.com/" target="_blank">SHOP</a>
+              <div class="nav__submenu"></div>
+            </li>
+          </ul>
+          <div class="nav__ad">
+            <div class="nav-ad">
+              <div class="nav-ad__imgBox img-box">
+                <img src="../../frontLayer/images/img/img_header_bannder_01.png"
+                  alt="APRCHS ambassador 9인제 배구 회원분들을 어프로치S의 엠배서더 회원으로 모십니다. 엠배서더 회원이 되시면 다양한 상품과 혜택을 받으실 수 있으십니다."
+                  class="img-box__img">
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="header__util pc">
+          <div class="util">
+            <div class="util-auth">
+              <ul class="util-auth__list">
+                <li class="util-auth__item">
+                  <a href="../account/login.html" class="util-auth__link">로그인</a>
+                </li>
+                <li class="util-auth__item">
+                  <a href="../account/signUp.html" class="util-auth__link util-auth__link--blue">회원가입</a>
+                </li>
+              </ul>
+            </div>
+            <div class="util-social">
+              <ul class="util-social__list">
+                <li class="util-social__item">
+                  <a href="#" class="link" target="_blank" title="새창열기">
+                    <img src="../../frontLayer/images/icons/ico_youtube.svg" alt="유튜브 바로가기">
+                  </a>
+                </li>
+                <li class="util-social__item">
+                  <a href="#" class="link" target="_blank" title="새창열기">
+                    <img src="../../frontLayer/images/icons/ico_daum.svg" alt="다음 바로가기">
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <ul>
-          <li>
-            <a href="#">연맹소개</a>
-            <div class="sub_menu">
-              <ul>
-                <li><a href="../about/greeting.html">인사말</a></li>
-                <li><a href="../about/history.html">연혁</a></li>
-                <li><a href="../about/organization.html">조직도</a></li>
-                <li><a href="../about/executives.html">임원 소개</a></li>
-                <li><a href="../about/location.html">오시는 길</a></li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <a href="#">대회안내</a>
-            <div class="sub_menu">
-              <ul>
-                <li><a href="../competition/newsList.html">대회소식</a></li>
-                <li class="depth03"><a href="../competition/scheduleAll.html">대회일정</a>
-                  <ul>
-                    <li><a href="../competition/scheduleAll.html">전체</a></li>
-                    <li><a href="../competition/scheduleExpected.html">예정</a></li>
-                    <li><a href="../competition/scheduleApplication.html">신청중</a></li>
-                    <li><a href="../competition/scheduleProgress.html">진행중</a></li>
-                    <li><a href="../competition/scheduleEnd.html">종료</a></li>
-                  </ul>
-                </li>
-                <li><a href="../competition/archives.html">기록실</a></li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <a href="#">미디어센터</a>
-            <div class="sub_menu">
-              <ul>
-                <li><a href="../mediaCenter/newsList.html">뉴스</a></li>
-                <li><a href="../mediaCenter/galleryList.html">포토갤러리</a></li>
-                <li><a href="../mediaCenter/videoList.html">영상</a></li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <a href="#">커뮤니티</a>
-            <div class="sub_menu">
-              <ul>
-                <li><a href="../community/noticeList.html">공지사항</a></li>
-                <li><a href="../community/referenceList.html">자료실</a></li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <a href="#">SHOP</a>
-            <div class="sub_menu"></div>
-          </li>
-        </ul>
-        <div class="ad_area">
-          <div class="ad_box">
-              <div class="img_box">
-                  <img src="../../frontLayer/images/img/img_schedules_03.jpg" alt="" class="img">
-              </div>
-          </div>
       </div>
-      </nav>
-      <div class="util pc">
-        <a href="../account/login.html" class="user_util">로그인</a>
-        <a href="../account/signUp.html" class="user_util sign_up">회원가입</a>
-        <a href="#" class="link" target="_blank" title="새창열기">
-          <img src="../../frontLayer/images/icons/ico_daum.svg" alt="">
-        </a>
-      </div>
-      <button type="button" class="btn btn_hamburger mobile"></button>
     </header>
     <!-- e:header -->
 
     <!-- s:container -->
     <div id="container">
       
-      <section class="sec history">
-        <div class="content_inner">
-          <h2 class="ttl front_line">연혁</h2>
-          <ul class="history_list">
-            <li>
-              <div class="history_item">
-                <div class="year"><span>2007</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month">03.30 - 04.01</span>
-                    <p class="activity">국무총리 배 대회, 일본 여자 우승팀 참가</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item align_items_start">
-                <div class="year"><span>2006</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month">12</span>
-                    <p class="activity">한, 일 국제 교류 시합, 광주 무등클럽 남자 팀 파견</p>
-                  </li>
-                  <li>
-                    <span class="month">08</span>
-                    <p class="activity">06년 회장 배 전국남녀9인제배구대회 (매년 개최)</p>
-                  </li>
-                  <li>
-                    <span class="month">04</span>
-                    <p class="activity">제 29회 국무총리 배 대회 일본 남녀 우승팀 출전</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item">
-                <div class="year"><span>2005</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month">12</span>
-                    <p class="activity">한, 일 국제 교류 시합 (제 20회 사쿠라다 기념 배구대회) 남양주 남녀 팀 파견</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item">
-                <div class="year"><span>2004 ~ 2003</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month"></span>
-                    <p class="activity">제 33회-34회 카네이션 컵 전국 어머니 배구대회(한국9인제배구연맹 주최) (생활체육전국어머니배구연합회 주관)</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item">
-                <div class="year"><span>2002 ~ 2001</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month"></span>
-                    <p class="activity">제 31회-32회 카네이션 컵 전국 어머니 배구대회(한국9인제배구연맹 주최) (전국어머니배구연합회 주관)</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item">
-                <div class="year"><span>2000 ~ 1999</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month"></span>
-                    <p class="activity">제 29회-30회 애경퍼펙트 배 카네이션 어머니 배구대회(한국9인제배구연맹 주최) (전국어머니배구연합회 주관)</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item">
-                <div class="year"><span>1998 ~ 1994</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month"></span>
-                    <p class="activity">제 24회-28회 야쿠르트 컵 카네이션 어머니 배구대회(한국9인제배구연맹 주최) (생활체육전국어머니배구연합회 주관)</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item">
-                <div class="year"><span>1993 ~ 1990</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month"></span>
-                    <p class="activity">제 20회-23회 카네이션 컵 어머니 배구대회 (한국9인제배구연맹 주최)</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item">
-                <div class="year"><span>1989 ~ 1987</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month"></span>
-                    <p class="activity">제 17-19 카네이션 전국 새마을 어머니 배구대회(한국사회체육진흥회 주최) (새마을중앙연합회 주최)</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item">
-                <div class="year"><span>1986 ~ 1983</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month"></span>
-                    <p class="activity">카네이션 컵 쟁탈, 제 13회-16회 전국 어머니 배구대회(새마을중앙본부 주최) (배구중앙연합회 주최)</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item">
-                <div class="year"><span>1982 ~ 1979</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month"></span>
-                    <p class="activity">카네이션 컵 쟁탈, 제 9회-12회, 전국 어머니 배구대회 (한국9인제배구연맹 주최)</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item">
-                <div class="year"><span>1978 ~ 1971</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month"></span>
-                    <p class="activity">카네이션 컵 쟁탈, 제 1회-8회, 전국 어머니 배구대회 (대한배구협회 주최)</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item">
-                <div class="year"><span>1977</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month">04</span>
-                    <p class="activity">제 1회 국무총리 배 전국 남녀9인제배구대회(매년 개최, 현재 30회)</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item">
-                <div class="year"><span>1976 ~ 1975</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month">08</span>
-                    <p class="activity">육영수 여사 컵 쟁탈 제 5회-6회, 어머니 배구대회 (극동식 경기) (9인제)</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item">
-                <div class="year"><span>1974 ~ 1971</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month">10</span>
-                    <p class="activity">대통령 영부인 배 쟁탈 제 1회-4회, 어머니 배구대회 (극동식 경기) (9인제)</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item">
-                <div class="year"><span>1962</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month">10</span>
-                    <p class="activity">제 1회 박계조 배 대회 개최 (매년 개최, 현재 45회)</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item">
-                <div class="year"><span>1959</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month">10</span>
-                    <p class="activity">국제배구연맹(FIVB) 가입 (6, 9인제 동시 경기)</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item align_items_start">
-                <div class="year"><span>1946</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month">05</span>
-                    <p class="activity">제 1회 전국배구선수권대회 (매년 개최) 현재, 종별배구선수권대회</p>
-                  </li>
-                  <li>
-                    <span class="month">03</span>
-                    <p class="activity">대한배구협회 창립 (초대 회장: 조동식) 극동식 경기 (9인제)</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item">
-                <div class="year"><span>1925</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month">10</span>
-                    <p class="activity">조선일보사 주최 제 1회 조선배구선수권대회 개최 (최초의 경기) (9인제)</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item">
-                <div class="year"><span>1917</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month">3</span>
-                    <p class="activity">YMCA 체육관에서 최초로 서구 팀과 한국 청소년 팀과의 배구 경기 개최 (12인제)</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="history_item">
-                <div class="year"><span>1916</span></div>
-                <ul class="history_detail_cont">
-                  <li>
-                    <span class="month">3</span>
-                    <p class="activity">한국 YMCA 지도자 Mr. Bahnhart 에 의해 처음으로 청소년에게 소개됨.</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          </ul>
+      <section class="about about-history sec sec--type2">
+        <div class="sec__inner">
+          <h2 class="sec__ttl sec__ttl--front-line">연혁</h2>
+          <div class="about__content history">
+            <ul class="about-history__list">
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>2007</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month">03.30 - 04.01</span>
+                      <p class="about-history__activity">국무총리 배 대회, 일본 여자 우승팀 참가</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont about-history__item-cont--align-start">
+                  <div class="about-history__year"><span>2006</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month">12</span>
+                      <p class="about-history__activity">한, 일 국제 교류 시합, 광주 무등클럽 남자 팀 파견</p>
+                    </li>
+                    <li>
+                      <span class="about-history__month">08</span>
+                      <p class="about-history__activity">06년 회장 배 전국남녀9인제배구대회 (매년 개최)</p>
+                    </li>
+                    <li>
+                      <span class="about-history__month">04</span>
+                      <p class="about-history__activity">제 29회 국무총리 배 대회 일본 남녀 우승팀 출전</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>2005</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month">12</span>
+                      <p class="about-history__activity">한, 일 국제 교류 시합 (제 20회 사쿠라다 기념 배구대회) 남양주 남녀 팀 파견</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>2004 ~ 2003</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month"></span>
+                      <p class="about-history__activity">제 33회-34회 카네이션 컵 전국 어머니 배구대회(한국9인제배구연맹 주최) (생활체육전국어머니배구연합회 주관)</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>2002 ~ 2001</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month"></span>
+                      <p class="about-history__activity">제 31회-32회 카네이션 컵 전국 어머니 배구대회(한국9인제배구연맹 주최) (전국어머니배구연합회 주관)</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>2000 ~ 1999</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month"></span>
+                      <p class="about-history__activity">제 29회-30회 애경퍼펙트 배 카네이션 어머니 배구대회(한국9인제배구연맹 주최) (전국어머니배구연합회 주관)</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>1998 ~ 1994</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month"></span>
+                      <p class="about-history__activity">제 24회-28회 야쿠르트 컵 카네이션 어머니 배구대회(한국9인제배구연맹 주최) (생활체육전국어머니배구연합회 주관)</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>1993 ~ 1990</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month"></span>
+                      <p class="about-history__activity">제 20회-23회 카네이션 컵 어머니 배구대회 (한국9인제배구연맹 주최)</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>1989 ~ 1987</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month"></span>
+                      <p class="about-history__activity">제 17-19 카네이션 전국 새마을 어머니 배구대회(한국사회체육진흥회 주최) (새마을중앙연합회 주최)</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>1986 ~ 1983</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month"></span>
+                      <p class="about-history__activity">카네이션 컵 쟁탈, 제 13회-16회 전국 어머니 배구대회(새마을중앙본부 주최) (배구중앙연합회 주최)</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>1982 ~ 1979</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month"></span>
+                      <p class="about-history__activity">카네이션 컵 쟁탈, 제 9회-12회, 전국 어머니 배구대회 (한국9인제배구연맹 주최)</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>1978 ~ 1971</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month"></span>
+                      <p class="about-history__activity">카네이션 컵 쟁탈, 제 1회-8회, 전국 어머니 배구대회 (대한배구협회 주최)</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>1977</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month">04</span>
+                      <p class="about-history__activity">제 1회 국무총리 배 전국 남녀9인제배구대회(매년 개최, 현재 30회)</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>1976 ~ 1975</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month">08</span>
+                      <p class="about-history__activity">육영수 여사 컵 쟁탈 제 5회-6회, 어머니 배구대회 (극동식 경기) (9인제)</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>1974 ~ 1971</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month">10</span>
+                      <p class="about-history__activity">대통령 영부인 배 쟁탈 제 1회-4회, 어머니 배구대회 (극동식 경기) (9인제)</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>1962</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month">10</span>
+                      <p class="about-history__activity">제 1회 박계조 배 대회 개최 (매년 개최, 현재 45회)</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>1959</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month">10</span>
+                      <p class="about-history__activity">국제배구연맹(FIVB) 가입 (6, 9인제 동시 경기)</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont about-history__item-cont--align-start">
+                  <div class="about-history__year"><span>1946</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month">05</span>
+                      <p class="about-history__activity">제 1회 전국배구선수권대회 (매년 개최) 현재, 종별배구선수권대회</p>
+                    </li>
+                    <li>
+                      <span class="about-history__month">03</span>
+                      <p class="about-history__activity">대한배구협회 창립 (초대 회장: 조동식) 극동식 경기 (9인제)</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>1925</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month">10</span>
+                      <p class="about-history__activity">조선일보사 주최 제 1회 조선배구선수권대회 개최 (최초의 경기) (9인제)</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>1917</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month">3</span>
+                      <p class="about-history__activity">YMCA 체육관에서 최초로 서구 팀과 한국 청소년 팀과의 배구 경기 개최 (12인제)</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="about-history__item">
+                <div class="about-history__item-cont">
+                  <div class="about-history__year"><span>1916</span></div>
+                  <ul class="about-history__item-body">
+                    <li>
+                      <span class="about-history__month">3</span>
+                      <p class="about-history__activity">한국 YMCA 지도자 Mr. Bahnhart 에 의해 처음으로 청소년에게 소개됨.</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
     </div>
     <!-- e:container -->
 
-
     <!-- s:footer -->
-    <footer id="footer">
-      <div class="footer_top">
-        <div class="content_inner">
-          <ul>
-            <li><a href="../about/greeting.html">연맹소개</a></li>
-            <li><a href="../competition/newsList.html">대회안내</a></li>
-            <li><a href="../mediaCenter/newsList.html">미디어센터</a></li>
-            <li><a href="../community/noticeList.html">커뮤니티</a></li>
-            <li><a href="#">쇼핑몰</a></li>
-          </ul>
-          <a href="#" class="link" target="_blank" title="새창열기">
-            <img src="../../frontLayer/images/icons/ico_daum.svg" alt="">
-          </a>
+    <footer id="footer" class="footer">
+      <div class="footer__swiper-container">
+        <div class="footer__inner">
+          <div class="footer__swiper">
+            <div class="swiper-btn footer__btn--prev footer__btn"></div>
+            <div class="swiper-wrapper">
+              <div class="swiper-slide footer__slide">
+                <div class="img-box">
+                  <img src="../../frontLayer/images/img/img_footer_logo_01.png" alt="대한배구협회" class="img-box__img">
+                </div>
+              </div>
+              <div class="swiper-slide footer__slide">
+                <div class="img-box">
+                  <img src="../../frontLayer/images/img/img_footer_logo_03.png" alt="start sports" class="img-box__img">
+                </div>
+              </div>
+              <div class="swiper-slide footer__slide">
+                <div class="img-box">
+                  <img src="../../frontLayer/images/img/img_footer_logo_04.svg" alt="법무법인(유) 에이스" class="img-box__img">
+                </div>
+              </div>
+              <div class="swiper-slide footer__slide">
+                <div class="img-box">
+                  <img src="../../frontLayer/images/img/img_footer_logo_05.png" alt="adup" class="img-box__img">
+                </div>
+              </div>
+            </div>
+            <div class="swiper-btn footer__btn--next footer__btn"></div>
+          </div>
         </div>
       </div>
-      <div class="footer_bottom">
-        <div class="content_inner">
-          <span class="logo">
-            <img src="../../frontLayer/images/common/logo.svg" alt="">
-            <em>한국 9인제 배구 연맹</em>
-          </span>
-          <div class="dl_wrap">
-            <dl>
-                <dt>회장</dt>
-                <dd>신태호</dd>
-            </dl>
-            <div class="d_flex flex_wrap align_items_center gap_px_x_10">
-                <dl>
-                    <dt>주소</dt>
-                    <dd>
-                        <address>서울 광진구 능동로49길 16</address>
-                    </dd>
-                </dl>
-                <dl class="mt_0">
-                    <dt>전화번호</dt>
-                    <dd>
-                        <address>02-414-1893</address>
-                    </dd>
-                </dl>
-            </div>
-            <div class="d_flex flex_wrap align_items_center gap_px_x_10">
-                <dl>
-                    <dt>팩스</dt>
-                    <dd>
-                        <address>02-414-1894</address>
-                    </dd>
-                </dl>
-                <dl class="mt_0">
-                    <dt>카페</dt>
-                    <dd>
-                        <a href="cafe.daum.net/knvf" target="_blank" title="새창열기">cafe.daum.net/knvf</a>
-                    </dd>
-                </dl>
-            </div>
+      <div class="footer__top">
+        <div class="footer__inner">
+          <ul class="footer-nav">
+            <li><a class="footer-nav__link" href="../about/greeting.html">연맹소개</a></li>
+            <li><a class="footer-nav__link" href="../competition/newsList.html">대회안내</a></li>
+            <li><a class="footer-nav__link" href="../mediaCenter/newsList.html">미디어센터</a></li>
+            <li><a class="footer-nav__link" href="../community/noticeList.html">커뮤니티</a></li>
+            <li><a class="footer-nav__link" href="#">SHOP</a></li>
+          </ul>
+          <div class="util footer__util">
+            <ul class="util-social__list">
+              <li class="util-social__item">
+                <a href="#" class="link" target="_blank" title="새창열기">
+                  <img src="../../frontLayer/images/icons/ico_youtube.svg" alt="유투브 바로가기">
+                </a>
+              </li>
+              <li class="util-social__item">
+                <a href="#" class="link" target="_blank" title="새창열기">
+                  <img src="../../frontLayer/images/icons/ico_daum.svg" alt="다음 바로가기">
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__inner">
+          <span class="footer__logo logo">
+            <a href="./index.html" class="logo__link">
+              <img src="../../frontLayer/images/common/logo.svg" alt="한국 9인제 배구 연맹" class="pc">
+              <img src="../../frontLayer/images/common/logo_only.svg" alt="한국 9인제 배구 연맹" class="mobile">
+            </a>
+          </span>
+          <div>
+            <span class="mobile logoTxt">한국 9인제 배구 연맹</span>
+            <dl class="dl-wrap__content">
+              <dt class="dl-wrap__ttl">회장</dt>
+              <dd class="dl-wrap__txt">신태호</dd>
+            </dl>
+            <div class="dl-wrap">
+              <dl class="dl-wrap__content">
+                <dt class="dl-wrap__ttl">주소</dt>
+                <dd class="dl-wrap__txt">
+                  서울 광진구 능동로49길 16
+                </dd>
+              </dl>
+              <dl class="dl-wrap__content mt_0">
+                <dt class="dl-wrap__ttl">전화번호</dt>
+                <dd class="dl-wrap__txt">
+                  02-414-1893
+                </dd>
+              </dl>
+            </div>
+            <div class="dl-wrap">
+              <dl class="dl-wrap__content">
+                <dt class="dl-wrap__ttl">팩스</dt>
+                <dd class="dl-wrap__txt">
+                  02-414-1894
+                </dd>
+              </dl>
+              <dl class="dl-wrap__content mt_0">
+                <dt class="dl-wrap__ttl">카페</dt>
+                <dd class="dl-wrap__txt">
+                  <a href="cafe.daum.net/knvf" target="_blank" title="새창열기" class="dl-wrap__link">cafe.daum.net/knvf</a>
+                </dd>
+              </dl>
+            </div>
+          </div>
         </div>
       </div>
       <p class="copyright">Copyright &copy; KNVF All rights reserved.</p>
@@ -531,6 +634,62 @@
 
   </div>
   <!-- e:wrap -->
+
+  <script>
+    const breakpoint = window.matchMedia('(max-width:1200px)');
+    let footerSwiper;
+
+    const breakpointChecker = function () {
+      if (breakpoint.matches === true) {
+        if (footerSwiper !== undefined) footerSwiper.destroy(true, true);
+        return enableMobileSwiper();
+      } else if (breakpoint.matches === false) {
+        if (footerSwiper !== undefined) footerSwiper.destroy(true, true);
+        return enablePcSwiper();
+      }
+    };
+
+    const enablePcSwiper = function () {
+      ;
+      footerSwiper = new Swiper(".footer__swiper", {
+        slidesPerView: 4,
+        spaceBetween: 52,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".footer__swiper .swiper-pagination",
+        },
+        navigation: {
+          nextEl: ".footer__swiper .footer__btn--next",
+          prevEl: ".footer__swiper .footer__btn--prev",
+        }
+      });
+    };
+    const enableMobileSwiper = function () {
+      footerSwiper = new Swiper(".footer__swiper", {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".footer__swiper .swiper-pagination",
+        },
+        navigation: {
+          nextEl: ".footer__swiper .footer__btn--next",
+          prevEl: ".footer__swiper .footer__btn--prev",
+        }
+      });
+    };
+
+    breakpoint.addListener(breakpointChecker);
+    breakpointChecker();
+  </script>
 
 </body>
 

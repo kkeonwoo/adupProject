@@ -1,0 +1,221 @@
+.about {
+    &__content {
+        position: relative;
+        background-color: $color-white;
+        
+        @at-root .about-greeting &::before {
+            top: 50%;
+            right: 8.33%;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background: url('../images/img/img_ball.svg') no-repeat center / 100% auto;
+            transform: translateY(-50%); 
+            mix-blend-mode: luminosity;
+            @include pseudo();
+        }
+    }
+
+    &-greeting {
+        &__logo {
+            display: inline-block;
+            margin-top: 40px;
+            .img {
+                height: 55px;
+            }
+        }
+    }
+    
+    &-history {
+        &__list {
+            position: relative;
+    
+            &::before {
+                top: 30px;
+                bottom: 30px;
+                left: 200px;
+                width: 3px;
+                background-color: $color-blue5;
+                transform: translateX(-50%);
+                @include pseudo();
+            }
+        }
+    
+        &__item {
+            padding: 40px 0;
+            border-bottom: 1px solid $color-gray5;
+    
+            &:first-child {
+                padding-top: 0;
+            }
+    
+            &:last-child {
+                padding-bottom: 0;
+                border-bottom: none;
+            }
+    
+            &-cont {
+                @include flex(null, center);
+    
+                &--align-start {
+                    align-items: start;
+                }
+            }
+    
+            &-body {
+                flex: 1;
+    
+                li {
+                    position: relative;
+                    @include flex(null, center);
+    
+                    &::before {
+                        top: 50%;
+                        left: 0;
+                        width: 8px;
+                        height: 8px;
+                        background-color: $color-blue;
+                        transform: translate(-50%,-50%);
+                        border-radius: 100%;
+                        @include pseudo();
+                    }
+    
+                    & + li {
+                        margin-top: 32px;
+                    }
+                }
+            }
+        }
+    
+        &__year {
+            width: 200px;
+            padding-right: 24px;
+    
+            span {
+                font-weight: 700;
+                font-size: $font-large + 8;
+                color: $color-blue5;
+            }
+        }
+    
+        &__month {
+            display: block;
+            position: relative;
+            width: 200px;
+            padding: 0 20px;
+            font-size: $font-normal + 2;
+        }
+    
+        &__activity {
+            line-height: 1.75;
+            word-break: keep-all;
+        }
+    }
+
+    &-map {
+        &__box {
+            .map {
+                height: 500px;
+                margin-bottom: 16px;
+            }
+        }
+
+        &__navi {
+            margin-top: 40px;
+        }
+
+        &__ttl {
+            font-size: $font-medium;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .txt-area {
+            & + .txt-area {
+                margin-top: 24px;
+            }
+
+            &__txt {
+                & + .txt-area__txt {
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+}
+
+@include media-down(tab) {
+    .about{
+        &-history {
+            &__list {
+                &::before {
+                    top: calc(48px + 42px / 2);
+                    bottom: 21px;
+                    left: 32px;
+                }
+            }
+        
+            &__item {
+                padding: 32px;
+        
+                &-cont {
+                    @include column-flex(null, start);
+        
+                    &--align-start {
+                        align-items: start;
+                    }
+                }
+        
+                &-body {
+                    flex: 1;
+        
+                    li {
+                        padding: 0 16px;
+                        @include column-flex(null, start);
+        
+                        & + li {
+                            margin-top: 25px;
+                        }
+                    }
+                }
+            }
+        
+            &__year {
+                width: 100%;
+                padding: 0 16px;
+        
+                span {
+                    font-size: $font-large;
+                }
+            }
+        
+            &__month {
+                padding: 0;
+                font-size: $font-small;
+            }
+        
+            &__activity {
+                font-size: $font-small - 2;
+            }
+        }
+    }
+}
+
+@include media-down(mob) {
+    .about {
+        &__content {
+            @at-root .about-greeting &::before {
+                right: 24px;
+                width: calc(100% - 48px);
+            }
+        }
+        &-history {
+            &__list {
+                &::before {
+                    bottom: 31px;
+                }
+            }
+        }
+    }
+
+}

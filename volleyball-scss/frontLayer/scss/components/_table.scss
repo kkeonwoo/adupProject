@@ -1,0 +1,50 @@
+.tbl {
+    min-width: 768px;
+
+    &__box {
+        white-space: nowrap;
+        overflow-x: auto;
+        border-top: 2px solid $color-gray5;
+    }
+
+    &__order {
+        width: 73px;
+    }
+
+    &__th, &__td {
+        border-top: 1px solid $color-gray5;
+        border-bottom: 1px solid $color-gray5;
+        padding: 16px;
+    }
+
+    &__th {
+        background-color: $color-gray6;
+    }
+
+    &__td {
+        word-wrap: anywhere;
+        word-break: keep-all;
+        text-align: center;
+    }
+}
+
+@include media-down(tab) {
+    .tbl {
+        &__order {
+            width: 58px;
+        }
+    
+        &__th, &__td {
+            padding: 12px;
+        }
+
+        &__txt {
+            font-size: $font-small - 2;
+        }
+    }
+}
+
+@include media-down(mob) {
+    .tbl {
+    }
+}

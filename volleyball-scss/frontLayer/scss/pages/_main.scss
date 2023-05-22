@@ -14,11 +14,11 @@
         font-weight: 700;
         font-size: $font-large;
         text-align: center;
-        line-height: 1.5;
 
         &--front-line {
             position: relative;
             text-align: left;
+            padding-bottom: 72px;
             @include flex(null, center);
 
             &::before {
@@ -215,7 +215,6 @@
             padding-bottom: 8px;
             font-weight: 700;
             font-size: $font-xxl;
-            line-height: 1.5;
             gap: 16px;
             @include flex(null, center);
 
@@ -281,7 +280,6 @@
                 font-weight: 500;
                 font-size: $font-medium;
                 color: $color-gray2;
-                line-height: 1.5;
             }
         }
 
@@ -315,7 +313,6 @@
                 min-width: 112px;
                 color: $color-gray2;
                 text-align: center;
-                line-height: 1.5;
             }
         }
     }
