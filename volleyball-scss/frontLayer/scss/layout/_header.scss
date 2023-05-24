@@ -396,6 +396,7 @@
             padding: 32px 24px;
             font-size: $font-medium ;
             text-align: left;
+            line-height: 1;
             @include flex(between);
 
             &::after {
