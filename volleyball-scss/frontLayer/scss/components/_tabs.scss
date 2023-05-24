@@ -1,0 +1,102 @@
+.tabs {
+    text-align: center;
+
+    &__list {
+        flex-wrap: wrap;
+        margin-bottom: 50px;
+        background-color: $color-gray6;
+        border-radius: 10px;
+        @include flex(null, center);
+    }
+
+    &__item {
+        width: 20%;
+        padding: 10px 0;
+        text-align: center;
+
+        &--active {
+            background-color: $color-blue;
+            border-radius: 10px;
+        }
+    }
+
+    &__btn {
+        width: 100%;
+    }
+
+    &__txt {
+        font-weight: 500;
+        font-size: 24px;
+        color: $color-gray2;
+        line-height: 1.5;
+        @at-root .tabs__item--active & {
+            font-weight: 600;
+            color: $color-white;
+        }
+    }
+    
+    &__more {
+        margin-top: 32px;
+    }
+}
+
+.tab-content {
+    &__item {
+        position: relative;
+        padding: 24px;
+        border: 1px solid $color-gray5;
+        border-radius: 10px;
+
+        & + & {
+            margin-top: 16px;
+        }
+    }
+
+    &__body {
+        gap: 16px;
+        @include flex(start, center);
+    }
+
+    &__ttl {
+        margin-right: auto;
+        @include ellipsis();
+    }
+
+    &__right {
+        width: calc(480 / 1100 * 100%);
+        gap: 16px;
+        @include flex(between, center);
+    }
+
+    &__date {
+        margin-left: auto;
+        span {
+            font-size: inherit;
+        }
+    }
+}
+
+@include media-down(mob) {
+    .tab-content {
+        &__body {
+            flex-wrap: wrap;
+        }
+
+        &__right {
+            width: 100%;
+        }
+    }
+}
+
+@include media-down(sm) {
+    .tab-content {
+        &__right {
+            flex-direction: column;
+            align-items: start;
+        }
+
+        &__date {
+            margin-left: 0;
+        }
+    }
+}

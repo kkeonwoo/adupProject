@@ -167,16 +167,47 @@ Federation = {
             $(this).children('.tabs li:first').addClass('active'); //Activate first tab
             $(this).children('.tab_content').first().show();
         });
-        //탭메뉴 클릭 이벤트
-        $('.tabs li button').click(function (e) {
-            e.preventDefault();
 
-            var activeTab = $(this).attr('rel');
-            $(this).parent().siblings('li').removeClass('active');
-            $(this).parent().addClass('active');
-            $(this).closest('.tab_container').find('.tab_content').hide();
-            $('#' + activeTab).fadeIn();
+        // 탭콘텐츠 보이기
+        const matchItem = () => {
+            $('.tab-content__item').find('.badge').filter((idx, item) => {
+                let selectedText = $('.tabs__item--active').text();
+                $(item).closest('.tab-content__item').toggle($(item).text().indexOf(selectedText) > -1);
+            })
+        }
+        
+        // active 탭콘텐츠 보이기
+        matchItem();
+        
+        //탭메뉴 클릭 이벤트
+        $(document).on('click', '.tabs__btn', function (e) {
+            e.preventDefault();
+            let index = $(this).closest('.tabs__item').index();
+            $('.tabs__item').removeClass('tabs__item--active').eq(index).addClass('tabs__item--active');
+            $('.tab-content').removeClass('tab-content--active').eq(index).addClass('tab-content--active');
+
+            if ($('.ttl-wrap__area').length > 0) {
+                $('.ttl-wrap__area').removeClass('ttl-wrap__area--active').eq(index).addClass('ttl-wrap__area--active');
+            }
+                        
+            matchItem();
+            
+            if (index === 0) {
+                $('.tab-content__item').show();
+            }
+
         });
+
+
+        // $('.tabs li button').click(function (e) {
+        //     e.preventDefault();
+
+        //     var activeTab = $(this).attr('rel');
+        //     $(this).parent().siblings('li').removeClass('active');
+        //     $(this).parent().addClass('active');
+        //     $(this).closest('.tabs').find('.tab-content__item').hide();
+        //     $('#' + activeTab).fadeIn();
+        // });
     },
     select: function () {
         let $formSelect;
@@ -394,16 +425,6 @@ Federation = {
         }
     },
     button: function () {
-        $(document).on('click', '.tabs__btn', function (e) {
-            e.preventDefault();
-            let index = $(this).closest('.tabs__item').index();
-            $('.tabs__item').removeClass('tabs__item--active').eq(index).addClass('tabs__item--active');
-            $('.tab-content').removeClass('tab-content--active').eq(index).addClass('tab-content--active');
-
-            if ($('.ttl-wrap__area').length > 0) {
-                $('.ttl-wrap__area').removeClass('ttl-wrap__area--active').eq(index).addClass('ttl-wrap__area--active');
-            }
-        });
         $(document).on('click', '.dropdown_item .content_header', function (e) {
             e.preventDefault();
             let $el = e.currentTarget;

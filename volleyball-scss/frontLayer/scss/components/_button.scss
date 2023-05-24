@@ -120,6 +120,23 @@
         text-decoration: underline;
         text-underline-offset: 3px;
     }
+
+    &--more {
+        flex-direction: column;
+        width: auto;
+        font-weight: 400;
+        font-size: $font-small;
+        color: $color-black2;
+
+        &::after {
+            bottom: 0;
+            left: 50%;
+            width: 16px;
+            height: 8px;
+            background: url('../images/icons/arw_down_black.svg') no-repeat center center / cover;
+            @include pseudo($pos:null);
+        }
+    }
     /* e: Modified */
 }
 

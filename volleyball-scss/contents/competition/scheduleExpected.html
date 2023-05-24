@@ -270,150 +270,185 @@
     <!-- s:container -->
     <div id="container">
 
-      <section class="sec schedule">
-        <div class="content_inner">
-          <h2 class="ttl front_line">대회일정</h2>
-          <div class="sch_tab_container">
-            <ul class="sch_tabs">
-              <li class="tab_item"><button class="tab_btn"><span class="txt">전체</span></button></li>
-              <li class="tab_item active"><button class="tab_btn"><span class="txt">예정</span></button></li>
-              <li class="tab_item"><button class="tab_btn"><span class="txt">신청중</span></button></li>
-              <li class="tab_item"><button class="tab_btn"><span class="txt">진행중</span></button></li>
-              <li class="tab_item"><button class="tab_btn"><span class="txt">종료</span></button></li>
+      <section class="sec sec--type2">
+        <div class="sec__inner">
+          <h2 class="sec__ttl sec__ttl--front-line">대회일정</h2>
+          <div class="tabs">
+            <ul class="tabs__list">
+              <li class="tabs__item"><button class="tabs__btn"><span class="tabs__txt">전체</span></button></li>
+              <li class="tabs__item tabs__item--active"><button class="tabs__btn"><span class="tabs__txt">예정</span></button></li>
+              <li class="tabs__item"><button class="tabs__btn"><span class="tabs__txt">신청중</span></button></li>
+              <li class="tabs__item"><button class="tabs__btn"><span class="tabs__txt">진행중</span></button></li>
+              <li class="tabs__item"><button class="tabs__btn"><span class="tabs__txt">종료</span></button></li>
             </ul>
-            <div class="form_group search_area">
-              <input class="input_search form_control" placeholder="제목, 내용"></input>
-              <button class="btn btn_dark sm">검색</button>
+            <div class="form-group sec__search">
+              <input class="form-control form-control--search" placeholder="제목, 내용">
+              <button class="btn btn--dark btn--sm">검색</button>
             </div>
-            <ul class="sch_tab_content content_item active">
-              <li class="sch_item">
-                <div class="sch_content">
-                  <span class="tag exp">예정</span>
-                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
-                  <span class="date">2022. 7. 27-<br class="d_none d_md_block" /> 2022. 7. 29</span>
+            <ul class="tabs__content tabs__content--active tab-content">
+              <li class="tab-content__item">
+                <div class="tab-content__body">
+                  <span class="badge badge--primary">예정</span>
+                  <p class="tab-content__ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="tab-content__right"><span class="tab-content__date">2022. 7. 27 - 2022. 7. 29</span></div>
                 </div>
               </li>
-              <li class="sch_item">
-                <div class="sch_content">
-                  <span class="tag exp">예정</span>
-                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
-                  <span class="date">2022. 7. 27-<br class="d_none d_md_block" /> 2022. 7. 29</span>
+              <li class="tab-content__item">
+                <div class="tab-content__body">
+                  <span class="badge badge--success">신청중</span>
+                  <p class="tab-content__ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="tab-content__right"><span class="tab-content__date">2022. 7. 27 - 2022. 7. 29</span></div>
                 </div>
               </li>
-              <li class="sch_item">
-                <div class="sch_content">
-                  <span class="tag exp">예정</span>
-                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
-                  <span class="date">2022. 7. 27-<br class="d_none d_md_block" /> 2022. 7. 29</span>
+              <li class="tab-content__item">
+                <div class="tab-content__body">
+                  <span class="badge badge--progress">진행중</span>
+                  <p class="tab-content__ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="tab-content__right">
+                    <div class="competition">
+                      <span class="competition__txt competiton__txt--team">000000</span>
+                      <span class="competition__txt">vs</span>
+                      <span class="competition__txt competiton__txt--team">000000</span>
+                    </div>
+                    <span class="tab-content__date">2022. 7. 27 - 2022. 7. 29</span>
+                  </div>
                 </div>
               </li>
-              <li class="sch_item">
-                <div class="sch_content">
-                  <span class="tag exp">예정</span>
-                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
-                  <span class="date">2022. 7. 27-<br class="d_none d_md_block" /> 2022. 7. 29</span>
+              <li class="tab-content__item">
+                <div class="tab-content__body">
+                  <span class="badge badge--end">종료</span>
+                  <p class="tab-content__ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="tab-content__right">
+                    <div class="competition">
+                      <span class="competition__txt competiton__txt--team">000000</span>
+                      <span class="competition__txt">vs</span>
+                      <span class="competition__txt competiton__txt--team">000000</span>
+                    </div>
+                    <span class="tab-content__date">2022. 7. 27 - 2022. 7. 29</span>
+                  </div>
                 </div>
               </li>
-              <li class="sch_item">
-                <div class="sch_content">
-                  <span class="tag exp">예정</span>
-                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
-                  <span class="date">2022. 7. 27-<br class="d_none d_md_block" /> 2022. 7. 29</span>
+              <li class="tab-content__item">
+                <div class="tab-content__body">
+                  <span class="badge badge--primary">예정</span>
+                  <p class="tab-content__ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="tab-content__right"><span class="tab-content__date">2022. 7. 27 - 2022. 7. 29</span></div>
                 </div>
               </li>
-              <li class="sch_item">
-                <div class="sch_content">
-                  <span class="tag exp">예정</span>
-                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
-                  <span class="date">2022. 7. 27-<br class="d_none d_md_block" /> 2022. 7. 29</span>
+              <li class="tab-content__item">
+                <div class="tab-content__body">
+                  <span class="badge badge--progress">진행중</span>
+                  <p class="tab-content__ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="tab-content__right">
+                    <div class="competition">
+                      <span class="competition__txt competiton__txt--team">000000</span>
+                      <span class="competition__txt">vs</span>
+                      <span class="competition__txt competiton__txt--team">000000</span>
+                    </div>
+                    <span class="tab-content__date">2022. 7. 27 - 2022. 7. 29</span>
+                  </div>
                 </div>
               </li>
-              <li class="sch_item">
-                <div class="sch_content">
-                  <span class="tag exp">예정</span>
-                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
-                  <span class="date">2022. 7. 27-<br class="d_none d_md_block" /> 2022. 7. 29</span>
+              <li class="tab-content__item">
+                <div class="tab-content__body">
+                  <span class="badge badge--success">신청중</span>
+                  <p class="tab-content__ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="tab-content__right"><span class="tab-content__date">2022. 7. 27 - 2022. 7. 29</span></div>
                 </div>
               </li>
-              <li class="sch_item">
-                <div class="sch_content">
-                  <span class="tag exp">예정</span>
-                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
-                  <span class="date">2022. 7. 27-<br class="d_none d_md_block" /> 2022. 7. 29</span>
+              <li class="tab-content__item">
+                <div class="tab-content__body">
+                  <span class="badge badge--success">신청중</span>
+                  <p class="tab-content__ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="tab-content__right"><span class="tab-content__date">2022. 7. 27 - 2022. 7. 29</span></div>
                 </div>
               </li>
-              <li class="sch_item">
-                <div class="sch_content">
-                  <span class="tag exp">예정</span>
-                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
-                  <span class="date">2022. 7. 27-<br class="d_none d_md_block" /> 2022. 7. 29</span>
+              <li class="tab-content__item">
+                <div class="tab-content__body">
+                  <span class="badge badge--primary">예정</span>
+                  <p class="tab-content__ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="tab-content__right"><span class="tab-content__date">2022. 7. 27 - 2022. 7. 29</span></div>
                 </div>
               </li>
-              <li class="sch_item">
-                <div class="sch_content">
-                  <span class="tag exp">예정</span>
-                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
-                  <span class="date">2022. 7. 27-<br class="d_none d_md_block" /> 2022. 7. 29</span>
+              <li class="tab-content__item">
+                <div class="tab-content__body">
+                  <span class="badge badge--end">종료</span>
+                  <p class="tab-content__ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="tab-content__right">
+                    <div class="competition">
+                      <span class="competition__txt competiton__txt--team">000000</span>
+                      <span class="competition__txt">vs</span>
+                      <span class="competition__txt competiton__txt--team">000000</span>
+                    </div>
+                    <span class="tab-content__date">2022. 7. 27 - 2022. 7. 29</span>
+                  </div>
                 </div>
               </li>
-              <li class="sch_item">
-                <div class="sch_content">
-                  <span class="tag exp">예정</span>
-                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
-                  <span class="date">2022. 7. 27-<br class="d_none d_md_block" /> 2022. 7. 29</span>
+              <li class="tab-content__item">
+                <div class="tab-content__body">
+                  <span class="badge badge--end">종료</span>
+                  <p class="tab-content__ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="tab-content__right">
+                    <div class="competition">
+                      <span class="competition__txt competiton__txt--team">000000</span>
+                      <span class="competition__txt">vs</span>
+                      <span class="competition__txt competiton__txt--team">000000</span>
+                    </div>
+                    <span class="tab-content__date">2022. 7. 27 - 2022. 7. 29</span>
+                  </div>
                 </div>
               </li>
-              <li class="sch_item">
-                <div class="sch_content">
-                  <span class="tag exp">예정</span>
-                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
-                  <span class="date">2022. 7. 27-<br class="d_none d_md_block" /> 2022. 7. 29</span>
+              <li class="tab-content__item">
+                <div class="tab-content__body">
+                  <span class="badge badge--primary">예정</span>
+                  <p class="tab-content__ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="tab-content__right"><span class="tab-content__date">2022. 7. 27 - 2022. 7. 29</span></div>
                 </div>
               </li>
-              <li class="sch_item">
-                <div class="sch_content">
-                  <span class="tag exp">예정</span>
-                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
-                  <span class="date">2022. 7. 27-<br class="d_none d_md_block" /> 2022. 7. 29</span>
+              <li class="tab-content__item">
+                <div class="tab-content__body">
+                  <span class="badge badge--progress">진행중</span>
+                  <p class="tab-content__ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="tab-content__right"><span class="tab-content__date">2022. 7. 27 - 2022. 7. 29</span></div>
                 </div>
               </li>
-              <li class="sch_item">
-                <div class="sch_content">
-                  <span class="tag exp">예정</span>
-                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
-                  <span class="date">2022. 7. 27-<br class="d_none d_md_block" /> 2022. 7. 29</span>
+              <li class="tab-content__item">
+                <div class="tab-content__body">
+                  <span class="badge badge--success">신청중</span>
+                  <p class="tab-content__ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="tab-content__right"><span class="tab-content__date">2022. 7. 27 - 2022. 7. 29</span></div>
                 </div>
               </li>
-              <li class="sch_item">
-                <div class="sch_content">
-                  <span class="tag exp">예정</span>
-                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
-                  <span class="date">2022. 7. 27-<br class="d_none d_md_block" /> 2022. 7. 29</span>
+              <li class="tab-content__item">
+                <div class="tab-content__body">
+                  <span class="badge badge--end">종료</span>
+                  <p class="tab-content__ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="tab-content__right"><span class="tab-content__date">2022. 7. 27 - 2022. 7. 29</span></div>
                 </div>
               </li>
-              <li class="sch_item">
-                <div class="sch_content">
-                  <span class="tag exp">예정</span>
-                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
-                  <span class="date">2022. 7. 27-<br class="d_none d_md_block" /> 2022. 7. 29</span>
+              <li class="tab-content__item">
+                <div class="tab-content__body">
+                  <span class="badge badge--primary">예정</span>
+                  <p class="tab-content__ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="tab-content__right"><span class="tab-content__date">2022. 7. 27 - 2022. 7. 29</span></div>
                 </div>
               </li>
-              <li class="sch_item">
-                <div class="sch_content">
-                  <span class="tag exp">예정</span>
-                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
-                  <span class="date">2022. 7. 27-<br class="d_none d_md_block" /> 2022. 7. 29</span>
+              <li class="tab-content__item">
+                <div class="tab-content__body">
+                  <span class="badge badge--success">신청중</span>
+                  <p class="tab-content__ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="tab-content__right"><span class="tab-content__date">2022. 7. 27 - 2022. 7. 29</span></div>
                 </div>
               </li>
-              <li class="sch_item">
-                <div class="sch_content">
-                  <span class="tag exp">예정</span>
-                  <p class="ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
-                  <span class="date">2022. 7. 27-<br class="d_none d_md_block" /> 2022. 7. 29</span>
+              <li class="tab-content__item">
+                <div class="tab-content__body">
+                  <span class="badge badge--success">신청중</span>
+                  <p class="tab-content__ttl"><a href="#">2022 보령머드배 전국남녀 9인제 배구대회</a></p>
+                  <div class="tab-content__right"><span class="tab-content__date">2022. 7. 27 - 2022. 7. 29</span></div>
                 </div>
               </li>
             </ul>
-            <button class="btn btn_more">더보기</button>
+            <button class="tabs__more btn btn--more">더보기</button>
           </div>
         </div>
       </section>

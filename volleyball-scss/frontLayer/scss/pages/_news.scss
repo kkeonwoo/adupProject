@@ -1,8 +1,8 @@
 .news {
     &__content {
         &-header {
-            @extend .tbl__th
-        ;}   
+            @extend .tbl__th;
+        }   
         
         &-body {
             padding: 10px;
@@ -60,6 +60,16 @@
     }
 }
 
+.competition {
+    flex: 1;
+    flex-wrap: wrap;
+    @include flex();
+    &__txt {
+        font-weight: 600;
+        font-size: $font-normal + 2;
+    }
+}
+
 @include media-down(tab) {
     .news {
         &__ttl {
@@ -85,5 +95,11 @@
                 font-size: $font-small - 2;
             }
         }
+    }
+}
+
+@include media-down(mob) {
+    .competition {
+        justify-content: start;
     }
 }

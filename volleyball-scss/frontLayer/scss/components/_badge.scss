@@ -23,4 +23,13 @@
     &--success {
         background-color: $color-blue;
     }
+
+    &--progress {
+        background-color:$color-red2;
+    }
+
+    &--end {
+        background-color: $color-gray2;
+    }
+
 }
