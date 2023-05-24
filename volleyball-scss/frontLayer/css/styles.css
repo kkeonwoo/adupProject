@@ -2036,10 +2036,12 @@ input[type=number]::-webkit-outer-spin-button {
   align-items: center;
   justify-content: space-between;
 }
-.tab-content__date {
+.tab-content__date, .photo__date {
+  color: #6d6d6d;
+  font-size: 14px;
   margin-left: auto;
 }
-.tab-content__date span {
+.tab-content__date span, .photo__date span {
   font-size: inherit;
 }
 
@@ -2056,7 +2058,7 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
     align-items: start;
   }
-  .tab-content__date {
+  .tab-content__date, .photo__date {
     margin-left: 0;
   }
 }
@@ -3363,13 +3365,19 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .notice__tab {
   padding-right: 0;
+  text-align: initial;
 }
-.notice__tab .tabs {
+.notice__tab .tabs__list {
   display: flex;
   gap: 40px;
+  background-color: transparent;
+  margin-bottom: 0;
 }
 .notice__tab .tabs__item {
   position: relative;
+  width: auto;
+  background-color: transparent;
+  padding: 0;
 }
 .notice__tab .tabs__item--active::before {
   bottom: -1px;
@@ -3405,7 +3413,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .notice__tab .tab-content__item {
   padding: 16px 8px;
+  border: none;
   border-top: 1px solid #e2e2e2;
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -3417,7 +3427,7 @@ input[type=number]::-webkit-outer-spin-button {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.notice__tab .tab-content__date {
+.notice__tab .tab-content__date, .notice__tab .photo__date {
   display: inline-block;
   min-width: 112px;
   color: #6d6d6d;
@@ -3521,7 +3531,7 @@ input[type=number]::-webkit-outer-spin-button {
   .notice__tab .tabs__btn {
     font-size: 20px;
   }
-  .notice .tab-content__date {
+  .notice .tab-content__date, .notice .photo__date {
     min-width: 90px;
     font-size: 14px;
   }
@@ -3598,7 +3608,7 @@ input[type=number]::-webkit-outer-spin-button {
   .notice__content .tab-content__ttl {
     font-size: 14px;
   }
-  .notice__content .tab-content__date {
+  .notice__content .tab-content__date, .notice__content .photo__date {
     min-width: auto;
     font-size: 12px;
   }
@@ -3662,17 +3672,17 @@ input[type=number]::-webkit-outer-spin-button {
   position: relative;
 }
 .news__upload-txt em {
-  font-size: inherit;
   font-weight: 500;
+  font-size: inherit;
 }
 .news__upload-txt::after {
-  display: inline-block;
-  content: "";
   width: 1px;
   height: 16px;
-  background-color: #121212;
   margin: 0 16px;
+  background-color: #121212;
   transform: translateY(2px);
+  display: inline-block;
+  content: "";
 }
 .news__form {
   margin-top: 16px;
@@ -3685,8 +3695,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .competition {
-  flex: 1;
   flex-wrap: wrap;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3694,6 +3704,86 @@ input[type=number]::-webkit-outer-spin-button {
 .competition__txt {
   font-weight: 600;
   font-size: 18px;
+}
+
+.photo .gallery .photo_list .photo_item .img_box {
+  padding-top: 100%;
+}
+.photo .gallery .photo_list .photo_item .txt_area {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  z-index: 2;
+  gap: 4px;
+}
+.photo .gallery .photo_list .photo_item .txt_area .ttl {
+  display: -webkit-box;
+  overflow: hidden;
+  height: 3em;
+  font-weight: var(--weight-medium);
+  color: var(--color-white);
+  line-height: 1.5;
+  word-wrap: break-word;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+}
+.photo .gallery .photo_list .photo_item .txt_area .date {
+  font-size: 14px;
+  color: var(--color-white);
+  line-height: 1.5;
+}
+.photo__list {
+  display: grid;
+  margin-bottom: 35px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 24px;
+}
+.photo__item {
+  position: relative;
+  width: 100%;
+  transition: all 0.4s;
+}
+.photo__item::before {
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  transition: opacity 0.4s;
+  opacity: 0.4;
+  pointer-events: none;
+  display: block;
+  position: absolute;
+  content: "";
+}
+.photo__item:focus-within, .photo__item:hover {
+  transform: translateY(-10px);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+}
+.photo__item:focus-within::before, .photo__item:hover::before {
+  opacity: 0;
+}
+.photo__txt-area {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  padding: 20px;
+  color: #fff;
+}
+.photo__ttl {
+  color: inherit;
+}
+.photo__date {
+  display: inline-block;
+  margin-top: 4px;
+  color: inherit;
 }
 
 @media all and (max-width: 1200px) {

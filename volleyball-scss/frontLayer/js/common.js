@@ -177,7 +177,11 @@ Federation = {
         }
         
         // active 탭콘텐츠 보이기
-        matchItem();
+        $('.tab-content__item').show();
+
+        if(!$('.tabs__item:first').hasClass('tabs__item--active')) {
+            matchItem();
+        }
         
         //탭메뉴 클릭 이벤트
         $(document).on('click', '.tabs__btn', function (e) {

@@ -257,13 +257,22 @@
 
     &__tab {
         padding-right: 0;
+        text-align: initial;
 
         .tabs {
-            display: flex;
-            gap: 40px;
+
+            &__list {
+                display: flex;
+                gap: 40px;
+                background-color: transparent;
+                margin-bottom: 0;
+            }
 
             &__item {
                 position: relative;
+                width: auto;
+                background-color: transparent;
+                padding: 0;
 
                 &--active {
                     &::before {
@@ -306,7 +315,9 @@
 
             &__item {
                 padding: 16px 8px;
+                border: none;
                 border-top: 1px solid $color-gray5;
+                border-radius: 0;
                 @include flex(between);
             }
 

@@ -69,6 +69,8 @@
     }
 
     &__date {
+        color: $color-gray2;
+        font-size: $font-small;
         margin-left: auto;
         span {
             font-size: inherit;
