@@ -2,6 +2,7 @@
     &__content {
         position: relative;
         background-color: $color-white;
+        overflow-x: auto;
         
         @at-root .about-greeting &::before {
             top: 50%;

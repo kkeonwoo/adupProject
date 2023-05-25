@@ -284,40 +284,45 @@
         <!-- s:container -->
         <div id="container">
 
-            <section class="sec news_list_detail media video">
-                <div class="content_inner">
-                    <h2 class="ttl front_line">영상</h2>
-                    <div class="content tbl">
-                        <div class="content_header th">
-                            <p class="ttl">제목이 노출되는 영역입니다. 줄임 처리 없이 제목 모두 노출합니다.</p>
-                            <span class="date">2022-10-07 | 조회 : 25</span>
+            <section class="sec sec--type2 news">
+                <div class="sec__inner">
+                    <h2 class="sec__ttl sec__ttl--front-line">영상</h2>
+                    <div class="news__content">
+                        <div class="news__content-header">
+                            <p class="news__ttl">제목이 노출되는 영역입니다. 줄임 처리 없이 제목 모두 노출합니다.</p>
+                            <span class="news__date">2022-10-07 | 조회 : 25</span>
                         </div>
-                        <div class="content_body">
-                            <span class="txt">등록 영상 표시</span>
+                        <div class="news__content-body yui3-cssreset">
+                            <span class="news__txt">등록 콘텐츠 표시</span>
                         </div>
                     </div>
-                    <button type="button" class="btn btn_success lg">목록</button>
-                    <table class="tbl news_list_lnb">
-                        <caption>이전글, 다음글에 대한 내용, 작성 날짜 정보 확인</caption>
-                        <colgroup>
-                            <col class='w_px_105 md_w_px_85 sm_w_px_70'>
-                            <col>
-                        </colgroup>
-                        <tbody class="tbody">
-                            <tr>
-                                <th class="th"><span class="txt">이전글</span></th>
-                                <td class="td txt_align_left"><a href="#"><span class="txt">이전글 제목이 노출 되는
-                                            영역입니다…</span></a></td>
-                                <td class="td date"><span class="txt">2023-01-10</span></td>
-                            </tr>
-                            <tr>
-                                <th class="th"><span class="txt">다음글</span></th>
-                                <td class="td txt_align_left"><a href="#"><span class="txt">다음글 제목이 노출 되는
-                                            영역입니다…</span></a></td>
-                                <td class="td date"><span class="txt">2023-01-10</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="btn-wrap news__btn-wrap">
+                        <button type="button" class="btn btn--success btn--lg">목록</button>
+                    </div>
+                    <div class="tbl__box news__tbl-lnb">
+                        <table class="tbl tbl-row">
+                            <caption>이전글, 다음글에 대한 내용, 작성 날짜 정보 확인</caption>
+                            <colgroup>
+                                <col class='tbl-row__th'>
+                                <col>
+                                <col class="tbl-row__date">
+                            </colgroup>
+                            <tbody class="tbl__tbody">
+                                <tr>
+                                    <th scope="row" class="tbl__th"><span class="tbl__txt">이전글</span></th>
+                                    <td class="tbl__td tbl__ttl"><a href="#"><span class="tbl__txt">이전글 제목이 노출 되는
+                                                영역입니다…</span></a></td>
+                                    <td class="tbl__td"><span class="tbl__txt">2023-01-10</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="tbl__th"><span class="tbl__txt">다음글</span></th>
+                                    <td class="tbl__td tbl__ttl"><a href="#"><span class="tbl__txt">다음글 제목이 노출 되는
+                                                영역입니다…</span></a></td>
+                                    <td class="tbl__td"><span class="tbl__txt">2023-01-10</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </section>
 

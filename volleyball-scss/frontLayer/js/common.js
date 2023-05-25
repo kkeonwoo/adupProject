@@ -529,7 +529,7 @@ Federation = {
         };
         breakpoint.addListener(breakpointChecker);
         breakpointChecker()
-    }
+    },
 }
 $(function () {
     Federation.init();

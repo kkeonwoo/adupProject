@@ -2,7 +2,6 @@
     text-align: center;
 
     &__list {
-        flex-wrap: wrap;
         margin-bottom: 50px;
         background-color: $color-gray6;
         border-radius: 10px;
@@ -79,6 +78,20 @@
 }
 
 @include media-down(mob) {
+    .tabs {
+        &__list {
+            flex-direction: column;
+        }
+
+        &__item {
+            width: 100%;
+        }
+
+        &__txt {
+            font-size: $font-normal + 4;
+        }
+    }
+
     .tab-content {
         &__body {
             flex-wrap: wrap;

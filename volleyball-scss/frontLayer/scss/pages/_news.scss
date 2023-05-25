@@ -5,6 +5,9 @@
         }   
         
         &-body {
+            position: relative;
+            overflow: hidden;
+            min-height: 410px;
             padding: 10px;
             border-bottom: 1px solid $color-gray5;
         }
@@ -12,7 +15,6 @@
         &-footer {
             padding: 16px;
             @include flex(end, null);
-
         }
         
     }
@@ -58,6 +60,18 @@
     &__tbl-lnb {
         margin-top: 40px;
     }
+
+    &__swiper-btn {
+        &::after {
+            content: none !important;
+        }
+        &--prev {
+            background-image: url('../images/icons/arw_slider_prev_black.svg');
+        }
+        &--next {
+            background-image: url('../images/icons/arw_slider_next_black.svg');
+        }
+    }
 }
 
 .competition {
@@ -71,15 +85,10 @@
 }
 
 .photo {
-.gallery .photo_list .photo_item .img_box { padding-top: 100%;}
-.gallery .photo_list .photo_item .txt_area { display: flex; flex-direction: column; position: absolute; right: 20px; bottom: 20px; left: 20px; z-index: 2; gap: 4px;}
-.gallery .photo_list .photo_item .txt_area .ttl { display: -webkit-box; overflow: hidden; height: calc(1em * 2 * 1.5); font-weight: var(--weight-medium); color: var(--color-white); line-height: 1.5; word-wrap:break-word; -webkit-box-orient:vertical; text-overflow: ellipsis; -webkit-line-clamp: 2;}
-.gallery .photo_list .photo_item .txt_area .date { font-size: 14px; color: var(--color-white); line-height: 1.5;}
     &__list {
         display: grid;
         margin-bottom: 35px;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
         gap: 24px;
     }
 
@@ -87,6 +96,18 @@
         position: relative;
         width: 100%;
         transition: all 0.4s;
+
+        @at-root .photo--video &::after {
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            background: url('../images/icons/ico_play_white.svg') no-repeat center center / cover;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            pointer-events: none;
+            @include pseudo();
+        }
 
         &::before {
             top: 0;
@@ -108,8 +129,18 @@
         }
         
         &:focus-within::before,
-        &:hover::before {
+        &:hover::before,
+        &:focus-within::after,
+        &:hover::after {
             opacity: 0;
+        }
+    }
+
+    .img-box {
+        padding-top: 100%;
+
+        .video {
+            @extend .img-box__img
         }
     }
 
@@ -124,6 +155,8 @@
 
     &__ttl {
         color: inherit;
+        @include multiEllipsis(2);
+        height: auto; // multiEllipsis height 초기화
     }
 
     &__date {
@@ -160,10 +193,32 @@
             }
         }
     }
+
+    .photo {
+        &__list {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
 }
 
 @include media-down(mob) {
     .competition {
         justify-content: start;
+    }
+
+    .photo {
+        &__list {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        &__txt-area {
+            padding: 16px;
+        }
+    
+        &__date {
+            margin-top: 0;
+            font-size: $font-small - 2;
+        }
     }
 }

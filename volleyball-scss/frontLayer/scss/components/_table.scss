@@ -61,6 +61,14 @@
             text-align: left;
             padding: 16px 24px;
         }
+
+        @at-root tr &:last-child {
+            color: $color-gray2;
+        }
+    }
+
+    &__txt {
+        color: inherit;
     }
 
     &__ttl {
