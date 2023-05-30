@@ -176,24 +176,31 @@
     .mt_#{$i * 5} {
         margin-top: calc(#{$i} * 5px);
     }
-    
+}
+
+@for $i from 0 through 20 {
     .mb_#{$i * 5} {
         margin-bottom: calc(#{$i} * 5px);
     }
+}
+
+@for $i from 0 through 20 {
     .mx_#{$i * 5} {
         margin-left: calc(#{$i} * 5px);
         margin-right: calc(#{$i} * 5px);
     }
+}
 
+@for $i from 0 through 20 {
     .w_#{$i * 5} {
         width: #{$i * 5%} !important;
     }
+}
 
+@for $i from 0 through 20 {
     .w_px_#{$i * 10} {
         width: #{$i * 10px} !important;
     }
-
-    
 }
 
 @include media-down(tab) {
