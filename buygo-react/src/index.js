@@ -13,6 +13,7 @@ import {
 import GlobalStyle from "components/styles/GlobalStyle";
 import Theme from "components/styles/Theme";
 import { ThemeProvider } from "styled-components";
+import SearchResult from 'pages/SearchResult';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/cart',
         element: <Cart />
+      },
+      {
+        path: '/result/:search',
+        element: <SearchResult />
       },
     ]
   },

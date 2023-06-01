@@ -49,6 +49,11 @@ const GlobalStyles = createGlobalStyle`
     input[type=search]::-webkit-search-decoration {-webkit-appearance: none;}
     input[type=number]::-webkit-inner-spin-button,
     input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none;}
+
+    input[type=text] { display: flex; width: 100%; align-items: center; color: #666; transition: text-indent 0.45s;}
+    input[type=text]:focus { border-color: #666;}
+    input[type=text]::placeholder { transition: all .25s ease;}
+    input[type=text]:focus::placeholder { transform: translate(0.2em);}
 `
 
 export default GlobalStyles;

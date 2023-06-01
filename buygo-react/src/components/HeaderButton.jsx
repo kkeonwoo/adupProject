@@ -4,8 +4,12 @@ import { styled } from 'styled-components';
 
 export default function HeaderButton({path, children}) {
     const navigate = useNavigate();
+    const handleSideSlide = (e) => {
+        // 최근 본 상품 클릭 시
+        console.log('최근 본 상품 클릭~!');
+    }
     return (
-        <HeaderBtn onClick={() => {navigate(`/${path}`)}}>
+        <HeaderBtn type='button' onClick={() => { path === "recent" ? handleSideSlide() : (navigate(`/${path}`)) }}>
             <BtnIco path={path}>
                 { path === 'cart' && <BtnCount>4</BtnCount>}
             </BtnIco>
@@ -16,6 +20,10 @@ export default function HeaderButton({path, children}) {
 
 const HeaderBtn = styled.button`
     position: relative;
+    margin-right: 10px;
+    &:last-child {
+        margin-right: 0;
+    }
 `
 
 const BtnIco = styled.i`
@@ -26,7 +34,7 @@ const BtnIco = styled.i`
     background-position: center center;
     background-size: 100% auto;
     background-repeat: no-repeat;
-    background-image: ${(props) => `url(${require(`../../assets/images/icons/ico_${props.path}.svg`)})`};
+    background-image: ${(props) => `url(${require(`../assets/images/icons/ico_${props.path}.svg`)})`};
 `
 const BtnTxt = styled.span`
     font-size: 12px;
@@ -42,8 +50,8 @@ const BtnCount = styled.span`
     min-width: 21px;
     height: 21px;
     padding: 0 6px;
-    background-color: #e8380c;
-    font-family: ;
+    background-color: ${({theme}) => theme.lightMode.danger};
+    font-family: ${({theme}) => theme.fontFamily.Tahoma};
     font-weight: 700;
     font-size: 15px;
     color: #fff;

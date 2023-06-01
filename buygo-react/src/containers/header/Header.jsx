@@ -1,6 +1,6 @@
 import React from 'react';
-import SearchBar from 'components/common/SearchBar';
-import HeaderButton from 'components/common/HeaderButton';
+import SearchBar from 'components/SearchBar';
+import HeaderButton from 'components/HeaderButton';
 import logo from 'assets/images/img/logo.svg'
 
 import { Link } from 'react-router-dom';
@@ -13,11 +13,11 @@ export default function Header() {
                 <Logo to="/" preventScrollReset={true} role='link' aria-label='사자고 로고'></Logo>
             </h1>
             <SearchBar />
-            <div className="util">
+            <HeaderUtil>
                 <HeaderButton path="mypage">마이페이지</HeaderButton>
                 <HeaderButton path="recent">최근 본 상품</HeaderButton>
                 <HeaderButton path="cart">장바구니</HeaderButton>
-            </div>
+            </HeaderUtil>
         </HeaderContainer>
     );
 }
@@ -40,4 +40,8 @@ const HeaderContainer = styled.header`
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+`
+
+const HeaderUtil = styled.div`
+    margin-left: auto;
 `
