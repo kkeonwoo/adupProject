@@ -17,4 +17,5 @@
 {"id":17,"company_name":"Kare","ip_address":"120.224.115.100","time":"12:51","product":"Salmon Steak - Cohoe 8 Oz","money":"$28.86","origin":"CNY"},
 {"id":18,"company_name":"Thoughtstorm","ip_address":"182.235.35.87","time":"22:18","product":"Shrimp - Prawn","money":"$31.86","origin":"EUR"},
 {"id":19,"company_name":"Gabspot","ip_address":"121.87.241.154","time":"12:38","product":"Wine - Ej Gallo Sonoma","money":"$10.32","origin":"CNY"},
-{"id":20,"company_name":"Abatz","ip_address":"185.156.222.82","time":"1:25","product":"Octopus","money":"$33.51","origin":"CNY"}]
+{"id":20,"company_name":"Abatz","ip_address":"185.156.222.82","time":"1:25","product":"Octopus","money":"$33.51","origin":"CNY"},
+{"id":20,"company_name":"Abatz","ip_address":"185.156.222.83","time":"5:25","product":"octopus","money":"$31.51","origin":"CNY"}]

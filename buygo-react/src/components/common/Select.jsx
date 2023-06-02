@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+
 import styled from 'styled-components';
 import uuid from 'react-uuid';
 
@@ -8,18 +9,7 @@ export default function Select({ optionData }) {
     const [ selected, setSelected] = useState(false);
     const [ currentValue, setCurrentValue] = useState(optionData[0]);
     const wrapperRef = useRef(null);
-    const useOutsideClose = (ref) => {
-        useEffect(() => {
-        function handleClickOutside (e) {
-            if (ref.current && !ref.current.contains(e.target)) {
-            setIsOpen(false);
-            }
-        }
-        return () => {
-            document.addEventListener('click', handleClickOutside);
-        }
-        },[ref])
-    }
+
     const handleValue = (e, idx) => {
         let value = e.target.innerText;
 
@@ -28,21 +18,45 @@ export default function Select({ optionData }) {
         setSelected(true);
         setCurrentValue(value);
     }
+
+    const useOutsideClose = (ref) => {
+        useEffect(() => {
+        function handleClickOutside (e) {
+            if (ref.current && !ref.current.contains(e.target)) {
+                setIsOpen(false);
+            }
+        }
+        return () => {
+            document.addEventListener('click', handleClickOutside);
+        }
+        },[ref])
+    }
     useOutsideClose(wrapperRef);
+
     return (
         <FormSelect ref={wrapperRef} className={isOpen && 'active'}>
-        <FormBtn type='button' onClick={() => setIsOpen((prev) => !prev)} className={selected && 'active'}>{currentValue}</FormBtn>
-        <OptionArea className={isOpen && 'active'}>
-            <ul>
-            { optionData.map((option, idx) => {
-                return (
-                <OptionItem key={uuid()} className={saveValue === idx ? 'active' : ''}>
-                    <OptionButton onClick={(e) => handleValue(e, idx)}>{option}</OptionButton>
-                </OptionItem>
-                )
-            })}
-            </ul>
-        </OptionArea>
+            <FormBtn 
+                type='button'
+                onClick={() => setIsOpen((prev) => !prev)}
+                className={selected && 'active'}
+            >
+                {currentValue}
+            </FormBtn>
+            <OptionArea className={isOpen && 'active'}>
+                <ul>
+                    { optionData && optionData.map((option, idx) => {
+                        return (
+                        <OptionItem 
+                            id={idx}
+                            key={uuid()}
+                            className={saveValue === idx ? 'active' : ''}
+                        >
+                            <OptionButton onClick={(e) => handleValue(e, idx)}>{option}</OptionButton>
+                        </OptionItem>
+                        )
+                    })}
+                </ul>
+            </OptionArea>
         </FormSelect>
     );
 }

@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 import SearchButton from 'components/common/SearchButton';
 import Select from 'components/common/Select';
+import SearchRelated from './SearchRelated';
 
 import { styled } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
+
 export default function SearchBar() {
     const [ text, setText ] = useState('');
     const navigate = useNavigate();
-    const handleSubmit = () => {
+    
+    const handleChange = (e) => setText(e.target.value.toLowerCase());
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        if(text.trim().length === 0) {
+            return false;
+        }
         navigate(`/result/${text}`);
     }
-    const handleClick = (e) => {
-        e.preventDefault();
-
-        setText('');
-        handleSubmit();
-    }
-    const handleChange = (e) => setText(e.target.value);
 
     return (
         <SearchContainer onSubmit={handleSubmit}>
@@ -25,13 +27,15 @@ export default function SearchBar() {
                 <Select optionData={['전체', '면류/즉석식품', '스낵', '커피/음료/건강식품', '식자재', '신선식품', '냉장/냉동식품', '선물세트', '생활잡화', 'MRO']}/>
             </SelectBox>
             <SearchInput type="text" value={text} onChange={handleChange} placeholder='검색어나 상품코드를 입력하세요.' />
-            <SearchButton click={handleClick} />
+            <SearchRelated text={text} />
+            <SearchButton />
         </SearchContainer>
     );
 }
 
 const SearchContainer = styled.form`
     display: flex;
+    position: relative;
     width: 680px;
     margin-left: 20px;
     border: 2px solid ${({theme}) => theme.lightMode.danger };

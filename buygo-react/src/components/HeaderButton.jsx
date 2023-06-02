@@ -10,7 +10,7 @@ export default function HeaderButton({path, children}) {
     }
     return (
         <HeaderBtn type='button' onClick={() => { path === "recent" ? handleSideSlide() : (navigate(`/${path}`)) }}>
-            <BtnIco path={path}>
+            <BtnIco path={path} aria-hidden={true}>
                 { path === 'cart' && <BtnCount>4</BtnCount>}
             </BtnIco>
             <BtnTxt>{children}</BtnTxt>
