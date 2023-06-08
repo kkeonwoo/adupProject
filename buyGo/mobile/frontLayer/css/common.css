@@ -715,7 +715,8 @@ a:hover{text-decoration:none;}
 .modal_close .modal_centered {transform: translate(0, 100px);}
 .modal h1 {font-size:28px;font-weight: 700;color: #000;text-align:center;}
 .modal_centered {display: flex;justify-content: center;align-items: center;overflow: hidden;width: 100%;min-height: 100%;padding: 50px 0;box-sizing: border-box;}
-.modal_box {position: relative;z-index: 100;width: 88.888888%;max-width: 475px;margin: auto;padding: 28px 20px 20px;border-radius: 4px;background-color: #fff;text-align: center;border-radius:10px;animation-timing-function: ease-out;animation-duration: 0.3s;animation-name: modal-inner;transform: translate(0, 0);transition: transform 0.3s ease-out;box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);}
+.modal_control { position: absolute;z-index: 100;}
+.modal_box {position: padding;z-index: 100;width: 88.888888vw;max-width: 475px;margin: auto;padding: 28px 20px 20px;border-radius: 4px;background-color: #fff;text-align: center;border-radius:10px;animation-timing-function: ease-out;animation-duration: 0.3s;animation-name: modal-inner;transform: translate(0, 0);transition: transform 0.3s ease-out;box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);}
 [color-theme='dark'] .modal_box { background-color: var(--fn-gray-dark-400);}
 .modal_box.modal_lg { max-width: 700px;}
 .modal .btn_modal_close {display:block;position: absolute;right: 12px; top: 12px; width: 26px; height: 26px; border-radius: 50%; background-image: url('../images/icons/ico_close.svg'); background-position: center center; background-size: 50% auto; background-color: var(--fn-white); background-repeat: no-repeat;}

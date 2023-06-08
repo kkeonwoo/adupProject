@@ -247,6 +247,12 @@ BuyGo = {
             $modal = $($(this).data('target'));
             BuyGo.openModal($modal);
         });
+
+        $('.modal_control').draggable({
+            drag: function( event, ui ) {
+                $(ui.helper).css({'z-index':200}).siblings('.modal_control').css({'z-index':100});
+            }
+        });
     },
     closeModal: function (
         $modal,
@@ -254,7 +260,6 @@ BuyGo = {
     ) {
         fn.removeHidden();
         $('.modal').off('scroll', function () { });
-        $('html, body').removeClass('hidden');
         $modal.addClass('modal_close');
         $modal.removeClass('active');
         focusedElementBeforeModal.focus();
@@ -267,6 +272,7 @@ BuyGo = {
         //     $('.address_field .form_control').val('');
         // });
     },
+   
     openModal: function (
         $modal,
         focusableElementsString = '.modal_centered, a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]',
@@ -289,6 +295,13 @@ BuyGo = {
             }
         })
 
+        $modal.find('.modal_control').each((i,t)=>{
+            let gapX = 10,
+            gapY = 10;
+
+            t.querySelector('.modal_box').style.translate = `${gapX*i}px ${gapY*i}px`;
+        });
+
         $modal.on('keydown', function (e) {
             trapTabKey(e);
         });
@@ -299,8 +312,17 @@ BuyGo = {
             }
         });
 
-        $modalCloseButton.on('click', function () {
-            BuyGo.closeModal($modal);
+        $modalCloseButton.off('click').on('click', function (e) {
+            console.log('close button click');
+            if($(e.currentTarget).closest('.modal_control').length){
+                if($(e.currentTarget).closest('.modal').find('.modal_control').length === 1){
+                    BuyGo.closeModal($modal);
+                }else{
+                    $(e.currentTarget).closest('.modal_control').remove();
+                }
+            }else{
+                BuyGo.closeModal($modal);
+            }
         })
 
         var focusableElements = $modal.find(focusableElementsString),
