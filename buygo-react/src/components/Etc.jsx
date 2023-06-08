@@ -1,13 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
+import NavButton from './common/NavButton';
 
 export default function Etc() {
     return (
         <EtcList>
-            <Link to={'/login'}>로그인</Link>
-            <Link to={'/signUp'}>회원가입</Link>
-            <Link to={'/cs'}>고객센터</Link>
+            <NavButton link={'/login'}>로그인</NavButton>
+            <NavButton link={'/signUp'}>회원가입</NavButton>
+            <NavButton link={'/cs'}>고객센터</NavButton>
         </EtcList>
     );
 }

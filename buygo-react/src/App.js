@@ -1,4 +1,5 @@
 import 'App.css';
+import 'assets/fonts/fonts.css'
 import Header from 'containers/header/Header';
 import Visual from 'containers/visual/Visual';
 

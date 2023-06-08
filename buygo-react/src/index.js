@@ -5,6 +5,9 @@ import App from 'App';
 import reportWebVitals from 'reportWebVitals';
 import Mypage from 'pages/Mypage';
 import Cart from 'pages/Cart';
+import Login from 'pages/Login';
+import SignUp from 'pages/SignUp';
+import Cs from 'pages/Cs';
 
 import {
   createBrowserRouter,
@@ -31,6 +34,18 @@ const router = createBrowserRouter([
       {
         path: '/result/:search',
         element: <SearchResult />
+      },
+      {
+        path: '/login',
+        element: <Login />
+      },
+      {
+        path: '/signUp',
+        element: <SignUp />
+      },
+      {
+        path: '/cs',
+        element: <Cs />
       },
     ]
   },

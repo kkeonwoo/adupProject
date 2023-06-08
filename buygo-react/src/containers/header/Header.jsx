@@ -40,6 +40,7 @@ const HeaderContainer = styled.header`
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 50px 0 30px;
 `
 
 const HeaderUtil = styled.div`
