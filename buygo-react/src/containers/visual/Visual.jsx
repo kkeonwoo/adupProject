@@ -5,13 +5,13 @@ import Service from './Service';
 import NavDepth01 from 'components/NavDepth01';
 
 export default function Visual() {
-    const [ categoryOpen, setCategoryOpen ] = useState(false);
+    const [ categoryOpen, setCategoryOpen ] = useState(true);
     const handleCategory = () => setCategoryOpen((prev) => !prev);
     return (
         <div>
             <Nav>
                 <div className="category_area">
-                    <CategoryBtn isActive={categoryOpen} type='button' onClick={handleCategory}>카테고리</CategoryBtn>
+                    <CategoryBtn open={categoryOpen} type='button' onClick={handleCategory}>카테고리</CategoryBtn>
                     { categoryOpen && <NavDepth01 >
 
                     </NavDepth01>}
@@ -54,6 +54,6 @@ const CategoryBtn = styled.button`
         background-position: center center;
         background-size: 100% auto;
         transition: transform .4s;
-        transform: ${(props) => props.isActive ? 'rotate(0deg)' : 'rotate(180deg)'};
+        transform: ${(props) => props.open ? 'rotate(0deg)' : 'rotate(180deg)'};
     }
 `
