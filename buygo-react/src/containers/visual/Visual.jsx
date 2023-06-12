@@ -3,26 +3,27 @@ import React, { useState } from 'react';
 import { styled } from 'styled-components';
 import Service from './Service';
 import NavDepth01 from 'components/NavDepth01';
+import SwiperBanner from 'components/SwiperBanner';
 
 export default function Visual() {
     const [ categoryOpen, setCategoryOpen ] = useState(true);
     const handleCategory = () => setCategoryOpen((prev) => !prev);
     return (
-        <div>
+        <Visual>
             <Nav>
-                <div className="category_area">
+                <CategoryArea>
                     <CategoryBtn open={categoryOpen} type='button' onClick={handleCategory}>카테고리</CategoryBtn>
                     { categoryOpen && <NavDepth01 >
 
                     </NavDepth01>}
-                </div>
+                </CategoryArea>
                 <Service/>
                 <Etc/>
             </Nav>
-            { categoryOpen && <div className="banner_area">
-                banner
-            </div>}
-        </div>
+            <BannerArea>
+                { categoryOpen && <SwiperBanner/>}
+            </BannerArea>
+        </Visual>
     );
 }
 
@@ -31,6 +32,10 @@ const Nav = styled.nav`
     width: 1200px;
     margin: 0 auto;
     background-color: ${({theme}) => theme.lightMode.danger };
+`
+
+const CategoryArea = styled.div`
+    position: relative;
 `
 
 const CategoryBtn = styled.button`
@@ -56,4 +61,9 @@ const CategoryBtn = styled.button`
         transition: transform .4s;
         transform: ${(props) => props.open ? 'rotate(0deg)' : 'rotate(180deg)'};
     }
+`
+
+const BannerArea = styled.div`
+    width: 1200px;
+    margin: 0 auto;
 `
