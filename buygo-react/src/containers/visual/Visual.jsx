@@ -1,31 +1,34 @@
-import Etc from 'components/Etc';
 import React, { useState } from 'react';
-import { styled } from 'styled-components';
-import Service from './Service';
+import Etc from 'components/Etc';
+import Service from 'components/Service';
 import NavDepth01 from 'components/NavDepth01';
 import SwiperBanner from 'components/SwiperBanner';
+
+import { styled } from 'styled-components';
 
 export default function Visual() {
     const [ categoryOpen, setCategoryOpen ] = useState(true);
     const handleCategory = () => setCategoryOpen((prev) => !prev);
     return (
-        <Visual>
+        <VisualArea>
             <Nav>
                 <CategoryArea>
                     <CategoryBtn open={categoryOpen} type='button' onClick={handleCategory}>카테고리</CategoryBtn>
-                    { categoryOpen && <NavDepth01 >
-
-                    </NavDepth01>}
+                    { categoryOpen && <NavDepth01/>}
                 </CategoryArea>
                 <Service/>
                 <Etc/>
             </Nav>
             <BannerArea>
-                { categoryOpen && <SwiperBanner/>}
+                <SwiperBanner/>
             </BannerArea>
-        </Visual>
+        </VisualArea>
     );
 }
+
+const VisualArea = styled.div`
+    overflow: hidden;
+`
 
 const Nav = styled.nav`
     display: flex;

@@ -6,7 +6,7 @@ import banner03 from 'assets/images/@/@banner03.jpg'
 import banner04 from 'assets/images/@/@banner04.jpg'
 
 // import Swiper styles
-import "swiper/swiper.css";
+import "swiper/css";
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
@@ -19,13 +19,14 @@ export default function SwiperBanner() {
     return (
         <BannerSwiperWrap>
             <BannerSwiperBtn className='swiper-prev' />
-            <Swiper
+            <BannerSwiper
                 slidesPerView={"auto"}
                 loop={true}
-                // autoplay={{
-                //     delay:2500,
-                //     disableOnInteraction: false,
-                // }}
+                loopedSlides={2}
+                autoplay={{
+                    delay:2500,
+                    disableOnInteraction: false,
+                }}
                 pagination={{
                     clickable: true,
                 }}
@@ -37,25 +38,25 @@ export default function SwiperBanner() {
             >
                 <BannerSwiperSlide>
                     <Link>
-                        <img src={banner01} alt="오뚜기 X 사자고 톡톡 김치알밥 신상품 특가 22.10.4 ~ 10.25" />
+                        <BannerSwiperImg src={banner01} alt="오뚜기 X 사자고 톡톡 김치알밥 신상품 특가 22.10.4 ~ 10.25" />
                     </Link>
                 </BannerSwiperSlide>
                 <BannerSwiperSlide>
                     <Link>
-                        <img src={banner02} alt="애경 더마앤모어 두피 딥클렌징 샴푸 특가 이벤트 22.10.4 ~ 10.25" />
+                        <BannerSwiperImg src={banner02} alt="애경 더마앤모어 두피 딥클렌징 샴푸 특가 이벤트 22.10.4 ~ 10.25" />
                     </Link>
                 </BannerSwiperSlide>
                 <BannerSwiperSlide>
                     <Link>
-                        <img src={banner03} alt="" />
+                        <BannerSwiperImg src={banner03} alt="" />
                     </Link>
                 </BannerSwiperSlide>
                 <BannerSwiperSlide>
                     <Link>
-                        <img src={banner04} alt="" />
+                        <BannerSwiperImg src={banner04} alt="" />
                     </Link>
                 </BannerSwiperSlide>
-            </Swiper>
+            </BannerSwiper>
             <BannerSwiperBtn className='swiper-next' />
         </BannerSwiperWrap>
     );
@@ -63,13 +64,24 @@ export default function SwiperBanner() {
 
 const BannerSwiperWrap = styled.div`
     position: relative;
+    margin-left: 225px;
+`
+
+const BannerSwiper = styled(Swiper)`
+    overflow: visible;
 `
 
 const BannerSwiperSlide = styled(SwiperSlide)`
-    padding-left: 225px;
+    height: 380px;
     &.swiper-slide-active {
         width: calc(1200px - 225px);
     }
+`
+
+const BannerSwiperImg = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 `
 
 const BannerSwiperBtn = styled.button`
