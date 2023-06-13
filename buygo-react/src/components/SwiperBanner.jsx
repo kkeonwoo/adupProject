@@ -1,10 +1,12 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { styled } from 'styled-components';
 import banner01 from 'assets/images/@/@banner01.jpg'
 import banner02 from 'assets/images/@/@banner02.jpg'
 import banner03 from 'assets/images/@/@banner03.jpg'
 import banner04 from 'assets/images/@/@banner04.jpg'
 
+import { Swiper, SwiperSlide } from "swiper/react";
 // import Swiper styles
 import "swiper/css";
 import 'swiper/css/navigation';
@@ -12,22 +14,44 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
-import { Link } from 'react-router-dom';
-import { styled } from 'styled-components';
 
 export default function SwiperBanner() {
+    const [ swiperRef, setSwiperRef ] = useState(null);
+    const [ swiperControl, setSwiperControl ] = useState(true);
+
+    const controlSwiper = () => {
+        setSwiperControl((prev) => !prev)
+        console.log(swiperControl);
+        swiperControl ? playSwiper() : pauseSwiper();
+    }
+    function playSwiper () {
+        console.log('aaa');
+        swiperRef.autoplay.start()
+    }
+    
+    function pauseSwiper () {
+        console.log('bbb');
+        swiperRef.autoplay.stop()
+    } 
+
+    const handleAllBanner = () => {
+        console.log('open all banner');
+    }
     return (
         <BannerSwiperWrap>
             <BannerSwiperBtn className='swiper-prev' />
             <BannerSwiper
+                onSwiper={setSwiperRef}
                 slidesPerView={"auto"}
                 loop={true}
-                loopedSlides={2}
+                centeredSlides={true}
                 autoplay={{
                     delay:2500,
                     disableOnInteraction: false,
                 }}
                 pagination={{
+                    el: '.swiper_pagination',
+                    type: "fraction",
                     clickable: true,
                 }}
                 navigation={{
@@ -58,6 +82,13 @@ export default function SwiperBanner() {
                 </BannerSwiperSlide>
             </BannerSwiper>
             <BannerSwiperBtn className='swiper-next' />
+            <BottomArea>
+                <BannerSwiperController className="swiper_controller">
+                    <BannerSwiperPagination className="swiper_pagination"></BannerSwiperPagination>
+                    <BannerSwiperPlay type='button' onClick={controlSwiper} className={swiperControl ? 'swiper_play' : 'swiper_play pause'}></BannerSwiperPlay>
+                </BannerSwiperController>
+                <button type='button' onClick={handleAllBanner}></button>
+            </BottomArea>
         </BannerSwiperWrap>
     );
 }
@@ -82,6 +113,43 @@ const BannerSwiperImg = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
+`
+
+const BannerSwiperController = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 25px;
+    background-color: rgba(0, 0, 0, .25);
+    border-radius: 50px;
+    z-index: 20;
+`
+
+const BannerSwiperPagination = styled.div`
+    color: ${({theme}) => theme.lightMode.white };
+`
+
+const BottomArea = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+`
+
+const BannerSwiperPlay = styled.button`
+    min-width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: rgba(0, 0, 0, .45);
+    background-image: url(${require('assets/images/icons/ico_pause_white.svg').default});
+    
+    &.pause {
+        background-image: url(${require('assets/images/icons/ico_play_white.svg').default});
+    }
 `
 
 const BannerSwiperBtn = styled.button`
