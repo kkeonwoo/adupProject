@@ -18,22 +18,20 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 export default function SwiperBanner() {
     const [ swiperRef, setSwiperRef ] = useState(null);
     const [ swiperControl, setSwiperControl ] = useState(true);
-
+    const [ eventClick, setEventClick ] = useState(false);
+    
     const controlSwiper = () => {
-        setSwiperControl((prev) => !prev)
-        console.log(swiperControl);
-        swiperControl ? playSwiper() : pauseSwiper();
-    }
-    function playSwiper () {
-        console.log('aaa');
-        swiperRef.autoplay.start()
+        setSwiperControl((prev) => !prev);
+        setEventClick(true);
     }
     
-    function pauseSwiper () {
-        console.log('bbb');
-        swiperRef.autoplay.stop()
-    } 
-
+    function autoPlaySwiper () {
+        if (eventClick) {
+            swiperControl ? swiperRef.autoplay.start() : swiperRef.autoplay.stop();
+        }
+    }
+    autoPlaySwiper();
+    
     const handleAllBanner = () => {
         console.log('open all banner');
     }
@@ -72,22 +70,22 @@ export default function SwiperBanner() {
                 </BannerSwiperSlide>
                 <BannerSwiperSlide>
                     <Link>
-                        <BannerSwiperImg src={banner03} alt="" />
+                        <BannerSwiperImg src={banner03} alt="사자고 선물세트 블랙세일 2022.11.25" />
                     </Link>
                 </BannerSwiperSlide>
                 <BannerSwiperSlide>
                     <Link>
-                        <BannerSwiperImg src={banner04} alt="" />
+                        <BannerSwiperImg src={banner04} alt="오리온 X 사자고 오리온 국민과자 통큰 세일 2023.4.20 ~ 5.5" />
                     </Link>
                 </BannerSwiperSlide>
             </BannerSwiper>
             <BannerSwiperBtn className='swiper-next' />
             <BottomArea>
-                <BannerSwiperController className="swiper_controller">
+                <BannerSwiperController>
                     <BannerSwiperPagination className="swiper_pagination"></BannerSwiperPagination>
                     <BannerSwiperPlay type='button' onClick={controlSwiper} className={swiperControl ? 'swiper_play' : 'swiper_play pause'}></BannerSwiperPlay>
                 </BannerSwiperController>
-                <button type='button' onClick={handleAllBanner}></button>
+                <BannerAllBtn type='button' onClick={handleAllBanner}></BannerAllBtn>
             </BottomArea>
         </BannerSwiperWrap>
     );
@@ -96,6 +94,23 @@ export default function SwiperBanner() {
 const BannerSwiperWrap = styled.div`
     position: relative;
     margin-left: 225px;
+    &::before,
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .2);
+    }
+    &::before {
+        right: 100%;
+    }
+    &::after {
+        left: 100%;
+    }
 `
 
 const BannerSwiper = styled(Swiper)`
@@ -113,6 +128,27 @@ const BannerSwiperImg = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
+`
+
+const BannerSwiperBtn = styled.button`
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 10;
+
+    &.swiper-prev {
+        left: 25px;
+        background-image:  url(${require('assets/images/icons/arw_prev_white.svg').default});
+    }
+
+    &.swiper-next {
+        right: 25px;
+        background-image:  url(${require('assets/images/icons/arw_next_white.svg').default});
+    }
 `
 
 const BannerSwiperController = styled.div`
@@ -136,6 +172,7 @@ const BottomArea = styled.div`
     position: absolute;
     bottom: 15px;
     right: 15px;
+    z-index: 5;
 `
 
 const BannerSwiperPlay = styled.button`
@@ -149,26 +186,10 @@ const BannerSwiperPlay = styled.button`
     
     &.pause {
         background-image: url(${require('assets/images/icons/ico_play_white.svg').default});
+        background-size: 10px auto;
     }
 `
 
-const BannerSwiperBtn = styled.button`
-    position: absolute;
-    width: 40px;
-    height: 60px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-position: center center;
-    background-repeat: no-repeat;
-    z-index: 10;
-
-    &.swiper-prev {
-        left: 25px;
-        background-image:  url(${require('assets/images/icons/arw_prev_white.svg').default});
-    }
-
-    &.swiper-next {
-        right: 25px;
-        background-image:  url(${require('assets/images/icons/arw_next_white.svg').default});
-    }
+const BannerAllBtn = styled(BannerSwiperPlay)`
+    background-image: url(${require('assets/images/icons/ico_more_white.svg').default});
 `

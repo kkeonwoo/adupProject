@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Etc from 'components/Etc';
 import Service from 'components/Service';
 import NavDepth01 from 'components/NavDepth01';
-import SwiperBanner from 'components/SwiperBanner';
+import BannerSwiper from 'components/BannerSwiper';
 
 import { styled } from 'styled-components';
 
@@ -20,7 +20,7 @@ export default function Visual() {
                 <Etc/>
             </Nav>
             <BannerArea>
-                <SwiperBanner/>
+                <BannerSwiper/>
             </BannerArea>
         </VisualArea>
     );

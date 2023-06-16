@@ -28,7 +28,7 @@ export default function SearchRelated({ text }) {
         <DropdownArea className={relatedText ? 'active' : ''}>
             { isLoading && <MsgText>is Loading... 👀</MsgText>}
             { error && <MsgText>error 🤢</MsgText>}
-            { relatedSearch && <MsgText>No matching search terms ❌</MsgText>}
+            {/* { !relatedSearch && <MsgText>No matching search terms ❌</MsgText>} */}
             <ul>
                 { relatedSearch && relatedSearch.map((item, idx) => {
                     return <li key={uuid()} onClick={(e) => handleLink(item)}>
@@ -44,7 +44,7 @@ const DropdownArea = styled.div`
     display: none;
     position: absolute;
     overflow-y: auto;
-    top: calc(100% + 1px);
+    top: 100%;
     left: 200px;
     width: 456px;
     min-height: 490px;
