@@ -291,6 +291,7 @@
 .ttl_area .more_link::after { content: ''; display: block; width: 22px; min-width: 22px; height: 22px; background-image: url('../../frontLayer/images/icons/arw_right_circle_red.svg'); background-position: center center; background-size: 100% auto; background-repeat: no-repeat;}
 
 .type2 .ttl_area { display: flex; justify-content: start; align-items: end; gap: 10px; }
+.type2 .ttl_area .img_box .ico { width: 25px; height: 25px; border-radius: 100%; overflow: hidden; object-fit: contain;}
 .type2 .ttl_area .form_select {margin-left: auto;}
 .type2 .ttl_area .form_select .form_btn{border: none;}
 .ttl_area .sub_ttl { font-size: 14px; }
@@ -406,7 +407,7 @@
 .thumb_swiper_card .thumb_info { margin-top: 30px;}
 .thumb_swiper_wrap3.type2 .thumb_swiper_card .thumb_area .thumb { padding-top: 0;}
 .thumb_swiper_wrap3.type2 .thumb_swiper_card .thumb_area .thumb .thumb_content { display: flex; align-items: center; gap: 50px; padding: 15px 55px;}
-.thumb_swiper_wrap3.type2 .thumb_swiper_card .thumb_area .thumb .thumb_img_area .thumb_img { position: relative; width: 200px; padding-top: 100%; border-radius: 100%;}
+.thumb_swiper_wrap3.type2 .thumb_swiper_card .thumb_area .thumb .thumb_img_area .thumb_img { position: relative; width: 200px; padding-top: 100%; overflow: hidden; border-radius: 100%;}
 .thumb_swiper_wrap3.type2 .thumb_swiper_card .thumb_area .thumb .thumb_info_area { flex: 1; text-align: left;}
 .thumb_swiper_wrap3.type2 .thumb_swiper_card .thumb_area .thumb .thumb_info_area img { position: static; width: 64px; height: auto;}
 .thumb_swiper_wrap3.type2 .thumb_swiper_card .thumb_area .thumb .thumb_info_area .txt { display: block; margin-top: 10px; font-size: 20px; line-height: 27px;}

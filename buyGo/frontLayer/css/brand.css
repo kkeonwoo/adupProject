@@ -29,6 +29,8 @@
 .brand_list_box .initial_ttl {margin-bottom: 45px;font-weight: bold;font-size: 26px;}
 .brand_list_box .brand_item_list {display: flex;flex-wrap: wrap;gap: 20px 0;}
 .brand_list_box .brand_item_list li{padding-right: 35px;flex: 0 0 16.66%;}
+.brand_list_box .brand_item_list .brand_link { position: relative; display: flex; align-items: center; gap: 10px;}
 .brand_list_box .brand_item_list .brand_link span{font-size: 18px;}
+.brand_list_box .brand_item_list .brand_link .ico { display: block; width: 30px; height: 30px; border-radius: 100%; overflow: hidden; object-fit: contain;}
 .no_search_result {padding-top: 40px; text-align: center;}
 .no_search_result .txt{padding-top: 15px;font-size: 21px;color: var(--fn-gray-500);}

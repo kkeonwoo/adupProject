@@ -1143,6 +1143,8 @@ div[class*="modal_password"] .inc_form .timer { position: absolute; right: 0; wi
   .cart_sec .obj_order_info_area .obj_order_total_box .price_end_box.type2 .ttl { font-size: 15px;}
   .cart_sec .obj_order_info_area .obj_order_total_box .price_end_box .txt .num,
   .cart_sec .obj_order_info_area .obj_order_total_box .price_end_box.type2 .txt .num { font-size: 17px;}
+  .cart_sec .obj_order_info_area .btn_area.type3 .price_end_box.type2 .txt .num { word-break: break-all;}
+  .cart_sec .obj_order_info_area .btn_area.type3 .btn { width: 100%; min-width: unset; max-width: 160px;}
   .cart_sec .obj_order_info_area .obj_order_total_box .total_view_box .pay_info_box { margin-top: 0; padding: 12px; align-items: start; background-color: var(--fn-white);}
   [color-theme='dark'] .cart_sec .obj_order_info_area .obj_order_total_box .total_view_box .pay_info_box { background-color: var(--fn-gray-dark-400);}
   .cart_sec .obj_order_info_area .btn_area { position: fixed; right: 0; bottom: 0; left: 0; padding: 18px 12px; border-top: 1px solid var(--fn-gray-500); background-color: var(--fn-white);}

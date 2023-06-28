@@ -575,6 +575,7 @@ a:hover{text-decoration:none;}
 [color-theme='dark'] .form_select .form_btn { border: 1px solid var(--fn-gray-620); background-color: var(--fn-gray-dark-400); color: var(--fn-gray-400);}
 .form_select_sm .form_btn { font-size: 12px; line-height: 1.583333;}
 .form_select .form_btn.active { color: #191919; }
+[color-theme='dark'] .form_select .form_btn.active { color: var(--fn-gray-400); }
 .form_select .form_btn:disabled { color: var(--fn-gray-700); background-color: var(--fn-gray-200); cursor: not-allowed;}
 .form_select .form_btn::after { content: ''; display: block; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; background-image: url('../images/icons/arw_down_gray_sm.svg'); background-position: center center; background-size: 100% auto; background-repeat: no-repeat; pointer-events: none; transition: transform .45s; }
 .form_select.active .form_btn::after { transform: translateY(-50%) rotate(180deg); }
@@ -714,6 +715,7 @@ a:hover{text-decoration:none;}
 .modal_close {display:none;opacity: 0;}
 .modal_close .modal_centered {transform: translate(0, 100px);}
 .modal h1 {font-size:28px;font-weight: 700;color: #000;text-align:center;}
+#modalAd .modal_centered { align-items: unset;}
 .modal_centered {display: flex;justify-content: center;align-items: center;overflow: hidden;width: 100%;min-height: 100%;padding: 50px 0;box-sizing: border-box;}
 .modal_control { position: absolute;z-index: 100;}
 .modal_box {position: padding;z-index: 100;width: 88.888888vw;max-width: 475px;margin: auto;padding: 28px 20px 20px;border-radius: 4px;background-color: #fff;text-align: center;border-radius:10px;animation-timing-function: ease-out;animation-duration: 0.3s;animation-name: modal-inner;transform: translate(0, 0);transition: transform 0.3s ease-out;box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);}
