@@ -410,8 +410,8 @@
 .thumb_swiper_wrap3.type2 .thumb_swiper_card .thumb_area .thumb .thumb_img_area .thumb_img { position: relative; width: 200px; padding-top: 100%; overflow: hidden; border-radius: 100%;}
 .thumb_swiper_wrap3.type2 .thumb_swiper_card .thumb_area .thumb .thumb_info_area { flex: 1; text-align: left;}
 .thumb_swiper_wrap3.type2 .thumb_swiper_card .thumb_area .thumb .thumb_info_area img { position: static; width: 64px; height: auto;}
-.thumb_swiper_wrap3.type2 .thumb_swiper_card .thumb_area .thumb .thumb_info_area .txt { display: block; margin-top: 10px; font-size: 20px; line-height: 27px;}
-.thumb_swiper_wrap3.type2 .thumb_swiper_card .thumb_area .thumb .thumb_info_area .txt.bold { font-weight: 700;}
+.thumb_swiper_wrap3.type2 .thumb_swiper_card .thumb_area .thumb .thumb_info_area .txt { display: block; margin-top: 10px; font-size: 20px; line-height: 27px; color: var(--fn-black);}
+.thumb_swiper_wrap3.type2 .thumb_swiper_card .thumb_area .thumb .thumb_info_area .txt.bold { font-weight: 700; color: var(--fn-black);}
 .thumb_swiper_wrap4.type2 .thumb_swiper_card .thumb_area .thumb { padding-top: calc(229 / 588 * 100%);}
 
 .prot_swiper_wrap { position: relative;}

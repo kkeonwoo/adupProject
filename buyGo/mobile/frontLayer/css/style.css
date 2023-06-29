@@ -402,8 +402,8 @@
 .thumb_swiper_wrap.type2 .thumb_swiper_card .thumb_area .thumb .thumb_img_area .thumb_img { position: relative; width: 100%; padding-top: 100%; margin-left: auto; border-radius: 100%; overflow: hidden;}
 .thumb_swiper_wrap.type2 .thumb_swiper_card .thumb_area .thumb .thumb_info_area { display: flex; flex-direction: column; text-align: initial;}
 .thumb_swiper_wrap.type2 .thumb_swiper_card .thumb_area .thumb .thumb_info_area img { position: static; width: 64px; height: auto; object-fit: contain;}
-.thumb_swiper_wrap.type2 .thumb_swiper_card .thumb_area .thumb .thumb_info_area .txt { display: inline-block; margin-top: 10px; font-size: 20px; line-height: 27px;}
-.thumb_swiper_wrap.type2 .thumb_swiper_card .thumb_area .thumb .thumb_info_area .txt.bold { font-weight: 700;}
+.thumb_swiper_wrap.type2 .thumb_swiper_card .thumb_area .thumb .thumb_info_area .txt { display: inline-block; margin-top: 10px; font-size: 20px; line-height: 27px; color: var(--fn-black);}
+.thumb_swiper_wrap.type2 .thumb_swiper_card .thumb_area .thumb .thumb_info_area .txt.bold { font-weight: 700; color: var(--fn-black);}
 .thumb_swiper_card .thumb_area .thumb img { position: absolute; left: 0; top: 0%; width: 100%; height: 100%; object-fit: cover;}
 .thumb_swiper_card .thumb_info { margin-top: 25px;}
 
