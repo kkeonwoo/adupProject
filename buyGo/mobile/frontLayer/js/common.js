@@ -198,6 +198,7 @@ BuyGo = {
             $($selectComplete).append($optionArea).removeClass('active');
             $('.fixed_area').remove();
             $('.dim').remove() // mobile layout;
+            $('html').css('overflow', 'auto');
         }
 
         $(document).on('keydown','.form_btn', function(e) {
@@ -793,10 +794,11 @@ BuyGo = {
                 $(this).parent().siblings('.datepicker_wrap').addClass('active');
             }
         })
-        $(document).on('click', '.remove_btn', function (e) {
+        $(document).on('click', '.obj_cart_tbl_box .remove_btn', function (e) {
             let $this = e.currentTarget;
             let width = $(window).width();
             let modalPosTarget = width < 768?$($this).closest('.obj_cart_tbl_box_cont'):$($this).closest('.obj_cart_tbl');
+            console.log($(modalPosTarget).offset());
             let modalTop = modalPosTarget.offset().top + (modalPosTarget.outerHeight() / 2);
             let modalLeft = modalPosTarget.offset().left + (modalPosTarget.outerWidth() / 2);
             BuyGo.openModal($('.modal_prd_remove'));
