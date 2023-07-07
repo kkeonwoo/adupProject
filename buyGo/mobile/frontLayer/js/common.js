@@ -541,81 +541,83 @@ BuyGo = {
         $(document).on('click', '.header .etc_link', function (e) {
             e.preventDefault();
             const $this = e.currentTarget;
+            // 최근 본 상품, 관심상품 열기
             if ($($this).find('.ico').hasClass('ico_prot')) {
                 let height =$('html, body').hasClass('dev_mobile')?$('.header').outerHeight():0;
-                let tl = gsap.timeline()
-                .set(".aside_wrap .aside", {autoAlpha: 1, top: height})
-                .add(()=>{$('.aside_wrap').addClass('active')})
-                .to(".aside_wrap .aside", {xPercent: -100, autoAlpha: 1, duration: .45, ease: Power1.easeInOuteaseInOut})
-                .add(()=>{
-                    const x = window.scrollX;
-                    const y = window.scrollY;
-                    $('.aside_wrap').attr("tabindex", -1).focus().attr("tabindex", null);
-                    window.scrollTo(x, y);
-                })
-                fn.addHidden();
+
+                BuyGo.openTl('.aside_wrap', '.aside', height);
             } 
         });
         $(document).on('click', '.aside .btn_back_circle, .aside .close_btn, .aside_dim', function () {
-            let tl = gsap.timeline()
-            .to(".aside_wrap .aside", {xPercent: 0, duration: .45, ease: Power1.easeInOuteaseInOut})
-            .set(".aside_wrap .aside", {autoAlpha: 0})
-            .add(()=>{
-                $('.aside_wrap').removeClass('active');
-                const x = window.scrollX;
-                const y = window.scrollY;
-                $('.header .ico_prot').closest('.etc_link').attr("tabindex", -1).focus().attr("tabindex", null);
-                window.scrollTo(x, y);
-            })
-            fn.removeHidden();
+            // 최근 본 상품, 관심상품 닫기
+            BuyGo.closeTl('.aside_wrap', '.aside');
         });
-        $(document).on('click', '.header .etc_link .ico.ico_order', function (e) {
-            e.preventDefault();
-            BuyGo.openTl('.order_wrap',0);
-            fn.addHidden();
-        })
         $(document).on('click', '.banner_area .more_btn', function (e) {
             e.preventDefault();
-            const targetChildren = $('.banner_area').find('.banner_all_swiper_wrap');
+            $('.banner_all_swiper_wrap').addClass('active');
+            if (!$('html, body').hasClass('dev_mobile')) return false;
+
+            // 배너 모두보기 열기
             let y = window.scrollY;
             let height = $('.nav .service_list').hasClass('fixed') ? $('.nav .service_list').outerHeight() : $('.header').outerHeight() - y;
             if ($('.nav .service_list').hasClass('gnb')) {
                 height = $('.nav .service_list').outerHeight() + $('.search_wrap.gnb').outerHeight();
             }
 
-            $('.banner_all_swiper_wrap').addClass('active');
-            if (!$('html, body').hasClass('dev_mobile')) return false;
-
-            gsap.timeline()
-                .set(targetChildren, { autoAlpha: 1, top: height })
-                .add(() => { $('.banner_area').addClass('active') })
-                .to(targetChildren, { xPercent: -100, autoAlpha: 1, duration: .45, ease: Power1.easeInOuteaseInOut })
-                .add(() => {
-                    const x = window.scrollX;
-                    const y = window.scrollY;
-                    $(targetChildren).find(':hidden').blur();
-                    $(targetChildren).attr("tabindex", -1).focus().attr("tabindex", null);
-                    window.scrollTo(x, y);
-                })
-            fn.addHidden();
+            BuyGo.openTl('.banner_area', '.banner_all_swiper_wrap', height);
         });
         $(document).on('click', '.banner_area .btn_back_circle, .banner_all_swiper_dim', function () {
-            const targetChildren = $('.banner_area').find('.banner_all_swiper_wrap');
-
             $('.banner_all_swiper_wrap').removeClass('active');
             if (!$('html, body').hasClass('dev_mobile')) return false;
 
-            gsap.timeline()
-                .to(targetChildren, { xPercent: 0, duration: .45, ease: Power1.easeInOuteaseInOut })
-                .set(targetChildren, { autoAlpha: 0})
-                .add(() => {
-                    $('.banner_area').removeClass('active');
-                    const x = window.scrollX;
-                    const y = window.scrollY;
-                    $(targetChildren).attr("tabindex", -1).focus().attr("tabindex", null);
-                    window.scrollTo(x, y);
-                })
-                fn.removeHidden();
+            // 배너 모두보기 닫기
+            BuyGo.closeTl('.banner_area', '.banner_all_swiper_wrap');
+        });
+        $(document).on('click', '.header .etc_link .ico.ico_order', function (e) {
+            // 주문 건 수 열기
+            e.preventDefault();
+            let y = window.scrollY;
+            let height = $('.nav .service_list').hasClass('fixed')?$('.nav .service_list').outerHeight():$('.header').outerHeight() - y;
+
+            if($('.nav .service_list').hasClass('gnb')){
+                height = $('.nav .service_list').outerHeight() + $('.search_wrap.gnb').outerHeight();
+            }
+
+            BuyGo.openTl('.order_wrap', '.order_area', height);
+        })
+        $(document).on('click', '.order_header .btn_back_circle, .order_dim', function (e) {
+            // 주문 건 수 닫기
+            e.preventDefault();
+            let $this = e.currentTarget;
+            BuyGo.closeTl('.order_wrap', '.order_area');
+        });
+        $(document).on('click', '.bottom_btn', function (e) {
+            // 카테고리 열기
+            e.preventDefault();
+            let $this = e.currentTarget;
+            let index = $($this).index();
+            $($this).toggleClass('active').siblings().removeClass('active');
+
+            if (index === 1) {
+                if($($this).hasClass('active')) {
+                    let y = window.scrollY;
+                    let height = $('.nav .service_list').hasClass('fixed')?$('.nav .service_list').outerHeight():$('.header').outerHeight() - y;
+
+                    if($('.nav .service_list').hasClass('gnb')){
+                        height = $('.nav .service_list').outerHeight() + $('.search_wrap.gnb').outerHeight();
+                    }
+                    
+                    BuyGo.openTl('.category', '.category_area', height);
+                } else {
+                    BuyGo.closeTl('.category', '.category_area');
+                }
+            }
+        })
+        $(document).on('click', '.category_header .btn_back_circle, .category_dim', function (e) {
+            // 카테고리 닫기
+            e.preventDefault();
+            let $this = e.currentTarget;
+            BuyGo.closeTl('.category', '.category_area');
         });
         $(document).on('click', '.prot_area .pagination .num', function (e) {
             $(e.currentTarget).toggleClass('active').siblings().removeClass('active')
@@ -703,35 +705,6 @@ BuyGo = {
             e.preventDefault();
             let $el = e.currentTarget;
             $($el).closest('tr').prev('').removeClass('open');
-        })
-        $(document).on('click', '.order_header .btn_back_circle, .order_dim', function (e) {
-            e.preventDefault();
-            let $this = e.currentTarget;
-            BuyGo.closeTl('.order_wrap');
-            fn.removeHidden();
-        });
-        $(document).on('click', '.category_header .btn_back_circle, .category_dim', function (e) {
-            e.preventDefault();
-            let $this = e.currentTarget;
-            BuyGo.closeTl('.category');
-            fn.removeHidden();
-        });
-        $(document).on('click', '.bottom_btn', function (e) {
-            e.preventDefault();
-            let $this = e.currentTarget;
-            let index = $($this).index();
-            $($this).toggleClass('active').siblings().removeClass('active');
-            if (index === 1) {
-                BuyGo.closeTl('.order_wrap');
-                if($($this).hasClass('active')) {
-                    let y = window.scrollY;
-                    BuyGo.openTl('.category',y);
-                    fn.addHidden();
-                } else {
-                    BuyGo.closeTl('.category');
-                    fn.removeHidden();
-                }
-            }
         })
         $(document).on('click', '.footer .company_info_btn', function (e) {
             e.preventDefault();
@@ -920,32 +893,48 @@ BuyGo = {
             },
         }).open();
     },
-    openTl: function (target,y) {
-        const targetChildren = $(target).children('[class*="_area"]');
-        let height = $('.nav .service_list').hasClass('fixed')?$('.nav .service_list').outerHeight():$('.header').outerHeight() - y;
-        if($('.nav .service_list').hasClass('gnb')){
-            height = $('.nav .service_list').outerHeight() + $('.search_wrap.gnb').outerHeight();
+    openTl: function (target, children, height) {
+        if($('body').hasClass('openTl')) {
+            BuyGo.closeTl('.target', '.children');
+
+            gsap.timeline()
+            .set(children, {autoAlpha: 1, top: height})
+            .add(()=>{$(target).addClass('active')})
+            .to(children, {xPercent: -100, autoAlpha: 1, duration: .45, ease: Power1.easeInOuteaseInOut})
+            .add(()=>{
+                $('body').addClass('openTl');
+                $(target).addClass('target');
+                $(children).addClass('children');
+                $(children).find(':hidden').blur();
+                $(children).attr("tabindex", -1).focus().attr("tabindex", null);
+            })
+            fn.addHidden();
+        } else {
+            gsap.timeline()
+            .set(children, {autoAlpha: 1, top: height})
+            .add(()=>{$(target).addClass('active')})
+            .to(children, {xPercent: -100, autoAlpha: 1, duration: .45, ease: Power1.easeInOuteaseInOut})
+            .add(()=>{
+                $('body').addClass('openTl');
+                $(target).addClass('target');
+                $(children).addClass('children');
+                $(children).find(':hidden').blur();
+                $(children).attr("tabindex", -1).focus().attr("tabindex", null);
+            })
+            fn.addHidden();
         }
-
-        gsap.timeline()
-        .set(targetChildren, {autoAlpha: 1, top: height})
-        .add(()=>{$(target).addClass('active')})
-        .to(targetChildren, {xPercent: -100, autoAlpha: 1, duration: .45, ease: Power1.easeInOuteaseInOut})
-        .add(()=>{
-            $(targetChildren).find(':hidden').blur();
-            $(targetChildren).attr("tabindex", -1).focus().attr("tabindex", null);
-        })
     },
-    closeTl: function (target) {
-        const targetChildren = $(target).children('[class*="_area"]');
-
+    closeTl: function (target, children) {
         gsap.timeline()
-        .to(targetChildren, {xPercent: 0, duration: .45, ease: Power1.easeInOuteaseInOut})
-        .set(targetChildren, {autoAlpha: 0,})
+        .to(children, {xPercent: 0, duration: .45, ease: Power1.easeInOuteaseInOut})
+        .set(children, {autoAlpha: 0,})
         .add(()=>{
+            $('body').removeClass('openTl');
             $(target).removeClass('active');
-            $(targetChildren).attr("tabindex", -1).focus().attr("tabindex", null);
+            $(children).attr("tabindex", -1).focus().attr("tabindex", null);
         })
+
+        fn.removeHidden();
     },
     resize: function () {
         const breakpoint = window.matchMedia('(max-width:767px)');

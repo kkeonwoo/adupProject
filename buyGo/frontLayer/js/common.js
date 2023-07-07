@@ -72,16 +72,6 @@ BuyGo = {
         });
 
     },
-    tab2: function () {
-        $('.initial_btn').on('click', (e) => {
-            e.preventDefault();
-
-            let clickedValue = $(e.target).text();
-            let matchContent = $('.brand_list .initial_ttl:contains("' + clickedValue + '")')
-            $('.brand_list').hide();
-            matchContent.parent().show().addClass('active').siblings().removeClass('active');
-        })
-    },
     select: function () {
         let $formSelect;
         let $formSelectPrev;

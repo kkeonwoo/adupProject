@@ -511,6 +511,8 @@ div[class*="modal_password"] .frm_wrap .form_control {height:40px;min-height:40p
 
 .modal_order .modal_box,
 .modal_prd_remove .modal_box { max-width: 555px; padding: 35px 30px 30px; border: 1px solid var(--fn-black); border-radius: 0; background-color: var(--fn-gray-250);}
+[color-theme='dark'] .modal_order .modal_box,
+[color-theme='dark'] .modal_prd_remove .modal_box { background-color: var(--fn-gray-dark-400);}
 .modal_order .modal_box .btn_modal_close,
 .modal_prd_remove .modal_box .btn_modal_close { width: 20px; height: 20px; border-radius: 5px; background-size: 80% auto; background-color: transparent;}
 .modal_order .modal_box .txt,
@@ -521,6 +523,8 @@ div[class*="modal_password"] .frm_wrap .form_control {height:40px;min-height:40p
 .modal_prd_remove .modal_box .btn_area .btn { width: calc((100% - 12px) / 2); padding-top: 15px; padding-bottom: 15px; flex: 1; border-radius: 0;}
 .modal_order .modal_box .btn_area .btn_outline_dark,
 .modal_prd_remove .modal_box .btn_area .btn_outline_dark { background-color: var(--fn-white);}
+[color-theme='dark'] .modal_order .modal_box .btn_area .btn_outline_dark,
+[color-theme='dark'] .modal_prd_remove .modal_box .btn_area .btn_outline_dark { color: var(--fn-black);}
 
 .favorite_goods_header { padding-bottom: 30px; border-bottom: 1px solid var(--fn-black);}
 [color-theme='dark'] .favorite_goods_header { border-color: var(--fn-gray-500);}

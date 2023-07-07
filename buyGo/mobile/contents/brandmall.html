@@ -1958,7 +1958,7 @@
                     if (checkMo) {
                         view = 6;
                         $('.search_swiper').find('.brand_link').unwrap('.swiper-slide');
-                        $('.brand_link').each((idx, item) => {
+                        $('.search_swiper .brand_link').each((idx, item) => {
                             $(item).addClass('list' + Math.floor((idx + view) / view));
                             listNum = Math.floor((idx + view) / view);
                         }).promise().done(function() {
@@ -1984,7 +1984,7 @@
                         })
                     } else {
                         $('.search_swiper').find('.brand_link').unwrap('.swiper-slide');
-                        $('.brand_link').each((idx, item) => {
+                        $('.search_swiper .brand_link').each((idx, item) => {
                             $(item).wrapAll('<li class="swiper-slide"></li>');
                         })
                         brandSwiper = new Swiper('.search_swiper', {

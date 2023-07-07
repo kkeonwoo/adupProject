@@ -717,6 +717,8 @@ a:hover{text-decoration:none;}
 .layer_null_area .ico::before { content: ''; display: block; padding-top: 100%;}
 .layer_null_area .txt { display: block; margin-top: 15px; font-size: 21px; line-height: 1.22; color: var(--fn-gray-500); text-align: center;}
 .layer_null_area + .pagination { margin-top: 30px;}
+.layer_null_area.cs {border: none;}
+.layer_null_area.cs .txt {margin-top: unset;}
 
 /* badge */
 .badge_list { display: flex; flex-wrap: wrap; gap: 3px;}

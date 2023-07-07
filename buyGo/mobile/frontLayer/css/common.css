@@ -754,6 +754,8 @@ a:hover{text-decoration:none;}
 .layer_null_area .ico::before { content: ''; display: block; padding-top: 100%;}
 .layer_null_area .txt { display: block; margin-top: 10px; font-size: 13px; line-height: 1.22; color: var(--fn-gray-500); text-align: center;}
 .layer_null_area + .pagination { margin-top: 30px;}
+.layer_null_area.cs { border: none;}
+.layer_null_area.cs .txt { margin-top: unset;}
 
 /* badge */
 .badge_list { display: flex; flex-wrap: wrap; gap: 3px;}
@@ -1002,7 +1004,7 @@ a:hover{text-decoration:none;}
     .bd_0 { border: none !important;}
 
     .form_check .ico { width: 16px; min-width: 16px; height: 16px;}
-    .form_check .form_check_input[type="checkbox"] ~ .ico { background-position: center bottom;}
+    .form_check .form_check_input[type="checkbox"]:checked ~ .ico { background-position: center bottom;}
     
     .btn_layout { gap: 7px;}
 }
@@ -1120,7 +1122,7 @@ a:hover{text-decoration:none;}
     .mobile .option_area { max-height: 100%; overflow-y: visible; border: none;}
     .mobile .option_area .option_ttl { padding: 10px 18px 10px 12px; border-bottom: 1px solid var(--fn-gray-500); background-color: var(--fn-gray-100); font-weight: 700; font-size: 16px; line-height: 23px;}
     [color-theme='dark'] .mobile .option_area .option_ttl { background-color: var(--fn-gray-dark-400);}
-    .mobile .option_area .option_list { padding: 0;}
+    .mobile .option_area .option_list { padding: 0; max-height: calc(44px * 8);}
     .mobile .option_area .option_ttl,
     .mobile .option_area .option_ttl label,
     .mobile .option_area .option_list .option_item,
@@ -1137,7 +1139,8 @@ a:hover{text-decoration:none;}
 
     .layer_null_area { border: none;}
     .layer_null_area .ico { width: 100px;}
-    .layer_null_area .txt { margin-top: 15px; font-size: 15px; color: var(--fn-gray-750);}
+    .layer_null_area .txt,
+    .layer_null_area.cs .txt { margin-top: 15px; font-size: 15px; color: var(--fn-gray-750);}
     [color-theme='dark'] .layer_null_area .txt { color: var(--fn-gray-400);}
 
     .form_tbl th .txt, .form_tbl td .txt { font-size: 12px;}
