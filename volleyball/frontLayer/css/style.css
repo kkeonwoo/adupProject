@@ -10,6 +10,8 @@
 .sec .form_group label span { font-size: inherit;}
 .sec .form_group.active .form_control { border-color: var(--color-red2);}
 .sec .form_group + .caution.ref { color: var(--color-black2);}
+.sec .form_group + .caution.dot { display: flex; position: relative; padding-right: 0;}
+.sec .form_group + .caution.dot::before { content: ''; display: inline-block; width: 2px; height: 2px; margin-top: 6px; margin-right: 10px; border-radius: 100%; background-color: var(--color-red2);}
 .sec .identify_num { margin-top: 40px; gap: 8px;}
 .sec .identify_num .form_box { position: relative;}
 .sec .identify_num .form_box .form_control { padding-right: calc(15px * 2 + 42px);}
@@ -148,14 +150,17 @@
 .login_wrap .account_util a:first-child::before { content: none;}
 .login_wrap .account_util .account_join { color: var(--color-blue);}
 .social_login { max-width: 520px; margin: 0 auto; padding: 40px 60px; border-radius: 10px; background-color: var(--color-gray6);}
+.social_login.type02 { max-width: 564px; padding: 0; background-color: unset;}
 .social_login h3 { margin-bottom: 24px; font-weight: var(--weight-medium); text-align: center;}
 .social_login .btn { position: relative; padding: 15px; font-weight: var(--weight-medium); font-size: 14px;}
+.social_login.type02 .btn { min-height: 80px; padding: 20px; font-size: 24px;}
 .social_login .btn + .btn { margin-top: 16px;}
 .social_login .btn.btn_kakao { background-color: var(--color-yellow); color: var(--color-black);}
 .social_login .btn.btn_naver { background-color: var(--color-green);}
 .social_login .btn.btn_google { background-color: var(--color-white); font-weight: var(--weight-bold); font-size: 16px; font-family: 'Roboto'; color: rgba(0,0,0,0.54); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);}
 .social_login .btn span{ display: flex; gap: 5px; align-items: center; font-weight: inherit; font-size: inherit; color: inherit;}
 .social_login .btn span::before { content: ''; display: inline-block;  width: 18px; height: 18px; background-repeat: no-repeat; background-position: center center; background-size: 100% auto;}
+.social_login .btn.btn_success span::before { content: none;}
 .social_login .btn.btn_kakao span::before { width: 20px; background-image: url('../images/icons/ico_kakao.svg');}
 .social_login .btn.btn_naver span::before { background-image: url('../images/icons/ico_naver.svg');}
 .social_login .btn.btn_google span { gap: 24px;}
@@ -183,9 +188,11 @@
 .register_wrap .txt_area h3 { margin-bottom: 8px; font-weight: var(--weight-semibold); font-size: 28px;}
 .register_wrap .txt_area .desc { color: var(--color-gray2);}
 .register_wrap .caution + .form_group { margin-top: 46px;}
+.register_wrap .caution + .form_group.identify_num { margin-top: 25px;}
 .register_wrap .form_group + .form_group { margin-top: 24px;}
 .register_wrap .form_group .form_box.sm_flex_wrap { align-items: stretch;}
 .register_wrap .form_group .form_box.sm_flex_wrap span { line-height: 46px;}
+.register_wrap .form_group .form_box .fancy_img_box input + label span { line-height: unset;}
 .register_wrap .form_control[type='email'] { width: calc((100% - (40%  - 15px - 8px * 3)) / 2);}
 .register_wrap .form_control[type='email'] + span { color: var(--color-gray4);}
 .register_wrap .form_select { width: 40%;}
@@ -469,6 +476,7 @@
   .social_login { max-width: 400px; padding: 32px; border-radius: 8px;}
   .social_login h3 { margin-bottom: 19px;}
   .social_login .btn { padding: 12px; font-size: 11px;}
+  .social_login.type02 .btn { min-height: 64px; padding: 16px; font-size: 20px;}
   .social_login .btn + .btn { margin-top: 13px;}
   .social_login .btn.btn_google { font-size: 13px;}
   .social_login .btn span::before { width: 14px; height: 14px;}
@@ -490,6 +498,7 @@
   .register_wrap .txt_area { margin-bottom: 32px;}
   .register_wrap .txt_area h3 { margin-bottom: 6px; font-size: 22px;}
   .register_wrap .caution + .form_group { margin-top: 37px;}
+  .register_wrap .caution + .form_group.identify_num { margin-top: 20px;}
   .register_wrap .form_group + .form_group { margin-top: 19px;}
   .register_wrap .form_group .form_box.sm_flex_wrap span { line-height: 42px;}
   .register_wrap .form_control[type='email'] { width: calc((100% - (40%  - 14px - 6px * 3)) / 2);}

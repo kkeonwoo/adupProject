@@ -263,11 +263,10 @@
                                         <input type="checkbox">
                                         <label><span>정보/이벤트 메일 수신에 동의합니다.</span></label>
                                     </div>
-                                    <button type="button" class="btn btn_dark col_4 col_sm_12">인증번호 받기</button>
                                 </div>
                             </div>
                             <div class="form_group column">
-                                <label for="user_phone"> 전화번호</label>
+                                <label for="user_phone">휴대폰 번호</label>
                                 <div class="form_box sm_flex_wrap">
                                     <input type="number" id="user_phone" class="form_control">
                                     <span>-</span>
@@ -275,11 +274,35 @@
                                     <span>-</span>
                                     <input type="number" class="form_control" aria-label="전화번호 마지막자리">
                                 </div>
+                                <div class="form_box align_items_start sm_flex_wrap">
+                                    <div class="fancy_img_box sm flex_1">
+                                        <input type="checkbox" id="eventSMSAgree">
+                                        <label for="eventSMSAgree"><span>정보/이벤트 SMS 수신에 동의합니다.</span></label>
+                                    </div>
+                                    <button type="button" class="btn btn_dark col_3 col_sm_12">인증번호 받기</button>
+                                    <!-- 재전송 시 -->
+                                    <button type="button" class="btn btn_dark col_3 col_sm_12">재전송</button>
+                                    <!-- // 재전송 시 -->
+                                </div>
                             </div>
-                            <div class="fancy_img_box sm">
-                                <input type="checkbox">
-                                <label><span>정보/이벤트 SMS 수신에 동의합니다.</span></label>
+                            <p class="caution dot">인증번호가 발송되었습니다. 혹시 인증번호를 받지 못하셨다면 휴대폰 번호를 확인해 주세요.</p>
+                            <!-- 인증번호 받기 시 -->
+                            <div class="form_group identify_num">
+                                <div class="form_box">
+                                    <input type="number" class="form_control" placeholder="인증번호를 입력해주세요.">
+                                    <span class="timer">03:00</span>
+                                </div>
+                                <button type="button" class="btn btn_dark col_3">인증번호 확인</button>
                             </div>
+                            <!-- // 인증번호 받기 시 -->
+                            <!-- 인증번호 확인 완료 시 -->
+                            <div class="form_group identify_num">
+                                <div class="form_box">
+                                    <input type="number" class="form_control" placeholder="인증이 완료되었습니다." disabled>
+                                </div>
+                                <button type="button" class="btn btn_dark col_3">확인</button>
+                            </div>
+                            <!-- // 인증번호 확인 완료 -->
                             <button type="button" class="btn btn_underline" onclick="$(() => {Federation.openModal($('#modalCheck'))});">회원탈퇴</button>
                             <div class="btn_wrap">
                                 <button type="button" class="btn btn_primary">취소</button>

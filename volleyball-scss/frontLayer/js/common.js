@@ -56,9 +56,9 @@ Federation = {
             mGnbDepth02 = $('.mGnb > ul > li > .nav__submenu > ul > li > a'),
             mGnbDepth03 = $('.mGnb > ul > li > .nav__submenu > ul > li > .nav-depth03')
 
-        gnbItem.on('mouseenter focusin', function () {
+        gnbItem.on('mouseenter focusin', function (e) {
             gnbItem.removeClass('on');
-            $(this).addClass('on');
+            $(e.currentTarget).addClass('on');
             gnbBg.stop().slideDown();
             subMenu.stop().slideDown();
             adArea.stop().slideDown();
