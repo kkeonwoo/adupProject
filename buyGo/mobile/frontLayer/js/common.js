@@ -399,7 +399,7 @@ BuyGo = {
             lastTabStop = focusableElements[focusableElements.length - 1];
 
         $($modal).removeClass('modal_close');
-        firstTabStop.focus();
+        if(firstTabStop) firstTabStop.focus();
 
         function trapTabKey(e) {
             // Check for TAB key press
@@ -486,7 +486,7 @@ BuyGo = {
         $(document).on('click', '.type2 .depth1_link', function (e) {
             e.preventDefault();
             const $this = e.currentTarget;
-            $($this).closest().toggleClass('active').siblings().removeClass('active');
+            $($this).closest('.depth1_item').toggleClass('active').siblings().removeClass('active');
         });
         $(document).on('click','.depth1_item a',function (e) {
             e.preventDefault();
@@ -516,13 +516,13 @@ BuyGo = {
                 }
             }
         });
-        $(document).on('mousedown','.depth1_item',function (e) {
+        $(document).on('mousedown','.visual .depth1_item > a',function (e) {
             e.preventDefault();
             let $el = e.currentTarget;
-            let dropdownElement = $($el).find('.depth2_area');
-            if($('html, body').hasClass('mobile')){
-                $($el).toggleClass('on').siblings().removeClass('on');
-                dropdownElement.stop().slideToggle().closest($el).siblings().find('.depth2_area').stop().slideUp();
+            let dropdownElement = $($el).closest('.depth1_item').find('.depth2_area');
+            if($('html, body').hasClass('dev_mobile')){
+                // $($el).toggleClass('on').siblings().removeClass('on');
+                dropdownElement.stop().slideToggle().closest('.depth1_item').siblings().find('.depth2_area').stop().slideUp();
             }
         })
     },
@@ -775,10 +775,26 @@ BuyGo = {
             let modalTop = modalPosTarget.offset().top + (modalPosTarget.outerHeight() / 2);
             let modalLeft = modalPosTarget.offset().left + (modalPosTarget.outerWidth() / 2);
             BuyGo.openModal($('.modal_prd_remove'));
+            $('.modal_box').unwrap('.modal_centered');
             $('.modal_prd_remove').css({
                 'position':'absolute',
                 'top': modalTop,
-                'left': modalLeft
+                'left': modalLeft,
+                'transform': 'translate(-50%, -50%)',
+                'width': 'auto',
+                'height': 'auto',
+            })
+        })
+        $(document).on('click', '.check_control .check_remove', function (e) {
+            BuyGo.openModal($('.modal_prd_remove'));
+            $('.modal_box').wrap('<div class="modal_centered"></div>');
+            $('.modal_prd_remove').css({
+                'position':'fixed',
+                'top': 0,
+                'left': 0,
+                'transform': 'none',
+                'width': '100%',
+                'height': '100%',
             })
         })
         $(document).on('focus','.sign_up_wrap .form_box .form_label', function(e) {
@@ -895,19 +911,22 @@ BuyGo = {
     },
     openTl: function (target, children, height) {
         if($('body').hasClass('openTl')) {
-            BuyGo.closeTl('.target', '.children');
-
-            gsap.timeline()
-            .set(children, {autoAlpha: 1, top: height})
-            .add(()=>{$(target).addClass('active')})
-            .to(children, {xPercent: -100, autoAlpha: 1, duration: .45, ease: Power1.easeInOuteaseInOut})
-            .add(()=>{
-                $('body').addClass('openTl');
-                $(target).addClass('target');
-                $(children).addClass('children');
-                $(children).find(':hidden').blur();
-                $(children).attr("tabindex", -1).focus().attr("tabindex", null);
-            })
+            if($(target).hasClass('active')) {
+                BuyGo.closeTl('.target', '.children');
+            } else {
+                BuyGo.closeTl('.target', '.children');
+    
+                gsap.timeline()
+                .set(children, {autoAlpha: 1, top: height})
+                .add(()=>{$(target).addClass('active')})
+                .to(children, {xPercent: -100, autoAlpha: 1, duration: .45, ease: Power1.easeInOuteaseInOut})
+                .add(()=>{
+                    $('body').addClass('openTl');
+                    $(children).addClass('children');
+                    $(children).find(':hidden').blur();
+                    $(children).attr("tabindex", -1).focus().attr("tabindex", null);
+                })
+            }
             fn.addHidden();
         } else {
             gsap.timeline()
@@ -916,7 +935,6 @@ BuyGo = {
             .to(children, {xPercent: -100, autoAlpha: 1, duration: .45, ease: Power1.easeInOuteaseInOut})
             .add(()=>{
                 $('body').addClass('openTl');
-                $(target).addClass('target');
                 $(children).addClass('children');
                 $(children).find(':hidden').blur();
                 $(children).attr("tabindex", -1).focus().attr("tabindex", null);
@@ -926,15 +944,16 @@ BuyGo = {
     },
     closeTl: function (target, children) {
         gsap.timeline()
-        .to(children, {xPercent: 0, duration: .45, ease: Power1.easeInOuteaseInOut})
-        .set(children, {autoAlpha: 0,})
         .add(()=>{
             $('body').removeClass('openTl');
+            $('html, body').removeClass('hidden');
             $(target).removeClass('active');
+            $(children).removeClass('children');
             $(children).attr("tabindex", -1).focus().attr("tabindex", null);
         })
-
-        fn.removeHidden();
+        .to(children, {xPercent: 0, duration: .45, ease: Power1.easeInOuteaseInOut})
+        .set(children, {autoAlpha: 0,})
+        
     },
     resize: function () {
         const breakpoint = window.matchMedia('(max-width:767px)');

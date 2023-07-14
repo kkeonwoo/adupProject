@@ -328,7 +328,8 @@ div[class*="modal_password"] .frm_wrap .form_control {height:40px;min-height:40p
 .cart_sec .tag_item .tag { display: flex; justify-content: center; align-items: center; min-width: 50px; height: 21px; padding: 5px; border: 1px solid var(--fn-gray-400); border-radius: 5px; background-color: var(--fn-gray-150); font-size: 14px;}
 [color-theme='dark'] .cart_sec .tag_item .tag { border: none; background-color: var(--fn-gray-600); color: var(--fn-black);}
 .cart_sec .tag.bg_danger { border-color: var(--fn-danger); color: var(--fn-white)}
-[color-theme='dark'] .cart_sec .tag.bg_danger { color: var(--fn-black)}
+[color-theme='dark'] .cart_sec .tag.bg_danger { border-color: var(--fn-danger); color: var(--fn-white)}
+[color-theme='dark'] .cart_sec .tag.bg_primary { border-color: var(--fn-primary); color: var(--fn-white)}
 
 .cart_sec .prot_choose .num_ctrl { display: flex; }
 .cart_sec .prot_choose .num_ctrl > *:nth-child(n+2) { margin-left: -1px;}

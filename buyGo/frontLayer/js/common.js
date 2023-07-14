@@ -35,7 +35,7 @@ $.namespace('BuyGo');
 BuyGo = {
     init: function () {
         this.tab();
-        this.tab2();
+        // this.tab2();
         this.select();
         this.select2();
         this.modal();

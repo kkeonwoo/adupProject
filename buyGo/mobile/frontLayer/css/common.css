@@ -535,7 +535,7 @@ a:hover{text-decoration:none;}
 .btn_back { min-width: 100%; border: 1px solid var(--fn-black); border-radius: 0; background-color: var(--fn-white); color: var(--fn-gray-750); font-weight: 700;}
 .btn_more { margin: 0 auto; border-color: var(--fn-gray-500);}
 .btn_close_rounded { min-width: 25px; height: 25px; margin-bottom: 12px; margin-left: 100%; border: 1px solid var(--fn-gray-500); border-radius: 100%; background: url('../images/icons/ico_close.svg') no-repeat center / 10px 10px var(--fn-white); transform: translateX(-100%);}
-[color-theme='dark'] .btn_close_rounded { background-image: url('../images/icons/ico_close_white.svg'); background-color: var(--fn-gray-dark-400);}
+[color-theme='dark'] .btn_close_rounded { background-image: url('../images/icons/ico_close.svg'); background-color: var(--fn-gray-dark-400);}
 .modal.modal_close_type .btn { min-width: 85px; min-height: 28px; line-height: 28px; padding: 0 4px; font-size: 13px;}
 .btn_prot { min-width: 100%; margin-top: 15px; padding: 5px 10px; font-weight: 700; font-size: 18px; line-height: 19px;}
 .btn_sold { background-color: var(--fn-gray-750); border: 1px solid var(--fn-gray-750); border-radius: 0;}
@@ -722,7 +722,9 @@ a:hover{text-decoration:none;}
 [color-theme='dark'] .modal_box { background-color: var(--fn-gray-dark-400);}
 .modal_box.modal_lg { max-width: 700px;}
 .modal .btn_modal_close {display:block;position: absolute;right: 12px; top: 12px; width: 26px; height: 26px; border-radius: 50%; background-image: url('../images/icons/ico_close.svg'); background-position: center center; background-size: 50% auto; background-color: var(--fn-white); background-repeat: no-repeat;}
-[color-theme='dark'] .modal .btn_modal_close { background-image: url('../images/icons/ico_close_gray.svg'); background-color: transparent;}
+[color-theme='dark'] #modalAd .btn_modal_close { background-image: url('../images/icons/ico_close_gray.svg'); background-color: var(--fn-gray-dark-600);}
+[color-theme='dark'] .modal.modal_view .btn_modal_close { background-color: var(--fn-gray-dark-400);}
+[color-theme='dark'] .modal .btn_modal_close { background-image: url('../images/icons/ico_close_gray.svg'); background-color: #fff;}
 .modal .btn_wrap {display:flex;flex-direction:row;gap:20px;justify-content:center;margin-top: 40px;}
 .modal .modal_link img { max-width: 100%; width: 100%;}
 .modal .modal_close_box { display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; background-color: var(--fn-gray-400);}
@@ -761,8 +763,9 @@ a:hover{text-decoration:none;}
 .badge_list { display: flex; flex-wrap: wrap; gap: 3px;}
 .badge_item .badge  { display: flex; justify-content: center; align-items: center; min-width: 50px; height: 21px; padding: 5px; border: 1px solid var(--fn-gray-400); border-radius: 5px; background-color: var(--fn-gray-150); font-size: 14px;}
 [color-theme='dark'] .badge_item .badge {border: none; background-color: var(--fn-gray-600); color: var(--fn-black);}
-.badge.bg_danger { border-color: var(--fn-danger); color: var(--fn-white)}
-[color-theme='dark'] .badge.bg_danger { color: var(--fn-black)}
+.badge.bg_danger { border-color: var(--fn-danger) !important; color: var(--fn-white) !important;}
+.badge.bg_primary { border-color: var(--fn-primary) !important; color: var(--fn-white) !important;}
+/* [color-theme='dark'] .badge.bg_danger { color: var(--fn-black)} */
 
 /* form_tbl */
 .form_tbl .form_control { padding: 2px 8px; border-radius: 0; border-color: var(--fn-gray-500); min-height: auto; font-size: 10px;}
@@ -835,7 +838,7 @@ a:hover{text-decoration:none;}
 .img_upload_area.active > .btn { display: none;}
 .img_upload_area > .btn { min-height: 50px; line-height: 50px; font-size: 13px;}
 .img_upload_area .img_upload_box { position: relative; width: 100%;}
-[color-theme='dark'] .img_upload_area .img_upload_box { background-color: var(--fn-gray-dark-400);}
+/* [color-theme='dark'] .img_upload_area .img_upload_box { background-color: var(--fn-gray-dark-400);} */
 .img_upload_area .img_upload_box .btn { position: absolute; width: 12px; min-width: 12px; height: 12px; margin: 0; padding: 0; background-size: 5px 5px; background-color: var(--fn-white); transform: translate(0);}
 .img_upload_area .img_upload_box .txt_list { display: flex; flex-wrap: wrap; gap: 10px;}
 .img_upload_area .img_upload_box .txt_box { position: relative;}

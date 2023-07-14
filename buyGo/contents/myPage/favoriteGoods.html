@@ -1274,7 +1274,7 @@
                                         <span class="txt">전체선택</span>
                                     </label>
                                     <span class="line"></span>
-                                    <a href="#" class="check_remove">선택삭제</a>
+                                    <a href="#" class="check_remove" onclick="BuyGo.openModal($('.modal_prd_remove'))">선택삭제</a>
                                 </div>
                                 <div class="obj_cart_area">
                                     <ul class="obj_cart_list">
@@ -1805,7 +1805,22 @@
     </div>
     <!-- e:wrap -->
 
-
+    <!-- s:modal -->
+    <div class="modal modal_close modal_prd_remove">
+        <div class="modal_centered" tabindex="0">
+            <div class="modal_box">
+                <button type="button" class="btn_modal_close close">
+                    <span class="blind">닫기</span>
+                </button>
+                <span class="txt">상품을 삭제하시겠습니까?</span>
+                <div class="btn_area">
+                    <button class="btn btn_outline_dark" type="button">취소</button>
+                    <button class="btn btn_danger" type="button">삭제</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- e:modal -->
 
     <script>
         $(document).ready(() => {

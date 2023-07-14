@@ -1779,6 +1779,67 @@
         </div>
         <!-- e:비밀번호 재설정 modal -->
 
+        <!-- s:배송지 선택 -->
+        <div class="modal modal_close modal_select_address">
+            <div class="modal_centered" tabindex="0">
+                <div class="modal_box select_address">
+                    <h2>배송지 선택</h2>
+                    <div class="scrollbar">
+                        <div class="form_check_list">
+                            <div class="form_check_item">
+                                <label class="form_check">
+                                    <input class="form_check_input" type="radio" name="pay1" checked="checked">
+                                    <i class="ico"></i>
+                                    <span class="txt">배송지 1</span>
+                                </label>
+                                <div class="address">
+                                    <span class="badge">직배송</span>
+                                    <address>경기도 일산서구 킨텍스로 240 gifc타워 3804호</address>
+                                </div>
+                            </div>
+                            <div class="form_check_item">
+                                <label class="form_check">
+                                    <input class="form_check_input" type="radio" name="pay1">
+                                    <i class="ico"></i>
+                                    <span class="txt">배송지 2</span>
+                                </label>
+                                <div class="address">
+                                    <span class="badge">직배송</span>
+                                    <address>경기도 일산서구 킨텍스로 240 gifc타워 3804호</address>
+                                </div>
+                            </div>
+                            <div class="form_check_item">
+                                <label class="form_check">
+                                    <input class="form_check_input" type="radio" name="pay1">
+                                    <i class="ico"></i>
+                                    <span class="txt">배송지 3</span>
+                                </label>
+                                <div class="address">
+                                    <span class="badge">직배송</span>
+                                    <address>경기도 일산서구 킨텍스로 240 gifc타워 3804호</address>
+                                </div>
+                            </div>
+                            <div class="form_check_item">
+                                <label class="form_check">
+                                    <input class="form_check_input" type="radio" name="pay1">
+                                    <i class="ico"></i>
+                                    <span class="txt">배송지 4</span>
+                                </label>
+                                <div class="address">
+                                    <span class="badge">직배송</span>
+                                    <address>경기도 일산서구 킨텍스로 240 gifc타워 3804호</address>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn_layout mt_px_25">
+                        <button type="button" class="btn btn_fill lg close">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:배송지 선택 -->
+
         <!-- 비밀번호 입력 모달 노출 -->
         <script>
         function openPasswordModal(){
@@ -1787,6 +1848,9 @@
                 BuyGo.openModal($(".modal_password2"));
             });
         }
+        $(document).ready(() => {
+            BuyGo.openModal($('.modal_select_address'))
+        })
         </script>
 
         <!-- s:비밀번호 재설정 modal -->
