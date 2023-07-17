@@ -655,7 +655,7 @@ body.scroll_down .floating_area .floating_btn { transform: translateY(0);}
   .nav .category_btn { height: auto; margin: 0 auto; padding: 10px 0; font-weight: 700; font-size: 20px; color: var(--fn-black); line-height: 30px; justify-content: center;}
   [color-theme='dark'] .nav .category_btn { color: var(--fn-gray-400);}
   .nav .category_btn::before { content: none;}
-  .close_btn:not(.aside .close_btn, .category_btn, .d_md_btn_sm,.toast_card .close_btn, .acc_body .close_btn) { position: absolute; top: 50%; left: 10px; width: 10px; height: 10px; background: url("../images/icons/ico_back.png") no-repeat center center / cover; transform: translateY(-50%);z-index: 100;}
+  .close_btn:not(.aside .close_btn, .category_btn, .d_md_btn_sm,.toast_card .close_btn, .acc_body .close_btn, .banner_all_swiper_wrap .close_btn) { position: absolute; top: 50%; left: 10px; width: 10px; height: 10px; background: url("../images/icons/ico_back.png") no-repeat center center / cover; transform: translateY(-50%);z-index: 100;}
   .toast_card .btn { min-width: 38px; font-size: 11px;}
   .toast_card .gap_px_25 { gap: 12px !important;}
   [color-theme='dark'] .close_btn:not(.aside,.category_btn, .d_md_btn_sm) { background-image: url("../images/icons/ico__darkmode_back.png");}
@@ -698,11 +698,11 @@ body.scroll_down .floating_area .floating_btn { transform: translateY(0);}
   .header .search_box .dropdown_item .dropdown_link { font-size: 12px; padding: 5px 10px;}
   .header .search_box .search_input .dropdown_area { width: 100%;}
   .header .search_box .search_input .dropdown_item { padding-left: 0;}
-  .header .search_input::before { height: 19px; z-index: 201;}
+  .header .search_input::before { height: 19px; z-index: 1002;}
   .header .search_input .input { height: 39px; padding: 0 7px; padding-right: calc(38px + 7px * 2); border: 2px solid var(--fn-danger); border-left: none; border-top-right-radius: 100px; border-bottom-right-radius: 100px; font-size: 13px; background-color: var(--fn-white); z-index: 1001;}
   [color-theme='dark'] .header .search_input .input {background-color: var(--fn-gray-dark-400);}
   .header .search_input .input::placeholder { font-size: 13px;}
-  .header .search_input .search_btn { position: absolute; top: 50%; right: 10px; width: 38px; height: 35px; z-index: 101; transform: translateY(-50%);}
+  .header .search_input .search_btn { position: absolute; top: 50%; right: 10px; width: 38px; height: 35px; z-index: 1001; transform: translateY(-50%);}
   .header .etc_area .m_etc_list { justify-content: end;}
   .header .etc_area .etc_item .etc_link .ico .count { min-width: 10px; height: 10px; padding: 0 3px; font-size: 10px;}
   .header .etc_area .m_etc_list .etc_item .etc_link .ico_order { background-image: url("../images/icons/ico_m_calculator.svg");}
@@ -726,7 +726,7 @@ body.scroll_down .floating_area .floating_btn { transform: translateY(0);}
   .nav .depth1_list { width: 100%;}
   .nav .depth1_item { border: none;}
   .nav .depth1_item .depth1_link { border-top: 1px solid var(--fn-gray-400); background:none; color: inherit;}
-  .nav .depth1_item .depth1_link:last-child {border-bottom: 1px solid var(--fn-gray-400);}
+  .nav .depth1_item:last-child .depth1_link {border-bottom: 1px solid var(--fn-gray-400);}
   .nav .depth1_item.active .depth1_link { color: inherit; background-color: inherit;}
   [color-theme='dark'] .nav .depth1_item.active .depth1_link { background-color: var(--fn-gray-dark-400);}
   .nav .depth1_link { min-width: none; padding: 15px 10px 5px; font-weight: 700; font-size: 11px; align-items: start; height: auto;}
@@ -782,7 +782,7 @@ body.scroll_down .floating_area .floating_btn { transform: translateY(0);}
   /* .banner_all_swiper_dim { display: none; position: fixed; top: 0; left: 0; bottom: 0; right: 0; z-index: 601;} */
   .banner_all_swiper_wrap.active + .banner_all_swiper_dim { display: block;}
 
-  .aside { top: 45px; bottom: 40px; width: 100%; height: auto;}
+  .aside { top: 45px; bottom: 0; width: 100%; height: auto;}
   .aside_wrap.active .aside { box-shadow: none !important;}
   .aside .aside_body .aside_tab_item { position: relative;}
   .aside .aside_body .aside_tab_item .btn_back_circle { left: 20px; min-width: 20px; height: 20px; transform: translate(-50%, -50%);}
@@ -985,7 +985,7 @@ body.scroll_down .floating_area .floating_btn { transform: translateY(0);}
   [color-theme='dark'] .floating_area .floating_btn { border: 1px solid var(--fn-gray-600); background-color: var(--fn-black);}
   .floating_area .scroll_top_btn::before { width: 30px; height: 30px; }
 
-  .bottom_menu_area { position: fixed; bottom: 0; right: 0; left: 0; height: 40px; background-color: var(--fn-white); border-top: 1px solid var(--fn-gray-600); z-index: 600; gap: 60px; justify-content: center; align-items: center;}
+  .bottom_menu_area { position: fixed; bottom: 0; right: 0; left: 0; height: 40px; background-color: var(--fn-white); border-top: 1px solid var(--fn-gray-600); z-index: 8990; gap: 60px; justify-content: center; align-items: center;}
   [color-theme='dark'] .bottom_menu_area { background-color: var(--fn-black);}
   .bottom_menu_area .bottom_btn {width: 20px; height: 20px; background-size: contain; background-position: center; background-repeat: no-repeat;}
   .bottom_menu_area .bottom_btn.home { background-image: url("../images/icons/ico_mb_home_off.png");}

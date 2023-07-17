@@ -607,17 +607,17 @@ BuyGo = {
                         height = $('.nav .service_list').outerHeight() + $('.search_wrap.gnb').outerHeight();
                     }
                     
-                    BuyGo.openTl('.category', '.category_area', height);
+                    BuyGo.openTl('.nav .category', '.category_area', height);
                 } else {
-                    BuyGo.closeTl('.category', '.category_area');
+                    BuyGo.closeTl('.nav .category', '.category_area');
                 }
             }
         })
-        $(document).on('click', '.category_header .btn_back_circle, .category_dim', function (e) {
+        $(document).on('click', '.category_header .btn_back_circle', function (e) {
             // 카테고리 닫기
             e.preventDefault();
             let $this = e.currentTarget;
-            BuyGo.closeTl('.category', '.category_area');
+            BuyGo.closeTl('.nav .category', '.category_area');
         });
         $(document).on('click', '.prot_area .pagination .num', function (e) {
             $(e.currentTarget).toggleClass('active').siblings().removeClass('active')
@@ -918,10 +918,14 @@ BuyGo = {
     
                 gsap.timeline()
                 .set(children, {autoAlpha: 1, top: height})
-                .add(()=>{$(target).addClass('active')})
+                .add(()=>{
+                    $(target).addClass('active target');
+                    $(children).addClass('children');
+                })
                 .to(children, {xPercent: -100, autoAlpha: 1, duration: .45, ease: Power1.easeInOuteaseInOut})
                 .add(()=>{
                     $('body').addClass('openTl');
+                    $(target).addClass('target');
                     $(children).addClass('children');
                     $(children).find(':hidden').blur();
                     $(children).attr("tabindex", -1).focus().attr("tabindex", null);
@@ -931,11 +935,13 @@ BuyGo = {
         } else {
             gsap.timeline()
             .set(children, {autoAlpha: 1, top: height})
-            .add(()=>{$(target).addClass('active')})
+            .add(()=>{
+                $(target).addClass('active target');
+                $(children).addClass('children');
+            })
             .to(children, {xPercent: -100, autoAlpha: 1, duration: .45, ease: Power1.easeInOuteaseInOut})
             .add(()=>{
                 $('body').addClass('openTl');
-                $(children).addClass('children');
                 $(children).find(':hidden').blur();
                 $(children).attr("tabindex", -1).focus().attr("tabindex", null);
             })
@@ -943,11 +949,13 @@ BuyGo = {
         }
     },
     closeTl: function (target, children) {
+        if($('.bottom_btn.category').hasClass('active'))$('.bottom_btn.category').removeClass('active');
+        
         gsap.timeline()
         .add(()=>{
             $('body').removeClass('openTl');
             $('html, body').removeClass('hidden');
-            $(target).removeClass('active');
+            $(target).removeClass('active target');
             $(children).removeClass('children');
             $(children).attr("tabindex", -1).focus().attr("tabindex", null);
         })
@@ -992,8 +1000,8 @@ BuyGo = {
                 $('.depth1_item').off('mousedown');
                 // 사이드 영역 닫기
                 if ($('[class*="area"]').closest().hasClass('active')) {
-                    BuyGo.closeTl('.order_wrap');
-                    BuyGo.closeTl('.category');
+                    // BuyGo.closeTl('.order_wrap');
+                    // BuyGo.closeTl('.category');
                 }
                 // brand_list 이벤트 제거
                 $('.brand_list').off('keydown');

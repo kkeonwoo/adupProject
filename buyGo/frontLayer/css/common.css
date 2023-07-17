@@ -321,7 +321,7 @@ input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none;}
 .h_px_60 { height: 60px !important;}
 .h_px_120 { height: 120px !important;}
 
-.bg_primary { background-color: var(--fn-primary) !important;}
+.bg_primary { background-color: var(--fn-primary) !important; color: white;}
 .bg_secondary { background-color: var(--fn-secondary) !important;}
 .bg_success { background-color: var(--fn-success) !important;}
 .bg_info { background-color: var(--fn-info) !important;}
