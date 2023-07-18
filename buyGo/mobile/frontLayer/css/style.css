@@ -290,7 +290,7 @@
 .ttl_area .sub_ttl { font-size: 14px; }
 
 /* .sec.type2 .prot_list { display: none;} */
-.sec.type2 .prot_list {display: grid; grid-template-columns: repeat(3,1fr); grid-template-rows: repeat(6,1fr); padding-bottom: 20px;}
+.sec.type2 .prot_list {display: grid; grid-template-columns: repeat(3,1fr); padding-bottom: 20px;}
 .sec.type2 .prot_area {flex-wrap: wrap;}
 .sec.type2 .prot_item .label_sale_20 { display: none; }
 .sec.type2 .prot_item .prot_price_area { display: flex; flex-wrap: wrap; gap: 10px 5px; justify-content: space-between; align-items: flex-end; align-content: flex-start; margin-top: 5px; text-align: left;}
@@ -867,7 +867,7 @@ body.scroll_down .floating_area .floating_btn { transform: translateY(0);}
   .sec.type2 .prot_swiper_wrap:not(.prot_swiper_wrap2) .swiper-button-prev { left: 0;}
   .sec.type2 .prot_swiper_wrap .prot-swiper { padding-bottom: 70px;}
   .sec.type2 .prot_swiper_wrap .swiper_controller { gap: 70px; bottom: 35px; transform: translate(-50%, 50%); -webkit-transform: translate(-50%, 50%); -moz-transform: translate(-50%, 50%); -ms-transform: translate(-50%, 50%); -o-transform: translate(-50%, 50%); }
-  .sec.type2 .prot_list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(4,1fr);}
+  .sec.type2 .prot_list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));}
   .sec.type2 .prot_list { padding: 0 5px;}
   .sec.type2 .prot_item { padding: 10px 5px 0;}
   /* .sec.type2 .prot_item .prot_info .prot_each_area .prot_each_prev { display: none;} */

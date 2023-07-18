@@ -310,7 +310,7 @@
 .ttl_area .dropdown_link { display: block; padding: 8px 20px; font-size: 13px;}
 
 .sec.type2 .prot_list { display: none;}
-.sec.type2 .prot_list.on {display: grid; grid-template-columns: repeat(4,1fr); grid-template-rows: repeat(5,1fr); padding-bottom: 90px;}
+.sec.type2 .prot_list.on {display: grid; grid-template-columns: repeat(4,1fr); padding-bottom: 90px;}
 .sec.type2 .prot_swiper_wrap.type2 .prot_link {padding: 5px;}
 
 .prot_area { display: flex; margin-top: 15px; border: 1px solid var(--fn-gray-400);}
