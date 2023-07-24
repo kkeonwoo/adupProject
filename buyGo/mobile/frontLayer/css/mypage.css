@@ -713,18 +713,20 @@ div[class*="modal_password"] .inc_form .timer { position: absolute; right: 0; wi
 .obj_cart_item .obj_cart_prd .prd_ttl { display: block; margin-top: 5px; font-size: 10px; line-height: 1.357142;}
 .obj_cart_item .obj_cart_total { max-width: 60%;}
 .obj_cart_item .obj_cart_total .obj_cart_tbl { height: 100%; text-align: center;}
-.obj_cart_item .obj_cart_total .obj_cart_tbl colgroup col:nth-child(1),
 .obj_cart_item .obj_cart_total .obj_cart_tbl colgroup col:nth-child(2),
-.obj_cart_item .obj_cart_total .obj_cart_tbl colgroup col:nth-child(4) { width: 42px;}
-.obj_cart_item .obj_cart_total .obj_cart_tbl colgroup col:nth-child(5) { width: 24%;}
+.obj_cart_item .obj_cart_total .obj_cart_tbl colgroup col:nth-child(4) { width: 12%;}
+.obj_cart_item .obj_cart_total .obj_cart_tbl colgroup col:nth-child(1),
+.obj_cart_item .obj_cart_total .obj_cart_tbl colgroup col:nth-child(5) { width: 25%;}
 .obj_cart_item .obj_cart_total .obj_cart_tbl th,
 .obj_cart_item .obj_cart_total .obj_cart_tbl td { padding: 14px 8px; border: 1px solid var(--fn-gray-500);}
 .obj_cart_item .obj_cart_total .obj_cart_tbl th { padding: 9px 0; background-color: var(--fn-gray-250); font-size: 10px;}
+.obj_cart_item .obj_cart_total .obj_cart_tbl .count_control_area { flex-wrap: wrap;}
 .obj_cart_item .obj_cart_total .obj_cart_tbl .count_control_area .decrease_btn,
 .obj_cart_item .obj_cart_total .obj_cart_tbl .count_control_area .increase_btn { min-width: 20px; height: 20px;}
 .obj_cart_item .obj_cart_total .obj_cart_tbl .count_control_area .form_control { height: 20px; font-size: 10px;}
 .obj_cart_item .obj_cart_total .obj_cart_tbl .count_control_area .cart_btn,
 .obj_cart_item .obj_cart_total .obj_cart_tbl .count_control_area .zzim_btn { min-width: 27px; height: 20px;}
+.obj_cart_item .obj_cart_total .obj_cart_tbl .count_control_area .cart_btn { flex-grow: 1;}
 [color-theme='dark'] .obj_cart_item .obj_cart_total .obj_cart_tbl th { background-color: var(--fn-gray-dark-500);}
 .obj_cart_item .obj_cart_total .obj_cart_tbl th .txt { font-weight: 700; font-size: 10px;}
 .obj_cart_item .obj_cart_total .obj_cart_tbl td .txt { display: block; font-family: var(--fn-Tahoma); font-size: 10px; line-height: 1.357142;}

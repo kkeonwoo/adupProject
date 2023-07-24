@@ -401,7 +401,10 @@ BuyGo = {
     nav: function () {
         $(document).on('mouseover', '.depth1_item', function (e) {
             const $this = e.currentTarget;
-            $(this).addClass('active');
+            $($this).addClass('active');
+            if ($($this).find('.depth2_item').length == 0) {
+                $($this).find('.depth2_area').hide();
+            }
         });
         $(document).on('mouseleave', '.depth1_item', function (e) {
             const $this = e.currentTarget;
@@ -412,29 +415,13 @@ BuyGo = {
             $($this).closest('.depth1_item').siblings().removeClass('active');
             $($this).closest('.depth1_item').addClass('active');
         });
-        $(document).on('focus', '.depth1_item a', function (e) {
-            const $this = e.currentTarget;
-            if (!($($this).closest('.type2').length)) {
-                $(this).closest('.depth1_item').siblings().removeClass('active');
-                $(this).closest('.depth1_item').addClass('active');
-            }
-        });
-        $(document).on('focus', '.depth1_item a', function (e) {
-            const $this = e.currentTarget;
-            if (!($($this).closest('.type2').length)) {
-                $($this).closest('.depth1_item').siblings().removeClass('active');
-                $($this).closest('.depth1_item').addClass('active');
-            }
-        });
         $(document).on('blur', '.depth1_item a', function (e) {
             const $this = e.currentTarget;
-            if (!($($this).closest('.type2').length)) {
-                let a_legth = $(this).closest('.depth1_item').find('a').length;
-                let $a_last = $(this).closest('.depth1_item').find('a').removeClass('last')[a_legth - 1];
-                $($a_last).addClass('last');
-                if ($($this).hasClass('last')) {
-                    $($this).closest('.depth1_item').removeClass('active');
-                }
+            let a_legth = $(this).closest('.depth1_item').find('a').length;
+            let $a_last = $(this).closest('.depth1_item').find('a').removeClass('last')[a_legth - 1];
+            $($a_last).addClass('last');
+            if ($($this).hasClass('last')) {
+                $($this).closest('.depth1_item').removeClass('active');
             }
         });
     },

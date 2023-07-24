@@ -177,15 +177,6 @@ BuyGo = {
             $('.form_select').attr('data-fixed-active',"false");
         });
 
-        // 전체선택
-        $(document).on('change','.option_ttl input', function() {
-            if($(this).is(':checked')) {
-                $(this).parents('.option_ttl').next().find('input').prop('checked',true);
-            } else {
-                $(this).parents('.option_ttl').next().find('input').prop('checked',false);
-            }
-        })
-
         // mobile selectbox 닫기
         $(document).on('click', '.fixed_area .btn_close_rounded, .dim', function(e) {
             selectComplete($selectComplete);
@@ -487,22 +478,23 @@ BuyGo = {
             e.preventDefault();
             const $this = e.currentTarget;
             $($this).closest('.depth1_item').toggleClass('active').siblings().removeClass('active');
+            if($($this).closest('.depth1_item').find('.depth2_item').length == 0) {
+                $($this).closest('.depth1_item').find('.depth2_area').hide();
+            }
         });
         $(document).on('click','.depth1_item a',function (e) {
             e.preventDefault();
-            $(this).closest('.depth1_item').siblings().removeClass('active');
-            $(this).closest('.depth1_item').toggleClass('active');
+            const $this = e.currentTarget;
+            if(!($($this).closest('.type2').length)){
+                $($this).closest('.depth1_item').siblings().removeClass('active');
+                $($this).closest('.depth1_item').toggleClass('active');
+            }
         })
         $(document).on('focus', '.depth1_item a', function (e) {
             const $this = e.currentTarget;
-            $($this).closest('.depth1_item').siblings().removeClass('active');
-            $($this).closest('.depth1_item').addClass('active');
-        });
-        $(document).on('focus', '.depth1_item a', function (e) {
-            const $this = e.currentTarget;
             if(!($($this).closest('.type2').length)){
-                $(this).closest('.depth1_item').siblings().removeClass('active');
-                $(this).closest('.depth1_item').addClass('active');
+                $($this).closest('.depth1_item').siblings().removeClass('active');
+                $($this).closest('.depth1_item').addClass('active');
             }
         });
         $(document).on('blur', '.depth1_item a', function (e) {
@@ -523,6 +515,14 @@ BuyGo = {
             if($('html, body').hasClass('dev_mobile')){
                 // $($el).toggleClass('on').siblings().removeClass('on');
                 dropdownElement.stop().slideToggle().closest('.depth1_item').siblings().find('.depth2_area').stop().slideUp();
+            }
+        })
+        $('.nav .depth1_item').click(function(e) {
+            if($('html, body').hasClass('dev_mobile')) {
+                if($(this).find('.depth2_item').length == 0 || $(e.target).hasClass('depth2_link')) {
+                    $('.bottom_btn.category').removeClass('active');
+                    BuyGo.closeTl('.nav .category', '.nav .category_area');
+                }
             }
         })
     },
@@ -607,9 +607,9 @@ BuyGo = {
                         height = $('.nav .service_list').outerHeight() + $('.search_wrap.gnb').outerHeight();
                     }
                     
-                    BuyGo.openTl('.nav .category', '.category_area', height);
+                    BuyGo.openTl('.nav .category', '.nav .category_area', height);
                 } else {
-                    BuyGo.closeTl('.nav .category', '.category_area');
+                    BuyGo.closeTl('.nav .category', '.nav .category_area');
                 }
             }
         })
@@ -617,7 +617,8 @@ BuyGo = {
             // 카테고리 닫기
             e.preventDefault();
             let $this = e.currentTarget;
-            BuyGo.closeTl('.nav .category', '.category_area');
+            $('.bottom_btn.category').removeClass('active');
+            BuyGo.closeTl('.nav .category', '.nav .category_area');
         });
         $(document).on('click', '.prot_area .pagination .num', function (e) {
             $(e.currentTarget).toggleClass('active').siblings().removeClass('active')
@@ -914,6 +915,7 @@ BuyGo = {
             if($(target).hasClass('active')) {
                 BuyGo.closeTl('.target', '.children');
             } else {
+                target !== '.nav .category' && $('.bottom_btn.category').removeClass('active');
                 BuyGo.closeTl('.target', '.children');
     
                 gsap.timeline()
@@ -949,8 +951,6 @@ BuyGo = {
         }
     },
     closeTl: function (target, children) {
-        if($('.bottom_btn.category').hasClass('active'))$('.bottom_btn.category').removeClass('active');
-        
         gsap.timeline()
         .add(()=>{
             $('body').removeClass('openTl');

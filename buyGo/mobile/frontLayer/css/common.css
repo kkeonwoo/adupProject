@@ -1047,6 +1047,7 @@ a:hover{text-decoration:none;}
     .sec_bb_0 { border-bottom: none !important;}
 
     .d_md_mt_0 { margin-top: 0 !important;}
+    .d_md_mt_10 { margin-top: 10px !important;}
     .d_md_mt_px_30 { margin-top: 30px !important;}
     .d_md_mb_0 { margin-bottom: 0 !important;}
     .d_md_mb_px_125 { margin-bottom: 125px !important;}
@@ -1130,6 +1131,9 @@ a:hover{text-decoration:none;}
     .mobile .option_area .option_ttl label,
     .mobile .option_area .option_list .option_item,
     .mobile .option_area .option_list .option_item label { display: flex; width: 100%; justify-content: space-between; align-items: center;}
+    .mobile .option_area .option_ttl label { justify-content: unset;}
+    .mobile .option_area .option_ttl label span.brand_name { font-weight: 700;}
+    .mobile .option_area .option_ttl label input { margin-left: auto;}
     .mobile .option_area .option_list .option_item { padding: 8px 18px 8px 16px; border-bottom: 1px solid var(--fn-gray-500);}
     .mobile .option_area .option_list .option_item label { flex-grow: 1;}
     .mobile .option_area .option_list .option_item label span { font-size: 15px; line-height: 1.5;}

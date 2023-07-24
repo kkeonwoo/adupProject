@@ -96,20 +96,21 @@
 .nav .depth1_area { display: none; position: absolute; z-index: 100; left: 0; top: 100%; height: 380px; background-color: var(--fn-gray-200); border-bottom: 1px solid var(--fn-gray-500);}
 [color-theme='dark'] .nav .depth1_area {background-color: var(--fn-gray-dark-400);}
 .visual.active .nav .depth1_area { display: block;}
-.nav .breadcrumb { display: flex; padding: 13px;}
-.nav .breadcrumb-item { position: relative; font-size: 14px; padding: 0 7px; color: var(--fn-orange);}
+.nav .breadcrumb { display: flex; flex-wrap: wrap; gap: 7px 0; padding: 13px;}
+.nav .breadcrumb-item { position: relative; font-size: 14px; margin-right: 7px; padding-right: 7px; color: var(--fn-orange);}
 .nav .breadcrumb-item::after { content: "›"; display: block; position: absolute; top: 50%; right: 0; transform: translate(50%,-50%);}
-.nav .breadcrumb-item:first-child { padding-left: 0;}
+.nav .breadcrumb-item:last-child { margin-right: 0; padding-right: 0;}
 .nav .breadcrumb-item:last-child::after {content: none;}
 .nav .depth1_list { width: 225px;}
 .nav .depth1_item { border-bottom: 1px solid var(--fn-gray-700);}
 .nav .type2 .depth1_item { position: relative;}
-.nav .type2 .depth1_item:nth-child(1) .depth1_link { color: var(--fn-orange);}
+/* .nav .type2 .depth1_item:nth-child(1) .depth1_link { color: var(--fn-orange);} */
 .nav .depth1_link { display: flex; align-items: center; position: relative; height: calc((380px - 9px) / 9); padding: 0 13px; background-color: var(--fn-gray-200); font-size: 17px;}
 [color-theme='dark'] .nav .depth1_link { background-color: var(--fn-gray-dark-400);}
 .nav .depth1_link:focus { z-index: 10;}
 .nav .depth1_item.active .depth1_link { background-color: var(--fn-white); color: var(--fn-orange);}
 .nav .type2 .depth1_item.active .depth1_link { background: none; }
+.nav .type2 .depth1_item .depth1_link .prots_num { font-size: inherit; font-weight: inherit; color: inherit;}
 [color-theme='dark'] .nav .depth1_item.active .depth1_link { background-color: var(--fn-black);}
 [color-theme='dark'] .nav .type2 .depth1_item.active .depth1_link { background-color: var(--fn-gray-dark-400);}
 .nav .depth2_area { display: none; position: absolute; left: 225px; top: 0; width: 975px; border-bottom: 1px solid var(--fn-gray-700); background-color: var(--fn-white);}

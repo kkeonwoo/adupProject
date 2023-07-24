@@ -323,11 +323,11 @@
                                     <li class="breadcrumb-item">애경</li>
                                 </ol>
                                 <ul class="depth1_list">
-                                    <li class="depth1_item total">
-                                        <a href="#" class="depth1_link">전체 (40)</a>
+                                    <li class="depth1_item total active">
+                                        <a href="#" class="depth1_link">전체 <span class="prots_num">(40)</span></a>
                                     </li>
                                     <li class="depth1_item">
-                                        <a href="#" class="depth1_link">뷰티 (10)</a>
+                                        <a href="#" class="depth1_link">뷰티 <span class="prots_num">(10)</span></a>
                                         <div class="depth2_area">
                                             <div class="depth2_content">
                                                 <ul class="depth2_list">
@@ -342,18 +342,18 @@
                                         </div>
                                     </li>
                                     <li class="depth1_item">
-                                        <a href="#" class="depth1_link">생활잡화 (30)</a>
+                                        <a href="#" class="depth1_link">생활잡화 <span class="prots_num">(30)</span></a>
                                         <div class="depth2_area">
                                             <div class="depth2_content">
                                                 <ul class="depth2_list">
                                                     <li class="depth2_item">
-                                                        <a href="#" class="depth2_link">헤어/바디/구강케어 (10)</a>
+                                                        <a href="#" class="depth2_link">헤어/바디/구강케어 <span class="prots_num">(10)</span></a>
                                                     </li>
                                                     <li class="depth2_item">
-                                                        <a href="#" class="depth2_link">세탁/주방세제 (10)</a>
+                                                        <a href="#" class="depth2_link">세탁/주방세제 <span class="prots_num">(10)</span></a>
                                                     </li>
                                                     <li class="depth2_item">
-                                                        <a href="#" class="depth2_link">제습/탈취/방향제 (10)</a>
+                                                        <a href="#" class="depth2_link">제습/탈취/방향제 <span class="prots_num">(10)</span></a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -1470,73 +1470,126 @@
 
             <section class="sec type2">
                 <div class="center">
-                    <div class="ttl_area type2">
-                        <div class="ttl_wrap">
-                            <div class="img_box">
-                                <img src="../frontLayer/images/img/logo_brandmall_lotte.png" alt="" class="ico">
+
+                    <div class="search_result_wrap">
+                        <div class="ttl_area type2">
+                            <div class="ttl_wrap">
+                                <div class="d_flex align_items_center gap_px_10">
+                                    <div class="img_box">
+                                        <img src="../frontLayer/images/img/logo_brandmall_lotte.png" alt="" class="ico">
+                                    </div>
+                                    <h2 class="ttl">애경</h2>
+                                    <span class="sub_ttl">브랜드몰</span>
+                                </div>
+
+                                <!-- s: 모바일 셀렉트 박스 -->
+                                <div class="form_select mobile" data-index="0">
+                                    <button class="form_btn" type="button">전체상품</button>
+                                    <div class="option_area">
+                                        <h3 class="option_ttl option_item">
+                                            <label for="radio"><span class="brand_name">애경</span> <span>전체상품</span></label>
+                                            <input id="radio" name="option2" type="radio">
+                                        </h3>
+                                        <ul class="option_list scrollbar">
+                                            <li class="option_item">
+                                                <label for="option2Radio1"><span>티슈</span></label>
+                                                <input id="option2Radio1" name="option2" type="radio">
+                                            </li>
+                                            <li class="option_item">
+                                                <label for="option2Radio2"><span>방역용품</span></label>
+                                                <input id="option2Radio2" name="option2" type="radio">
+                                            </li>
+                                            <li class="option_item">
+                                                <label for="option2Radio3"><span>생리대</span></label>
+                                                <input id="option2Radio3" name="option2" type="radio">
+                                            </li>
+                                            <li class="option_item">
+                                                <label for="option2Radio4"><span>기저귀</span></label>
+                                                <input id="option2Radio4" name="option2" type="radio">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- e: 모바일 셀렉트 박스 -->
                             </div>
-                            <h2 class="ttl">애경</h2>
-                            <span class="sub_ttl">전체상품</span>
-                        </div>
-                        <div class="select_wrap">
-                            <!-- s: 상품 42개씩 보기 (big_num) / 21개씩 보기 (small_num) -->
-                            <div class="sort_select_ico">
-                                <button type="button" class="sort_select_btn sort_small_num active"><span class="blind">20개씩 보기</span></button>
-                                <button type="button" class="sort_select_btn sort_big_num"><span class="blind">40개씩 보기</span></button>
+
+                            <div class="select_wrap">
+                                <!-- s: 모바일 셀렉트 박스 -->
+                                <div class="form_select mobile" data-index="0">
+                                    <button class="form_btn" type="button">추천순</button>
+                                    <div class="option_area">
+                                        <h3 class="option_ttl">상품 정렬 순서</h3>
+                                        <ul class="option_list">
+                                            <li class="option_item">
+                                                <label for="radio1"><span>추천순</span></label>
+                                                <input id="radio1" name="option" type="radio" checked>
+                                            </li>
+                                            <li class="option_item">
+                                                <label for="radio2"><span>판매금액순</span></label>
+                                                <input id="radio2" name="option" type="radio">
+                                            </li>
+                                            <li class="option_item">
+                                                <label for="radio3"><span>판매량순</span></label>
+                                                <input id="radio3" name="option" type="radio">
+                                            </li>
+                                            <li class="option_item">
+                                                <label for="radio4"><span>신상품순</span></label>
+                                                <input id="radio4" name="option" type="radio">
+                                            </li>
+                                            <li class="option_item">
+                                                <label for="radio5"><span>낮은 가격순</span></label>
+                                                <input id="radio5" name="option" type="radio">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- e: 모바일 셀렉트 박스 -->
                             </div>
-                            <!-- e: 상품 42개씩 보기 (big_num) / 21개씩 보기 (small_num) -->
                         </div>
+                        <!-- s: 모바일 체크 박스 -->
+                        <form action="" class="form d_none d_md_block">
+                            <div class="re_search_area">
+                                <div class="filter_box">
+                                    <div class="form_group">
+                                        <label for="" class="form_label pc">상품/배송 특성</label>
+                                        <ul class="input_group">
+                                            <li class="filter_item">
+                                                <label class="form_check">
+                                                    <input class="form_check_input" type="checkbox">
+                                                    <i class="ico"></i>
+                                                    <span>상온</span>
+                                                </label>
+                                            </li>
+                                            <li class="filter_item">
+                                                <label class="form_check">
+                                                    <input class="form_check_input" type="checkbox">
+                                                    <i class="ico"></i>
+                                                    <span>저온</span>
+                                                </label>
+                                            </li>
+                                            <li class="filter_item">
+                                                <label class="form_check">
+                                                    <input class="form_check_input" type="checkbox">
+                                                    <i class="ico"></i>
+                                                    <span>직배송</span>
+                                                </label>
+                                            </li>
+                                            <li class="filter_item">
+                                                <label class="form_check">
+                                                    <input class="form_check_input" type="checkbox">
+                                                    <i class="ico"></i>
+                                                    <span>택배송</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- e: 모바일 체크 박스 -->
                     </div>
-                    <div class="md_category_area d_none d_md_flex">
-                        <button type="button" class="category_btn open_btn active">전체상품</button>
-                        <button type="button" class="category_btn close_btn">접기</button>
-                        <div class="category_area type2 d_none">
-                            <div class="depth1_area">
-                                <ul class="depth1_list">
-                                    <li class="depth1_item">
-                                        <a href="#" class="depth1_link">전체 (40)</a>
-                                    </li>
-                                    <li class="depth1_item">
-                                        <a href="#" class="depth1_link">뷰티 (10)</a>
-                                        <div class="depth2_area">
-                                            <div class="depth2_content">
-                                                <ul class="depth2_list">
-                                                    <li class="depth2_item">
-                                                        <a href="#" class="depth2_link">색조</a>
-                                                    </li>
-                                                    <li class="depth2_item">
-                                                        <a href="#" class="depth2_link">스킨케어</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="depth1_item">
-                                        <a href="#" class="depth1_link">생활잡화 (30)</a>
-                                        <div class="depth2_area">
-                                            <div class="depth2_content">
-                                                <ul class="depth2_list">
-                                                    <li class="depth2_item">
-                                                        <a href="#" class="depth2_link">헤어/바디/구강케어 (10)</a>
-                                                    </li>
-                                                    <li class="depth2_item">
-                                                        <a href="#" class="depth2_link">세탁/주방세제 (10)</a>
-                                                    </li>
-                                                    <li class="depth2_item">
-                                                        <a href="#" class="depth2_link">제습/탈취/방향제 (10)</a>
-                                                    </li>
-                                                    <li class="depth2_item">
-                                                        <a href="#" class="depth2_link"></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="prot_area row bd_0">
+
+                    <div class="prot_area row bd_0 mt_0 d_md_mt_10">
                         <div class="prot_swiper_wrap prot_swiper_wrap1 col_12 d_none d_md_block">
                             <div class="swiper prot-swiper prot-swiper1">
                                 <div class="swiper-wrapper">
