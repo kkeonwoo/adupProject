@@ -473,56 +473,66 @@ BuyGo = {
         $(document).on('click','.datepicker_close_btn',function() {
         })
     },
+    addPlusButton: function () {
+        let depth1_item = $('.type2 .depth1_item');
+        const button = `<button class="btn_dropdown"></button>`;
+        
+        $.each(depth1_item, (idx, item) => {
+            let depth2_item = $(item).find('.depth2_area .depth2_item');
+            if(fn.exists(depth2_item)) {
+                $(item).find('.depth1_link').after(button);
+            }
+        })
+    },
+    closeNav: function () {
+        $('.bottom_btn.category').removeClass('active');
+        BuyGo.closeTl('.nav .category', '.nav .category_area');
+    },
     nav: function () {
-        $(document).on('click', '.type2 .depth1_link', function (e) {
+        $(document).on('click','.depth1_item .depth1_link',function (e) {
             e.preventDefault();
             const $this = e.currentTarget;
+
             $($this).closest('.depth1_item').toggleClass('active').siblings().removeClass('active');
-            if($($this).closest('.depth1_item').find('.depth2_item').length == 0) {
-                $($this).closest('.depth1_item').find('.depth2_area').hide();
-            }
-        });
-        $(document).on('click','.depth1_item a',function (e) {
-            e.preventDefault();
-            const $this = e.currentTarget;
-            if(!($($this).closest('.type2').length)){
-                $($this).closest('.depth1_item').siblings().removeClass('active');
-                $($this).closest('.depth1_item').toggleClass('active');
-            }
         })
-        $(document).on('focus', '.depth1_item a', function (e) {
-            const $this = e.currentTarget;
-            if(!($($this).closest('.type2').length)){
-                $($this).closest('.depth1_item').siblings().removeClass('active');
-                $($this).closest('.depth1_item').addClass('active');
+        
+        BuyGo.addPlusButton();
+
+        $('.nav .type2 .depth1_link').on('click', function(e) {
+            let parent = $(e.currentTarget).closest('.depth1_item');
+
+            if(!parent.hasClass('active')) {
+                $('.btn_dropdown').removeClass('active');
+                $('.depth2_area').removeClass('active');
+                $('.depth2_item').removeClass('active');
             }
-        });
-        $(document).on('blur', '.depth1_item a', function (e) {
-            const $this = e.currentTarget;
-            if(!($($this).closest('.type2').length)){
-                let a_legth = $(this).closest('.depth1_item').find('a').length;
-                let $a_last = $(this).closest('.depth1_item').find('a').removeClass('last')[a_legth - 1];
-                $($a_last).addClass('last');
-                if ($($this).hasClass('last')) {
-                    $($this).closest('.depth1_item').removeClass('active');
-                }
-            }
-        });
-        $(document).on('mousedown','.visual .depth1_item > a',function (e) {
-            e.preventDefault();
-            let $el = e.currentTarget;
-            let dropdownElement = $($el).closest('.depth1_item').find('.depth2_area');
-            if($('html, body').hasClass('dev_mobile')){
-                // $($el).toggleClass('on').siblings().removeClass('on');
-                dropdownElement.stop().slideToggle().closest('.depth1_item').siblings().find('.depth2_area').stop().slideUp();
-            }
+
+            fn.exists('.dev_mobile') && BuyGo.closeNav();
         })
-        $('.nav .depth1_item').click(function(e) {
-            if($('html, body').hasClass('dev_mobile')) {
-                if($(this).find('.depth2_item').length == 0 || $(e.target).hasClass('depth2_link')) {
-                    $('.bottom_btn.category').removeClass('active');
-                    BuyGo.closeTl('.nav .category', '.nav .category_area');
-                }
+        
+        $('.nav .type2 .btn_dropdown').on('click', function(e) {
+            let parent = $(e.currentTarget).closest('.depth1_item');
+            let dropdownEl = $(e.currentTarget).siblings('.depth2_area');
+
+            if(dropdownEl.hasClass('active')) {
+                parent.removeClass('active');
+            } else {
+                parent.addClass('active').siblings().removeClass('active');
+                parent.siblings().find('.depth2_item').removeClass('active');
+            }
+            $(this).toggleClass('active').closest(parent).siblings().find('.btn_dropdown').removeClass('active');
+            $(dropdownEl).toggleClass('active').closest(parent).siblings().find('.depth2_area').removeClass('active');
+        })
+
+        $('.nav .depth2_link').on('click', function(e) {
+            let parent = $(e.currentTarget).closest('.depth2_item');
+            let depth1_item = $(parent).closest('.depth1_item');
+
+            fn.exists('.dev_mobile') && BuyGo.closeNav();
+
+            if(fn.exists('.category_area.type2')) {
+                depth1_item.removeClass('active');
+                $(parent).addClass('active').siblings().removeClass('active');
             }
         })
     },
@@ -1023,6 +1033,7 @@ BuyGo = {
         breakpointChecker()
     },
     stickyHeader: function () {
+        if(!fn.exists('.dev_mobile')) return false;
         let navbarTop = $('.nav').offset().top,
         navbarBottom = $('.nav').offset().top + $('.nav').outerHeight(), // 이벤트 종료점,
         navbarHeight = $('.nav').outerHeight(),
@@ -1039,7 +1050,7 @@ BuyGo = {
                 $('.nav .service_list').addClass('fixed');
                 $('.header').css('padding-bottom', navbarHeight);
                 $('.nav .service_list').removeClass('gnb');
-                $('.search_wrap').removeClass('gnb');
+                // $('.search_wrap').removeClass('gnb');
             } else {
                 if(st >= navbarBottom + navbarHeight && st + $(window).height() < $(document).height()){
                         $('.nav .service_list').addClass('gnb');
