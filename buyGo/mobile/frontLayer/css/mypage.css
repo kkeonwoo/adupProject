@@ -703,7 +703,7 @@ div[class*="modal_password"] .inc_form .timer { position: absolute; right: 0; wi
 .obj_cart_item:nth-child(n+2) { border-top: none;}
 .obj_cart_item .form_check { margin-right: 5px;}
 .obj_cart_item .form_check .ico { width: 13px; min-width: 13px; height: 13px;}
-.obj_cart_item .form_check .form_check_input[type="checkbox"]:checked ~ .ico { background-position: left 0 top 20px;}
+/* .obj_cart_item .form_check .form_check_input[type="checkbox"]:checked ~ .ico { background-position: left 0 top 20px;} */
 .obj_cart_item .obj_cart_info { display: flex; width: 100%;}
 .obj_cart_item .obj_cart_thumb { width: 82px; min-width: 82px; height: 82px;}
 .obj_cart_item .obj_cart_thumb .img { width: 100%; height: 100%; object-fit: cover;}
@@ -742,7 +742,7 @@ div[class*="modal_password"] .inc_form .timer { position: absolute; right: 0; wi
 .prd_view_box .badge_item .badge { min-width: 30px; height: 100%; padding: 2px; font-size: 10px;}
 .prd_view_box .thumb { width: 45px; min-width: 45px; height: 45px;}
 .prd_view_box .thumb .img { width: 100%; height: 100%; object-fit: cover;}
-.prd_view_box .prd_view_ttl { display: block; margin-top: 4px; font-size: 10px; line-height: 12px; text-align: left;}
+.prd_view_box .prd_view_ttl { display: block; margin-top: 4px; font-size: 10px; line-height: 1.2; text-align: left;}
 
 /* mypage_cont_sec */
 .order_cancel_sec .order_cancel_header .ttl_area,
@@ -814,7 +814,7 @@ div[class*="modal_password"] .inc_form .timer { position: absolute; right: 0; wi
 .mypage_cont_body .mypage_cont_group .th_area { width: 113px; padding: 10px;}
 .mypage_cont_body .mypage_cont_group .th_area .txt { font-size: 10px; line-height: 1.357142; word-break: keep-all; word-wrap: break-word;}
 .mypage_cont_body .mypage_cont_group .td_area { width: calc(100% - 113px); padding: 8px;}
-.mypage_cont_body .mypage_cont_group + .btn_area { margin-top: 30px;}
+.mypage_cont_body .btn_area { margin-top: 30px;}
 .mypage_cont_body .mypage_cont_group + .btn_area .btn { min-width: 124px;}
 .mypage_cont_body .mypage_cont_group + .btn_area.d_flex .btn { min-width: 80px;}
 

@@ -44,10 +44,11 @@ BuyGo = {
         this.datepicker();
         this.nav();
         this.button();
-        this.scrollTop();
+        // this.scrollTop();
         this.resize();
         this.fileUpload();
-
+        this.stickyHeader();
+        
         //visual 닫기
         if(!$('#container').find('.prot_area').length){
             $('.visual').removeClass('active');
@@ -298,12 +299,6 @@ BuyGo = {
         $modalButton.on('click', function () {
             $modal = $($(this).data('target'));
             BuyGo.openModal($modal);
-        });
-
-        $('.modal_control').draggable({
-            drag: function( event, ui ) {
-                $(ui.helper).css({'z-index':200}).siblings('.modal_control').css({'z-index':100});
-            }
         });
     },
     closeModal: function (
@@ -880,17 +875,17 @@ BuyGo = {
             }
         });
     },
-    scrollTop: function () {
-        $(window).scroll(function () {
-            let windowTop = $(window).scrollTop();
-            if (windowTop > 0) {
-                $("body").addClass('scroll_down');
-            } else {
-                $("body").removeClass('scroll_down');
-            }
-            return windowTop;
-        });
-    },
+    // scrollTop: function () {
+    //     $(window).scroll(function () {
+    //         let windowTop = $(window).scrollTop();
+    //         if (windowTop > 0) {
+    //             $("body").addClass('scroll_down');
+    //         } else {
+    //             $("body").removeClass('scroll_down');
+    //         }
+    //         return windowTop;
+    //     });
+    // },
     address: function (address1, address2, address3) {
         new daum.Postcode({
             oncomplete: function (data) {
@@ -1033,7 +1028,6 @@ BuyGo = {
         breakpointChecker()
     },
     stickyHeader: function () {
-        if(!fn.exists('.dev_mobile')) return false;
         let navbarTop = $('.nav').offset().top,
         navbarBottom = $('.nav').offset().top + $('.nav').outerHeight(), // 이벤트 종료점,
         navbarHeight = $('.nav').outerHeight(),
@@ -1050,7 +1044,7 @@ BuyGo = {
                 $('.nav .service_list').addClass('fixed');
                 $('.header').css('padding-bottom', navbarHeight);
                 $('.nav .service_list').removeClass('gnb');
-                // $('.search_wrap').removeClass('gnb');
+                $('.search_wrap').removeClass('gnb');
             } else {
                 if(st >= navbarBottom + navbarHeight && st + $(window).height() < $(document).height()){
                         $('.nav .service_list').addClass('gnb');
@@ -1061,6 +1055,12 @@ BuyGo = {
                     $('.nav .service_list').removeClass('fixed gnb');
                     $('.search_wrap').removeClass('gnb');
                 }
+            }
+
+            if (st > 0) {
+                $("body").addClass('scroll_down');
+            } else {
+                $("body").removeClass('scroll_down');
             }
             lastScrollTop = st;
         }

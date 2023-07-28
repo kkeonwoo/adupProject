@@ -708,7 +708,7 @@ a:hover{text-decoration:none;}
 .modal_select_address .modal_box { max-width: 465px; margin: 0; border-radius: 0; box-shadow: none; text-align: initial;}
 
 /* layer_null_area */
-.layer_null_area { display: flex; flex-direction: column; align-items: center; padding: 20px 20px 30px; border: 1px solid var(--fn-gray-500);}
+.layer_null_area { display: flex; flex-direction: column; align-items: center; padding: 20px 20px 30px;}
 .layer_null_area .ico { display: block; width: 108px; background-position: center center; background-size: 100% auto; background-repeat: no-repeat;}
 .layer_null_area .ico_cart_round_gray { background-image: url('../images/icons/ico_cart_round_gray.svg');}
 .layer_null_area .ico_star_round_gray { background-image: url('../images/icons/ico_star_round_gray.svg');}
