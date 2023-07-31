@@ -1,0 +1,19 @@
+:root {
+    /* header height */
+    --header-height: 100px;
+    --header-bg-color: #fff;
+}
+
+#header { position: relative; width: 100%; height: var(--header-height); border-bottom: 1px solid #ccc; background-color: var(--header-bg-color);}
+#header .gnb_overlay_bg { position: absolute; top: var(--header-height); left: 0; width: 100%; height: 0; background-color: var(--header-bg-color); box-shadow: 0 3px 5px rgba(0, 0, 0, .15); opacity:0; transition: height .3s, opacity .2s;}
+#header.gnb_open .gnb_overlay_bg { opacity: 1;}
+#gnb .gnb_inner > ul { display: flex;}
+#gnb .gnb_inner > ul > li { position: relative;}
+#gnb .gnb_inner > ul > li::before { content: ""; display: block; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: blue; transform: scaleX(0); transition: transform .4s;}
+#gnb .gnb_inner > ul > li.active::before { transform: scaleX(1);}
+#gnb .gnb_inner > ul > li > a { display: inline-block; line-height: var(--header-height); padding: 0 30px;}
+#gnb .gnb_inner > ul > li.active > a { color: blue;}
+#gnb .gnb_inner > ul > li > .depth2_area { display: none; position: absolute; top: var(--header-height); left: 0; right: 0; width: 100%; padding: 10px; overflow: hidden; text-align: center;}
+#gnb .gnb_inner > ul > li > .depth2_area::before { content: ''; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: blue; opacity: 0; transition: opacity .4s;}
+#gnb .gnb_inner > ul > li.active > .depth2_area::before { opacity: .2;}
+#gnb .gnb_inner > ul > li > .depth2_area > ul > li { padding: 10px;}

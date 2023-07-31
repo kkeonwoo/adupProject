@@ -39,8 +39,6 @@ ProjectName = {
         ProjectName.modal();
         ProjectName.setSwiper();
         ProjectName.datepicker();
-        ProjectName.uploadFile();
-        // ProjectName.inputKeydown();
     },
     tab : function(){
         // 탭 컨텐츠 숨기기
@@ -318,55 +316,6 @@ ProjectName = {
             });
         }
     },
-    uploadFile : function(){
-        $(document).on('change','.upload_area .upload_file', function (e) {
-            let fileName = $(this).val().replace(/.*(\/|\\)/, '');
-            $(this).closest('.upload_area').find('.txt_box').find('.txt').text(fileName);
-        })
-    },
-    // inputKeydown: function(){
-    //     $(document).on('propertychange change keyup paste input keypress','.input_limit',function(e){
-    //         let inputValue = $(this).val();
-    //         let regexp;
-    //         if(inputValue.length >= 1) {
-    //             if(e.type === 'keyup') {
-    //                 $(this).parents('.form_group').addClass('active');
-    //             }
-    //         } else {
-    //             $(this).parents('.form_group').removeClass('active');
-    //         }
-    //         switch (e.target.id) {
-    //             case 'ko':
-    //                 regexp = /[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
-    //                 $(this).val(inputValue.replace(regexp, ''));
-    //                 break;
-    //             case 'en':
-    //                 regexp = /[ㄱ-ㅎ]|[가-힣]|[0-9]/g;
-    //                 $(this).val(inputValue.replace(regexp, ''));
-    //                 break;
-    //             case 'num':
-    //                 regexp = /[^0-9]/gi;
-    //                 $(this).val(inputValue.replace(regexp, ''));
-    //                 break;
-    //             case 'phone':
-    //                 regexp = /[^0-9]/gi;
-    //                 $(this).attr('maxlength',13);
-    //                 $(this).val(inputValue.replace(regexp, '').replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, ""));
-    //                 break;
-    //             case 'email' :
-    //                 regexp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
-    //                 let matchValue = regexp.test(inputValue);
-    //                 if(matchValue) {
-    //                     $(this).parents('.form_group').addClass('active')
-    //                 } else {
-    //                     $(this).parents('.form_group').removeClass('active').next('.caution').text('이메일 형식이 아닙니다.');
-    //                 }
-    //                 break;
-    //             default: regexp = /[^a-z|A-Z|0-9|ㄱ-ㅎ|가-힣]/g;
-    //                 break;
-    //         }
-    //     })
-    // }
 }
 $(function () {
     ProjectName.init();

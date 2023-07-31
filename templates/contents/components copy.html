@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Templates</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- SNS share -->
+    <meta property="og:title" content="" />
+    <meta property="og:url" content=""/>
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16"  href="../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32"  href="../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="../frontLayer/images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../frontLayer/images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../frontLayer/images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../frontLayer/images/favicons/apple-touch-icon-76x76.png">
+    <link rel="icon" type="image/png" sizes="96x96"  href="../frontLayer/images/favicons/apple-touch-icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../frontLayer/images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../frontLayer/images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../frontLayer/images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../frontLayer/images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../frontLayer/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../frontLayer/images/favicons/android-icon-192x192.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="canonical" href=""/>
+    <link rel="stylesheet" href="../frontLayer/css/package.css">
+    <script src="../frontLayer/js/jquery-3.3.1.min.js"></script>
+    <script src="../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../frontLayer/js/swiper.min.js"></script>
+    <script src="../frontLayer/js/fn.js"></script>
+    <script src="../frontLayer/js/common.js"></script>
+    <script src="../frontLayer/js/nav.js" defer></script>
+    <style>
+        #container { width: 90%; max-width: 1280px; margin: 0 auto;}
+        .title_wrap {padding:20px;background: #000;}
+        .section:nth-child(n+2) .title_wrap { margin-top: 20px;}
+        .title_wrap h2 {color: #fff;}
+        .section h3 {padding: 20px;font-size:16px;font-weight: 700;}
+        .content {padding: 10px;}
+        .content table th {background: #cdcdcd;}
+        .content table th,
+        .content table td {padding:10px;border: 1px solid #cdcdcd;}
+        .content .set_swiper {position:relative;}
+    </style>
+</head>
+<body>
+
+    <!-- s:wrap -->
+    <div id="wrap">
+
+        <!-- s:skip -->
+        <div class="skip">
+            <a href="#container">본문 바로가기</a>
+        </div>
+        <!-- e:skip -->
+
+        <section id="container">
+            <div class="section">
+                <div class="title_wrap">
+                    <h2>nav</h2>
+                </div>
+                <div class="content">
+                    <div id="header">
+                        <div class="header_inner">
+                            <div class="gnb_overlay_bg"></div>
+                            <nav id="gnb" class="total_menu">
+                                <h2 class="blind">Menu</h2>
+                                <div class="gnb_wrapper">
+                                    <div class="gnb_inner">
+                                        <ul>
+                                            <li>
+                                                <a href="#">depth1 text</a>
+                                                <div class="depth2_area">
+                                                    <ul>
+                                                        <li><a href="#">depth2 text</a></li>
+                                                        <li><a href="#">depth2 text</a></li>
+                                                        <li><a href="#">depth2 text</a></li>
+                                                        <li><a href="#">depth2 text</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#">depth1 text</a>
+                                                <div class="depth2_area">
+                                                    <ul>
+                                                        <li><a href="#">depth2 text</a></li>
+                                                        <li><a href="#">depth2 text</a></li>
+                                                        <li><a href="#">depth2 text</a></li>
+                                                        <li><a href="#">depth2 text</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#">depth1 text</a>
+                                                <div class="depth2_area">
+                                                    <ul>
+                                                        <li><a href="#">depth2 text</a></li>
+                                                        <li><a href="#">depth2 text</a></li>
+                                                        <li><a href="#">depth2 text</a></li>
+                                                        <li><a href="#">depth2 text</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#">depth1 text</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <button>focus out</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- e:wrap -->
+
+</body>
+</html>
