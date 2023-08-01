@@ -1,19 +1,34 @@
 :root {
+    /* gnb width */
+    --gnb-mobile-width: 40%;
     /* header height */
     --header-height: 100px;
+    /* header color */
     --header-bg-color: #fff;
 }
 
-#header { position: relative; width: 100%; height: var(--header-height); border-bottom: 1px solid #ccc; background-color: var(--header-bg-color);}
-#header .gnb_overlay_bg { position: absolute; top: var(--header-height); left: 0; width: 100%; height: 0; background-color: var(--header-bg-color); box-shadow: 0 3px 5px rgba(0, 0, 0, .15); opacity:0; transition: height .3s, opacity .2s;}
-#header.gnb_open .gnb_overlay_bg { opacity: 1;}
+#header { display: flex; align-items: center; position: relative; width: 100%; height: var(--header-height); border-bottom: 1px solid #ccc; background-color: var(--header-bg-color);}
+#header .gnb_overlay_bg { display: none; position: absolute; top: var(--header-height); left: 0; width: 100%; background-color: var(--header-bg-color); box-shadow: 0 3px 5px rgba(0, 0, 0, .15);}
 #gnb .gnb_inner > ul { display: flex;}
 #gnb .gnb_inner > ul > li { position: relative;}
-#gnb .gnb_inner > ul > li::before { content: ""; display: block; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: blue; transform: scaleX(0); transition: transform .4s;}
-#gnb .gnb_inner > ul > li.active::before { transform: scaleX(1);}
+#gnb.total_menu .gnb_inner > ul > li::before { content: ""; display: block; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: blue; transform: scaleX(0); transition: transform .4s;}
+#gnb.total_menu .gnb_inner > ul > li.active::before { transform: scaleX(1);}
 #gnb .gnb_inner > ul > li > a { display: inline-block; line-height: var(--header-height); padding: 0 30px;}
 #gnb .gnb_inner > ul > li.active > a { color: blue;}
 #gnb .gnb_inner > ul > li > .depth2_area { display: none; position: absolute; top: var(--header-height); left: 0; right: 0; width: 100%; padding: 10px; overflow: hidden; text-align: center;}
-#gnb .gnb_inner > ul > li > .depth2_area::before { content: ''; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: blue; opacity: 0; transition: opacity .4s;}
-#gnb .gnb_inner > ul > li.active > .depth2_area::before { opacity: .2;}
+#gnb.each_menu .gnb_inner > ul > li > .depth2_area { padding: 40px 0 0;}
+#gnb.each_menu .gnb_inner > ul > li.active > .depth2_area { display: block;}
+#gnb.each_menu .gnb_inner > ul > li > .depth2_area > ul { padding: 10px; background-color: #ccc; border-radius: 10px;}
+#gnb.total_menu .gnb_inner > ul > li > .depth2_area::before { content: ''; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: blue; opacity: 0; transition: opacity .4s;}
+#gnb.total_menu .gnb_inner > ul > li.active > .depth2_area::before { opacity: .2;}
 #gnb .gnb_inner > ul > li > .depth2_area > ul > li { padding: 10px;}
+
+.menu_open { position: relative; width: 16px; height: 16px; margin-left: auto; z-index: 1000; background-color: red;}
+.gnb_mob_open .menu_open { background-color: blue;}
+
+#gnbM { display: none; position: fixed; top: 0; left: 0; height: 100%; overflow-y: auto; background-color: var(--header-bg-color); box-shadow: 1px 1px 5px rgba(0, 0, 0, .15);}
+#gnbM.gnb_slide { left: unset; right: 0; width: var(--gnb-mobile-width); padding: 40px;}
+#gnbM.gnb_full { width: 100%; padding: 40px; text-align: center;}
+#gnbM > ul > li + li { padding: 10px 0 0;}
+#gnbM .depth2_area { display: none; padding: 10px;}
+#gnbM .depth2_area > ul > li { padding: 10px 0;}
