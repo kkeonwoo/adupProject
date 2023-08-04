@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44" height="32" viewBox="0 0 44 32">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.2;
+        filter: url(#filter);
+      }
+    </style>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#fff"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+    <image id="image" width="44" height="18" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAASCAYAAAAg9DzcAAABWElEQVRIic2VMU4CQRSGfyWBhi1pQRM6PADcQDgCSkI8ANzBOxg6e72CnaUcQLS21UZtLPjM4CNONrrL7g6wk0yy2Xnv/7+ZeTMjYAw8A11AJe1dYxwfSjqW1JZ0L2mi8rWJsbVXrLaip8ArP+0GqJdgpevGgrE5RvkBTeDBAh6Bzh5hO8aAMTXXY/HAKnBlgR/AcA+wQ/PGWKr+eFLSp5dU2wFozVss5332V1zatiy8bWltEbblleMiqRzThCLg1oTegP4WYPumjXlFSfGbik6BL2AJXAKVAKAV01qa9nSTvCwGPeDFVuIOaBSAbZgGptnbNHdnRqEmXmQrybKVsdIib2kVqcFBhsMSP7yDvL5FgF0/AuYp15F/Pc4tJ7dnUWDZhT/758I/9x6gWYgHKATwuo9icP4kRqF8QgK7fgI88dvct/sXzONgRR22RZKuTfJC0nsweUnfEkeYy+Tld/0AAAAASUVORK5CYII="/>
+  </defs>
+  <g id="_" data-name="&gt;&gt;" class="cls-1">
+    <use id="벡터_고급_개체" data-name="벡터 고급 개체" xlink:href="#image"/>
+    <use id="벡터_고급_개체_복사" data-name="벡터 고급 개체 복사" y="14" xlink:href="#image"/>
+  </g>
+</svg>
