@@ -37,7 +37,7 @@ $(() => {
         }
     }
     
-    sections.forEach((section, i) => {
+    sections.forEach((section) => {
 
         ScrollTrigger.create({
             trigger: section,

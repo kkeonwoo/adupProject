@@ -16,10 +16,9 @@
 .main_visual .ico_box .ico { display: block; width: 44px; height: 32px; background: url('../images/icons/arw_bottom_white.svg') no-repeat center center / cover;}
 
 .sec { position: relative; height: 100vh; padding-top: 135px;}
-.sec .sec_ttl { font-weight: 700; font-size: 30px; text-align: center; letter-spacing: 0.2em; text-transform: uppercase;}
+.sec .sec_ttl { display: flex; justify-content: center; gap: 10px; font-weight: 700; font-size: 30px; text-align: center; letter-spacing: 0.2em; text-transform: uppercase;}
 .sec .sec_ttl span { font-weight: inherit; font-size: inherit; color: inherit;}
-.sec .sec_ttl span.symbol { position: relative; padding-left: 35px;}
-.sec .sec_ttl span.symbol::before { content: ''; display: inline-block; position: absolute; top: 50%; left: 0; width: 24px; height: 30px; background: url('../images/icons/ico_symbol.svg') no-repeat center center / cover; transform: translateY(-50%);}
+.sec .sec_ttl .ico.ico_symbol { display: inline-block; width: 24px; height: 30px; background: url('../images/icons/ico_symbol.svg') no-repeat center center / cover;}
 
 #section01 { overflow-x: auto;}
-#section01 .img_box .img { margin-top: ;}
+#section01 .img_box .img { max-height: calc(100vh - 135px - 30px - 17px);}
