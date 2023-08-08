@@ -14,10 +14,10 @@
     <script src="../frontLayer/js/gsap.min.js"></script>
     <script src="../frontLayer/js/ScrollToPlugin.min.js"></script>
     <script src="../frontLayer/js/ScrollTrigger.min.js"></script>
-    <script src="../frontLayer/js/popupData.js"></script>
     <script src="../frontLayer/js/swiper.min.js"></script>
     <script src="../frontLayer/js/fn.js"></script>
     <script src="../frontLayer/js/common.js"></script>
+    <script src="../frontLayer/js/popupData.js"></script>
     <!-- <script src="../frontLayer/js/main.js"></script> -->
 </head>
 <body>
@@ -547,75 +547,52 @@
                 cateArr: [],
                 init: function() {
                     work.button();
-                    // work.modalWork();
                 },
                 button: function() {
-                    $('.work_link').on('click', function(e) {
-                        e.preventDefault();
-                        
-                        work.showImageSrc(this);
-                        BlueOrange.openModal($('.modal_works'));
-                    });
-                    $('.modal_works .btn_modal').on('click', function(e) {
-                        let $target = $(e.currentTarget);
-                        let num = 0;
-                        if($target.hasClass('btn_next')) {
-                            num += 1
-                        } else {
-                            num -= 1
-                        }
-                        console.log(num);
-                        work.handleImgSrc($target);
-                    })
+                    $('.work_link').on('click', (e) => work.showImageSrc(e, e.currentTarget));
+                    $('.modal_works .btn_modal').on('click', function(e) { work.handleImgSrc(e, e.target) });
                 },
-                showImageSrc: function(obj) {
-                    work.cateArr = [];
-                    let linkIdx = $(obj).closest('.works_cnt_item').index(),
-                            cate = $(obj).closest('.works_content').attr('id'),
-                            path = popupData.filter((data, idx) => {
-                                if ( cate == data.cntCate ) work.cateArr.push(data);
-                                if ( cate == data.cntCate && linkIdx === data.id ) return true;
-                            });
-                    // $('.modal_works').data('category');
-                    $('.modal_works').data('idx');
-                    // $('.modal_works').attr('category', cate);
-                    $('.modal_works').attr('idx', linkIdx);
-                    $('.modal_works .img').attr('src', path[0].src);
-                },
-                handleImgSrc: function(obj) {
+                showImageSrc: function(e, obj) {
+                    e.preventDefault();
+
                     let path,
-                        num = $('.modal_works').attr('idx'),
-                        max = work.cateArr.length - 1,
-                        lastPath = $('.modal_works .img').attr('src');
-                        // cate = $('.modal_works').attr('idx');
-                    // popupData.filter((data, idx) => {
-                    //     if ( cate === data.cntCate) {
-                    //         cateArr.push(data);
-                    //         max = cateArr.length - 1;
+                        itemArr = [],
+                        { finance, commerce, app, travel, etc } = popupData,
+                        cateIdx = $(obj).closest('.works_content').index(),
+                        itemIdx = $(obj).closest('.works_cnt_item').index();
 
-                    //         return cateArr, max;
-                    //     }
-                    // })
-                    let dataIdx = obj.hasClass('btn_next') ? num++ : num--;
-                    console.log(dataIdx);
-                    path = work.cateArr.filter((data, idx) => {
-                            if(dataIdx < 0 || dataIdx > max) return false;
-                            return true
-                    })
-                    console.log(path);
-                        
-                    // $('.modal_works .img').attr('src', path[0].src);
+                    work.cateArr = [];
+                    switch (cateIdx) {
+                        case 1: work.cateArr.push(finance); break;
+                        case 2: work.cateArr.push(commerce); break;
+                        case 3: work.cateArr.push(app); break;
+                        case 4: work.cateArr.push(travel); break;
+                        case 5: work.cateArr.push(etc); break;
+                    }
+
+                    path = work.cateArr[0].filter((item, idx) => item.id === itemIdx);
+                    if (!path.length) return
+                    $('.modal_works .img').attr('src', path[0].src);
+                    BlueOrange.openModal($('.modal_works'));
                 },
-                showPrevImg: function() {
-                    let path, lastPath = $('.modal_works .img').attr('src');
-                        popupData.map((data, idx) => {
-                            if ( lastPath === data.src ) {
-                                path = popupData[idx - 1].src;
-                                return path
-                            } 
-                        })
+                handleImgSrc: function(e, obj) {
+                    e.preventDefault();
 
-                    $('.modal_works .img').attr('src', path);
+                    if (!work.cateArr[0].length) return
+                    let path = $('.modal_works .img').attr('src'),
+                        prevIndex = work.cateArr[0].findIndex((item, idx) => item.src === path),
+                        lastPath;
+
+                    if ($(obj).hasClass('btn_next')) {
+                        prevIndex++;
+                        if (prevIndex > work.cateArr[0].length - 1) return
+                    } else {
+                        prevIndex--;
+                        if (prevIndex < 0) return
+                    }
+
+                    lastPath = work.cateArr[0].filter((item, idx) => idx === prevIndex);
+                    if (lastPath.length) $('.modal_works .img').attr('src', lastPath[0].src);
                 },
                 modalWork: function() {
                     const modalSwiper = new Swiper('.modal_swiper', {
