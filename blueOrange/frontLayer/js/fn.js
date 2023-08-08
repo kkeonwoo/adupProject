@@ -77,9 +77,11 @@ fn = {
     addHidden: function(){
         $('html, body').addClass("hidden");
         $('body').css("paddingRight", fn.getScrollBarWidth());
+        $('.fixed').css("transform", `translate3d(-${fn.getScrollBarWidth()}px, 0,0)`);
     },
     removeHidden: function(){
         $('html, body').removeClass("hidden");
         $('body').css("paddingRight",0);
+        $('.fixed').css("transform", `translate3d(0,0,0)`);
     },
 }

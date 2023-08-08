@@ -34,34 +34,53 @@ $.namespace = function() {
 $.namespace('ProjectName');
 BlueOrange = {
     init : function(){
+        BlueOrange.gnb();
         BlueOrange.tab();
         BlueOrange.select();
         BlueOrange.modal();
         BlueOrange.setSwiper();
-        // BlueOrange.handleScroll();
+        BlueOrange.moveSection();
+        // BlueOrange.button();
+    },
+    gnb : function() {
+        const $gnb = $('#gnb'),
+        $depth01Item = $gnb.find('.depth1_item'),
+        $sections = $('.sec');
+
+        $depth01Item.on('click', function() {
+            let depth1Text = $(this).text();
+
+            if (depth1Text === 'works') {
+                BlueOrange.goToSection($sections[3]);
+            } else {
+                BlueOrange.goToSection(0);
+            }
+        });
     },
     tab : function(){
         // 탭 컨텐츠 숨기기
-        $('.tab_content').hide();
+        $('.works_content').hide();
 
-        // 첫번째 탭콘텐츠 보이기
-        $('.tab_container').each(function () {
-            $(this).children('.tabs li:first').addClass('active'); //Activate first tab
-            $(this).children('.tab_content').first().show();
-        });
-        
+        $('.works_list li').data('idx');
+        $('.works_list li').each((idx, item) => {
+            $(item).attr('idx', `work_${idx}`);
+            $(item).closest('.works_container').find('.works_content').eq(idx).attr('id', `work_${idx}`)
+        })
+
         //탭메뉴 클릭 이벤트
         let inProgress = false;
-        $('.tabs li button').click(function(e) {
+        $('.works_list li').click(function(e) {
             e.preventDefault();
 
-            var activeTab = $(this).attr('rel');
+            var activeTab = $(this).attr('idx');
             if(!inProgress) {
                 inProgress = true;
-                $(this).parent().siblings('li').removeClass('active');
-                $(this).parent().addClass('active');
-                $(this).closest('.tab_container').find('.tab_content').hide();
-                $('#' + activeTab).fadeIn(() => inProgress = false);
+                $(this).siblings('li').removeClass('active');
+                $(this).addClass('active');
+                $(this).closest('.works_container').find('.works_content').hide();
+                $('#' + activeTab).show();
+                BlueOrange.goToSection($('#' + activeTab));
+                inProgress = false;
             }
         });
     },
@@ -226,12 +245,12 @@ BlueOrange = {
 
         $modal.on('click',function(e){
             if ($(e.target).closest('.modal_box').length < 1 && $('.modal.active').attr('data-dim-click') !== 'false') {
-                ProjectName.closeModal($modal);
+                BlueOrange.closeModal($modal);
             }
         });
 
         $modalCloseButton.on('click',function(){
-            ProjectName.closeModal($modal);
+            BlueOrange.closeModal($modal);
         })
 
         var focusableElements = $modal.find(focusableElementsString),
@@ -260,7 +279,7 @@ BlueOrange = {
             }
             // ESCAPE
             if (e.keyCode === 27) {
-                ProjectName.closeModal($modal);
+                BlueOrange.closeModal($modal);
             }
         }
     },
@@ -294,45 +313,58 @@ BlueOrange = {
             });
         });
     },
-    // 2. people 페이지 이미지 rotate
-    handleScroll : function() {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.registerPlugin(ScrollToPlugin);
-
-        let $sections = $('.motion_panel'),
-            $video = $sections.find('.video');
-
-        $sections.each((idx, eachPanel) => {
-            ScrollTrigger.create({
-                trigger : eachPanel,
-                onEnter: () => {
-                    BlueOrange.goToSection(idx);
-                },
-                onLeave: () => {
-                    $video.get(0).pause();
-                }
-            })
-
-            ScrollTrigger.create({
-                trigger: eachPanel,
-                start: "bottom bottom",
-                onEnterBack: () => {
-                    $video.get(0).play();
-                    BlueOrange.goToSection(idx);
-                }
+    scrolling : {
+        enabled: true,
+        events: "click,scroll,wheel,touchmove,pointermove".split(","),
+        prevent: e => e.preventDefault(),
+        disable() {
+            if (BlueOrange.scrolling.enabled) {
+                BlueOrange.scrolling.enabled = false;
+                // passive : 스크롤 성능 향상 옵션
+                window.addEventListener("scroll", gsap.ticker.tick, {passive: true});
+                BlueOrange.scrolling.events.forEach((e, idx) => (idx ? document : window).addEventListener(e, BlueOrange.scrolling.prevent, {passive: false}));
+            }
+        },
+        enable() {
+            if (!BlueOrange.scrolling.enabled) {
+                BlueOrange.scrolling.enabled = true;
+                window.removeEventListener("scroll", gsap.ticker.tick);
+                BlueOrange.scrolling.events.forEach((e, idx) => (idx ? document : window).removeEventListener(e, BlueOrange.scrolling.prevent));
+            }
+        }
+    },
+    goToSection : function(section) {
+        if (BlueOrange.scrolling.enabled) { // skip if a scroll tween is in progress
+            BlueOrange.scrolling.disable();
+            gsap.to(window, {
+                scrollTo: {y: section, autoKill: false},
+                onComplete: BlueOrange.scrolling.enable,
+                duration: 1
             });
+        }
+    },
+    moveSection : function() {
+        const panels = document.querySelectorAll(".motion_panel");
+
+        panels.forEach((panel) => {
+
+            ScrollTrigger.create({
+                trigger: panel,
+                start: "top bottom-=1",
+                end: "bottom top+=1",
+                onEnter: () => BlueOrange.goToSection(panel),
+                onEnterBack: () => BlueOrange.goToSection(panel)
+            });
+        
+        });
+    },
+    button : function() {
+        $('.work_link').on('click', function(e) {
+            e.preventDefault();
+
+            BlueOrange.openModal($('.modal_works'));
         })
     },
-    /**
-     * go to section
-     * @param {*} idx index 
-     */
-    goToSection : function (idx) {
-        gsap.to(window, {
-            scrollTo: { y: idx * innerHeight, autoKill: false, ease:'Power3.easeInOut'},
-            duration: 0.4,
-        })
-    }
 }
 $(function () {
     BlueOrange.init();
