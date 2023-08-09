@@ -84,4 +84,7 @@ fn = {
         $('body').css("paddingRight",0);
         $('.fixed').css("transform", `translate3d(0,0,0)`);
     },
+    isScrollTop: function() {
+        (this.getScrollTop(window) > 0) ? $('html, body').addClass('scroll_down') : $('html, body').removeClass('scroll_down');
+    }
 }

@@ -40,7 +40,9 @@ BlueOrange = {
         BlueOrange.modal();
         BlueOrange.setSwiper();
         BlueOrange.moveSection();
-        // BlueOrange.button();
+        BlueOrange.goToTop();
+        BlueOrange.handleScrollX();
+        BlueOrange.resize();
     },
     gnb : function() {
         const $gnb = $('#gnb'),
@@ -49,12 +51,14 @@ BlueOrange = {
 
         $depth01Item.on('click', function() {
             let depth1Text = $(this).text();
-
+            
             if (depth1Text === 'works') {
                 BlueOrange.goToSection($sections[3]);
             } else {
                 BlueOrange.goToSection(0);
             }
+
+            $(this).addClass('active').siblings().removeClass('active');
         });
     },
     tab : function(){
@@ -320,7 +324,6 @@ BlueOrange = {
         disable() {
             if (BlueOrange.scrolling.enabled) {
                 BlueOrange.scrolling.enabled = false;
-                // passive : 스크롤 성능 향상 옵션
                 window.addEventListener("scroll", gsap.ticker.tick, {passive: true});
                 BlueOrange.scrolling.events.forEach((e, idx) => (idx ? document : window).addEventListener(e, BlueOrange.scrolling.prevent, {passive: false}));
             }
@@ -334,7 +337,9 @@ BlueOrange = {
         }
     },
     goToSection : function(section) {
-        if (BlueOrange.scrolling.enabled) { // skip if a scroll tween is in progress
+        console.log(section);
+        console.log(BlueOrange.scrolling.enabled);
+        if (BlueOrange.scrolling.enabled) {
             BlueOrange.scrolling.disable();
             gsap.to(window, {
                 scrollTo: {y: section, autoKill: false},
@@ -345,6 +350,11 @@ BlueOrange = {
     },
     moveSection : function() {
         const panels = document.querySelectorAll(".motion_panel");
+        // people
+        // 1. window와 motion 높이 차이 계산
+        // 2. window 높이가 더 높으면 차이만큼
+        // start bottom에 -= 수치 넣기
+        // 3. 가로 스크롤 구현
 
         panels.forEach((panel) => {
 
@@ -352,19 +362,29 @@ BlueOrange = {
                 trigger: panel,
                 start: "top bottom-=1",
                 end: "bottom top+=1",
+                // markers: true,
                 onEnter: () => BlueOrange.goToSection(panel),
-                onEnterBack: () => BlueOrange.goToSection(panel)
+                onEnterBack: () => BlueOrange.goToSection(panel),
+                onUpdate: () => fn.isScrollTop(),
             });
-        
-        });
-    },
-    button : function() {
-        $('.work_link').on('click', function(e) {
-            e.preventDefault();
 
-            BlueOrange.openModal($('.modal_works'));
-        })
+        });
+        
     },
+    goToTop : function() {
+        $('.float_area .btn').on('click', function() {
+            BlueOrange.goToSection(0);
+        } );
+    },
+    handleScrollX : function () {
+        let imgBoxWidth = $('#section01 .img').outerWidth(),
+            windowWidth = $(window).outerWidth();
+
+        $('#section01 .img_box').scrollLeft(imgBoxWidth - windowWidth);
+    },
+    resize : function () {
+        $(window).resize(() => BlueOrange.handleScrollX());
+    }
 }
 $(function () {
     BlueOrange.init();

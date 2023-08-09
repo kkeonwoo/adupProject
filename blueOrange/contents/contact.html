@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>blueorange</title>
+
+    <link rel="stylesheet" href="../frontLayer/css/package.css">
+    
+    <script src="../frontLayer/js/jquery-3.3.1.min.js"></script>
+    <script src="../frontLayer/js/gsap.min.js"></script>
+    <script src="../frontLayer/js/ScrollToPlugin.min.js"></script>
+    <script src="../frontLayer/js/ScrollTrigger.min.js"></script>
+    <script src="../frontLayer/js/swiper.min.js"></script>
+    <script src="../frontLayer/js/fn.js"></script>
+    <script src="../frontLayer/js/common.js"></script>
+</head>
+<body>
+    <div class="contact">
+
+        <header id="header">
+            <div class="header_inner">
+                <h1 class="logo">
+                    <a href="#" class="logo_link"><img src="../frontLayer/images/common/logo.svg" alt="blueorange communications" class="img"></a>
+                </h1>
+                <nav id="gnb">
+                    <h2 class="blind">gnb</h2>
+                    <ul class="depth1_list">
+                        <li class="depth1_item"><a href="./index.html" data-text="about" class="depth1_link">about</a></li>
+                        <li class="depth1_item"><a href="./index.html" data-text="works" class="depth1_link">works</a></li>
+                        <li class="depth1_item"><a href="./people.html" data-text="people" class="depth1_link">people</a></li>
+                        <li class="depth1_item active"><a href="#" data-text="contact" class="depth1_link">contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div id="motion01" class="motion_panel">
+            <main>
+                <section class="sec">
+                    <div class="info_area">
+                        <div class="info_box">
+                            <dl class="address">
+                                <dt>Address</dt>
+                                <dd>서울 서초구 서초대로48길 33 3층</dd>
+                            </dl>
+                        </div>
+                        <div class="info_box">
+                            <dl class="marketing">
+                                <dt>Marketing</dt>
+                                <dd>biz@blorange.co.kr</dd>
+                            </dl>
+                        </div>
+                        <div class="info_box">
+                            <dl class="media">
+                                <dt>Media & Agency Partnership</dt>
+                                <dd>media@blorange.co.kr</dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="form_container">
+                        <form class="form">
+                            <div class="form_group">
+                                <input type="text" placeholder="회사명" class="form_control">
+                                <input type="text" placeholder="성함" class="form_control">
+                            </div>
+                            <div class="form_group">
+                                <input type="text" placeholder="전화번호" class="form_control">
+                                <input type="text" placeholder="이메일" class="form_control">
+                            </div>
+                            <div class="textarea_box">
+                                <textarea placeholder="문의내용" class="form_control"></textarea>
+                            </div>
+                            <div class="fancy_img_box">
+                                <input type="checkbox" id="chkAgree01">
+                                <label for="chkAgree01"><span>개인정보의 수집 및 이용목적에 동의합니다. </span></label>
+                            </div>
+                            <button type="button" class="btn btn_primary">SEND</button>
+                        </form>
+                    </div>
+                </section>
+            </main>
+            
+            <footer id="footer">
+                <div class="inner">
+                    <div class="footer_left">
+                        <div class="footer_info">
+                            <div class="footer_logo">
+                                <img src="../frontLayer/images/common/logo_gray.svg" alt="blueorange">
+                            </div>
+                            <div class="info_content">
+                                <p class="company_name">(주)블루오렌지커뮤니케이션즈</p>
+                                <dl class="dl">
+                                    <dt class="dt">대표이사 : </dt>
+                                    <dd class="dd">이상화</dd>
+                                    <dt class="dt">사업자등록번호 : </dt>
+                                    <dd class="dd">264-81-37022</dd>
+                                </dl>
+                            </div>
+                            <p class="copyright">ⓒ2014 blueorange. All rights Reserved.  </p>
+                        </div>
+                    </div>
+                    <div class="footer_right">
+                        <button type="button" class="btn_primary btn">Company Brochure <i class="ico ico_download"></i></button>
+                        <div class="footer_sns">
+                            <a href="#" class="footer_link sns_facebook"></a>
+                            <a href="#" class="footer_link sns_insta"></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div class="float_area">
+            <button type="button" class="btn btn_top">TOP</button>
+        </div>
+
+    </div>
+</body>
+</html>
