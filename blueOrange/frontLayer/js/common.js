@@ -34,15 +34,16 @@ $.namespace = function() {
 $.namespace('ProjectName');
 BlueOrange = {
     init : function(){
-        BlueOrange.gnb();
-        BlueOrange.tab();
-        BlueOrange.select();
-        BlueOrange.modal();
-        BlueOrange.setSwiper();
-        BlueOrange.moveSection();
-        BlueOrange.goToTop();
-        BlueOrange.handleScrollX();
-        BlueOrange.resize();
+        // BlueOrange.gnb();
+        // BlueOrange.tab();
+        // BlueOrange.select();
+        // BlueOrange.modal();
+        // BlueOrange.setSwiper();
+        // BlueOrange.moveSection();
+        BlueOrange.moveHorizon();
+        // BlueOrange.goToTop();
+        // BlueOrange.handleScrollX();
+        // BlueOrange.resize();
     },
     gnb : function() {
         const $gnb = $('#gnb'),
@@ -52,13 +53,7 @@ BlueOrange = {
         $depth01Item.on('click', function() {
             let depth1Text = $(this).text();
             
-            if (depth1Text === 'works') {
-                BlueOrange.goToSection($sections[3]);
-            } else {
-                BlueOrange.goToSection(0);
-            }
-
-            $(this).addClass('active').siblings().removeClass('active');
+            if (depth1Text === 'works') BlueOrange.goToSection($sections[3]);
         });
     },
     tab : function(){
@@ -344,17 +339,14 @@ BlueOrange = {
             gsap.to(window, {
                 scrollTo: {y: section, autoKill: false},
                 onComplete: BlueOrange.scrolling.enable,
-                duration: 1
+                duration: !fn.exists('.people') ? 1 : 0.5,
             });
         }
     },
     moveSection : function() {
+        if(fn.exists('.people')) return;
+
         const panels = document.querySelectorAll(".motion_panel");
-        // people
-        // 1. window와 motion 높이 차이 계산
-        // 2. window 높이가 더 높으면 차이만큼
-        // start bottom에 -= 수치 넣기
-        // 3. 가로 스크롤 구현
 
         panels.forEach((panel) => {
 
@@ -367,9 +359,60 @@ BlueOrange = {
                 onEnterBack: () => BlueOrange.goToSection(panel),
                 onUpdate: () => fn.isScrollTop(),
             });
-
         });
+    },
+    moveHorizon : function () {
+        if(!fn.exists('.people')) return;
+
+        gsap.registerPlugin(ScrollTrigger);
+            
+            let pinBoxes = document.querySelectorAll(".img_item");
+            let pinWrap = document.querySelector(".img_list");
+            let pinWrapWidth = pinWrap.offsetWidth;
+            let horizontalScrollLength = pinWrapWidth - pinBoxes[0].offsetWidth;
+
+            gsap.to(".img_list", {
+                scrollTrigger: {
+                    scrub: true,
+                    trigger: ".gsap_area",
+                    pin: true,
+                    start: "top top",
+                    markers: true,
+                    end: pinWrapWidth,
+                    onUpdate(){
+                        moveVer();
+                    }
+                },
+                x: -horizontalScrollLength,
+                ease: "none"
+            });
+
+            function moveVer(){
+                const wdwHghHalf = $(window).outerWidth()/2;
+                const boxHghHalf = $(pinBoxes[0]).outerWidth()/2;
+                const half = wdwHghHalf - boxHghHalf;
+                pinBoxes.forEach((t,i)=>{
+                    let y;
+                    y = Math.abs($(t).offset().left - half) / 10;
+                    $(t).css({'transform':`translateY(${y}px)`});
+                })
+            }
         
+        $('.main_visual .btn_round').on('click', function(e) {
+            let $target = $(e.target);
+            let scrollTop = window.scrollY;
+            let motionLength = (scrollXLength + center) / pinBoxesLength;
+            // let motionLength = (pinBoxWidth + 30);
+            let posY = $target.hasClass('btn_next') ? scrollTop + motionLength : scrollTop - motionLength;
+
+            if ($target.hasClass('btn_prev') && scrollTop >= 0) {
+                BlueOrange.goToSection(posY);
+                return;
+            } else if ($target.hasClass('btn_next') && scrollTop < scrollXLength) {
+                BlueOrange.goToSection(posY);
+                return;
+            }
+        })
     },
     goToTop : function() {
         $('.float_area .btn').on('click', function() {

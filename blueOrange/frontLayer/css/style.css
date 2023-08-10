@@ -98,14 +98,15 @@
 .modal.modal_works .modal_body .btn_modal.btn_next { right: -70px; background-image: url('../images/icons/ico_arw_next_white.svg'); transform: translate(100%, -50%);}
 .modal.modal_works .modal_body .btn_modal.btn_prev { left: -70px; background-image: url('../images/icons/ico_arw_prev_white.svg'); transform: translate(-100%, -50%);}
 
-.people .main .sec { padding-bottom: 135px;}
-.people .main_visual { height: unset; padding: 160px 0 60px; text-align: right;}
-.people .main_visual .img_list { display: flex; gap: 30px;}
-.people .main_visual .img_list .img_item .img_box { width: 305px; height: 480px; overflow: hidden;}
-.people .main_visual .btn_wrap { display: inline-flex; align-items: center; gap: 35px; margin-top: 55px; margin-right: 50px;}
-.people .main_visual .btn_wrap .btn_round { width: 40px; height: 40px; background: no-repeat center center / cover;}
-.people .main_visual .btn_wrap .btn_round.btn_prev { background-image: url('../images/icons/ico_arw_prev_round.png');}
-.people .main_visual .btn_wrap .btn_round.btn_next { background-image: url('../images/icons/ico_arw_next_round.png');}
+.people { overflow-x: hidden;}
+/* .people .main .sec { padding-bottom: 135px;} */
+.people .gsap_area { display: flex; align-items: center; height: 100vh; padding: 0 calc(50vw - 150px);}
+.people .img_list { display: flex; gap: 30px; padding: 160px 0 60px;}
+.people .img_list .img_item { width: 305px; height: 480px; overflow: hidden;}
+/* .people .btn_wrap { display: inline-flex; align-items: center; gap: 35px; margin-top: 120px; margin-right: 50px;}
+.people .btn_wrap .btn_round { width: 40px; height: 40px; background: no-repeat center center / cover;}
+.people .btn_wrap .btn_round.btn_prev { background-image: url('../images/icons/ico_arw_prev_round.png');}
+.people .btn_wrap .btn_round.btn_next { background-image: url('../images/icons/ico_arw_next_round.png');} */
 
 .people .welfare_box { margin-top: 130px;}
 .people .welfare_box .welfare_list { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 70px 0;}
@@ -129,18 +130,34 @@
 .people .welfare_box .welfare_list .welfare_item .welfare_content .welfare_ttl { margin-bottom: 15px; font-weight: 800; font-size: 30px;}
 .people .welfare_box .welfare_list .welfare_item .welfare_content .welfare_txt { font-weight: 300; font-size: 18px;}
 
-.people .recruit_box { margin-top: 120px;}
-.people .step_area .step_list { display: flex; justify-content: center;}
-.people .step_area .step_list .step_item { width: 25%; text-align: center;}
+.people .recruit_box { display: flex; flex-direction: column; align-items: center; margin-top: 120px;}
+.people .step_area { width: 100%;}
+.people .step_area .step_list { display: flex; justify-content: center; width: 100%;}
+.people .step_area .step_list .step_item { position: relative; width: 25%; text-align: center;}
 .people .step_area .step_list .step_item .ico_box { width: 100px; height: 85px; margin: 0 auto;}
 .people .step_area .step_list .step_item .ico_box .ico.ico_step { display: block; width: 100%; height: 100%; background: no-repeat center center / cover;}
+.people .step_area .step_list .step_item::before { content: ''; display: block; position: absolute; top: 50%; right: 0; width: 15px; height: 25px; background: url('../images/icons/ico_arw_next_white.svg') no-repeat center center / cover; transform: translate(50%, -50%);}
+.people .step_area .step_list .step_item:nth-child(4):before { content: none;}
 .people .step_area .step_list .step_item:nth-child(1) .ico_box .ico.ico_step { background-image: url('../images/icons/ico_step_01.svg');}
 .people .step_area .step_list .step_item:nth-child(2) .ico_box .ico.ico_step { background-image: url('../images/icons/ico_step_02.svg');}
 .people .step_area .step_list .step_item:nth-child(3) .ico_box .ico.ico_step { background-image: url('../images/icons/ico_step_03.svg');}
 .people .step_area .step_list .step_item:nth-child(4) .ico_box .ico.ico_step { background-image: url('../images/icons/ico_step_04.svg');}
 .people .step_area .step_list .step_item .step_content { margin-top: 20px;}
 .people .step_area .step_list .step_item .step_content .step_txt { position: relative; font-family: 'NanumSquare Neo', '굴림', serif; font-weight: 700; font-size: 26px; letter-spacing: -0.03em;}
-.people .step_area .step_list .step_item .step_content .step_txt::before { content: ''; display: block; width: 70px; height: 25px; background: no-repeat center center / cover;}
+.people .step_area .step_list .step_item .step_content .step_txt::before { content: ''; display: block; width: 70px; height: 25px; margin: 0 auto ; background: no-repeat center center / cover;}
+.people .step_area .step_list .step_item:nth-child(1) .step_content .step_txt::before { background-image: url('../images/img/img_step_01.png');}
+.people .step_area .step_list .step_item:nth-child(2) .step_content .step_txt::before { background-image: url('../images/img/img_step_02.png');}
+.people .step_area .step_list .step_item:nth-child(3) .step_content .step_txt::before { background-image: url('../images/img/img_step_03.png');}
+.people .step_area .step_list .step_item:nth-child(4) .step_content .step_txt::before { background-image: url('../images/img/img_step_04.png');}
+.people .field_area { margin-top: 80px; border-top: 1px solid var(--color-white);}
+.people .field_area .field_item { display: flex; padding: 40px 0;}
+.people .field_area .field_item + .field_item { border-top: .5px solid rgba(255, 255, 255, 0.3);}
+.people .field_area .field_item .field_header { width: 31.25%; padding: 0 50px;}
+.people .field_area .field_item .field_header .field_ttl { font-family: 'NanumSquare Neo', '굴림', serif; font-weight: 900; font-size: 30px; color: var(--color-blue1);}
+.people .field_area .field_item .field_body { padding: 0 50px; flex: 1;}
+.people .field_area .field_item .field_body .field_txt { font-family: 'NanumSquare Neo', '굴림', serif; font-size: 20px; line-height: 1.7;}
+.people .recruit_box .btn { width: 415px; min-height: 70px; margin-top: 20px; font-family: 'NanumSquare Neo', '굴림', serif; font-weight: 700; font-size: 20px;}
+.people .recruit_box .apply_address { margin-top: 25px;  font-family: 'NanumSquare Neo', '굴림', serif; font-size: 22px; font-weight: 700;}
 
 .contact .sec { max-width: 1170px; min-height: unset; margin: 0 auto 125px;}
 .contact .info_area { display: flex; flex-wrap: wrap; margin-top: 85px;}
