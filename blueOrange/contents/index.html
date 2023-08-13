@@ -43,7 +43,6 @@
             <div class="main_visual">
                 <video class="video" autoplay loop muted playsinline>
                     <source src="../frontLayer/video/w1920_main.mp4" type="video/mp4">
-                    <!-- <source src="../frontLayer/video/w750_main.mp4" type="video/mp4"> -->
                 </video>
                 <div class="ico_box">
                     <i class="ico ico_scroll_down"></i>
@@ -562,6 +561,7 @@
                     work.tab();
                     work.handleScrollX();
                     work.resize();
+                    work.videoResponser();
                 },
                 button: function() {
                     $('.work_link').on('click', (e) => work.showImageSrc(e, e.currentTarget));
@@ -643,14 +643,29 @@
                         }
                     });
                 },
-                handleScrollX : function () {
-                    let imgBoxWidth = $('#section01 .img').outerWidth(),
-                        windowWidth = $(window).outerWidth();
+                handleScrollX : function (w) {
+                    let imgBoxWidth = $('#section01 .img').outerWidth();
 
-                    $('#section01 .img_box').scrollLeft(imgBoxWidth - windowWidth);
+                    $('#section01 .img_box').scrollLeft(imgBoxWidth - w);
                 },
                 resize : function () {
-                    $(window).resize(() => this.handleScrollX());
+                    $(window).resize((e) => {
+                        let windowWidth = $(window).width();
+
+                        this.handleScrollX(windowWidth);
+                        this.videoResponser(windowWidth);
+                    });
+                },
+                videoResponser: function(w) {
+                    const $video = $('.video'),
+                          pcSrc = '../frontLayer/video/w1920_main.mp4',
+                          mobSrc = '../frontLayer/video/w750_main.mp4';
+
+                    if ( w < 750 ) {
+                        $video.find('source').attr('src', mobSrc);
+                    } else {
+                        $video.find('source').attr('src', pcSrc);
+                    }
                 }
             }
             work.init();

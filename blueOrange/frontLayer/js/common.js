@@ -156,8 +156,6 @@ BlueOrange = {
         }
     },
     goToSection : function(section) {
-        console.log(section);
-        console.log(BlueOrange.scrolling.enabled);
         if (BlueOrange.scrolling.enabled) {
             BlueOrange.scrolling.disable();
             gsap.to(window, {
@@ -178,7 +176,6 @@ BlueOrange = {
                 trigger: panel,
                 start: "top bottom-=1",
                 end: "bottom top+=1",
-                // markers: true,
                 onEnter: () => BlueOrange.goToSection(panel),
                 onEnterBack: () => BlueOrange.goToSection(panel),
                 onUpdate: () => fn.isScrollTop(),
