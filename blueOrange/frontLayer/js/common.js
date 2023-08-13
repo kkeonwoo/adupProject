@@ -34,16 +34,11 @@ $.namespace = function() {
 $.namespace('ProjectName');
 BlueOrange = {
     init : function(){
-        // BlueOrange.gnb();
-        // BlueOrange.tab();
-        // BlueOrange.select();
-        // BlueOrange.modal();
-        // BlueOrange.setSwiper();
-        // BlueOrange.moveSection();
-        BlueOrange.moveHorizon();
-        // BlueOrange.goToTop();
-        // BlueOrange.handleScrollX();
-        // BlueOrange.resize();
+        BlueOrange.gnb();
+        BlueOrange.modal();
+        BlueOrange.moveSection();
+        BlueOrange.goToTop();
+        
     },
     gnb : function() {
         const $gnb = $('#gnb'),
@@ -54,147 +49,6 @@ BlueOrange = {
             let depth1Text = $(this).text();
             
             if (depth1Text === 'works') BlueOrange.goToSection($sections[3]);
-        });
-    },
-    tab : function(){
-        // 탭 컨텐츠 숨기기
-        $('.works_content').hide();
-
-        $('.works_list li').data('idx');
-        $('.works_list li').each((idx, item) => {
-            $(item).attr('idx', `work_${idx}`);
-            $(item).closest('.works_container').find('.works_content').eq(idx).attr('id', `work_${idx}`)
-        })
-
-        //탭메뉴 클릭 이벤트
-        let inProgress = false;
-        $('.works_list li').click(function(e) {
-            e.preventDefault();
-
-            var activeTab = $(this).attr('idx');
-            if(!inProgress) {
-                inProgress = true;
-                $(this).siblings('li').removeClass('active');
-                $(this).addClass('active');
-                $(this).closest('.works_container').find('.works_content').hide();
-                $('#' + activeTab).show();
-                BlueOrange.goToSection($('#' + activeTab));
-                inProgress = false;
-            }
-        });
-    },
-    select : function(){
-        let $formSelect;
-
-        function optionAreaSize() {
-            let selectTop = $($formSelect).offset().top;
-            let selectLeft = $($formSelect).offset().left;
-            let selectW = $($formSelect).outerWidth();
-            let selectH = $($formSelect).outerHeight();
-            $('.option_area').css({'top':selectTop+ selectH, 'left': selectLeft, 'width': selectW});
-        }
-        
-        $(document).on('click','.form_select .form_btn', function(e) {
-            $formSelect = e.currentTarget.parentNode;
-            const arr = $formSelect.dataset.items.split(', ');
-            $formSelect.selectArr = arr;
-            
-            let active = false;
-            $('.option_area').remove();
-            if($(this).parents('.form_select').hasClass('active')){
-                active = true;
-            } else {
-                $('body').append(`
-                    <div class="option_area" tabIndex='0'>
-                        <ul class="option_list"></ul>
-                    </div>
-                `);
-                $formSelect.selectArr.forEach((val, idx)=>{
-                    $('.option_list').append(`
-                        <li class="option_item">
-                            <button class="option_btn" type="button">${val}</button>
-                        </li>
-                    `);
-                });
-                if($formSelect.dataset.index !== undefined) {
-                    $formSelect.selectIdx = $formSelect.dataset.index;
-                    $formSelect.dataset.index !== '' && $('.option_item').eq($formSelect.selectIdx).addClass('active');
-                }
-            }
-            optionAreaSize();
-
-            $('.form_select.active').removeClass('active');
-            if(!active){
-                $(this).parents('.form_select').toggleClass('active');
-            } 
-            
-        });
-        $('html').click(function (e) {
-            if ($(e.target).parents('.option_area').length < 1 && $(e.target).parents('.form_select').length < 1) {
-                $('.option_area').remove();
-                $($formSelect).removeClass('active');
-            }
-        });
-        $(document).on('click','.option_btn', function() {
-            $formSelect.selectIdx = $(this).closest('.option_item').index();
-            $formSelect.dataset.index = $(this).closest('.option_item').index();
-            let textData = $formSelect.selectArr[$formSelect.selectIdx];
-            $($formSelect).find('.option_item').removeClass('active');
-            $(this).closest('.option_item').addClass('active');
-            $($formSelect).find('.form_btn').text(textData).addClass('active');
-            $($formSelect).removeClass('active');
-            $('.option_area').remove();
-        });
-        $(document).on('keydown','.form_btn', function(e) {
-            $formSelect = e.currentTarget.parentNode;
-            const arr = $formSelect.dataset.items.split(', ');
-            $formSelect.selectArr = arr;
-            if($formSelect.dataset.index == undefined) {
-                $formSelect.selectIdx = -1;
-            }
-            if(e.keyCode == 9 || e.keyCode == 27){
-                $('.option_area').remove();
-                $($formSelect).removeClass('active');
-            }
-
-            if(e.keyCode == 37 || e.keyCode == 38){
-                e.preventDefault();
-                if (0 < $formSelect.selectIdx){
-                    $formSelect.selectIdx = $formSelect.selectIdx - 1;
-                    $formSelect.dataset.index = $formSelect.selectIdx ;
-                    $('.option_list').find('.option_item').removeClass('active');
-                    $('.option_list').find('.option_item').eq($formSelect.selectIdx).addClass('active');
-                    let textData = $formSelect.selectArr[$formSelect.selectIdx];
-                    $(this).text(textData).addClass('active');
-                    if ($($formSelect).hasClass('active')){
-                        $('.option_area').animate({
-                            scrollTop: $('.option_item').eq($formSelect.selectIdx).position().top
-                        }, 0);
-                    }
-                }
-            }
-
-            if(e.keyCode == 39 || e.keyCode == 40){
-                e.preventDefault();
-                let max = e.currentTarget.parentNode.selectArr.length;
-                if (max - 1 !== $formSelect.selectIdx){
-                    $formSelect.selectIdx = $formSelect.selectIdx + 1;
-                    $formSelect.dataset.index = $formSelect.selectIdx;
-                    $('.option_list').find('.option_item').removeClass('active');
-                    $('.option_list').find('.option_item').eq($formSelect.selectIdx).addClass('active');
-                    
-                    let textData = $formSelect.selectArr[$formSelect.selectIdx];
-                    $(this).text(textData).addClass('active');
-                    if ($($formSelect).hasClass('active')){
-                        $('.option_area').animate({
-                            scrollTop: $('.option_item').eq($formSelect.selectIdx).position().top
-                        }, 0);
-                    }
-                }
-            }
-        });
-        $(window).resize(function(){
-            $('.form_select').hasClass('active') && optionAreaSize();
         });
     },
     modal : function(){
@@ -282,36 +136,6 @@ BlueOrange = {
             }
         }
     },
-    setSwiper : function(){
-        $(".set_swiper").each(function(index, element){
-            var tg = $(this);
-                slideView = [5,4],
-                slideTabletView = [4,3],
-                slideMobileView = [1,1];
-            tg.addClass('instance_' + index);
-
-            var swiper = new Swiper('.instance_' + index + ' .swiper', {
-                loop:true,
-                slidesPerView: slideMobileView[index],
-                speed:1000,
-                autoplay: {
-                    delay: 3500,
-                },
-                navigation: {
-                    prevEl: "".concat(".instance_" + index + " .swiper-button-prev"),
-                    nextEl: "".concat(".instance_" + index + " .swiper-button-next"),
-                },
-                breakpoints: {
-                    769: {
-                        slidesPerView: slideTabletView[index],
-                    },
-                    1200: {
-                        slidesPerView: slideView[index],
-                    },
-                },
-            });
-        });
-    },
     scrolling : {
         enabled: true,
         events: "click,scroll,wheel,touchmove,pointermove".split(","),
@@ -361,73 +185,11 @@ BlueOrange = {
             });
         });
     },
-    moveHorizon : function () {
-        if(!fn.exists('.people')) return;
-
-        gsap.registerPlugin(ScrollTrigger);
-            
-            let pinBoxes = document.querySelectorAll(".img_item");
-            let pinWrap = document.querySelector(".img_list");
-            let pinWrapWidth = pinWrap.offsetWidth;
-            let horizontalScrollLength = pinWrapWidth - pinBoxes[0].offsetWidth;
-
-            gsap.to(".img_list", {
-                scrollTrigger: {
-                    scrub: true,
-                    trigger: ".gsap_area",
-                    pin: true,
-                    start: "top top",
-                    markers: true,
-                    end: pinWrapWidth,
-                    onUpdate(){
-                        moveVer();
-                    }
-                },
-                x: -horizontalScrollLength,
-                ease: "none"
-            });
-
-            function moveVer(){
-                const wdwHghHalf = $(window).outerWidth()/2;
-                const boxHghHalf = $(pinBoxes[0]).outerWidth()/2;
-                const half = wdwHghHalf - boxHghHalf;
-                pinBoxes.forEach((t,i)=>{
-                    let y;
-                    y = Math.abs($(t).offset().left - half) / 10;
-                    $(t).css({'transform':`translateY(${y}px)`});
-                })
-            }
-        
-        $('.main_visual .btn_round').on('click', function(e) {
-            let $target = $(e.target);
-            let scrollTop = window.scrollY;
-            let motionLength = (scrollXLength + center) / pinBoxesLength;
-            // let motionLength = (pinBoxWidth + 30);
-            let posY = $target.hasClass('btn_next') ? scrollTop + motionLength : scrollTop - motionLength;
-
-            if ($target.hasClass('btn_prev') && scrollTop >= 0) {
-                BlueOrange.goToSection(posY);
-                return;
-            } else if ($target.hasClass('btn_next') && scrollTop < scrollXLength) {
-                BlueOrange.goToSection(posY);
-                return;
-            }
-        })
-    },
     goToTop : function() {
         $('.float_area .btn').on('click', function() {
             BlueOrange.goToSection(0);
         } );
     },
-    handleScrollX : function () {
-        let imgBoxWidth = $('#section01 .img').outerWidth(),
-            windowWidth = $(window).outerWidth();
-
-        $('#section01 .img_box').scrollLeft(imgBoxWidth - windowWidth);
-    },
-    resize : function () {
-        $(window).resize(() => BlueOrange.handleScrollX());
-    }
 }
 $(function () {
     BlueOrange.init();

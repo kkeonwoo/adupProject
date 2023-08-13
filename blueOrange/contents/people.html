@@ -38,64 +38,66 @@
             </div>
         </header>
 
-        <div id="motion01" class="motion_panel">
-            <div class="gsap_area">
-                <ul class="img_list">
-                    <li class="img_item">
-                        <div class="img_box">
-                            <img src="../frontLayer/images/img/img_people_01.png" alt="" class="img">
-                        </div>
-                    </li>
-                    <li class="img_item">
-                        <div class="img_box">
-                            <img src="../frontLayer/images/img/img_people_02.png" alt="" class="img">
-                        </div>
-                    </li>
-                    <li class="img_item">
-                        <div class="img_box">
-                            <img src="../frontLayer/images/img/img_people_03.png" alt="" class="img">
-                        </div>
-                    </li>
-                    <li class="img_item">
-                        <div class="img_box">
-                            <img src="../frontLayer/images/img/img_people_04.png" alt="" class="img">
-                        </div>
-                    </li>
-                    <li class="img_item">
-                        <div class="img_box">
-                            <img src="../frontLayer/images/img/img_people_05.png" alt="" class="img">
-                        </div>
-                    </li>
-                    <li class="img_item">
-                        <div class="img_box">
-                            <img src="../frontLayer/images/img/img_people_06.png" alt="" class="img">
-                        </div>
-                    </li>
-                    <li class="img_item">
-                        <div class="img_box">
-                            <img src="../frontLayer/images/img/img_people_07.png" alt="" class="img">
-                        </div>
-                    </li>
-                    <li class="img_item">
-                        <div class="img_box">
-                            <img src="../frontLayer/images/img/img_people_08.png" alt="" class="img">
-                        </div>
-                    </li>
-                    <li class="img_item">
-                        <div class="img_box">
-                            <img src="../frontLayer/images/img/img_people_09.png" alt="" class="img">
-                        </div>
-                    </li>
-                    <li class="img_item">
-                        <div class="img_box">
-                            <img src="../frontLayer/images/img/img_people_10.png" alt="" class="img">
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="btn_wrap">
-                <button type="button" class="btn_round btn_prev"></button>
-                <button type="button" class="btn_round btn_next"></button>
+        <div id="motion01" class="motion_panel smooth_scroll">
+            <div class="main_visual">
+                <div class="gsap_area">
+                    <ul class="img_list">
+                        <li class="img_item">
+                            <div class="img_box">
+                                <img src="../frontLayer/images/img/img_people_01.png" alt="" class="img">
+                            </div>
+                        </li>
+                        <li class="img_item">
+                            <div class="img_box">
+                                <img src="../frontLayer/images/img/img_people_02.png" alt="" class="img">
+                            </div>
+                        </li>
+                        <li class="img_item">
+                            <div class="img_box">
+                                <img src="../frontLayer/images/img/img_people_03.png" alt="" class="img">
+                            </div>
+                        </li>
+                        <li class="img_item">
+                            <div class="img_box">
+                                <img src="../frontLayer/images/img/img_people_04.png" alt="" class="img">
+                            </div>
+                        </li>
+                        <li class="img_item">
+                            <div class="img_box">
+                                <img src="../frontLayer/images/img/img_people_05.png" alt="" class="img">
+                            </div>
+                        </li>
+                        <li class="img_item">
+                            <div class="img_box">
+                                <img src="../frontLayer/images/img/img_people_06.png" alt="" class="img">
+                            </div>
+                        </li>
+                        <li class="img_item">
+                            <div class="img_box">
+                                <img src="../frontLayer/images/img/img_people_07.png" alt="" class="img">
+                            </div>
+                        </li>
+                        <li class="img_item">
+                            <div class="img_box">
+                                <img src="../frontLayer/images/img/img_people_08.png" alt="" class="img">
+                            </div>
+                        </li>
+                        <li class="img_item">
+                            <div class="img_box">
+                                <img src="../frontLayer/images/img/img_people_09.png" alt="" class="img">
+                            </div>
+                        </li>
+                        <li class="img_item">
+                            <div class="img_box">
+                                <img src="../frontLayer/images/img/img_people_10.png" alt="" class="img">
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="btn_wrap">
+                        <button type="button" class="btn_round btn_prev"></button>
+                        <button type="button" class="btn_round btn_next"></button>
+                    </div>
+                </div>
             </div>
 
             <main class="main">
@@ -220,7 +222,7 @@
                         </div>
                     </div>
                 </section>
-    
+        
                 <section class="sec">
                     <div class="inner">
                         <h2 class="sec_ttl">
@@ -298,7 +300,7 @@
                     </div>
                 </section>
             </main>
-                
+                    
             <footer id="footer">
                 <div class="inner">
                     <div class="footer_left">
@@ -334,5 +336,67 @@
         </div>
 
     </div>
+    
+    <script>
+        $(() => {
+            const people = {
+                init: () => {
+                    this.moveSectionHorizon();
+                    this.button();
+                },
+                moveSectionHorizon: () => {
+                    gsap.registerPlugin(ScrollTrigger);
+
+                    let pinBoxes = document.querySelectorAll(".img_item");
+                    let pinWrap = document.querySelector(".img_list");
+                    let pinWrapWidth = pinWrap.offsetWidth;
+                    let horizontalScrollLength = pinWrapWidth - pinBoxes[0].offsetWidth;
+
+                    gsap.to(".img_list", {
+                        scrollTrigger: {
+                            trigger: ".gsap_area",
+                            scrub: true,
+                            pin: true,
+                            start: "top top",
+                            end: pinWrapWidth,
+                            onUpdate: this.moveImgVer,
+                            onLeave: () => $('html, body').addClass('scroll_down'),
+                            onEnterBack: () => $('html, body').removeClass('scroll_down'),
+                        },
+                        x: -horizontalScrollLength,
+                        ease: "none",
+                    });
+                },
+                moveImgVer: () => {
+                    const wdwHghHalf = $(window).outerWidth()/2;
+                    const boxHghHalf = $(pinBoxes[0]).outerWidth()/2;
+                    const half = wdwHghHalf - boxHghHalf;
+
+                    pinBoxes.forEach((t,i)=>{
+                        let y;
+                        y = Math.abs($(t).offset().left - half) / 10;
+                        $(t).css({'transform':`translateY(${y}px)`});
+                    })
+                },
+                button: () => {
+                    $('.people .btn_round').on('click', function(e) {
+                        let $target = $(e.target);
+                        let scrollTop = window.scrollY;
+
+                        if ($target.hasClass('btn_next')) {
+                            if( scrollTop < pinWrapWidth) {
+                                BlueOrange.goToSection(scrollTop + (pinWrapWidth / 10));
+                            }
+                        } else  {
+                            if ( scrollTop > 0) {
+                                BlueOrange.goToSection(scrollTop - (pinWrapWidth / 10));
+                            }
+                        }
+                    })
+                }
+            }
+            people.init();
+        })
+    </script>
 </body>
 </html>
