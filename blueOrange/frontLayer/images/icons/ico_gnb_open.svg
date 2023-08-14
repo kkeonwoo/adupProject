@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <style>
+      .cls-1 {
+        <!-- opacity: 0.8; -->
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 4px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <g id="_" data-name="=" class="cls-1">
+    <path id="모양_837" data-name="모양 837" class="cls-2" d="M674,32h46" transform="translate(-672 -26)"/>
+    <path id="모양_837_복사" data-name="모양 837 복사" class="cls-2" d="M674,51h46" transform="translate(-672 -26)"/>
+    <path id="모양_837_복사_2" data-name="모양 837 복사 2" class="cls-2" d="M674,70h27" transform="translate(-672 -26)"/>
+  </g>
+</svg>

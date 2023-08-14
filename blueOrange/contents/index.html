@@ -36,6 +36,7 @@
                         <li class="depth1_item"><a href="./contact.html" data-text="contact" class="depth1_link">contact</a></li>
                     </ul>
                 </nav>
+                <button type="button" class="nav_open"></button>
             </div>
         </header>
 
@@ -59,7 +60,8 @@
                         <span>range</span>
                     </h2>
                     <div class="img_box">
-                        <img src="../frontLayer/images/img/img_history.png" longdesc="#desc1" class="img">
+                        <img src="../frontLayer/images/img/img_history.png" longdesc="#desc1" class="img pc">
+                        <img src="../frontLayer/images/img/img_hisoty_mo.png" longdesc="#desc1" class="img mob">
                         <ol id="desc1" class="blind">
                             <li>nate 전략 파트너</li>
                             <li>애드 테크 솔루션</li>
@@ -539,7 +541,8 @@
                 <div class="modal_box">
                     <div class="modal_body">
                         <div class="img_box">
-                            <img src="" alt="" class="img">
+                            <img src="" alt="" class="img pc">
+                            <img src="" alt="" class="img mob">
                         </div>
                         <div class="btn_wrap">
                             <button class="btn_modal btn_prev"></button>
@@ -553,13 +556,14 @@
     </div>
 
     <script>
-        $(document).ready(() => {
+        $(() => {
             const work = {
                 cateArr: [],
+                windowWidth: $(window).width(),
                 init: function() {
                     work.button();
                     work.tab();
-                    work.handleScrollX();
+                    work.handleScrollX(work.windowWidth);
                     work.resize();
                     work.videoResponser();
                 },
@@ -587,7 +591,8 @@
 
                     path = work.cateArr[0].filter((item, idx) => item.id === itemIdx);
                     if (!path.length) return
-                    $('.modal_works .img').attr('src', path[0].src);
+                    $('.modal_works .img.pc').attr('src', path[0].src);
+                    $('.modal_works .img.mob').attr('src', path[0].mobSrc);
                     BlueOrange.openModal($('.modal_works'));
                 },
                 handleImgSrc: function(e, obj) {
@@ -607,7 +612,8 @@
                     }
 
                     lastPath = work.cateArr[0].filter((item, idx) => idx === prevIndex);
-                    if (lastPath.length) $('.modal_works .img').attr('src', lastPath[0].src);
+                    if (lastPath.length) $('.modal_works .img.pc').attr('src', lastPath[0].src);
+                    if (lastPath.length) $('.modal_works .img.mob').attr('src', lastPath[0].mobSrc);
                 },
                 modalWork: function() {
                     const modalSwiper = new Swiper('.modal_swiper', {
@@ -649,11 +655,12 @@
                     $('#section01 .img_box').scrollLeft(imgBoxWidth - w);
                 },
                 resize : function () {
-                    $(window).resize((e) => {
-                        let windowWidth = $(window).width();
+                    $(window).resize(() => {
+                        windowWidth = $(window).width();
 
                         this.handleScrollX(windowWidth);
                         this.videoResponser(windowWidth);
+
                     });
                 },
                 videoResponser: function(w) {

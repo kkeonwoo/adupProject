@@ -35,6 +35,7 @@
                         <li class="depth1_item"><a href="./contact.html" data-text="contact" class="depth1_link">contact</a></li>
                     </ul>
                 </nav>
+                <button type="button" class="nav_open"></button>
             </div>
         </header>
 
@@ -340,17 +341,16 @@
     <script>
         $(() => {
             const people = {
+                pinBoxes: document.querySelectorAll(".img_item"),
+                pinWrap: document.querySelector(".img_list"),
                 init: () => {
-                    this.moveSectionHorizon();
-                    this.button();
+                    people.moveSectionHorizon();
                 },
                 moveSectionHorizon: () => {
                     gsap.registerPlugin(ScrollTrigger);
 
-                    let pinBoxes = document.querySelectorAll(".img_item");
-                    let pinWrap = document.querySelector(".img_list");
-                    let pinWrapWidth = pinWrap.offsetWidth;
-                    let horizontalScrollLength = pinWrapWidth - pinBoxes[0].offsetWidth;
+                    let pinWrapWidth = people.pinWrap.offsetWidth;
+                    let horizontalScrollLength = pinWrapWidth - people.pinBoxes[0].offsetWidth;
 
                     gsap.to(".img_list", {
                         scrollTrigger: {
@@ -359,37 +359,39 @@
                             pin: true,
                             start: "top top",
                             end: pinWrapWidth,
-                            onUpdate: this.moveImgVer,
+                            onUpdate: people.moveImgVer,
                             onLeave: () => $('html, body').addClass('scroll_down'),
                             onEnterBack: () => $('html, body').removeClass('scroll_down'),
                         },
                         x: -horizontalScrollLength,
                         ease: "none",
                     });
+
+                    people.button(pinWrapWidth);
                 },
                 moveImgVer: () => {
                     const wdwHghHalf = $(window).outerWidth()/2;
-                    const boxHghHalf = $(pinBoxes[0]).outerWidth()/2;
+                    const boxHghHalf = $(people.pinBoxes[0]).outerWidth()/2;
                     const half = wdwHghHalf - boxHghHalf;
 
-                    pinBoxes.forEach((t,i)=>{
+                    people.pinBoxes.forEach((t,i)=>{
                         let y;
                         y = Math.abs($(t).offset().left - half) / 10;
                         $(t).css({'transform':`translateY(${y}px)`});
                     })
                 },
-                button: () => {
+                button: (w) => {
                     $('.people .btn_round').on('click', function(e) {
                         let $target = $(e.target);
                         let scrollTop = window.scrollY;
 
                         if ($target.hasClass('btn_next')) {
-                            if( scrollTop < pinWrapWidth) {
-                                BlueOrange.goToSection(scrollTop + (pinWrapWidth / 10));
+                            if( scrollTop < w) {
+                                BlueOrange.goToSection(scrollTop + (w / 10));
                             }
                         } else  {
                             if ( scrollTop > 0) {
-                                BlueOrange.goToSection(scrollTop - (pinWrapWidth / 10));
+                                BlueOrange.goToSection(scrollTop - (w / 10));
                             }
                         }
                     })

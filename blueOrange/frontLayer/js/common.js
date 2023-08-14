@@ -33,23 +33,43 @@ $.namespace = function() {
 
 $.namespace('ProjectName');
 BlueOrange = {
+    windowWidth: $(window).width(),
     init : function(){
         BlueOrange.gnb();
         BlueOrange.modal();
         BlueOrange.moveSection();
         BlueOrange.goToTop();
-        
     },
     gnb : function() {
         const $gnb = $('#gnb'),
         $depth01Item = $gnb.find('.depth1_item'),
-        $sections = $('.sec');
+        $sections = $('.sec'),
+        $gnbBtn = $('.nav_open'),
+        $header = $('#header');
 
         $depth01Item.on('click', function() {
             let depth1Text = $(this).text();
             
             if (depth1Text === 'works') BlueOrange.goToSection($sections[3]);
+            if ($header.hasClass('mob_open')) closeMobGnb();
         });
+
+        $gnbBtn.on('click', () => $header.hasClass('mob_open') ? closeMobGnb() : openMobGnb())
+
+        function openMobGnb () {
+            const $footerRight = $('.footer_right');
+
+            fn.addHidden();
+            $header.addClass('mob_open');
+            $gnb.append("<div class='clone_footer'></div>");
+            $footerRight.clone().appendTo('.clone_footer');
+        }
+
+        function closeMobGnb () {
+            fn.removeHidden();
+            $header.removeClass('mob_open');
+            $('.clone_footer').remove();
+        }
     },
     modal : function(){
         var $modal, $modalButton;
@@ -176,7 +196,9 @@ BlueOrange = {
                 trigger: panel,
                 start: "top bottom-=1",
                 end: "bottom top+=1",
-                onEnter: () => BlueOrange.goToSection(panel),
+                onEnter: (e) => {
+                    if( e.trigger == $('#motion02')[0]) BlueOrange.goToSection(panel)
+                },
                 onEnterBack: () => BlueOrange.goToSection(panel),
                 onUpdate: () => fn.isScrollTop(),
             });
