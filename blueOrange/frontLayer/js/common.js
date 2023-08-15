@@ -157,6 +157,7 @@ BlueOrange = {
         }
     },
     scrolling : {
+        firstRun: true,
         enabled: true,
         events: "click,scroll,wheel,touchmove,pointermove".split(","),
         prevent: e => e.preventDefault(),
@@ -173,6 +174,10 @@ BlueOrange = {
                 window.removeEventListener("scroll", gsap.ticker.tick);
                 BlueOrange.scrolling.events.forEach((e, idx) => (idx ? document : window).removeEventListener(e, BlueOrange.scrolling.prevent));
             }
+        },
+        onFirstRun() {
+            ScrollTrigger.removeEventListener("refresh", BlueOrange.scrolling.onFirstRun);
+            BlueOrange.scrolling.firstRun = false;
         }
     },
     goToSection : function(section) {
@@ -197,12 +202,16 @@ BlueOrange = {
                 start: "top bottom-=1",
                 end: "bottom top+=1",
                 onEnter: (e) => {
-                    if( e.trigger == $('#motion02')[0]) BlueOrange.goToSection(panel)
+                    if (!BlueOrange.scrolling.firstRun) {
+                        BlueOrange.goToSection(panel);
+                    }
                 },
                 onEnterBack: () => BlueOrange.goToSection(panel),
                 onUpdate: () => fn.isScrollTop(),
             });
         });
+        
+        ScrollTrigger.addEventListener("refresh", BlueOrange.scrolling.onFirstRun);
     },
     goToTop : function() {
         $('.float_area .btn').on('click', function() {
