@@ -6,6 +6,12 @@
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="og:title" content="블루오렌지커뮤니케이션즈" />
+    <meta name="og:description" content="검색광고, 배너광고, 앱광고, 데이터 기반 디지털 광고 운영" />
+    <meta name="keywords" content="블루오렌지, 블루오렌지커뮤니케이션즈, 디지털광고대행사, 온라인광고대행사, 광고대행사, 퍼포먼스마케팅, 온라인마케팅, 디지털마케팅, 퍼포먼스마케팅대행사, 온라인마케팅대행사, 디지털마케팅대행사, 마케팅대행사, 네이버광고대행사, 네이버공식광고대행사,카카오광고대행사, 카카오공식광고대행사, 검색광고대행사" />
+    <meta property="og:url" content="http://www.blorange.co.kr/">
+    <meta name="google-site-verification" content="sXvn1Dwrpxmv8XEUUZ8vvCrK23zURK_xavEYj-Kfals" />
+    <meta name="naver-site-verification" content="967147d77df6d50724ef05bf3142bec087528a34" />
     <title>blueorange</title>
 
     <link rel="stylesheet" href="../frontLayer/css/package.css">
@@ -352,20 +358,50 @@
                     let pinWrapWidth = people.pinWrap.offsetWidth;
                     let horizontalScrollLength = pinWrapWidth - people.pinBoxes[0].offsetWidth;
 
-                    gsap.to(".img_list", {
+                    let mainSt = gsap.to(".img_list", {
                         scrollTrigger: {
                             trigger: ".gsap_area",
                             scrub: true,
                             pin: true,
                             start: "top top",
                             end: pinWrapWidth,
-                            onUpdate: people.moveImgVer,
+                            // onUpdate: people.moveImgVer,
                             onLeave: () => $('html, body').addClass('scroll_down'),
                             onEnterBack: () => $('html, body').removeClass('scroll_down'),
                         },
                         x: -horizontalScrollLength,
                         ease: "none",
                     });
+
+                    people.pinBoxes.forEach((item, idx) => {
+                        let y;
+                        switch (idx % 4) {
+                            case 0: y= 0; break;
+                            case 1: y= 32; break;
+                            case 2: y= 65; break;
+                            case 3: y= 32; break;
+                        }
+                        gsap.set(item, { y: y })
+                        gsap.to(item, {
+                            y : 0,
+                            ease: "none",
+                            duration: 1,
+                            scrollTrigger: {
+                                trigger: item,
+                                containerAnimation: mainSt,
+                                start: "top center",
+                                end: "bottom center",
+                                markers: true,
+                                scrub: true,
+                                onUpdate: (e) => {
+                                    if ( idx === 1) {
+
+                                        console.log(e.progress);
+                                    }
+                                }
+                            },
+                        })
+                    })
 
                     people.button(pinWrapWidth);
                 },

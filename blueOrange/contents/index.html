@@ -6,6 +6,12 @@
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="og:title" content="블루오렌지커뮤니케이션즈" />
+    <meta name="og:description" content="검색광고, 배너광고, 앱광고, 데이터 기반 디지털 광고 운영" />
+    <meta name="keywords" content="블루오렌지, 블루오렌지커뮤니케이션즈, 디지털광고대행사, 온라인광고대행사, 광고대행사, 퍼포먼스마케팅, 온라인마케팅, 디지털마케팅, 퍼포먼스마케팅대행사, 온라인마케팅대행사, 디지털마케팅대행사, 마케팅대행사, 네이버광고대행사, 네이버공식광고대행사,카카오광고대행사, 카카오공식광고대행사, 검색광고대행사" />
+    <meta property="og:url" content="http://www.blorange.co.kr/">
+    <meta name="google-site-verification" content="sXvn1Dwrpxmv8XEUUZ8vvCrK23zURK_xavEYj-Kfals" />
+    <meta name="naver-site-verification" content="967147d77df6d50724ef05bf3142bec087528a34" />
     <title>blueorange</title>
 
     <link rel="stylesheet" href="../frontLayer/css/package.css">
@@ -211,8 +217,8 @@
                     </h2>
                     <div class="works_container">
                         <div class="inner">
-                            <div class="works_box">
-                                <ul class="works_list">
+                            <div class="works_box swiper">
+                                <ul class="works_list swiper-wrapper">
                                     <li class="works_item">
                                         <button class="works_card">
                                             <span>성과로 입증한</span>
@@ -244,6 +250,7 @@
                                         </button>
                                     </li>
                                 </ul>
+                                <div class="swiper_pagination"></div>
                             </div>
                         </div>
                         <div class="works_content">
@@ -539,7 +546,7 @@
         </div>
 
         <div class="modal modal_works modal_close">
-            <div class="modal_centered">
+            <div class="modal_centered" tabindex="0">
                 <div class="modal_box">
                     <div class="modal_body">
                         <div class="img_box">
@@ -568,6 +575,7 @@
                     work.handleScrollX(work.windowWidth);
                     work.resize();
                     work.videoResponser();
+                    work.workMobSwiper(work.windowWidth);
                 },
                 button: function() {
                     $('.work_link').on('click', (e) => work.showImageSrc(e, e.currentTarget));
@@ -648,8 +656,17 @@
                             $('#' + activeTab).show();
                             BlueOrange.goToSection($('#' + activeTab));
                             inProgress = false;
+                            $('#' + activeTab).find('.work_link').first().focus();
                         }
                     });
+                    $('.work_link').on('blur', function(e) {
+                        let lastEl = $(e.currentTarget).closest('.works_cnt_list').find('.works_cnt_item').last();
+
+                        if ( $(e.currentTarget).closest('.works_cnt_item')[0] === lastEl[0] ) {
+                            var nextActiveTab = $(this).closest('.works_content').next().attr('id');
+                            $(`.works_item[idx=${nextActiveTab}]`).find('.works_card').focus();
+                        }
+                    })
                 },
                 handleScrollX : function (w) {
                     let imgBoxWidth = $('#section01 .img').outerWidth();
@@ -662,7 +679,7 @@
 
                         this.handleScrollX(windowWidth);
                         this.videoResponser(windowWidth);
-
+                        this.workMobSwiper(windowWidth);
                     });
                 },
                 videoResponser: function(w) {
@@ -670,10 +687,34 @@
                           pcSrc = '../frontLayer/video/w1920_main.mp4',
                           mobSrc = '../frontLayer/video/w750_main.mp4';
 
-                    if ( w < 750 ) {
+                    if ( w < 751 ) {
                         $video.find('source').attr('src', mobSrc);
                     } else {
                         $video.find('source').attr('src', pcSrc);
+                    }
+                },
+                workMobSwiper: function (w) {
+                    let workSwiper = undefined;
+
+                    $('.works_item').addClass('swiper-slide');
+                    workSwiper = new Swiper ('#section04 .swiper', {
+                        slidesPerView: "auto",
+                        spaceBetween: 30,
+                        pagination: {
+                            el: "#section04 .swiper_pagination",
+                            type: 'bullets',
+                            clickable: true,
+                        },
+                        breakpoints: {
+                            750: {
+                                spaceBetween: 10,
+                            }
+                        }
+                    })
+                    if ( w > 1280 && workSwiper != undefined) {
+                        workSwiper.destroy(true, true);
+                        workSwiper = undefined;
+                        $('.works_item').removeClass('swiper-slide');
                     }
                 }
             }

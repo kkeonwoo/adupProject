@@ -24,9 +24,11 @@
     --color-gray1: #d0d0d0;
     --color-gray2: #bebebe;
     --color-gray3: #575757;
+    --color-gray4: #666e78;
     --color-black: #000;
     --color-blue1: #4a64c3;
     --color-blue2: #344689;
+    --color-blue3: #2c343d;
     --color-bg: #020d1a;
 
     --focus-color: #333;
@@ -168,7 +170,7 @@ a:hover{text-decoration:none;}
 .form_group .form_txt { font-size: 16px; line-height: 1.125; color: #999; white-space: nowrap;}
 .form_group + .caution {display:block;margin:10px 0 0 120px;font-size: 12px;color:var(--color-danger);transition: opacity 0.2s ease;}
 
-.form_control { display: flex; width: 100%; min-height: 46px; align-items: center; padding: 15px 0; border: none; border-bottom: 1px solid var(--color-gray3); background-color: unset; font-size: 20px; color: var(--color-gray3); outline: none; transition: text-indent 0.45s;}
+.form_control { display: flex; width: 100%; min-height: 46px; align-items: center; padding: 15px 0; border: none; border-bottom: 1px solid var(--color-gray3); background-color: unset; font-size: 20px; color: var(--color-white); outline: none; transition: text-indent 0.45s;}
 .form_control::placeholder { color: var(--color-gray3); transition: all .25s ease;}
 .form_control:disabled,
 .form_control:read-only { background-color: #eee; cursor: not-allowed;}
@@ -207,7 +209,7 @@ a:hover{text-decoration:none;}
 .fancy_img_box input ~ label > span { display: table-cell; transform: translateY(0.1em); padding-left: 5px; color: var(--color-gray3); font-family: 'NanumSquare Neo', '굴림', serif; font-size: 15px; vertical-align: middle;}
 .fancy_img_box input + label { display: table; cursor: pointer; }
 .fancy_img_box input + label:before { content: ''; display: inline-block; width: 14px; height: 14px; border: 1.5px solid var(--color-gray3); border-radius: 100%; outline:none; vertical-align: middle;}
-.fancy_img_box input:not(:checked) + label:before {background-position:0 0;}
+.fancy_img_box input:checked + label:before { background-color: var(--color-blue1);}
 .fancy_img_box input:focus-within + label {outline: 1px dashed #000;}
 
 /*radio*/

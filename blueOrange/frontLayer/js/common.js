@@ -63,12 +63,27 @@ BlueOrange = {
             $header.addClass('mob_open');
             $gnb.append("<div class='clone_footer'></div>");
             $footerRight.clone().appendTo('.clone_footer');
+
+            const $depth1Link = $('#gnb').find('.depth1_link');
+            const $gnbBtnPrimary = $('#gnb').find('.btn_primary');
+            const $footerLink = $('#gnb').find('.footer_link');
+            
+            focusEl($gnbBtn, $depth1Link.first());
+            focusEl($depth1Link.last(), $footerLink.first());
+            focusEl($footerLink.last(), $gnbBtnPrimary);
+            focusEl($gnbBtnPrimary, $gnbBtn);
         }
 
         function closeMobGnb () {
             fn.removeHidden();
             $header.removeClass('mob_open');
             $('.clone_footer').remove();
+        }
+
+        function focusEl (t, f) {
+            t.on('blur', function() {
+                f.focus();
+            });
         }
     },
     modal : function(){
@@ -92,7 +107,7 @@ BlueOrange = {
     },
     openModal : function(
         $modal, 
-        focusableElementsString = '.modal_centered, a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]', 
+        focusableElementsString = '.modal_centered, a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable], button', 
         $modalCloseButton = $('.modal .close')
     ){
         fn.addHidden();
