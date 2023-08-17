@@ -42,7 +42,7 @@
                         <li class="depth1_item"><a href="./contact.html" data-text="contact" class="depth1_link">contact</a></li>
                     </ul>
                 </nav>
-                <button type="button" class="nav_open"></button>
+                <button type="button" class="nav_open mob"></button>
             </div>
         </header>
 
@@ -216,42 +216,40 @@
                         <i class="ico ico_symbol"></i><span class="symbol">ur works</span>
                     </h2>
                     <div class="works_container">
-                        <div class="inner">
-                            <div class="works_box swiper">
-                                <ul class="works_list swiper-wrapper">
-                                    <li class="works_item">
-                                        <button class="works_card">
-                                            <span>성과로 입증한</span>
-                                            <b>Finance</b>
-                                        </button>
-                                    </li>
-                                    <li class="works_item">
-                                        <button class="works_card">
-                                            <span>경험이 풍부한</span>
-                                            <b>Commerce</b>
-                                        </button>
-                                    </li>
-                                    <li class="works_item">
-                                        <button class="works_card">
-                                            <span>유효고객 중심</span>
-                                            <b>App</b>
-                                        </button>
-                                    </li>
-                                    <li class="works_item">
-                                        <button class="works_card">
-                                            <span>정교한 관리</span>
-                                            <b>Travel</b>
-                                        </button>
-                                    </li>
-                                    <li class="works_item">
-                                        <button class="works_card">
-                                            <span>다양한 성공사례</span>
-                                            <b>Etc.</b>
-                                        </button>
-                                    </li>
-                                </ul>
-                                <div class="swiper_pagination"></div>
-                            </div>
+                        <div class="works_box swiper">
+                            <ul class="works_list swiper-wrapper">
+                                <li class="works_item swiper-slide">
+                                    <button class="works_card">
+                                        <span>성과로 입증한</span>
+                                        <b>Finance</b>
+                                    </button>
+                                </li>
+                                <li class="works_item swiper-slide">
+                                    <button class="works_card">
+                                        <span>경험이 풍부한</span>
+                                        <b>Commerce</b>
+                                    </button>
+                                </li>
+                                <li class="works_item swiper-slide">
+                                    <button class="works_card">
+                                        <span>유효고객 중심</span>
+                                        <b>App</b>
+                                    </button>
+                                </li>
+                                <li class="works_item swiper-slide">
+                                    <button class="works_card">
+                                        <span>정교한 관리</span>
+                                        <b>Travel</b>
+                                    </button>
+                                </li>
+                                <li class="works_item swiper-slide">
+                                    <button class="works_card">
+                                        <span>다양한 성공사례</span>
+                                        <b>Etc.</b>
+                                    </button>
+                                </li>
+                            </ul>
+                            <div class="swiper_pagination"></div>
                         </div>
                         <div class="works_content">
                             <ul class="works_cnt_list">
@@ -659,6 +657,13 @@
                             $('#' + activeTab).find('.work_link').first().focus();
                         }
                     });
+                    
+                    $('.works_list li').last().on('blur', function() {
+                        if( !$(this).hasClass('active') ) {
+                            $('#footer').find('button').focus()
+                        }
+                    })
+
                     $('.work_link').on('blur', function(e) {
                         let lastEl = $(e.currentTarget).closest('.works_cnt_list').find('.works_cnt_item').last();
 
@@ -679,7 +684,6 @@
 
                         this.handleScrollX(windowWidth);
                         this.videoResponser(windowWidth);
-                        this.workMobSwiper(windowWidth);
                     });
                 },
                 videoResponser: function(w) {
@@ -695,8 +699,7 @@
                 },
                 workMobSwiper: function (w) {
                     let workSwiper = undefined;
-
-                    $('.works_item').addClass('swiper-slide');
+                    
                     workSwiper = new Swiper ('#section04 .swiper', {
                         slidesPerView: "auto",
                         spaceBetween: 30,
@@ -711,11 +714,20 @@
                             }
                         }
                     })
-                    if ( w > 1280 && workSwiper != undefined) {
+
+                    if ( this.windowWidth > 1280 ) {
                         workSwiper.destroy(true, true);
                         workSwiper = undefined;
-                        $('.works_item').removeClass('swiper-slide');
                     }
+
+                    $(window).resize(() => { 
+                        windowWidth = $(window).width();
+                        
+                        if ( w > 1280 && workSwiper != undefined) {
+                            workSwiper.destroy(true, true);
+                            workSwiper = undefined;
+                        }
+                    })
                 }
             }
             work.init();

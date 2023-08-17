@@ -9,7 +9,7 @@ html { font-size: 10px;}
 .main_visual, .sec { position: relative; width: 100%; overflow: hidden;}
 
 #header { position: fixed; top: 0; left: 0; width: 100%; z-index: 999;}
-#header .header_inner { position: relative; margin: 3rem 5rem;}
+#header .header_inner { position: relative; margin: 3rem 6rem;}
 #header .logo { display: flex; position: absolute; width: 24.2rem;}
 #gnb .depth1_list { display: flex; justify-content: space-between; align-items: center; max-width: 50rem; height: var(--header-height); margin: 0 auto;}
 #gnb .depth1_list .depth1_item .depth1_link { position: relative; font-weight: 500; font-size: 2rem; color: var(--color-white); line-height: 1; text-transform:  uppercase;}
@@ -19,7 +19,6 @@ html { font-size: 10px;}
 #gnb .depth1_list .depth1_item .depth1_link.active::before { opacity: 1; visibility: visible;}
 #gnb .depth1_list .depth1_item .depth1_link:hover::after,
 #gnb .depth1_list .depth1_item .depth1_link.active::after { display: block;}
-#header .nav_open { display: none;}
 
 .main_visual { height: 100vh;}
 .main_visual .video { width: 100%; height:100%; object-fit: cover;}
@@ -34,15 +33,16 @@ html { font-size: 10px;}
 .sec .inner .sec_ttl + [class*="_box"],
 .contact .inner .info_area { margin-top: 13rem;}
 
-.about .sec .inner .sec_ttl + [class*="_box"] { margin-top: 16.5rem;}
+.about .sec .inner .sec_ttl + [class*="_box"] { margin-top: 16rem;}
 
+#section01 { padding-bottom: 0;}
 #section01 .img_box { width: 100%; height: calc(100vh - 13.5rem - 3rem); overflow-x: auto;}
 #section01 .img_box .img { max-width: unset; height: 100%; object-fit: contain;}
 
 #section02 .inner { max-width: 134rem; position: relative;}
-#section02 .partner_box .partner_list { display: grid; justify-content: center; align-items: center; grid-template-columns: repeat(auto-fill, minmax(auto, 22rem)); gap: 8rem 6rem; margin: 0 auto;}
+#section02 .partner_box .partner_list { display: grid; justify-content: center; align-items: center; grid-template-columns: repeat(auto-fill, minmax(auto, 22rem)); gap: 6rem; margin: 0 auto;}
 
-#section03 .service_box .service_list { display: grid; grid-template-columns: repeat(auto-fill, minmax(23.5rem, 25%)); gap: 15rem 0;}
+#section03 .service_box .service_list { display: grid; justify-content: center; grid-template-columns: repeat(auto-fill, minmax(23.5rem, 25%)); gap: 13rem 0;}
 #section03 .service_box .service_list .service_item { text-align: center;}
 #section03 .service_box .service_list .service_item .ico.ico_service { display: block; width: 12rem; height: 12rem; margin: 0 auto 4.5rem; background-size: 100% auto;}
 #section03 .service_box .service_list .service_item:nth-child(1) .ico.ico_service { background-image: url('../images/img/img_service_01.png');}
@@ -56,8 +56,9 @@ html { font-size: 10px;}
 #section03 .service_box .service_list .service_item .service_txt { font-weight: 600; font-size: 2.8rem; letter-spacing: -0.08em;}
 
 #section04 { min-height: unset; padding-bottom: unset;}
-#section04 .works_box .works_list { display: flex; gap: 2.5rem; margin-top: 11rem; padding-bottom: 20rem;}
+#section04 .works_box .works_list { display: flex; justify-content: center; margin-top: 11rem; padding-bottom: 20rem;}
 #section04 .works_box .works_list .works_item { position: relative; width: 23.5rem;}
+#section04 .works_box .works_list .works_item:last-child { margin-right: 0 !important;}
 #section04 .works_box .works_list .works_item:nth-child(2n-1) { transform: translateY(40px);}
 #section04 .works_box .works_list .works_item.active:before { content: ''; display: block; position: absolute; width: 8.8rem; height: 4.2rem; bottom: -20rem; left: 50%; background: url('../images/icons/ico_arw_top_nst.svg') no-repeat center center / cover; transform: translateX(-50%);}
 #section04 .works_box .works_list .works_item.active:nth-child(2n-1):before { bottom: -16rem;}
@@ -71,7 +72,7 @@ html { font-size: 10px;}
 #section04 .works_box .works_list .works_item .works_card span { font-family: inherit; font-weight: inherit; font-size: inherit; transition: color .4s;}
 #section04 .works_box .works_list .works_item:hover .works_card span,
 #section04 .works_box .works_list .works_item.active .works_card span { color: var(--color-black);}
-#section04 .works_box .works_list .works_item .works_card b { display: inline-block; width: 100%; margin-top: 2rem; font-weight: 800; font-size: 3.3rem; transition: color .4s;}
+#section04 .works_box .works_list .works_item .works_card b { display: inline-block; width: 100%; margin-top: 2rem; font-family: 'NanumSquare Neo', '굴림', serif; font-weight: 800; font-size: 3.3rem; transition: color .4s;}
 #section04 .works_box .works_list .works_item:hover .works_card b,
 #section04 .works_box .works_list .works_item.active .works_card b { color: var(--color-blue1);}
 #section04 .works_container .works_content { padding: 9rem 0; background-color: var(--color-white);}
@@ -85,17 +86,17 @@ html { font-size: 10px;}
 #section04 .swiper .swiper_pagination { display: none;}
 
 #footer { padding: 13.5rem 0 10.5rem; background-color: var(--color-black);}
-#footer * { font-family: 'NanumSquare Neo'; font-weight: 300; font-size: 1.4rem;}
+#footer * { font-family: 'NanumSquare Neo', '굴림', serif; font-weight: 300; font-size: 1.4rem;}
 #footer .inner { display: flex; justify-content: space-between; max-width: 158rem; margin: 0 auto; padding: 0 3rem;}
 #footer .footer_left .info_content,
 #footer .footer_left .copyright { opacity: .5;}
 #footer .footer_left .info_content { margin-top: 6rem;}
 #footer .footer_left .info_content .company_name { font-family: '굴림'; font-weight: 400;}
-#footer .footer_left .info_content .dl { display: flex; margin-top: 2rem;}
+#footer .footer_left .info_content .dl { display: flex; margin-top: 1.5rem;}
 #footer .footer_left .info_content .dl .dd + .dt { position: relative; margin-left: 1rem; padding-left: 1rem;}
 #footer .footer_left .info_content .dl .dd + .dt::before { content: ''; display: block; position: absolute; top: 50%; left: 0; width: 1px; height: 1rem; background-color: #fff; opacity: .5; transform: translateY(-50%);}
 #footer .footer_left .copyright { margin-top: 9rem; font-family: '굴림'; font-size: 1.2rem;}
-.footer_right .btn { gap: 1rem; padding: 1.5rem; border-radius: 0; font-family: "Montserrat"; font-weight: 600;}
+.footer_right .btn { gap: 1rem; padding: 1.5rem; border-radius: 0; font-family: "Montserrat" !important; font-weight: 600 !important;}
 .footer_right .btn .ico.ico_download { width: 1.2rem; height: 1.2rem; background-image: url('../images/icons/ico_download.svg');}
 .footer_right .footer_sns { display: flex; justify-content: end; align-items: center; gap: 1rem; margin-top: 5rem;}
 .footer_right .footer_sns .footer_link { display: inline-block; width: 4rem; height: 4rem; border-radius: 100%; background: no-repeat center center / 2rem 2rem rgba(255, 255, 255, .1);}
@@ -116,7 +117,7 @@ html { font-size: 10px;}
 .people .gsap_area { display: flex; align-items: center; height: 100vh; padding: 0 calc(50vw - 15rem);}
 .people .img_list { display: flex; gap: 3rem;}
 .people .img_list .img_item { width: 30.5rem; height: 48rem; overflow: hidden;}
-.people .btn_wrap { display: inline-flex; position: absolute; right: 5rem; bottom: 6.5rem; align-items: center; gap: 3.5rem;}
+.people .btn_wrap { display: inline-flex; position: absolute; right: 5rem; bottom: 6.5rem; align-items: center; gap: 3rem;}
 .people .btn_wrap .btn_round { width: 4rem; height: 4rem; background: no-repeat center center / cover;}
 .people .btn_wrap .btn_round.btn_prev { background-image: url('../images/icons/ico_arw_prev_round.png');}
 .people .btn_wrap .btn_round.btn_next { background-image: url('../images/icons/ico_arw_next_round.png');}
@@ -152,31 +153,31 @@ html { font-size: 10px;}
 .people .step_area .step_list .step_item:nth-child(2) .ico_box .ico.ico_step { background-image: url('../images/icons/ico_step_02.svg');}
 .people .step_area .step_list .step_item:nth-child(3) .ico_box .ico.ico_step { background-image: url('../images/icons/ico_step_03.svg');}
 .people .step_area .step_list .step_item:nth-child(4) .ico_box .ico.ico_step { background-image: url('../images/icons/ico_step_04.svg');}
-.people .step_area .step_list .step_item .step_content { margin-top: 2rem;}
+.people .step_area .step_list .step_item .step_content { margin-top: 3rem;}
 .people .step_area .step_list .step_item .step_content .step_txt { position: relative; font-family: 'NanumSquare Neo', '굴림', serif; font-weight: 700; font-size: 2.6rem; letter-spacing: -0.03em;}
 .people .step_area .step_list .step_item .step_content .step_txt::before { content: ''; display: block; width: 70px; height: 25px; margin: 0 auto ; background: no-repeat center center / cover;}
 .people .step_area .step_list .step_item:nth-child(1) .step_content .step_txt::before { background-image: url('../images/img/img_step_01.png');}
 .people .step_area .step_list .step_item:nth-child(2) .step_content .step_txt::before { background-image: url('../images/img/img_step_02.png');}
 .people .step_area .step_list .step_item:nth-child(3) .step_content .step_txt::before { background-image: url('../images/img/img_step_03.png');}
 .people .step_area .step_list .step_item:nth-child(4) .step_content .step_txt::before { background-image: url('../images/img/img_step_04.png');}
-.people .field_area { margin-top: 8rem; border-top: 1px solid var(--color-white);}
-.people .field_area .field_item { display: flex; padding: 4rem 0;}
+.people .field_area { width: 100%; margin-top: 8rem; border-top: 1px solid var(--color-white);}
+.people .field_area .field_item { display: flex; min-height: 17.5rem; padding: 4rem 2.5rem;}
 .people .field_area .field_item * { font-family: 'NanumSquare Neo', '굴림', serif;}
 .people .field_area .field_item + .field_item { border-top: .5px solid rgba(255, 255, 255, 0.3);}
-.people .field_area .field_item .field_header { width: 31.25%; padding: 0 5rem;}
+.people .field_area .field_item .field_header { width: 31.25%; padding: 0 2.5rem;}
 .people .field_area .field_item .field_header .field_ttl { font-weight: 900; font-size: 3rem; color: var(--color-blue1);}
-.people .field_area .field_item .field_body { padding: 0 5rem; flex: 1;}
-.people .field_area .field_item .field_body .field_txt { font-size: 2rem; line-height: 1.7;}
+.people .field_area .field_item .field_body { padding-right: 2.5rem; flex: 1;}
+.people .field_area .field_item .field_body .field_txt { font-size: 2rem; line-height: 1.7; letter-spacing: -0.03em;}
 .people .recruit_box .btn { width: 41.5rem; min-height: 7rem; margin-top: 2rem; font-weight: 700; font-size: 2rem;}
 .people .recruit_box .apply_address { margin-top: 2.5rem; font-size: 2.2rem; font-weight: 700;}
 
 .contact .sec { min-height: unset; padding-bottom: 12.5rem;}
 .contact .sec .inner { padding: 0 5.25rem;}
 .contact .info_area { display: flex; flex-wrap: wrap; margin-top: 8.5rem;}
-.contact .info_area .info_box { position: relative; width: calc(100% / 3); text-align: center;}
+.contact .info_area .info_box { position: relative; width: calc(100% / 3); min-height: 8rem; text-align: center;}
 .contact .info_area .info_box::before { content: ''; display: block; position: absolute; top: 50%; right: 0; width: 1px; height: 8rem; background: url('../images/icons/ico_vertical_line.svg') no-repeat center center / cover; transform: translateY(-50%);}
 .contact .info_area .info_box:nth-child(3):before { content: none;}
-.contact .info_area .info_box dl { display: flex; flex-direction: column; justify-content: space-between; gap: 3.5rem; height: 100%; padding: 0 1rem;}
+.contact .info_area .info_box dl { display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 0 1rem;}
 .contact .info_area .info_box .address { margin-right: auto; padding-left: 0;}
 .contact .info_area .info_box .media { margin-left: auto; padding-right: 0;}
 .contact .info_area .info_box dt { font-weight: 300; font-size: 1.8rem; letter-spacing: -0.01em; line-height: 2;}
@@ -186,6 +187,9 @@ html { font-size: 10px;}
 .contact .form_container .btn { width: 100%; min-height: 7rem; margin-top: 6.5rem; border-radius: 5px; font-weight: 700; font-size: 2rem; letter-spacing: 0.1em;}
 
 @media all and (max-width: 1280px) {
+    .pc { display: none;}
+    .mob { display: block;}
+
     #header.mob_open { width: 100%; bottom: 0; background-color: var(--color-bg); overflow: hidden;}
     #header .header_inner { display: flex; justify-content: space-between; align-items: center; position: static;}
     #header.mob_open .header_inner { align-items: unset;}
@@ -205,52 +209,54 @@ html { font-size: 10px;}
     #header .clone_footer .footer_right .footer_sns { margin-top: unset;}
     #header .clone_footer .footer_right .footer_sns .footer_link { background-color: unset;}
     #header .clone_footer .footer_right .btn { background-color: var(--color-blue1);}
-    #header .nav_open { display: block; width: 5rem; height: 5rem; background: url('../images/icons/ico_gnb_open.svg') no-repeat center center / cover;}
+    #header .nav_open { width: 5rem; height: 5rem; background: url('../images/icons/ico_gnb_open.svg') no-repeat center center / cover;}
     #header.mob_open .nav_open { background-image: url('../images/icons/ico_gnb_close.svg');}
 
-    #section04 .works_box .works_list { gap: unset; padding: 0 3rem 20rem;}
+    #section04 .works_box .works_list { justify-content: unset; gap: unset; padding: 0 3rem 20rem;}
     
     #section04 .swiper { position: relative;}
     #section04 .swiper .swiper_pagination { display: flex; gap: 2rem; justify-content: center; position: absolute; bottom: 7rem; left: 50%; z-index: 10; transform: translateX(-50%);}
     #section04 .swiper .swiper_pagination .swiper-pagination-bullet { width: 1rem; height: 1rem; background-color: var(--color-blue3); opacity: 1; transform: scale(1);}
     #section04 .swiper .swiper_pagination .swiper-pagination-bullet-active { background-color: var(--color-gray4);}
+
+    .people .welfare_box .welfare_list .welfare_item .welfare_content .welfare_ttl { font-size: 1.8rem;}
+    .people .welfare_box .welfare_list .welfare_item .welfare_content .welfare_txt { font-size: 1.1rem;}
 }
 
 @media all and (max-width: 750px) {
-    .pc { display: none;}
-    .mob { display: block;}
-
     #header .header_inner { margin: 1.5rem;}
     #header .logo { width:10.75rem;}
     #header .nav_open { width: 2.5rem; height: 2.5rem;}
 
-    .main_visual .ico_box {bottom: 1.5rem; left: 50%;}
-    .main_visual .ico_box .ico { width: 2rem; height: 1.6rem;}
-    .sec { min-height: unset; padding-top: 6rem;}
+    .sec { min-height: unset; padding: 6rem 0;}
     .sec .inner .sec_ttl + [class*="_box"], .contact .inner .info_area { margin-top: 5.25rem;}
     .sec .sec_ttl { gap: 0.5rem; font-size: 1.4rem;}
     .sec .sec_ttl .ico.ico_symbol { width: 1.2rem; height: 1.5rem;}
+
+    .main_visual .ico_box { bottom: 1.5rem; width: 2rem; height: 1.6rem;}
     
-    .about .sec .inner .sec_ttl + [class*="_box"] { margin-top: 6.25rem;}
+    .about .sec .inner .sec_ttl + [class*="_box"] { margin-top: 6rem;}
     #section01 .img_box { height: calc(100vh - 6rem - 1.7rem);}
 
-    #section02 .partner_box .partner_list { grid-template-columns: repeat(3, minmax(auto, 17.6rem)); gap: 2.6rem 0; padding: 0 3rem;}
+    #section02 .partner_box .partner_list { grid-template-columns: repeat(3, minmax(auto, 17.6rem)); gap: 3.5rem 0; padding: 0 3rem;}
 
-    #section03 .service_box .service_list { grid-template-columns: repeat(2, minmax(auto, 50%)); gap: 3rem 0; margin-top: 6rem; padding: 0 3rem;}
-    #section03 .service_box .service_list .service_item .ico.ico_service { width: 6rem; height: 6rem;}
+    #section03 .service_box .service_list { grid-template-columns: repeat(2, minmax(auto, 50%)); gap: 4rem 0; margin-top: 6rem; padding: 0 3rem 2.5rem;}
+    #section03 .service_box .service_list .service_item .ico.ico_service { width: 6rem; height: 6rem; margin-bottom: 1rem;}
     #section03 .service_box .service_list .service_item .service_txt { font-size: 1.2rem;}
 
-    #section04 .works_box .works_list { margin-top: 5.5rem; padding-bottom: 7rem;}
+    #section04 .works_box .works_list { margin-top: 5.5rem; padding-bottom: 6rem;}
     #section04 .works_box .works_list .works_item { width: 12.5rem;}
+    #section04 .works_box .works_list .works_item:nth-child(2n-1) { transform: translateY(0);}
     #section04 .works_box .works_list .works_item.active:before { width: 5rem; height: 1.8rem;}
-    #section04 .works_box .works_list .works_item.active:before { bottom: -7rem;}
-    #section04 .works_box .works_list .works_item.active:nth-child(2n-1):before { bottom: -7rem;}
+    #section04 .works_box .works_list .works_item.active:before { bottom: -6rem;}
+    #section04 .works_box .works_list .works_item.active:nth-child(2n-1):before { bottom: -6rem;}
     #section04 .works_box .works_list .works_item .works_card { padding: 2.5rem 1.5rem 1.5rem 1.25rem; border-radius: 1.5rem; font-size: 1rem; box-shadow: unset;}
     #section04 .works_box .works_list .works_item .works_card::after { width: 1.6rem; height: 1rem; margin-top: 6rem;}
     #section04 .works_box .works_list .works_item .works_card b { margin-top: 1rem; font-size: 1.5rem;}
     #section04 .works_container .works_content { padding: 3.5rem 3rem;}
     #section04 .works_container .works_content .works_cnt_list { grid-template-columns: repeat(3, minmax(auto, 32rem)); gap: 1.5rem;}
-    #section04 .swiper .swiper_pagination { bottom: 3.5rem;}
+    #section04 .swiper .swiper_pagination { gap: 1rem; bottom: 3.25rem;}
+    #section04 .swiper .swiper_pagination .swiper-pagination-bullet { width: 0.5rem; height: 0.5rem;}
 
     #footer { padding: 5rem 0 4.5rem;}
     #footer * { font-size: 1rem;}
@@ -279,7 +285,7 @@ html { font-size: 10px;}
     .people .main .sec { padding-bottom: 6.75rem;}
     .people .welfare_box { margin-top: 6rem; padding: 0 4rem;}
     .people .welfare_box .welfare_list { gap: 3rem 0;}
-    .people .welfare_box .welfare_list .welfare_item .welfare_content { flex-direction: column; gap: 1.25rem;}
+    .people .welfare_box .welfare_list .welfare_item .welfare_content { flex-direction: column; gap: 1.5rem;}
     .people .welfare_box .welfare_list .welfare_item .welfare_content .ico_box { width: 5.25rem; height: 5.25rem;}
     .people .welfare_box .welfare_list .welfare_item .welfare_content .welfare_ttl { margin-bottom: 0.8rem; font-size: 1.1rem; text-align: center;}
     .people .welfare_box .welfare_list .welfare_item .welfare_content .welfare_txt { font-size: .8rem;}
@@ -291,18 +297,18 @@ html { font-size: 10px;}
     .people .step_area .step_list .step_item .step_content .step_txt { font-size: 1rem;}
     .people .step_area .step_list .step_item .step_content .step_txt::before { width: 2.5rem; height: 1rem;}
     .people .field_area { width: 100%; margin-top: 4.5rem;}
-    .people .field_area .field_item { flex-direction: column; align-items: unset; gap: 1.5rem 0; padding: 2rem 0;}
+    .people .field_area .field_item { flex-direction: column; align-items: unset; gap: 1.5rem 0; min-height: 12rem; padding: 2rem 0;}
     .people .field_area .field_item .field_header { width: unset; padding: 0;}
     .people .field_area .field_item .field_header .field_ttl { font-size: 1.6rem;}
     .people .field_area .field_item .field_body { padding: 0;}
     .people .field_area .field_item .field_body .field_txt { font-size: 1rem;}
-    .people .recruit_box .btn { width: 100%; min-height: 3.5rem; margin-top: 3.5rem; font-size: 1rem;}
+    .people .recruit_box .btn { width: 100%; min-height: 3.5rem; margin-top: 2.5rem; font-size: 1rem;}
     .people .recruit_box .apply_address { margin-top: 1.5rem; font-size: 1.1rem;}
 
     .contact .sec { padding-bottom: 5rem;}
     .contact .sec .inner { padding: 0 4.5rem;}
     .contact .info_area { gap: 2.25rem; margin-top: 0;}
-    .contact .info_area .info_box { width: 100%; text-align: unset;}
+    .contact .info_area .info_box { width: 100%; min-height: unset; text-align: unset;}
     .contact .info_area .info_box::before { content: none;}
     .contact .info_area .info_box dl { flex-direction: row; justify-content: start; gap: unset; padding: unset;}
     .contact .info_area .info_box .address { margin-right: unset;}

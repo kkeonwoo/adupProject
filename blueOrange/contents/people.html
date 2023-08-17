@@ -41,7 +41,7 @@
                         <li class="depth1_item"><a href="./contact.html" data-text="contact" class="depth1_link">contact</a></li>
                     </ul>
                 </nav>
-                <button type="button" class="nav_open"></button>
+                <button type="button" class="nav_open mob"></button>
             </div>
         </header>
 
@@ -273,7 +273,7 @@
                                     </div>
                                     <div class="field_body">
                                         <p class="field_txt">
-                                            퍼포먼스 마케팅 캠페인 기획 및 운영, 대량의 데이터 관리 및 분석<br>
+                                            퍼포먼스 마케팅 캠페인 기획 및 운영, 대량의 데이터 관리 및 분석<br class="pc">
                                             SA, DA, SNS 등 디지털 미디어믹스 기획 및 운영, 주간, 월간 광고성과 리포팅 및 광고주 커뮤니케이션
                                         </p>
                                     </div>
@@ -284,7 +284,7 @@
                                     </div>
                                     <div class="field_body">
                                         <p class="field_txt">
-                                            App 퍼포먼스 마케팅 캠페인 기획 및 운영, App 마케팅 미디어믹스 기획 및 운영, 서드파티,<br>
+                                            App 퍼포먼스 마케팅 캠페인 기획 및 운영, App 마케팅 미디어믹스 기획 및 운영, 서드파티,<br class="pc">
                                             MMP 솔루션을 통한 데이터 분석, 주월간 광고성과 리포팅 및 광고주 커뮤니케이션
                                         </p>
                                     </div>
@@ -295,7 +295,7 @@
                                     </div>
                                     <div class="field_body">
                                         <p class="field_txt">
-                                            디지털 마케팅 전반의 디자인, 페이스북, 카카오, 네이버 등 주요 미디어 광고 소재 제작<br>
+                                            디지털 마케팅 전반의 디자인, 페이스북, 카카오, 네이버 등 주요 미디어 광고 소재 제작<br class="pc">
                                             프로모션 페이지 및 상세 페이지 디자인, 퍼포먼스 전략에 맞춘 컨셉 구축 및 디자인
                                         </p>
                                     </div>
@@ -357,7 +357,7 @@
 
                     let pinWrapWidth = people.pinWrap.offsetWidth;
                     let horizontalScrollLength = pinWrapWidth - people.pinBoxes[0].offsetWidth;
-
+                    
                     let mainSt = gsap.to(".img_list", {
                         scrollTrigger: {
                             trigger: ".gsap_area",
@@ -365,7 +365,7 @@
                             pin: true,
                             start: "top top",
                             end: pinWrapWidth,
-                            // onUpdate: people.moveImgVer,
+                            onUpdate: people.moveImgVer,
                             onLeave: () => $('html, body').addClass('scroll_down'),
                             onEnterBack: () => $('html, body').removeClass('scroll_down'),
                         },
@@ -373,35 +373,44 @@
                         ease: "none",
                     });
 
-                    people.pinBoxes.forEach((item, idx) => {
-                        let y;
-                        switch (idx % 4) {
-                            case 0: y= 0; break;
-                            case 1: y= 32; break;
-                            case 2: y= 65; break;
-                            case 3: y= 32; break;
-                        }
-                        gsap.set(item, { y: y })
-                        gsap.to(item, {
-                            y : 0,
-                            ease: "none",
-                            duration: 1,
-                            scrollTrigger: {
-                                trigger: item,
-                                containerAnimation: mainSt,
-                                start: "top center",
-                                end: "bottom center",
-                                markers: true,
-                                scrub: true,
-                                onUpdate: (e) => {
-                                    if ( idx === 1) {
+                    // people.pinBoxes.forEach((item, idx) => {
+                    //     let y;
+                    //     switch (idx % 4) {
+                    //         case (0 || 4): y= 0; break;
+                    //         case 1: y= 35; break;
+                    //         case 2: y= 70; break;
+                    //         case 3: y= 35; break;
+                    //     }
+                    //     gsap.set(item, { y: 70 })
 
-                                        console.log(e.progress);
-                                    }
-                                }
-                            },
-                        })
-                    })
+                    //     gsap.to(item, {
+                    //         y : 0,
+                    //         ease: "none",
+                    //         scrollTrigger: {
+                    //             trigger: item,
+                    //             containerAnimation: mainSt,
+                    //             start: "top-=160% center",
+                    //             end: "center center",
+                    //             markers: true,
+                    //             scrub: true,
+                    //             onUpdate: function(e) {
+                    //                 if ( e.progress == 1 ) {
+                    //                     gsap.to(item, { 
+                    //                         y : 70,
+                    //                         ease: 'none',
+                    //                         scrollTrigger: {
+                    //                             trigger: item,
+                    //                             containerAnimation: mainSt,
+                    //                             start: "center center",
+                    //                             end: "bottom+=100% center",
+                    //                             scrub: true,
+                    //                         },
+                    //                     })
+                    //                 }
+                    //             }
+                    //         },
+                    //     })
+                    // })
 
                     people.button(pinWrapWidth);
                 },
@@ -409,10 +418,14 @@
                     const wdwHghHalf = $(window).outerWidth()/2;
                     const boxHghHalf = $(people.pinBoxes[0]).outerWidth()/2;
                     const half = wdwHghHalf - boxHghHalf;
-
                     people.pinBoxes.forEach((t,i)=>{
                         let y;
-                        y = Math.abs($(t).offset().left - half) / 10;
+                        y = (Math.abs($(t).offset().left - half) / 10);
+                        if (i === 0 ) {
+                            console.log($(t).offset().left);
+                            console.log(((window.scrollY - 30 * 9) / 305).toFixed(0));
+
+                        }
                         $(t).css({'transform':`translateY(${y}px)`});
                     })
                 },
@@ -420,14 +433,15 @@
                     $('.people .btn_round').on('click', function(e) {
                         let $target = $(e.target);
                         let scrollTop = window.scrollY;
+                        let x = w / 10;
 
                         if ($target.hasClass('btn_next')) {
                             if( scrollTop < w) {
-                                BlueOrange.goToSection(scrollTop + (w / 10));
+                                BlueOrange.goToSection(scrollTop + x);
                             }
                         } else  {
                             if ( scrollTop > 0) {
-                                BlueOrange.goToSection(scrollTop - (w / 10));
+                                BlueOrange.goToSection(scrollTop - x);
                             }
                         }
                     })
