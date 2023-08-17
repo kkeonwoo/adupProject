@@ -1,19 +1,17 @@
 @charset "UTF-8";
 
-@font-face { font-family: 'Montserrat'; font-weight: 100; src: url(../font/Montserrat/Montserrat-Thin.ttf) format('truetype');}
-@font-face { font-family: 'Montserrat'; font-weight: 300; src: url(../font/Montserrat/Montserrat-Light.ttf) format('truetype');}
-@font-face { font-family: 'Montserrat'; font-weight: 400; src: url(../font/Montserrat/Montserrat-Regular.ttf) format('truetype');}
-@font-face { font-family: 'Montserrat'; font-weight: 500; src: url(../font/Montserrat/Montserrat-Medium.ttf) format('truetype');}
-@font-face { font-family: 'Montserrat'; font-weight: 600; src: url(../font/Montserrat/Montserrat-SemiBold.ttf) format('truetype');}
-@font-face { font-family: 'Montserrat'; font-weight: 700; src: url(../font/Montserrat/Montserrat-Bold.ttf) format('truetype');}
-@font-face { font-family: 'Montserrat'; font-weight: 800; src: url(../font/Montserrat/Montserrat-ExtraBold.ttf) format('truetype');}
-@font-face { font-family: 'Montserrat'; font-weight: 900; src: url(../font/Montserrat/Montserrat-Black.ttf) format('truetype');}
+@font-face { font-family: 'Montserrat'; font-weight: 300; src: url(../font/Montserrat/Montserrat-Light.ttf) format('truetype'); font-display: swap;}
+@font-face { font-family: 'Montserrat'; font-weight: 400; src: url(../font/Montserrat/Montserrat-Regular.ttf) format('truetype'); font-display: swap;}
+@font-face { font-family: 'Montserrat'; font-weight: 500; src: url(../font/Montserrat/Montserrat-Medium.ttf) format('truetype'); font-display: swap;}
+@font-face { font-family: 'Montserrat'; font-weight: 600; src: url(../font/Montserrat/Montserrat-SemiBold.ttf) format('truetype'); font-display: swap;}
+@font-face { font-family: 'Montserrat'; font-weight: 700; src: url(../font/Montserrat/Montserrat-Bold.ttf) format('truetype'); font-display: swap;}
+@font-face { font-family: 'Montserrat'; font-weight: 800; src: url(../font/Montserrat/Montserrat-ExtraBold.ttf) format('truetype'); font-display: swap;}
 
-@font-face { font-family: 'NanumSquare Neo'; font-weight: 300; src: url(../font/NanumSquareNeo/OTF/NanumSquareNeoOTF-Lt.otf) format('opentype'), url(../font/NanumSquareNeo/TTF/NanumSquareNeo-aLt.ttf) format('truetype');}
-@font-face { font-family: 'NanumSquare Neo'; font-weight: 400; src: url(../font/NanumSquareNeo/OTF/NanumSquareNeoOTF-Rg.otf) format('opentype'), url(../font/NanumSquareNeo/TTF/NanumSquareNeo-bRg.ttf) format('truetype');}
-@font-face { font-family: 'NanumSquare Neo'; font-weight: 700; src: url(../font/NanumSquareNeo/OTF/NanumSquareNeoOTF-Bd.otf) format('opentype'), url(../font/NanumSquareNeo/TTF/NanumSquareNeo-cBd.ttf) format('truetype');}
-@font-face { font-family: 'NanumSquare Neo'; font-weight: 800; src: url(../font/NanumSquareNeo/OTF/NanumSquareNeoOTF-Eb.otf) format('opentype'), url(../font/NanumSquareNeo/TTF/NanumSquareNeo-dEb.ttf) format('truetype');}
-@font-face { font-family: 'NanumSquare Neo'; font-weight: 900; src: url(../font/NanumSquareNeo/OTF/NanumSquareNeoOTF-Hv.otf) format('opentype'), url(../font/NanumSquareNeo/TTF/NanumSquareNeo-eHv.ttf) format('truetype');}
+@font-face { font-family: 'NanumSquare Neo'; font-weight: 300; src: url(../font/NanumSquareNeo/OTF/NanumSquareNeoOTF-Lt.otf) format('opentype'), url(../font/NanumSquareNeo/TTF/NanumSquareNeo-aLt.ttf) format('truetype'); font-display: swap;}
+@font-face { font-family: 'NanumSquare Neo'; font-weight: 400; src: url(../font/NanumSquareNeo/OTF/NanumSquareNeoOTF-Rg.otf) format('opentype'), url(../font/NanumSquareNeo/TTF/NanumSquareNeo-bRg.ttf) format('truetype'); font-display: swap;}
+@font-face { font-family: 'NanumSquare Neo'; font-weight: 700; src: url(../font/NanumSquareNeo/OTF/NanumSquareNeoOTF-Bd.otf) format('opentype'), url(../font/NanumSquareNeo/TTF/NanumSquareNeo-cBd.ttf) format('truetype'); font-display: swap;}
+@font-face { font-family: 'NanumSquare Neo'; font-weight: 800; src: url(../font/NanumSquareNeo/OTF/NanumSquareNeoOTF-Eb.otf) format('opentype'), url(../font/NanumSquareNeo/TTF/NanumSquareNeo-dEb.ttf) format('truetype'); font-display: swap;}
+@font-face { font-family: 'NanumSquare Neo'; font-weight: 900; src: url(../font/NanumSquareNeo/OTF/NanumSquareNeoOTF-Hv.otf) format('opentype'), url(../font/NanumSquareNeo/TTF/NanumSquareNeo-eHv.ttf) format('truetype'); font-display: swap;}
 
 :root {
     --header-height: 5rem;

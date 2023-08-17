@@ -12,6 +12,8 @@
     <meta property="og:url" content="http://www.blorange.co.kr/">
     <meta name="google-site-verification" content="sXvn1Dwrpxmv8XEUUZ8vvCrK23zURK_xavEYj-Kfals" />
     <meta name="naver-site-verification" content="967147d77df6d50724ef05bf3142bec087528a34" />
+    <meta name="description" content="검색광고, 배너광고, 앱광고, 데이터 기반 디지털 광고 운영">
+
     <title>blueorange</title>
 
     <link rel="stylesheet" href="../frontLayer/css/package.css">
@@ -41,11 +43,11 @@
                         <li class="depth1_item"><a href="./contact.html" data-text="contact" class="depth1_link">contact</a></li>
                     </ul>
                 </nav>
-                <button type="button" class="nav_open mob"></button>
+                <button type="button" aria-label="mobile gnb" class="nav_open mob"></button>
             </div>
         </header>
 
-        <div id="motion01" class="motion_panel smooth_scroll">
+        <div id="motion01" class="motion_panel">
             <div class="main_visual">
                 <div class="gsap_area">
                     <ul class="img_list">
@@ -101,8 +103,8 @@
                         </li>
                     </ul>
                     <div class="btn_wrap">
-                        <button type="button" class="btn_round btn_prev"></button>
-                        <button type="button" class="btn_round btn_next"></button>
+                        <button type="button" aria-label="move to prev image" class="btn_round btn_prev"></button>
+                        <button type="button" aria-label="move to next image" class="btn_round btn_next"></button>
                     </div>
                 </div>
             </div>
@@ -328,10 +330,10 @@
                         </div>
                     </div>
                     <div class="footer_right">
-                        <button type="button" class="btn_primary btn">Company Brochure <i class="ico ico_download"></i></button>
+                        <button type="button" aria-label="open company brochure" class="btn_primary btn">Company Brochure <i class="ico ico_download"></i></button>
                         <div class="footer_sns">
-                            <a href="#" class="footer_link sns_facebook"></a>
-                            <a href="#" class="footer_link sns_insta"></a>
+                            <a href="#" aria-label="go to facebook" class="footer_link sns_facebook"></a>
+                            <a href="#" aria-label="go to instagram" class="footer_link sns_insta"></a>
                         </div>
                     </div>
                 </div>
@@ -345,7 +347,7 @@
     </div>
     
     <script>
-        $(() => {
+        $(document).ready(function() {
             const people = {
                 pinBoxes: document.querySelectorAll(".img_item"),
                 pinWrap: document.querySelector(".img_list"),
@@ -354,7 +356,7 @@
                 },
                 moveSectionHorizon: () => {
                     gsap.registerPlugin(ScrollTrigger);
-
+    
                     let pinWrapWidth = people.pinWrap.offsetWidth;
                     let horizontalScrollLength = pinWrapWidth - people.pinBoxes[0].offsetWidth;
                     
@@ -372,7 +374,7 @@
                         x: -horizontalScrollLength,
                         ease: "none",
                     });
-
+    
                     // people.pinBoxes.forEach((item, idx) => {
                     //     let y;
                     //     switch (idx % 4) {
@@ -382,7 +384,7 @@
                     //         case 3: y= 35; break;
                     //     }
                     //     gsap.set(item, { y: 70 })
-
+    
                     //     gsap.to(item, {
                     //         y : 0,
                     //         ease: "none",
@@ -411,7 +413,7 @@
                     //         },
                     //     })
                     // })
-
+    
                     people.button(pinWrapWidth);
                 },
                 moveImgVer: () => {
@@ -424,7 +426,7 @@
                         if (i === 0 ) {
                             console.log($(t).offset().left);
                             console.log(((window.scrollY - 30 * 9) / 305).toFixed(0));
-
+    
                         }
                         $(t).css({'transform':`translateY(${y}px)`});
                     })
@@ -434,7 +436,7 @@
                         let $target = $(e.target);
                         let scrollTop = window.scrollY;
                         let x = w / 10;
-
+    
                         if ($target.hasClass('btn_next')) {
                             if( scrollTop < w) {
                                 BlueOrange.goToSection(scrollTop + x);

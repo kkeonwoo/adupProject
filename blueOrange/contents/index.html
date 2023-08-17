@@ -12,6 +12,8 @@
     <meta property="og:url" content="http://www.blorange.co.kr/">
     <meta name="google-site-verification" content="sXvn1Dwrpxmv8XEUUZ8vvCrK23zURK_xavEYj-Kfals" />
     <meta name="naver-site-verification" content="967147d77df6d50724ef05bf3142bec087528a34" />
+    <meta name="description" content="검색광고, 배너광고, 앱광고, 데이터 기반 디지털 광고 운영">
+
     <title>blueorange</title>
 
     <link rel="stylesheet" href="../frontLayer/css/package.css">
@@ -42,7 +44,7 @@
                         <li class="depth1_item"><a href="./contact.html" data-text="contact" class="depth1_link">contact</a></li>
                     </ul>
                 </nav>
-                <button type="button" class="nav_open mob"></button>
+                <button type="button" aria-label="mobile gnb" class="nav_open mob"></button>
             </div>
         </header>
 
@@ -529,10 +531,10 @@
                         </div>
                     </div>
                     <div class="footer_right">
-                        <button type="button" class="btn_primary btn">Company Brochure <i class="ico ico_download"></i></button>
+                        <button type="button" aria-label="open company brochure" class="btn_primary btn">Company Brochure <i class="ico ico_download"></i></button>
                         <div class="footer_sns">
-                            <a href="#" class="footer_link sns_facebook"></a>
-                            <a href="#" class="footer_link sns_insta"></a>
+                            <a href="#" aria-label="go to facebook" class="footer_link sns_facebook"></a>
+                            <a href="#" aria-label="go to instagram" class="footer_link sns_insta"></a>
                         </div>
                     </div>
                 </div>
@@ -563,7 +565,7 @@
     </div>
 
     <script>
-        $(() => {
+        $(document).ready(function() {
             const work = {
                 cateArr: [],
                 windowWidth: $(window).width(),
@@ -601,6 +603,7 @@
                     if (!path.length) return
                     $('.modal_works .img.pc').attr('src', path[0].src);
                     $('.modal_works .img.mob').attr('src', path[0].mobSrc);
+                    $('.modal_works .img').attr('alt', path[0].alt);
                     BlueOrange.openModal($('.modal_works'));
                 },
                 handleImgSrc: function(e, obj) {
@@ -622,6 +625,7 @@
                     lastPath = work.cateArr[0].filter((item, idx) => idx === prevIndex);
                     if (lastPath.length) $('.modal_works .img.pc').attr('src', lastPath[0].src);
                     if (lastPath.length) $('.modal_works .img.mob').attr('src', lastPath[0].mobSrc);
+                    if (lastPath.length) $('.modal_works .img').attr('alt', lastPath[0].alt);
                 },
                 modalWork: function() {
                     const modalSwiper = new Swiper('.modal_swiper', {
@@ -698,36 +702,37 @@
                     }
                 },
                 workMobSwiper: function (w) {
-                    let workSwiper = undefined;
-                    
-                    workSwiper = new Swiper ('#section04 .swiper', {
-                        slidesPerView: "auto",
-                        spaceBetween: 30,
-                        pagination: {
-                            el: "#section04 .swiper_pagination",
-                            type: 'bullets',
-                            clickable: true,
-                        },
-                        breakpoints: {
-                            750: {
-                                spaceBetween: 10,
+                    function workTabSwiper() {
+                        workSwiper = new Swiper ('#section04 .swiper', {
+                            slidesPerView: "auto",
+                            spaceBetween: 30,
+                            pagination: {
+                                el: "#section04 .swiper_pagination",
+                                type: 'bullets',
+                                clickable: true,
+                            },
+                            breakpoints: {
+                                750: {
+                                    spaceBetween: 10,
+                                }
                             }
-                        }
-                    })
-
-                    if ( this.windowWidth > 1280 ) {
-                        workSwiper.destroy(true, true);
-                        workSwiper = undefined;
+                        })
                     }
 
-                    $(window).resize(() => { 
-                        windowWidth = $(window).width();
-                        
-                        if ( w > 1280 && workSwiper != undefined) {
-                            workSwiper.destroy(true, true);
-                            workSwiper = undefined;
-                        }
-                    })
+                    let workSwiper;
+                    workTabSwiper();
+
+                    const breakpoint = window.matchMedia('(max-width:1280px)');
+                    let checkMo = breakpoint.matches;
+
+                    const breakpointChecker = function () {
+                        checkMo = breakpoint.matches;
+                        if (!checkMo) workSwiper?.destroy(true, true);
+                        return [
+                            workTabSwiper()
+                        ];
+                    };
+                    breakpoint.addListener(breakpointChecker);
                 }
             }
             work.init();
