@@ -7,6 +7,10 @@ html { font-size: 10px;}
 .ico_box .ico { display: block; width: 100%; height: 100%;}
 .ico { background: no-repeat center center / cover;}
 .main_visual, .sec { position: relative; width: 100%; overflow: hidden;}
+* { scrollbar-width: auto; scrollbar-color: var(--color-blue2) var(--color-bg);}
+*::-webkit-scrollbar { width: 16px;}
+*::-webkit-scrollbar-track { background: var(--color-bg);}
+*::-webkit-scrollbar-thumb { background-color: var(--color-blue2); border-radius: 10px; border: 4px solid var(--color-bg);}
 
 #header { position: fixed; top: 0; left: 0; width: 100%; z-index: 999;}
 #header .header_inner { position: relative; margin: 3rem 6rem;}
@@ -23,13 +27,13 @@ html { font-size: 10px;}
 .main_visual { height: 100vh;}
 .main_visual .video { width: 100%; height:100%; object-fit: cover;}
 .main_visual .ico_box { position: absolute; bottom: 6.5rem; left: 50%; width: 4.4rem; height: 3.2rem; transform: translateX(-50%);}
-.main_visual .ico_box .ico { background-image: url('../images/icons/arw_bottom_white.svg');}
+.main_visual .ico_box .ico { background-image: url('http://blorange17.cdn3.cafe24.com/icons/arw_bottom_white.png');}
 
 .sec { min-height: 100vh; padding: 13.5rem 0;}
 .sec .inner { max-width: 128rem; margin: 0 auto;}
 .sec .sec_ttl { display: flex; justify-content: center; align-items: baseline; gap: 1rem; font-weight: 700; font-size: 3rem; text-align: center; letter-spacing: 0.2em; text-transform: uppercase;}
 .sec .sec_ttl span { font-weight: inherit; font-size: inherit; color: inherit;}
-.sec .sec_ttl .ico.ico_symbol { display: inline-block; width: 2.4rem; height: 3rem; background-image: url('../images/icons/ico_symbol.svg');}
+.sec .sec_ttl .ico.ico_symbol { display: inline-block; width: 2.4rem; height: 3rem; background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_symbol.png');}
 .sec .inner .sec_ttl + [class*="_box"],
 .contact .inner .info_area { margin-top: 13rem;}
 
@@ -45,14 +49,14 @@ html { font-size: 10px;}
 #section03 .service_box .service_list { display: grid; justify-content: center; grid-template-columns: repeat(auto-fill, minmax(23.5rem, 25%)); gap: 13rem 0;}
 #section03 .service_box .service_list .service_item { text-align: center;}
 #section03 .service_box .service_list .service_item .ico.ico_service { display: block; width: 12rem; height: 12rem; margin: 0 auto 4.5rem; background-size: 100% auto;}
-#section03 .service_box .service_list .service_item:nth-child(1) .ico.ico_service { background-image: url('../images/img/img_service_01.png');}
-#section03 .service_box .service_list .service_item:nth-child(2) .ico.ico_service { background-image: url('../images/img/img_service_02.png');}
-#section03 .service_box .service_list .service_item:nth-child(3) .ico.ico_service { background-image: url('../images/img/img_service_03.png');}
-#section03 .service_box .service_list .service_item:nth-child(4) .ico.ico_service { background-image: url('../images/img/img_service_04.png');}
-#section03 .service_box .service_list .service_item:nth-child(5) .ico.ico_service { background-image: url('../images/img/img_service_05.png');}
-#section03 .service_box .service_list .service_item:nth-child(6) .ico.ico_service { background-image: url('../images/img/img_service_06.png');}
-#section03 .service_box .service_list .service_item:nth-child(7) .ico.ico_service { background-image: url('../images/img/img_service_07.png');}
-#section03 .service_box .service_list .service_item:nth-child(8) .ico.ico_service { background-image: url('../images/img/img_service_08.png');}
+#section03 .service_box .service_list .service_item:nth-child(1) .ico.ico_service { background-image: url('http://blorange17.cdn3.cafe24.com/img/img_service_01.png');}
+#section03 .service_box .service_list .service_item:nth-child(2) .ico.ico_service { background-image: url('http://blorange17.cdn3.cafe24.com/img/img_service_02.png');}
+#section03 .service_box .service_list .service_item:nth-child(3) .ico.ico_service { background-image: url('http://blorange17.cdn3.cafe24.com/img/img_service_03.png');}
+#section03 .service_box .service_list .service_item:nth-child(4) .ico.ico_service { background-image: url('http://blorange17.cdn3.cafe24.com/img/img_service_04.png');}
+#section03 .service_box .service_list .service_item:nth-child(5) .ico.ico_service { background-image: url('http://blorange17.cdn3.cafe24.com/img/img_service_05.png');}
+#section03 .service_box .service_list .service_item:nth-child(6) .ico.ico_service { background-image: url('http://blorange17.cdn3.cafe24.com/img/img_service_06.png');}
+#section03 .service_box .service_list .service_item:nth-child(7) .ico.ico_service { background-image: url('http://blorange17.cdn3.cafe24.com/img/img_service_07.png');}
+#section03 .service_box .service_list .service_item:nth-child(8) .ico.ico_service { background-image: url('http://blorange17.cdn3.cafe24.com/img/img_service_08.png');}
 #section03 .service_box .service_list .service_item .service_txt { font-weight: 600; font-size: 2.8rem; letter-spacing: -0.08em;}
 
 #section04 { min-height: unset; padding-bottom: unset;}
@@ -60,15 +64,15 @@ html { font-size: 10px;}
 #section04 .works_box .works_list .works_item { position: relative; width: 23.5rem;}
 #section04 .works_box .works_list .works_item:last-child { margin-right: 0 !important;}
 #section04 .works_box .works_list .works_item:nth-child(2n-1) { transform: translateY(40px);}
-#section04 .works_box .works_list .works_item.active:before { content: ''; display: block; position: absolute; width: 8.8rem; height: 4.2rem; bottom: -20rem; left: 50%; background: url('../images/icons/ico_arw_top_nst.svg') no-repeat center center / cover; transform: translateX(-50%);}
+#section04 .works_box .works_list .works_item.active:before { content: ''; display: block; position: absolute; width: 8.8rem; height: 4.2rem; bottom: -20rem; left: 50%; background: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_top_nst.png') no-repeat center center / cover; transform: translateX(-50%);}
 #section04 .works_box .works_list .works_item.active:nth-child(2n-1):before { bottom: -16rem;}
 #section04 .works_box .works_list .works_item .works_card { position: relative; padding: 5rem 3rem 3.5rem 2.5rem; border-radius: 1.5rem; background: linear-gradient(50deg, rgba(34,47,93,1) 0%, rgba(56,78,161,1) 70%); box-shadow: 12px 12px 13px rgba(0, 0, 0, .9); font-family: 'NanumSquare Neo'; font-size: 24px; text-align: left; letter-spacing: -0.02em; z-index: 5;}
 #section04 .works_box .works_list .works_item .works_card::before { content: ''; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--color-white); border-radius: 1.5rem; opacity: 0; visibility: hidden; z-index: -1; transform: scaleY(0); transform-origin: 50% 100%; transition: all .4s;}
 #section04 .works_box .works_list .works_item:hover .works_card:before,
 #section04 .works_box .works_list .works_item.active .works_card:before { opacity: 1; visibility: visible; transform: scaleY(1);}
-#section04 .works_box .works_list .works_item .works_card::after { content: ''; display: block; position: relative; z-index: 5; width: 4.4rem; height: 2.5rem; margin-top: 11.5rem; margin-left: auto; background: url('../images/icons/ico_arw_right_white.svg') no-repeat center center / cover; transform: rotate(0); transition: transform .4s;}
+#section04 .works_box .works_list .works_item .works_card::after { content: ''; display: block; position: relative; z-index: 5; width: 4.4rem; height: 2.5rem; margin-top: 11.5rem; margin-left: auto; background: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_right_white.png') no-repeat center center / cover;}
 #section04 .works_box .works_list .works_item:hover .works_card::after,
-#section04 .works_box .works_list .works_item.active .works_card::after { background-image: url('../images/icons/ico_arw_right_blue.svg'); transform: rotate(90deg);}
+#section04 .works_box .works_list .works_item.active .works_card::after { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_right_blue.png'); animation: arw_down .6s infinite;}
 #section04 .works_box .works_list .works_item .works_card span { font-family: inherit; font-weight: inherit; font-size: inherit; transition: color .4s;}
 #section04 .works_box .works_list .works_item:hover .works_card span,
 #section04 .works_box .works_list .works_item.active .works_card span { color: var(--color-black);}
@@ -79,10 +83,13 @@ html { font-size: 10px;}
 #section04 .works_container .works_content .works_cnt_list { display: grid; grid-template-columns: repeat(3, minmax(auto, 32rem)); justify-content: center; gap: 6rem;}
 #section04 .works_container .works_content .works_cnt_list .works_cnt_item { position: relative; border: 1px solid var(--color-gray1);}
 #section04 .works_container .works_content .works_cnt_list .works_cnt_item .work_link { display: block; width: 100%; height: 100%;}
-#section04 .works_container .works_content .works_cnt_list .works_cnt_item .work_link .img.active { position: absolute; top: 0; left: 0; opacity: 0; visibility: hidden; transition: all .4s;}
+#section04 .works_container .works_content .works_cnt_list .works_cnt_item .work_link .img.active { position: absolute; top: 0; left: 0; opacity: 0; visibility: hidden; transition: transform .4s;}
+#section04 .works_container .works_content .works_cnt_list .works_cnt_item .work_link:hover .img,
+#section04 .works_container .works_content .works_cnt_list .works_cnt_item .work_link:focus .img,
+#section04 .works_container .works_content .works_cnt_list .works_cnt_item.open .work_link:hover .img { opacity: 0; visibility: hidden;}
 #section04 .works_container .works_content .works_cnt_list .works_cnt_item .work_link:hover .img.active,
 #section04 .works_container .works_content .works_cnt_list .works_cnt_item .work_link:focus .img.active,
-#section04 .works_container .works_content .works_cnt_list .works_cnt_item.open .work_link:hover .img.active { opacity: 1; visibility: visible;}
+#section04 .works_container .works_content .works_cnt_list .works_cnt_item.open .work_link:hover .img.active { opacity: 1; visibility: visible; transform: scale(1.05);}
 #section04 .swiper .swiper_pagination { display: none;}
 
 #footer { padding: 13.5rem 0 10.5rem; background-color: var(--color-black);}
@@ -97,20 +104,20 @@ html { font-size: 10px;}
 #footer .footer_left .info_content .dl .dd + .dt::before { content: ''; display: block; position: absolute; top: 50%; left: 0; width: 1px; height: 1rem; background-color: #fff; opacity: .5; transform: translateY(-50%);}
 #footer .footer_left .copyright { margin-top: 9rem; font-family: '굴림'; font-size: 1.2rem;}
 .footer_right .btn { gap: 1rem; padding: 1.5rem; border-radius: 0; font-family: "Montserrat" !important; font-weight: 600 !important;}
-.footer_right .btn .ico.ico_download { width: 1.2rem; height: 1.2rem; background-image: url('../images/icons/ico_download.svg');}
+.footer_right .btn .ico.ico_download { width: 1.2rem; height: 1.2rem; background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_download.png');}
 .footer_right .footer_sns { display: flex; justify-content: end; align-items: center; gap: 1rem; margin-top: 5rem;}
 .footer_right .footer_sns .footer_link { display: inline-block; width: 4rem; height: 4rem; border-radius: 100%; background: no-repeat center center / 2rem 2rem rgba(255, 255, 255, .1);}
-.footer_right .footer_sns .footer_link.sns_facebook { background-image: url('../images/icons/ico_facebook.svg');}
-.footer_right .footer_sns .footer_link.sns_insta { background-image: url('../images/icons/ico_insta.svg');}
+.footer_right .footer_sns .footer_link.sns_facebook { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_facebook.png');}
+.footer_right .footer_sns .footer_link.sns_insta { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_insta.png');}
 
 .float_area { position: fixed; right: 5rem; bottom: 12.5rem; opacity: 0; visibility: 0; pointer-events: none; transition: all .4s; z-index: 990;}
 .scroll_down .float_area { opacity: 1; visibility: visible; pointer-events: unset;}
 .float_area .btn.btn_top { flex-direction: column; gap: 1rem; min-width: 6rem; height: 6rem; padding: 1rem; border: none; border-radius: 0; background-color: rgba(255, 255, 255, .1); font-size: 1.3rem; line-height: 1;}
-.float_area .btn.btn_top::before { content: ''; display: block; width: 3rem; height: 1rem; background: url('../images/icons/ico_arw_top_white.svg') no-repeat center center / cover;}
+.float_area .btn.btn_top::before { content: ''; display: block; width: 3rem; height: 1rem; background: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_top_white.png') no-repeat center center / cover;}
 
 .modal.modal_works .btn_modal { position: absolute; top: 50%; width: 2rem; height: 3rem; background: no-repeat center center / 100% auto;}
-.modal.modal_works .btn_modal.btn_next { right: -3.3854166666666665vw; background-image: url('../images/icons/ico_arw_next_white.svg'); transform: translate(100%, -50%);}
-.modal.modal_works .btn_modal.btn_prev { left: -3.3854166666666665vw; background-image: url('../images/icons/ico_arw_prev_white.svg'); transform: translate(-100%, -50%);}
+.modal.modal_works .btn_modal.btn_next { right: -3.3854166666666665vw; background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_next_white.png'); transform: translate(100%, -50%);}
+.modal.modal_works .btn_modal.btn_prev { left: -3.3854166666666665vw; background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_prev_white.png'); transform: translate(-100%, -50%);}
 
 .people { overflow-x: hidden;}
 .people .main_visual { height: unset;}
@@ -119,25 +126,25 @@ html { font-size: 10px;}
 .people .img_list .img_item { width: 30.5rem; height: 48rem; overflow: hidden;}
 .people .btn_wrap { display: inline-flex; position: absolute; right: 5rem; bottom: 6.5rem; align-items: center; gap: 3rem;}
 .people .btn_wrap .btn_round { width: 4rem; height: 4rem; background: no-repeat center center / cover;}
-.people .btn_wrap .btn_round.btn_prev { background-image: url('../images/icons/ico_arw_prev_round.png');}
-.people .btn_wrap .btn_round.btn_next { background-image: url('../images/icons/ico_arw_next_round.png');}
+.people .btn_wrap .btn_round.btn_prev { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_prev_round.png');}
+.people .btn_wrap .btn_round.btn_next { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_next_round.png');}
 
 .people .welfare_box .welfare_list { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 7rem 0;}
 .people .welfare_box .welfare_list .welfare_item { width: calc(100% / 3);}
 .people .welfare_box .welfare_list .welfare_item .welfare_content { display: flex; align-items: center; gap: 2rem;}
 .people .welfare_box .welfare_list .welfare_item .welfare_content .ico_box { flex-shrink: 0; width: 10.5rem; height: 10.5rem; border-radius: 100%; background-color: var(--color-blue2);}
-.people .welfare_box .welfare_list .welfare_item:nth-child(1) .welfare_content .ico_box .ico.ico_welfare { background-image: url('../images/icons/ico_welfare_01.svg');}
-.people .welfare_box .welfare_list .welfare_item:nth-child(2) .welfare_content .ico_box .ico.ico_welfare { background-image: url('../images/icons/ico_welfare_02.svg');}
-.people .welfare_box .welfare_list .welfare_item:nth-child(3) .welfare_content .ico_box .ico.ico_welfare { background-image: url('../images/icons/ico_welfare_03.svg');}
-.people .welfare_box .welfare_list .welfare_item:nth-child(4) .welfare_content .ico_box .ico.ico_welfare { background-image: url('../images/icons/ico_welfare_04.svg');}
-.people .welfare_box .welfare_list .welfare_item:nth-child(5) .welfare_content .ico_box .ico.ico_welfare { background-image: url('../images/icons/ico_welfare_05.svg');}
-.people .welfare_box .welfare_list .welfare_item:nth-child(6) .welfare_content .ico_box .ico.ico_welfare { background-image: url('../images/icons/ico_welfare_06.svg');}
-.people .welfare_box .welfare_list .welfare_item:nth-child(7) .welfare_content .ico_box .ico.ico_welfare { background-image: url('../images/icons/ico_welfare_07.svg');}
-.people .welfare_box .welfare_list .welfare_item:nth-child(8) .welfare_content .ico_box .ico.ico_welfare { background-image: url('../images/icons/ico_welfare_08.svg');}
-.people .welfare_box .welfare_list .welfare_item:nth-child(9) .welfare_content .ico_box .ico.ico_welfare { background-image: url('../images/icons/ico_welfare_09.svg');}
-.people .welfare_box .welfare_list .welfare_item:nth-child(10) .welfare_content .ico_box .ico.ico_welfare { background-image: url('../images/icons/ico_welfare_10.svg');}
-.people .welfare_box .welfare_list .welfare_item:nth-child(11) .welfare_content .ico_box .ico.ico_welfare { background-image: url('../images/icons/ico_welfare_11.svg');}
-.people .welfare_box .welfare_list .welfare_item:nth-child(12) .welfare_content .ico_box .ico.ico_welfare { background-image: url('../images/icons/ico_welfare_12.svg');}
+.people .welfare_box .welfare_list .welfare_item:nth-child(1) .welfare_content .ico_box .ico.ico_welfare { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_welfare_01.png');}
+.people .welfare_box .welfare_list .welfare_item:nth-child(2) .welfare_content .ico_box .ico.ico_welfare { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_welfare_02.png');}
+.people .welfare_box .welfare_list .welfare_item:nth-child(3) .welfare_content .ico_box .ico.ico_welfare { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_welfare_03.png');}
+.people .welfare_box .welfare_list .welfare_item:nth-child(4) .welfare_content .ico_box .ico.ico_welfare { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_welfare_04.png');}
+.people .welfare_box .welfare_list .welfare_item:nth-child(5) .welfare_content .ico_box .ico.ico_welfare { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_welfare_05.png');}
+.people .welfare_box .welfare_list .welfare_item:nth-child(6) .welfare_content .ico_box .ico.ico_welfare { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_welfare_06.png');}
+.people .welfare_box .welfare_list .welfare_item:nth-child(7) .welfare_content .ico_box .ico.ico_welfare { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_welfare_07.png');}
+.people .welfare_box .welfare_list .welfare_item:nth-child(8) .welfare_content .ico_box .ico.ico_welfare { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_welfare_08.png');}
+.people .welfare_box .welfare_list .welfare_item:nth-child(9) .welfare_content .ico_box .ico.ico_welfare { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_welfare_09.png');}
+.people .welfare_box .welfare_list .welfare_item:nth-child(10) .welfare_content .ico_box .ico.ico_welfare { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_welfare_10.png');}
+.people .welfare_box .welfare_list .welfare_item:nth-child(11) .welfare_content .ico_box .ico.ico_welfare { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_welfare_11.png');}
+.people .welfare_box .welfare_list .welfare_item:nth-child(12) .welfare_content .ico_box .ico.ico_welfare { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_welfare_12.png');}
 .people .welfare_box .welfare_list .welfare_item .welfare_content * { font-family: 'NanumSquare Neo', '굴림', serif; letter-spacing: -0.03em;}
 .people .welfare_box .welfare_list .welfare_item .welfare_content .welfare_ttl { margin-bottom: 1.5rem; font-weight: 800; font-size: 3rem;}
 .people .welfare_box .welfare_list .welfare_item .welfare_content .welfare_txt { font-weight: 300; font-size: 1.8rem;}
@@ -147,19 +154,19 @@ html { font-size: 10px;}
 .people .step_area .step_list { display: flex; justify-content: center; width: 100%;}
 .people .step_area .step_list .step_item { position: relative; width: 25%; text-align: center;}
 .people .step_area .step_list .step_item .ico_box { width: 10rem; height: 8.5rem; margin: 0 auto;}
-.people .step_area .step_list .step_item::before { content: ''; display: block; position: absolute; top: 50%; right: 0; width: 1.5rem; height: 2.5rem; background: url('../images/icons/ico_arw_next_white.svg') no-repeat center center / cover; transform: translate(50%, -50%);}
+.people .step_area .step_list .step_item::before { content: ''; display: block; position: absolute; top: 50%; right: 0; width: 1.5rem; height: 2.5rem; background: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_next_white.png') no-repeat center center / cover; transform: translate(50%, -50%);}
 .people .step_area .step_list .step_item:nth-child(4):before { content: none;}
-.people .step_area .step_list .step_item:nth-child(1) .ico_box .ico.ico_step { background-image: url('../images/icons/ico_step_01.svg');}
-.people .step_area .step_list .step_item:nth-child(2) .ico_box .ico.ico_step { background-image: url('../images/icons/ico_step_02.svg');}
-.people .step_area .step_list .step_item:nth-child(3) .ico_box .ico.ico_step { background-image: url('../images/icons/ico_step_03.svg');}
-.people .step_area .step_list .step_item:nth-child(4) .ico_box .ico.ico_step { background-image: url('../images/icons/ico_step_04.svg');}
+.people .step_area .step_list .step_item:nth-child(1) .ico_box .ico.ico_step { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_step_01.png');}
+.people .step_area .step_list .step_item:nth-child(2) .ico_box .ico.ico_step { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_step_02.png');}
+.people .step_area .step_list .step_item:nth-child(3) .ico_box .ico.ico_step { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_step_03.png');}
+.people .step_area .step_list .step_item:nth-child(4) .ico_box .ico.ico_step { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_step_04.png');}
 .people .step_area .step_list .step_item .step_content { margin-top: 3rem;}
 .people .step_area .step_list .step_item .step_content .step_txt { position: relative; font-family: 'NanumSquare Neo', '굴림', serif; font-weight: 700; font-size: 2.6rem; letter-spacing: -0.03em;}
 .people .step_area .step_list .step_item .step_content .step_txt::before { content: ''; display: block; width: 70px; height: 25px; margin: 0 auto ; background: no-repeat center center / cover;}
-.people .step_area .step_list .step_item:nth-child(1) .step_content .step_txt::before { background-image: url('../images/img/img_step_01.png');}
-.people .step_area .step_list .step_item:nth-child(2) .step_content .step_txt::before { background-image: url('../images/img/img_step_02.png');}
-.people .step_area .step_list .step_item:nth-child(3) .step_content .step_txt::before { background-image: url('../images/img/img_step_03.png');}
-.people .step_area .step_list .step_item:nth-child(4) .step_content .step_txt::before { background-image: url('../images/img/img_step_04.png');}
+.people .step_area .step_list .step_item:nth-child(1) .step_content .step_txt::before { background-image: url('http://blorange17.cdn3.cafe24.com/img/img_step_01.png');}
+.people .step_area .step_list .step_item:nth-child(2) .step_content .step_txt::before { background-image: url('http://blorange17.cdn3.cafe24.com/img/img_step_02.png');}
+.people .step_area .step_list .step_item:nth-child(3) .step_content .step_txt::before { background-image: url('http://blorange17.cdn3.cafe24.com/img/img_step_03.png');}
+.people .step_area .step_list .step_item:nth-child(4) .step_content .step_txt::before { background-image: url('http://blorange17.cdn3.cafe24.com/img/img_step_04.png');}
 .people .field_area { width: 100%; margin-top: 8rem; border-top: 1px solid var(--color-white);}
 .people .field_area .field_item { display: flex; min-height: 17.5rem; padding: 4rem 2.5rem;}
 .people .field_area .field_item * { font-family: 'NanumSquare Neo', '굴림', serif;}
@@ -175,7 +182,7 @@ html { font-size: 10px;}
 .contact .sec .inner { padding: 0 5.25rem;}
 .contact .info_area { display: flex; flex-wrap: wrap; margin-top: 8.5rem;}
 .contact .info_area .info_box { position: relative; width: calc(100% / 3); min-height: 8rem; text-align: center;}
-.contact .info_area .info_box::before { content: ''; display: block; position: absolute; top: 50%; right: 0; width: 1px; height: 8rem; background: url('../images/icons/ico_vertical_line.svg') no-repeat center center / cover; transform: translateY(-50%);}
+.contact .info_area .info_box::before { content: ''; display: block; position: absolute; top: 50%; right: 0; width: 1px; height: 8rem; background: url('http://blorange17.cdn3.cafe24.com/icons/ico_vertical_line.png') no-repeat center center / cover; transform: translateY(-50%);}
 .contact .info_area .info_box:nth-child(3):before { content: none;}
 .contact .info_area .info_box dl { display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 0 1rem;}
 .contact .info_area .info_box .address { margin-right: auto; padding-left: 0;}
@@ -185,6 +192,10 @@ html { font-size: 10px;}
 .contact .form_container { margin-top: 7.5rem;}
 .contact .form_container .fancy_img_box { margin-top: 2.5rem;}
 .contact .form_container .btn { width: 100%; min-height: 7rem; margin-top: 6.5rem; border-radius: 5px; font-weight: 700; font-size: 2rem; letter-spacing: 0.1em;}
+
+@media all and (min-width: 1281px) {
+    .works_box .swiper-slide { margin-right: 30px;}
+}
 
 @media all and (max-width: 1280px) {
     .pc { display: none;}
@@ -209,8 +220,8 @@ html { font-size: 10px;}
     #header .clone_footer .footer_right .footer_sns { margin-top: unset;}
     #header .clone_footer .footer_right .footer_sns .footer_link { background-color: unset;}
     #header .clone_footer .footer_right .btn { background-color: var(--color-blue1);}
-    #header .nav_open { width: 5rem; height: 5rem; background: url('../images/icons/ico_gnb_open.svg') no-repeat center center / cover;}
-    #header.mob_open .nav_open { background-image: url('../images/icons/ico_gnb_close.svg');}
+    #header .nav_open { width: 5rem; height: 5rem; background: url('http://blorange17.cdn3.cafe24.com/icons/ico_gnb_open.png') no-repeat center center / cover;}
+    #header.mob_open .nav_open { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_gnb_close.png');}
 
     #section04 .works_box .works_list { justify-content: unset; gap: unset; padding: 0 3rem 20rem;}
     
@@ -227,7 +238,9 @@ html { font-size: 10px;}
     #header .header_inner { margin: 1.5rem;}
     #header .logo { width:10.75rem;}
     #header .nav_open { width: 2.5rem; height: 2.5rem;}
-
+    
+    *::-webkit-scrollbar { width: 12px;}
+    *::-webkit-scrollbar-thumb { border: 6px solid var(--color-bg);}
     .sec { min-height: unset; padding: 6rem 0;}
     .sec .inner .sec_ttl + [class*="_box"], .contact .inner .info_area { margin-top: 5.25rem;}
     .sec .sec_ttl { gap: 0.5rem; font-size: 1.4rem;}
@@ -269,8 +282,8 @@ html { font-size: 10px;}
     #footer .footer_right { display: none;}
 
     .modal.modal_works .modal_body .btn_modal { position: static; width: 1rem; height: 1.5rem;}
-    .modal.modal_works .modal_body .btn_modal.btn_next { background-image: url('../images/icons/ico_arw_next_gray.svg'); transform: translate(0, 0);}
-    .modal.modal_works .modal_body .btn_modal.btn_prev { background-image: url('../images/icons/ico_arw_prev_gray.svg'); transform: translate(0, 0);}
+    .modal.modal_works .modal_body .btn_modal.btn_next { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_next_gray.png'); transform: translate(0, 0);}
+    .modal.modal_works .modal_body .btn_modal.btn_prev { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_prev_gray.png'); transform: translate(0, 0);}
 
     .float_area { right: 3rem; bottom: 20rem;}
     .float_area .btn.btn_top { gap: 0.75rem; min-width: 3rem; height: unset; padding: 0.75rem; font-size: 1rem;}
@@ -318,4 +331,16 @@ html { font-size: 10px;}
     .contact .form_container { margin-top: 4.25rem;}
     .contact .form_container .fancy_img_box { margin-top: 1.25rem;}
     .contact .form_container .btn { min-height: 3.5rem; margin-top: 4.25rem; padding: 1rem; border-radius: 0.5rem; font-size: 1.1rem;}
+}
+
+@keyframes arw_down {
+    0% {
+        transform: rotate(90deg) translateX(0);
+    }
+    50% {
+        transform: rotate(90deg) translateX(-1rem);
+    }
+    100% {
+        transform: rotate(90deg) translateX(0);
+    }
 }

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        
+        <meta name="og:title" content="블루오렌지커뮤니케이션즈" />
+        <meta name="og:description" content="검색광고, 배너광고, 앱광고, 데이터 기반 디지털 광고 운영" />
+        <meta name="keywords" content="블루오렌지, 블루오렌지커뮤니케이션즈, 디지털광고대행사, 온라인광고대행사, 광고대행사, 퍼포먼스마케팅, 온라인마케팅, 디지털마케팅, 퍼포먼스마케팅대행사, 온라인마케팅대행사, 디지털마케팅대행사, 마케팅대행사, 네이버광고대행사, 네이버공식광고대행사,카카오광고대행사, 카카오공식광고대행사, 검색광고대행사" />
+        <meta property="og:url" content="http://www.blorange.co.kr/">
+        <meta name="google-site-verification" content="sXvn1Dwrpxmv8XEUUZ8vvCrK23zURK_xavEYj-Kfals" />
+        <meta name="naver-site-verification" content="967147d77df6d50724ef05bf3142bec087528a34" />
+    
+        <title>blueorange</title>
+    
+        <link rel="stylesheet" href="/frontLayer/css/package.css">
+        
+        <script src="/frontLayer/js/jquery-3.3.1.min.js"></script>
+        <script src="/frontLayer/js/gsap.min.js"></script>
+        <script src="/frontLayer/js/ScrollToPlugin.min.js"></script>
+        <script src="/frontLayer/js/ScrollTrigger.min.js"></script>
+        <script src="/frontLayer/js/swiper.min.js"></script>
+        <script src="/frontLayer/js/fn.js"></script>
+        <script src="/frontLayer/js/common.js"></script>
+    </head>
+
+    <style>
+        .img { width: 305px; height: 480px; background-color: #fff; border: 1px solid #000;}
+    </style>
+<body>
+    <div class="people">
+        <div class="main_visual">
+            <div class="gsap_area">
+                <ul class="img_list">
+                    <li class="img_item">
+                        <div class="img_box">
+                            <div class="img"></div>
+                        </div>
+                    </li>
+                    <li class="img_item">
+                        <div class="img_box">
+                            <div class="img"></div>
+                        </div>
+                    </li>
+                    <li class="img_item">
+                        <div class="img_box">
+                            <div class="img"></div>
+                        </div>
+                    </li>
+                    <li class="img_item">
+                        <div class="img_box">
+                            <div class="img"></div>
+                        </div>
+                    </li>
+                    <li class="img_item">
+                        <div class="img_box">
+                            <div class="img"></div>
+                        </div>
+                    </li>
+                    <li class="img_item">
+                        <div class="img_box">
+                            <div class="img"></div>
+                        </div>
+                    </li>
+                    <li class="img_item">
+                        <div class="img_box">
+                            <div class="img"></div>
+                        </div>
+                    </li>
+                    <li class="img_item">
+                        <div class="img_box">
+                            <div class="img"></div>
+                        </div>
+                    </li>
+                    <li class="img_item">
+                        <div class="img_box">
+                            <div class="img"></div>
+                        </div>
+                    </li>
+                    <li class="img_item">
+                        <div class="img_box">
+                            <div class="img"></div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="btn_wrap">
+                    <button type="button" aria-label="move to prev image" class="btn_round btn_prev"></button>
+                    <button type="button" aria-label="move to next image" class="btn_round btn_next"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            const people = {
+                pinBoxes: document.querySelectorAll(".img_item"),
+                pinWrap: document.querySelector(".img_list"),
+                init: () => {
+                    people.moveSectionHorizon();
+                },
+                moveSectionHorizon: () => {
+                    gsap.registerPlugin(ScrollTrigger);
+    
+                    let pinWrapWidth = people.pinWrap.offsetWidth;
+                    let horizontalScrollLength = pinWrapWidth - people.pinBoxes[0].offsetWidth;
+                    
+                    let mainSt = gsap.to(".img_list", {
+                        scrollTrigger: {
+                            trigger: ".gsap_area",
+                            scrub: true,
+                            pin: true,
+                            start: "top top",
+                            end: pinWrapWidth,
+                            onLeave: () => $('html, body').addClass('scroll_down'),
+                            onEnterBack: () => $('html, body').removeClass('scroll_down'),
+                        },
+                        x: -horizontalScrollLength,
+                        ease: "none",
+                    });
+
+                    let setY = gsap.utils.wrap([0,35,70,35])
+                    let startY = gsap.utils.wrap([0,70])
+                    gsap.set(people.pinBoxes, { y: setY })
+                    people.pinBoxes.forEach((item, idx) => {
+                        let tl = gsap.timeline({
+                            scrollTrigger: {
+                                trigger: item,
+                                containerAnimation: mainSt,
+                                start: "top-=110% center",
+                                end:'center center',
+                                markers: true,
+                                scrub: true,
+                            },
+                        })
+
+                        tl.to(item, {
+                            y : 0,
+                            ease: "none",
+                        })
+                        .to(item, { 
+                            y : 70,
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: item,
+                                containerAnimation: mainSt,
+                                start: "top-=110% center",
+                                end:'center center',
+                                markers: true,
+                                scrub: true,
+                            },
+                        })
+                    })
+
+
+                    people.button(pinWrapWidth);
+                },
+                button: (w) => {
+                    $('.people .btn_round').on('click', function(e) {
+                        let $target = $(e.target);
+                        let scrollTop = window.scrollY;
+                        let x = w / 10;
+    
+                        if ($target.hasClass('btn_next')) {
+                            if( scrollTop < w) {
+                                BlueOrange.goToSection(scrollTop + x);
+                            }
+                        } else  {
+                            if ( scrollTop > 0) {
+                                BlueOrange.goToSection(scrollTop - x);
+                            }
+                        }
+                    })
+                }
+            }
+            people.init();
+        })
+    </script>
+</body>
+</html>

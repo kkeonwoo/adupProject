@@ -50,7 +50,7 @@ BlueOrange = {
         $depth01Item.on('click', function() {
             let depth1Text = $(this).text();
             
-            if (depth1Text === 'works') BlueOrange.goToSection($sections[3]);
+            if (fn.exists('.about') && depth1Text === 'works') BlueOrange.goToSection($sections[3]);
             if ($header.hasClass('mob_open')) closeMobGnb();
         });
 
@@ -212,16 +212,16 @@ BlueOrange = {
 
         panels.forEach((panel) => {
 
-            ScrollTrigger.create({
+            ScrollTrigger.batch(panel,{
                 trigger: panel,
                 start: "top bottom-=1",
                 end: "bottom top+=1",
-                onEnter: (e) => {
+                onEnter: (batch) => {
                     if (!BlueOrange.scrolling.firstRun) {
-                        BlueOrange.goToSection(panel);
+                        BlueOrange.goToSection(batch);
                     }
                 },
-                onEnterBack: () => BlueOrange.goToSection(panel),
+                onEnterBack: (batch) => BlueOrange.goToSection(batch),
                 onUpdate: () => fn.isScrollTop(),
             });
         });
