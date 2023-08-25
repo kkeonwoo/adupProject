@@ -27,6 +27,7 @@
     --color-blue1: #4a64c3;
     --color-blue2: #344689;
     --color-blue3: #2c343d;
+    --color-blue4: rgba(104, 118, 168, 0.5);
     --color-bg: #020d1a;
 
     --focus-color: #333;
@@ -343,8 +344,8 @@ a:hover{text-decoration:none;}
     .modal_centered {padding: 0;}
     .modal_box {width: 100%; padding-top: 4.5rem;}
     .modal_body { border-top: 1px solid var(--color-gray2);}
-    .modal_body .img_box { position: relative; padding-top: calc( 1745 / 750 * 100%);}
-    .modal_body .img_box .img { position: absolute; top: 0; left: 0;}
+    .modal_body .img_box { position: relative; height: calc(100vh - 9.6rem);}
+    .modal_body .img_box .img { width: unset; margin: 0 auto;}
     .modal .btn_modal_close {right: 1.5rem; top: 1.5rem; width: 1.5rem; height: 1.5rem; background: url('http://blorange17.cdn3.cafe24.com/icons/ico_close_gray.png') no-repeat center center / cover; transform: translateX(0);}
     .modal .btn_wrap { height: 5rem; padding: 0 1.5rem; border-top: 1px solid var(--color-gray2); justify-content:space-between; align-items: center;}
 }

@@ -39,6 +39,11 @@ fn = {
             }, 1);
         }
     },
+    setCookie : function(name, value, expirehours){
+        let todayDate = new Date();
+        todayDate.setHours(todayDate.getHours() + expirehours);
+        document.cookie = name + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+    },
     getScrollBarWidth : function(){
         if(!fn.exists('#fullpage')){
             $('body').append('<div id="fakescrollbar" style="width:50px;height:50px;overflow:hidden;position:absolute;top:-200px;left:-200px;"></div>');
@@ -85,6 +90,6 @@ fn = {
         $('.fixed').css("transform", `translate3d(0,0,0)`);
     },
     isScrollTop: function() {
-        (this.getScrollTop(window) > 0) ? $('html, body').addClass('scroll_down') : $('html, body').removeClass('scroll_down');
+        (this.getScrollTop(window) > 10) ? $('html, body').addClass('scroll_down') : $('html, body').removeClass('scroll_down');
     }
 }

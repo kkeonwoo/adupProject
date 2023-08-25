@@ -39,6 +39,7 @@ BlueOrange = {
         BlueOrange.modal();
         BlueOrange.moveSection();
         BlueOrange.goToTop();
+        BlueOrange.aniHistory();
     },
     gnb : function() {
         const $gnb = $('#gnb'),
@@ -104,6 +105,8 @@ BlueOrange = {
         $modal.addClass('modal_close');
         $modal.removeClass('active');
         focusedElementBeforeModal.focus();
+        $('.modal .img_box .img').attr('src', '');
+        $('.modal .img_box .img').attr('alt', '');
     },
     openModal : function(
         $modal, 
@@ -172,67 +175,177 @@ BlueOrange = {
         }
     },
     scrolling : {
-        firstRun: true,
         enabled: true,
         events: "click,scroll,wheel,touchmove,pointermove".split(","),
         prevent: e => e.preventDefault(),
-        disable() {
-            if (BlueOrange.scrolling.enabled) {
-                BlueOrange.scrolling.enabled = false;
-                window.addEventListener("scroll", gsap.ticker.tick, {passive: true});
-                BlueOrange.scrolling.events.forEach((e, idx) => (idx ? document : window).addEventListener(e, BlueOrange.scrolling.prevent, {passive: false}));
-            }
-        },
-        enable() {
-            if (!BlueOrange.scrolling.enabled) {
-                BlueOrange.scrolling.enabled = true;
-                window.removeEventListener("scroll", gsap.ticker.tick);
-                BlueOrange.scrolling.events.forEach((e, idx) => (idx ? document : window).removeEventListener(e, BlueOrange.scrolling.prevent));
-            }
-        },
-        onFirstRun() {
-            ScrollTrigger.removeEventListener("refresh", BlueOrange.scrolling.onFirstRun);
-            BlueOrange.scrolling.firstRun = false;
-        }
+        disable() { if (BlueOrange.scrolling.enabled) BlueOrange.scrolling.enabled = false; },
+        enable() { if (!BlueOrange.scrolling.enabled) BlueOrange.scrolling.enabled = true; },
     },
     goToSection : function(section) {
         if (BlueOrange.scrolling.enabled) {
             BlueOrange.scrolling.disable();
             gsap.to(window, {
                 scrollTo: {y: section, autoKill: false},
+                overwrite: "auto",
                 onComplete: BlueOrange.scrolling.enable,
-                duration: !fn.exists('.people') ? 1 : 0.5,
+                duration: 1,
             });
         }
     },
     moveSection : function() {
-        if(fn.exists('.people')) return;
+        fn.chkDevice();
 
+        gsap.registerPlugin(ScrollTrigger);
+        
         const panels = document.querySelectorAll(".motion_panel");
 
-        panels.forEach((panel) => {
-
-            ScrollTrigger.batch(panel,{
-                trigger: panel,
-                start: "top bottom-=1",
-                end: "bottom top+=1",
-                onEnter: (batch) => {
-                    if (!BlueOrange.scrolling.firstRun) {
-                        BlueOrange.goToSection(batch);
-                    }
-                },
-                onEnterBack: (batch) => BlueOrange.goToSection(batch),
-                onUpdate: () => fn.isScrollTop(),
-            });
+        ScrollTrigger.batch(panels,{
+            trigger: panels,
+            start: "top bottom-=1",
+            end: "bottom top+=1",
+            onEnter: (batch) => {
+                if ($(batch).attr('id') == "motion02") {
+                    BlueOrange.goToSection(batch);
+                }
+            },
+            onEnterBack: (batch) => BlueOrange.goToSection(batch),
+            onLeave: () => ScrollTrigger.normalizeScroll(false),
+            onUpdate: () => fn.isScrollTop(),
         });
-        
-        ScrollTrigger.addEventListener("refresh", BlueOrange.scrolling.onFirstRun);
+
+        fnNormlizeScr();
+        $(window).scroll(() => {
+            fnNormlizeScr();
+        });
+
+        function fnNormlizeScr() {
+            const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+            if (scrollPosition <= 0) {
+                ScrollTrigger.normalizeScroll(true);
+            }
+        }
     },
     goToTop : function() {
         $('.float_area .btn').on('click', function() {
             BlueOrange.goToSection(0);
         } );
     },
+    aniHistory: function() {
+        let prot = true;
+        $(window).on('scroll', function() {
+            let st = $(this).scrollTop();
+            if ( st >= $('.motion_panel').eq(1).offset().top && prot) {
+                init();
+                prot = false;
+            }
+        })
+
+        function init() {
+            const path = document.getElementById('path');
+            const offset = path.getTotalLength();
+            gsap.to('.history_box', { autoAlpha: 1})
+    
+            const tl = gsap.timeline({
+                defaults: {
+                    duration: 4,
+                    ease:'linear',
+                }
+            });
+    
+            tl
+            .fromTo(path, 
+                { strokeDashoffset: offset},
+                { strokeDashoffset: 0}
+            )
+            // .from('#commerce', { opacity: 0, y: 100, duration: 1 }, '<')
+            .to('#bg_overlay', { 
+                x: 100,
+                motionPath:{
+                    path: path,
+                    align: path,
+                    alignOrigin: [0.2, 0.5]
+                }
+            }, '<')
+            
+            const itemTexts = document.querySelectorAll('#history .text');
+            const itemDots = document.querySelectorAll('#history .dot');
+            const arr = [0.115,0.22,0.27,0.317,0.38,0.52,0.605,0.705,0.8]
+            const arrProt = [];
+            arr.forEach(t=>arrProt.push(true));
+
+            gsap.set('#section01 .history_cnt', { overflow: 'hidden'});
+            gsap.set([itemTexts,itemDots], { scale: 0, transformOrigin: '50% 50%'})
+            tl.eventCallback('onUpdate', function() {
+                arr.forEach((item,idx) => {
+                    if(tl.progress() + 0.05 > arr[idx] && arrProt[idx] === true){
+                        arrProt[idx] = false;
+                        gsap.to([itemTexts[idx],], { scale: 1, duration: 0.5, ease:'back.out(1.4)'})
+                        gsap.to(itemDots[idx], { scale: 1, duration: 0.5, ease:'back.out(1.4)'})
+                    }
+                })
+                handleScrollX();
+            })
+    
+            let wW = $(window).outerWidth();
+            let imgWidth = $('.history_box svg').outerWidth();
+            let posX = imgWidth - wW;
+            let thumbWidth = (wW / imgWidth * 100);
+            let track = $('.scrollbar_horizontal');
+            let thumb = track.find('.thumb');
+    
+            function handleScrollX() {
+                gsap.set('#section01 .history_box', {
+                    x: -(posX * tl.progress().toFixed(2)),
+                })
+            }
+    
+            if( wW < 1903 ) {
+                tl.eventCallback('onComplete', function() {
+                    gsap.set('#section01 .history_box', { overflowX: 'auto', overflowY: 'hidden'})
+                    gsap.set('#section01 .history_box', { x: 0})
+                    $('#section01 .history_box').scrollLeft(posX);
+                    $('.ios_device .scrollbar_horizontal').show();
+                    $('.ios_device .scrollbar_horizontal .thumb').show();
+                })
+            }
+    
+            $(window).on('resize', function() {
+                wW = $(window).outerWidth();
+                thumbWidth = (wW / imgWidth * 100);
+                if ($('body').hasClass('ios_device')) iosScrollX(wW, thumbWidth);
+                if ( wW < 1903 ) {
+                    $('#section01 .history_box').css({ overflowX: 'auto', overflowY: 'hidden'})
+                } else {
+                    $('#section01 .history_box').css({ overflow: 'hidden'})
+                }
+            })
+            
+            function iosScrollX(wW, thumbWidth) {
+                thumb.css({ width: `${thumbWidth}%`, left: (imgWidth - wW) / wW})
+                thumb.draggable({
+                    containment: track,
+                    "axis": 'x',
+                    drag: function(e) {
+                        $('#section01 .history_box').off('scroll');
+                        $('#section01 .history_box').scrollLeft(thumb.position().left);
+                    },
+                    stop: function() {
+                        boxScroll();
+                    }
+                });
+                
+                function boxScroll() {
+                    $('#section01 .history_box').on('scroll', function(e) {
+                        let posX = ($(this).scrollLeft() * (wW / imgWidth));
+        
+                        thumb.css({ left: posX })
+                    })
+                }
+                boxScroll();
+            }
+            if ($('body').hasClass('ios_device')) iosScrollX(wW, thumbWidth);
+        }
+    }
 }
 $(function () {
     BlueOrange.init();
