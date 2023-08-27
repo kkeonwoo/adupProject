@@ -244,7 +244,6 @@ BlueOrange = {
             const path = document.getElementById('path');
             const offset = path.getTotalLength();
             gsap.to('.history_box', { autoAlpha: 1})
-    
             const tl = gsap.timeline({
                 defaults: {
                     duration: 4,
@@ -257,7 +256,7 @@ BlueOrange = {
                 { strokeDashoffset: offset},
                 { strokeDashoffset: 0}
             )
-            // .from('#commerce', { opacity: 0, y: 100, duration: 1 }, '<')
+            .from('#commerce', { opacity: 0, y: 100, duration: 1 }, '<')
             .to('#bg_overlay', { 
                 x: 100,
                 motionPath:{
@@ -273,13 +272,12 @@ BlueOrange = {
             const arrProt = [];
             arr.forEach(t=>arrProt.push(true));
 
-            gsap.set('#section01 .history_cnt', { overflow: 'hidden'});
-            gsap.set([itemTexts,itemDots], { scale: 0, transformOrigin: '50% 50%'})
+            gsap.set([itemTexts,itemDots], { scale: 0, transformOrigin: '50% 50%',})
             tl.eventCallback('onUpdate', function() {
                 arr.forEach((item,idx) => {
                     if(tl.progress() + 0.05 > arr[idx] && arrProt[idx] === true){
                         arrProt[idx] = false;
-                        gsap.to([itemTexts[idx],], { scale: 1, duration: 0.5, ease:'back.out(1.4)'})
+                        gsap.to(itemTexts[idx], { scale: 1, duration: 0.5, ease:'back.out(1.4)'})
                         gsap.to(itemDots[idx], { scale: 1, duration: 0.5, ease:'back.out(1.4)'})
                     }
                 })
@@ -294,16 +292,18 @@ BlueOrange = {
             let thumb = track.find('.thumb');
     
             function handleScrollX() {
-                gsap.set('#section01 .history_box', {
-                    x: -(posX * tl.progress().toFixed(2)),
-                })
+                if ( wW < 1903 ) {
+                    gsap.set('#section01 .history_box', {
+                        x: -(posX * tl.progress().toFixed(2)),
+                    })
+                }
             }
     
             if( wW < 1903 ) {
                 tl.eventCallback('onComplete', function() {
-                    gsap.set('#section01 .history_box', { overflowX: 'auto', overflowY: 'hidden'})
+                    $('#section01 .history_cnt').addClass('scroll_x');
                     gsap.set('#section01 .history_box', { x: 0})
-                    $('#section01 .history_box').scrollLeft(posX);
+                    $('#section01 .history_cnt').scrollLeft(posX);
                     $('.ios_device .scrollbar_horizontal').show();
                     $('.ios_device .scrollbar_horizontal .thumb').show();
                 })
@@ -314,9 +314,9 @@ BlueOrange = {
                 thumbWidth = (wW / imgWidth * 100);
                 if ($('body').hasClass('ios_device')) iosScrollX(wW, thumbWidth);
                 if ( wW < 1903 ) {
-                    $('#section01 .history_box').css({ overflowX: 'auto', overflowY: 'hidden'})
+                    $('#section01 .history_cnt').addClass('scroll_x');
                 } else {
-                    $('#section01 .history_box').css({ overflow: 'hidden'})
+                    $('#section01 .history_cnt').removeClass('scroll_x');
                 }
             })
             
@@ -326,8 +326,9 @@ BlueOrange = {
                     containment: track,
                     "axis": 'x',
                     drag: function(e) {
-                        $('#section01 .history_box').off('scroll');
-                        $('#section01 .history_box').scrollLeft(thumb.position().left);
+                        console.log(e);
+                        $('#section01 .history_cnt').off('scroll');
+                        $('#section01 .history_cnt').scrollLeft(thumb.offset().left);
                     },
                     stop: function() {
                         boxScroll();
@@ -335,7 +336,7 @@ BlueOrange = {
                 });
                 
                 function boxScroll() {
-                    $('#section01 .history_box').on('scroll', function(e) {
+                    $('#section01 .history_cnt').on('scroll', function(e) {
                         let posX = ($(this).scrollLeft() * (wW / imgWidth));
         
                         thumb.css({ left: posX })

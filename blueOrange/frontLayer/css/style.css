@@ -48,30 +48,28 @@ html { font-size: 10px;}
 
 #section01 { position: relative; padding: 0;}
 #section01 .sec_ttl { position: absolute; top: 13.5rem; left: 50%; width: 100%; transform: translateX(-50%); z-index: 10;}
-#section01 .history_cnt { position: relative; width: 100%; height: 100vh;}
-#section01 .history_box { width: 100%; height: 100%;}
-#section01 .history_box .history_list { position: absolute; width: 1920px; height: 100%;}
+#section01 .history_cnt { width: 100%; height: 100vh;}
+#section01 .history_box { opacity: 0; position: relative; width: 100%; height: 100%;}
+#section01 .history_cnt.scroll_x { overflow-x: auto; overflow-y: hidden;}
+#section01 .history_box .history_list,
+#section01 .history_box #commerce { position: absolute; width: 204.90928495197437vh; height: 100%;}
+#section01 .history_cnt.scroll_x .history_list { height: calc(100% + 16px);}
 #section01 .history_box .history_item { display: flex; flex-direction: column; align-items: center; position: absolute;}
-#section01 .history_box .history_item .dot { margin-top: -5.5rem;}
-#section01 .history_box .history_item:nth-child(1) {left: 150px; bottom: calc(118 / 937 * 100%);}
-#section01 .history_box .history_item:nth-child(2) {left: 340px; bottom: calc(192 / 937 * 100%);}
-#section01 .history_box .history_item:nth-child(3) {left: 452px; bottom: calc(525 / 937 * 100%);}
-#section01 .history_box .history_item:nth-child(4) {left: 525px; bottom: calc(263 / 937 * 100%);}
-#section01 .history_box .history_item:nth-child(5) {left: 682px; top: calc(360 / 937 * 100%);}
-#section01 .history_box .history_item:nth-child(6) {left: 883px; bottom: calc(438 / 937 * 100%);}
-#section01 .history_box .history_item:nth-child(7) {left: 1060px; bottom: calc(434 / 937 * 100%);}
-#section01 .history_box .history_item:nth-child(8) {left: 1272px; bottom: calc(431 / 937 * 100%);}
-#section01 .history_box .history_item:nth-child(9) {left: 1472px; bottom: calc(450 / 937 * 100%);}
-/* #section01 .history_box .history_item:nth-child(1) {left: calc(150 / 1920 * 100%); bottom: calc(118 / 937 * 100%);}
-#section01 .history_box .history_item:nth-child(2) {left: calc(340 / 1920 * 100%); bottom: calc(192 / 937 * 100%);}
-#section01 .history_box .history_item:nth-child(3) {left: calc(452 / 1920 * 100%); bottom: calc(525 / 937 * 100%);}
-#section01 .history_box .history_item:nth-child(4) {left: calc(525 / 1920 * 100%); bottom: calc(263 / 937 * 100%);}
-#section01 .history_box .history_item:nth-child(5) {left: calc(682 / 1920 * 100%); top: calc(360 / 937 * 100%);}
-#section01 .history_box .history_item:nth-child(6) {left: calc(883 / 1920 * 100%); bottom: calc(438 / 937 * 100%);}
-#section01 .history_box .history_item:nth-child(7) {left: calc(1060 / 1920 * 100%); bottom: calc(434 / 937 * 100%);}
-#section01 .history_box .history_item:nth-child(8) {left: calc(1272 / 1920 * 100%); bottom: calc(431 / 937 * 100%);}
-#section01 .history_box .history_item:nth-child(9) {left: calc(1472 / 1920 * 100%); bottom: calc(450 / 937 * 100%);} */
+#section01 .history_box .history_item:nth-child(1) {left: 16.008537886872997vh; bottom: calc(118 / 937 * 100%);}
+#section01 .history_box .history_item:nth-child(2) {left: 36.28601921024546vh; bottom: calc(192 / 937 * 100%);}
+#section01 .history_box .history_item:nth-child(3) {left: 48.23906083244397vh; bottom: calc(525 / 937 * 100%);}
+#section01 .history_box .history_item:nth-child(4) {left: 56.029882604055494vh; bottom: calc(263 / 937 * 100%);}
+#section01 .history_box .history_item:nth-child(5) {left: 72.78548559231591vh; top: calc(360 / 937 * 100%);}
+#section01 .history_box .history_item:nth-child(6) {left: 94.23692636072573vh; bottom: calc(438 / 937 * 100%);}
+#section01 .history_box .history_item:nth-child(7) {left: 113.12700106723585vh; bottom: calc(434 / 937 * 100%);}
+#section01 .history_box .history_item:nth-child(8) {left: 135.75240128068302vh; bottom: calc(431 / 937 * 100%);}
+#section01 .history_box .history_item:nth-child(9) {left: 157.09711846318035vh; bottom: calc(450 / 937 * 100%);}
+#section01 .history_box .history_item .text { height: 8.858057630736393vh;}
+#section01 .history_box .history_item .dot { height: 19.637139807897544vh; margin-top: -5.869797225186766vh;}
+#section01 .history_box .history_item:nth-child(3) .dot,
+#section01 .history_box .history_item:nth-child(5) .dot { height: 0; margin-top: 0;}
 #section01 .history_box svg { width: auto; height: 100%;}
+#section01 .history_cnt.scroll_x svg { height: calc(100% + 16px);}
 #section01 .history_box #path { stroke-dasharray: 2132.9912109375; stroke-dashoffset: 2132.9912109375;}
 
 #section02 .inner { max-width: 134rem; position: relative;}
@@ -99,16 +97,12 @@ html { font-size: 10px;}
 #section04 .works_box .works_list .works_item.active:nth-child(2n-1):before { bottom: -16rem;}
 #section04 .works_box .works_list .works_item .works_card { position: relative; padding: 5rem 3rem 3.5rem 2.5rem; border-radius: 1.5rem; background: linear-gradient(50deg, rgba(34,47,93,1) 0%, rgba(56,78,161,1) 70%); box-shadow: 12px 12px 13px rgba(0, 0, 0, .9); font-family: 'NanumSquare Neo'; font-size: 24px; text-align: left; letter-spacing: -0.02em; z-index: 5;}
 #section04 .works_box .works_list .works_item .works_card::before { content: ''; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--color-white); border-radius: 1.5rem; opacity: 0; visibility: hidden; z-index: -1; transform: scaleY(0); transform-origin: 50% 100%; transition: all .4s;}
-#section04 .works_box .works_list .works_item:hover .works_card:before,
 #section04 .works_box .works_list .works_item.active .works_card:before { opacity: 1; visibility: visible; transform: scaleY(1);}
 #section04 .works_box .works_list .works_item .works_card::after { content: ''; display: block; position: relative; z-index: 5; width: 4.4rem; height: 2.5rem; margin-top: 11.5rem; margin-left: auto; background: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_right_white.png') no-repeat center center / cover;}
-#section04 .works_box .works_list .works_item:hover .works_card::after,
 #section04 .works_box .works_list .works_item.active .works_card::after { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_right_blue.png'); animation: arw_down .6s infinite;}
 #section04 .works_box .works_list .works_item .works_card span { font-family: inherit; font-weight: inherit; font-size: inherit; transition: color .4s;}
-#section04 .works_box .works_list .works_item:hover .works_card span,
 #section04 .works_box .works_list .works_item.active .works_card span { color: var(--color-black);}
 #section04 .works_box .works_list .works_item .works_card b { display: inline-block; width: 100%; margin-top: 2rem; font-family: 'NanumSquare Neo', '굴림', serif; font-weight: 800; font-size: 3.3rem; transition: color .4s;}
-#section04 .works_box .works_list .works_item:hover .works_card b,
 #section04 .works_box .works_list .works_item.active .works_card b { color: var(--color-blue1);}
 #section04 .works_container .works_content { padding: 9rem 0; background-color: var(--color-white);}
 #section04 .works_container .works_content .works_cnt_list { display: grid; grid-template-columns: repeat(3, minmax(auto, 32rem)); justify-content: center; gap: 6rem;}
@@ -122,6 +116,13 @@ html { font-size: 10px;}
 #section04 .works_container .works_content .works_cnt_list .works_cnt_item .work_link:focus .img.active,
 #section04 .works_container .works_content .works_cnt_list .works_cnt_item.open .work_link:hover .img.active { opacity: 1; visibility: visible; transform: scale(1.05);}
 #section04 .swiper .swiper_pagination { display: none;}
+
+@media (hover: hover) {
+    #section04 .works_box .works_list .works_item:hover .works_card:before { opacity: 1; visibility: visible; transform: scaleY(1);}
+    #section04 .works_box .works_list .works_item:hover .works_card::after { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_right_blue.png'); animation: arw_down .6s infinite;}
+    #section04 .works_box .works_list .works_item:hover .works_card span { color: var(--color-black);}
+    #section04 .works_box .works_list .works_item:hover .works_card b { color: var(--color-blue1);}
+}
 
 #footer { padding: 13.5rem 0 10.5rem; background-color: var(--color-black);}
 #footer * { font-family: 'NanumSquare Neo', '굴림', serif; font-weight: 300; font-size: 1.4rem;}
