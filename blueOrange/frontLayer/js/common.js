@@ -62,7 +62,7 @@ BlueOrange = {
 
             fn.addHidden();
             $header.addClass('mob_open');
-            $gnb.append("<div class='clone_footer'></div>");
+            $gnb.append("<div class='clone_footer mob'></div>");
             $footerRight.clone().appendTo('.clone_footer');
 
             const $depth1Link = $('#gnb').find('.depth1_link');
@@ -215,6 +215,7 @@ BlueOrange = {
 
         fnNormlizeScr();
         $(window).scroll(() => {
+            if (!fn.exists('.about')) return;
             fnNormlizeScr();
         });
 
@@ -231,6 +232,7 @@ BlueOrange = {
         } );
     },
     aniHistory: function() {
+        if (!fn.exists('.about')) return;
         let prot = true;
         $(window).on('scroll', function() {
             let st = $(this).scrollTop();

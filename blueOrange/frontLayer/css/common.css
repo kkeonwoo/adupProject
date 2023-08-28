@@ -333,11 +333,11 @@ a:hover{text-decoration:none;}
 @media (max-width: 750px) {
     .form_group { flex-wrap: wrap; gap: 2.4rem 0;}
     .form_group + .form_group, .caution + .form_group { margin-top: 2.4rem;}
-    .form_control { min-height: 2.7rem; padding: 0.8rem 0; font-size: 1.1rem;}
-    .form_control::placeholder { font-size: 1.1rem;}
+    .form_control { min-height: 2.7rem; padding: 0.8rem 0; font-size: 1.3rem;}
+    .form_control::placeholder { font-size: 1.3rem;}
 
     .fancy_img_box input + label:before { width: 0.875rem; height: 0.875rem;}
-    .fancy_img_box input ~ label > span { padding-left: 0.375rem; font-size: 1rem;}
+    .fancy_img_box input ~ label > span { padding-left: 0.375rem; font-size: 1.2rem;}
 
     .textarea_box textarea.form_control { min-height: 8.8rem;}
 

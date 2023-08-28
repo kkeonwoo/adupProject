@@ -6,6 +6,7 @@
         <meta http-equiv="Content-Style-Type" content="text/css" />
         <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         
         <meta name="og:title" content="블루오렌지커뮤니케이션즈" />
         <meta name="og:description" content="검색광고, 배너광고, 앱광고, 데이터 기반 디지털 광고 운영" />
@@ -40,11 +41,11 @@
         <link rel="icon" type="image/png" sizes="96x96" href="http://blorange17.cdn3.cafe24.com/favicons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="http://blorange17.cdn3.cafe24.com/favicons/favicon-16x16.png">
         <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage" content="http://blorange17.cdn3.cafe24.com/favicons/ms-icon-144x144.png">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
     
         <link rel="stylesheet" href="/frontLayer/css/package.css">
-        
+
         <script src="/frontLayer/js/jquery-3.3.1.min.js"></script>
         <script src="/frontLayer/js/gsap.min.js"></script>
         <script src="/frontLayer/js/ScrollToPlugin.min.js"></script>
@@ -70,10 +71,10 @@
                     <nav id="gnb">
                         <h2 class="blind">gnb</h2>
                         <ul class="depth1_list">
-                            <li class="depth1_item"><a href="/index.html" data-text="about" class="depth1_link">about</a></li>
-                            <li class="depth1_item"><a href="/index.html" data-text="works" class="depth1_link">works</a></li>
-                            <li class="depth1_item"><a href="#" data-text="people" class="depth1_link">people</a></li>
-                            <li class="depth1_item"><a href="/contents/contact.html" data-text="contact" class="depth1_link">contact</a></li>
+                            <li class="depth1_item"><a href="/index.html" class="depth1_link">about</a></li>
+                            <li class="depth1_item"><a href="/index.html" class="depth1_link">works</a></li>
+                            <li class="depth1_item"><a href="#" class="depth1_link">people</a></li>
+                            <li class="depth1_item"><a href="/contents/contact.html" class="depth1_link">contact</a></li>
                         </ul>
                     </nav>
                     <button type="button" aria-label="mobile gnb" class="nav_open mob"></button>
@@ -81,7 +82,7 @@
             </header>
     
             <div id="motion01" class="motion_panel">
-                <div class="main_visual">
+                <section id="main_visual" class="sec">
                     <div class="people_swiper swiper">
                         <ul class="img_list swiper-wrapper">
                             <li class="img_item swiper-slide">
@@ -140,10 +141,10 @@
                             <button type="button" aria-label="move to next image" class="swiper-button btn_round btn_next"></button>
                         </div>
                     </div>
-                </div>
+                </section>
     
                 <main class="main">
-                    <section class="sec">
+                    <section id="welfare" class="sec">
                         <div class="inner">
                             <h2 class="sec_ttl">
                                 <span>welf</span>
@@ -166,7 +167,7 @@
                                             <div class="ico_box"><i class="ico ico_welfare"></i></div>
                                             <div class="content_box">
                                                 <p class="welfare_ttl">재택 근무</p>
-                                                <span class="welfare_txt">주 40시간 초과 시</span>
+                                                <span class="welfare_txt">월 2회 재택 근무</span>
                                             </div>
                                         </div>
                                     </li>
@@ -238,7 +239,7 @@
                                             <div class="ico_box"><i class="ico ico_welfare"></i></div>
                                             <div class="content_box">
                                                 <p class="welfare_ttl">직무 역량 개발</p>
-                                                <span class="welfare_txt">업무 도서 & 자격증 응시료 지원</span>
+                                                <span class="welfare_txt">도서 & 자격증 응시 지원</span>
                                             </div>
                                         </div>
                                     </li>
@@ -265,7 +266,7 @@
                         </div>
                     </section>
             
-                    <section class="sec">
+                    <section id="recruit" class="sec">
                         <div class="inner">
                             <h2 class="sec_ttl">
                                 <span>r</span>
@@ -412,26 +413,14 @@
                                 750: {
                                     creativeEffect: {
                                         prev: {
-                                            translate: ['-110%', 35, 0],
+                                            translate: ['-110%', 32.5, 0],
                                         },
                                         next: {
-                                            translate: ['110%', 35, 0],
+                                            translate: ['110%', 32.5, 0],
                                         },
                                     },
                                 }
                             },
-                        })
-                        
-                        let wW = $(window).width();
-                        if (wW > 750) peopleSwiper.autoplay.stop();
-                        $(window).on('resize', function() {
-                            let resizeW = $(this).width();
-                            console.log(resizeW);
-                            if (resizeW > 750) {
-                                peopleSwiper.autoplay.stop();
-                            } else {
-                                peopleSwiper.autoplay.start();
-                            }
                         })
                     }
                 }

@@ -24,7 +24,7 @@ html { font-size: 10px;}
 .scroll_down #gnb .depth1_list { transform: translateY(calc(-100% - 3rem));}
 .scroll_down #header:hover #gnb .depth1_list { transform: translateY(0);}
 #gnb .depth1_list .depth1_item .depth1_link { position: relative; font-weight: 500; font-size: 2rem; color: var(--color-white); line-height: 1; text-transform:  uppercase;}
-#gnb .depth1_list .depth1_item .depth1_link::before { content: attr(data-text); display: block; position: absolute; top: 50%; left: 50%; opacity: 0; visibility: hidden; font-weight: 800; transform: translate(-50%, -50%);}
+/* #gnb .depth1_list .depth1_item .depth1_link::before { content: attr(data-text); display: block; position: absolute; top: 50%; left: 50%; opacity: 0; visibility: hidden; font-weight: 800; transform: translate(-50%, -50%);} */
 #gnb .depth1_list .depth1_item .depth1_link::after { content: ''; display: none; position: absolute; left: 0; bottom: -2rem; width: 100%; height: 3px; background-color: var(--color-blue1);}
 #gnb .depth1_list .depth1_item .depth1_link:hover::before,
 #gnb .depth1_list .depth1_item .depth1_link.active::before { opacity: 1; visibility: visible;}
@@ -36,7 +36,8 @@ html { font-size: 10px;}
 .main_visual .ico_box { position: absolute; bottom: 6.5rem; left: 50%; width: 4.4rem; height: 3.2rem; transform: translateX(-50%);}
 .main_visual .ico_box .ico { background-image: url('http://blorange17.cdn3.cafe24.com/icons/arw_bottom_white.png');}
 
-.sec { min-height: 100vh; padding: 13.5rem 0;}
+.sec { padding: 6rem 0 0;}
+/* .sec { min-height: 100vh; padding: 13.5rem 0;} */
 .sec .inner { max-width: 128rem; margin: 0 auto;}
 .sec .sec_ttl { display: flex; justify-content: center; align-items: baseline; gap: 1rem; font-weight: 700; font-size: 3rem; text-align: center; letter-spacing: 0.2em; text-transform: uppercase;}
 .sec .sec_ttl span { font-weight: inherit; font-size: inherit; color: inherit;}
@@ -88,7 +89,6 @@ html { font-size: 10px;}
 #section03 .service_box .service_list .service_item:nth-child(8) .ico.ico_service { background-image: url('http://blorange17.cdn3.cafe24.com/img/img_service_08.png');}
 #section03 .service_box .service_list .service_item .service_txt { font-weight: 500; font-size: 2.8rem; letter-spacing: -0.08em;}
 
-#section04 { min-height: unset; padding-bottom: unset;}
 #section04 .works_box .works_list { display: flex; justify-content: center; margin-top: 11rem; padding-bottom: 20rem;}
 #section04 .works_box .works_list .works_item { position: relative; width: 23.5rem;}
 #section04 .works_box .works_list .works_item:last-child { margin-right: 0 !important;}
@@ -102,7 +102,7 @@ html { font-size: 10px;}
 #section04 .works_box .works_list .works_item.active .works_card::after { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_right_blue.png'); animation: arw_down .6s infinite;}
 #section04 .works_box .works_list .works_item .works_card span { font-family: inherit; font-weight: inherit; font-size: inherit; transition: color .4s;}
 #section04 .works_box .works_list .works_item.active .works_card span { color: var(--color-black);}
-#section04 .works_box .works_list .works_item .works_card b { display: inline-block; width: 100%; margin-top: 2rem; font-family: 'NanumSquare Neo', '굴림', serif; font-weight: 800; font-size: 3.3rem; transition: color .4s;}
+#section04 .works_box .works_list .works_item .works_card b { display: inline-block; width: 100%; margin-top: 2rem; font-family: 'NanumSquare Neo', '굴림', serif; font-weight: 500; font-size: 3.3rem; transition: color .4s; letter-spacing: -0.08em;}
 #section04 .works_box .works_list .works_item.active .works_card b { color: var(--color-blue1);}
 #section04 .works_container .works_content { padding: 9rem 0; background-color: var(--color-white);}
 #section04 .works_container .works_content .works_cnt_list { display: grid; grid-template-columns: repeat(3, minmax(auto, 32rem)); justify-content: center; gap: 6rem;}
@@ -151,15 +151,16 @@ html { font-size: 10px;}
 .modal.modal_works .btn_modal.btn_prev { left: -3.3854166666666665vw; background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_prev_white.png'); transform: translate(-100%, -50%);}
 
 .people { overflow-x: hidden;}
-.people .people_swiper { position: relative; padding: calc((100vh - 48rem) / 2) 0;}
+.people .people_swiper { position: relative; overflow: unset;}
+.people .img_list { padding: 10rem 0 12rem;}
 .people .img_list .img_item { width: 30.5rem; height: 48rem; overflow: hidden;}
-.people .btn_wrap { display: inline-flex; position: absolute; right: 5rem; bottom: 6.5rem; align-items: center; gap: 3rem;}
+.people .btn_wrap { display: inline-flex; justify-content: end; align-items: center; gap: 3rem; position: relative; width: 100%; padding-right: 5rem;}
 .people .btn_wrap .btn_round { width: 4rem; height: 4rem; background: no-repeat center center / cover;}
 .people .btn_wrap .btn_round.btn_prev { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_prev_round.png');}
 .people .btn_wrap .btn_round.btn_next { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_next_round.png');}
 
-.people .welfare_box .welfare_list { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 7rem 0;}
-.people .welfare_box .welfare_list .welfare_item { width: calc(100% / 3);}
+.people .welfare_box .welfare_list { display: grid; justify-content: end; grid-template-columns: repeat(3, minmax(auto, 38rem)); gap: 7rem 0;}
+/* .people .welfare_box .welfare_list .welfare_item { width: calc(100% / 3);} */
 .people .welfare_box .welfare_list .welfare_item .welfare_content { display: flex; align-items: center; gap: 2rem;}
 .people .welfare_box .welfare_list .welfare_item .welfare_content .ico_box { flex-shrink: 0; width: 10.5rem; height: 10.5rem; border-radius: 100%; background-color: var(--color-blue2);}
 .people .welfare_box .welfare_list .welfare_item:nth-child(1) .welfare_content .ico_box .ico.ico_welfare { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_welfare_01.png');}
@@ -175,7 +176,7 @@ html { font-size: 10px;}
 .people .welfare_box .welfare_list .welfare_item:nth-child(11) .welfare_content .ico_box .ico.ico_welfare { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_welfare_11.png');}
 .people .welfare_box .welfare_list .welfare_item:nth-child(12) .welfare_content .ico_box .ico.ico_welfare { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_welfare_12.png');}
 .people .welfare_box .welfare_list .welfare_item .welfare_content * { font-family: 'NanumSquare Neo', '굴림', serif; letter-spacing: -0.03em;}
-.people .welfare_box .welfare_list .welfare_item .welfare_content .welfare_ttl { margin-bottom: 1.5rem; font-weight: 800; font-size: 3rem;}
+.people .welfare_box .welfare_list .welfare_item .welfare_content .welfare_ttl { margin-bottom: 1.5rem; font-weight: 800; font-size: 2.6rem;}
 .people .welfare_box .welfare_list .welfare_item .welfare_content .welfare_txt { font-weight: 300; font-size: 1.8rem;}
 
 .people .recruit_box { display: flex; flex-direction: column; align-items: center;}
@@ -216,15 +217,23 @@ html { font-size: 10px;}
 .contact .info_area .info_box dl { display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 0 1rem;}
 .contact .info_area .info_box .address { margin-right: auto; padding-left: 0;}
 .contact .info_area .info_box .media { margin-left: auto; padding-right: 0;}
-.contact .info_area .info_box dt { font-weight: 300; font-size: 1.8rem; letter-spacing: -0.01em; line-height: 2;}
+.contact .info_area .info_box dt { font-weight: 300; font-size: 1.8rem; letter-spacing: -0.01em; line-height: 2; text-transform: uppercase;}
 .contact .info_area .info_box dd { font-family: 'NanumSquare Neo', '굴림', serif; font-size: 1.6rem; line-height: 2;}
 .contact .form_container { margin-top: 7.5rem;}
 .contact .form_container .fancy_img_box { margin-top: 2.5rem;}
 .contact .form_container .btn { width: 100%; min-height: 7rem; margin-top: 6.5rem; border-radius: 5px; font-weight: 700; font-size: 2rem; letter-spacing: 0.1em;}
 
 @media all and (min-width: 1281px) {
+    #section02 { padding-bottom: 12rem;}
+
+    #section03 { padding-bottom: 14rem;}
+
     .works_box .swiper-wrapper { transform: unset !important;}
     .works_box .swiper-slide { margin-right: 30px;}
+
+    #main_visual { padding-bottom: 5rem;}
+    #welfare { padding-bottom: 15.5rem;}
+    #recruit { padding-bottom: 13.5rem;}
 }
 
 @media all and (max-width: 1280px) {
@@ -272,9 +281,10 @@ html { font-size: 10px;}
     
     *::-webkit-scrollbar { width: 12px; height: 12px;}
     *::-webkit-scrollbar-thumb { border: 3px solid var(--color-bg);}
-    .sec { min-height: unset; padding: 6rem 0;}
+
+    .sec { padding: 4rem 0 5rem;}
     .sec .inner .sec_ttl + [class*="_box"], .contact .inner .info_area { margin-top: 5.25rem;}
-    .sec .sec_ttl { gap: 0.5rem; font-size: 1.4rem;}
+    .sec .sec_ttl { gap: 0.5rem; font-size: 1.6rem;}
     .sec .sec_ttl .ico.ico_symbol { width: 1.2rem; height: 1.5rem;}
 
     .main_visual { display: flex; align-items: center;}
@@ -283,30 +293,30 @@ html { font-size: 10px;}
     
     .about .sec .inner .sec_ttl + [class*="_box"] { margin-top: 6rem;}
     #section01 { min-height: 100vh;}
-    /* #section01 .img_box { height: calc(100vh - 6rem - 1.7rem);} */
 
     #section02 .partner_box .partner_list { grid-template-columns: repeat(3, minmax(auto, 17.6rem)); gap: 3.5rem 0; padding: 0 3rem;}
 
     #section03 .service_box .service_list { grid-template-columns: repeat(2, minmax(auto, 50%)); gap: 4rem 0; margin-top: 6rem; padding: 0 3rem 2.5rem;}
     #section03 .service_box .service_list .service_item .ico.ico_service { width: 6rem; height: 6rem; margin-bottom: 1rem;}
-    #section03 .service_box .service_list .service_item .service_txt { font-size: 1.2rem;}
+    #section03 .service_box .service_list .service_item .service_txt { font-size: 1.4rem;}
 
+    #section04 { padding-bottom: unset;}
     #section04 .works_box .works_list { margin-top: 5.5rem; padding-bottom: 6rem;}
     #section04 .works_box .works_list .works_item { width: 12.5rem;}
     #section04 .works_box .works_list .works_item:nth-child(2n-1) { transform: translate(calc(-50vw + 50% + 30px), 0);}
     #section04 .works_box .works_list .works_item.active:before { width: 5rem; height: 1.8rem;}
     #section04 .works_box .works_list .works_item.active:before { bottom: -6rem;}
     #section04 .works_box .works_list .works_item.active:nth-child(2n-1):before { bottom: -6rem;}
-    #section04 .works_box .works_list .works_item .works_card { padding: 2.5rem 1.5rem 1.5rem 1.25rem; border-radius: 1.5rem; font-size: 1rem; box-shadow: unset;}
+    #section04 .works_box .works_list .works_item .works_card { padding: 2.5rem 1.5rem 1.5rem 1.25rem; border-radius: 1.5rem; font-size: 1.2rem; box-shadow: unset;}
     #section04 .works_box .works_list .works_item .works_card::after { width: 1.6rem; height: 1rem; margin-top: 6rem;}
-    #section04 .works_box .works_list .works_item .works_card b { margin-top: 1rem; font-size: 1.5rem;}
+    #section04 .works_box .works_list .works_item .works_card b { margin-top: 1rem; font-size: 1.7rem;}
     #section04 .works_container .works_content { padding: 3.5rem 3rem;}
     #section04 .works_container .works_content .works_cnt_list { grid-template-columns: repeat(3, minmax(auto, 32rem)); gap: 1.5rem;}
     #section04 .swiper .swiper_pagination { gap: 1rem; bottom: 3.25rem;}
     #section04 .swiper .swiper_pagination .swiper-pagination-bullet { width: 0.5rem; height: 0.5rem;}
 
     #footer { padding: 5rem 0 4.5rem;}
-    #footer * { font-size: 1rem;}
+    #footer * { font-size: 1.2rem;}
     #footer .footer_logo { width: 8rem;}
     #footer .footer_left .info_content { margin-top: 5rem;}
     #footer .footer_left .info_content .dl { display: flex; margin-top: 1.5rem;}
@@ -320,35 +330,37 @@ html { font-size: 10px;}
     .modal.modal_works .modal_body .btn_modal.btn_prev { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_prev_gray.png'); transform: translate(0, 0);}
 
     .float_area { right: 3rem; bottom: 20rem;}
-    .float_area .btn.btn_top { gap: 0.75rem; min-width: 3rem; height: unset; padding: 0.75rem; font-size: 1rem;}
+    .float_area .btn.btn_top { gap: 0.75rem; min-width: 3rem; height: unset; padding: 0.75rem; font-size: 1.2rem;}
     .float_area .btn.btn_top::before { width: 1.5rem; height: 0.6rem;}
 
+    .people .img_list { padding: 6rem 0 5.5rem;}
     .people .img_list .img_item { width: 20rem; height: 31.25rem;}
-    .people .btn_wrap { right: 1.5rem; bottom: 6.5rem; gap: 2.5rem; margin-top: unset; margin-right: unset;}
+    .people .btn_wrap { right: 1.5rem; gap: 2.5rem; padding-right: 1.5rem;}
     .people .btn_wrap .btn_round { width: 3rem; height: 3rem;}
 
-    .people .main .sec { padding-bottom: 6.75rem;}
+    .people .main .sec { padding-bottom: 6rem;}
+    .people #welfare { padding-top: 1rem;}
     .people .welfare_box { margin-top: 6rem; padding: 0 4rem;}
-    .people .welfare_box .welfare_list { gap: 3rem 0;}
+    .people .welfare_box .welfare_list { gap: 3rem 1.5rem;}
     .people .welfare_box .welfare_list .welfare_item .welfare_content { flex-direction: column; gap: 1.5rem;}
     .people .welfare_box .welfare_list .welfare_item .welfare_content .ico_box { width: 5.25rem; height: 5.25rem;}
-    .people .welfare_box .welfare_list .welfare_item .welfare_content .welfare_ttl { margin-bottom: 0.8rem; font-size: 1.1rem; text-align: center;}
-    .people .welfare_box .welfare_list .welfare_item .welfare_content .welfare_txt { font-size: .8rem;}
+    .people .welfare_box .welfare_list .welfare_item .welfare_content .welfare_ttl { margin-bottom: 0.8rem; font-size: 1.3rem; text-align: center;}
+    .people .welfare_box .welfare_list .welfare_item .welfare_content .welfare_txt { font-size: 1rem;}
 
     .people .recruit_box { margin-top: 5rem; padding: 0 4rem;}
     .people .step_area .step_list .step_item .ico_box { width: 5rem; height: 4rem;}
     .people .step_area .step_list .step_item::before { width: 0.6rem; height: 1rem;}
     .people .step_area .step_list .step_item .step_content { margin-top: 0.75rem;}
-    .people .step_area .step_list .step_item .step_content .step_txt { font-size: 1rem;}
+    .people .step_area .step_list .step_item .step_content .step_txt { font-size: 1.2rem;}
     .people .step_area .step_list .step_item .step_content .step_txt::before { width: 2.5rem; height: 1rem;}
     .people .field_area { width: 100%; margin-top: 4.5rem;}
     .people .field_area .field_item { flex-direction: column; align-items: unset; gap: 1.5rem 0; min-height: 12rem; padding: 2rem 0;}
     .people .field_area .field_item .field_header { width: unset; padding: 0;}
-    .people .field_area .field_item .field_header .field_ttl { font-size: 1.6rem;}
+    .people .field_area .field_item .field_header .field_ttl { font-size: 1.8rem;}
     .people .field_area .field_item .field_body { padding: 0;}
-    .people .field_area .field_item .field_body .field_txt { font-size: 1rem;}
-    .people .recruit_box .btn { width: 100%; min-height: 3.5rem; margin-top: 2.5rem; font-size: 1rem;}
-    .people .recruit_box .apply_address { margin-top: 1.5rem; font-size: 1.1rem;}
+    .people .field_area .field_item .field_body .field_txt { font-size: 1.2rem;}
+    .people .recruit_box .btn { width: 100%; min-height: 3.5rem; margin-top: 2.5rem; font-size: 1.4rem;}
+    .people .recruit_box .apply_address { margin-top: 1.5rem; font-size: 1.3rem;}
 
     .contact .sec { padding-bottom: 5rem;}
     .contact .sec .inner { padding: 0 4.5rem;}
@@ -358,11 +370,11 @@ html { font-size: 10px;}
     .contact .info_area .info_box dl { flex-direction: row; justify-content: start; gap: unset; padding: unset;}
     .contact .info_area .info_box .address { margin-right: unset;}
     .contact .info_area .info_box .media { margin-left: unset;}
-    .contact .info_area .info_box dt { width: 30%; min-width: 10rem; font-size: 1rem;}
-    .contact .info_area .info_box dd { margin-top: unset; font-size: 1rem;}
+    .contact .info_area .info_box dt { width: 30%; min-width: 10rem; font-size: 1.2rem;}
+    .contact .info_area .info_box dd { margin-top: unset; font-size: 1.2rem;}
     .contact .form_container { margin-top: 4.25rem;}
     .contact .form_container .fancy_img_box { margin-top: 1.25rem;}
-    .contact .form_container .btn { min-height: 3.5rem; margin-top: 4.25rem; padding: 1rem; border-radius: 0.5rem; font-size: 1.1rem;}
+    .contact .form_container .btn { min-height: 3.5rem; margin-top: 4.25rem; padding: 1rem; border-radius: 0.5rem; font-size: 1.3rem;}
 }
 
 @keyframes arw_down {
