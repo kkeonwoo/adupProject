@@ -33,7 +33,6 @@ $.namespace = function() {
 
 $.namespace('ProjectName');
 BlueOrange = {
-    windowWidth: $(window).width(),
     init : function(){
         BlueOrange.gnb();
         BlueOrange.modal();
@@ -176,7 +175,6 @@ BlueOrange = {
     },
     scrolling : {
         enabled: true,
-        events: "click,scroll,wheel,touchmove,pointermove".split(","),
         prevent: e => e.preventDefault(),
         disable() { if (BlueOrange.scrolling.enabled) BlueOrange.scrolling.enabled = false; },
         enable() { if (!BlueOrange.scrolling.enabled) BlueOrange.scrolling.enabled = true; },
@@ -213,12 +211,12 @@ BlueOrange = {
             onUpdate: () => fn.isScrollTop(),
         });
 
+        if (!fn.exists('.about')) return;
         fnNormlizeScr();
         $(window).scroll(() => {
-            if (!fn.exists('.about')) return;
             fnNormlizeScr();
         });
-
+        
         function fnNormlizeScr() {
             const scrollPosition = window.scrollY || document.documentElement.scrollTop;
             if (scrollPosition <= 0) {

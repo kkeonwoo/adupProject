@@ -24,7 +24,6 @@ html { font-size: 10px;}
 .scroll_down #gnb .depth1_list { transform: translateY(calc(-100% - 3rem));}
 .scroll_down #header:hover #gnb .depth1_list { transform: translateY(0);}
 #gnb .depth1_list .depth1_item .depth1_link { position: relative; font-weight: 500; font-size: 2rem; color: var(--color-white); line-height: 1; text-transform:  uppercase;}
-/* #gnb .depth1_list .depth1_item .depth1_link::before { content: attr(data-text); display: block; position: absolute; top: 50%; left: 50%; opacity: 0; visibility: hidden; font-weight: 800; transform: translate(-50%, -50%);} */
 #gnb .depth1_list .depth1_item .depth1_link::after { content: ''; display: none; position: absolute; left: 0; bottom: -2rem; width: 100%; height: 3px; background-color: var(--color-blue1);}
 #gnb .depth1_list .depth1_item .depth1_link:hover::before,
 #gnb .depth1_list .depth1_item .depth1_link.active::before { opacity: 1; visibility: visible;}
@@ -37,7 +36,6 @@ html { font-size: 10px;}
 .main_visual .ico_box .ico { background-image: url('http://blorange17.cdn3.cafe24.com/icons/arw_bottom_white.png');}
 
 .sec { padding: 6rem 0 0;}
-/* .sec { min-height: 100vh; padding: 13.5rem 0;} */
 .sec .inner { max-width: 128rem; margin: 0 auto;}
 .sec .sec_ttl { display: flex; justify-content: center; align-items: baseline; gap: 1rem; font-weight: 700; font-size: 3rem; text-align: center; letter-spacing: 0.2em; text-transform: uppercase;}
 .sec .sec_ttl span { font-weight: inherit; font-size: inherit; color: inherit;}
@@ -160,7 +158,6 @@ html { font-size: 10px;}
 .people .btn_wrap .btn_round.btn_next { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_next_round.png');}
 
 .people .welfare_box .welfare_list { display: grid; justify-content: end; grid-template-columns: repeat(3, minmax(auto, 38rem)); gap: 7rem 0;}
-/* .people .welfare_box .welfare_list .welfare_item { width: calc(100% / 3);} */
 .people .welfare_box .welfare_list .welfare_item .welfare_content { display: flex; align-items: center; gap: 2rem;}
 .people .welfare_box .welfare_list .welfare_item .welfare_content .ico_box { flex-shrink: 0; width: 10.5rem; height: 10.5rem; border-radius: 100%; background-color: var(--color-blue2);}
 .people .welfare_box .welfare_list .welfare_item:nth-child(1) .welfare_content .ico_box .ico.ico_welfare { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_welfare_01.png');}
