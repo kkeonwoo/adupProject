@@ -39,7 +39,6 @@ BlueOrange = {
         BlueOrange.moveSection();
         BlueOrange.goToTop();
         BlueOrange.aniHistory();
-        // BlueOrange.appHeight();
     },
     gnb : function() {
         const $gnb = $('#gnb'),
@@ -188,16 +187,18 @@ BlueOrange = {
                 overwrite: "auto",
                 onComplete() {
                     BlueOrange.scrolling.enable();
-                    ScrollTrigger.normalizeScroll(false);
+                    if ( $('html, body').hasClass('scroll_down') ) {
+                        ScrollTrigger.normalizeScroll(false);
+                    } else {
+                        ScrollTrigger.normalizeScroll(true);
+                    }
+                    console.log(ScrollTrigger.normalizeScroll());
                 },
                 duration: 1,
             });
         }
     },
     moveSection : function() {
-        // 클래스 부여
-        // 상단으로 부착
-        // 밑으로 내릴때 제거
         fn.chkDevice();
 
         gsap.registerPlugin(ScrollTrigger);
@@ -215,27 +216,12 @@ BlueOrange = {
             },
             onEnterBack: (batch) => {
                 BlueOrange.goToSection(batch);
-                ScrollTrigger.normalizeScroll(true);
             },
-            // onLeave: (batch) => {
-            //     ScrollTrigger.normalizeScroll(false);
-            // },
             onUpdate: () => fn.isScrollTop(),
         });
 
-
         if (!fn.exists('.about')) return;
-        // fnNormlizeScr();
-        $(window).scroll(() => {
-            // fnNormlizeScr();
-        });
-        
         ScrollTrigger.normalizeScroll(true);
-        function fnNormlizeScr() {
-            const scrollPosition = window.scrollY || document.documentElement.scrollTop;
-            if (scrollPosition <= 0) {
-            }
-        }
     },
     goToTop : function() {
         $('.float_area .btn').on('click', function() {
@@ -359,16 +345,6 @@ BlueOrange = {
             if ($('body').hasClass('ios_device')) iosScrollX(wW, thumbWidth, posX);
         }
     },
-    appHeight: function() {
-        function calc100vh() {
-            let vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        }
-        $(window).on('resize', function() {
-            calc100vh();
-        })
-        calc100vh();
-    }
 }
 $(function () {
     BlueOrange.init();
