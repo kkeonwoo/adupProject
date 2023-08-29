@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
 
     <meta name="og:title" content="블루오렌지커뮤니케이션즈" />
     <meta name="og:description" content="검색광고, 배너광고, 앱광고, 데이터 기반 디지털 광고 운영" />
@@ -44,18 +44,19 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="/frontLayer/css/package.css">
+    <link rel="stylesheet" href="../frontLayer/css/package copy.css">
     
-    <script src="/frontLayer/js/jquery-3.3.1.min.js"></script>
-    <script src="/frontLayer/js/jquery-ui.min.js"></script>
-    <script src="/frontLayer/js/gsap.min.js"></script>
-    <script src="/frontLayer/js/ScrollToPlugin.min.js"></script>
-    <script src="/frontLayer/js/ScrollTrigger.min.js"></script>
+    <script src="../frontLayer/js/jquery-3.3.1.min.js"></script>
+    <script src="../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../frontLayer/js/gsap.min.js"></script>
+    <script src="../frontLayer/js/ScrollToPlugin.min.js"></script>
+    <script src="../frontLayer/js/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js" integrity="sha512-8AjW5l765ApzGk1tv9UXvcf0+CPrvJlFtmf6pPLM3AWcPM8+9aOSTjw29Sq7bQ/HJdqGjnQ3s8ztg8+ceZqwPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/MotionPathPlugin.min.js"></script>
-    <script src="/frontLayer/js/swiper.min.js"></script>
-    <script src="/frontLayer/js/fn.js"></script>
-    <script src="/frontLayer/js/common.js"></script>
-    <script src="/frontLayer/js/popupData.js"></script>
+    <script src="../frontLayer/js/swiper.min.js"></script>
+    <script src="../frontLayer/js/fn.js"></script>
+    <script src="../frontLayer/js/common.js?v=29"></script>
+    <script src="../frontLayer/js/popupData.js"></script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -93,6 +94,9 @@
                 </video>
                 <div class="ico_box">
                     <i class="ico ico_scroll_down"></i>
+                </div>
+                <div class="ico_box sound off">
+                    <i class="ico ico_sound"></i>
                 </div>
             </div>
         </div>
@@ -708,6 +712,7 @@
                     work.button();
                     work.tab();
                     work.workMobSwiper(work.windowWidth);
+                    work.handleSound();
                 },
                 button: function() {
                     $('.work_link').on('click', (e) => work.showImageSrc(e, e.currentTarget));
@@ -855,6 +860,17 @@
 
                     breakpointChecker();
                 },
+                handleSound: function () {
+                    $('.main_visual .ico_box.sound').on('click', function() {
+                        if ( !$(this).hasClass('off')) {
+                            $(this).addClass('off');
+                            $('.main_visual .video').prop('muted', true);
+                        } else {
+                            $(this).removeClass('off');
+                            $('.main_visual .video').prop('muted', false);
+                        }
+                    })
+                }
             }
             work.init();
         })

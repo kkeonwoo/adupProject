@@ -39,6 +39,7 @@ BlueOrange = {
         BlueOrange.moveSection();
         BlueOrange.goToTop();
         BlueOrange.aniHistory();
+        // BlueOrange.appHeight();
     },
     gnb : function() {
         const $gnb = $('#gnb'),
@@ -185,12 +186,18 @@ BlueOrange = {
             gsap.to(window, {
                 scrollTo: {y: section, autoKill: false},
                 overwrite: "auto",
-                onComplete: BlueOrange.scrolling.enable,
+                onComplete() {
+                    BlueOrange.scrolling.enable();
+                    ScrollTrigger.normalizeScroll(false);
+                },
                 duration: 1,
             });
         }
     },
     moveSection : function() {
+        // 클래스 부여
+        // 상단으로 부착
+        // 밑으로 내릴때 제거
         fn.chkDevice();
 
         gsap.registerPlugin(ScrollTrigger);
@@ -206,21 +213,27 @@ BlueOrange = {
                     BlueOrange.goToSection(batch);
                 }
             },
-            onEnterBack: (batch) => BlueOrange.goToSection(batch),
-            onLeave: () => ScrollTrigger.normalizeScroll(false),
+            onEnterBack: (batch) => {
+                BlueOrange.goToSection(batch);
+                ScrollTrigger.normalizeScroll(true);
+            },
+            // onLeave: (batch) => {
+            //     ScrollTrigger.normalizeScroll(false);
+            // },
             onUpdate: () => fn.isScrollTop(),
         });
 
+
         if (!fn.exists('.about')) return;
-        fnNormlizeScr();
+        // fnNormlizeScr();
         $(window).scroll(() => {
-            fnNormlizeScr();
+            // fnNormlizeScr();
         });
         
+        ScrollTrigger.normalizeScroll(true);
         function fnNormlizeScr() {
             const scrollPosition = window.scrollY || document.documentElement.scrollTop;
             if (scrollPosition <= 0) {
-                ScrollTrigger.normalizeScroll(true);
             }
         }
     },
@@ -281,7 +294,6 @@ BlueOrange = {
                         gsap.to(itemDots[idx], { scale: 1, duration: 0.5, ease:'back.out(1.4)'})
                     }
                 })
-                handleScrollX();
             })
     
             let wW = $(window).outerWidth();
@@ -293,26 +305,27 @@ BlueOrange = {
     
             function handleScrollX() {
                 if ( wW < 1903 ) {
-                    gsap.set('#section01 .history_box', {
-                        x: -(posX * tl.progress().toFixed(2)),
+                    gsap.to('#section01 .history_box', {
+                        x: -posX,
+                        duration: 4,
+                        ease: CustomEase.create("custom", "M0,0,C0.504,0.078,0.63,0.798,1,1"),
+                        onComplete() {
+                            $('#section01 .history_cnt').addClass('scroll_x');
+                            gsap.set('#section01 .history_box', { x: 0 })
+                            $('#section01 .history_cnt').scrollLeft(posX);
+                            $('.ios_device .scrollbar_horizontal').show();
+                            $('.ios_device .scrollbar_horizontal .thumb').show();
+                        }
                     })
                 }
             }
-    
-            if( wW < 1903 ) {
-                tl.eventCallback('onComplete', function() {
-                    $('#section01 .history_cnt').addClass('scroll_x');
-                    gsap.set('#section01 .history_box', { x: 0})
-                    $('#section01 .history_cnt').scrollLeft(posX);
-                    $('.ios_device .scrollbar_horizontal').show();
-                    $('.ios_device .scrollbar_horizontal .thumb').show();
-                })
-            }
+            handleScrollX();
     
             $(window).on('resize', function() {
                 wW = $(window).outerWidth();
                 thumbWidth = (wW / imgWidth * 100);
-                if ($('body').hasClass('ios_device')) iosScrollX(wW, thumbWidth);
+                posX = imgWidth - wW;
+                if ($('body').hasClass('ios_device')) iosScrollX(wW, thumbWidth, posX);
                 if ( wW < 1903 ) {
                     $('#section01 .history_cnt').addClass('scroll_x');
                 } else {
@@ -320,13 +333,12 @@ BlueOrange = {
                 }
             })
             
-            function iosScrollX(wW, thumbWidth) {
-                thumb.css({ width: `${thumbWidth}%`, left: (imgWidth - wW) / wW})
+            function iosScrollX(wW, thumbWidth, posX) {
+                thumb.css({ width: `${thumbWidth}%`, left: posX - thumbWidth})
                 thumb.draggable({
                     containment: track,
                     "axis": 'x',
                     drag: function(e) {
-                        console.log(e);
                         $('#section01 .history_cnt').off('scroll');
                         $('#section01 .history_cnt').scrollLeft(thumb.offset().left);
                     },
@@ -344,8 +356,18 @@ BlueOrange = {
                 }
                 boxScroll();
             }
-            if ($('body').hasClass('ios_device')) iosScrollX(wW, thumbWidth);
+            if ($('body').hasClass('ios_device')) iosScrollX(wW, thumbWidth, posX);
         }
+    },
+    appHeight: function() {
+        function calc100vh() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        $(window).on('resize', function() {
+            calc100vh();
+        })
+        calc100vh();
     }
 }
 $(function () {

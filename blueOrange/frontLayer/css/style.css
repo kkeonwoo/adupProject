@@ -30,10 +30,13 @@ html { font-size: 10px;}
 #gnb .depth1_list .depth1_item .depth1_link:hover::after,
 #gnb .depth1_list .depth1_item .depth1_link.active::after { display: block;}
 
-.main_visual { height: 100vh;}
+.main_visual { height: calc(var(--vh, 1vh) * 100);}
 .main_visual .video { width: 100%; height:100%; object-fit: cover;}
 .main_visual .ico_box { position: absolute; bottom: 6.5rem; left: 50%; width: 4.4rem; height: 3.2rem; transform: translateX(-50%);}
+.main_visual .ico_box.sound { width: 3.6rem; height: 3.6rem; bottom: 7rem; left: 5rem; transform: translateX(0); cursor: pointer;}
 .main_visual .ico_box .ico { background-image: url('http://blorange17.cdn3.cafe24.com/icons/arw_bottom_white.png');}
+.main_visual .ico_box.sound .ico.ico_sound { background-image: url('../images/icons/ico_sound_on.png');}
+.main_visual .ico_box.sound.off .ico.ico_sound { background-image: url('../images/icons/ico_sound_off.png'); background-position: 3px center;}
 
 .sec { padding: 6rem 0 0;}
 .sec .inner { max-width: 128rem; margin: 0 auto;}
@@ -52,6 +55,7 @@ html { font-size: 10px;}
 #section01 .history_cnt.scroll_x { overflow-x: auto; overflow-y: hidden;}
 #section01 .history_box .history_list,
 #section01 .history_box #commerce { position: absolute; width: 204.90928495197437vh; height: 100%;}
+#section01 .history_box #commerce img { height: 100%;}
 #section01 .history_cnt.scroll_x .history_list { height: calc(100% + 16px);}
 #section01 .history_box .history_item { display: flex; flex-direction: column; align-items: center; position: absolute;}
 #section01 .history_box .history_item:nth-child(1) {left: 16.008537886872997vh; bottom: calc(118 / 937 * 100%);}
@@ -101,7 +105,7 @@ html { font-size: 10px;}
 #section04 .works_box .works_list .works_item .works_card span { font-family: inherit; font-weight: inherit; font-size: inherit; transition: color .4s;}
 #section04 .works_box .works_list .works_item.active .works_card span { color: var(--color-black);}
 #section04 .works_box .works_list .works_item .works_card b { display: inline-block; width: 100%; margin-top: 2rem; font-family: 'NanumSquare Neo', '굴림', serif; font-weight: 500; font-size: 3.3rem; transition: color .4s; letter-spacing: -0.08em;}
-#section04 .works_box .works_list .works_item.active .works_card b { color: var(--color-blue1);}
+#section04 .works_box .works_list .works_item.active .works_card b { font-weight: 900; color: var(--color-blue1);}
 #section04 .works_container .works_content { padding: 9rem 0; background-color: var(--color-white);}
 #section04 .works_container .works_content .works_cnt_list { display: grid; grid-template-columns: repeat(3, minmax(auto, 32rem)); justify-content: center; gap: 6rem;}
 #section04 .works_container .works_content .works_cnt_list .works_cnt_item { position: relative; border: 1px solid var(--color-gray1);}
@@ -119,7 +123,7 @@ html { font-size: 10px;}
     #section04 .works_box .works_list .works_item:hover .works_card:before { opacity: 1; visibility: visible; transform: scaleY(1);}
     #section04 .works_box .works_list .works_item:hover .works_card::after { background-image: url('http://blorange17.cdn3.cafe24.com/icons/ico_arw_right_blue.png'); animation: arw_down .6s infinite;}
     #section04 .works_box .works_list .works_item:hover .works_card span { color: var(--color-black);}
-    #section04 .works_box .works_list .works_item:hover .works_card b { color: var(--color-blue1);}
+    #section04 .works_box .works_list .works_item:hover .works_card b { font-weight: 900; color: var(--color-blue1);}
 }
 
 #footer { padding: 13.5rem 0 10.5rem; background-color: var(--color-black);}
@@ -176,7 +180,7 @@ html { font-size: 10px;}
 .people .welfare_box .welfare_list .welfare_item .welfare_content .welfare_ttl { margin-bottom: 1.5rem; font-weight: 800; font-size: 2.6rem;}
 .people .welfare_box .welfare_list .welfare_item .welfare_content .welfare_txt { font-weight: 300; font-size: 1.8rem;}
 
-.people .recruit_box { display: flex; flex-direction: column; align-items: center;}
+.people .recruit_box { display: flex; flex-direction: column; align-items: center; padding: 0 2rem;}
 .people .step_area { width: 100%;}
 .people .step_area .step_list { display: flex; justify-content: center; width: 100%;}
 .people .step_area .step_list .step_item { position: relative; width: 25%; text-align: center;}
@@ -201,7 +205,7 @@ html { font-size: 10px;}
 .people .field_area .field_item .field_header { width: 31.25%; padding: 0 2.5rem;}
 .people .field_area .field_item .field_header .field_ttl { font-weight: 900; font-size: 3rem; color: var(--color-blue1);}
 .people .field_area .field_item .field_body { padding-right: 2.5rem; flex: 1;}
-.people .field_area .field_item .field_body .field_txt { font-size: 2rem; line-height: 1.7; letter-spacing: -0.03em;}
+.people .field_area .field_item .field_body .field_txt { margin-top: -7px; font-size: 2rem; line-height: 1.7; letter-spacing: -0.03em;}
 .people .recruit_box .btn { width: 41.5rem; min-height: 7rem; margin-top: 2rem; font-weight: 700; font-size: 2rem;}
 .people .recruit_box .apply_address { margin-top: 2.5rem; font-size: 2.2rem; font-weight: 700;}
 
@@ -219,6 +223,10 @@ html { font-size: 10px;}
 .contact .form_container { margin-top: 7.5rem;}
 .contact .form_container .fancy_img_box { margin-top: 2.5rem;}
 .contact .form_container .btn { width: 100%; min-height: 7rem; margin-top: 6.5rem; border-radius: 5px; font-weight: 700; font-size: 2rem; letter-spacing: 0.1em;}
+
+@media all and (min-width:1921px) {
+    .people .img_list { padding: 10rem 0 6vw;}
+}
 
 @media all and (min-width: 1281px) {
     #section02 { padding-bottom: 12rem;}
@@ -285,8 +293,9 @@ html { font-size: 10px;}
     .sec .sec_ttl .ico.ico_symbol { width: 1.2rem; height: 1.5rem;}
 
     .main_visual { display: flex; align-items: center;}
-    .main_visual .video { height: unset;}
+    /* .main_visual .video { height: unset;} */
     .main_visual .ico_box { bottom: 1.5rem; width: 2rem; height: 1.6rem;}
+    .main_visual .ico_box.sound { width: 1.8rem; height: 1.8rem; bottom: 1.5rem; left: 2.5rem;}
     
     .about .sec .inner .sec_ttl + [class*="_box"] { margin-top: 6rem;}
     #section01 { min-height: 100vh;}
@@ -355,7 +364,7 @@ html { font-size: 10px;}
     .people .field_area .field_item .field_header { width: unset; padding: 0;}
     .people .field_area .field_item .field_header .field_ttl { font-size: 1.8rem;}
     .people .field_area .field_item .field_body { padding: 0;}
-    .people .field_area .field_item .field_body .field_txt { font-size: 1.2rem;}
+    .people .field_area .field_item .field_body .field_txt { margin-top: 0; font-size: 1.2rem;}
     .people .recruit_box .btn { width: 100%; min-height: 3.5rem; margin-top: 2.5rem; font-size: 1.4rem;}
     .people .recruit_box .apply_address { margin-top: 1.5rem; font-size: 1.3rem;}
 
@@ -364,11 +373,11 @@ html { font-size: 10px;}
     .contact .info_area { gap: 2.25rem; margin-top: 0;}
     .contact .info_area .info_box { width: 100%; min-height: unset; text-align: unset;}
     .contact .info_area .info_box::before { content: none;}
-    .contact .info_area .info_box dl { flex-direction: row; justify-content: start; gap: unset; padding: unset;}
+    .contact .info_area .info_box dl { flex-direction: row; justify-content: start; align-items: center; gap: unset; padding: unset;}
     .contact .info_area .info_box .address { margin-right: unset;}
     .contact .info_area .info_box .media { margin-left: unset;}
-    .contact .info_area .info_box dt { width: 30%; min-width: 10rem; font-size: 1.2rem;}
-    .contact .info_area .info_box dd { margin-top: unset; font-size: 1.2rem;}
+    .contact .info_area .info_box dt { width: 30%; min-width: 10rem; font-size: 1rem; line-height: 1.5;}
+    .contact .info_area .info_box dd { margin-top: unset; font-size: 1rem;}
     .contact .form_container { margin-top: 4.25rem;}
     .contact .form_container .fancy_img_box { margin-top: 1.25rem;}
     .contact .form_container .btn { min-height: 3.5rem; margin-top: 4.25rem; padding: 1rem; border-radius: 0.5rem; font-size: 1.3rem;}
