@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
     <meta name="og:title" content="블루오렌지커뮤니케이션즈" />
     <meta name="og:description" content="검색광고, 배너광고, 앱광고, 데이터 기반 디지털 광고 운영" />
@@ -44,19 +44,19 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="../frontLayer/css/package copy.css">
+    <link rel="stylesheet" href="/frontLayer/css/package.css">
     
-    <script src="../frontLayer/js/jquery-3.3.1.min.js"></script>
-    <script src="../frontLayer/js/jquery-ui.min.js"></script>
-    <script src="../frontLayer/js/gsap.min.js"></script>
-    <script src="../frontLayer/js/ScrollToPlugin.min.js"></script>
-    <script src="../frontLayer/js/ScrollTrigger.min.js"></script>
+    <script src="/frontLayer/js/jquery-3.3.1.min.js"></script>
+    <script src="/frontLayer/js/jquery-ui.min.js"></script>
+    <script src="/frontLayer/js/gsap.min.js"></script>
+    <script src="/frontLayer/js/ScrollToPlugin.min.js"></script>
+    <script src="/frontLayer/js/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js" integrity="sha512-8AjW5l765ApzGk1tv9UXvcf0+CPrvJlFtmf6pPLM3AWcPM8+9aOSTjw29Sq7bQ/HJdqGjnQ3s8ztg8+ceZqwPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/MotionPathPlugin.min.js"></script>
-    <script src="../frontLayer/js/swiper.min.js"></script>
-    <script src="../frontLayer/js/fn.js"></script>
-    <script src="../frontLayer/js/common.js?v=29"></script>
-    <script src="../frontLayer/js/popupData.js"></script>
+    <script src="/frontLayer/js/swiper.min.js"></script>
+    <script src="/frontLayer/js/fn.js"></script>
+    <script src="/frontLayer/js/common.js?v=87"></script>
+    <script src="/frontLayer/js/popupData.js"></script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -704,6 +704,15 @@
     </div>
 
     <script>
+        $('.video').hide();
+        $('.video').get(0).pause();
+        $(window).on('load',function(){
+            $('.video').get(0).play();
+            $('.video').attr('style', null);
+        }); 
+    </script>
+
+    <script>
         $(document).ready(function() {
             const work = {
                 cateArr: [],
@@ -838,6 +847,16 @@
                                         spaceBetween: 30,
                                     }
                                 },
+                                on: {
+                                    realIndexChange: function(swiper) {
+                                        const activeSwiper = $('.works_item.swiper-slide-active');
+                                        let activeSwiperIdx = activeSwiper.index();
+                                        const bullet = $('.works_box .swiper-pagination-bullet');
+                                        
+                                        bullet.removeClass('swiper-pagination-bullet-active');
+                                        bullet.eq(swiper.realIndex).addClass('swiper-pagination-bullet-active');
+                                    }
+                                }
                             })
                         }
                     }
@@ -859,6 +878,8 @@
                     breakpoint.addListener(breakpointChecker);
 
                     breakpointChecker();
+
+                   
                 },
                 handleSound: function () {
                     $('.main_visual .ico_box.sound').on('click', function() {
@@ -870,7 +891,7 @@
                             $('.main_visual .video').prop('muted', false);
                         }
                     })
-                }
+                },
             }
             work.init();
         })

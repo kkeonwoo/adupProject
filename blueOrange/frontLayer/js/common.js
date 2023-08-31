@@ -39,6 +39,8 @@ BlueOrange = {
         BlueOrange.moveSection();
         BlueOrange.goToTop();
         BlueOrange.aniHistory();
+        BlueOrange.handleUnit();
+        // BlueOrange.test();
     },
     gnb : function() {
         const $gnb = $('#gnb'),
@@ -187,12 +189,6 @@ BlueOrange = {
                 overwrite: "auto",
                 onComplete() {
                     BlueOrange.scrolling.enable();
-                    if ( $('html, body').hasClass('scroll_down') ) {
-                        ScrollTrigger.normalizeScroll(false);
-                    } else {
-                        ScrollTrigger.normalizeScroll(true);
-                    }
-                    console.log(ScrollTrigger.normalizeScroll());
                 },
                 duration: 1,
             });
@@ -204,6 +200,8 @@ BlueOrange = {
         gsap.registerPlugin(ScrollTrigger);
         
         const panels = document.querySelectorAll(".motion_panel");
+        let prot = true;
+        let newProt = false;
 
         ScrollTrigger.batch(panels,{
             trigger: panels,
@@ -211,17 +209,54 @@ BlueOrange = {
             end: "bottom top+=1",
             onEnter: (batch) => {
                 if ($(batch).attr('id') == "motion02") {
+                    if ( $('body').hasClass('kakao') ) return;
                     BlueOrange.goToSection(batch);
                 }
             },
             onEnterBack: (batch) => {
-                BlueOrange.goToSection(batch);
+                if ( $('body').hasClass('kakao') ) {
+                    if(!prot) return;
+                    prot = false;
+                    newProt = true;
+                    gsap.to(window, {duration:1, scrollTo: $('#motion01').offset().top, overwrite: "auto", onComplete: () => {prot = true; newProt = false; $('body').removeClass('hidden');}})
+                } else {
+                    BlueOrange.goToSection(batch);
+                }
             },
-            onUpdate: () => fn.isScrollTop(),
+            onUpdate: () => {
+                fn.isScrollTop();
+            },
         });
 
         if (!fn.exists('.about')) return;
-        ScrollTrigger.normalizeScroll(true);
+        
+        if (navigator.userAgent.indexOf("KAKAO") > -1) {
+            $('body').addClass('kakao');
+        }
+
+        fnNormlizeScr();
+        function fnNormlizeScr() {
+            if ( $('html, body').hasClass('scroll_down') ) {
+                ScrollTrigger.normalizeScroll(false);
+            } else {
+                if ( $('body').hasClass('kakao') ) {
+                    ScrollTrigger.normalizeScroll(false);
+                } else {
+                    ScrollTrigger.normalizeScroll(true);
+                }
+            }
+        }
+        console.log(ScrollTrigger.normalizeScroll());
+
+        if ( !$('body').hasClass('kakao')) return;
+        $(window).on('scroll', function() {
+            if ($(window).scrollTop() > 0 && $(window).scrollTop() < $(window).outerHeight() / 2 && !newProt && prot) {
+                $('body').addClass('hidden');
+                prot = false;
+                newProt = true;
+                gsap.to(window, {duration:1, scrollTo: $('#motion02').offset().top, overwrite: "auto", onComplete: () => {prot = true; newProt = false; $('body').removeClass('hidden');}})
+            }
+        })
     },
     goToTop : function() {
         $('.float_area .btn').on('click', function() {
@@ -231,13 +266,14 @@ BlueOrange = {
     aniHistory: function() {
         if (!fn.exists('.about')) return;
         let prot = true;
-        $(window).on('scroll', function() {
-            let st = $(this).scrollTop();
-            if ( st >= $('.motion_panel').eq(1).offset().top && prot) {
-                init();
-                prot = false;
-            }
-        })
+        // $(window).on('scroll', function() {
+        //     let st = $('body').hasClass('kakao') ? $(this).scrollTop() + 100  : $(this).scrollTop();
+        //     if ( st >= $('.motion_panel').eq(1).offset().top && prot) {
+        //         init();
+        //         prot = false;
+        //     }
+        // })
+        init();
 
         function init() {
             const path = document.getElementById('path');
@@ -345,6 +381,79 @@ BlueOrange = {
             if ($('body').hasClass('ios_device')) iosScrollX(wW, thumbWidth, posX);
         }
     },
+    handleUnit: function() {
+        if ( !$('body').hasClass('kakao') ) return;
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    },
+    test: function() {
+        gsap.registerPlugin(ScrollTrigger);
+
+        if (navigator.userAgent.indexOf("KAKAO") > -1) {
+            $('body').addClass('kakao');
+        }
+
+        const locoScroll = new LocomotiveScroll({
+            el: document.querySelector(".smooth-scroll"),
+            smooth: true,
+            reloadOnContextChange: true,
+        });
+        locoScroll.on("scroll", ScrollTrigger.update);
+
+        ScrollTrigger.scrollerProxy(".smooth-scroll", {
+            scrollTop(value) {
+                return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+            },
+            getBoundingClientRect() {
+                return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+            },
+        });
+
+        const panels = document.querySelectorAll(".motion_panel");
+        let prot = true;
+        let newProt = false;
+
+        ScrollTrigger.create({
+            scroller: ".smooth-scroll",
+            trigger: panels[0],
+            start: 'top+=5 top',
+            end: 'top top',
+            markers: true,
+            onLeave: () => {
+                if(!prot) return;
+                prot = false;
+                setTimeout(() => {
+                    locoScroll.scrollTo(panels[1]);
+                    prot = true;
+                    $('html, body').addClass('scroll_down');
+                }, 100);
+                setTimeout(() => {
+                    BlueOrange.aniHistory();
+                }, 1000);
+            },
+        })
+
+        ScrollTrigger.create({
+            scroller: ".smooth-scroll",
+            trigger: panels[0],
+            start: 'bottom top',
+            end: 'top top',
+            markers: true,
+            onEnterBack: () => {
+                if(!prot) return;
+                prot = false;
+                setTimeout(() => {
+                    locoScroll.scrollTo(panels[0]);
+                    prot = true;
+                    $('html, body').removeClass('scroll_down');
+                }, 100);
+            },
+        })
+
+        ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+        
+        ScrollTrigger.refresh();
+    }
 }
 $(function () {
     BlueOrange.init();
