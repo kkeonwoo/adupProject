@@ -259,59 +259,89 @@ BlueOrange = {
         })
     },
     moveSection02 : function() {
+        const wheel = {
+            stop() {
+                let scroller = document.scrollingElement,
+                    overflow = scroller.style.overflowY;
+                scroller.style.overflowY = 'hidden';
+                if ($('body').hasClass('pc_device')) scroller.style.paddingRight = '16px';
+                setTimeout(() => {
+                    overflow ? (scroller.style.overflowY = overflow) : scroller.style.removeProperty('overflow-y')
+                    if ($('body').hasClass('pc_device')) scroller.style.paddingRight = 0;
+                }, 1);
+
+                window.addEventListener('wheel', wheel._prevent, {
+                    passive: false,
+                    capture: true,
+                });
+            },
+            start() {
+                window.removeEventListener('wheel', wheel._prevent, true);
+            },
+            _prevent: (e) => e.preventDefault(),
+        };
+
         fn.chkDevice();
 
-        gsap.registerPlugin(Observer, ScrollTrigger, ScrollToPlugin);
+        gsap.registerPlugin(ScrollTrigger);
         
-        let ob, st,
-            prot = true,
-            newProt = false;
-
+        const panels = document.querySelectorAll(".motion_panel");
+        let prot = true;
+        let newProt = false;
+        
         if (!fn.exists('.about')) return;
+        
+        if (navigator.userAgent.indexOf("KAKAO") > -1) {
+            $('body').addClass('kakao');
+        }
 
-        ob = Observer.create({
-            target: $('#motion01'),
-            type: "wheel,touch,pointer,scroll",
-            preventDefault: true,
-            wheelSpeed: -1,
-            onUp: () => {
-                setTimeout(() => {
-                    next();
-                }, 0);
+        if ( $('body').hasClass('kakao') ) {
+            ScrollTrigger.normalizeScroll(false);
+        } else {
+            ScrollTrigger.normalizeScroll(true);
+        }
+
+        ScrollTrigger.batch(panels,{
+            trigger: panels,
+            start: "top bottom-=1",
+            end: "bottom top+=1",
+            onEnter: (batch) => {
+                if ($(batch).attr('id') == "motion02") {
+                    setTimeout(() => {
+                        if ( $('body').hasClass('kakao') ) return;
+                        if(!prot) return;
+                        prot = false;
+                        newProt = true;
+                        ScrollTrigger.normalizeScroll(false);
+                        wheel.stop();
+                        gsap.to(window, {duration:1, scrollTo: $('#motion02').offset().top, overwrite: "auto", onComplete: () => {prot = true;newProt = false;wheel.start();}})
+                    }, 0);
+                }
             },
-        });
-
-        st = ScrollTrigger.create({
-            trigger: $('#motion01'),
-            end: "bottom top+=10",
             onEnterBack: () => {
                 setTimeout(() => {
                     if(!prot) return;
                     prot = false;
                     newProt = true;
-                    gsap.to(window, {
-                        duration: 1,
-                        scrollTo: $('#motion01').offset().top,
-                        overwrite: "auto",
-                        onComplete: () => {
-                            prot = true;
-                            newProt = false;
-                        }
-                    })
+                    wheel.stop();
+                    ScrollTrigger.normalizeScroll(true);
+                    gsap.to(window, {duration:1, scrollTo: 0, overwrite: "auto", onComplete: () => {prot = true; newProt = false;wheel.start();}})
                 }, 0);
             },
             onUpdate: () => {
                 fn.isScrollTop();
             },
         });
-        
-        function next() {
-            gsap.to(window, {
-                duration: 1,
-                scrollTo: $('#motion02').offset().top,
-                overwrite: "auto"
-            })
-        }
+
+        if ( !$('body').hasClass('kakao')) return;
+        $(window).on('scroll', function() {
+            if ($(window).scrollTop() > 0 && $(window).scrollTop() < $(window).outerHeight() / 2 && !newProt && prot) {
+                $('body').addClass('hidden');
+                prot = false;
+                newProt = true;
+                gsap.to(window, {duration:1, scrollTo: $('#motion02').offset().top, overwrite: "auto", onComplete: () => {prot = true; newProt = false; $('body').removeClass('hidden');}})
+            }
+        })
     },
     goToTop : function() {
         $('.float_area .btn').on('click', function() {
