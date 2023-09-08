@@ -36,12 +36,11 @@ BlueOrange = {
     init : function(){
         BlueOrange.gnb();
         BlueOrange.modal();
-        // BlueOrange.moveSection();
-        BlueOrange.moveSection02();
+        BlueOrange.moveSection();
+        // BlueOrange.moveSection02();
         BlueOrange.goToTop();
         BlueOrange.aniHistory();
         if ( $('body').hasClass('kakao') ) BlueOrange.handleUnit();
-        // BlueOrange.test();
     },
     gnb : function() {
         const $gnb = $('#gnb'),
@@ -463,74 +462,6 @@ BlueOrange = {
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
     },
-    test: function() {
-        gsap.registerPlugin(ScrollTrigger);
-
-        if (navigator.userAgent.indexOf("KAKAO") > -1) {
-            $('body').addClass('kakao');
-        }
-
-        const locoScroll = new LocomotiveScroll({
-            el: document.querySelector(".smooth-scroll"),
-            smooth: true,
-            reloadOnContextChange: true,
-        });
-        locoScroll.on("scroll", ScrollTrigger.update);
-
-        ScrollTrigger.scrollerProxy(".smooth-scroll", {
-            scrollTop(value) {
-                return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-            },
-            getBoundingClientRect() {
-                return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-            },
-        });
-
-        const panels = document.querySelectorAll(".motion_panel");
-        let prot = true;
-        let newProt = false;
-
-        ScrollTrigger.create({
-            scroller: ".smooth-scroll",
-            trigger: panels[0],
-            start: 'top+=5 top',
-            end: 'top top',
-            markers: true,
-            onLeave: () => {
-                if(!prot) return;
-                prot = false;
-                setTimeout(() => {
-                    locoScroll.scrollTo(panels[1]);
-                    prot = true;
-                    $('html, body').addClass('scroll_down');
-                }, 100);
-                setTimeout(() => {
-                    BlueOrange.aniHistory();
-                }, 1000);
-            },
-        })
-
-        ScrollTrigger.create({
-            scroller: ".smooth-scroll",
-            trigger: panels[0],
-            start: 'bottom top',
-            end: 'top top',
-            markers: true,
-            onEnterBack: () => {
-                if(!prot) return;
-                prot = false;
-                setTimeout(() => {
-                    locoScroll.scrollTo(panels[0]);
-                    prot = true;
-                    $('html, body').removeClass('scroll_down');
-                }, 100);
-            },
-        })
-
-        ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-        
-        ScrollTrigger.refresh();
-    }
 }
 $(document).ready(function() {
     BlueOrange.init();
