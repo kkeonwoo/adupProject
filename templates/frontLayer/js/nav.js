@@ -3,189 +3,136 @@
  * description : 네비게이션 등 메뉴에 관련된 JS
  * date : 2023-07-28
 ******************************************************** */
-/* *******************************************************
- * 구현 리스트
- * 모바일
-******************************************************** */
 
-let firstTabStop, lastTabStop;
-
-// gnb PC
+// // gnb PC
 let $header = $('#header'),
-$gnb = $('#gnb'),
-$gnbBg = $header.find('.gnb_overlay_bg'),
-$depth1List = $gnb.find('ul:eq(0)'),
-$depth1Item = $gnb.find('ul:eq(0)').children('li'),
-$depth2Item = $gnb.find('.depth2_area'),
-$focusableEl = $gnb.find('a');
-$focusableElLast = $focusableEl.last();
+	headerHt = $header.outerHeight(),
+	$gnb = $('#gnb'),
+	$firstItem = $gnb.find('a').first(),
+	$LastItem = $gnb.find('a').last(),
+	$depth1List = $gnb.find('.depth1_list'),
+	$depth1Item = $gnb.find('.depth1_item'),
+	$depth1Link = $depth1Item.children('a'),
+	$depth2Item = $gnb.find('.depth2_list');
 
-// gnb Mobile
-let $gnbM = $('#gnbM'),
-$btnMenuOpen = $('.menu_open'),
-$depth1ItemM,
-$depth2ItemM,
-$focusableElM,
-$focusableElLastM,
-menuState = false;
 
-Nav = {
+const Nav = {
 	init: function() {
-		// 모바일 버전
-		if(fn.exists('#gnbM')) {
-			if($gnbM.data('menu-clone')) {
-				Nav.cloneMenu();
-			}
-			Nav.toggleNavButton();
-			Nav.mobDepth2Click();
-			Nav.focusMobMenu();
-		}
+		$header.is('.type1') && this.type1();
+		$header.is('.type2') && this.type2();
+		$header.is('.type3') && this.type3();
+	},
+	type1: function() {
+		/**
+		 * nav open function
+		 * @param {event} e 
+		 * @param {dom} t 
+		 */
+		const openMenu = (e, t) => {
+			let dep1 = t ? t : e.currentTarget,
+				dep2 = $(dep1).find('.depth2_list'),
+				dep2Ht = fn.exists(dep2) && this.maxHeight(dep2);
 
-		// pc 버전
-		if($gnb.is('.total_menu')) {
-			// 통합 레이아웃
-			Nav.total();
-		} else if($gnb.is('.each_menu')) {
-			// 개별 레이아웃
-			Nav.each();
-		}
-	},
-	total: function() {
-		$gnbBg.css({ height: Nav.maxHeight($depth2Item) });
-		$depth2Item.css({ height: Nav.maxHeight($depth2Item) });
+			$header.children('div').css({ height: headerHt + dep2Ht });
+			$depth2Item.stop().hide();
+			$(dep2).stop().show();
+		};
+		const closeMenu = () => {
+			$header.children('div').css({ height: headerHt });
+			$depth2Item.stop().hide();
+		};
 
-		$depth1Item.on('mouseenter focusin', function() {
-			$header.addClass('gnb_open');
-			$(this).addClass('active').siblings().removeClass('active');
-			if(!$gnb.is('open')) {
-				$gnb.addClass('open');
-				$gnbBg.stop().slideDown();
-				$depth2Item.stop().show();
-			}
+		// open event
+		$depth1Item.on('mouseenter focusin', (e) => openMenu(e));
+		$depth1Link.on('keydown', function(e) {
+			let dep1Idx = $(this).closest('.depth1_item').index();
+			
+			if (e.keyCode === 9 && e.shiftKey) openMenu(e, $('.depth1_item').eq(dep1Idx - 1).get(0));
 		})
-		$header.on('mouseleave focusout', function(e) {
-			if(e.type == 'mouseleave' || e.target == $focusableElLast[0]) {
-				$header.removeClass('gnb_open');
-				$gnb.removeClass('open');
-				$gnbBg.stop().slideUp();
-				$depth2Item.stop().hide();
-				$depth1Item.removeClass('active');
-			}
-		})
-	},
-	each: function() {
-		$depth1Item.on('mouseenter focusin', function() {
-			$(this).addClass('active').siblings().removeClass('active');
-		})
-		$depth1Item.on('mouseleave', function() {
-			$(this).removeClass('active');
-		})
-		$focusableElLast.on('focusout', function() {
-			$depth1Item.removeClass('active');
-		})
-	},
-	cloneMenu: function() {
-		$depth1List.clone().appendTo($gnbM);
 
-		if(fn.exists($gnbM.find('ul'))) {
-			$depth1ItemM = $gnbM.find('ul:eq(0)').children('li'),
-			$depth2ItemM = $gnbM.find('.depth2_area'),
-			$focusableElM = $header.find('#gnbM a, .menu_open'),
-			$focusableElLastM = $focusableElM.last();
-		}
+		// close event
+		$header.on('mouseleave', closeMenu);
+		$firstItem.on('keydown', (e) => { if(e.keyCode === 9 && e.shiftKey) closeMenu(); })
+		$LastItem.on('focusout', closeMenu);
+	},
+	type2: function() {
+		let $depth2Wrap = $('.gnb_depth2_wrapper'),
+			$depth2List = $depth2Wrap.find('.depth2_list');
 
-		return $depth1ItemM, $depth2ItemM, $focusableElM, $focusableElLastM;
-	},
-	toggleNavButton: function() {
-		$btnMenuOpen.on('click', function() {
-			menuState ? Nav.closeMobMenu() : Nav.openMobMenu();
-		})
-	},
-	openMobMenu: function() {
-		menuState = true;
+		const openMenu = () => { $depth2Wrap.stop().slideDown(); }
+		const closeMenu = () => { $depth2Wrap.stop().slideUp(); }
+
+		// open event
+		$depth1Item.on('mouseenter focusin', openMenu);
+		$depth2Wrap.on('mouseenter', openMenu);
 		
-		if($gnbM.is('.gnb_full')) {
-			$gnbM.stop().slideDown();
-		} else if($gnbM.is('.gnb_slide')) {
-			$gnbM.stop().show("slide", { direction: "right" }, 400);
-		}
-		$header.addClass('gnb_mob_open');
-	},
-	closeMobMenu: function() {
-		menuState = false;
-		
-		if($gnbM.is('.gnb_full')) {
-			$gnbM.stop().slideUp();
-		} else if($gnbM.is('.gnb_slide')) {
-			$gnbM.stop().hide("slide", { direction: "right" }, 400);
-		}
-		Nav.closeMobDepth2();
-		$header.removeClass('gnb_mob_open');
-	},
-	mobDepth2Click: function() {
-		$depth1ItemM.on('click', function() {
-			if($(this).hasClass('active')) {
-				Nav.closeMobDepth2();
-			} else {
-				$(this).addClass('active').siblings().removeClass('active');
-				$depth2ItemM.stop().slideUp();
-				$(this).find('.depth2_area').stop().slideDown();
+		// close event
+		$depth1Item.on('mouseleave', closeMenu);
+		$depth2Wrap.on('mouseleave', closeMenu);
+
+		// focus event
+		$depth1Link.on('keydown', function (e) {
+			let dep1Idx = $(this).closest('.depth1_item').index();
+			console.log(dep1Idx);
+			
+			if ( e.keyCode === 9 ) {
+				if ( e.shiftKey ) {
+					if (dep1Idx > 0) {
+						e.preventDefault();
+						$depth2List.eq(dep1Idx - 1).find('li').last().find('.depth2_link').get(0).focus();
+					} 
+				} else {
+					e.preventDefault();
+					$depth2List.eq(dep1Idx).find('.depth2_link').get(0).focus();
+				}
 			}
 		})
-	},
-	closeMobDepth2: function() {
-		$depth1ItemM.removeClass('active');
-		$depth2ItemM.stop().slideUp();
-	},
-	focusMobMenu: function() {
-		firstTabStop = $btnMenuOpen,
-		lastTabStop = $focusableElLastM[0];
-
-		$focusableElM.each((idx, el) => {
-			$(el).on('keydown', function(e) {
-				Nav.trapTabKey(e);
+		$depth2List.each((idx, item) => {
+			let $depth2Item = $(item).find('li');
+			
+			$depth2Item.first().find('a').on('keydown', function(e) {
+				if ( e.keyCode === 9 && e.shiftKey ) {
+					e.preventDefault();
+					$('.depth1_item').eq(idx).find('a').focus();
+				}
+			})
+			$depth2Item.last().find('a').on('keydown', function(e) {
+				if ( e.keyCode === 9 && idx < $depth2List.length - 1 && !e.shiftKey) {
+					e.preventDefault();
+					$('.depth1_item').eq(idx + 1).find('a').focus();
+				}
 			})
 		})
+		$firstItem.on('keydown', (e) => { if(e.keyCode === 9 && e.shiftKey) closeMenu(); })
+		$LastItem.on('keydown', (e) => { if(e.keyCode === 9 && !e.shiftKey) closeMenu(); });
 	},
-	addClassName: function(object, className = 'active') {
-		$(object).addClass(className);
-	},
-	removeClassName: function(object, className = 'active') {
-		$(object).removeClass(className);
-	},
-	trapTabKey: function(e) {
-		// Check for TAB key press
-		if (e.keyCode === 9) {
-			// SHIFT + TAB
-			if (e.shiftKey) {
-				if (document.activeElement === firstTabStop) {
-					e.preventDefault();
-					lastTabStop.focus();
-				}
-			} else {
-				if (document.activeElement === lastTabStop) {
-					e.preventDefault();
-					firstTabStop.focus();
-				}
-			}
-		}
-		// ESCAPE
-		if (e.keyCode === 27) {
-			// mobile header event
-			$header.hasClass('gnb_mob_open') && Nav.closeMobMenu();
+	type3: function() {
+		const openMenu = (e) => {
+			let dep1 = e.currentTarget,
+				dep2 = $(dep1).find('.depth2_list');
 
-			firstTabStop.focus();
+			$depth2Item.stop().hide();
+			dep2.stop().show();
 		}
+		const closeMenu = () => {
+			$depth2Item.stop().hide();
+		}
+
+		$depth1Item.on('mouseenter focusin', (e) => openMenu(e));
+		$depth1Item.on('mouseleave', closeMenu);
+		$firstItem.on('keydown', (e) => { if(e.keyCode === 9 && e.shiftKey) closeMenu(); })
+		$LastItem.on('focusout', closeMenu);
 	},
-	maxHeight: function(object) {
-		const heightArray = object.map(function () {
+	maxHeight: function(obj) {
+		const heightArray = $(obj).map(function () {
 			return $(this).outerHeight(true);
-		}).get();
-		const maxHeight = Math.max.apply(Math, heightArray);
+		});
+		const maxHeight = Math.max(...heightArray);
 
 		return maxHeight;
 	}
 }
+
 $(function() {
 	Nav.init();
 })
