@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal scroll</title>
+
+    <link rel="stylesheet" href="../frontLayer/css/common.css">
+    <link rel="stylesheet" href="../frontLayer/css/package.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="../frontLayer/js/fn.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
+    <style>
+        .ver_swiper { position: relative;}
+        .ver_swiper .swiper { height: 345px; margin: 0 140px;}
+        .ver_swiper .swiper .swiper-slide { width: 300px; height: 300px; background-color: bisque;}
+        .ver_swiper .swiper_btn { position: absolute; top: 50%; width: 50px; height: 50px; background-color:burlywood; transform: translateY(-50%);}
+        .ver_swiper .swiper_btn.btn_prev { left: 0;}
+        .ver_swiper .swiper_btn.btn_next { right: 0;}
+
+        .ver_gsap .gsap_area { display: flex; align-items: center; height: 100vh; overflow: hidden;}
+        .ver_gsap .gsap_area::before { content: ''; display: block; position: fixed; top: 0; left: 50%; bottom: 0; width: 1px; height: 100%; background-color: red; transform: translateY(-50%);}
+        .ver_gsap .gsap_list { display: flex; gap: 30px; margin-top: 100px; margin-left: calc(50vw - 150px);}
+        .ver_gsap .gsap_item { flex-shrink: 0; width: 300px; height: 300px; background-color: chocolate;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+
+        <!-- <div class="ver_swiper">
+
+            <button type="button" class="swiper_btn btn_prev"></button>
+            
+            <div class="swiper">
+
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">1</div>
+                    <div class="swiper-slide">2</div>
+                    <div class="swiper-slide">3</div>
+                    <div class="swiper-slide">4</div>
+                    <div class="swiper-slide">5</div>
+                    <div class="swiper-slide">6</div>
+                    <div class="swiper-slide">7</div>
+                    <div class="swiper-slide">8</div>
+                    <div class="swiper-slide">9</div>
+                    <div class="swiper-slide">10</div>
+                </div>
+                
+            </div>
+
+            <button type="button" class="swiper_btn btn_next"></button>
+
+        </div>
+
+        <br><br> -->
+
+        <div class="ver_gsap">
+            <div class="gsap_area">
+                <div class="gsap_list">
+                    <div class="gsap_item">1</div>
+                    <div class="gsap_item">2</div>
+                    <div class="gsap_item">3</div>
+                    <div class="gsap_item">4</div>
+                    <div class="gsap_item">5</div>
+                    <div class="gsap_item">6</div>
+                    <div class="gsap_item">7</div>
+                    <div class="gsap_item">8</div>
+                    <div class="gsap_item">9</div>
+                    <div class="gsap_item">10</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            loopedSlides: 3,
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            centeredSlides: true,
+            navigation: {
+                prevEl: '.swiper_btn.btn_prev',
+                nextEl: '.swiper_btn.btn_next'
+            },
+            // 1. effect creative
+            effect: "creative",
+            // 2. creativeEffect option
+            creativeEffect: {
+                limitProgress: 3, // 진행 방향 측면 슬라이드 양 제한
+                prev: {
+                    translate: ['-110%', 22.5, 0],
+                },
+                next: {
+                    translate: ['110%', 22.5, 0],
+                },
+            }
+        })
+    </script>
+
+    <script>
+        const gsapArea = $('.gsap_area');
+        const gsapList = $('.gsap_list');
+        const gsapItem = $('.gsap_item');
+        const itemWidth = gsapItem.outerWidth();
+        const itemLength = gsapItem.length;
+        const itemGap = 30;
+        const maxX = (itemWidth + itemGap) * (itemLength - 1);
+
+        gsap.registerPlugin(ScrollTrigger);
+        
+        let tween = gsap.to(gsapList, {
+            x: -maxX,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: gsapArea,
+                pin: true,
+                scrub: 1,
+                end: maxX,
+            },
+        })
+
+        const tl = gsap.timeline({ paused: true })
+
+        tl.to(gsapItem, {
+            ease: 'power1.out', // 배치 모양 결정
+            y: -100,
+            duration: 1,
+            stagger: {
+                each: 0.25,
+                repeat: 1,
+                yoyo: true,
+                from: 0,
+            }
+        })
+        
+        // each가 0.25이므로 time이 1로 설정되면 첫번째 아이템은 y가 -100인 상태에서 시작 바로 repeat
+        tl.time(1);
+        
+        gsap.fromTo(tl,
+            { time: 1 },
+            {
+                // duration : gsapItem(10) * each(0.25) + duration(1) * repeat(1) = 4.25
+                // each가 0.25이므로 마찬가지로 1을 빼면 마지막 요소가 y가 -100인 상태로 끝날 수 있다
+                time: tl.duration() - 1,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: gsapList,
+                    start: `top+=150px 50%`,
+                    end: maxX,
+                    scrub: true,
+                },
+            }
+        )
+    </script>
+
+</body>
+</html>

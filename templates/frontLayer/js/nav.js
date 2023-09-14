@@ -73,7 +73,6 @@ const Nav = {
 		// focus event
 		$depth1Link.on('keydown', function (e) {
 			let dep1Idx = $(this).closest('.depth1_item').index();
-			console.log(dep1Idx);
 			
 			if ( e.keyCode === 9 ) {
 				if ( e.shiftKey ) {
