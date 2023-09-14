@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masonry layout</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+    <style>
+        .grid { max-width: 1200px; margin: 0 auto; overflow: hidden;}
+        .grid:after { content: ''; display: block; clear: both;}
+        .grid_sizer,
+        .grid_item { width: 100px;}
+        .grid_item { float: left; display: flex; justify-content: center; align-items: center; margin-bottom: 20px; border-radius: 10px;}
+        .grid_item:nth-child(4n) {background-color: antiquewhite;}
+        .grid_item:nth-child(4n - 1) {background-color: darkgoldenrod;}
+        .grid_item:nth-child(4n - 2) {background-color: aquamarine;}
+        .grid_item:nth-child(4n - 3) {background-color: cornflowerblue;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="grid">
+            <div class="grid_sizer"></div>
+            <div class="grid_item">1</div>
+            <div class="grid_item">2</div>
+            <div class="grid_item">3</div>
+            <div class="grid_item">4</div>
+            <div class="grid_item">5</div>
+            <div class="grid_item">6</div>
+            <div class="grid_item">7</div>
+            <div class="grid_item">8</div>
+            <div class="grid_item">9</div>
+            <div class="grid_item">10</div>
+            <div class="grid_item">11</div>
+            <div class="grid_item">12</div>
+            <div class="grid_item">13</div>
+            <div class="grid_item">14</div>
+            <div class="grid_item">15</div>
+            <div class="grid_item">16</div>
+            <div class="grid_item">17</div>
+            <div class="grid_item">18</div>
+            <div class="grid_item">19</div>
+            <div class="grid_item">20</div>
+        </div>
+    </div>
+
+    <script>
+        $('.grid_item').each((idx, item) => {
+            let height = Math.floor(Math.random() * 50 * idx) + 100
+
+            $(item).css({ height: height})
+        })
+
+        let $grid = $('.grid').masonry({
+            itemSelector: '.grid_item',
+            columnWidth: '.grid_sizer',
+            gutter: 20, // gap-x
+            // percentPosition: true,
+            transitionDuration: '0.4s',
+            isFitWidth: true, // 백분율 너비에서 사용 불가
+            // horizontalOrder: true, // card order : left -> right (if 'false' origin height)
+            // stagger: '0.25s'
+        })
+
+        imagesLoaded('.grid').on('progress', function () {
+            $grid.layout();
+        });
+
+        $(window).on('scroll', function() {
+            let st = $(window).scrollTop();
+            let sb = st + $(window).innerHeight();
+            let elems = appendElement();
+            
+            if ($(document).outerHeight() === sb) {
+                elems.forEach((el, idx) => {
+                    let $elems = $(el);
+                    $grid.append($elems).masonry('appended', $elems);
+                });
+            }
+        })
+
+        function appendElement() {
+            let num = $('.grid_item').length + 1;
+            const maxItem = 20;
+            const elems = [];
+            
+            for (let i = 0; i < maxItem; i++) {
+                let height = Math.floor(Math.random() * 50 * i) + 100;
+                const el = `<div class="grid_item" style="height:${height}px">${num + i}</div>`;
+
+                elems.push(el);
+            }
+
+            return elems;
+        }
+    </script>
+</body>
+</html>
