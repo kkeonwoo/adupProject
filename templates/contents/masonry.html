@@ -10,10 +10,11 @@
     <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 
     <style>
-        .grid { max-width: 1200px; margin: 0 auto; overflow: hidden;}
+        .container {max-width: 1200px; margin: 0 auto;}
+        .grid { margin: 0 auto; overflow: hidden;}
         .grid:after { content: ''; display: block; clear: both;}
         .grid_sizer,
-        .grid_item { width: 100px;}
+        .grid_item { width: 200px;}
         .grid_item { float: left; display: flex; justify-content: center; align-items: center; margin-bottom: 20px; border-radius: 10px;}
         .grid_item:nth-child(4n) {background-color: antiquewhite;}
         .grid_item:nth-child(4n - 1) {background-color: darkgoldenrod;}

@@ -23,10 +23,13 @@
         .ver_swiper .swiper_btn.btn_prev { left: 0;}
         .ver_swiper .swiper_btn.btn_next { right: 0;}
 
+        .ver_gsap { position: relative;}
         .ver_gsap .gsap_area { display: flex; align-items: center; height: 100vh; overflow: hidden;}
-        /* .ver_gsap .gsap_area::before { content: ''; display: block; position: fixed; top: 0; left: 50%; bottom: 0; width: 1px; height: 100%; background-color: red; transform: translateY(-50%);} */
+        .ver_gsap .gsap_area::before { content: ''; display: block; position: fixed; top: 0; left: 50%; bottom: 0; width: 1px; height: 100%; background-color: red; transform: translateY(-50%);}
         .ver_gsap .gsap_list { display: flex; gap: 30px; margin-top: 200px; margin-left: calc(50vw - 7.8125vw);}
         .ver_gsap .gsap_item { display: flex; justify-content: center; align-items: center; flex-shrink: 0;  width: 15.625vw; height: 33.222591362126245vh; background-color: chocolate;}
+        .ver_gsap .btn_wrap { position: fixed; top: 100vh; right: 0; transform: translateY(-100%);}
+        .ver_gsap .btn { height: 100px; border-radius: 100%; background-color: #ccc;}
     </style>
 </head>
 <body>
@@ -74,6 +77,11 @@
                     <div class="gsap_item">10</div>
                 </div>
             </div>
+
+            <div class="btn_wrap">
+                <button type="button" class="btn btn_prev"></button>
+                <button type="button" class="btn btn_next"></button>
+            </div>
         </div>
 
     </div>
@@ -112,8 +120,7 @@
         const itemLength = gsapItem.length;
         const itemGap = 30;
         let maxX = (itemWidth + itemGap) * (itemLength - 1);
-
-        gsap.registerPlugin(ScrollTrigger);
+        gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
         // 화면 리사이즈 트리거, 아이템 사이즈 재정의
         function windowResize() {
@@ -168,6 +175,40 @@
 
         // gsap refresh 성능 저하
         window.addEventListener("resize", windowResize);
+
+        let ItemNum = 0;
+        let isAni = false;
+        const btn = $('.btn_wrap .btn');
+
+        btn.on('click', (e) => moveItem(e));
+        function moveItem(e) {
+            e.preventDefault();
+
+            let moveX, idx;
+            let t = e.currentTarget; //bubbling
+            let st = $(window).scrollTop();
+            let snapPoint = [];
+
+            for (let i = 1; i < itemLength; i++) {
+                snapPoint.push((itemWidth + itemGap) * i);
+            }
+
+            function calcItemNum() {
+                if ($(t).hasClass('btn_prev') && ItemNum > 0) {
+                    --ItemNum
+                } else if (!$(t).hasClass('btn_prev') && ItemNum < itemLength) {
+                    ++ItemNum;
+                }
+                return idx = ItemNum;
+            }
+
+            if (isAni) return;
+            calcItemNum();
+            isAni = true;
+            moveX = (itemWidth + itemGap) * idx; // 스크롤과 상관 없이 아이템 가운데 위치
+            // moveX = $(t).hasClass('btn_prev') ? st - (itemWidth + itemGap) : st + (itemWidth + itemGap);
+            gsap.to(window, { scrollTo: { y: moveX }, overwrite: 'none', ease: "none", onComplete: () => {isAni = false;} })
+        }
     </script>
 
 </body>
