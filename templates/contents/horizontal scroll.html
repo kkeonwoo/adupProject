@@ -26,8 +26,8 @@
         .ver_gsap { position: relative;}
         .ver_gsap .gsap_area { display: flex; align-items: center; height: 100vh; overflow: hidden;}
         .ver_gsap .gsap_area::before { content: ''; display: block; position: fixed; top: 0; left: 50%; bottom: 0; width: 1px; height: 100%; background-color: red; transform: translateY(-50%);}
-        .ver_gsap .gsap_list { display: flex; gap: 30px; margin-top: 200px; margin-left: calc(50vw - 7.8125vw);}
-        .ver_gsap .gsap_item { display: flex; justify-content: center; align-items: center; flex-shrink: 0;  width: 15.625vw; height: 33.222591362126245vh; background-color: chocolate;}
+        .ver_gsap .gsap_list { display: flex; gap: 30px; margin-left: calc(50vw - 7.8125vw);}
+        .ver_gsap .gsap_item { display: flex; justify-content: center; align-items: center; flex-shrink: 0;  width: 15.625vw; height: 33.222591362126245vh; background-color: chocolate; transform: translateY(200px);}
         .ver_gsap .btn_wrap { position: fixed; top: 100vh; right: 0; transform: translateY(-100%);}
         .ver_gsap .btn { height: 100px; border-radius: 100%; background-color: #ccc;}
     </style>
@@ -128,7 +128,7 @@
             maxX = (itemWidth + itemGap) * (itemLength - 1);
             ScrollTrigger.update;
         }
-        
+
         let tween = gsap.to(gsapList, {
             x: -maxX,
             ease: 'none',
@@ -144,7 +144,7 @@
 
         tl.to(gsapItem, {
             ease: 'power1.out', // 배치 모양 결정
-            y: -200,
+            y: 0,
             duration: 1,
             stagger: {
                 each: 0.25,
@@ -166,9 +166,10 @@
                 ease: 'none',
                 scrollTrigger: {
                     trigger: gsapList,
-                    start: `top+=50px 50%`,
+                    start: `center 50%`,
                     end: maxX,
                     scrub: true,
+                    markers: true
                 },
             }
         )
@@ -178,37 +179,41 @@
 
         let ItemNum = 0;
         let isAni = false;
-        const btn = $('.btn_wrap .btn');
+        let moveX, itemNext, itemPrev;
+        let snapPoint = [];
 
-        btn.on('click', (e) => moveItem(e));
+        for (let i = 0; i < itemLength; i++) {
+            snapPoint.push((itemWidth + itemGap) * i);
+        }
+
+        function handleItem() {
+            let st = $(window).scrollTop();
+            let arrSnapNext = snapPoint.filter((data, idx) => st >= data);
+            let arrSnapPrev = snapPoint.filter((data, idx) => st <= data);
+            itemNext = arrSnapNext[arrSnapNext.length - 1];
+            itemPrev = arrSnapPrev[0];
+            
+            return itemNext, itemPrev;
+        }
+        function calcItemNum(t) {
+            handleItem();
+
+            moveX = $(t).hasClass('btn_prev') ? itemPrev - (itemWidth + itemGap) : itemNext + (itemWidth + itemGap);
+        }
+
         function moveItem(e) {
             e.preventDefault();
-
-            let moveX, idx;
             let t = e.currentTarget; //bubbling
-            let st = $(window).scrollTop();
-            let snapPoint = [];
-
-            for (let i = 1; i < itemLength; i++) {
-                snapPoint.push((itemWidth + itemGap) * i);
-            }
-
-            function calcItemNum() {
-                if ($(t).hasClass('btn_prev') && ItemNum > 0) {
-                    --ItemNum
-                } else if (!$(t).hasClass('btn_prev') && ItemNum < itemLength) {
-                    ++ItemNum;
-                }
-                return idx = ItemNum;
-            }
 
             if (isAni) return;
-            calcItemNum();
+            calcItemNum(t);
             isAni = true;
-            moveX = (itemWidth + itemGap) * idx; // 스크롤과 상관 없이 아이템 가운데 위치
-            // moveX = $(t).hasClass('btn_prev') ? st - (itemWidth + itemGap) : st + (itemWidth + itemGap);
             gsap.to(window, { scrollTo: { y: moveX }, overwrite: 'none', ease: "none", onComplete: () => {isAni = false;} })
         }
+
+        const btn = $('.btn_wrap .btn');
+        $(window).on('scroll', () => handleItem());
+        btn.on('click', (e) => moveItem(e));
     </script>
 
 </body>
