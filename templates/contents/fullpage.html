@@ -96,47 +96,37 @@
                 capture: true
             });
         },
-        start() {
-            window.removeEventListener('wheel', wheel._prevent, true);
-        },
+        start() { window.removeEventListener('wheel', wheel._prevent, true); },
         _prevent: (e) => e.preventDefault(),
     };
     
     gsap.registerPlugin(ScrollTrigger);
     // 모바일 주소 표시줄 표시, 숨김 방지 ( 최신 버전 ios 예외 )
     ScrollTrigger.normalizeScroll(true);
-
+    
     ScrollTrigger.create({
         trigger: '.motion_panel_01',
         start: 'top top',
         end: 'top+=10 top',
-        onLeave: () => {
-            setTimeout(() => {
-                if (!prot) return;
-                prot = false;
-                wheel.stop();
-                // pc 스크롤 통합 해지, mobile 주소 표시줄 숨김 방지
-                if ( $('html').hasClass('pc_device') ) ScrollTrigger.normalizeScroll(false);
-                // overwrite: 'auto' 충돌하는 트윈 종료
-                gsap.to(window, { duration: 1, scrollTo: $('.motion_panel_02').offset().top, overwrite:'auto', onComplete: () => {prot = true; wheel.start();}})
-            }, 0);
-        }
+        onLeave: () => prot && goToSection('.motion_panel_02'),
     })
 
     ScrollTrigger.create({
         trigger: '.motion_panel_01',
         start: 'bottom top',
         end: 'bottom top',
-        onEnterBack: () => {
-            setTimeout(() => {
-                if(!prot) return;
-                prot = false;
-                wheel.stop();
-                ScrollTrigger.normalizeScroll(true);
-                gsap.to(window, {duration:1, scrollTo: $('.motion_panel_01').offset().top, overwrite: "auto", onComplete: () => {prot = true; wheel.start();}})
-            }, 0);
-        }
+        onEnterBack: () => prot && goToSection('.motion_panel_01'),
     })
+
+    function goToSection(t) {
+        setTimeout(() => {
+            if(!prot) return;
+            prot = false;
+            wheel.stop();
+            if ( !hasClass('html','pc_device') ) ScrollTrigger.normalizeScroll(true);
+            gsap.to(window, {duration:1, scrollTo: $(t).offset().top, overwrite: "auto", onComplete: () => {prot = true; wheel.start();}})
+        }, 0);
+    }
     </script>
 </body>
 </html>

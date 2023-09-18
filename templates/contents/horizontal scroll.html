@@ -191,10 +191,10 @@
             let arrSnapNext = snapPoint.filter((data, idx) => st >= data);
             let arrSnapPrev = snapPoint.filter((data, idx) => st <= data);
             itemNext = arrSnapNext[arrSnapNext.length - 1];
-            itemPrev = arrSnapPrev[0];
-            
+            if (arrSnapPrev.length > 0) {itemPrev = arrSnapPrev[0];};
             return itemNext, itemPrev;
         }
+
         function calcItemNum(t) {
             handleItem();
 
@@ -212,8 +212,8 @@
         }
 
         const btn = $('.btn_wrap .btn');
-        $(window).on('scroll', () => handleItem());
         btn.on('click', (e) => moveItem(e));
+        $(window).on('scroll', () => handleItem());
     </script>
 
 </body>
