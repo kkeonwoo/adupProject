@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components</title>
+
+    <link rel="stylesheet" href="../frontLayer/css/common.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="../frontLayer/js/fn.js"></script>
+    <script src="../frontLayer/js/common.js"></script>
+
+    <style>
+        .wrap { width: 1200px; height: 200vh; margin: 0 auto; padding: 20px;}
+        .accordion .accordion_item { border: 1px solid #ccc;}
+        .accordion .accordion_item:first-child { border-top-left-radius: 10px; border-top-right-radius: 10px;}
+        .accordion .accordion_item:last-child { border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;}
+        .accordion .accordion_item + .accordion_item { border-top: unset;}
+        .accordion .accordion_item .accordion_header .accordion_btn { display: flex; align-items: center; position: relative; width: 100%; padding: 20px; font-size: 16px; text-align: left; transition: all .15s ease-in-out;}
+        .accordion .accordion_item .accordion_header .accordion_btn:not(.collapsed) { box-shadow: inset 0 -1px 0 #ccc;}
+        .accordion .accordion_item .accordion_header .accordion_btn::after { content: ''; display: inline-block; width: 15px; height: 15px; margin-left: auto; background-color: #000; transform: rotate(0deg); transition: all .4s;}
+        .accordion .accordion_item .accordion_header .accordion_btn:not(.collapsed)::after { background-color: red; transform: rotate(180deg);}
+        .accordion .accordion_item .accordion_collapse:not(.show) { display: none;}
+        .accordion .accordion_item .accordion_collapse .accordion_body { padding: 20px;}
+
+        .select_btn { width: 100%; padding: 20px; border: 1px solid #ccc; border-radius: 10px; text-align: unset;}
+        .option_area:not(.show) { display: none;}
+        .option_area.top {transform: translateY(-10px);}
+        .option_area .option_item.selected,
+        .option_area .option_item.active,
+        .option_area .option_item:focus { background-color: #ccc;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+
+        <div class="accordion">
+            <div class="accordion_item">
+                <h2 class="accordion_header">
+                    <button class="accordion_btn collapsed" type="button" aria-expanded="false" aria-controls="collapse01">accordion_header01</button>
+                </h2>
+                <div id="collapse01" class="accordion_collapse">
+                    <div class="accordion_body">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, odit.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, odit.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, odit.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, odit.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, odit.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, odit.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, odit.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, odit.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion_item">
+                <h2 class="accordion_header">
+                    <button class="accordion_btn collapsed" type="button" aria-expanded="false" aria-controls="collapse02">accordion_header02</button>
+                </h2>
+                <div id="collapse02" class="accordion_collapse">
+                    <div class="accordion_body">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, odit.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion_item">
+                <h2 class="accordion_header">
+                    <button class="accordion_btn collapsed" type="button" aria-expanded="false" aria-controls="collapse03">accordion_header03</button>
+                </h2>
+                <div id="collapse03" class="accordion_collapse">
+                    <div class="accordion_body">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, odit.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br><br>
+
+        <div class="form_select">
+            <button type="button" id="menu-button" class="select_btn" aria-expanded="false" aria-haspopup="true" aria-controls="menu-list">select box</button>
+            
+            <div id="menu-list" class="option_area" role="list" aria-orientation="vertical" aria-labelledby="menu-button">
+                <ul class="option_list" role="listbox">
+                    <li class="option_item selected" role="option" aria-selected="true"><button class="option_btn" type="button">option01</button></li>
+                    <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option02</button></li>
+                    <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option03</button></li>
+                    <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option04</button></li>
+                    <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option05</button></li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <div class="form_select">
+            <button type="button" id="menu-button" class="select_btn" aria-expanded="false" aria-haspopup="true" aria-controls="menu-list">select box</button>
+            
+            <div id="menu-list" class="option_area" role="list" aria-orientation="vertical" aria-labelledby="menu-button">
+                <ul class="option_list" role="listbox">
+                    <li class="option_item selected" role="option" aria-selected="true"><button class="option_btn" type="button">select02 - option01</button></li>
+                    <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">select02 - option02</button></li>
+                    <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">select02 - option03</button></li>
+                    <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">select02 - option04</button></li>
+                    <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">select02 - option05</button></li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <div class="section">
+            <div class="content">
+
+                <button type="button" class="btn btn_primary modal_toggle" data-target="#modalTest02">컨턴츠가 넘칠때 모달 열기2</button>
+                <br/>
+                <br/>
+                
+                <div class="modal modal_close" id="modalTest02">
+                    <div class="modal_centered" tabindex="0">
+                        <div class="modal_box">
+                            <button type="button" class="btn_modal_close close">
+                                <span class="blind">닫기</span>
+                            </button>
+                            <div style="height: 100vh;"></div>
+                            modalTest02
+                            <br/>
+                            <br/>
+                            <div class="form_select">
+                                <button type="button" id="menu-button" class="select_btn" aria-expanded="false" aria-haspopup="true" aria-controls="menu-list">select box</button>
+                                
+                                <div id="menu-list" class="option_area" role="list" aria-orientation="vertical" aria-labelledby="menu-button">
+                                    <ul class="option_list" role="listbox">
+                                        <li class="option_item selected" role="option" aria-selected="true"><button class="option_btn" type="button">option01</button></li>
+                                        <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option02</button></li>
+                                        <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option03</button></li>
+                                        <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option04</button></li>
+                                        <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option05</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div style="height: 100vh;"></div>
+                            
+                            <div class="btn_wrap">
+                                <button type="button" class="btn btn_primary close">확인</button>
+                                <button type="button" class="btn btn_secondary close">취소</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const accordion = $('.accordion');
+        const accordionBtn = accordion.find('.accordion_btn');
+
+        function handleCollapse () {
+            let t = this;
+            let isExpanded = $(t).attr('aria-expanded');
+            let accordionCollapse = $(t).closest('.accordion_item').find('.accordion_collapse');
+            
+            if (fn.hasClass(t, 'collapsed')) {
+                // 이전 열린 영역 닫기
+                accordionBtn.addClass('collapsed');
+                accordionBtn.attr('aria-expanded', false);
+                $('.accordion_collapse').stop().slideUp(150).removeClass('show');
+                // 오픈
+                $(t).attr('aria-expanded', true);
+                $(t).removeClass('collapsed').focus();
+                accordionCollapse.stop().slideDown(150).addClass('show');
+            } else {
+                // 닫기
+                $(t).attr('aria-expanded', false);
+                $(t).addClass('collapsed').blur();
+                accordionCollapse.stop().slideUp(150).removeClass('show');
+            }
+        }
+
+        accordionBtn.on('click', handleCollapse);
+    </script>
+
+    <script>
+        const selectBox = $('.form_select');
+        let selectBtn = selectBox.find('.select_btn');
+        let optionArea = selectBox.find('.option_area');
+        const optionBtn = optionArea.find('.option_btn');
+        let lastSelected;
+
+        /**
+         * select 버튼 텍스트
+         * params : t (optionItem)
+        */
+        function handleBtnText(t) {
+            let selectedText = $(t).find('button').text();
+            let selectBtn = $(t).closest('.form_select').find('.select_btn');
+            
+            selectBtn.text(selectedText);
+        }
+
+        /**
+         * option 선택 시 클래스, 속성 부여
+         * params : initObj (optionItem)
+         * params : activeObj (optionItem of target)
+        */
+        function handleSelectOption(initObj, activeObj) {
+            $(initObj).removeClass('selected').attr('aria-selected', false);
+            $(activeObj).addClass('selected').attr('aria-selected', true);
+        }
+
+        /**
+         * option 선택 전 다른 이벤트 발생 시 닫기, 클래스, 속성 부여
+         * params : t (optionItem);
+        */
+        function initBeforeSelect(t) {
+            closeOption();
+            $(t).removeClass('selected').attr('aria-selected', false);
+            lastSelected.addClass('selected').attr('aria-selected', true);
+            handleBtnText(lastSelected);
+        }
+
+        // option area 열기
+        function showOption() {
+            let t = this;
+            let selectBtnHt = $(t).outerHeight();
+            let selectBtnTop = $(t).offset().top;
+            let selectBtnBottom = $(window).innerHeight() - ($(t).offset().top + $(t).outerHeight());
+            let optionArea = $(t).closest('.form_select').find('.option_area');
+            let optionItem = $(t).closest('.form_select').find('.option_item');
+            let optionAreaHt = optionArea.outerHeight();
+            
+            if (!fn.hasClass(optionArea, 'show')) {
+                selectBtn.attr('aria-expanded', false);
+                $('.option_area').removeClass('show');
+
+                // option 열기
+                $(t).attr('aria-expanded', true);
+                if (selectBtnBottom < optionAreaHt) {
+                    optionArea.addClass('top');
+                    optionArea.addClass('show').css('top', -optionAreaHt);
+                } else {
+                    optionArea.removeClass('top');
+                    optionArea.addClass('show').css('top', selectBtnHt);
+                }
+                lastSelected = optionItem.filter((idx, item) => fn.hasClass(item, 'selected') && item);
+                return lastSelected; // tracking selected item to opening option
+            } else {
+                closeOption();
+            }
+        }
+
+        // option area 닫기
+        function closeOption() {
+            selectBtn.attr('aria-expanded', false);
+            optionArea.removeClass('show top');
+        }
+
+        // optionBtn click event
+        function handleClickOption() {
+            let t = this;
+            let optionItem = $(t).closest('.option_item');
+            let selectBtn = $(t).closest('.form_select').find('.select_btn');
+
+            closeOption();
+            handleSelectOption(optionItem.siblings(), optionItem);
+            handleBtnText(optionItem);
+        }
+
+        // keyboard event
+        function handleKeyDown(e) {
+            let t = e.currentTarget;
+            let optionItem = $(t).closest('.form_select').find('.option_item');
+            let activeItem = $(t).closest('.form_select').find('.selected');
+            let activeIdx = activeItem.index();
+
+            if (e.keyCode === 38) {
+                // up
+                e.preventDefault();
+                if (activeIdx > 0) {
+                    handleSelectOption(optionItem, optionItem.eq(activeIdx - 1));
+                    handleBtnText(optionItem.eq(activeIdx - 1));
+                }
+            } else if (e.keyCode === 40) {
+                // down
+                e.preventDefault();
+                if (activeIdx < optionItem.length - 1) {
+                    handleSelectOption(optionItem, optionItem.eq(activeIdx + 1));
+                    handleBtnText(optionItem.eq(activeIdx + 1));
+                }
+            } else if (e.keyCode === 9 || e.keyCode === 27) {
+                // escape
+                fn.hasClass(optionArea, 'show') && initBeforeSelect(optionItem);
+            }
+        }
+
+        function handleHover() { 
+            $(this).closest('.option_item').addClass('selected').siblings().removeClass('selected');
+        }
+
+        selectBox.each((i, t) => {
+            let optionItem = $(t).find('.option_item');
+            let optionArea = $(t).find('.option_area');
+            let tParents = $(t).parents();
+
+            handleBtnText(optionItem[0]); // 초기값
+            // 부모 요소에 스크롤 이벤트 발생 시
+            if (tParents.css('overflow') === 'visible' || tParents.css('overflow') === 'auto') {
+                tParents.on('scroll', function() { setTimeout(() => fn.hasClass(optionArea, 'show') && initBeforeSelect(optionItem), 100); })
+            }
+        })
+
+        selectBtn.on('click', showOption);
+        selectBtn.on('keydown', (e) => handleKeyDown(e));
+        optionBtn.on('click', handleClickOption);
+        optionBtn.on('mouseover', handleHover);
+        $(window).on('scroll', () => closeOption());
+        $(window).on('click', function(e) { !$(e.target).closest('.form_select').length && closeOption(); })
+    </script>
+</body>
+</html>

@@ -35,7 +35,7 @@ $.namespace('ProjectName');
 ProjectName = {
     init : function(){
         ProjectName.tab();
-        ProjectName.select();
+        // ProjectName.select();
         ProjectName.modal();
         ProjectName.setSwiper();
         ProjectName.datepicker();

@@ -82,4 +82,7 @@ fn = {
         $('html, body').removeClass("hidden");
         $('body').css("paddingRight",0);
     },
+    hasClass(obj, className) {
+        return $(obj).hasClass(className);
+    }
 }

@@ -27,7 +27,7 @@
         .ver_gsap .gsap_area { display: flex; align-items: center; height: 100vh; overflow: hidden;}
         .ver_gsap .gsap_area::before { content: ''; display: block; position: fixed; top: 0; left: 50%; bottom: 0; width: 1px; height: 100%; background-color: red; transform: translateY(-50%);}
         .ver_gsap .gsap_list { display: flex; gap: 30px; margin-left: calc(50vw - 7.8125vw);}
-        .ver_gsap .gsap_item { display: flex; justify-content: center; align-items: center; flex-shrink: 0;  width: 15.625vw; height: 33.222591362126245vh; background-color: chocolate; transform: translateY(200px);}
+        .ver_gsap .gsap_item { display: flex; justify-content: center; align-items: center; flex-shrink: 0;  width: 15.625vw; height: 33.222591362126245vh; background-color: chocolate; transform: translateY(400px);}
         .ver_gsap .btn_wrap { position: fixed; top: 100vh; right: 0; transform: translateY(-100%);}
         .ver_gsap .btn { height: 100px; border-radius: 100%; background-color: #ccc;}
     </style>
@@ -134,8 +134,8 @@
             ease: 'none',
             scrollTrigger: {
                 trigger: gsapArea,
-                pin: true,
-                scrub: 1,
+                pin: !0,
+                scrub: 0,
                 end: maxX,
             },
         })
@@ -158,7 +158,8 @@
         tl.time(1);
         
         gsap.fromTo(tl,
-            { time: 1 },
+            { 
+                time: 1 },
             {
                 // duration : gsapItem(10) * each(0.25) + duration(1) * repeat(1) = 4.25
                 // each가 0.25이므로 마찬가지로 1을 빼면 마지막 요소가 y가 -100인 상태로 끝날 수 있다
@@ -190,7 +191,7 @@
             let st = $(window).scrollTop();
             let arrSnapNext = snapPoint.filter((data, idx) => st >= data);
             let arrSnapPrev = snapPoint.filter((data, idx) => st <= data);
-            itemNext = arrSnapNext[arrSnapNext.length - 1];
+            if (arrSnapNext.length <= snapPoint.length) itemNext = arrSnapNext[arrSnapNext.length - 1];
             if (arrSnapPrev.length > 0) {itemPrev = arrSnapPrev[0];};
             return itemNext, itemPrev;
         }
