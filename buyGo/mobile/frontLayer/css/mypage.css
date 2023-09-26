@@ -1272,7 +1272,7 @@ div[class*="modal_password"] .inc_form .timer { position: absolute; right: 0; wi
   .mypage_lnb_panel .depth1_list .depth1_item:last-child { border-bottom: 1px solid var(--fn-gray-500);}
   [color-theme='dark'] .mypage_lnb_panel .depth2_list { background-color: var(--fn-gray-dark-600);}
   .mypage_lnb_panel .depth2_list .depth2_item { display: flex; padding: 17px 12px; justify-content: space-between; align-items: center;}
-  .mypage_lnb_panel .depth2_list .depth2_item::after { content: ''; display: inline-block; width: 25px; height: 25px; border: 1px solid var(--fn-gray-500); border-radius: 100%; background: url('../images/icons/arw_next_gray.svg') no-repeat center / auto 10px; cursor: pointer;}
+  .mypage_lnb_panel .depth2_list .depth2_item .btn_link { display: inline-block; width: 25px; height: 25px; border: 1px solid var(--fn-gray-500); border-radius: 100%; background: url('../images/icons/arw_next_gray.svg') no-repeat center / auto 10px; cursor: pointer;}
   .mypage_lnb_panel .depth2_list .depth2_item + .depth2_item { border-top: 1px solid var(--fn-gray-500);}
   .mypage_content_panel { padding: 27px 12px 32px;}
   [color-theme='dark'] .mypage_content_panel .form_tbl .d_md_bd_t th { border-top-color: var(--fn-gray-500);}

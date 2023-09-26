@@ -35,18 +35,14 @@ $.namespace('BuyGo');
 BuyGo = {
     init: function () {
         this.tab();
-        this.tab2();
         this.select();
         this.select2();
-        this.select3();
         this.modal();
         this.setSwiper();
         this.datepicker();
         this.nav();
         this.button();
-        // this.scrollTop();
         this.resize();
-        this.fileUpload();
         this.stickyHeader();
         
         //visual 닫기
@@ -74,16 +70,6 @@ BuyGo = {
             $('#' + activeTab).fadeIn();
         });
 
-    },
-    tab2: function () {
-        $('.initial_btn').on('click', (e) => {
-            e.preventDefault();
-    
-            let clickedValue = $(e.target).text();
-            let matchContent = $('.brand_list .initial_ttl:contains("' + clickedValue + '")')
-            $('.brand_list').hide();
-            matchContent.parent().show().addClass('active').siblings().removeClass('active');
-        })
     },
     select : function(){
         let $formSelect;
@@ -271,27 +257,6 @@ BuyGo = {
 
             $(this).parent('.dropdown_item').addClass('active').siblings().removeClass('active');
         });
-    },
-    select3: function () {
-        $formSelect = $('.filter_box .form_select.mobile');
-        $selectBtns = $formSelect.find('.form_btn');
-
-        $formSelect.each((idx, select) => {
-            const selectBtn = $selectBtns.eq(idx);
-            const checkbox = $(select).find('.option_item input[type="checkbox"]');
-            checkbox.each((i,option) => {
-                const selectBtnText = $(select).find('.form_btn').text();
-                $(option).on('change',() => {
-                    let selectedArr = [];
-                    const selectedOptions = checkbox.filter(':checked').map(function () {
-                        let optionVal = $(this).siblings('span').text()
-                        return selectedArr.push(optionVal);
-                    }).get();
-                    const selectedText = selectedOptions.length > 0 ? selectedArr.join(', ') : selectBtnText;;
-                    selectBtn.text(selectedText);
-                })
-            })
-        })
     },
     modal: function () {
         var $modal, $modalButton;
@@ -875,17 +840,6 @@ BuyGo = {
             }
         });
     },
-    // scrollTop: function () {
-    //     $(window).scroll(function () {
-    //         let windowTop = $(window).scrollTop();
-    //         if (windowTop > 0) {
-    //             $("body").addClass('scroll_down');
-    //         } else {
-    //             $("body").removeClass('scroll_down');
-    //         }
-    //         return windowTop;
-    //     });
-    // },
     address: function (address1, address2, address3) {
         new daum.Postcode({
             oncomplete: function (data) {
@@ -1063,58 +1017,6 @@ BuyGo = {
                 $("body").removeClass('scroll_down');
             }
             lastScrollTop = st;
-        }
-    },
-    fileUpload: function () {
-        $(document).on('change','.img_upload_area .upload_file', function (e) {
-            let $this = e.currentTarget;
-            let fileList = $($this).closest('.img_upload_area').find('.img_upload_list');
-            let fileItem = $($this).closest('.img_upload_area').find('.img_upload_item');
-            let fileArr = this.files;
-
-            $($this).closest('.img_upload_area').addClass('active');
-
-            if (this.files && this.files[0]) {
-                $.each(fileArr, function (idx, item) {
-                    if(idx >= 4) {
-                        return false;
-                    }
-                    const reader = new FileReader();
-                    reader.onload = function (e) {
-                        if(isImageFile(item.name)){
-                            fileItem.eq(idx).addClass('active').find('img').attr('src',`${e.target.result}`)
-                        } else {
-                            let fileName = getFilenameFromPath(item.name);
-                            const $txt = `
-                                <li class="txt_box">
-                                    <span class="txt" data-placeholder="">${fileName}</span>
-                                    <button type="button" class="btn btn_close_rounded"></button>
-                                </li>
-                            `;
-                            fileList.append($txt);
-                        }
-                    }
-                    reader.readAsDataURL(fileArr[idx]);
-                })
-            } 
-
-        })
-        
-        $(document).on('click', '.img_upload_area .btn', function (e) {
-            $(this).closest('.img_upload_item').removeClass('active');
-            $(this).closest('.img_upload_item').find('.img').attr('src','');
-            $(this).closest('.img_upload_item').find('.upload_file').val('');
-            $(this).closest('.txt_box').remove();
-        })
-
-        function isImageFile(filename) {
-            let extension = filename.split('.').pop().toLowerCase();
-            let imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp'];
-            return imageExtensions.indexOf(extension) > -1;
-        }
-
-        function getFilenameFromPath(path) {
-            return path.replace(/.*(\/|\\)/, '');
         }
     }
 }
