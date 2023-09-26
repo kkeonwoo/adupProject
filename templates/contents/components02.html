@@ -181,6 +181,7 @@
         const selectBox = $('.form_select');
         let selectBtn = selectBox.find('.select_btn');
         let optionArea = selectBox.find('.option_area');
+        let optionItem = selectBox.find('.option_item');
         const optionBtn = optionArea.find('.option_btn');
         let lastSelected;
 
@@ -203,17 +204,6 @@
         function handleSelectOption(initObj, activeObj) {
             $(initObj).removeClass('selected').attr('aria-selected', false);
             $(activeObj).addClass('selected').attr('aria-selected', true);
-        }
-
-        /**
-         * option 선택 전 다른 이벤트 발생 시 닫기, 클래스, 속성 부여
-         * params : t (optionItem);
-        */
-        function initBeforeSelect(t) {
-            closeOption();
-            $(t).removeClass('selected').attr('aria-selected', false);
-            lastSelected.addClass('selected').attr('aria-selected', true);
-            handleBtnText(lastSelected);
         }
 
         // option area 열기
@@ -250,6 +240,17 @@
         function closeOption() {
             selectBtn.attr('aria-expanded', false);
             optionArea.removeClass('show top');
+        }
+
+        /**
+         * option 선택 전 다른 이벤트 발생 시 닫기, 클래스, 속성 부여
+         * params : t (optionItem);
+        */
+        function initBeforeSelect(t) {
+            closeOption();
+            $(t).removeClass('selected').attr('aria-selected', false);
+            lastSelected.addClass('selected').attr('aria-selected', true);
+            handleBtnText(lastSelected);
         }
 
         // optionBtn click event
@@ -290,10 +291,6 @@
             }
         }
 
-        function handleHover() { 
-            $(this).closest('.option_item').addClass('selected').siblings().removeClass('selected');
-        }
-
         selectBox.each((i, t) => {
             let optionItem = $(t).find('.option_item');
             let optionArea = $(t).find('.option_area');
@@ -309,9 +306,23 @@
         selectBtn.on('click', showOption);
         selectBtn.on('keydown', (e) => handleKeyDown(e));
         optionBtn.on('click', handleClickOption);
-        optionBtn.on('mouseover', handleHover);
-        $(window).on('scroll', () => closeOption());
+        $(window).on('scroll', function(e) {
+            let optionArea = $(e.target).find('.option_area');
+
+            if(fn.hasClass(optionArea, 'show')) {
+                initBeforeSelect(optionItem);
+            }
+        });
         $(window).on('click', function(e) { !$(e.target).closest('.form_select').length && closeOption(); })
+    </script>
+
+    <script>
+        // 1. 버튼 클릭 -> 모달 오픈
+        // 2. 첫번째 포커스
+        // 3. 포커스 루프
+        // 4. 닫기
+        // 5. 딤드 클릭 닫기 옵션
+        // 6. 컨텐츠 넘칠 시
     </script>
 </body>
 </html>
