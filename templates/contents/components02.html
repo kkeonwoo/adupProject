@@ -7,11 +7,14 @@
 
     <link rel="stylesheet" href="../frontLayer/css/common.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <!-- 모바일 터치 인식. jquery-ui 다음 위치 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script src="../frontLayer/js/fn.js"></script>
     <script src="../frontLayer/js/common.js"></script>
 
     <style>
-        .wrap { width: 1200px; height: 200vh; margin: 0 auto; padding: 20px;}
+        .wrap { width: 1200px; margin: 0 auto; padding: 20px;}
         .accordion .accordion_item { border: 1px solid #ccc;}
         .accordion .accordion_item:first-child { border-top-left-radius: 10px; border-top-right-radius: 10px;}
         .accordion .accordion_item:last-child { border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;}
@@ -29,6 +32,18 @@
         .option_area .option_item.selected,
         .option_area .option_item.active,
         .option_area .option_item:focus { background-color: #ccc;}
+
+        .alert { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; border-radius: 10px; background-color: #ccc; color: #fff;}
+        .alert.alert-success {background-color: cornflowerblue;}
+        .alert.alert-fail {background-color: darksalmon;}
+        .alert.alert-error {background-color: indianred;}
+        .alert * { color: inherit;}
+        .alert .btn_close {width: 15px; height: 15px; background-color: #000;}
+
+        .draggable_section { position: relative; height: 600px; padding-top: 50px; background-color: #ccc; overflow: hidden;}
+        .draggable { height: 150px; /* content height */ top: calc(100% - 150px); /* content padding top */}
+        .draggable .box { position: absolute; width: 100%; height: 600px; padding: 50px 20px; background-color: khaki;}
+        .draggable .draggable_btn { position: absolute; top: 10px; left: calc(50% - 50px); width: 100px; height: 10px; padding: 0; border-radius: 10px; background-color: #000; opacity: 0.5; cursor: pointer;}
     </style>
 </head>
 <body>
@@ -146,183 +161,339 @@
             
             </div>
         </div>
+        <br><br>
+        <div class="alert_placeholder"></div>
+        <button type="button" data-type="success" class="btn btn_primary alert_btn">alert btn</button>
+        <br><br>
+        <div class="alert_placeholder"></div>
+        <button type="button" data-type="fail" class="btn btn_primary alert_btn">alert btn</button>
+        <br><br>
+        <div class="alert_placeholder"></div>
+        <button type="button" data-type="error" class="btn btn_primary alert_btn">alert btn</button>
+        <br><br>
+        <div class="section draggable_section">
+            <div class="draggable ui-widget-content">
+                <div class="box">
+                    <div type="button" class="draggable_btn"></div>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione quam ea molestias distinctio nulla veritatis earum, quos nam consequatur autem nostrum id eligendi repudiandae sit architecto nisi eum. Nobis, similique?
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        const container = $(".draggable_section");
+        const dragItem = $(".draggable");
+        dragItem.draggable({ 
+            containment: 'parent',
+            handle: '.draggable_btn',
+        })
+    </script>
 
     <script>
         const accordion = $('.accordion');
         const accordionBtn = accordion.find('.accordion_btn');
-
-        function handleCollapse () {
-            let t = this;
-            let isExpanded = $(t).attr('aria-expanded');
-            let accordionCollapse = $(t).closest('.accordion_item').find('.accordion_collapse');
-            
-            if (fn.hasClass(t, 'collapsed')) {
-                // 이전 열린 영역 닫기
-                accordionBtn.addClass('collapsed');
-                accordionBtn.attr('aria-expanded', false);
-                $('.accordion_collapse').stop().slideUp(150).removeClass('show');
-                // 오픈
-                $(t).attr('aria-expanded', true);
-                $(t).removeClass('collapsed').focus();
-                accordionCollapse.stop().slideDown(150).addClass('show');
-            } else {
-                // 닫기
-                $(t).attr('aria-expanded', false);
-                $(t).addClass('collapsed').blur();
-                accordionCollapse.stop().slideUp(150).removeClass('show');
+        const accordionFunc = {
+            init: () => {
+                accordionBtn.on('click', accordionFunc.handleCollapse);
+            },
+            handleCollapse: (e) => {
+                let t = e.currentTarget;
+                let isExpanded = $(t).attr('aria-expanded');
+                let accordionCollapse = $(t).closest('.accordion_item').find('.accordion_collapse');
+                
+                if (fn.hasClass(t, 'collapsed')) {
+                    // 이전 열린 영역 닫기
+                    accordionBtn.addClass('collapsed').attr('aria-expanded', false);
+                    $('.accordion_collapse').stop().slideUp(150).removeClass('show');
+                    // 오픈
+                    $(t).removeClass('collapsed').attr('aria-expanded', true).focus();
+                    accordionCollapse.stop().slideDown(150).addClass('show');
+                } else {
+                    // 닫기
+                    $(t).addClass('collapsed').attr('aria-expanded', false).blur();
+                    accordionCollapse.stop().slideUp(150).removeClass('show');
+                }
             }
         }
-
-        accordionBtn.on('click', handleCollapse);
+        accordionFunc.init();
     </script>
 
     <script>
         const selectBox = $('.form_select');
+        let lastSelected;
         let selectBtn = selectBox.find('.select_btn');
         let optionArea = selectBox.find('.option_area');
         let optionItem = selectBox.find('.option_item');
         const optionBtn = optionArea.find('.option_btn');
-        let lastSelected;
 
-        /**
-         * select 버튼 텍스트
-         * params : t (optionItem)
-        */
-        function handleBtnText(t) {
-            let selectedText = $(t).find('button').text();
-            let selectBtn = $(t).closest('.form_select').find('.select_btn');
-            
-            selectBtn.text(selectedText);
-        }
+        const select = {
+            init: () => {
+                selectBox.each((i, t) => {
+                    let optionItem = $(t).find('.option_item');
+                    let optionArea = $(t).find('.option_area');
+                    let tParents = $(t).parents();
 
-        /**
-         * option 선택 시 클래스, 속성 부여
-         * params : initObj (optionItem)
-         * params : activeObj (optionItem of target)
-        */
-        function handleSelectOption(initObj, activeObj) {
-            $(initObj).removeClass('selected').attr('aria-selected', false);
-            $(activeObj).addClass('selected').attr('aria-selected', true);
-        }
+                    select.handleBtnText(optionItem[0]); // 초기값
+                    // 부모 요소에 스크롤 이벤트 발생 시
+                    if (tParents.css('overflow') === 'visible' || tParents.css('overflow') === 'auto') {
+                        tParents.on('scroll', function() { setTimeout(() => fn.hasClass(optionArea, 'show') && select.initBeforeSelect(optionItem), 100); })
+                    }
+                })
 
-        // option area 열기
-        function showOption() {
-            let t = this;
-            let selectBtnHt = $(t).outerHeight();
-            let selectBtnTop = $(t).offset().top;
-            let selectBtnBottom = $(window).innerHeight() - ($(t).offset().top + $(t).outerHeight());
-            let optionArea = $(t).closest('.form_select').find('.option_area');
-            let optionItem = $(t).closest('.form_select').find('.option_item');
-            let optionAreaHt = optionArea.outerHeight();
-            
-            if (!fn.hasClass(optionArea, 'show')) {
+                selectBtn.on('click', function() {
+                    let t = this;
+                    let selectBtnHt = $(t).outerHeight();
+                    let selectBtnTop = $(t).offset().top;
+                    let selectBtnBottom = $(window).innerHeight() - ($(t).offset().top + $(t).outerHeight());
+                    let optionArea = $(t).closest('.form_select').find('.option_area');
+                    let optionItem = $(t).closest('.form_select').find('.option_item');
+                    let optionAreaHt = optionArea.outerHeight();
+                    
+                    if (!fn.hasClass(optionArea, 'show')) {
+                        selectBtn.attr('aria-expanded', false);
+                        $('.option_area').removeClass('show');
+
+                        // option 열기
+                        $(t).attr('aria-expanded', true);
+                        if (selectBtnBottom < optionAreaHt) {
+                            optionArea.addClass('top');
+                            optionArea.addClass('show').css('top', -optionAreaHt);
+                        } else {
+                            optionArea.removeClass('top');
+                            optionArea.addClass('show').css('top', selectBtnHt);
+                        }
+                        lastSelected = optionItem.filter((idx, item) => fn.hasClass(item, 'selected') && item);
+                        return lastSelected; // tracking selected item to opening option
+                    } else {
+                        select.closeOption();
+                    }
+                });
+
+                selectBtn.on('keydown', (e) => {
+                    let t = e.currentTarget;
+                    let optionItem = $(t).closest('.form_select').find('.option_item');
+                    let activeItem = $(t).closest('.form_select').find('.selected');
+                    let activeIdx = activeItem.index();
+
+                    if (e.keyCode === 38) {
+                        // up
+                        e.preventDefault();
+                        if (activeIdx <= 0) return;
+                        select.handleSelectOption(optionItem, optionItem.eq(activeIdx - 1));
+                        select.handleBtnText(optionItem.eq(activeIdx - 1));
+                    } else if (e.keyCode === 40) {
+                        // down
+                        e.preventDefault();
+                        if (activeIdx >= optionItem.length - 1) return;
+                        select.handleSelectOption(optionItem, optionItem.eq(activeIdx + 1));
+                        select.handleBtnText(optionItem.eq(activeIdx + 1));
+                    } else if (e.keyCode === 9 || e.keyCode === 27) {
+                        // escape
+                        fn.hasClass(optionArea, 'show') && select.initBeforeSelect(optionItem);
+                    }
+                });
+
+                optionBtn.on('click', function() {
+                    let t = this;
+                    let optionItem = $(t).closest('.option_item');
+                    let selectBtn = $(t).closest('.form_select').find('.select_btn');
+
+                    select.closeOption();
+                    select.handleSelectOption(optionItem.siblings(), optionItem);
+                    select.handleBtnText(optionItem);
+                });
+
+                $(window).on('scroll', function(e) {
+                    let optionArea = $(e.target).find('.option_area');
+
+                    if (fn.hasClass(optionArea, 'show')) select.initBeforeSelect(optionItem);
+                });
+                
+                $(window).on('click touchmove', function(e) { !$(e.target).closest('.form_select').length && select.closeOption(); })
+            },
+            handleBtnText: (t) => {
+                let selectedText = $(t).find('button').text();
+                let selectBtn = $(t).closest('.form_select').find('.select_btn');
+                
+                selectBtn.text(selectedText);
+            },
+            handleSelectOption: (initObj, activeObj) => {
+                $(initObj).removeClass('selected').attr('aria-selected', false);
+                $(activeObj).addClass('selected').attr('aria-selected', true);
+            },
+            closeOption: () => {
                 selectBtn.attr('aria-expanded', false);
-                $('.option_area').removeClass('show');
-
-                // option 열기
-                $(t).attr('aria-expanded', true);
-                if (selectBtnBottom < optionAreaHt) {
-                    optionArea.addClass('top');
-                    optionArea.addClass('show').css('top', -optionAreaHt);
-                } else {
-                    optionArea.removeClass('top');
-                    optionArea.addClass('show').css('top', selectBtnHt);
-                }
-                lastSelected = optionItem.filter((idx, item) => fn.hasClass(item, 'selected') && item);
-                return lastSelected; // tracking selected item to opening option
-            } else {
-                closeOption();
-            }
+                optionArea.removeClass('show top');
+            },
+            initBeforeSelect: (t) => {
+                select.closeOption();
+                $(t).removeClass('selected').attr('aria-selected', false);
+                lastSelected.addClass('selected').attr('aria-selected', true);
+                select.handleBtnText(lastSelected);
+            },
         }
+        select.init();
+        // /**
+        //  * select 버튼 텍스트
+        //  * params : t (optionItem)
+        // */
+        // function handleBtnText(t) {
+        //     let selectedText = $(t).find('button').text();
+        //     let selectBtn = $(t).closest('.form_select').find('.select_btn');
+            
+        //     selectBtn.text(selectedText);
+        // }
 
-        // option area 닫기
-        function closeOption() {
-            selectBtn.attr('aria-expanded', false);
-            optionArea.removeClass('show top');
-        }
+        // /**
+        //  * option 선택 시 클래스, 속성 부여
+        //  * params : initObj (optionItem)
+        //  * params : activeObj (optionItem of target)
+        // */
+        // function handleSelectOption(initObj, activeObj) {
+        //     $(initObj).removeClass('selected').attr('aria-selected', false);
+        //     $(activeObj).addClass('selected').attr('aria-selected', true);
+        // }
 
-        /**
-         * option 선택 전 다른 이벤트 발생 시 닫기, 클래스, 속성 부여
-         * params : t (optionItem);
-        */
-        function initBeforeSelect(t) {
-            closeOption();
-            $(t).removeClass('selected').attr('aria-selected', false);
-            lastSelected.addClass('selected').attr('aria-selected', true);
-            handleBtnText(lastSelected);
-        }
+        // // option area 닫기
+        // function closeOption() {
+        //     selectBtn.attr('aria-expanded', false);
+        //     optionArea.removeClass('show top');
+        // }
 
-        // optionBtn click event
-        function handleClickOption() {
-            let t = this;
-            let optionItem = $(t).closest('.option_item');
-            let selectBtn = $(t).closest('.form_select').find('.select_btn');
+        // /**
+        //  * option 선택 전 다른 이벤트 발생 시 닫기, 클래스, 속성 부여
+        //  * params : t (optionItem);
+        // */
+        // function initBeforeSelect(t) {
+        //     closeOption();
+        //     $(t).removeClass('selected').attr('aria-selected', false);
+        //     lastSelected.addClass('selected').attr('aria-selected', true);
+        //     handleBtnText(lastSelected);
+        // }
 
-            closeOption();
-            handleSelectOption(optionItem.siblings(), optionItem);
-            handleBtnText(optionItem);
-        }
+        // selectBox.each((i, t) => {
+        //     let optionItem = $(t).find('.option_item');
+        //     let optionArea = $(t).find('.option_area');
+        //     let tParents = $(t).parents();
 
-        // keyboard event
-        function handleKeyDown(e) {
-            let t = e.currentTarget;
-            let optionItem = $(t).closest('.form_select').find('.option_item');
-            let activeItem = $(t).closest('.form_select').find('.selected');
-            let activeIdx = activeItem.index();
+        //     handleBtnText(optionItem[0]); // 초기값
+        //     // 부모 요소에 스크롤 이벤트 발생 시
+        //     if (tParents.css('overflow') === 'visible' || tParents.css('overflow') === 'auto') {
+        //         tParents.on('scroll', function() { setTimeout(() => fn.hasClass(optionArea, 'show') && initBeforeSelect(optionItem), 100); })
+        //     }
+        // })
 
-            if (e.keyCode === 38) {
-                // up
-                e.preventDefault();
-                if (activeIdx > 0) {
-                    handleSelectOption(optionItem, optionItem.eq(activeIdx - 1));
-                    handleBtnText(optionItem.eq(activeIdx - 1));
-                }
-            } else if (e.keyCode === 40) {
-                // down
-                e.preventDefault();
-                if (activeIdx < optionItem.length - 1) {
-                    handleSelectOption(optionItem, optionItem.eq(activeIdx + 1));
-                    handleBtnText(optionItem.eq(activeIdx + 1));
-                }
-            } else if (e.keyCode === 9 || e.keyCode === 27) {
-                // escape
-                fn.hasClass(optionArea, 'show') && initBeforeSelect(optionItem);
-            }
-        }
+        // selectBtn.on('click', function() {
+        //     let t = this;
+        //     let selectBtnHt = $(t).outerHeight();
+        //     let selectBtnTop = $(t).offset().top;
+        //     let selectBtnBottom = $(window).innerHeight() - ($(t).offset().top + $(t).outerHeight());
+        //     let optionArea = $(t).closest('.form_select').find('.option_area');
+        //     let optionItem = $(t).closest('.form_select').find('.option_item');
+        //     let optionAreaHt = optionArea.outerHeight();
+            
+        //     if (!fn.hasClass(optionArea, 'show')) {
+        //         selectBtn.attr('aria-expanded', false);
+        //         $('.option_area').removeClass('show');
 
-        selectBox.each((i, t) => {
-            let optionItem = $(t).find('.option_item');
-            let optionArea = $(t).find('.option_area');
-            let tParents = $(t).parents();
+        //         // option 열기
+        //         $(t).attr('aria-expanded', true);
+        //         if (selectBtnBottom < optionAreaHt) {
+        //             optionArea.addClass('top');
+        //             optionArea.addClass('show').css('top', -optionAreaHt);
+        //         } else {
+        //             optionArea.removeClass('top');
+        //             optionArea.addClass('show').css('top', selectBtnHt);
+        //         }
+        //         lastSelected = optionItem.filter((idx, item) => fn.hasClass(item, 'selected') && item);
+        //         return lastSelected; // tracking selected item to opening option
+        //     } else {
+        //         closeOption();
+        //     }
+        // });
 
-            handleBtnText(optionItem[0]); // 초기값
-            // 부모 요소에 스크롤 이벤트 발생 시
-            if (tParents.css('overflow') === 'visible' || tParents.css('overflow') === 'auto') {
-                tParents.on('scroll', function() { setTimeout(() => fn.hasClass(optionArea, 'show') && initBeforeSelect(optionItem), 100); })
-            }
-        })
+        // selectBtn.on('keydown', (e) => {
+        //     let t = e.currentTarget;
+        //     let optionItem = $(t).closest('.form_select').find('.option_item');
+        //     let activeItem = $(t).closest('.form_select').find('.selected');
+        //     let activeIdx = activeItem.index();
 
-        selectBtn.on('click', showOption);
-        selectBtn.on('keydown', (e) => handleKeyDown(e));
-        optionBtn.on('click', handleClickOption);
-        $(window).on('scroll', function(e) {
-            let optionArea = $(e.target).find('.option_area');
+        //     if (e.keyCode === 38) {
+        //         // up
+        //         e.preventDefault();
+        //         if (activeIdx <= 0) return;
+        //         handleSelectOption(optionItem, optionItem.eq(activeIdx - 1));
+        //         handleBtnText(optionItem.eq(activeIdx - 1));
+        //     } else if (e.keyCode === 40) {
+        //         // down
+        //         e.preventDefault();
+        //         if (activeIdx >= optionItem.length - 1) return;
+        //         handleSelectOption(optionItem, optionItem.eq(activeIdx + 1));
+        //         handleBtnText(optionItem.eq(activeIdx + 1));
+        //     } else if (e.keyCode === 9 || e.keyCode === 27) {
+        //         // escape
+        //         fn.hasClass(optionArea, 'show') && initBeforeSelect(optionItem);
+        //     }
+        // });
 
-            if(fn.hasClass(optionArea, 'show')) {
-                initBeforeSelect(optionItem);
-            }
-        });
-        $(window).on('click', function(e) { !$(e.target).closest('.form_select').length && closeOption(); })
+        // optionBtn.on('click', function() {
+        //     let t = this;
+        //     let optionItem = $(t).closest('.option_item');
+        //     let selectBtn = $(t).closest('.form_select').find('.select_btn');
+
+        //     closeOption();
+        //     handleSelectOption(optionItem.siblings(), optionItem);
+        //     handleBtnText(optionItem);
+        // });
+
+        // $(window).on('scroll', function(e) {
+        //     let optionArea = $(e.target).find('.option_area');
+
+        //     if (fn.hasClass(optionArea, 'show')) initBeforeSelect(optionItem);
+        // });
+        // $(window).on('click', function(e) { !$(e.target).closest('.form_select').length && closeOption(); })
     </script>
 
     <script>
-        // 1. 버튼 클릭 -> 모달 오픈
-        // 2. 첫번째 포커스
-        // 3. 포커스 루프
-        // 4. 닫기
-        // 5. 딤드 클릭 닫기 옵션
-        // 6. 컨텐츠 넘칠 시
+        const alertBtn = $('.alert_btn');
+        let closeAlertBtn = $('.alert_placeholder').find('.btn_close');
+        let alertPlaceholder = $('.alert_placeholder');
+        const alert = {
+            init: () => {
+                fn.exists(alertPlaceholder) && alertBtn.on('click', (e) => alert.appendAlert($(e.currentTarget).data('type'), e));
+            },
+            appendAlert: (type, evt) => {
+                let t = evt.currentTarget;
+                let alertPlaceholder = $(t).prev();
+                let mes;
+                switch (type) {
+                    case 'success': mes = 'sucess'; break;
+                    case 'fail': mes = 'fail'; break;
+                    case 'error': mes = 'error'; break;
+                };
+                const wrapper = `
+                <div class="alert alert-${type}" role="alert">
+                    <div>${mes}</div>
+                    <button type="button" class="btn_close" aria-label="Close"></button>
+                </div>`;
+                alertPlaceholder.html(wrapper);
+                closeAlertBtn = alertPlaceholder.find('.btn_close');
+                closeAlertBtn.focus();
+                fn.exists(alertPlaceholder) && closeAlertBtn.on('click', alert.closeAlert);
+            },
+            closeAlert: (evt) => {
+                let t = evt.currentTarget;
+                let alertPlaceholder = $(t).closest('.alert_placeholder');
+                let beforeFocusedElement = $(t).closest('.alert_placeholder').next();
+
+                $(beforeFocusedElement).focus();
+                alertPlaceholder.html('');
+            },
+        }
+        alert.init();
     </script>
 </body>
 </html>

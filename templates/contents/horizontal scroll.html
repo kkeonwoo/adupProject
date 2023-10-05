@@ -122,12 +122,12 @@
         let maxX = (itemWidth + itemGap) * (itemLength - 1);
         gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
-        // 화면 리사이즈 트리거, 아이템 사이즈 재정의
-        function windowResize() {
+        // gsap refresh 성능 저하
+        window.addEventListener("resize", () => {
             itemWidth = gsapItem.outerWidth();
             maxX = (itemWidth + itemGap) * (itemLength - 1);
             ScrollTrigger.update;
-        }
+        });
 
         let tween = gsap.to(gsapList, {
             x: -maxX,
@@ -175,46 +175,34 @@
             }
         )
 
-        // gsap refresh 성능 저하
-        window.addEventListener("resize", windowResize);
-
         let ItemNum = 0;
         let isAni = false;
         let moveX, itemNext, itemPrev;
         let snapPoint = [];
+        const btn = $('.btn_wrap .btn');
 
         for (let i = 0; i < itemLength; i++) {
             snapPoint.push((itemWidth + itemGap) * i);
         }
 
-        function handleItem() {
+        btn.on('click', (e) => {
+            e.preventDefault();
+            let t = e.currentTarget; //bubbling
+
+            if (isAni) return;
+            moveX = $(t).hasClass('btn_prev') ? itemPrev - (itemWidth + itemGap) : itemNext + (itemWidth + itemGap);
+            isAni = true;
+            gsap.to(window, { scrollTo: { y: moveX }, overwrite: 'none', ease: "none", onComplete: () => {isAni = false;} })
+        });
+
+        $(window).on('scroll', () => {
             let st = $(window).scrollTop();
             let arrSnapNext = snapPoint.filter((data, idx) => st >= data);
             let arrSnapPrev = snapPoint.filter((data, idx) => st <= data);
             if (arrSnapNext.length <= snapPoint.length) itemNext = arrSnapNext[arrSnapNext.length - 1];
             if (arrSnapPrev.length > 0) {itemPrev = arrSnapPrev[0];};
             return itemNext, itemPrev;
-        }
-
-        function calcItemNum(t) {
-            handleItem();
-
-            moveX = $(t).hasClass('btn_prev') ? itemPrev - (itemWidth + itemGap) : itemNext + (itemWidth + itemGap);
-        }
-
-        function moveItem(e) {
-            e.preventDefault();
-            let t = e.currentTarget; //bubbling
-
-            if (isAni) return;
-            calcItemNum(t);
-            isAni = true;
-            gsap.to(window, { scrollTo: { y: moveX }, overwrite: 'none', ease: "none", onComplete: () => {isAni = false;} })
-        }
-
-        const btn = $('.btn_wrap .btn');
-        btn.on('click', (e) => moveItem(e));
-        $(window).on('scroll', () => handleItem());
+        });
     </script>
 
 </body>

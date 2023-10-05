@@ -43,7 +43,7 @@ const Nav = {
 		};
 
 		// open event
-		$depth1Item.on('mouseenter focusin', (e) => openMenu(e));
+		$depth1Item.on('mouseenter focusin', openMenu);
 		$depth1Link.on('keydown', function(e) {
 			let dep1Idx = $(this).closest('.depth1_item').index();
 			
@@ -76,10 +76,9 @@ const Nav = {
 			
 			if ( e.keyCode === 9 ) {
 				if ( e.shiftKey ) {
-					if (dep1Idx > 0) {
-						e.preventDefault();
-						$depth2List.eq(dep1Idx - 1).find('li').last().find('.depth2_link').get(0).focus();
-					} 
+					if (dep1Idx <= 0) return;
+					e.preventDefault();
+					$depth2List.eq(dep1Idx - 1).find('li').last().find('.depth2_link').get(0).focus();
 				} else {
 					e.preventDefault();
 					$depth2List.eq(dep1Idx).find('.depth2_link').get(0).focus();
@@ -117,7 +116,7 @@ const Nav = {
 			$depth2Item.stop().hide();
 		}
 
-		$depth1Item.on('mouseenter focusin', (e) => openMenu(e));
+		$depth1Item.on('mouseenter focusin', openMenu);
 		$depth1Item.on('mouseleave', closeMenu);
 		$firstItem.on('keydown', (e) => { if(e.keyCode === 9 && e.shiftKey) closeMenu(); })
 		$LastItem.on('focusout', closeMenu);
