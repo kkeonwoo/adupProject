@@ -31,7 +31,7 @@ gv = {
             
             $('#fullpage').fullpage({
                 // sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C','#333'],
-                // responsiveWidth: 1200,
+                responsiveWidth: 1025,
                 // responsiveHeight : 800,
                 // navigation: true,
                 // navigationPosition: 'right',
@@ -41,14 +41,17 @@ gv = {
                 keyboardScrolling: true,
                 css3: true,
                 'onLeave': function (origin, destination, direction, trigger) {
-                    if (destination == 3 && direction == 'down') {
+                    let tl = gsap.timeline({defaults: {duration: 4,ease:'linear'}});
+                    // tl.progress(0);
+                    tl.paused(true);
+                    if (destination == 3) {
                         let path01 = document.getElementById('path01');
                         let path02 = document.getElementById('path02');
                         let offset01 = path01.getTotalLength();
                         let offset02 = path02.getTotalLength();
                         let coord = document.querySelectorAll('.ico_map');
-                        const tl = gsap.timeline({defaults: {duration: 4,ease:'linear'}});
-
+                        
+                        tl.restart();
                         tl.fromTo(path01, 
                             { strokeDashoffset: -offset01},
                             { strokeDashoffset: 0}
@@ -59,11 +62,12 @@ gv = {
                         ,'<')
                         .fromTo(coord, 
                             { autoAlpha: 0, scale: 0.5, duration: 1, ease: 'back.inOut(1.5)'},
-                            { autoAlpha: 1, scale: 1, duration: 1, ease: 'back.inOut(1.5)', stagger: { each: 0.2 }},
+                            { autoAlpha: 1, scale: 1, duration: 1, ease: 'back.inOut(1.5)', stagger: { each: 0.3 }},
                         '<')
-                        .to(coord, {
-                            y: 10, duration: 1, ease: 'linear', stagger: { each: 0.5, yoyo: true, repeat: -1, repeatDelay: 0.1 }
-                        }, '-=3')
+                        .fromTo(coord,
+                            { y: -10, duration: 1.5, ease: 'none', yoyo: true, repeat: -1,},
+                            { y: 10, duration: 1.5, ease: 'none', stagger: { each: 0.3, yoyo: true, repeat: -1, repeatRefresh: true, }},
+                        '<')
                     }
                 },
             });
@@ -112,12 +116,18 @@ gv = {
                 },
             });
             let swiperBiz = new Swiper(".swiper_biz", {
+                slidesPerView: 3,
                 slidesPerView: 'auto',
                 centeredSlides: true,
                 loop: true,
                 navigation: {
                     nextEl: ".swiper_biz_area .swiper-button-next",
                     prevEl: ".swiper_biz_area .swiper-button-prev",
+                },
+                breakpoints: {
+                    1024: {
+                        slidesPerView: 'auto',
+                    },
                 },
             });
 
@@ -218,6 +228,7 @@ gv = {
         init() {
             this.open();
             this.site();
+            this.mob();
         },
         open() {
             let $header = $('.header');
@@ -248,6 +259,41 @@ gv = {
                     fn.addHidden();
                 }
             })
+        },
+        mob() {
+            if ($(window).innerWidth() > 719) return;
+            $('html, body').addClass('mob');
+
+            let timer, delay = 300;
+            $(window).on('resize', function() {
+                clearTimeout(timer);
+                timer = setTimeout(() => {
+                    if ($(window).innerWidth() < 720) {
+                        $('html, body').addClass('mob');
+                    } else {
+                        $('html, body').removeClass('mob');
+                    }
+                }, delay);
+            })
+
+            if ($('html, body').hasClass('mob')) {
+                let $depth1_link = $('.depth1_link');
+
+                $depth1_link.on('click', function(e) {
+                    let t = e.currentTarget;
+                    if ($(t).siblings('.depth2_area').hasClass('open')) {
+                        $(t).siblings('.depth2_area').slideUp(400);
+                        $(t).siblings('.depth2_area').removeClass('open')
+                    } else {
+                        if ($(t).closest('.depth1_item').siblings().find('.depth2_area').hasClass('open')) {
+                            $(t).closest('.depth1_item').siblings().find('.depth2_area').slideUp(400);
+                            $(t).closest('.depth1_item').siblings().find('.depth2_area').removeClass('open');
+                        }
+                        $(t).siblings('.depth2_area').slideDown(400);
+                        $(t).siblings('.depth2_area').addClass('open')
+                    }
+                })
+            }
         }
     }
 }

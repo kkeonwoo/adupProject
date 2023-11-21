@@ -85,11 +85,15 @@ fn = {
         $('body').css("paddingRight", fn.getScrollBarWidth());
         $('.fixed').css("transform", `translate3d(-${fn.getScrollBarWidth()}px, 0,0)`);
         // $('.step_ftr .btn_area').css({marginLeft:`-${fn.getScrollBarWidth()/2}px`});
+        $('body').on('scroll touchmove mousewheel', function() {
+            return false;
+        });
     },
     removeHidden: function(){
         $('html, body').removeClass("hidden");
         $('body').css("paddingRight",0);
         $('.fixed').css("transform", `translate3d(0,0,0)`);
         // $('.step_ftr .btn_area').css({marginLeft:0});
+        $('body').off('scroll touchmove mousewheel');
     },
 }
