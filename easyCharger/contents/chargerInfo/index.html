@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../frontLayer/css/package.css">
+    <script src="../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../frontLayer/js/fn.js"></script>
+    <script src="../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:back_page -->
+        <div class="back_page">
+            <div class="back_inner">
+                <div class="back_hdr">
+                    <a href="#" class="back_btn" aria-label="뒤로가기"></a>
+                    <a href="#" class="share_btn" aria-label="공유하기"></a>
+                </div>
+                <div class="back_body">
+                    <div class="location_panel">
+                        <div class="location_item">
+                            <div class="location_info">
+                                <div class="ttl_area">
+                                    <div class="brand_box">
+                                        <i class="ico ico_ec"></i>
+                                        <span class="brand_name">충전사업자 명</span>
+                                    </div>
+                                    <b class="location_name">강남내곡 전기차충전소</b>
+                                    <button type="button" class="zzim_btn">
+                                        <i class="ico"></i>
+                                    </button>
+                                </div>
+                                <div class="count_area">
+                                    <span class="txt">완속 2/5</span>
+                                    <span class="txt">급속 6/20</span>
+                                </div>
+                                <div class="desc_area">
+                                    <span class="distance">10.7km</span>
+                                    <div class="address_box">
+                                        <span class="address">서울 강남구 강남내곡로 13길</span>
+                                        <button type="button" class="copy_btn" aria-label="복사" onclick="EasyCharger.notification.set('주소가 복사되었습니다.')" data-clipboard-text="서울 강남구 강남내곡로 13길"></button>
+                                    </div>
+                                </div>
+                                <ul class="lb_list">
+                                    <li class="lb_item">
+                                        <span class="txt">개방</span>
+                                    </li>
+                                    <li class="lb_item">
+                                        <span class="txt">완속</span>
+                                    </li>
+                                    <li class="lb_item">
+                                        <span class="txt">전기트럭전용</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="btn_area">
+                                <a href="#" class="btn btn_primary btn_sm">전화</a>
+                                <a href="#" class="btn btn_info btn_sm">길안내</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info_group">
+                        <div class="info_hdr">
+                            <h2 class="ttl">충전기 정보</h2>
+                            <a href="#" class="more_link" onclick="EasyCharger.openModal($('#modalEmpty'))">빈자리 신청 보기</a>
+                        </div>
+                        <div class="info_body">
+                            <div class="mark_area">
+                                <div class="split_box">
+                                    <div class="split">완속 (11kW)</div>
+                                    <div class="split">단독</div>
+                                </div>
+                                <div class="total_box">
+                                    <span class="current">3</span>
+                                    <span class="slash">/</span>
+                                    <span class="total">7</span>
+                                </div>
+                            </div>
+                            <ul class="charger_info_list">
+                                <li class="charger_info_item">
+                                    <div class="charger_info_box">
+                                        <a href="#" class="ico_btn ico_bell" onclick="EasyCharger.openModal($('#modalMsg2'))"></a>
+                                        <a href="#" class="charger_info_link disabled">
+                                            <div class="lo_box">
+                                                <span class="txt">충전 중</span>
+                                            </div>
+                                            <div class="lo_box">
+                                                <span class="txt">충전기번호 : 342901</span>
+                                                <span class="txt">2시간 경과</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="charger_info_item">
+                                    <div class="charger_info_box">
+                                        <a href="#" class="ico_btn ico_clock" onclick="EasyCharger.openModal($('#modalMsg'))"></a>
+                                        <a href="#" class="charger_info_link disabled">
+                                            <div class="lo_box">
+                                                <span class="txt">충전 가능</span>
+                                            </div>
+                                            <div class="lo_box">
+                                                <span class="txt">충전기번호 : 342901</span>
+                                                <span class="txt">2시간 경과</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="charger_info_item">
+                                    <div class="charger_info_box">
+                                        <a href="#" class="ico_btn ico_clock disabled"></a>
+                                        <a href="#" class="charger_info_link">
+                                            <div class="lo_box">
+                                                <span class="txt">충전 가능</span>
+                                            </div>
+                                            <div class="lo_box">
+                                                <span class="txt">충전기번호 : 342901</span>
+                                                <span class="txt">2시간 경과</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="charger_info_item">
+                                    <div class="charger_info_box">
+                                        <a href="#" class="ico_btn ico_clock disabled"></a>
+                                        <a href="#" class="charger_info_link">
+                                            <div class="lo_box">
+                                                <span class="txt">충전 가능</span>
+                                            </div>
+                                            <div class="lo_box">
+                                                <span class="txt">충전기번호 : 342901</span>
+                                                <span class="txt">2시간 경과</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="charger_info_item">
+                                    <div class="charger_info_box">
+                                        <a href="#" class="ico_btn ico_clock disabled"></a>
+                                        <a href="#" class="charger_info_link">
+                                            <div class="lo_box">
+                                                <span class="txt">충전 가능</span>
+                                            </div>
+                                            <div class="lo_box">
+                                                <span class="txt">충전기번호 : 342901</span>
+                                                <span class="txt">2시간 경과</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="more_area">
+                                <button type="button" class="more_btn">더보기</button>
+                            </div>
+                        </div>
+                        <div class="info_body">
+                            <div class="mark_area">
+                                <div class="split_box">
+                                    <div class="split">급속 (100kW)</div>
+                                    <div class="split">DC콤보, DC차데모, AC3상</div>
+                                </div>
+                                <div class="total_box">
+                                    <span class="current">3</span>
+                                    <span class="slash">/</span>
+                                    <span class="total">7</span>
+                                </div>
+                            </div>
+                            <ul class="charger_info_list">
+                                <li class="charger_info_item">
+                                    <div class="charger_info_box">
+                                        <a href="#" class="ico_btn ico_bell" onclick="EasyCharger.openModal($('#modalMsg2'))"></a>
+                                        <a href="#" class="charger_info_link disabled">
+                                            <div class="lo_box">
+                                                <span class="txt">충전 중</span>
+                                            </div>
+                                            <div class="lo_box">
+                                                <span class="txt">충전기번호 : 342901</span>
+                                                <span class="txt">2시간 경과</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="charger_info_item">
+                                    <div class="charger_info_box">
+                                        <a href="#" class="ico_btn ico_clock" onclick="EasyCharger.openModal($('#modalMsg'))"></a>
+                                        <a href="#" class="charger_info_link disabled">
+                                            <div class="lo_box">
+                                                <span class="txt">충전 가능</span>
+                                            </div>
+                                            <div class="lo_box">
+                                                <span class="txt">충전기번호 : 342901</span>
+                                                <span class="txt">2시간 경과</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="charger_info_item">
+                                    <div class="charger_info_box">
+                                        <a href="#" class="ico_btn ico_clock disabled"></a>
+                                        <a href="#" class="charger_info_link">
+                                            <div class="lo_box">
+                                                <span class="txt">충전 가능</span>
+                                            </div>
+                                            <div class="lo_box">
+                                                <span class="txt">충전기번호 : 342901</span>
+                                                <span class="txt">2시간 경과</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="charger_info_item">
+                                    <div class="charger_info_box">
+                                        <a href="#" class="ico_btn ico_clock disabled"></a>
+                                        <a href="#" class="charger_info_link">
+                                            <div class="lo_box">
+                                                <span class="txt">충전 가능</span>
+                                            </div>
+                                            <div class="lo_box">
+                                                <span class="txt">충전기번호 : 342901</span>
+                                                <span class="txt">2시간 경과</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="charger_info_item">
+                                    <div class="charger_info_box">
+                                        <a href="#" class="ico_btn ico_clock disabled"></a>
+                                        <a href="#" class="charger_info_link">
+                                            <div class="lo_box">
+                                                <span class="txt">충전 가능</span>
+                                            </div>
+                                            <div class="lo_box">
+                                                <span class="txt">충전기번호 : 342901</span>
+                                                <span class="txt">2시간 경과</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="more_area">
+                                <button type="button" class="more_btn">더보기</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info_group">
+                        <div class="info_hdr">
+                            <h2 class="ttl">충전 요금</h2>
+                            <a href="#" class="more_link">전체요금표</a>
+                        </div>
+                        <div class="info_body">
+                            <div class="charger_tbl_wrap">
+                                <table class="charger_tbl">
+                                    <colgroup>
+                                        <col/>
+                                        <col/>
+                                        <col/>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <td scope="row" rowspan="2">회원</td>
+                                            <td>완속</td>
+                                            <td>219원 / kWh</td>
+                                        </tr>
+                                        <tr>
+                                            <td>급속</td>
+                                            <td>350원 / kWh</td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td scope="row" rowspan="2">비회원</td>
+                                            <td>완속</td>
+                                            <td>400원 / kWh</td>
+                                        </tr>
+                                        <tr>
+                                            <td>급속</td>
+                                            <td>500원 / kWh</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="more_area">
+                                <button type="button" class="more_btn">더보기</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info_group">
+                        <div class="info_hdr">
+                            <h2 class="ttl">기본 정보</h2>
+                        </div>
+                        <div class="info_body">
+                            <ul class="info_list">
+                                <li class="info_item">
+                                    <span class="info_txt">운영기관 : 이지차저</span>
+                                </li>
+                                <li class="info_item">
+                                    <span class="info_txt">운영시간 : 00:00 ~ 24:00</span>
+                                </li>
+                                <li class="info_item">
+                                    <span class="info_txt">
+                                        주차요금 : 유료<br/>
+                                        : 1시간 무료 / 매 분당 500원
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info_group">
+                        <div class="info_hdr">
+                            <h2 class="ttl">이벤트</h2>
+                        </div>
+                        <div class="info_body">
+                            <div class="swiper swiper_evnet_bnr">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <a href="#" class="img_box">
+                                            <img class="img" src="../../frontLayer/images/@/@banner.jpg" alt="이지차저 구독서비스 신청하기 매월 50% 할인 충전">
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#" class="img_box">
+                                            <img class="img" src="../../frontLayer/images/@/@banner.jpg" alt="이지차저 구독서비스 신청하기 매월 50% 할인 충전">
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#" class="img_box">
+                                            <img class="img" src="../../frontLayer/images/@/@banner.jpg" alt="이지차저 구독서비스 신청하기 매월 50% 할인 충전">
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#" class="img_box">
+                                            <img class="img" src="../../frontLayer/images/@/@banner.jpg" alt="이지차저 구독서비스 신청하기 매월 50% 할인 충전">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fltg_dummy"></div>
+                <div class="fltg_ftr_wrap">
+                    <div class="btn_area">
+                        <a href="#" class="btn btn_info btn_lg">QR충전</a>
+                    </div>
+                    <div class="fltg_ftr">
+                        <ul class="fltg_list">
+                            <li class="fltg_item">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_home"></i>
+                                    <span class="txt">홈</span>
+                                </a>
+                            </li>
+                            <li class="fltg_item active">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_charger"></i>
+                                    <span class="txt">충전소찾기</span>
+                                </a>
+                            </li>
+                            <li class="fltg_item">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_timeline"></i>
+                                    <span class="txt">타임라인</span>
+                                </a>
+                            </li>
+                            <li class="fltg_item">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_user"></i>
+                                    <span class="txt">My</span>
+                                </a>
+                            </li>
+                            <li class="fltg_item">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_menu"></i>
+                                    <span class="txt">메뉴</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:back_page -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close pos_bottom" id="modalEmpty">
+            <div class="modal_centered">
+                <div class="modal_box type_chkall">
+                    <div class="modal_header type2">
+                        <a href="#" class="back_btn close">
+                            <h2 class="ttl">빈자리 알림 신청 내역 (5)</h2>
+                        </a>
+                    </div>
+                    <div class="modal_body inner_scroll">
+                        <div class="empty_group">
+                            <div class="ttl_area">
+                                <label class="form_check">
+                                    <input type="checkbox" class="form_check_input" name="check1" checked/>
+                                    <i class="ico"></i>
+                                </label>
+                                <a href="#" class="txt">강남내곡 전기차충전소</a>
+                            </div>
+                            <div class="charger_info_box">
+                                <a href="#" class="ico_btn ico_bell"></a>
+                                <a href="#" class="charger_info_link">
+                                    <div class="lo_box">
+                                        <span class="txt">충전 중</span>
+                                    </div>
+                                    <div class="lo_box">
+                                        <span class="txt">충전기번호 : 342901</span>
+                                        <span class="txt">2시간 경과</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="empty_group">
+                            <div class="ttl_area">
+                                <label class="form_check">
+                                    <input type="checkbox" class="form_check_input" name="check1"/>
+                                    <i class="ico"></i>
+                                </label>
+                                <a href="#" class="txt">강남내곡 전기차충전소</a>
+                            </div>
+                            <div class="charger_info_box">
+                                <a href="#" class="ico_btn ico_bell"></a>
+                                <a href="#" class="charger_info_link">
+                                    <div class="lo_box">
+                                        <span class="txt">충전 중</span>
+                                    </div>
+                                    <div class="lo_box">
+                                        <span class="txt">충전기번호 : 342901</span>
+                                        <span class="txt">2시간 경과</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="empty_group">
+                            <div class="ttl_area">
+                                <label class="form_check">
+                                    <input type="checkbox" class="form_check_input" name="check1"/>
+                                    <i class="ico"></i>
+                                </label>
+                                <a href="#" class="txt">강남내곡 전기차충전소</a>
+                            </div>
+                            <div class="charger_info_box">
+                                <a href="#" class="ico_btn ico_bell"></a>
+                                <a href="#" class="charger_info_link">
+                                    <div class="lo_box">
+                                        <span class="txt">충전 중</span>
+                                    </div>
+                                    <div class="lo_box">
+                                        <span class="txt">충전기번호 : 342901</span>
+                                        <span class="txt">2시간 경과</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="empty_group">
+                            <div class="ttl_area">
+                                <label class="form_check">
+                                    <input type="checkbox" class="form_check_input" name="check1"/>
+                                    <i class="ico"></i>
+                                </label>
+                                <a href="#" class="txt">강남내곡 전기차충전소</a>
+                            </div>
+                            <div class="charger_info_box">
+                                <a href="#" class="ico_btn ico_bell"></a>
+                                <a href="#" class="charger_info_link">
+                                    <div class="lo_box">
+                                        <span class="txt">충전 중</span>
+                                    </div>
+                                    <div class="lo_box">
+                                        <span class="txt">충전기번호 : 342901</span>
+                                        <span class="txt">2시간 경과</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="empty_group">
+                            <div class="ttl_area">
+                                <label class="form_check">
+                                    <input type="checkbox" class="form_check_input" name="check1"/>
+                                    <i class="ico"></i>
+                                </label>
+                                <a href="#" class="txt">강남내곡 전기차충전소</a>
+                            </div>
+                            <div class="charger_info_box">
+                                <a href="#" class="ico_btn ico_bell"></a>
+                                <a href="#" class="charger_info_link">
+                                    <div class="lo_box">
+                                        <span class="txt">충전 중</span>
+                                    </div>
+                                    <div class="lo_box">
+                                        <span class="txt">충전기번호 : 342901</span>
+                                        <span class="txt">2시간 경과</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="empty_group">
+                            <div class="ttl_area">
+                                <label class="form_check">
+                                    <input type="checkbox" class="form_check_input" name="check1"/>
+                                    <i class="ico"></i>
+                                </label>
+                                <a href="#" class="txt">강남내곡 전기차충전소</a>
+                            </div>
+                            <div class="charger_info_box">
+                                <a href="#" class="ico_btn ico_bell"></a>
+                                <a href="#" class="charger_info_link">
+                                    <div class="lo_box">
+                                        <span class="txt">충전 중</span>
+                                    </div>
+                                    <div class="lo_box">
+                                        <span class="txt">충전기번호 : 342901</span>
+                                        <span class="txt">2시간 경과</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="empty_group">
+                            <div class="ttl_area">
+                                <label class="form_check">
+                                    <input type="checkbox" class="form_check_input" name="check1"/>
+                                    <i class="ico"></i>
+                                </label>
+                                <a href="#" class="txt">강남내곡 전기차충전소</a>
+                            </div>
+                            <div class="charger_info_box">
+                                <a href="#" class="ico_btn ico_bell"></a>
+                                <a href="#" class="charger_info_link">
+                                    <div class="lo_box">
+                                        <span class="txt">충전 중</span>
+                                    </div>
+                                    <div class="lo_box">
+                                        <span class="txt">충전기번호 : 342901</span>
+                                        <span class="txt">2시간 경과</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="empty_group">
+                            <div class="ttl_area">
+                                <label class="form_check">
+                                    <input type="checkbox" class="form_check_input" name="check1"/>
+                                    <i class="ico"></i>
+                                </label>
+                                <a href="#" class="txt">강남내곡 전기차충전소</a>
+                            </div>
+                            <div class="charger_info_box">
+                                <a href="#" class="ico_btn ico_bell"></a>
+                                <a href="#" class="charger_info_link">
+                                    <div class="lo_box">
+                                        <span class="txt">충전 중</span>
+                                    </div>
+                                    <div class="lo_box">
+                                        <span class="txt">충전기번호 : 342901</span>
+                                        <span class="txt">2시간 경과</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="empty_group">
+                            <div class="ttl_area">
+                                <label class="form_check">
+                                    <input type="checkbox" class="form_check_input" name="check1"/>
+                                    <i class="ico"></i>
+                                </label>
+                                <a href="#" class="txt">강남내곡 전기차충전소</a>
+                            </div>
+                            <div class="charger_info_box">
+                                <a href="#" class="ico_btn ico_bell"></a>
+                                <a href="#" class="charger_info_link">
+                                    <div class="lo_box">
+                                        <span class="txt">충전 중</span>
+                                    </div>
+                                    <div class="lo_box">
+                                        <span class="txt">충전기번호 : 342901</span>
+                                        <span class="txt">2시간 경과</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="empty_group">
+                            <div class="ttl_area">
+                                <label class="form_check">
+                                    <input type="checkbox" class="form_check_input" name="check1"/>
+                                    <i class="ico"></i>
+                                </label>
+                                <a href="#" class="txt">강남내곡 전기차충전소</a>
+                            </div>
+                            <div class="charger_info_box">
+                                <a href="#" class="ico_btn ico_bell"></a>
+                                <a href="#" class="charger_info_link">
+                                    <div class="lo_box">
+                                        <span class="txt">충전 중</span>
+                                    </div>
+                                    <div class="lo_box">
+                                        <span class="txt">충전기번호 : 342901</span>
+                                        <span class="txt">2시간 경과</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="empty_group">
+                            <div class="ttl_area">
+                                <label class="form_check">
+                                    <input type="checkbox" class="form_check_input" name="check1"/>
+                                    <i class="ico"></i>
+                                </label>
+                                <a href="#" class="txt">강남내곡 전기차충전소</a>
+                            </div>
+                            <div class="charger_info_box">
+                                <a href="#" class="ico_btn ico_bell"></a>
+                                <a href="#" class="charger_info_link">
+                                    <div class="lo_box">
+                                        <span class="txt">충전 중</span>
+                                    </div>
+                                    <div class="lo_box">
+                                        <span class="txt">충전기번호 : 342901</span>
+                                        <span class="txt">2시간 경과</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal_ftr type_chkall">
+                        <label class="form_check">
+                            <input type="checkbox" class="form_check_input chkall" name="check1"/>
+                            <i class="ico"></i>
+                            <span class="form_check_txt">전체</span>
+                        </label>
+                        <div class="btn_area type2">
+                            <button type="button" class="btn btn_lg btn_outline_secondary close">해제</button>
+                            <button type="button" class="btn btn_lg btn_primary close">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close z_9100" id="modalMsg">
+            <div class="modal_centered">
+                <div class="modal_box">
+                    <div class="modal_body">
+                        <div class="modal_content">
+                            <p class="msg">
+                                충전기 빈자리가 생기면 알림을 보내드립니다.<br/>
+                                빈자리 알림을 신청하시겠습니까?
+                            </p>
+                        </div>
+                        <div class="btn_area">
+                            <button type="button" class="btn btn_md btn_outline_secondary close">취소</button>
+                            <button type="button" class="btn btn_md btn_primary close">신청하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close" id="modalMsg2">
+            <div class="modal_centered">
+                <div class="modal_box">
+                    <div class="modal_body">
+                        <div class="modal_content">
+                            <p class="msg">
+                                빈자리 알림 진행 중입니다.<br/>
+                                빈자리 알림을 해제하시겠습니까?
+                            </p>
+                        </div>
+                        <div class="btn_area">
+                            <button type="button" class="btn btn_md btn_outline_secondary close">취소</button>
+                            <button type="button" class="btn btn_md btn_primary close">해제하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+    </div>
+    <!-- e:wrapper -->
+
+</body>
+
+</html>

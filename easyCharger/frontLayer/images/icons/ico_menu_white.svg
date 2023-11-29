@@ -1,0 +1,18 @@
+<svg id="메뉴" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: red;
+        opacity: 0;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="56" height="56"/>
+  <rect class="cls-1" x="8" y="8" width="40" height="40"/>
+  <path class="cls-2" d="M1268,1077h32v4h-32v-4Zm0,11h24v4h-24v-4Zm0-22h32v4h-32v-4Z" transform="translate(-1256 -1051)"/>
+</svg>

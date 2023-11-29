@@ -34,3 +34,13 @@ button {
   font-size: 2rem;
   width: 100px;
 }
+/* 
+#route {
+  stroke-dashoffset: 1355.0645751953125;
+  stroke-dashArray: 1355.0645751953125;
+} */
+
+#mPath {
+  stroke-dashoffset: 1355.0645751953125;
+  stroke-dashArray: 1355.0645751953125;
+}

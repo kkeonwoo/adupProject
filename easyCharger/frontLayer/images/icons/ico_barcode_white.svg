@@ -1,0 +1,13 @@
+<svg id="barcode" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" viewBox="0 0 80 80">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: red;
+        opacity: 0;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="80" height="80"/>
+  <rect class="cls-1" x="8" y="8" width="64" height="64"/>
+  <image id="Vector_Smart_Object" data-name="Vector Smart Object" x="9" y="15" width="62" height="51" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD4AAAAzCAYAAADPX7uaAAABaElEQVRoge2aMUsDQRBGnyJYCGpjKwl2NvoXbOyE9HZ2liltRGxt8gskFlpZiGKtdnaJWNtIaolC6pWDDVn2dkOuiB588+C4Y+Yuk7dwt8XMgnPOMTvfwHqF+/+SIbA2a73FmkrMHRNXYynh+wM8ZdZhVOP1eQRWMrk9YDUMpD5ub8Du/P7fv9AHdsLC9o6rYeJqSG9nV1Hsc8r9xZZwFMUGwK2/PgaWgVd/hBwCG1Gs48/7wHamZg94iWo/AB/AFnDgY5d+K05x77/sE4rdrMLRcGWeg+eHPnuW+M1+4tlxrpvIjem4cu2Wj7WCWKOKi73japi4GiauhomrYeJqmLgaJq6Giath4mqYuBomroaJq2HiahS9s27kXPTOTjPr8AW0o9gguD4JemcxF4ne2ZibUm9rQi9R+z04t4N8jnNgM8zZKIgaJq6GiauRmmxsAneZdRj5kY46cj1lsrEZB2xsWw0TlwL4BcFkC+txWoLxAAAAAElFTkSuQmCC"/>
+</svg>

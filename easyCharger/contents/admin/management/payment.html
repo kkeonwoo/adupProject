@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="user-scalable=no, width=1440">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../../adminLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../adminLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../adminLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../adminLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../adminLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../adminLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../adminLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../../adminLayer/css/package.css">
+    <script src="../../../adminLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../../adminLayer/js/jquery-ui.min.js"></script>
+    <script src="../../../adminLayer/js/fn.js"></script>
+    <script src="../../../adminLayer/js/simplebar.min.js"></script>
+    <script src="../../../adminLayer/js/common.js"></script>
+</head>
+
+<body>    
+
+    <!-- s:skip -->
+    <div class="skip">
+        <a href="#lnb">LNB 바로가기</a>
+        <a href="#container">MAIN CONTENTS shoutcut</a>
+    </div>
+    <!-- e:skip -->
+
+    <!-- s:wrap -->
+    <div id="wrap">
+
+        <!-- s:header -->
+        <header id="header">
+            
+        </header>
+        <!-- s:header -->
+
+        <!-- s:lnb -->
+        <aside id="lnb">
+            
+        </aside>
+        <!-- e:lnb -->
+
+        <!-- s:container -->
+        <main id="container">
+            <h2 class="blind">MAIN CONTENTS</h2>
+            <div class="content_inner">
+
+                <!-- s:section_tit -->
+                <div class="section_top">
+                    <h2 class="section_tit">충전 요금 설정</h2>
+                    <div class="location">
+                        <span>홈</span>
+                        <span>1depth</span>
+                        <span>2depth</span>
+                        <span class="active">3depth</span>
+                    </div>
+                </div>
+                <!-- e:section_tit -->
+
+                <article class="tbl_hor frm_search">
+                    <table>
+                        <colgroup>
+                            <col width="140" />
+                            <col width="*" />
+                            <col width="140" />
+                            <col width="*" />
+                            <col width="140" />
+                            <col width="*" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <label for="iptSearch" class="form_label">제조사</label>
+                                </th>
+                                <td colspan="5">
+                                    <input type="text" id="iptSearch" class="form_control wd420" placeholder="충전소 명, 충전기 번호, 프로모션 검색">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="selectChargingSpeed" class="form_label">충전 속도</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select wd200">
+                                        <select id="selectChargingSpeed">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="selectBilling" class="form_label">과금 기준</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select wd200">
+                                        <select id="selectBilling">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="selectPromotion" class="form_label">프로모션 여부</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select wd200">
+                                        <select id="selectPromotion">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn_end">
+                        <button class="btn btn_secondary" type="button">조회</button>
+                    </div>
+                </article>
+
+                <article class="tbl_ver mt_px_40">
+                    <div class="d_flex gap_px_40 half_content">
+                        <div>
+                            <div class="tbl_top_info">
+                                <h3 class="tbl_tit">충전기 설정</h3>
+                            </div>
+                            <div class="scroll_tbl_ver">
+                                <table>
+                                    <colgroup>
+                                        <col width="50" />
+                                        <col width="*" />
+                                        <col width="85" />
+                                        <col width="80" />
+                                        <col width="75" />
+                                        <col width="110" />
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">
+                                                <div class="fancy_img_box">
+                                                    <input type="checkbox" name="settingNum" class="chkall" id="chkEventAll">
+                                                    <label for="chkEventAll">
+                                                        <span class="blind">check all</span>
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th scope="col">충전소명</th>
+                                            <th scope="col">충전기 번호</th>
+                                            <th scope="col">과금기준</th>
+                                            <th scope="col">충전속도</th>
+                                            <th scope="col">프로모션 여부</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="fancy_img_box">
+                                                    <input type="checkbox" name="settingNum" id="chkSetting11">
+                                                    <label for="chkSetting11">
+                                                        <span class="blind">number 11</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>이지차저 전기차충전소</div>
+                                            </td>
+                                            <td>
+                                                <div>9999999</div>
+                                            </td>
+                                            <td>
+                                                <div>저압</div>
+                                            </td>
+                                            <td>
+                                                <div>완속</div>
+                                            </td>
+                                            <td>
+                                                <div>Y</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="fancy_img_box">
+                                                    <input type="checkbox" name="settingNum" id="chkSetting10">
+                                                    <label for="chkSetting10">
+                                                        <span class="blind">number 10</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>이지차저 전기차충전소</div>
+                                            </td>
+                                            <td>
+                                                <div>9999999</div>
+                                            </td>
+                                            <td>
+                                                <div>저압</div>
+                                            </td>
+                                            <td>
+                                                <div>완속</div>
+                                            </td>
+                                            <td>
+                                                <div>Y</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="fancy_img_box">
+                                                    <input type="checkbox" name="settingNum" id="chkSetting9">
+                                                    <label for="chkSetting9">
+                                                        <span class="blind">number 9</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>이지차저 전기차충전소</div>
+                                            </td>
+                                            <td>
+                                                <div>9999999</div>
+                                            </td>
+                                            <td>
+                                                <div>저압</div>
+                                            </td>
+                                            <td>
+                                                <div>완속</div>
+                                            </td>
+                                            <td>
+                                                <div>Y</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="fancy_img_box">
+                                                    <input type="checkbox" name="settingNum" id="chkSetting8">
+                                                    <label for="chkSetting8">
+                                                        <span class="blind">number 8</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>이지차저 전기차충전소</div>
+                                            </td>
+                                            <td>
+                                                <div>9999999</div>
+                                            </td>
+                                            <td>
+                                                <div>저압</div>
+                                            </td>
+                                            <td>
+                                                <div>완속</div>
+                                            </td>
+                                            <td>
+                                                <div>Y</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="fancy_img_box">
+                                                    <input type="checkbox" name="settingNum" id="chkSetting7">
+                                                    <label for="chkSetting7">
+                                                        <span class="blind">number 7</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>이지차저 전기차충전소</div>
+                                            </td>
+                                            <td>
+                                                <div>9999999</div>
+                                            </td>
+                                            <td>
+                                                <div>저압</div>
+                                            </td>
+                                            <td>
+                                                <div>완속</div>
+                                            </td>
+                                            <td>
+                                                <div>Y</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="fancy_img_box">
+                                                    <input type="checkbox" name="settingNum" id="chkSetting6">
+                                                    <label for="chkSetting6">
+                                                        <span class="blind">number 6</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>이지차저 전기차충전소</div>
+                                            </td>
+                                            <td>
+                                                <div>9999999</div>
+                                            </td>
+                                            <td>
+                                                <div>저압</div>
+                                            </td>
+                                            <td>
+                                                <div>완속</div>
+                                            </td>
+                                            <td>
+                                                <div>Y</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="fancy_img_box">
+                                                    <input type="checkbox" name="settingNum" id="chkSetting5">
+                                                    <label for="chkSetting5">
+                                                        <span class="blind">number 5</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>이지차저 전기차충전소</div>
+                                            </td>
+                                            <td>
+                                                <div>9999999</div>
+                                            </td>
+                                            <td>
+                                                <div>저압</div>
+                                            </td>
+                                            <td>
+                                                <div>급속</div>
+                                            </td>
+                                            <td>
+                                                <div>Y</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="fancy_img_box">
+                                                    <input type="checkbox" name="settingNum" id="chkSetting4">
+                                                    <label for="chkSetting4">
+                                                        <span class="blind">number 4</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>이지차저 전기차충전소</div>
+                                            </td>
+                                            <td>
+                                                <div>9999999</div>
+                                            </td>
+                                            <td>
+                                                <div>초급속</div>
+                                            </td>
+                                            <td>
+                                                <div>완속</div>
+                                            </td>
+                                            <td>
+                                                <div>Y</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="fancy_img_box">
+                                                    <input type="checkbox" name="settingNum" id="chkSetting3">
+                                                    <label for="chkSetting3">
+                                                        <span class="blind">number 3</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>이지차저 전기차충전소</div>
+                                            </td>
+                                            <td>
+                                                <div>9999999</div>
+                                            </td>
+                                            <td>
+                                                <div>저압</div>
+                                            </td>
+                                            <td>
+                                                <div>완속</div>
+                                            </td>
+                                            <td>
+                                                <div>N</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="fancy_img_box">
+                                                    <input type="checkbox" name="settingNum" id="chkSetting2">
+                                                    <label for="chkSetting2">
+                                                        <span class="blind">number 2</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>이지차저 전기차충전소</div>
+                                            </td>
+                                            <td>
+                                                <div>9999999</div>
+                                            </td>
+                                            <td>
+                                                <div>저압</div>
+                                            </td>
+                                            <td>
+                                                <div>완속</div>
+                                            </td>
+                                            <td>
+                                                <div>Y</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="fancy_img_box">
+                                                    <input type="checkbox" name="settingNum" id="chkSetting10">
+                                                    <label for="chkSetting10">
+                                                        <span class="blind">number 10</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>이지차저 전기차충전소</div>
+                                            </td>
+                                            <td>
+                                                <div>9999999</div>
+                                            </td>
+                                            <td>
+                                                <div>저압</div>
+                                            </td>
+                                            <td>
+                                                <div>완속</div>
+                                            </td>
+                                            <td>
+                                                <div>Y</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="tbl_top_info">
+                                <h3 class="tbl_tit">요금 설정</h3>
+                            </div>
+                            <div class="tab_container" data-role="tab">
+                                <ul class="tab_list" role="tablist">
+                                    <li class="tab_list_item active">
+                                        <button id="tab-01" class="tab-button" role="tab" aria-selected="true" aria-controls="tab_panel_01">단일 요금</button>
+                                    </li>
+                                    <li class="tab_list_item">
+                                        <button id="tab-02" class="tab-button" role="tab" aria-selected="false" aria-controls="tab_panel_02" tabindex="-1">계시별 요금</button>
+                                    </li>
+                                    <li class="tab_list_item">
+                                        <button id="tab-03" class="tab-button" role="tab" aria-selected="false" aria-controls="tab_panel_03" tabindex="-1">프로모션 설정</button>
+                                    </li>
+                                </ul>
+                                <div class="tab_contents">
+                                    <div id="tab_panel_01" class="tab_panel" role="tabpanel" aria-labelledby="tab-01" tabindex="0">
+                                        <div class="tbl_hor view mt_px_20">
+                                            <table>
+                                                <colgroup>
+                                                    <col width="120" />
+                                                    <col width="110" />
+                                                    <col width="*" />
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <th rowspan="2" scope="col">
+                                                            <div>단일요금</div>
+                                                        </th>
+                                                        <td>
+                                                            <label for="selectMember">회원</label>
+                                                        </td>
+                                                        <td>
+                                                            <div class="custom_select sm wd240 auto">
+                                                                <select id="selectMember">
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="d_flex justify_content_end wd240 auto">
+                                                                1,000원
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label for="selectNonMember">비회원</label>
+                                                        </td>
+                                                        <td>
+                                                            <div class="custom_select sm wd240 auto">
+                                                                <select id="selectNonMember">
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="d_flex justify_content_end wd240 auto">
+                                                                1,000원
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="btn_end">
+                                                <button class="btn btn_outline" type="button">초기화</button>
+                                                <button class="btn btn_primary" type="button">저장</button>
+                                            </div>      
+                                        </div>
+                                    </div>
+                                    <div id="tab_panel_02" class="tab_panel" role="tabpanel" aria-labelledby="tab-02" tabindex="0" hidden="true">
+                                        <div class="tbl_hor view mt_px_20">
+                                            <table>
+                                                <colgroup>
+                                                    <col width="120" />
+                                                    <col width="110" />
+                                                    <col width="*" />
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <th rowspan="2" scope="col">
+                                                            <div>경부하</div>
+                                                        </th>
+                                                        <td>
+                                                            <label for="selectMember2-1">회원</label>
+                                                        </td>
+                                                        <td>
+                                                            <div class="custom_select sm wd240 auto">
+                                                                <select id="selectMember2-1">
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label for="selectNonMember2-1">비회원</label>
+                                                        </td>
+                                                        <td>
+                                                            <div class="custom_select sm wd240 auto">
+                                                                <select id="selectNonMember2-1">
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th rowspan="2" scope="col">
+                                                            <div>중간부하</div>
+                                                        </th>
+                                                        <td>
+                                                            <label for="selectMember2-2">회원</label>
+                                                        </td>
+                                                        <td>
+                                                            <div class="custom_select sm wd240 auto">
+                                                                <select id="selectMember2-2">
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label for="selectNonMember2-2">비회원</label>
+                                                        </td>
+                                                        <td>
+                                                            <div class="custom_select sm wd240 auto">
+                                                                <select id="selectNonMember2-2">
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th rowspan="2" scope="col">
+                                                            <div>최대부하</div>
+                                                        </th>
+                                                        <td>
+                                                            <label for="selectMember2-3">회원</label>
+                                                        </td>
+                                                        <td>
+                                                            <div class="custom_select sm wd240 auto">
+                                                                <select id="selectMember2-3">
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label for="selectNonMember2-3">비회원</label>
+                                                        </td>
+                                                        <td>
+                                                            <div class="custom_select sm wd240 auto">
+                                                                <select id="selectNonMember2-3">
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="btn_end">
+                                                <button class="btn btn_outline" type="button">초기화</button>
+                                                <button class="btn btn_primary" type="button">저장</button>
+                                            </div>      
+                                        </div>
+                                    </div>
+                                    <div id="tab_panel_03" class="tab_panel" role="tabpanel" aria-labelledby="tab-03" tabindex="0" hidden="true">
+                                        <div class="tbl_hor view mt_px_20">
+                                            <table>
+                                                <colgroup>
+                                                    <col width="120" />
+                                                    <col width="*" />
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            <label for="iptPromotion">프로모션</label>
+                                                        </th>
+                                                        <td>
+                                                            <div class="d_flex justify_content_start align_items_start flex_column">
+                                                                <div class="d_flex align_items_center gap_px_10">
+                                                                    <input type="text" class="form_control wd240" id="iptPromotion">
+                                                                    %
+                                                                </div>
+                                                                <div class="auto mt_px_20 mb_px_8">
+                                                                    프로모션 기간
+                                                                </div>
+                                                                <div class="d_flex date_wrap">
+                                                                    <div class="date_item">
+                                                                        <input type="text" class="form_control form_datepicker startDate" id="startDate" data-type="dateForm" />
+                                                                    </div>
+                                                                    -
+                                                                    <div class="date_item">
+                                                                        <input type="text" class="form_control form_datepicker endDate" data-type="dateForm" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="btn_end">
+                                                <button class="btn btn_outline" type="button">초기화</button>
+                                                <button class="btn btn_primary" type="button">저장</button>
+                                            </div>      
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </article>
+
+            </div>
+        </main>
+        <!-- e:container -->
+
+    </div>
+    <!-- e:wrap -->
+
+</body>
+
+</html>

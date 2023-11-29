@@ -3,7 +3,17 @@ const tiger = $('#tiger');
 const button = $('#button');
 const progress = $('#progressSlider');
 const time = $('#time');
-
+// const route = $('#route');
+// console.log(route.getTotalLength());
+// gsap.fromTo(route,
+//     { strokeDashoffset: route.getTotalLength(), duration: 4},
+//     { strokeDashoffset: 0, duration: 4}
+// )
+gsap.to('#mPath', { 
+    strokeDashoffset: 0,
+    duration: 4,
+    
+})
 const animation = gsap.to(tiger, { 
     x:100,
     duration: 6,

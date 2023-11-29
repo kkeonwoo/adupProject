@@ -1,0 +1,13 @@
+<svg id="충전소찾기" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: red;
+        opacity: 0;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="56" height="56"/>
+  <rect class="cls-1" x="8" y="8" width="40" height="40"/>
+  <image id="Vector_Smart_Object" data-name="Vector Smart Object" x="13" y="10" width="30" height="37" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAlCAYAAABVjVnMAAACh0lEQVRYhbWXzUtUYRTGnzNO0gcplpIQujD7kNCo1hJk2yhx1aptq9b2J1QuI4SEokUtK1tVSBS0iEipIAxSF1ZEraLSSPIXR+7kbbzjfd9x5oFZzL33PL9zzn3v+2EKENAs6aSkAUlHJXVJ2pZE/pQ0K+mlpAlJ983sW4hvRQEdwCiwQLgWkpiOaoANwAVgMQJYrsXEoyEU2gJMbABYLvdqyYO2AW9qCC3JPdsqQRuBZ3WAluTejVngkTpCSxop8SyB9kmalBQ2EKrXH0lHzOx1CXxH0ukIuweSpsuuedJnJO3Mib1rZoMO7QSWI9r1Bdic5QhMBsQ7q7MgaajU8kCNmtmvDOgpSYcDLGyFCYxHVPsbaM+AFoG3ET7jXnFfRLW3zexzxvWzknoifPo826WITNe0EtgCzEd4uJaKkoqBWT41s6mM68clzSQ/V7ek3TlexZiKB0OyA86HVKzANs0BhQDoscAVbb6QMRFk6YqZLedAD0kal5T5jZdp2t/vc0knch4cALan/l80s8UUtDuZzZoCoFphAv0BrUnrRVml7cD7SI9+DywAHyOCzqWgzcCrSOgnZxaSdzcW2CJv760EutU3dpETkOvav/ECtAI/ArK9qdU92b3ISkkYrf+lAQwHBPrnYsD1KqCu4TX1A5tylrWZBFrtTmXKGZnNB/YD3ysE+gC8WiXUPQ+s++aBoSrN19NQ0LADLtUQejkIqtVR+7AG0EfBJ4kUvClwD1VJPphCp9A18F3AbBXQuawtUix8L/A1AurP7tsQNAXvDYT7M701gabgPcCHdaB+72BNoSl4FzCdAX0H7KkLNAX38/PjFPQJsKOu0BTcj7Q3fLXKPHrmSdJfwzK6e/EPmTIAAAAASUVORK5CYII="/>
+</svg>

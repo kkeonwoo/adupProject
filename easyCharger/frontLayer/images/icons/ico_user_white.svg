@@ -1,0 +1,13 @@
+<svg id="my" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: red;
+        opacity: 0;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" x="8" y="8" width="40" height="40"/>
+  <rect class="cls-1" width="56" height="56"/>
+  <image id="Vector_Smart_Object" data-name="Vector Smart Object" x="11" y="11" width="35" height="35" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAB5UlEQVRYhe2Xz0tVQRTHP0ch6YWLwIhAJEGIVuFCCdq5cOk/EO9PcCFBiza213Xts/6NdoHgD9BFthCLCF2ISAipkX3j6Dx8CO/euXPn6Vv02Tx498w5H2bmnplLCpJGJL2WtCrpSBf474qkeX+elLgKkvokvZJ0qmJOQpx1S6Rf0ocSiat4fH83ZBYrirRYyC0yKelvooyPm4ip0xfp8xJIXX8f9yI2sBBJA8ABcCdRxjkChszsd1FQzMyM1RRxBkOeQmJk7tcUaXEvh8yvTDInZQExMt/zuJTnKZUxs13gc02RTTPbqy0TeFdT5n3N8ZdIakjaSWx625JuZ5PhQmhc0s+KIh4/nlWkTciPhb1IkV2P74pIm9CQpLeSjjtI+P9vPK5q7uT7hu8jYAp4FDqst/wvwEczO07N2zMkzYyku8Aw8ABotD3ybu395IeZHVbNG3Nq3wKehSV5CjyJOWeAfWADWPalAz6VndqdBPyuOy1pKeF1LnrNl0Le8mYbmttsjQYXy06o0+gkMlOhh+TC681cFWlKOrtmkRZet+keJmkU2AIGKm+ufJwCj30jzd2wCKH+nM/MV+DhDcs431zmD5D/q686Zy6jHhA5J/amdy38l+mEy6z1iMuayzzvAaF1oPkP1kLo9U6nllUAAAAASUVORK5CYII="/>
+</svg>

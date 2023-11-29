@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../../frontLayer/css/package.css">
+    <script src="../../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../../frontLayer/js/fn.js"></script>
+    <script src="../../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:back_page -->
+        <div class="back_page">
+            <div class="back_inner">
+                <div class="back_hdr">
+                    <a href="#" class="back_btn">카드 정보</a>
+                </div>
+                <div class="back_body">
+                    <div class="swiper_evnet_bnr_wrap mt_px_15">
+                        <div class="swiper swiper_evnet_bnr">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a href="#" class="img_box">
+                                        <img class="img" src="../../../frontLayer/images/@/@banner.jpg" alt="이지차저 구독서비스 신청하기 매월 50% 할인 충전">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#" class="img_box">
+                                        <img class="img" src="../../../frontLayer/images/@/@banner.jpg" alt="이지차저 구독서비스 신청하기 매월 50% 할인 충전">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#" class="img_box">
+                                        <img class="img" src="../../../frontLayer/images/@/@banner.jpg" alt="이지차저 구독서비스 신청하기 매월 50% 할인 충전">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#" class="img_box">
+                                        <img class="img" src="../../../frontLayer/images/@/@banner.jpg" alt="이지차저 구독서비스 신청하기 매월 50% 할인 충전">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    <div class="card_info_area mt_px_30">
+                        <div class="card_preview">
+                            <span class="name">이지차저카드</span>
+                            <span class="num">1234-56**-****-7890</span>
+                            <button type="button" class="nickname_btn" onclick="EasyCharger.openModal($('#modalNickname'))">카드별명관리</button>
+                        </div>
+                        <div class="card_choice">
+                            <b class="ttl">신용카드</b>
+                            <ul class="form_check_list">
+                                <li class="form_check_item">
+                                    <label class="form_check">
+                                        <input type="radio" class="form_check_input" name="creditCard1" checked/>
+                                        <i class="ico"></i>
+                                        <span class="form_check_txt">1234-56**-****-7890</span>
+                                    </label>
+                                </li>
+                                <li class="form_check_item">
+                                    <label class="form_check">
+                                        <input type="radio" class="form_check_input" name="creditCard1"/>
+                                        <i class="ico"></i>
+                                        <span class="form_check_txt">9876-54**-****-3210</span>
+                                    </label>
+                                </li>
+                                <li class="form_check_item">
+                                    <label class="form_check">
+                                        <input type="radio" class="form_check_input" name="creditCard1"/>
+                                        <i class="ico"></i>
+                                        <span class="form_check_txt">새로운 카드 등록</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="back_ftr">
+                    <div class="btn_area">
+                        <button type="button" class="btn btn_lg btn_outline_secondary" onclick="EasyCharger.openModal($('#modalRemove'))">삭제</button>
+                        <button type="button" class="btn btn_lg btn_primary">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:back_page -->
+
+        <!-- s:modal -->
+        <div class="modal type2 modal_close z_9100" id="modalNickname">
+            <div class="modal_centered">
+                <div class="modal_box">
+                    <div class="modal_header">
+                        <h2 class="ttl">카드별명입력</h2>
+                    </div>
+                    <div class="modal_body">
+                        <div class="modal_content">
+                            <div class="form_box">
+                                <div class="form_control_bx">
+                                    <input type="text" class="form_control" placeholder="OO카드 ****-78a90">
+                                    <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
+                                </div>
+                            </div>
+                            <span class="caption">※ 한글7자, 영문/숫자/특수문자 15자</span>
+                        </div>
+                        <div class="btn_area">
+                            <button type="button" class="btn btn_md btn_outline_secondary close">초기화</button>
+                            <button type="button" class="btn btn_md btn_primary close" onclick="EasyCharger.openModal($('#modalNickname2'))">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close z_9100" id="modalNickname2">
+            <div class="modal_centered">
+                <div class="modal_box">
+                    <div class="modal_body">
+                        <div class="modal_content">
+                            <p class="msg">
+                                카드별명을 입력해 주세요.
+                            </p>
+                        </div>
+                        <div class="btn_area">
+                            <button type="button" class="btn btn_md btn_primary close">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close z_9100" id="modalRemove">
+            <div class="modal_centered">
+                <div class="modal_box">
+                    <div class="modal_body">
+                        <div class="modal_content">
+                            <p class="msg">
+                                등록되어 있는 신용카드를 <br/>
+                                삭제하시겠습니까?
+                            </p>
+                        </div>
+                        <div class="btn_area">
+                            <button type="button" class="btn btn_md btn_outline_secondary close">취소</button>
+                            <button type="button" class="btn btn_md btn_primary close">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+    </div>
+    <!-- e:wrapper -->
+    
+</body>
+
+</html>

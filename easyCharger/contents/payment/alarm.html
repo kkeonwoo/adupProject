@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../frontLayer/css/package.css">
+    <script src="../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../frontLayer/js/fn.js"></script>
+    <script src="../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:step_page -->
+        <div class="step_page">
+            <div class="step_inner">
+                <div class="step_hdr"></div>
+                <div class="step_body">
+                    <a href="#" class="badge_area">
+                        <i class="ico ico_ec"></i>
+                        <span class="txt">전기차 충전이 완료되었습니다.</span>
+                    </a>
+                    <button type="button" class="btn btn_primary" onclick="EasyCharger.notification.set('전기차 충전이 완료되었습니다.','dark')">Toast 메세지</button>
+                </div>
+                <div class="step_ftr"></div>
+            </div>
+        </div>
+        <!-- e:step_page -->
+
+    </div>
+    <!-- e:wrapper -->
+    
+</body>
+
+</html>

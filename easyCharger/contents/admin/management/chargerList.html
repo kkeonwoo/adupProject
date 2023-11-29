@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="user-scalable=no, width=1440">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../../adminLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../adminLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../adminLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../adminLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../adminLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../adminLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../adminLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../../adminLayer/css/package.css">
+    <script src="../../../adminLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../../adminLayer/js/jquery-ui.min.js"></script>
+    <script src="../../../adminLayer/js/fn.js"></script>
+    <script src="../../../adminLayer/js/simplebar.min.js"></script>
+    <script src="../../../adminLayer/js/common.js"></script>
+</head>
+
+<body>    
+
+    <!-- s:skip -->
+    <div class="skip">
+        <a href="#lnb">LNB 바로가기</a>
+        <a href="#container">MAIN CONTENTS shoutcut</a>
+    </div>
+    <!-- e:skip -->
+
+    <!-- s:wrap -->
+    <div id="wrap">
+
+        <!-- s:header -->
+        <header id="header">
+            
+        </header>
+        <!-- s:header -->
+
+        <!-- s:lnb -->
+        <aside id="lnb">
+            
+        </aside>
+        <!-- e:lnb -->
+
+        <!-- s:container -->
+        <main id="container">
+            <h2 class="blind">MAIN CONTENTS</h2>
+            <div class="content_inner">
+
+                <!-- s:section_tit -->
+                <div class="section_top">
+                    <h2 class="section_tit">충전기 운영 관리</h2>
+                    <div class="location">
+                        <span>홈</span>
+                        <span>1depth</span>
+                        <span>2depth</span>
+                        <span class="active">3depth</span>
+                    </div>
+                </div>
+                <!-- e:section_tit -->
+
+                <article class="tbl_hor frm_search">
+                    <table>
+                        <colgroup>
+                            <col width="140" />
+                            <col width="*" />
+                            <col width="140" />
+                            <col width="*" />
+                            <col width="140" />
+                            <col width="290" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <label for="iptStationName" class="form_label">충전소명</label>
+                                </th>
+                                <td>
+                                    <input type="text" class="form_control wd200" id="iptStationName">
+                                </td>
+                                <th scope="row">
+                                    <label for="iptNumber" class="form_label">충전기번호</label>
+                                </th>
+                                <td>
+                                    <input type="text" class="form_control wd200" id="iptNumber">
+                                </td>
+                                <th scope="row">
+                                    <label for="selectLocal" class="form_label">지역</label>
+                                </th>
+                                <td>
+                                    <div class="d_flex gap_px_12 align_items_center">
+                                        <div class="custom_select">
+                                            <select id="selectLocal">
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                            </select>
+                                        </div>
+                                        <div class="custom_select">
+                                            <select id="selectLocal2">
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                                <th scope="row">
+                                    <label for="selectState" class="form_label">충전기상태</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select wd200">
+                                        <select id="selectState">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="selectCompany" class="form_label">제조사</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select wd200">
+                                        <select id="selectCompany">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="selectModelName" class="form_label">모델명</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select wd200">
+                                        <select id="selectModelName">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn_end">
+                        <button class="btn btn_secondary" type="button">검색</button>
+                    </div>
+                </article>
+
+                <article class="tbl_ver mt_px_40">
+                    <div class="tbl_top_info end">
+                        <div class="total">총 <em>120</em>개의 목록</div>
+                        <button type="button" class="btn_ico excel"><span>엑셀 다운로드</span></button>
+                    </div>
+                    <div class="scroll_tbl">
+                        <table>
+                            <colgroup>
+                                <col width="135" />
+                                <col width="125" />
+                                <col width="70" />
+                                <col width="*" />
+                                <col width="100" />
+                                <col width="100" />
+                                <col width="70" />
+                                <col width="70" />
+                                <col width="90" />
+                                <col width="70" />
+                                <col width="70" />
+                                <col width="70" />
+                                <col width="70" />
+                                <col width="100" />
+                                <col width="80" />
+                                <col width="80" />
+                                <col width="70" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" scope="col">업체</th>
+                                    <th rowspan="2" scope="col">충전소명</th>
+                                    <th rowspan="2" scope="col">충전ID</th>
+                                    <th rowspan="2" scope="col">주소</th>
+                                    <th rowspan="2" scope="col">MAC주소<br>(SID+CID)</th>
+                                    <th rowspan="2" scope="col">충전기<br>시리얼번호</th>
+                                    <th colspan="4" scope="colgroup">충전기 모델</th>
+                                    <th colspan="3" scope="colgroup">요금</th>
+                                    <th rowspan="2" scope="col">개통일</th>
+                                    <th rowspan="2" scope="col">한전<br>고객번호</th>
+                                    <th rowspan="2" scope="col">운영상태</th>
+                                    <th rowspan="2" scope="col">충전기<br>등록</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col">제조사</th>
+                                    <th scope="col">모델명</th>
+                                    <th scope="col">모델번호</th>
+                                    <th scope="col">용량</th>
+                                    <th scope="col">회원</th>
+                                    <th scope="col">비회원</th>
+                                    <th scope="col">운영비</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div>이지차저이지차저</div>
+                                    </td>
+                                    <td>
+                                        <div>충전소</div>
+                                    </td>
+                                    <td>
+                                        <div>5816161</div>
+                                    </td>
+                                    <td>
+                                        <div>세종특별자치시 정부2청사로 10</div>
+                                    </td>
+                                    <td>
+                                        <div>급속(50kW)</div>
+                                    </td>
+                                    <td>
+                                        <div>15616515661</div>
+                                    </td>
+                                    <td>
+                                        <div>지커넥트</div>
+                                    </td>
+                                    <td>
+                                        <div>모델명</div>
+                                    </td>
+                                    <td>
+                                        <div>모델번호</div>
+                                    </td>
+                                    <td>
+                                        <div>용량</div>
+                                    </td>
+                                    <td>
+                                        <div>123</div>
+                                    </td>
+                                    <td>
+                                        <div>15616</div>
+                                    </td>
+                                    <td>
+                                        <div>1156</div>
+                                    </td>
+                                    <td>
+                                        <div>2021-08-24</div>
+                                    </td>
+                                    <td>
+                                        <div>44695</div>
+                                    </td>
+                                    <td>
+                                        <div>정상운영</div>
+                                    </td>
+                                    <td>
+                                        <div>등록</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>이지차저이지차저</div>
+                                    </td>
+                                    <td>
+                                        <div>충전소</div>
+                                    </td>
+                                    <td>
+                                        <div>5816161</div>
+                                    </td>
+                                    <td>
+                                        <div>세종특별자치시 정부2청사로 10</div>
+                                    </td>
+                                    <td>
+                                        <div>급속(50kW)</div>
+                                    </td>
+                                    <td>
+                                        <div>15616515661</div>
+                                    </td>
+                                    <td>
+                                        <div>지커넥트</div>
+                                    </td>
+                                    <td>
+                                        <div>모델명</div>
+                                    </td>
+                                    <td>
+                                        <div>모델번호</div>
+                                    </td>
+                                    <td>
+                                        <div>용량</div>
+                                    </td>
+                                    <td>
+                                        <div>123</div>
+                                    </td>
+                                    <td>
+                                        <div>15616</div>
+                                    </td>
+                                    <td>
+                                        <div>1156</div>
+                                    </td>
+                                    <td>
+                                        <div>2021-08-24</div>
+                                    </td>
+                                    <td>
+                                        <div>44695</div>
+                                    </td>
+                                    <td>
+                                        <div>정상운영</div>
+                                    </td>
+                                    <td>
+                                        <div>등록</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>이지차저이지차저</div>
+                                    </td>
+                                    <td>
+                                        <div>충전소</div>
+                                    </td>
+                                    <td>
+                                        <div>5816161</div>
+                                    </td>
+                                    <td>
+                                        <div>세종특별자치시 정부2청사로 10</div>
+                                    </td>
+                                    <td>
+                                        <div>급속(50kW)</div>
+                                    </td>
+                                    <td>
+                                        <div>15616515661</div>
+                                    </td>
+                                    <td>
+                                        <div>지커넥트</div>
+                                    </td>
+                                    <td>
+                                        <div>모델명</div>
+                                    </td>
+                                    <td>
+                                        <div>모델번호</div>
+                                    </td>
+                                    <td>
+                                        <div>용량</div>
+                                    </td>
+                                    <td>
+                                        <div>123</div>
+                                    </td>
+                                    <td>
+                                        <div>15616</div>
+                                    </td>
+                                    <td>
+                                        <div>1156</div>
+                                    </td>
+                                    <td>
+                                        <div>2021-08-24</div>
+                                    </td>
+                                    <td>
+                                        <div>44695</div>
+                                    </td>
+                                    <td>
+                                        <div>정상운영</div>
+                                    </td>
+                                    <td>
+                                        <div>등록</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="btn_end">
+                        <!-- s:pagination -->
+                        <nav class="pagination" aria-label="board pages">
+                            <ul class="page_list">
+                                <li class="page_item"><a class="ico first" href="#" aria-disabled="true">First</a></li>
+                                <li class="page_item"><a class="ico prev" href="#" aria-disabled="false">Previous</a></li>
+                                <li class="page_item"><a href="#">1</a></li>
+                                <li class="page_item"><a href="#">2</a></li>
+                                <li class="page_item"><a href="#" class="current">3</a></li>
+                                <li class="page_item"><a href="#">4</a></li>
+                                <li class="page_item"><a href="#">5</a></li>
+                                <li class="page_item"><a href="#">6</a></li>
+                                <li class="page_item"><a href="#">7</a></li>
+                                <li class="page_item"><a href="#">8</a></li>
+                                <li class="page_item"><a href="#">9</a></li>
+                                <li class="page_item"><a href="#">10</a></li>
+                                <li class="page_item"><a class="ico next" href="#" aria-disabled="false">Next</a></li>
+                                <li class="page_item"><a class="ico last" href="#" aria-disabled="true">Last</a></li>
+                            </ul>
+                        </nav>
+                        <!-- e:pagination -->
+
+                        <a href="./chargerView.html" class="btn btn_primary">등록</a>
+                        
+                    </div>
+
+                </article>
+
+            </div>
+        </main>
+        <!-- e:container -->
+
+    </div>
+    <!-- e:wrap -->
+
+</body>
+
+</html>

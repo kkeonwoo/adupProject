@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="user-scalable=no, width=1440">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../../adminLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../adminLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../adminLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../adminLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../adminLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../adminLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../adminLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../../adminLayer/css/package.css">
+    <script src="../../../adminLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../../adminLayer/js/jquery-ui.min.js"></script>
+    <script src="../../../adminLayer/js/fn.js"></script>
+    <script src="../../../adminLayer/js/simplebar.min.js"></script>
+    <script src="../../../adminLayer/js/common.js"></script>
+</head>
+
+<body>    
+
+    <!-- s:skip -->
+    <div class="skip">
+        <a href="#lnb">LNB 바로가기</a>
+        <a href="#container">MAIN CONTENTS shoutcut</a>
+    </div>
+    <!-- e:skip -->
+
+    <!-- s:wrap -->
+    <div id="wrap">
+
+        <!-- s:header -->
+        <header id="header">
+            
+        </header>
+        <!-- s:header -->
+
+        <!-- s:lnb -->
+        <aside id="lnb">
+            
+        </aside>
+        <!-- e:lnb -->
+
+        <!-- s:container -->
+        <main id="container">
+            <h2 class="blind">MAIN CONTENTS</h2>
+            <div class="content_inner">
+
+                <!-- s:section_tit -->
+                <div class="section_top">
+                    <h2 class="section_tit">문의 내역 관리</h2>
+                    <div class="location">
+                        <span>홈</span>
+                        <span>1depth</span>
+                        <span>2depth</span>
+                        <span class="active">3depth</span>
+                    </div>
+                </div>
+                <!-- e:section_tit -->
+
+                <article class="tbl_hor frm_search">
+                    <table>
+                        <colgroup>
+                            <col width="140" />
+                            <col width="*" />
+                            <col width="140" />
+                            <col width="*" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <label for="startDate" class="form_label">문의일자</label>
+                                </th>
+                                <td colspan="3">
+                                    <div class="d_flex gap_px_50 align_items_center">
+                                        <div class="d_flex date_wrap">
+                                            <div class="date_item">
+                                                <input type="text" class="form_control form_datepicker startDate" id="startDate" data-type="dateSearch" />
+                                            </div>
+                                            -
+                                            <div class="date_item">
+                                                <input type="text" class="form_control form_datepicker endDate" data-type="dateSearch" />
+                                            </div>
+                                        </div>
+                                        <div class="d_flex gap_px_30">
+                                            <div class="fancy_img_box">
+                                                <input type="radio" name="month" id="radioMonth1">
+                                                <label for="radioMonth1">
+                                                    <span>1개월</span>
+                                                </label>
+                                            </div>
+                                            <div class="fancy_img_box">
+                                                <input type="radio" name="month" id="radioMonth3">
+                                                <label for="radioMonth3">
+                                                    <span>3개월</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="iptMember" class="form_label">이용자 정보</label>
+                                </th>
+                                <td>
+                                    <input type="text" class="form_control" id="iptMember" placeholder="이름, 연락처, 이메일 검색">
+                                </td>
+                                <th scope="row">
+                                    <label for="selectRequest" class="form_label">문의유형</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select wd200">
+                                        <select id="selectRequest">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="selectRank" class="form_label">우선순위</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select wd200">
+                                        <select id="selectRank">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="selectState" class="form_label">진행 상태</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select wd200">
+                                        <select id="selectState">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn_end">
+                        <button class="btn btn_secondary" type="button">조회</button>
+                    </div>
+                </article>
+
+                <article class="tbl_ver mt_px_40">
+                    <div class="tbl_top_info end">
+                        <div class="total">총 <em>120</em>개의 목록</div>
+                        <button type="button" class="btn_ico excel"><span>엑셀 다운로드</span></button>
+                    </div>
+                    <table>
+                        <colgroup>
+                            <col width="45" />
+                            <col width="120" />
+                            <col width="115" />
+                            <col width="*" />
+                            <col width="90" />
+                            <col width="85" />
+                            <col width="90" />
+                            <col width="80" />
+                            <col width="90" />
+                            <col width="80" />
+                            <col width="90" />
+                            <col width="90" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th rowspan="2" scope="col">등록<br>번호</th>
+                                <th colspan="3" scope="colgroup">이용자 정보</th>
+                                <th rowspan="2" scope="col">문의 일자</th>
+                                <th rowspan="2" scope="col">문의 유형</th>
+                                <th rowspan="2" scope="col">우선순위</th>
+                                <th rowspan="2" scope="col">접수자</th>
+                                <th rowspan="2" scope="col">접수일자</th>
+                                <th rowspan="2" scope="col">담당자</th>
+                                <th rowspan="2" scope="col">진행상태</th>
+                                <th rowspan="2" scope="col">완료일자</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">이름/회사명</th>
+                                <th scope="col">연락처</th>
+                                <th scope="col">이메일</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div>10</div>
+                                </td>
+                                <td>
+                                    <div>홍길동/이지차저</div>
+                                </td>
+                                <td>
+                                    <div>010-1234-4567</div>
+                                </td>
+                                <td>
+                                    <div>easg@korea.com</div>
+                                </td>
+                                <td>
+                                    <div>2021-08-24</div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>9</div>
+                                </td>
+                                <td>
+                                    <div>홍길동/이지차저</div>
+                                </td>
+                                <td>
+                                    <div>010-1234-4567</div>
+                                </td>
+                                <td>
+                                    <div>easg@korea.com</div>
+                                </td>
+                                <td>
+                                    <div>2021-08-24</div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>8</div>
+                                </td>
+                                <td>
+                                    <div>홍길동/이지차저</div>
+                                </td>
+                                <td>
+                                    <div>010-1234-4567</div>
+                                </td>
+                                <td>
+                                    <div>easg@korea.com</div>
+                                </td>
+                                <td>
+                                    <div>2021-08-24</div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>7</div>
+                                </td>
+                                <td>
+                                    <div>홍길동/이지차저</div>
+                                </td>
+                                <td>
+                                    <div>010-1234-4567</div>
+                                </td>
+                                <td>
+                                    <div>easg@korea.com</div>
+                                </td>
+                                <td>
+                                    <div>2021-08-24</div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>6</div>
+                                </td>
+                                <td>
+                                    <div>홍길동/이지차저</div>
+                                </td>
+                                <td>
+                                    <div>010-1234-4567</div>
+                                </td>
+                                <td>
+                                    <div>easg@korea.com</div>
+                                </td>
+                                <td>
+                                    <div>2021-08-24</div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>5</div>
+                                </td>
+                                <td>
+                                    <div>홍길동/이지차저</div>
+                                </td>
+                                <td>
+                                    <div>010-1234-4567</div>
+                                </td>
+                                <td>
+                                    <div>easg@korea.com</div>
+                                </td>
+                                <td>
+                                    <div>2021-08-24</div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>4</div>
+                                </td>
+                                <td>
+                                    <div>홍길동/이지차저</div>
+                                </td>
+                                <td>
+                                    <div>010-1234-4567</div>
+                                </td>
+                                <td>
+                                    <div>easg@korea.com</div>
+                                </td>
+                                <td>
+                                    <div>2021-08-24</div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>3</div>
+                                </td>
+                                <td>
+                                    <div>홍길동/이지차저</div>
+                                </td>
+                                <td>
+                                    <div>010-1234-4567</div>
+                                </td>
+                                <td>
+                                    <div>easg@korea.com</div>
+                                </td>
+                                <td>
+                                    <div>2021-08-24</div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>2</div>
+                                </td>
+                                <td>
+                                    <div>홍길동/이지차저</div>
+                                </td>
+                                <td>
+                                    <div>010-1234-4567</div>
+                                </td>
+                                <td>
+                                    <div>easg@korea.com</div>
+                                </td>
+                                <td>
+                                    <div>2021-08-24</div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>1</div>
+                                </td>
+                                <td>
+                                    <div>홍길동/이지차저</div>
+                                </td>
+                                <td>
+                                    <div>010-1234-4567</div>
+                                </td>
+                                <td>
+                                    <div>easg@korea.com</div>
+                                </td>
+                                <td>
+                                    <div>2021-08-24</div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn_end">
+                        <!-- s:pagination -->
+                        <nav class="pagination" aria-label="board pages">
+                            <ul class="page_list">
+                                <li class="page_item"><a class="ico first" href="#" aria-disabled="true">First</a></li>
+                                <li class="page_item"><a class="ico prev" href="#" aria-disabled="false">Previous</a></li>
+                                <li class="page_item"><a href="#">1</a></li>
+                                <li class="page_item"><a href="#">2</a></li>
+                                <li class="page_item"><a href="#" class="current">3</a></li>
+                                <li class="page_item"><a href="#">4</a></li>
+                                <li class="page_item"><a href="#">5</a></li>
+                                <li class="page_item"><a href="#">6</a></li>
+                                <li class="page_item"><a href="#">7</a></li>
+                                <li class="page_item"><a href="#">8</a></li>
+                                <li class="page_item"><a href="#">9</a></li>
+                                <li class="page_item"><a href="#">10</a></li>
+                                <li class="page_item"><a class="ico next" href="#" aria-disabled="false">Next</a></li>
+                                <li class="page_item"><a class="ico last" href="#" aria-disabled="true">Last</a></li>
+                            </ul>
+                        </nav>
+                        <!-- e:pagination -->
+
+                        <a href="./requestView.html" class="btn btn_primary">등록</a>
+                    </div>
+
+                </article>
+
+            </div>
+        </main>
+        <!-- e:container -->
+
+    </div>
+    <!-- e:wrap -->
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+<svg id="홈" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: red;
+        opacity: 0;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="56" height="56"/>
+  <rect class="cls-1" x="8" y="8" width="40" height="40"/>
+  <image id="Vector_Smart_Object" data-name="Vector Smart Object" x="12" y="10" width="32" height="36" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAkCAYAAADo6zjiAAABdElEQVRYhe2YvUvDQByGnwQHU9FuFbratdDBsVNHcemuUHDo2A516tpB6Nqx4KCzk4soOBbBr3/DzQ+wLhI5+QVKCNe7axIR8kKG3L33vg8k3JF44Qku2gTGwIGsPQeOgQ/bLN+hvA48Al1gQ66ujNWzBugAd0AtYa4mc50sANaBKXAKBBpfIJ6prEkFYAeYAUeGsIh3JmtXAmgDD0DDojxSQ9a2XQDW5C2/AMoO5ZHKkjGWTCOAKnALDFYojmsgmdVlAC3gCWimWB6pKdmtJAAPGALXQCWD8kgV6RhK5y9ACbgERo4bk6186VKdJXUzAfZyKI5LdU7UWfC5ZHPJUnP/D8uVgjyeuVYFQAFQACQekQYKgWfgXaxbcv57eQC8APvAfWx8V/b3bZswl0fQSyhHxnq2YS4AN5q5qzwAvjVzr3kApKoCoAD4lwBh2gBzC7/yvhl4jPMUgPq7YSoTr1WeOoz6cnOo+ab/As4WvDqZ50H/B/vvPkPr4YBDAAAAAElFTkSuQmCC"/>
+</svg>

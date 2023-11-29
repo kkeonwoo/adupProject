@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../../frontLayer/css/package.css">
+    <script src="../../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../../frontLayer/js/fn.js"></script>
+    <script src="../../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:step_page -->
+        <div class="step_page">
+            <div class="step_inner">
+                <div class="step_hdr">
+                    <button type="button" class="close_btn" aria-label="닫기버튼"></button>
+                </div>
+                <div class="step_body">
+                    <div class="ttl_area">
+                        <h1 class="ttl">포인트 환불</h1>
+                    </div>
+                    <div class="ttl_sub_area">
+                        <h2 class="ttl">포인트 정보</h2>
+                    </div>
+                    <div class="card_info_area">
+                        <div class="card_point_preview">
+                            <span class="name">보유 포인트</span>
+                            <span class="num">1,000 P</span>
+                        </div>
+                    </div>
+                    <div class="cnt_group">
+                        <div class="form_ttl_group">
+                            <b class="ttl">환불 하실 포인트</b>
+                        </div>
+                        <div class="form_group">
+                            <label for="formPoint1" class="form_label">포인트</label>
+                            <div class="form_box">
+                                <div class="input_group val_chk">
+                                    <input type="text" id="formPoint1" class="form_control" placeholder="0">
+                                    <span class="input_group_txt">P</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form_group">
+                            <div class="form_box justify_content_between">
+                                <span class="point"></span>
+                                <label class="form_check">
+                                    <input type="checkbox" class="form_check_input" name="point" checked/>
+                                    <i class="ico"></i>
+                                    <span class="form_check_txt">잔액사용</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form_group">
+                            <div class="form_box justify_content_between w_100">
+                                <span class="caption">※ 포인트 환불 처리는 영업일 기준 3~7일이 소요 됩니다.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cnt_group pt_px_20">
+                        <div class="form_ttl_group">
+                            <b class="ttl">입금 계좌</b>
+                        </div>
+                        <div class="form_group">
+                            <div class="form_select">
+                                <select class="select">
+                                    <option>은행 선택</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form_group">
+                            <label for="frmAcct" class="form_label">계좌번호</label>
+                            <div class="form_box">
+                                <div class="form_control_bx">
+                                    <input type="text" id="frmAcct" class="form_control" placeholder="">
+                                    <button type="button" class="btn_reset" aria-label="초기화" disabled="disabled"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form_group">
+                            <label for="frmAcctHolder" class="form_label">예금주</label>
+                            <div class="form_box">
+                                <div class="form_control_bx">
+                                    <input type="text" id="frmAcctHolder" class="form_control" placeholder="">
+                                    <button type="button" class="btn_reset" aria-label="초기화" disabled="disabled"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step_ftr">
+                    <div class="btn_area">
+                        <button type="button" class="btn btn_lg btn_primary" onclick="EasyCharger.openModal($('#modalError'))">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:step_page -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close z_9100" id="modalError">
+            <div class="modal_centered">
+                <div class="modal_box">
+                    <div class="modal_body">
+                        <div class="modal_content">
+                            <p class="msg">입력하신 입금 계좌정보가 틀립니다.</p>
+                        </div>
+                        <div class="btn_area">
+                            <button type="button" class="btn btn_md btn_primary close">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+    </div>
+    <!-- e:wrapper -->
+    
+</body>
+
+</html>

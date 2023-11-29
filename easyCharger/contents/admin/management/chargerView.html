@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="user-scalable=no, width=1440">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../../adminLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../adminLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../adminLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../adminLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../adminLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../adminLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../adminLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../../adminLayer/css/package.css">
+    <script src="../../../adminLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../../adminLayer/js/jquery-ui.min.js"></script>
+    <script src="../../../adminLayer/js/fn.js"></script>
+    <script src="../../../adminLayer/js/simplebar.min.js"></script>
+    <script src="../../../adminLayer/js/common.js"></script>
+</head>
+
+<body>    
+
+    <!-- s:skip -->
+    <div class="skip">
+        <a href="#lnb">LNB 바로가기</a>
+        <a href="#container">MAIN CONTENTS shoutcut</a>
+    </div>
+    <!-- e:skip -->
+
+    <!-- s:wrap -->
+    <div id="wrap">
+
+        <!-- s:header -->
+        <header id="header">
+            
+        </header>
+        <!-- s:header -->
+
+        <!-- s:lnb -->
+        <aside id="lnb">
+            
+        </aside>
+        <!-- e:lnb -->
+
+        <!-- s:container -->
+        <main id="container">
+            <h2 class="blind">MAIN CONTENTS</h2>
+            <div class="content_inner">
+
+                <!-- s:section_tit -->
+                <div class="section_top">
+                    <h2 class="section_tit sub" data-menu="충전기 운영 관리">충전기 운영 상세정보</h2>
+                    <div class="location">
+                        <span>홈</span>
+                        <span>1depth</span>
+                        <span>2depth</span>
+                        <span class="active">3depth</span>
+                    </div>
+                </div>
+                <!-- e:section_tit -->
+
+                <article class="tbl_hor view">
+                    <div class="tbl_top_info">
+                        <h3 class="tbl_tit">충전기 정보</h3>
+                    </div>
+                    <table>
+                        <colgroup>
+                            <col width="140" />
+                            <col width="*" />
+                            <col width="140" />
+                            <col width="55" />
+                            <col width="140" />
+                            <col width="55" />
+                            <col width="140" />
+                            <col width="*" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <label for="iptChargingStation" class="form_label">충전소 명</label>
+                                </th>
+                                <td colspan="3">
+                                    <input type="text" class="form_control wd240" id="iptChargingStation">
+                                </td>
+                                <th scope="row">
+                                    <label for="iptChargingStationID" class="form_label">충전기 ID</label>
+                                </th>
+                                <td colspan="3">
+                                    <input type="text" class="form_control wd240" id="iptChargingStationID">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="selectOperate" class="form_label">운영상태</label>
+                                </th>
+                                <td colspan="3">
+                                    <div class="custom_select wd240">
+                                        <select id="selectOperate">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="selectCharerState" class="form_label">충전기 상태</label>
+                                </th>
+                                <td colspan="3">
+                                    <div class="custom_select wd240">
+                                        <select id="selectCharerState">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="iptChargerMAC" class="form_label">MAC 주소</label>
+                                </th>
+                                <td colspan="3">
+                                    <input type="text" class="form_control wd240" id="iptChargerMAC">
+                                </td>
+                                <th scope="row">
+                                    <label for="iptCharerSerial" class="form_label">충전기 시리얼번호</label>
+                                </th>
+                                <td colspan="3">
+                                    <input type="text" class="form_control wd240" id="iptCharerSerial">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="selectChargerModel" class="form_label">충전기 모델</label>
+                                </th>
+                                <td colspan="3">
+                                    <div class="d_flex gap_px_10 align_items_center">
+                                        제조사
+                                        <div class="custom_select">
+                                            <select id="selectChargerModel">
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                            </select>
+                                        </div>
+                                        모델명
+                                        <div class="custom_select">
+                                            <select id="selectChargerModel2">
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="selectFirmware" class="form_label">펌웨어 버전</label>
+                                </th>
+                                <td colspan="3">
+                                    <div class="custom_select wd240">
+                                        <select id="selectFirmware">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="radioProtocol1" class="form_label">프로토콜 유형</label>
+                                </th>
+                                <td colspan="7">
+                                    <div class="d_flex gap_px_30">
+                                        <div class="fancy_img_box radio">
+                                            <input type="radio" name="protocol" id="radioProtocol1">
+                                            <label for="radioProtocol1">
+                                                <span>환경부</span>
+                                            </label>
+                                        </div>
+                                        <div class="fancy_img_box radio">
+                                            <input type="radio" name="protocol" id="radioProtocol2">
+                                            <label for="radioProtocol2">
+                                                <span>OCPP 1.6</span>
+                                            </label>
+                                        </div>
+                                        <div class="fancy_img_box radio">
+                                            <input type="radio" name="protocol" id="radioProtocol3">
+                                            <label for="radioProtocol3">
+                                                <span>OCPP2.0.1</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="radio1Y" class="form_label">다중 충전 가능 여부</label>
+                                </th>
+                                <td>
+                                    <div class="d_flex gap_px_30">
+                                        <div class="fancy_img_box radio">
+                                            <input type="radio" name="radio1" id="radio1Y">
+                                            <label for="radio1Y">
+                                                <span>Y</span>
+                                            </label>
+                                        </div>
+                                        <div class="fancy_img_box radio">
+                                            <input type="radio" name="radio1" id="radio1N">
+                                            <label for="radio1N">
+                                                <span>N</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="radio2Y" class="form_label">자동 펌웨어<br>수정 대상 여부</label>
+                                </th>
+                                <td colspan="3">
+                                    <div class="d_flex gap_px_30">
+                                        <div class="fancy_img_box radio">
+                                            <input type="radio" name="radio2" id="radio2Y">
+                                            <label for="radio2Y">
+                                                <span>Y</span>
+                                            </label>
+                                        </div>
+                                        <div class="fancy_img_box radio">
+                                            <input type="radio" name="radio2" id="radio2N">
+                                            <label for="radio2N">
+                                                <span>N</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="radio3Y" class="form_label">서울시 지원<br>사업 여부</label>
+                                </th>
+                                <td>
+                                    <div class="d_flex gap_px_30">
+                                        <div class="fancy_img_box radio">
+                                            <input type="radio" name="radio3" id="radio3Y">
+                                            <label for="radio3Y">
+                                                <span>Y</span>
+                                            </label>
+                                        </div>
+                                        <div class="fancy_img_box radio">
+                                            <input type="radio" name="radio3" id="radio3N">
+                                            <label for="radio3N">
+                                                <span>N</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="radio4Y" class="form_label">환경부 로밍<br>연동 여부</label>
+                                </th>
+                                <td>
+                                    <div class="d_flex gap_px_30">
+                                        <div class="fancy_img_box radio">
+                                            <input type="radio" name="radio4" id="radio4Y">
+                                            <label for="radio4Y">
+                                                <span>Y</span>
+                                            </label>
+                                        </div>
+                                        <div class="fancy_img_box radio">
+                                            <input type="radio" name="radio4" id="radio4N">
+                                            <label for="radio4N">
+                                                <span>N</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="radio5Y" class="form_label">환경부 로밍<br>서버 등록 여부</label>
+                                </th>
+                                <td colspan="3">
+                                    <div class="d_flex gap_px_30">
+                                        <div class="fancy_img_box radio">
+                                            <input type="radio" name="radio5" id="radio5Y">
+                                            <label for="radio5Y">
+                                                <span>Y</span>
+                                            </label>
+                                        </div>
+                                        <div class="fancy_img_box radio">
+                                            <input type="radio" name="radio5" id="radio5N">
+                                            <label for="radio5N">
+                                                <span>N</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="radio6Y" class="form_label">환경부 로밍<br>상태 전송 여부</label>
+                                </th>
+                                <td>
+                                    <div class="d_flex gap_px_30">
+                                        <div class="fancy_img_box radio">
+                                            <input type="radio" name="radio6" id="radio6Y">
+                                            <label for="radio6Y">
+                                                <span>Y</span>
+                                            </label>
+                                        </div>
+                                        <div class="fancy_img_box radio">
+                                            <input type="radio" name="radio6" id="radio6N">
+                                            <label for="radio6N">
+                                                <span>N</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+
+                <article class="tbl_hor view mt_px_40">
+                    <div class="tbl_top_info end">
+                        <h3 class="tbl_tit">요금정보</h3>
+                        <button class="btn_ico pay"><span>요금 설정</span></button>
+                    </div>
+                    <table>
+                        <colgroup>
+                            <col width="140" />
+                            <col width="140" />
+                            <col width="*" />
+                            <col width="140" />
+                            <col width="*" />
+                            <col width="140" />
+                            <col width="*" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <label for="radioBilling1" class="form_label">과금 기준</label>
+                                </th>
+                                <td colspan="4">
+                                    <div class="d_flex gap_px_30">
+                                        <div class="fancy_img_box radio">
+                                            <input type="radio" name="Billing" id="radioBilling1">
+                                            <label for="radioBilling1">
+                                                <span>고압</span>
+                                            </label>
+                                        </div>
+                                        <div class="fancy_img_box radio">
+                                            <input type="radio" name="Billing" id="radioBilling2">
+                                            <label for="radioBilling2">
+                                                <span>저압</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="iptExpenses" class="form_label">운영비</label>
+                                </th>
+                                <td>
+                                    <div class="d_flex align_items_center gap_px_10">
+                                        <input type="text" class="form_control" id="iptExpenses">
+                                        원
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    요금 정보
+                                </th>
+                                <td colspan="6">
+
+                                    <!-- s:단일요금 -->
+                                    <div class="tbl_inner_content">
+                                        <div class="d_flex gap_px_40">
+                                            <article>
+                                                <div class="tbl_top_info">
+                                                    <h3 class="tbl_tit sm">단일요금</h3>
+                                                </div>
+                                                <table>
+                                                    <colgroup>
+                                                        <col width="120" />
+                                                        <col width="*" />
+                                                    </colgroup>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th rowspan="2" scope="col">
+                                                                <div>단일요금</div>
+                                                            </th>
+                                                            <td>
+                                                                <div>회원</div>
+                                                            </td>
+                                                            <td>
+                                                                <div>190원</div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div>비회원</div>
+                                                            </td>
+                                                            <td>
+                                                                <div>280원</div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">
+                                                                <div>운영비</div>
+                                                            </th>
+                                                            <td colspan="2">
+                                                                <div>0원</div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </article>
+                                            <article>
+                                                <div class="tbl_top_info">
+                                                    <h3 class="tbl_tit sm">프로모션</h3>
+                                                </div>
+                                                <table>
+                                                    <colgroup>
+                                                        <col width="40%" />
+                                                        <col width="*" />
+                                                        <col width="40%" />
+                                                    </colgroup>
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">
+                                                                <div>프로모션 명</div>
+                                                            </th>
+                                                            <th scope="col">
+                                                                <div>할인율 (%)</div>
+                                                            </th>
+                                                            <th scope="col">
+                                                                <div>기간</div>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div>이지차저 대박 할인 이벤트</div>
+                                                            </td>
+                                                            <td>
+                                                                <div>7</div>
+                                                            </td>
+                                                            <td>
+                                                                <div>2023-09-12 ~ 2023-1016</div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </article>
+                                        </div>
+                                    </div>
+                                    <!-- e:단일요금 -->
+
+                                    <!-- s:계시별 요금 -->
+                                    <div class="tbl_inner_content">
+                                        <article>
+                                            <div class="tbl_top_info">
+                                                <h3 class="tbl_tit sm">계시별 요금</h3>
+                                            </div>
+                                            <table>
+                                                <colgroup>
+                                                    <col width="120" />
+                                                    <col width="*" />
+                                                    <col width="*" />
+                                                    <col width="120" />
+                                                    <col width="*" />
+                                                    <col width="*" />
+                                                    <col width="120" />
+                                                    <col width="*" />
+                                                    <col width="*" />
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <th rowspan="2" scope="col">
+                                                            <div>경부하</div>
+                                                        </th>
+                                                        <td>
+                                                            <div>회원</div>
+                                                        </td>
+                                                        <td>
+                                                            <div>190원</div>
+                                                        </td>
+                                                        <th rowspan="2" scope="col">
+                                                            <div>중간부하</div>
+                                                        </th>
+                                                        <td>
+                                                            <div>회원</div>
+                                                        </td>
+                                                        <td>
+                                                            <div>190원</div>
+                                                        </td>
+                                                        <th rowspan="2" scope="col">
+                                                            <div>최대부하</div>
+                                                        </th>
+                                                        <td>
+                                                            <div>회원</div>
+                                                        </td>
+                                                        <td>
+                                                            <div>190원</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div>비회원</div>
+                                                        </td>
+                                                        <td>
+                                                            <div>280원</div>
+                                                        </td>
+                                                        <td>
+                                                            <div>비회원</div>
+                                                        </td>
+                                                        <td>
+                                                            <div>280원</div>
+                                                        </td>
+                                                        <td>
+                                                            <div>비회원</div>
+                                                        </td>
+                                                        <td>
+                                                            <div>280원</div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </article>
+                                    </div>
+                                    <!-- e:계시별 요금 -->
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div>프로모션</div>
+                                </th>
+                                <th scope="row">
+                                    <div>프로모션 명</div>
+                                </th>
+                                <td>
+                                    <div class="text_center">00000 할인</div>
+                                </td>
+                                <th scope="row">
+                                    <div>할인율(%)</div>
+                                </th>
+                                <td>
+                                    <div class="text_center">7</div>
+                                </td>
+                                <th scope="row">
+                                    <div>기간</div>
+                                </th>
+                                <td>
+                                    <div class="text_center">2023-09-12 ~ 2023-09-12</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+
+                <article class="tbl_hor view mt_px_40">
+                    <table>
+                        <colgroup>
+                            <col width="140" />
+                            <col width="*" />
+                            <col width="140" />
+                            <col width="*" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <label for="iptDate1" class="form_label">최초 등록일</label>
+                                </th>
+                                <td>
+                                    <div class="date_item">
+                                        <input type="text" class="form_control datepicker wd100" id="iptDate1">
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="iptDate2" class="form_label">계약 만료일</label>
+                                </th>
+                                <td>
+                                    <div class="date_item">
+                                        <input type="text" class="form_control datepicker wd100" id="iptDate2">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="iptDate3" class="form_label">개통일</label>
+                                </th>
+                                <td colspan="3">
+                                    <div class="date_item">
+                                        <input type="text" class="form_control datepicker wd100" id="iptDate3">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn_end">
+                        <button class="btn btn_outline" type="button">펌웨어 적용</button>
+                        <button class="btn btn_primary" type="button">저장</button>
+                    </div>
+                </article>
+
+            </div>
+        </main>
+        <!-- e:container -->
+
+    </div>
+    <!-- e:wrap -->
+
+</body>
+
+</html>

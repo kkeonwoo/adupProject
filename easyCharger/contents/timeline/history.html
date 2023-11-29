@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../frontLayer/css/package.css">
+    <script src="../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../frontLayer/js/fn.js"></script>
+    <script src="../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:back_page -->
+        <div class="back_page type_bg_gray">
+            <div class="back_inner">
+                <div class="back_hdr">
+                    <a href="#" class="back_btn" aria-label="뒤로가기">타임라인</a>
+                </div>
+                <div class="swiper_tab_wrap">
+                    <div class="swiper swiper_tab">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a href="./history.html" class="tab_btn active">
+                                    <span class="txt">충전내역</span>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="./point.html" class="tab_btn">
+                                    <span class="txt">포인트 관리</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="back_body">
+                    <div class="date_control_area">
+                        <button type="button" class="prev_btn" aria-label="이전 버튼"></button>
+                        <div class="txt_box">
+                            <!-- <span class="txt">8월</span> -->
+                            <span class="txt">23.07.28 ~ 23.08.28</span>
+                        </div>
+                        <button type="button" class="next_btn" aria-label="다음 버튼"></button>
+                    </div>
+                    <div class="filter_more_area">
+                        <div class="form_select">
+                            <select class="select">
+                                <option>전체</option>
+                                <option>결제</option>
+                                <option>결제취소</option>
+                                <option>부분취소</option>
+                            </select>
+                        </div>
+                        <div class="form_select">
+                            <select class="select">
+                                <option>전체(결제수단)</option>
+                                <option>OO카드(별칭) ****-1234</option>
+                                <option>XX카드 (별칭) ****-5678</option>
+                                <option>카카오페이</option>
+                                <option>네이버페이</option>
+                            </select>
+                        </div>
+                        <button type="button" class="filter_btn" onclick="EasyCharger.openModal($('#modalFilter'))">
+                            <i class="ico ico_filter_white"></i>
+                            필터
+                        </button>
+                    </div>
+                    <div class="total_ttl_area">
+                        <span class="txt">
+                            총 <span class="f_inherit color_orange">12</span>개
+                        </span>
+                    </div>
+                    <div class="history_area">
+                        <ul class="history_list">
+                            <li class="history_item">
+                                <div class="history_card">
+                                    <span class="date">8/30(수)</span>
+                                    <a href="#" class="link_area">
+                                        <div class="desc_box">
+                                            <b class="ttl">판교글로벌비지니스 전기차충전소</b>
+                                            <div class="split_box">
+                                                <span class="txt">18:05:55</span>
+                                                <span class="txt">일시불</span>
+                                            </div>
+                                            <div class="split_box">
+                                                <span class="txt">신용카드</span>
+                                                <span class="txt">OO카드/(별칭) ****-1234</span>
+                                            </div>
+                                        </div>
+                                        <div class="amount_box">
+                                            <span class="cost">5,000원</span>
+                                            <span class="txt">결제</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="history_item">
+                                <div class="history_card">
+                                    <span class="date">8/29(화)</span>
+                                    <a href="#" class="link_area">
+                                        <div class="desc_box">
+                                            <b class="ttl">판교휴먼아파트 전기차충전소</b>
+                                            <div class="split_box">
+                                                <span class="txt">18:05:55</span>
+                                                <span class="txt">일시불</span>
+                                            </div>
+                                            <div class="split_box">
+                                                <span class="txt">신용카드</span>
+                                                <span class="txt">OO카드/(별칭) ****-1234</span>
+                                            </div>
+                                        </div>
+                                        <div class="amount_box">
+                                            <span class="cost color_red">-5,000원</span>
+                                            <span class="txt">결제취소</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="history_card">
+                                    <a href="#" class="link_area">
+                                        <div class="desc_box">
+                                            <b class="ttl">가산본점 전기차충전소</b>
+                                            <div class="split_box">
+                                                <span class="txt">18:05:55</span>
+                                                <span class="txt">일시불</span>
+                                            </div>
+                                            <div class="split_box">
+                                                <span class="txt">신용카드</span>
+                                                <span class="txt">OO카드/(별칭) ****-1234</span>
+                                            </div>
+                                        </div>
+                                        <div class="amount_box">
+                                            <span class="cost">5,000원</span>
+                                            <span class="txt">결제</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fltg_dummy"></div>
+                <div class="fltg_ftr_wrap">
+                    <div class="fltg_ftr">
+                        <ul class="fltg_list">
+                            <li class="fltg_item">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_home"></i>
+                                    <span class="txt">홈</span>
+                                </a>
+                            </li>
+                            <li class="fltg_item">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_charger"></i>
+                                    <span class="txt">충전소찾기</span>
+                                </a>
+                            </li>
+                            <li class="fltg_item active">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_timeline"></i>
+                                    <span class="txt">타임라인</span>
+                                </a>
+                            </li>
+                            <li class="fltg_item">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_user"></i>
+                                    <span class="txt">My</span>
+                                </a>
+                            </li>
+                            <li class="fltg_item">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_menu"></i>
+                                    <span class="txt">메뉴</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:back_page -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close pos_bottom" id="modalFilter">
+            <div class="modal_centered">
+                <div class="modal_box">
+                    <div class="modal_header type2">
+                        <a href="#" class="back_btn close">
+                            <h2 class="ttl">필터 설정</h2>
+                        </a>
+                        <button type="button" class="close_btn close" aria-label="닫기"></button>
+                    </div>
+                    <div class="modal_body inner_scroll">
+                        <div class="divr_group">
+                            <div class="divr_hdr">
+                                <h3 class="ttl">결제방식</h3>
+                            </div>
+                            <div class="divr_body">
+                                <div class="form_check_list">
+                                    <label class="form_check">
+                                        <input class="form_check_input" type="radio" name="radio01">
+                                        <span class="ico"></span>
+                                        <span class="form_check_txt">전체</span>
+                                    </label>
+                                    <label class="form_check">
+                                        <input class="form_check_input" type="radio" name="radio01" checked>
+                                        <span class="ico"></span>
+                                        <span class="form_check_txt">신용카드</span>
+                                    </label>
+                                    <label class="form_check">
+                                        <input class="form_check_input" type="radio" name="radio01">
+                                        <span class="ico"></span>
+                                        <span class="form_check_txt">포인트</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divr_group">
+                            <div class="divr_hdr">
+                                <h3 class="ttl">이용구분</h3>
+                            </div>
+                            <div class="divr_body">
+                                <div class="form_check_list">
+                                    <label class="form_check">
+                                        <input class="form_check_input" type="radio" name="radio02">
+                                        <span class="ico"></span>
+                                        <span class="form_check_txt">전체</span>
+                                    </label>
+                                    <label class="form_check">
+                                        <input class="form_check_input" type="radio" name="radio02" checked>
+                                        <span class="ico"></span>
+                                        <span class="form_check_txt">일시불</span>
+                                    </label>
+                                    <label class="form_check">
+                                        <input class="form_check_input" type="radio" name="radio02">
+                                        <span class="ico"></span>
+                                        <span class="form_check_txt">할부</span>
+                                    </label>
+                                    <label class="form_check">
+                                        <input class="form_check_input" type="radio" name="radio02">
+                                        <span class="ico"></span>
+                                        <span class="form_check_txt">취소</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divr_group">
+                            <div class="divr_hdr">
+                                <h3 class="ttl">결제구분</h3>
+                            </div>
+                            <div class="divr_body">
+                                <div class="form_check_list">
+                                    <label class="form_check">
+                                        <input class="form_check_input" type="radio" name="radio03">
+                                        <span class="ico"></span>
+                                        <span class="form_check_txt">전체</span>
+                                    </label>
+                                    <label class="form_check">
+                                        <input class="form_check_input" type="radio" name="radio03" checked>
+                                        <span class="ico"></span>
+                                        <span class="form_check_txt">결제</span>
+                                    </label>
+                                    <label class="form_check">
+                                        <input class="form_check_input" type="radio" name="radio03">
+                                        <span class="ico"></span>
+                                        <span class="form_check_txt">취소</span>
+                                    </label>
+                                    <label class="form_check">
+                                        <input class="form_check_input" type="radio" name="radio03">
+                                        <span class="ico"></span>
+                                        <span class="form_check_txt">부분취소</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divr_group">
+                            <div class="divr_hdr">
+                                <h3 class="ttl">조회기간</h3>
+                            </div>
+                            <div class="divr_body">
+                                <div class="choose_tab_hdr">
+                                    <button type="button" class="choose_tab active">월별선택</button>
+                                    <button type="button" class="choose_tab">기간지정</button>
+                                </div>
+                                <div class="choose_tab_cont">
+                                    <div class="choose_item active">
+                                        <div class="form_select">
+                                            <select class="select">
+                                                <option>2023년 8월</option>
+                                                <option>2023년 7월</option>
+                                                <option>2023년 6월</option>
+                                                <option>2023년 5월</option>
+                                                <option>2023년 4월</option>
+                                                <option>2023년 3월</option>
+                                                <option>2023년 2월</option>
+                                                <option>2023년 1월</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="choose_item">
+                                        <div class="period_area">
+                                            <div class="day_box">
+                                                <input id="day1" type="text" class="form_control datepicker" value="">
+                                                <label for="day1" class="ico_date"></label>
+                                            </div>
+                                            <span class="tilde">~</span>
+                                            <div class="day_box">
+                                                <input id="day2" type="text" class="form_control datepicker" value="">
+                                                <label for="day2" class="ico_date"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal_ftr">
+                        <div class="btn_area type2">
+                            <button type="button" class="btn btn_lg btn_outline_secondary close">초기화</button>
+                            <button type="button" class="btn btn_lg btn_primary close">적용</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+    </div>
+    <!-- e:wrapper -->
+
+</body>
+
+</html>

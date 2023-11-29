@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#filter);
+      }
+
+      .cls-2 {
+        fill: red;
+        opacity: 0;
+      }
+
+      .cls-3 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#f80"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="메뉴" class="cls-1">
+    <rect class="cls-2" width="56" height="56"/>
+    <rect class="cls-2" x="8" y="8" width="40" height="40"/>
+    <path class="cls-3" d="M1268,1077h32v4h-32v-4Zm0,11h24v4h-24v-4Zm0-22h32v4h-32v-4Z" transform="translate(-1256 -1051)"/>
+  </g>
+</svg>

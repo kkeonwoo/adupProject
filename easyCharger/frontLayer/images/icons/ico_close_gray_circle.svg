@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: red;
+        opacity: 0;
+      }
+
+      .cls-2 {
+        fill: #ccc;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="56" height="56"/>
+  <rect class="cls-1" x="8" y="8" width="40" height="40"/>
+  <circle class="cls-2" cx="28" cy="28" r="20"/>
+  <image id="Vector_Smart_Object" data-name="Vector Smart Object" x="19" y="19" width="18" height="18" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAfklEQVQ4jbVUQQrAMAiTHf1in1oY7GEjo0yhjFmFZYKH0phqrAqA4Q1AB6B2rrhazIgVJzlx214kU8PCYpsY62wZ2Uzi1qOLiCzEpoAKiWtUAaYPVVI/zJelV8VM9Vt15pmFZ/fa0U1Y9ldpFLEp7ad8SNqI0IaWtka+LzZALkW4Ev+mGxLOAAAAAElFTkSuQmCC"/>
+</svg>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../frontLayer/css/package.css">
+    <script src="../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../frontLayer/js/fn.js"></script>
+    <script src="../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:step_page -->
+        <div class="step_page">
+            <div class="step_inner">
+                <div class="step_hdr">
+                    <button type="button" class="close_btn" aria-label="닫기버튼"></button>
+                </div>
+                <div class="step_body">
+                    <div class="ttl_area">
+                        <h1 class="ttl">차량 등록</h1>
+                        <div class="prg_area">
+                            <ul class="prg_list">
+                                <li class="prg_item active"></li>
+                                <li class="prg_item"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cnt_group">
+                        <p class="msg">
+                            차량 번호로 모델명, 충전 타입을<br/>
+                            한번에 조회할 수 있어요.
+                        </p>
+                        <hr class="hr"/>
+                        <div class="form_group column">
+                            <label for="frmVehModel" class="form_label">차량 모델</label>
+                            <div class="form_box">
+                                <input type="text" id="frmModel" class="form_control" placeholder="아이오닉5" value="">
+                            </div>
+                        </div>
+                        <div class="form_group column">
+                            <label for="frmVehNum" class="form_label">차량번호 입력</label>
+                            <div class="form_box">
+                                <input type="text" id="frmVehNum" class="form_control" placeholder="12가3456" value="">
+                            </div>
+                        </div>
+                        <div class="form_group column">
+                            <label for="frmOwner" class="form_label">소유자명 입력</label>
+                            <div class="form_box">
+                                <input type="text" id="frmOwner" class="form_control" placeholder="홍길동" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step_ftr">
+                    <div class="btn_area">
+                        <button type="button" class="skip_btn">건너뛰기</button>
+                        <button type="button" class="btn btn_lg btn_outline_secondary">뒤로</button>
+                        <button type="button" class="btn btn_lg btn_primary" onclick="EasyCharger.openModal($('#modalDupl'))">다음</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:step_page -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close z_9100" id="modalDupl">
+            <div class="modal_centered">
+                <div class="modal_box">
+                    <div class="modal_body">
+                        <div class="modal_content">
+                            <p class="msg">이미 등록된 차량번호입니다.</p>
+                        </div>
+                        <div class="btn_area">
+                            <button type="button" class="btn btn_md btn_primary close">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+    </div>
+    <!-- e:wrapper -->
+    
+</body>
+
+</html>

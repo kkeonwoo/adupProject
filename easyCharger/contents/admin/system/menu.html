@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="user-scalable=no, width=1440">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../../adminLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../adminLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../adminLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../adminLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../adminLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../adminLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../adminLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../../adminLayer/css/package.css">
+    <script src="../../../adminLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../../adminLayer/js/jquery-ui.min.js"></script>
+    <script src="../../../adminLayer/js/fn.js"></script>
+    <script src="../../../adminLayer/js/simplebar.min.js"></script>
+    <script src="../../../adminLayer/js/common.js"></script>
+</head>
+
+<body>    
+
+    <!-- s:skip -->
+    <div class="skip">
+        <a href="#lnb">LNB 바로가기</a>
+        <a href="#container">MAIN CONTENTS shoutcut</a>
+    </div>
+    <!-- e:skip -->
+
+    <!-- s:wrap -->
+    <div id="wrap">
+
+        <!-- s:header -->
+        <header id="header">
+            
+        </header>
+        <!-- s:header -->
+
+        <!-- s:lnb -->
+        <aside id="lnb">
+            
+        </aside>
+        <!-- e:lnb -->
+
+        <!-- s:container -->
+        <main id="container">
+            <h2 class="blind">MAIN CONTENTS</h2>
+            <div class="content_inner">
+
+                <!-- s:section_tit -->
+                <div class="section_top">
+                    <h2 class="section_tit">메뉴 관리</h2>
+                    <div class="location">
+                        <span>홈</span>
+                        <span>1depth</span>
+                        <span>2depth</span>
+                        <span class="active">3depth</span>
+                    </div>
+                </div>
+                <!-- e:section_tit -->
+
+                <article class="tbl_hor frm_search">
+                    <table>
+                        <colgroup>
+                            <col width="140" />
+                            <col width="*" />
+                            <col width="140" />
+                            <col width="150" />
+                            <col width="140" />
+                            <col width="150" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <label for="iptSearch" class="form_label">검색</label>
+                                </th>
+                                <td>
+                                    <input type="text" class="form_control" id="iptSearch" placeholder="메뉴명, URL 입력">
+                                </td>
+                                <th scope="row">
+                                    <label for="selectUse" class="form_label">사용여부</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select">
+                                        <select id="selectUse">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="selectOs" class="form_label">OS</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select">
+                                        <select id="selectOs">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn_end">
+                        <button class="btn btn_secondary" type="button">조회</button>
+                    </div>
+                </article>
+
+                <article class="tbl_ver mt_px_40">
+                    <table>
+                        <colgroup>
+                            <col width="50" />
+                            <col width="60" />
+                            <col width="235" />
+                            <col width="235" />
+                            <col width="*" />
+                            <col width="85" />
+                            <col width="95" />
+                            <col width="160" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">OS</th>
+                                <th scope="col">상위 메뉴</th>
+                                <th scope="col">메뉴명</th>
+                                <th scope="col">URL</th>
+                                <th scope="col">사용여부</th>
+                                <th scope="col">최초 등록자</th>
+                                <th scope="col">최초 등록일</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr onclick="EasyCharger.openModal($('#modalMenuDetail'))">
+                                <td>
+                                    <div>1</div>
+                                </td>
+                                <td>
+                                    <div>App</div>
+                                </td>
+                                <td>
+                                    <div>고장신고</div>
+                                </td>
+                                <td>
+                                    <div>
+                                        고장신고 관리
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>/benefit/my</div>
+                                </td>
+                                <td>
+                                    <div class="fancy_img_box">
+                                        <input type="checkbox" id="chkUse1">
+                                        <label for="chkUse1">
+                                            <span class="blind">사용여부</span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>김한나</div>
+                                </td>
+                                <td>
+                                    <div>2023-10-15 22:23:55</div>
+                                </td>
+                            </tr>
+                            <tr onclick="EasyCharger.openModal($('#modalMenuDetail'))">
+                                <td>
+                                    <div>2</div>
+                                </td>
+                                <td>
+                                    <div>Web</div>
+                                </td>
+                                <td>
+                                    <div>고장신고</div>
+                                </td>
+                                <td>
+                                    충전소 상태 현황
+                                </td>
+                                <td>
+                                    <div>/benefit/my</div>
+                                </td>
+                                <td>
+                                    <div class="fancy_img_box">
+                                        <input type="checkbox" id="chkUse2">
+                                        <label for="chkUse2">
+                                            <span class="blind">사용여부</span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>김한나</div>
+                                </td>
+                                <td>
+                                    <div>2023-10-15 22:23:55</div>
+                                </td>
+                            </tr>
+                            <tr onclick="EasyCharger.openModal($('#modalMenuDetail'))">
+                                <td>
+                                    <div>3</div>
+                                </td>
+                                <td>
+                                    <div>App</div>
+                                </td>
+                                <td>
+                                    <div>고장신고</div>
+                                </td>
+                                <td>
+                                    <div>
+                                        충전소 관리
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>/benefit/my</div>
+                                </td>
+                                <td>
+                                    <div class="fancy_img_box">
+                                        <input type="checkbox" id="chkUse3">
+                                        <label for="chkUse3">
+                                            <span class="blind">사용여부</span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>김한나</div>
+                                </td>
+                                <td>
+                                    <div>2023-10-15 22:23:55</div>
+                                </td>
+                            </tr>
+                            <tr onclick="EasyCharger.openModal($('#modalMenuDetail'))">
+                                <td>
+                                    <div>4</div>
+                                </td>
+                                <td>
+                                    <div>App</div>
+                                </td>
+                                <td>
+                                    <div>고장신고</div>
+                                </td>
+                                <td>
+                                    <div>
+                                        충전소 관리
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>/benefit/my</div>
+                                </td>
+                                <td>
+                                    <div class="fancy_img_box">
+                                        <input type="checkbox" id="chkUse4">
+                                        <label for="chkUse4">
+                                            <span class="blind">사용여부</span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>김한나</div>
+                                </td>
+                                <td>
+                                    <div>2023-10-15 22:23:55</div>
+                                </td>
+                            </tr>
+                            <tr onclick="EasyCharger.openModal($('#modalMenuDetail'))">
+                                <td>
+                                    <div>5</div>
+                                </td>
+                                <td>
+                                    <div>App</div>
+                                </td>
+                                <td>
+                                    <div>고장신고</div>
+                                </td>
+                                <td>
+                                    <div>
+                                        충전소 관리
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>/benefit/my</div>
+                                </td>
+                                <td>
+                                    <div class="fancy_img_box">
+                                        <input type="checkbox" id="chkUse5">
+                                        <label for="chkUse5">
+                                            <span class="blind">사용여부</span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>김한나</div>
+                                </td>
+                                <td>
+                                    <div>2023-10-15 22:23:55</div>
+                                </td>
+                            </tr>
+                            <tr onclick="EasyCharger.openModal($('#modalMenuDetail'))">
+                                <td>
+                                    <div>6</div>
+                                </td>
+                                <td>
+                                    <div>App</div>
+                                </td>
+                                <td>
+                                    <div>고장신고</div>
+                                </td>
+                                <td>
+                                    <div>
+                                        충전소 관리
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>/benefit/my</div>
+                                </td>
+                                <td>
+                                    <div class="fancy_img_box">
+                                        <input type="checkbox" id="chkUse6">
+                                        <label for="chkUse6">
+                                            <span class="blind">사용여부</span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>김한나</div>
+                                </td>
+                                <td>
+                                    <div>2023-10-15 22:23:55</div>
+                                </td>
+                            </tr>
+                            <tr onclick="EasyCharger.openModal($('#modalMenuDetail'))">
+                                <td>
+                                    <div>7</div>
+                                </td>
+                                <td>
+                                    <div>App</div>
+                                </td>
+                                <td>
+                                    <div>고장신고</div>
+                                </td>
+                                <td>
+                                    <div>
+                                        충전소 관리
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>/benefit/my</div>
+                                </td>
+                                <td>
+                                    <div class="fancy_img_box">
+                                        <input type="checkbox" id="chkUse7">
+                                        <label for="chkUse7">
+                                            <span class="blind">사용여부</span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>김한나</div>
+                                </td>
+                                <td>
+                                    <div>2023-10-15 22:23:55</div>
+                                </td>
+                            </tr>
+                            <tr onclick="EasyCharger.openModal($('#modalMenuDetail'))">
+                                <td>
+                                    <div>8</div>
+                                </td>
+                                <td>
+                                    <div>App</div>
+                                </td>
+                                <td>
+                                    <div>고장신고</div>
+                                </td>
+                                <td>
+                                    <div>
+                                        충전소 관리
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>/benefit/my</div>
+                                </td>
+                                <td>
+                                    <div class="fancy_img_box">
+                                        <input type="checkbox" id="chkUse8">
+                                        <label for="chkUse8">
+                                            <span class="blind">사용여부</span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>김한나</div>
+                                </td>
+                                <td>
+                                    <div>2023-10-15 22:23:55</div>
+                                </td>
+                            </tr>
+                            <tr onclick="EasyCharger.openModal($('#modalMenuDetail'))">
+                                <td>
+                                    <div>9</div>
+                                </td>
+                                <td>
+                                    <div>Web</div>
+                                </td>
+                                <td>
+                                    <div>고장신고</div>
+                                </td>
+                                <td>
+                                    <div>
+                                        충전소 관리
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>/benefit/my</div>
+                                </td>
+                                <td>
+                                    <div class="fancy_img_box">
+                                        <input type="checkbox" id="chkUse9">
+                                        <label for="chkUse9">
+                                            <span class="blind">사용여부</span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>김한나</div>
+                                </td>
+                                <td>
+                                    <div>2023-10-15 22:23:55</div>
+                                </td>
+                            </tr>
+                            <tr onclick="EasyCharger.openModal($('#modalMenuDetail'))">
+                                <td>
+                                    <div>10</div>
+                                </td>
+                                <td>
+                                    <div>Web</div>
+                                </td>
+                                <td>
+                                    <div>고장신고</div>
+                                </td>
+                                <td>
+                                    <div>
+                                        충전소 관리
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>/benefit/my</div>
+                                </td>
+                                <td>
+                                    <div class="fancy_img_box">
+                                        <input type="checkbox" id="chkUse10">
+                                        <label for="chkUse10">
+                                            <span class="blind">사용여부</span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>김한나</div>
+                                </td>
+                                <td>
+                                    <div>2023-10-15 22:23:55</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn_end">
+                        <button class="btn btn_primary" type="button">저장</button>
+                    </div>
+                </article>
+
+            </div>
+        </main>
+        <!-- e:container -->
+
+    </div>
+    <!-- e:wrap -->
+
+    <!-- s:메뉴 상세 -->
+    <div class="modal modal_close" id="modalMenuDetail">
+        <div class="modal_centered">
+            <div class="modal_box">
+                <div class="modal_header">
+                    <h1>메뉴 상세</h1>
+                    <button type="button" class="btn_modal_close close">close</button>
+                </div>
+                <div class="modal_body">
+                    <div class="modal_content">
+                        <h2>메뉴 정보</h2>
+                        <div class="tbl_hor_modal"> 
+                            <table>
+                                <colgroup>
+                                    <col width="120" />
+                                    <col width="*" />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <label for="selectMenu" class="form_label"><i class="req">*</i>상위메뉴</label>
+                                        </th>
+                                        <td>
+                                            <div class="custom_select">
+                                                <select id="selectMenu">
+                                                    <option value="">선택</option>
+                                                    <option value="">선택</option>
+                                                    <option value="">선택</option>
+                                                    <option value="">선택</option>
+                                                    <option value="">선택</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <label for="iptModalMenu2" class="form_label"><i class="req">*</i>메뉴명</label>
+                                        </th>
+                                        <td>
+                                            <input type="text" class="form_control" id="iptModalMenu2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <label for="iptModalMenu3" class="form_label"><i class="req">*</i>URL</label>
+                                        </th>
+                                        <td>
+                                            <input type="text" class="form_control" id="iptModalMenu3">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <label for="iptModalMenuY" class="form_label"><i class="req">*</i>사용여부</label>
+                                        </th>
+                                        <td>
+                                            <div class="d_flex gap_px_30">
+                                                <div class="fancy_img_box radio">
+                                                    <input type="radio" name="group" id="iptModalMenuY">
+                                                    <label for="iptModalMenuY">
+                                                        <span>사용</span>
+                                                    </label>
+                                                </div>
+                                                <div class="fancy_img_box radio">
+                                                    <input type="radio" name="group" id="iptModalMenuN">
+                                                    <label for="iptModalMenuN">
+                                                        <span>미사용</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="btn_center">
+                        <button type="button" class="btn btn_primary close">저장</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- e:메뉴 상세 -->
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+<svg id="알람" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: red;
+        opacity: 0;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="64" height="64"/>
+  <rect class="cls-1" x="8" y="8" width="48" height="48"/>
+  <image id="Vector_Smart_Object" data-name="Vector Smart Object" x="9" y="10" width="47" height="43" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAArCAYAAADottG6AAADHklEQVRYhe2ZW4hNYRTHf3PJOFJmzZukeJBcJ0Xk8oIxpSmRSyRFFCMRD5hRU5IiD8plHkRRzJBmPBglmQfGLQ+Uy4s7Dx5G1oQxh2Hoq++w53Oas789jT1nOv+Xs9Y+/7X2f++9vvXt79v0BiJySEQ6ReSUTxoRKRaRhyLSLiKLo0rI75V62AoUAmtFZKhH3BygFBgCbIx68ryUISLDgc3ATKAkZHxpwH4M/AwZNwwYZe0vwIsQMR+B28AxVX3/R7yILATOAz53Ly6Yi12hqlfyRGQs8ABIZIHwFDqAKaZeawLC24D9wLOQSRoD9mqgPWTcdGCXtZ8Ae0LEjAGqgGKrt8aILw8Q1qlqYw8JukFEgm6TqrZFiPugqpdCxj0HGqxbnu8MzpthhceEoL4St1X+8NSk9rfT1mFYfA7wWj3iuukr9BTrYg2wHqhT1W8ecc3APsA0i91RT266za+AL2HrNg6YmTnwtHs9w8aKnPi44A7Y4yLyvR/rHRR03AGbVRhQZXMASMakJQwGAztTvFyfjwsDquZDQUQmARXAa+CCqv6z/BORucAM4K6qNqf5vwBYbpeDl1X1UZ+Lt8LvA0X20FRgh8NZCZwL+KtUtc5JdRDYbu0aEZnmewFRyqYiINxgaRrOsgy+G1dk83ohivi3jv8mDcc9Fobj5s2IKOLrgVq7iDDlU5mGY97Vm2xba7K+i0ob32rz1fsKyfX5uBCl2+TZrQoz4F4BW1T1ncMx23iHgdlAC7BNVb86nJHAEWA0cNGUlqp6vSRG6fOLgL3Wnmz3Gxc4nGpgg7XH2bqudjgngbJAHtMmQ22BpBClbMZn8A0mZPDD5ukRUcRfB7oC/tU0HPdYJk6XzesF77JR1XsiYh73ElvzR9NwakXkEzALuKWqZ9OkMq3yqa35BpPXV0uuVcaFnPi4kPXig7u73r32PyOor6PQTt+pme6EiGyyH8e6Ypf6F+YmT7Rvnym0mFY5H7jWDwT6oqwgmUy+TCQSZotvXhYJr1LVM2YRTDKZbEkkEneAEYD5Htvbjw59AbMZdsN8dFbV0wC/ARMn3skSuE2tAAAAAElFTkSuQmCC"/>
+</svg>

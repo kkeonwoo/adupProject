@@ -1,0 +1,13 @@
+<svg id="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: red;
+        opacity: 0;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="56" height="56"/>
+  <rect class="cls-1" x="8" y="8" width="40" height="40"/>
+  <image id="Vector_Smart_Object" data-name="Vector Smart Object" x="8" y="7" width="40" height="41" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAApCAYAAABHomvIAAAEV0lEQVRYhc2Za4hVVRTHf85otfGRqw9aGRVC03OKHkRCQaMhBWFGEBH0xOlhM4VC2oegIKKgPkUFU5NFUBD0DolSKqGiJEOspsb5YvlJs1bv9iRlrGndy2l55s6943Gu/y9zztpr7/2/+6y99v6vmcYkICKdwCLgEuBc4DRgPjDTR/sV2ANsA7YC7wCbVfXv8WYTkVnA8cBw0a8lgiJiA6wEbgCObvGn7QIGgQFV3RnGPRvYBMwGPgF6VDU3TVBEBHgAuAWY0SKxiL3A48CDqvqDj78OuKngd4WqvmkPHU2QWw58A9xRATl8jFXAkIhc7raZwee42sP0BsSM/EPAmgaTWYxt9Dgb9tgzzAFOBs4ElgLdJX3nAW+JyCOFfjXMbkhQRA4DngWuLWm22HgGeFJVhxqQ/7Qwnm2i24EVwBHB725gJNhm1R72+8QiMs2DuYzc60CXqvZNQO5/MF9V7fdVfbXE5aTwXl/Bshi8H7gu2EaBXlW9Mu7AVqCq36nqVb4h/mrQdW4pQRHpAe4Nzr8Al6nq4GSJhTnmetzeDPw+jlv9E08vdEzAukDaUsJyVX2/AmK24e4CUhPupZvEduuJwbG/InKnA/e00OXw2kOHDzDHc1MR61V14EDJOZpZtSK21p5rK9gLHFlwsE/bXxE5wxbgxZLMkD0OfwN+8r/me1/NYeyoE5FtIZk+paq3VkgQn2e+58GfLTk3ujzUCYrIqXbsBHu3qn5ZNcHJwGJwSej3xaFCDie4KNjebROXUhjBU0LDx4cItzHYLj4h2La3icsY/KRZ6a8DRlCCz6428CriFWCxvy/pKLkw7G0XMz9uewqmHiP3T/Cr4tY8WRwVZMioEdQwWKtiqEocG8b60Qh+G4xdbSQYpcGIEfw6GGNenEpcGOb6ygh+GIxL28HMRVqce5MZ3wvGbhEpU2EHG5ZaFhTm2GfcOlR1u8vHIqq8ajWLvuC3UVX31HLg86HxRhFZOFXMROQcqyYEs8neepJ+2u9oNVgufGyKyBmHJ4J5p58oWJWKnPNoSmlGyOJdKaXdOefPDibBlNJa+2LBvEZVN1PM2n7MDAXhZMfepaoaN1IlEBHbtW+H4/Zz4PzabbveoKp/uqAuHn22qq+JyOJKmf1H7iKvVESZ21uUAp3FTjnnHSklW9WLC2aTgNf4595SEbmrPcai2lulqm8UDfvVB7028xxwfcnY1vlOK2FMkphdBh52FRlRKtQ6oyHnbIG7Hljo5bMi7Pbdl1JakFLakXPe3SSxeSml1S4943GG21fknPfFhnErrL6SVq5Y22BuE1cbXGiPeB3nDy/+WBHyDD8hesoWw2HpbPV4EnTCErCILLPl9yJ5lTCRfpuqvtBozPF+VR055+GU0qAXdM5qVJVtAS8By1T1o4m6tFrlP8Y2iW+geLmcCFbieBl4tBXdfSD/J7nARf95gFUnLARqZTOLp+89Li3xfmB6W1UtPpsH8C9N5T0+kfiyLwAAAABJRU5ErkJggg=="/>
+</svg>

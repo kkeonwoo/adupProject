@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../frontLayer/css/package.css">
+    <script src="../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../frontLayer/js/fn.js"></script>
+    <script src="../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:step_page -->
+        <div class="step_page">
+            <div class="step_inner">
+                <div class="step_hdr">
+                    <button type="button" class="close_btn" aria-label="닫기버튼"></button>
+                </div>
+                <div class="step_body">
+                    <div class="ttl_area">
+                        <h1 class="ttl">충전</h1>
+                    </div>
+                    <div class="charging_info_area">
+                        <div class="num_area">
+                            <span class="lbl">충전기번호</span>
+                            <span class="txt">342904</span>
+                        </div>
+                        <div class="ttl_area">
+                            <h2 class="ttl">강남내곡 전기차충전소</h2>
+                            <span class="desc">서울 금천구 디지털로9길 가로수빌딩 123</span>
+                        </div>
+                    </div>
+                    <div class="charging_prg_area">
+                        <div class="ico_box">
+                            <i class="ico ico_charging_complete"></i>
+                            <span class="msg"><span class="f_inherit color_orange">완속</span> 충전이 완료되었습니다.</span>
+                        </div>
+                        <div class="info_box">
+                            <span class="percent">100%</span>
+                            <span class="time">남은시간 0분</span>
+                        </div>
+                        <div class="prg_box">
+                            <ul class="prg_list">
+                                <li class="prg_item active"></li>
+                                <li class="prg_item active"></li>
+                                <li class="prg_item active"></li>
+                                <li class="prg_item active"></li>
+                            </ul>
+                        </div>
+                        <div class="desc_box">
+                            <p class="txt">
+                                커넥터를 분리한 후 제자리에 놓아주세요.<br/>
+                                다음 사용자를 위해 출차해 주세요.
+                            </p>
+                        </div>
+                    </div>
+                    <ul class="lbl_list">
+                        <li class="lbl_item">
+                            <span class="lbl">결제금액</span>
+                            <span class="txt">50,000원</span>
+                        </li>
+                        <li class="lbl_item">
+                            <span class="lbl">환불금액</span>
+                            <span class="txt">39,500원</span>
+                        </li>
+                        <li class="lbl_item">
+                            <span class="lbl">충전금액</span>
+                            <span class="txt">12,000원</span>
+                        </li>
+                        <li class="lbl_item">
+                            <span class="lbl">충전량</span>
+                            <span class="txt">1,500 kWh</span>
+                        </li>
+                        <li class="lbl_item">
+                            <span class="lbl">충전타입</span>
+                            <span class="txt">완속</span>
+                        </li>
+                        <li class="lbl_item">
+                            <span class="lbl">결제수단</span>
+                            <span class="txt">신용카드</span>
+                        </li>
+                    </ul>
+                    <hr class="hr"/>
+                    <ul class="lbl_list">
+                        <li class="lbl_item">
+                            <span class="lbl">충전일자</span>
+                            <span class="txt">2023.08.28</span>
+                        </li>
+                        <li class="lbl_item"></li>
+                        <li class="lbl_item">
+                            <span class="lbl">시작시간</span>
+                            <span class="txt">10:53:20</span>
+                        </li>
+                        <li class="lbl_item">
+                            <span class="lbl">종료시간</span>
+                            <span class="txt">16:20:52</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="step_ftr">
+                    <div class="btn_area">
+                        <button type="button" class="refresh_btn" aria-label="새로고침"></button>
+                        <button type="button" class="btn btn_lg btn_primary">닫기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:step_page -->
+
+    </div>
+    <!-- e:wrapper -->
+    
+</body>
+
+</html>

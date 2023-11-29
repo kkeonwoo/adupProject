@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../frontLayer/css/package.css">
+    <script src="../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../frontLayer/js/fn.js"></script>
+    <script src="../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:login_page -->
+        <div class="login_page">
+            <div class="login_inner">
+                <h1 class="logo">
+                    <img class="img" src="../../frontLayer/images/img/logo.svg" alt="이지차저 EASY CHARGER"/>
+                </h1>
+                <div class="intro_area">
+                    <p class="txt">
+                        <b class="f_inherit fw_700">이지차저</b>에서<br/>
+                        편리하게 <b class="f_inherit fw_700">충전</b>하세요!<br/>
+                        <b class="f_inherit fw_700 color_orange">다양한 혜택</b>이<br/>
+                        기다리고 있습니다.
+                    </p>
+                </div>
+                <div class="form_group">
+                    <input type="text" class="form_control" placeholder="아이디를 입력하세요">
+                    <input type="password" class="form_control" placeholder="비밀번호를 입력하세요">
+                </div>
+                <div class="auto_login_area">
+                    <label class="form_check">
+                        <input type="checkbox" class="form_check_input"/>
+                        <i class="ico"></i>
+                        <span class="form_check_txt">자동 로그인</span>
+                    </label>
+                </div>
+                <div class="login_btn_area">
+                    <button type="submit" class="login_btn">로그인</button>
+                </div>
+                <div class="login_etc_area">
+                    <ul class="login_etc_list">
+                        <li class="login_etc_item">
+                            <a href="#" class="login_etc_link">아이디찾기</a>
+                        </li>
+                        <li class="login_etc_item">
+                            <a href="#" class="login_etc_link">비밀번호 찾기</a>
+                        </li>
+                        <li class="login_etc_item">
+                            <a href="#" class="login_etc_link color_blue" onclick="EasyCharger.openModal($('#modalJoin'))">회원가입</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="login_sns_area">
+                    <ul class="login_sns_list">
+                        <li class="login_sns_item inf_kakao">
+                            <button type="button" class="login_sns_btn">카카오톡 시작하기</button>
+                        </li>
+                        <li class="login_sns_item inf_naver">
+                            <button type="button" class="login_sns_btn">네이버 시작하기</button>
+                        </li>
+                        <li class="login_sns_item inf_google">
+                            <button type="button" class="login_sns_btn">구글 시작하기</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- e:login_page -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close pos_bottom" id="modalJoin">
+            <div class="modal_centered">
+                <div class="modal_box">
+                    <div class="modal_header">
+                        <h2 class="ttl">회원가입</h2>
+                        <button type="button" class="close_btn close" aria-label="모달 닫기"></button>
+                    </div>
+                    <div class="modal_body">
+                        <div class="btn_area">
+                            <button type="button" class="btn btn_md btn_primary close">일반 회원</button>
+                            <button type="button" class="btn btn_md btn_info close">법인 회원</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+    </div>
+    <!-- e:wrapper -->
+
+</body>
+
+</html>

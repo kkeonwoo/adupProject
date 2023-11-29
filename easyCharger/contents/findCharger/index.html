@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../frontLayer/css/package.css">
+    <script src="../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../frontLayer/js/fn.js"></script>
+    <script src="../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:map_page -->
+        <div class="map_page">
+            <div class="map_inner">
+                <div class="map_hdr">
+                    <button class="back_btn" aria-label="뒤로가기"></button>
+                    <div class="search_box">
+                        <input type="text" class="form_control" placeholder="충전소 명, 주소를 입력하세요">
+                        <button type="button" class="search_btn" aria-label="검색"></button>
+                    </div>
+                    <button class="filter_btn" aria-label="필터 버튼" onclick="EasyCharger.openModal($('#modalFilter'))"></button>
+                </div>
+                <div class="map_body">
+                    <div style="height: 100%; background-image: url('../../frontLayer/images/@/@map.png'); background-position: center center; background-size: cover;"></div>
+                    <div class="marker_area">
+                        <a href="#" class="marker_box" style="left: 20%; top: 20%; ">
+                            <span class="ttl">관공서</span>
+                            <div class="ico_box">
+                                <i class="ico ico_public_office"></i>
+                                <span class="txt">5/5</span>
+                            </div>
+                            <i class="ico_event"></i>
+                        </a>
+                        <a href="#" class="marker_box type_red" style="left: 40%; top: 20%; ">
+                            <span class="ttl">관공서</span>
+                            <div class="ico_box">
+                                <i class="ico ico_public_office"></i>
+                                <span class="txt">5/5</span>
+                            </div>
+                        </a>
+                        <a href="#" class="marker_box" style="left: 60%; top: 20%;">
+                            <div class="ico_box">
+                                <i class="ico ico_public_office"></i>
+                            </div>
+                            <i class="ico_event"></i>
+                        </a>
+                        <a href="#" class="marker_box type_orange" style="left: 60%; top: 40%; ">
+                            <div class="ico_box">
+                                <i class="ico ico_ec"></i>
+                            </div>
+                            <span class="target"></span>
+                        </a>
+                        <a href="#" class="marker_box" style="left: 80%; top: 40%; ">
+                            <div class="ico_box">
+                                <i class="ico ico_ec"></i>
+                            </div>
+                            <i class="ico_event"></i>
+                        </a>
+                    </div>
+                    <div class="fn_area">
+                        <button type="button" class="gps_btn" aria-label="현재위치"></button>
+                        <button type="button" class="refresh_btn">현 지도에서 검색</button>
+                    </div>
+                </div>
+                <div class="fbs_area">
+                    <div class="fbs_inner">
+                        <div class="fbs_hdr">
+                            <div class="fbs_drag"></div>
+                            <div class="etc_area">
+                                <ul class="lb_list">
+                                    <li class="lb_item">
+                                        <i class="ico ico_lightning"></i>
+                                        <span class="txt">충전가능</span>
+                                    </li>
+                                    <li class="lb_item">
+                                        <i class="ico ico_parking"></i>
+                                        <span class="txt">무료주차</span>
+                                    </li>
+                                    <li class="lb_item">
+                                        <i class="ico ico_heart"></i>
+                                        <span class="txt">단골</span>
+                                    </li>
+                                </ul>
+                                <label class="charging_mode">
+                                    <input class="blind" type="checkbox"/>
+                                    <div class="dummy"></div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="fbs_body inner_scroll">
+                            <div class="location_area">
+                                <ul class="location_list">
+                                    <li class="location_item">
+                                        <div class="location_info">
+                                            <div class="ttl_area">
+                                                <div class="brand_box">
+                                                    <i class="ico ico_ec"></i>
+                                                    <span class="brand_name">충전사업자 명</span>
+                                                </div>
+                                                <b class="location_name">강남내곡 전기차충전소</b>
+                                            </div>
+                                            <div class="count_area">
+                                                <span class="txt">완속 2/5</span>
+                                                <span class="txt">급속 6/20</span>
+                                            </div>
+                                            <div class="desc_area">
+                                                <span class="distance">10.7km</span>
+                                                <div class="address_box">
+                                                    <span class="address">서울 강남구 강남내곡로 13길</span>
+                                                    <button type="button" class="copy_btn" aria-label="복사" onclick="EasyCharger.notification.set('주소가 복사되었습니다.')" data-clipboard-text="서울 강남구 강남내곡로 13길"></button>
+                                                </div>
+                                            </div>
+                                            <ul class="lb_list">
+                                                <li class="lb_item">
+                                                    <span class="txt">개방</span>
+                                                </li>
+                                                <li class="lb_item">
+                                                    <span class="txt">완속</span>
+                                                </li>
+                                                <li class="lb_item">
+                                                    <span class="txt">전기트럭전용</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="btn_area">
+                                            <button type="button" class="zzim_btn">
+                                                <i class="ico"></i>
+                                            </button>
+                                            <button type="button" class="rest_btn" onclick="EasyCharger.openModal($('#modalImage'))">
+                                                <i class="ico"></i>
+                                                <span class="txt">휴게소 상세</span>
+                                            </button>
+                                            <button type="button" class="marker_btn">
+                                                <i class="ico"></i>
+                                                <span class="txt">길안내</span>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="location_item">
+                                        <div class="location_info">
+                                            <div class="ttl_area">
+                                                <div class="brand_box">
+                                                    <i class="ico ico_ec"></i>
+                                                    <span class="brand_name">충전사업자 명</span>
+                                                </div>
+                                                <b class="location_name">강남내곡 전기차충전소</b>
+                                            </div>
+                                            <div class="count_area">
+                                                <span class="txt">완속 2/5</span>
+                                                <span class="txt">급속 6/20</span>
+                                            </div>
+                                            <div class="desc_area">
+                                                <span class="distance">10.7km</span>
+                                                <div class="address_box">
+                                                    <span class="address">서울 강남구 강남내곡로 14길</span>
+                                                    <button type="button" class="copy_btn" aria-label="복사" onclick="EasyCharger.notification.set('주소가 복사되었습니다.')" data-clipboard-text="서울 강남구 강남내곡로 14길"></button>
+                                                </div>
+                                            </div>
+                                            <ul class="lb_list">
+                                                <li class="lb_item">
+                                                    <span class="txt">개방</span>
+                                                </li>
+                                                <li class="lb_item">
+                                                    <span class="txt">완속</span>
+                                                </li>
+                                                <li class="lb_item">
+                                                    <span class="txt">전기트럭전용</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="btn_area">
+                                            <button type="button" class="zzim_btn">
+                                                <i class="ico"></i>
+                                            </button>
+                                            <button type="button" class="marker_btn">
+                                                <i class="ico"></i>
+                                                <span class="txt">길안내</span>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="location_item">
+                                        <div class="location_info">
+                                            <div class="ttl_area">
+                                                <div class="brand_box">
+                                                    <i class="ico ico_ec"></i>
+                                                    <span class="brand_name">충전사업자 명</span>
+                                                </div>
+                                                <b class="location_name"><b class="f_inherit fw_700 color_blue">강남</b>내곡 전기차충전소</b>
+                                            </div>
+                                            <div class="count_area">
+                                                <span class="txt">완속 2/5</span>
+                                                <span class="txt">급속 6/20</span>
+                                            </div>
+                                            <div class="desc_area">
+                                                <span class="distance">10.7km</span>
+                                                <div class="address_box">
+                                                    <span class="address">서울 <b class="f_inherit fw_700 color_blue">강남</b>구 <b class="f_inherit fw_700 color_blue">강남</b>내곡로 13길</span>
+                                                    <button type="button" class="copy_btn" aria-label="복사" onclick="EasyCharger.notification.set('주소가 복사되었습니다.')" data-clipboard-text="서울 강남구 강남내곡로 13길"></button>
+                                                </div>
+                                            </div>
+                                            <ul class="lb_list">
+                                                <li class="lb_item">
+                                                    <span class="txt">개방</span>
+                                                </li>
+                                                <li class="lb_item">
+                                                    <span class="txt">완속</span>
+                                                </li>
+                                                <li class="lb_item">
+                                                    <span class="txt">전기트럭전용</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="btn_area">
+                                            <button type="button" class="zzim_btn">
+                                                <i class="ico"></i>
+                                            </button>
+                                            <button type="button" class="marker_btn">
+                                                <i class="ico"></i>
+                                                <span class="txt">길안내</span>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="location_item">
+                                        <div class="location_info">
+                                            <div class="ttl_area">
+                                                <div class="brand_box">
+                                                    <i class="ico ico_ec"></i>
+                                                    <span class="brand_name">충전사업자 명</span>
+                                                </div>
+                                                <b class="location_name">강남내곡 전기차충전소</b>
+                                            </div>
+                                            <div class="count_area">
+                                                <span class="txt">완속 2/5</span>
+                                                <span class="txt">급속 6/20</span>
+                                            </div>
+                                            <div class="desc_area">
+                                                <span class="distance">10.7km</span>
+                                                <div class="address_box">
+                                                    <span class="address">서울 강남구 강남내곡로 13길</span>
+                                                    <button type="button" class="copy_btn" aria-label="복사" onclick="EasyCharger.notification.set('주소가 복사되었습니다.')" data-clipboard-text="서울 강남구 강남내곡로 13길"></button>
+                                                </div>
+                                            </div>
+                                            <ul class="lb_list">
+                                                <li class="lb_item">
+                                                    <span class="txt">개방</span>
+                                                </li>
+                                                <li class="lb_item">
+                                                    <span class="txt">완속</span>
+                                                </li>
+                                                <li class="lb_item">
+                                                    <span class="txt">전기트럭전용</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="btn_area">
+                                            <button type="button" class="zzim_btn">
+                                                <i class="ico"></i>
+                                            </button>
+                                            <button type="button" class="marker_btn">
+                                                <i class="ico"></i>
+                                                <span class="txt">길안내</span>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="location_item">
+                                        <div class="location_info">
+                                            <div class="ttl_area">
+                                                <div class="brand_box">
+                                                    <i class="ico ico_ec"></i>
+                                                    <span class="brand_name">충전사업자 명</span>
+                                                </div>
+                                                <b class="location_name">강남내곡 전기차충전소</b>
+                                            </div>
+                                            <div class="count_area">
+                                                <span class="txt">완속 2/5</span>
+                                                <span class="txt">급속 6/20</span>
+                                            </div>
+                                            <div class="desc_area">
+                                                <span class="distance">10.7km</span>
+                                                <div class="address_box">
+                                                    <span class="address">서울 강남구 강남내곡로 13길</span>
+                                                    <button type="button" class="copy_btn" aria-label="복사" onclick="EasyCharger.notification.set('주소가 복사되었습니다.')" data-clipboard-text="서울 강남구 강남내곡로 13길"></button>
+                                                </div>
+                                            </div>
+                                            <ul class="lb_list">
+                                                <li class="lb_item">
+                                                    <span class="txt">개방</span>
+                                                </li>
+                                                <li class="lb_item">
+                                                    <span class="txt">완속</span>
+                                                </li>
+                                                <li class="lb_item">
+                                                    <span class="txt">전기트럭전용</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="btn_area">
+                                            <button type="button" class="zzim_btn">
+                                                <i class="ico"></i>
+                                            </button>
+                                            <button type="button" class="marker_btn">
+                                                <i class="ico"></i>
+                                                <span class="txt">길안내</span>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fltg_ftr">
+                    <ul class="fltg_list">
+                        <li class="fltg_item">
+                            <a class="fltg_btn" href="#">
+                                <i class="ico ico_home"></i>
+                                <span class="txt">홈</span>
+                            </a>
+                        </li>
+                        <li class="fltg_item active">
+                            <a class="fltg_btn" href="#">
+                                <i class="ico ico_charger"></i>
+                                <span class="txt">충전소찾기</span>
+                            </a>
+                        </li>
+                        <li class="fltg_item">
+                            <a class="fltg_btn" href="#">
+                                <i class="ico ico_timeline"></i>
+                                <span class="txt">타임라인</span>
+                            </a>
+                        </li>
+                        <li class="fltg_item">
+                            <a class="fltg_btn" href="#">
+                                <i class="ico ico_user"></i>
+                                <span class="txt">My</span>
+                            </a>
+                        </li>
+                        <li class="fltg_item">
+                            <a class="fltg_btn" href="#">
+                                <i class="ico ico_menu"></i>
+                                <span class="txt">메뉴</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- e:map_page -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close pos_bottom" id="modalFilter">
+            <div class="modal_centered">
+                <div class="modal_box">
+                    <div class="modal_header type2">
+                        <a href="#" class="back_btn close">
+                            <h2 class="ttl">필터 설정</h2>
+                        </a>
+                        <button type="button" class="btn btn_outline_secondary btn_sm close">초기화</button>
+                    </div>
+                    <div class="modal_body inner_scroll">
+                        <div class="divr_group">
+                            <div class="divr_hdr">
+                                <h3 class="ttl">충전 속도</h3>
+                            </div>
+                            <div class="divr_body">
+                                <div class="charger_progess">
+                                    <button type="button" class="charger_btn active">완속</button>
+                                    <span class="bar active"></span>
+                                    <button type="button" class="charger_btn active">50</button>
+                                    <span class="bar"></span>
+                                    <button type="button" class="charger_btn">100</button>
+                                    <span class="bar"></span>
+                                    <button type="button" class="charger_btn">200</button>
+                                    <span class="bar"></span>
+                                    <button type="button" class="charger_btn">350+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divr_group">
+                            <div class="divr_hdr">
+                                <h3 class="ttl">충전기 타입</h3>
+                            </div>
+                            <div class="divr_body">
+                                <ul class="lb_list">
+                                    <a href="#" class="lb_btn active">
+                                        <span class="txt">완속</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">DC콤보</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">DC차데모</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">AC3상</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">슈퍼차저</span>
+                                    </a>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="divr_group">
+                            <div class="divr_hdr">
+                                <h3 class="ttl">지도 거리 설정</h3>
+                            </div>
+                            <div class="divr_body">
+                                <div class="form_check_list">
+                                    <label class="form_check">
+                                        <input class="form_check_input" type="radio" name="radio01">
+                                        <span class="ico"></span>
+                                        <span class="form_check_txt">1km</span>
+                                    </label>
+                                    <label class="form_check">
+                                        <input class="form_check_input" type="radio" name="radio01" checked>
+                                        <span class="ico"></span>
+                                        <span class="form_check_txt">3km</span>
+                                    </label>
+                                    <label class="form_check">
+                                        <input class="form_check_input" type="radio" name="radio01">
+                                        <span class="ico"></span>
+                                        <span class="form_check_txt">5km</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divr_group">
+                            <div class="divr_hdr">
+                                <h3 class="ttl">네비게이션 연동 설정</h3>
+                            </div>
+                            <div class="divr_body">
+                                <div class="form_check_list">
+                                    <label class="form_check">
+                                        <input class="form_check_input" type="radio" name="radio02" checked>
+                                        <span class="ico"></span>
+                                        <span class="form_check_txt">카카오 내비</span>
+                                    </label>
+                                    <label class="form_check">
+                                        <input class="form_check_input" type="radio" name="radio02">
+                                        <span class="ico"></span>
+                                        <span class="form_check_txt">네이버 지도</span>
+                                    </label>
+                                    <label class="form_check">
+                                        <input class="form_check_input" type="radio" name="radio02">
+                                        <span class="ico"></span>
+                                        <span class="form_check_txt">티맵</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divr_group">
+                            <div class="divr_hdr">
+                                <h3 class="ttl">충전 사업자</h3>
+                            </div>
+                            <div class="divr_body">
+                                <h4 class="ttl">추천</h4>
+                                <ul class="lb_list">
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">전체</span>
+                                    </a>
+                                    <a href="#" class="lb_btn active">
+                                        <span class="txt">이지차저</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">대영채비</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">레드이엔지</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">스타코프</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">LG헬로비전</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">차지인</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">에버온</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">한국전기차인프라기술</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">제주전기자동차서비스</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">파워큐브</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">한국전력</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">환경부</span>
+                                    </a>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="divr_group">
+                            <div class="divr_hdr">
+                                <h3 class="ttl">충전 장소</h3>
+                            </div>
+                            <div class="divr_body">
+                                <ul class="lb_list">
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">일반 충전소</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">고속도로 충전소</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">개방</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">충전가능</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">무료주차</span>
+                                    </a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal_ftr">
+                        <div class="btn_area">
+                            <button type="button" class="btn btn_lg btn_primary close">필터 적용하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close" id="modalImage">
+            <div class="modal_centered">
+                <div class="modal_box w_100 bg_transparent">
+                    <div class="modal_body p_0">
+                        <div class="swiper swiper_gallery">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="gallery_box">
+                                        <img class="img" src="../../frontLayer/images/@/@restArea.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="gallery_box">
+                                        <img class="img" src="../../frontLayer/images/@/@restArea.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="gallery_box">
+                                        <img class="img" src="../../frontLayer/images/@/@restArea.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="gallery_box">
+                                        <img class="img" src="../../frontLayer/images/@/@restArea.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="gallery_box">
+                                        <img class="img" src="../../frontLayer/images/@/@restArea.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+    </div>
+    <!-- e:wrapper -->
+    
+</body>
+
+</html>

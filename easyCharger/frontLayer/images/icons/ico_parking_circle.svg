@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        stroke: #111;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" x="1" y="1" width="24" height="24"/>
+  <g>
+    <circle class="cls-2" cx="13" cy="13" r="12"/>
+    <image id="P" x="9" y="7" width="10" height="12" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAMCAYAAABbayygAAAAeUlEQVQYlWMUFBT8z4AdnGVgYOh8//79apAsEw5FIGDMwMCwSlBQMA2bwj0MDAyzGBgY7iGJzQQR6FYrv3//HqwITVwIn9UogAWNP1NQUPA91H0w8B4E0BW6YDEsDJtnkAHIrSbv378HeRDDarhn0AHRnqGyQgYGBgCP2SBA20mtpAAAAABJRU5ErkJggg=="/>
+  </g>
+</svg>
