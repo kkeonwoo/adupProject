@@ -39,19 +39,89 @@
                 <div class="map_hdr">
                     <button class="back_btn" aria-label="뒤로가기"></button>
                     <div class="search_box">
-                        <input type="text" class="form_control" placeholder="충전소 명, 주소를 입력하세요" value="뜨뜨뜨뜨">
+                        <input type="text" class="form_control" placeholder="충전소 명, 주소를 입력하세요">
                         <button type="button" class="search_btn" aria-label="검색"></button>
                     </div>
-                    <button class="filter_btn" aria-label="필터 버튼" onclick="EasyCharger.openModal($('#modalJoin'))"></button>
+                    <button class="filter_btn" aria-label="필터 버튼" onclick="EasyCharger.openModal($('#modalFilter'))"></button>
                 </div>
                 <div class="map_body">
-                    <div class="null_area">
-                        <div class="msg_box">
-                            <i class="ico ico_caution"></i>
-                            <p class="txt">
-                                검색결과가 없습니다.<br/>
-                                다시 검색해 주세요.
-                            </p>
+                    <div style="height: 100%; background-image: url('../../frontLayer/images/@/@map.png'); background-position: center center; background-size: cover;"></div>
+                    <div class="marker_area">
+                        <a href="#" class="marker_box" style="left: 20%; top: 20%; ">
+                            <span class="ttl">관공서</span>
+                            <div class="ico_box">
+                                <i class="ico ico_public_office"></i>
+                                <span class="txt">5/5</span>
+                            </div>
+                            <i class="ico_event"></i>
+                        </a>
+                        <a href="#" class="marker_box type_red" style="left: 40%; top: 20%; ">
+                            <span class="ttl">관공서</span>
+                            <div class="ico_box">
+                                <i class="ico ico_public_office"></i>
+                                <span class="txt">5/5</span>
+                            </div>
+                        </a>
+                        <a href="#" class="marker_box" style="left: 60%; top: 20%;">
+                            <div class="ico_box">
+                                <i class="ico ico_public_office"></i>
+                            </div>
+                            <i class="ico_event"></i>
+                        </a>
+                        <a href="#" class="marker_box type_orange" style="left: 60%; top: 40%; ">
+                            <div class="ico_box">
+                                <i class="ico ico_ec"></i>
+                            </div>
+                            <span class="target"></span>
+                        </a>
+                        <a href="#" class="marker_box" style="left: 80%; top: 40%; ">
+                            <div class="ico_box">
+                                <i class="ico ico_ec"></i>
+                            </div>
+                            <i class="ico_event"></i>
+                        </a>
+                    </div>
+                    <div class="fn_area">
+                        <button type="button" class="gps_btn" aria-label="현재위치"></button>
+                        <button type="button" class="refresh_btn">현 지도에서 검색</button>
+                    </div>
+                </div>
+                <div class="fbs_area">
+                    <div class="fbs_inner">
+                        <div class="fbs_hdr">
+                            <div class="fbs_drag"></div>
+                            <div class="etc_area">
+                                <ul class="lb_list type2">
+                                    <button type="button" class="lb_btn active">
+                                        <i class="ico ico_lightning"></i>
+                                        <span class="txt">충전가능</span>
+                                    </button>
+                                    <button type="button" class="lb_btn">
+                                        <i class="ico ico_parking"></i>
+                                        <span class="txt">무료주차</span>
+                                    </button>
+                                    <button type="button" class="lb_btn">
+                                        <i class="ico ico_heart"></i>
+                                        <span class="txt">단골</span>
+                                    </button>
+                                </ul>
+                                <label class="charging_mode">
+                                    <input class="blind" type="checkbox"/>
+                                    <div class="dummy"></div>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- fbs_body 요소에 type_null 클래스 추가 -->
+                        <div class="fbs_body inner_scroll type_null">
+                            <div class="null_area location_item">
+                                <div class="msg_box">
+                                    <i class="ico ico_caution"></i>
+                                    <p class="txt">
+                                        검색결과가 없습니다.<br/>
+                                        다시 검색해 주세요.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -94,11 +164,11 @@
         <!-- e:map_page -->
 
         <!-- s:modal -->
-        <div class="modal modal_close pos_bottom" id="modalJoin">
+        <div class="modal modal_close pos_bottom" id="modalFilter">
             <div class="modal_centered">
                 <div class="modal_box">
                     <div class="modal_header type2">
-                        <a href="#" class="back_btn">
+                        <a href="#" class="back_btn close">
                             <h2 class="ttl">필터 설정</h2>
                         </a>
                         <button type="button" class="btn btn_outline_secondary btn_sm close">초기화</button>
@@ -243,10 +313,76 @@
                                 </ul>
                             </div>
                         </div>
+                        <div class="divr_group">
+                            <div class="divr_hdr">
+                                <h3 class="ttl">충전 장소</h3>
+                            </div>
+                            <div class="divr_body">
+                                <ul class="lb_list">
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">일반 충전소</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">고속도로 충전소</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">개방</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">충전가능</span>
+                                    </a>
+                                    <a href="#" class="lb_btn">
+                                        <span class="txt">무료주차</span>
+                                    </a>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal_ftr">
                         <div class="btn_area">
                             <button type="button" class="btn btn_lg btn_primary close">필터 적용하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close" id="modalImage">
+            <div class="modal_centered">
+                <div class="modal_box w_100 bg_transparent">
+                    <div class="modal_body p_0">
+                        <div class="swiper swiper_gallery">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="gallery_box">
+                                        <img class="img" src="../../frontLayer/images/@/@restArea.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="gallery_box">
+                                        <img class="img" src="../../frontLayer/images/@/@restArea.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="gallery_box">
+                                        <img class="img" src="../../frontLayer/images/@/@restArea.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="gallery_box">
+                                        <img class="img" src="../../frontLayer/images/@/@restArea.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="gallery_box">
+                                        <img class="img" src="../../frontLayer/images/@/@restArea.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../../frontLayer/css/package.css">
+    <link rel="stylesheet" href="../../../frontLayer/css/siteMgmt.css">
+    <script src="../../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../../frontLayer/js/fn.js"></script>
+    <script src="../../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:back_page -->
+        <div class="back_page type_bg_gray">
+            <div class="back_inner">
+                <div class="back_hdr">
+                    <a href="#" class="back_btn" aria-label="뒤로가기">정기점검</a>
+                </div>
+                <div class="swiper_tab_wrap">
+                    <div class="swiper swiper_tab">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a href="./assignList.html" class="tab_btn">
+                                    <span class="txt">배정(1)</span>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="./progList.html" class="tab_btn active">
+                                    <span class="txt">진행 중(2)</span>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="./compList.html" class="tab_btn">
+                                    <span class="txt">완료(0)</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="back_body">
+                    <div class="ttl_area type3">
+                        <h1 class="ttl">충전기 점검 현황</h1>
+                    </div>
+                    <div class="site_mgmt_area">
+                        <ul class="site_mgmt_list">
+                            <li class="site_mgmt_item">
+                                <div class="site_mgmt_card">
+                                    <div class="ttl_box">
+                                        <b class="ttl">금능현대아파트 전기충전소</b>
+                                        <span class="sub_ttl">충청북도 충주시 금릉로 45</span>
+                                    </div>
+                                    <hr class="hr type3">
+                                    <div class="desc_box">
+                                        <ul class="caution_more_list">
+                                            <li class="caution_more_item"><span class="txt">배정일 : </span><span class="txt">2023-10-20</span></li>
+                                            <li class="caution_more_item"><span class="txt">점검일 : </span></li>
+                                            <li class="caution_more_item"><span class="txt">점검자 : </span><span class="txt">최출동</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="btn_area">
+                                        <button type="button" class="btn btn_ml btn_secondary">정기 점검 작성</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="site_mgmt_item">
+                                <div class="site_mgmt_card">
+                                    <div class="ttl_box">
+                                        <b class="ttl">대영채비 판교센터 전기차충전소</b>
+                                        <span class="sub_ttl">경기도 성남시 대왕판교로 15길 판교센터 지하 2층</span>
+                                    </div>
+                                    <hr class="hr type3">
+                                    <div class="desc_box">
+                                        <ul class="caution_more_list">
+                                            <li class="caution_more_item"><span class="txt">배정일 : </span><span class="txt">2023-10-20</span></li>
+                                            <li class="caution_more_item"><span class="txt">점검일 : </span></li>
+                                            <li class="caution_more_item"><span class="txt">점검자 : </span><span class="txt">최출동</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="btn_area">
+                                        <button type="button" class="btn btn_ml btn_secondary">정기 점검 작성</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fltg_dummy"></div>
+                <div class="fltg_ftr_wrap type2">
+                    <div class="fltg_ftr">
+                        <ul class="fltg_list">
+                            <li class="fltg_item">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_home"></i>
+                                    <span class="txt">홈</span>
+                                </a>
+                            </li>
+                            <li class="fltg_item active">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_check"></i>
+                                    <span class="txt">정기점검</span>
+                                </a>
+                            </li>
+                            <li class="fltg_item">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_trouble"></i>
+                                    <span class="txt">고장신고</span>
+                                </a>
+                            </li>
+                            <li class="fltg_item">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_install"></i>
+                                    <span class="txt">설치요청</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:back_page -->
+
+    </div>
+    <!-- e:wrapper -->
+
+</body>
+
+</html>

@@ -671,6 +671,7 @@ EasyCharger = {
     dummy: {
         init(){
             this.fltg();
+            this.backFtr();
         },
         /**
          * fltg_ftr 요소 공간만큼 fltg_dummy 높이 채움
@@ -688,6 +689,19 @@ EasyCharger = {
             const fltgFtrEl = document.querySelector('.fltg_ftr');
             box_observer.observe(fltgFtrEl);
         },
+        backFtr(){
+            if(!fn.exists('.back_ftr.observer .btn_area')) return;
+            let fltgFtrHgt = $('.back_ftr .btn_area').outerHeight();
+            $('.back_ftr').css({'height': `${fltgFtrHgt}px`});
+            let box_observer = new ResizeObserver(entries => {
+                for (let entry of entries) {
+                    fltgFtrHgt = $('.back_ftr .btn_area').outerHeight();
+                    $('.back_ftr').css({'height': `${fltgFtrHgt}px`});
+                }
+            });
+            const fltgFtrEl = document.querySelector('.back_ftr .btn_area');
+            box_observer.observe(fltgFtrEl);
+        }
     },
     notification: {
         /**

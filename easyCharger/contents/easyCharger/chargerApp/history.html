@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../../frontLayer/css/package.css">
+    <script src="../../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../../frontLayer/js/fn.js"></script>
+    <script src="../../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:step_page -->
+        <div class="step_page">
+            <div class="step_inner">
+                <div class="step_hdr">
+                    <button type="button" class="close_btn" aria-label="닫기버튼"></button>
+                </div>
+                <div class="step_body">
+                    <div class="ttl_area">
+                        <h1 class="ttl">충전기 신청 내역</h1>
+                    </div>
+                    <div class="cnt_group">
+                        <div class="cnt_box type3">
+                            <div class="form_ttl_group">
+                                <b class="ttl">신청정보</b>
+                            </div>
+                            <div class="form_group">
+                                <label class="form_label">이름</label>
+                                <div class="form_box">
+                                    <span class="val_txt">홍길동</span>
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <label class="form_label">휴대폰번호</label>
+                                <div class="form_box">
+                                    <span class="val_txt">010-1234-5678</span>
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <label class="form_label">이메일</label>
+                                <div class="form_box">
+                                    <span class="val_txt">ABC1234@naver.com</span>
+                                </div>
+                            </div>
+                            <hr class="hr"/>
+                            <div class="form_ttl_group">
+                                <b class="ttl">설치 희망 장소</b>
+                            </div>
+                            <div class="form_group">
+                                <label class="form_label require">개방형태</label>
+                                <div class="form_box">
+                                    <span class="val_txt">상담 후 결정</span>
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <label class="form_label require">설치 희망 충전기</label>
+                                <div class="form_box">
+                                    <span class="val_txt">미개방 (홈)</span>
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <label class="form_label require">설치 희망 주소 </label>
+                                <div class="form_box">
+                                    <span class="val_txt">경기도 성남시 수정구 창업로 30 판교글로벌센터 B동 1234호</span>
+                                </div>
+                            </div>
+                            <hr class="hr"/>
+                            <div class="form_ttl_group">
+                                <b class="ttl">문의사항(선택)</b>
+                            </div>
+                            <div class="form_group">
+                                <div class="form_box w_100">
+                                    <p class="val_txt">
+                                        안녕하세요! 홍길동 입니다.<br/>
+                                        충전이 불편해 집밥으로 충전을 하고 싶어서 설치조건이 
+                                        어떻게 되는지 궁금해 문의 드립니다.
+                                    </p>
+                                </div>
+                            </div>
+                            <hr class="hr opacity_0"/>
+                            <div class="form_ttl_group">
+                                <b class="ttl fw_500">※ 꼭! 확인해주세요.</b>
+                            </div>
+                            <div class="form_group">
+                                <div class="caution_more_area bdr_gray">
+                                    <ul class="caution_more_list">
+                                        <li class="caution_more_item">
+                                            <span class="txt">신청 및 설치 절차는 위와 같음며, 카카오톡 혹은 문자 메시지를 통해 진행상황을 알 수 있습니다.</span>
+                                        </li>
+                                        <li class="caution_more_item">
+                                            <span class="txt">신청내역을 확인하시려면, 이지차저 홈페이지 회원가입을 통해 확인이 가능합니다.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step_ftr">
+                    <div class="btn_area">
+                        <button type="button" class="btn btn_lg btn_primary">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:step_page -->
+
+    </div>
+    <!-- e:wrapper -->
+    
+</body>
+
+</html>

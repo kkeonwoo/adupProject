@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../../frontLayer/css/package.css">
+    <link rel="stylesheet" href="../../../frontLayer/css/siteMgmt.css">
+    <script src="../../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../../frontLayer/js/fn.js"></script>
+    <script src="../../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:back_page -->
+        <div class="back_page">
+            <div class="back_inner">
+                <div class="back_hdr">
+                    <a href="#" class="back_btn" aria-label="뒤로가기">정기점검 상세</a>
+                </div>
+                <div class="back_body">
+                    <div class="bdr_area mt_px_30">
+
+                        <div class="site_mgmt_card">
+                            <div class="ttl_box">
+                                <b class="ttl">금능현대아파트 전기충전소</b>
+                                <span class="sub_ttl">충청북도 충주시 금릉로 45</span>
+                            </div>
+                            <div class="desc_box mt_px_10">
+                                <ul class="caution_more_list type_hyphen">
+                                    <li class="caution_more_item">
+                                        <span class="txt">충전기 총수 : 4대</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form_ttl_group mt_px_30">
+                        <b class="ttl">충전기 정보</b>
+                    </div>
+
+                    <div class="form_group">
+                        <ul class="caution_more_list">
+                            <li class="caution_more_item">
+                                <span class="txt">충전기 용량 :  7 kW</span>
+                            </li>
+                            <li class="caution_more_item">
+                                <span class="txt">충전기 설치 유형 : 스탠드형</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="form_group mt_px_20">
+                        <div class="tbl_area type2 type3">
+                            <table class="tbl">
+                                <caption>정기점검 상세 - 제조사, 충전기번호, 설치일자 순으로 이루어져있습니다.</caption>
+                                <colgroup>
+                                    <col>
+                                    <col>
+                                    <col>
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th class="th" scope="col">
+                                            <span class="txt">제조사</span>
+                                        </th>
+                                        <th class="th" scope="col">
+                                            <span class="txt">충전기번호</span>
+                                        </th>
+                                        <th class="th" scope="col">
+                                            <span class="txt">설치일자</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="tr">
+                                        <td class="td">
+                                            <span class="txt">이지차저</span>
+                                        </td>
+                                        <td class="td">
+                                            <span class="txt">319601</span>
+                                        </td>
+                                        <td class="td">
+                                            <span class="txt">2022-04-01</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td class="td">
+                                            <span class="txt">이지차저</span>
+                                        </td>
+                                        <td class="td">
+                                            <span class="txt">319601</span>
+                                        </td>
+                                        <td class="td">
+                                            <span class="txt">2022-04-01</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td class="td">
+                                            <span class="txt">이지차저</span>
+                                        </td>
+                                        <td class="td">
+                                            <span class="txt">319601</span>
+                                        </td>
+                                        <td class="td">
+                                            <span class="txt">2022-04-01</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="form_ttl_group mt_px_30">
+                        <b class="ttl">점검 정보</b>
+                    </div>
+
+                    <div class="form_group">
+                        <ul class="caution_more_list">
+                            <li class="caution_more_item">
+                                <span class="txt">점검자 : 홍길동</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="back_ftr">
+                        <div class="btn_area">
+                            <button type="button" class="btn btn_lg btn_primary" onclick="EasyCharger.notification.set('진행 중으로 변경되었습니다.','dark')">출동</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- e:back_page -->
+
+    </div>
+    <!-- e:wrapper -->
+
+</body>
+
+</html>

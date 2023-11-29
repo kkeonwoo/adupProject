@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../../frontLayer/css/package.css">
+    <script src="../../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../../frontLayer/js/fn.js"></script>
+    <script src="../../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:back_page -->
+        <div class="back_page">
+            <div class="back_inner">
+                <div class="back_hdr">
+                    <a href="#" class="back_btn">충전기 신청</a>
+                </div>
+                <div class="back_body">
+                    <div class="cnt_group mt_px_10">
+                        <div class="form_ttl_group">
+                            <b class="ttl">신청 및 설치 절차 안내(공용 충전기)</b>
+                        </div>
+                        <div class="form_group">
+                            <div class="proc_area type1">
+                                <ul class="proc_list">
+                                    <li class="proc_item">
+                                        <i class="ico ico_write"></i>
+                                        <span class="txt">신청 접수</span>
+                                    </li>
+                                    <li class="proc_item">
+                                        <i class="ico ico_survey"></i>
+                                        <span class="txt">현장조사 및 계약</span>
+                                    </li>
+                                    <li class="proc_item">
+                                        <i class="ico ico_env"></i>
+                                        <span class="txt">한국환경공단 승인</span>
+                                    </li>
+                                    <li class="proc_item">
+                                        <i class="ico ico_charger"></i>
+                                        <span class="txt">
+                                            충전기 <span class="f_inherit d_inline_block">설치 및 공사</span>
+                                        </span>
+                                    </li>
+                                    <li class="proc_item">
+                                        <i class="ico ico_meter"></i>
+                                        <span class="txt">
+                                            설비 안전점검 및 계량기설치 
+                                        </span>
+                                    </li>
+                                    <li class="proc_item">
+                                        <i class="ico ico_education"></i>
+                                        <span class="txt">
+                                            시운전 및 사용자 교육
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form_ttl_group mt_px_30">
+                            <b class="ttl">신청 및 설치 절차 안내(비공용,민수충전기)</b>
+                        </div>
+                        <div class="form_group">
+                            <div class="proc_area type2">
+                                <ul class="proc_list">
+                                    <li class="proc_item">
+                                        <i class="ico ico_write"></i>
+                                        <span class="txt">신청 접수</span>
+                                    </li>
+                                    <li class="proc_item">
+                                        <i class="ico ico_survey"></i>
+                                        <span class="txt">현장조사 및 계약</span>
+                                    </li>
+                                    <li class="proc_item">
+                                        <i class="ico ico_charger"></i>
+                                        <span class="txt">
+                                            충전기 <span class="f_inherit d_inline_block">설치 및 공사</span>
+                                        </span>
+                                    </li>
+                                    <li class="proc_item">
+                                        <i class="ico ico_meter"></i>
+                                        <span class="txt">
+                                            설비 안전점검 및 계량기설치 
+                                        </span>
+                                    </li>
+                                    <li class="proc_item">
+                                        <i class="ico ico_education"></i>
+                                        <span class="txt">
+                                            시운전 및 사용자 교육
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form_group">
+                            <ul class="caution_more_list">
+                                <li class="caution_more_item">
+                                    <span class="txt">신청 및 설치 절차는 위와 같음며, 카카오톡 혹은 문자 메시지를 통해 진행상황을 알 수 있습니다. </span>
+                                </li>
+                                <li class="caution_more_item">
+                                    <span class="txt">신청내역을 확인하시려면, 이지차저 홈페이지 회원가입을 통해 확인이 가능합니다. </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="back_ftr observer">
+                    <div class="btn_area flex_column">
+                        <div class="combo_btn_area">
+                            <a href="#" class="btn btn_md btn_outline_secondary">홈페이지 연결</a>
+                            <a href="#" class="btn btn_md btn_outline_secondary">고객센터 연결</a>
+                        </div>
+                        <button type="button" class="btn btn_lg btn_info">충전기 신청하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:back_page -->
+
+    </div>
+    <!-- e:wrapper -->
+    
+</body>
+
+</html>

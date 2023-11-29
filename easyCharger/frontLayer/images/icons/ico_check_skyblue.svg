@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #4536cb;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <image id="Vector_Smart_Object" data-name="Vector Smart Object" x="9.5" y="9.5" width="37" height="37" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAlCAYAAADFniADAAAB5UlEQVRYhe2YzytEURTHPzOGCFmQEisbFpKUscLC0kISxdrKfyBr+Qts7DWlJFPyB1jZKLJgY6VEhJhmeubN6IzzdM2PXM+P9xbvW7de991z7+fdc+7tnRPDcbHQBjANHAILNgZlSgFjQBpY/mpw3HLSCaAbGPEBhNqJ/bjN4Go7NQqsAYNAo/Y16wcUgIwPqGr2OeAUWAWOakF1AcdA5zd28DckoLfAMHBtQvUrdb2xSPETfPV+W9WyN/tf1TvnAlUHPANN+lLIL9SFZzrJLtALXAFTPqD2gR7gEphRmAF1XZ/hmSzQmgA2jdgRoHlgp2zSF8Po1AdU1pjHsz8BtoBZYFvBGt95HDeD4xa1pUrurGxJHDeN407WeP9Vm1T7ZI1xKYMhI+4TX8qOSXC1A08+duKnagPuAQmlfNwItkJAQOi6BX2O/efRt1aibOBQGKAkpvLqS/SuCEreHekmyi6z+gChPBUlph5CAGLqIa5XQZjkhvL0RVC2iqBsFUHZKoKyVQRlqwjKVqGFilmM+0+VEodcyKByAnXgsz7wFxKOA0kcJAE9BzpCAHUnxZa4ZqZLASainp6U4947fXvAInATwD+7uEzqU7K+cFRU8lqAFWBOSjJAwx+eTln4USsu6x+VHeANJ2W6QrU5tHYAAAAASUVORK5CYII="/>
+  <path class="cls-1" d="M14,27h7.714v4H14V27Zm9.643,0h7.714v4H23.643V27Zm9.643,0H41v4H33.286V27ZM14,34h7.714v4H14V34Zm9.643,0h7.714v4H23.643V34Zm9.643,0H41v4H33.286V34Z" transform="translate(0.5 0.5)"/>
+</svg>

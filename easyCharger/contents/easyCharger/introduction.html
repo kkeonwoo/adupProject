@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../frontLayer/css/package.css">
+    <script src="../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../frontLayer/js/fn.js"></script>
+    <script src="../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:back_page -->
+        <div class="back_page">
+            <div class="back_inner">
+                <div class="back_hdr">
+                    <a href="#" class="back_btn">이지차저 소개</a>
+                </div>
+                <div class="back_body">
+                    <div class="cnt_group mt_px_10">
+                        <div class="form_ttl_group">
+                            <b class="ttl type2">
+                                <span class="f_inherit fw_500 color_black">다양한 경험</span>을 통해 <span class="f_inherit fw_500 color_black">차별화된 기술력</span>, <br/>
+                                그리고 <span class="f_inherit fw_500 color_black">운영 노하우를 확보</span>한 <span class="f_inherit fw_500 color_orange">이지차저</span>
+                            </b>
+                        </div>
+                        <div class="form_group mt_px_25">
+                            <div class="tbl_area type1">
+                                <table class="tbl">
+                                    <caption>이지차저 소개 - 회사명, 대표자, 소재지, 설립일자, 사업내용 순으로 이루어져있습니다.</caption>
+                                    <colgroup>
+                                        <col class="w_px_75"/>
+                                        <col/>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr class="tr">
+                                            <th class="th" scope="row">
+                                                <span class="txt">회사명</span>
+                                            </th>
+                                            <td class="td">
+                                                <span class="txt">㈜이지차저</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th" scope="row">
+                                                <span class="txt">대표자</span>
+                                            </th>
+                                            <td class="td">
+                                                <span class="txt">송봉준</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th" scope="row">
+                                                <span class="txt">소재지</span>
+                                            </th>
+                                            <td class="td">
+                                                <p class="txt">
+                                                    <b class="f_inherit fw_700">본사</b><br/>
+                                                    서울특별시 금천구 디지털로 9길 68, 206호~209호<br/>
+                                                    <br/>
+                                                    <b class="f_inherit fw_700">지사</b><br/>
+                                                    대전 | 대전광역시 대덕구 대화로 106길 1026호<br/>
+                                                    부산 | 부산광역시 해운대구 센텀동로 99, 805호<br/>
+                                                    제주 | 제주특별자치도 제주시 첨단로 213-3, 505호
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th" scope="row">
+                                                <span class="txt">설립일자</span>
+                                            </th>
+                                            <td class="td">
+                                                <span class="txt">2018. 06. 01</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th" scope="row">
+                                                <span class="txt">사업내용</span>
+                                            </th>
+                                            <td class="td">
+                                                <p class="txt">
+                                                    1. 통합관제 시스템<br/>
+                                                    2. 전기차충전기 설치공사업<br/>
+                                                    3. 전기차충전기 플랫폼 개발<br/>
+                                                    4. 전기차충전기 점검 및 유지보수<br/>
+                                                    5. 전기이륜차 배터리 스테이션 설치공사<br/>
+                                                    6. 태양광발전설비 설계 및 시공<br/>
+                                                    7. 전기안전관리 대행 업무
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form_group mt_px_25">
+                            <div class="inf_nest_area">
+                                <div class="inf_nest_hdr bg_award">
+                                    <div class="ttl_area">
+                                        <b class="ttl_sub">공공사업자부문</b>
+                                        <strong class="ttl">구축1등 사업자</strong>
+                                        <p class="desc">완속 32%, 급속 42% 달성!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="inf_nest_area">
+                                <div class="inf_nest_hdr bg_zzim">
+                                    <div class="ttl_area">
+                                        <b class="ttl_sub">전문화된 기술력으로</b>
+                                        <strong class="ttl"> 국내 최고의 서비스 제공</strong>
+                                    </div>
+                                </div>
+                                <div class="inf_nest_body">
+                                    <ol class="num_order_list">
+                                        <li class="num_order_item">
+                                            <span class="num_order">01</span>
+                                            <div class="txt_box">
+                                                <p class="txt">전기차 충전 사업의 컨설팅, 충전기 조달 및 설치 엔지니어링과 콜센터, 유지보수 등 모든 솔루션을 <b class="f_inherit fw_500 color_black">“One Stop Service”</b> 로 <b class="f_inherit fw_500 color_skyblue">제공</b>합니다.</p>
+                                            </div>
+                                        </li>
+                                        <li class="num_order_item">
+                                            <span class="num_order">02</span>
+                                            <div class="txt_box">
+                                                <p class="txt">내륙 및 제주지역까지 <b class="f_inherit fw_500 color_black">국내 모든 지역을 대상</b>으로 <b class="f_inherit fw_500 color_skyblue">사업</b>합니다.</p>
+                                            </div>
+                                        </li>
+                                        <li class="num_order_item">
+                                            <span class="num_order">03</span>
+                                            <div class="txt_box">
+                                                <p class="txt">365일 24시간 고객센터 운영을 통한 <b class="f_inherit fw_500 color_skyblue">최고의 고객 만족 서비스를 제공</b>합니다.</p>
+                                            </div>
+                                        </li>
+                                        <li class="num_order_item">
+                                            <span class="num_order">04</span>
+                                            <div class="txt_box">
+                                                <p class="txt">전기차 사업에 대한 <b class="f_inherit fw_500 color_black">풍부한 경험과 최고의 기술력을</b> 가진 구성원의 <b class="f_inherit fw_500 color_skyblue">노하우</b>가 있습니다.</p>
+                                            </div>
+                                        </li>
+                                        <li class="num_order_item">
+                                            <span class="num_order">05</span>
+                                            <div class="txt_box">
+                                                <p class="txt">2019~2020년도 한국환경공단 <b class="f_inherit fw_500 color_black">‘완속충전기 보급사업’ 및 에너지관리공단 ‘급속충전기 보급사업’</b>의 <b class="f_inherit fw_500 color_skyblue">1등 사업자</b> 입니다.</p>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="back_ftr">
+                    <div class="btn_area">
+                        <button type="button" class="btn btn_lg btn_info">결제하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:back_page -->
+
+    </div>
+    <!-- e:wrapper -->
+    
+</body>
+
+</html>

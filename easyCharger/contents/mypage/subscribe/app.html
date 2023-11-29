@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../../frontLayer/css/package.css">
+    <script src="../../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../../frontLayer/js/fn.js"></script>
+    <script src="../../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:back_page -->
+        <div class="back_page">
+            <div class="back_inner">
+                <div class="back_hdr">
+                    <a href="#" class="back_btn">구독 서비스 신청</a>
+                </div>
+                <div class="back_body">
+                    <div class="cnt_group mt_px_10">
+                        <p class="msg">
+                            매월 저렴하게 충전하고 싶다면?<br/>
+                            이지RF패스로 생활화하세요!
+                        </p>
+                        <hr class="hr"/>
+                        <div class="form_ttl_group">
+                            <b class="ttl">이지RF패스 혜택</b>
+                        </div>
+                        <div class="form_group">
+                            <div class="caution_more_area bdr_orange">
+                                <ul class="caution_more_list type_lg">
+                                    <li class="caution_more_item">
+                                        <span class="txt">급속 충전기 이용요금 50%할인</span>
+                                    </li>
+                                    <li class="caution_more_item">
+                                        <span class="txt">한전, 환경부 충전기 이용요금 특별할인</span>
+                                    </li>
+                                    <li class="caution_more_item">
+                                        <span class="txt">매월 구독료에 10% 포인트 적립</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form_ttl_group mt_px_30">
+                            <b class="ttl">이지RF패스 상품</b>
+                        </div>
+                        <div class="form_group">
+                            <div class="pattern_group">
+                                <div class="pattern_hdr">
+                                    <span class="pattern_ttl">개인</span>
+                                </div>
+                                <div class="pattern_body">
+                                    <ul class="caution_more_list type_lg">
+                                        <li class="caution_more_item">
+                                            <span class="txt">월간 이용료 11,000원</span>
+                                        </li>
+                                        <li class="caution_more_item">
+                                            <span class="txt">월 최대 300kWh까지 50%할인</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form_group">
+                            <div class="pattern_group">
+                                <div class="pattern_hdr">
+                                    <span class="pattern_ttl">비지니스</span>
+                                </div>
+                                <div class="pattern_body">
+                                    <ul class="caution_more_list type_lg">
+                                        <li class="caution_more_item">
+                                            <span class="txt">월간 이용료 19,000원</span>
+                                        </li>
+                                        <li class="caution_more_item">
+                                            <span class="txt">월 최대 800kWh까지 50%할인</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form_group">
+                            <div class="pattern_group">
+                                <div class="pattern_hdr">
+                                    <span class="pattern_ttl">운송 비지니스</span>
+                                </div>
+                                <div class="pattern_body">
+                                    <ul class="caution_more_list type_lg">
+                                        <li class="caution_more_item">
+                                            <span class="txt">월간 이용료 33,000원</span>
+                                        </li>
+                                        <li class="caution_more_item">
+                                            <span class="txt">월 최대 1,500kWh까지 50%할인</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="notes_area">
+                            <b class="ttl">※ 유의사항</b>
+                            <ul class="caution_more_list type_hyphen">
+                                <li class="caution_more_item">
+                                    <span class="txt">위탁 운영 충전기 등 일부 충전기는 혜택 적용이 불가합니다.</span>
+                                </li>
+                                <li class="caution_more_item">
+                                    <span class="txt">구독료는 최초 가입 시(1회차)에는 가입 당일부터 해당월 말일 까지 구독료를 일할 계산하여 결제 합니다.</span>
+                                </li>
+                                <li class="caution_more_item">
+                                    <span class="txt">익월 (2회차)부터는 1일부터 말일까지의 구독료를 일괄 결제 합니다. (정기결제 청구)</span>
+                                </li>
+                                <li class="caution_more_item">
+                                    <span class="txt">구독 해지 신청시, 구독료 결제 후 사용 이력이 없을 경우에 한해 구독 해지와 함께 구독료가 전액 환불됩니다.</span>
+                                </li>
+                                <li class="caution_more_item">
+                                    <span class="txt">단, 사용 이력이 있을 경우 이용기간 내 해지가 제한되고 구독료는 환불이 불가하며, 이용기간이 종료된 후에 자동 해지됩니다.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="back_ftr">
+                    <div class="btn_area">
+                        <button type="button" class="btn btn_lg btn_info">신청하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:back_page -->
+
+    </div>
+    <!-- e:wrapper -->
+    
+</body>
+
+</html>

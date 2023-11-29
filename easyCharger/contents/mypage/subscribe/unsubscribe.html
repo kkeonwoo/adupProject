@@ -41,61 +41,53 @@
                 </div>
                 <div class="step_body">
                     <div class="ttl_area">
-                        <h1 class="ttl">포인트 환불</h1>
-                    </div>
-                    <div class="ttl_sub_area">
-                        <h2 class="ttl">포인트 정보</h2>
-                    </div>
-                    <div class="card_info_area">
-                        <div class="card_point_preview">
-                            <span class="name">보유 포인트</span>
-                            <span class="num">0 P</span>
-                        </div>
+                        <h1 class="ttl">구독 서비스 해지</h1>
                     </div>
                     <div class="cnt_group">
                         <div class="form_ttl_group">
-                            <b class="ttl">환불 하실 포인트</b>
+                            <b class="ttl">월 정기구독 서비스 정보</b>
                         </div>
                         <div class="form_group">
-                            <label for="formPoint1" class="form_label">포인트</label>
-                            <div class="form_box">
-                                <span class="fix_txt">5,000 P</span>
+                            <div class="bdr_area">
+                                <ul class="caution_more_list type_lg">
+                                    <li class="caution_more_item">
+                                        <span class="txt">구독기간 : 2023/10/10 ~ 2023/10/31</span>
+                                    </li>
+                                    <li class="caution_more_item">
+                                        <span class="txt">다음 결제일 : 2023/11/01</span>
+                                    </li>
+                                    <li class="caution_more_item">
+                                        <span class="txt">회차 : 2회차</span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="cnt_group pt_px_20">
-                        <div class="form_ttl_group">
-                            <b class="ttl">입금 계좌</b>
-                        </div>
-                        <div class="form_group">
-                            <div class="form_select">
-                                <select class="select readonly">
-                                    <option>신한은행</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form_group">
-                            <label for="frmAcct" class="form_label">계좌번호</label>
-                            <div class="form_box">
-                                <span class="fix_txt">1234-654-99</span>
-                            </div>
-                        </div>
-                        <div class="form_group">
-                            <label for="frmAcctHolder" class="form_label">예금주</label>
-                            <div class="form_box">
-                                <span class="fix_txt">홍길동</span>
-                            </div>
-                        </div>
-                        <div class="form_group">
-                            <div class="form_box justify_content_between w_100">
-                                <span class="caption">※ 포인트 환불 처리는 영업일 기준 3~7일이 소요 됩니다.</span>
-                            </div>
+                        <div class="notes_area">
+                            <b class="ttl">※ 유의사항</b>
+                            <ul class="caution_more_list type_hyphen">
+                                <li class="caution_more_item">
+                                    <span class="txt">위탁 운영 충전기 등 일부 충전기는 혜택 적용이 불가합니다.</span>
+                                </li>
+                                <li class="caution_more_item">
+                                    <span class="txt">구독료는 최초 가입 시(1회차)에는 가입 당일부터 해당월 말일 까지 구독료를 일할 계산하여 결제 합니다.</span>
+                                </li>
+                                <li class="caution_more_item">
+                                    <span class="txt">익월 (2회차)부터는 1일부터 말일까지의 구독료를 일괄 결제 합니다. (정기결제 청구)</span>
+                                </li>
+                                <li class="caution_more_item">
+                                    <span class="txt">구독 해지 신청시, 구독료 결제 후 사용 이력이 없을 경우에 한해 구독 해지와 함께 구독료가 전액 환불됩니다.</span>
+                                </li>
+                                <li class="caution_more_item">
+                                    <span class="txt">단, 사용 이력이 있을 경우 이용기간 내 해지가 제한되고 구독료는 환불이 불가하며, 이용기간이 종료된 후에 자동 해지됩니다. </span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 <div class="step_ftr">
                     <div class="btn_area">
-                        <button type="button" class="btn btn_lg btn_primary" onclick="EasyCharger.openModal($('#modalRefund'))">확인</button>
+                        <button type="button" class="btn btn_lg btn_outline_secondary">취소</button>
+                        <button type="button" class="btn btn_lg btn_primary" onclick="EasyCharger.openModal($('#modalCencel'))">해지하기</button>
                     </div>
                 </div>
             </div>
@@ -103,19 +95,19 @@
         <!-- e:step_page -->
 
         <!-- s:modal -->
-        <div class="modal modal_close z_9100" id="modalRefund">
+        <div class="modal modal_close z_9100" id="modalCencel">
             <div class="modal_centered">
                 <div class="modal_box">
                     <div class="modal_body">
                         <div class="modal_content">
                             <p class="msg">
-                                포인트 5,000P 환불 신청하였습니다.<br/>
-                                환불하시겠습니까? 
+                                구독 서비스를 해지하시겠습니까?<br/>
+                                다음 결제일부터 결제가 되지 않습니다.
                             </p>
                         </div>
                         <div class="btn_area">
                             <button type="button" class="btn btn_md btn_outline_secondary close">취소</button>
-                            <button type="button" class="btn btn_md btn_primary close">환불하기</button>
+                            <button type="button" class="btn btn_md btn_primary close">해지하기</button>
                         </div>
                     </div>
                 </div>

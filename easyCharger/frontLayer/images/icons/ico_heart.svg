@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="24" height="24"/>
+  <image id="Vector_Smart_Object" data-name="Vector Smart Object" x="1" y="3" width="21" height="19" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAATCAYAAAB/TkaLAAABW0lEQVQ4ja2UuUoDURhGT5LqQlB+bMTKwu0R0rghqJWdYmcVRCxF9A0E0ULwDQL6AFq4oKYUbOyMiggWYvepCTgmhXJlIiEmzKg5zZ3lcO7MMPwJQsxsElgCMkAauAN2gA1JrzVeG7AMzAI9QAk4BzYlHXgnEYqrwBqNKQBjkh7NrAs4AQaauCuS1hNmNgzkm0hV8pJGzewMGIlwB1POuW2gL0Lsds4VgfkIz9Phn7QYfsMonoDOGF4pGTNIzKAn7aPvMeW4VHz0qsXRgo+etjia99Fci6O5pKRLYL9FwUNJF8nwZBF4+WfQ/5oL/uArKukBmAbKfwxWgBlJ99/RMHwMTADPvwx6f7w6TKgOlFrMrBfYA/pjBK+BKUk3tReT9Zak23D8HUUE/f1MfdCTamQHQRA453aB9nCDeraAOUlvMd7mJ2aWNbOymX2Ea/ZPoXrMbMjMCn6NlIFPPH9qEaoUPKkAAAAASUVORK5CYII="/>
+</svg>
