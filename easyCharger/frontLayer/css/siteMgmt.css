@@ -2,8 +2,7 @@
 .fs_px_12 { font-size: 12px !important;}
 .hr.type3 { margin: 12px 0;}
 
-.tbl_area.type3 .tbl { border-top: 3px solid var(--fn-gray-11);}
-.form_control.type2 { width: 50px; min-height: 24px; }
+.form_control.type2 { width: 50px; min-height: 24px;}
 
 /* button */
 .btn_list { display: flex; flex-direction: column; gap: 12px;}
@@ -14,9 +13,9 @@
 .back_page .back_body > .ttl_area.type3 { margin-top: 30px;}
 .back_page .back_body > .ttl_area.type3 .ttl { font-weight: 700; font-size: 20px; line-height: 1;}
 
-.caution_more_list .caution_more_item.type2 { align-items: center;}
+.caution_more_list .caution_more_item.type2 { flex-wrap: wrap; align-items: center;}
 .caution_more_list .caution_more_item.type2::before { transform: translateY(0);}
-.caution_more_list .caution_more_item.type2 .form_control { margin: 0 6px;}
+/* .caution_more_list .caution_more_item.type2 .form_control { margin: 0 6px;} */
 
 .main_info_card.type2 { gap: 8px;}
 .main_info_card.type2 .date,
@@ -51,6 +50,7 @@
 .img_upload_area .img_box .btn { position: absolute; top: 12px; right: 12px;}
 
 .input_layout { display: flex; align-items: center;}
+.input_layout.type2 { width: 100%; padding-left: 8px;}
 
 /* fltg */
 .fltg_ftr_wrap.type2 .fltg_item.active .txt { color: #00fafd;}
