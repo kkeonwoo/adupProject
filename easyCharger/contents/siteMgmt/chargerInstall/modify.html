@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../../frontLayer/css/package.css">
+    <link rel="stylesheet" href="../../../frontLayer/css/siteMgmt.css">
+    <script src="../../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../../frontLayer/js/fn.js"></script>
+    <script src="../../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:back_page -->
+        <div class="step_page">
+            <div class="step_inner">
+                <div class="step_hdr">
+                    <button type="button" class="close_btn" aria-label="닫기버튼"></button>
+                </div>
+                <div class="step_body">
+                    <div class="ttl_area">
+                        <h1 class="ttl">설치 정보</h1>
+                    </div>
+
+                    <div class="bdr_area mt_px_30">
+                        <div class="apl_area">
+                            <span class="apl_num">접수번호 : 0000235</span>
+                            <span class="apl_date">12:55:25</span>
+                        </div>
+
+                        <hr class="hr type3">
+                        
+                        <div class="info_txt_area">
+                            <span class="txt">경기도 성남시 수정구 창업로 34 C동 지하</span>
+                            <span class="txt">충전기 유형 : 완속</span>
+                        </div>
+
+                        <hr class="hr type3">
+
+                        <div class="site_mgmt_card">
+                            <div class="ttl_box type2">
+                                <b class="ttl">설치 정보</b>
+                                <button type="button" class="btn btn_xs btn_secondary">개인정보 보호 해제</button>
+                            </div>
+                            <div class="desc_box mt_px_10">
+                                <ul class="desc_list">
+                                    <li class="desc_item"><span class="txt">접수 날짜 : 2023-10-02</span></li>
+                                    <li class="desc_item"><span class="txt">신청자명 : 홍*동</span></li>
+                                    <li class="desc_item"><span class="txt">연락처 : 010-1234-****</span></li>
+                                    <li class="desc_item"><span class="txt">이메일 : OOOOOOO@OOOO.com</span></li>
+                                    <li class="desc_item d_flex">
+                                        <span class="txt flex_shrink_0">문의 내용 : </span>
+                                        <span class="txt">
+                                            집밥으로 사용하려고 신청합니다. 
+                                            차량은 2대이고 오전/오후에 1대 충전을 하고 밤에
+                                            1대를 돌아가면서 계속 충전을 할 계획입니다.
+                                        </span>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form_ttl_group mt_px_30">
+                        <b class="ttl">충전기 신청 정보</b>
+                    </div>
+
+                    <ul class="caution_more_list">
+                        <li class="caution_more_item"><span class="txt">충전기 모델 : OOOOOO</span></li>
+                        <li class="caution_more_item"><span class="txt">제조사 : OOOOOO</span></li>
+                        <li class="caution_more_item"><span class="txt">주차면 수 : 1</span></li>
+                        <li class="caution_more_item"><span class="txt">신청기 수 : 1</span></li>
+                        <li class="caution_more_item"><span class="txt">충전기 설치일자 : 2023-10-28</span></li>
+                    </ul>
+
+                    <div class="form_ttl_group mt_px_30">
+                        <b class="ttl">실사 메모</b>
+                    </div>
+                    
+                    <div class="form_group">
+                        <textarea class="form_control no_resize" name="" cols="30" rows="10">
+충전기 설치 공간을 최대한 확보하기 위해서
+설치 시, 공간을 확인하고 충전기 설치를 진행해 주세요.
+                        </textarea>
+                    </div>
+                    
+                    <div class="form_ttl_group mt_px_30">
+                        <b class="ttl">설치 메모</b>
+                    </div>
+                    
+                    <div class="form_group">
+                        <textarea class="form_control no_resize" name="" cols="30" rows="10" placeholder="">
+차량 충전꽂는 위치를 맞추기 위해 충전기를 최대한
+오른쪽으로 배치하였습니다.
+                        </textarea>
+                    </div>
+
+                    <hr class="hr">
+
+                    <div class="img_upload_area">
+                        <div class="ttl_box">
+                            <b class="ttl">사진 첨부</b>
+                            <div class="btn_area">
+                                <button type="button" class="btn btn_xs btn_secondary">앨범</button>
+                                <button type="button" class="btn btn_xs btn_secondary">카메라</button>
+                            </div>
+                        </div>
+                        <div class="img_box">
+                            <img src="" alt="" class="img">
+                            <button type="button" class="btn btn_close_rounded">close</button>
+                        </div>
+                    </div>
+                    
+                    <div class="step_ftr">
+                        <div class="btn_area">
+                            <button type="button" class="btn btn_lg btn_outline_secondary">취소</button>
+                            <button type="button" class="btn btn_lg btn_primary">수정</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- e:back_page -->
+        
+    </div>
+    <!-- e:wrapper -->
+
+</body>
+
+</html>

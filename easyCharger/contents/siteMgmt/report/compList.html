@@ -38,24 +38,24 @@
         <div class="back_page type_bg_gray">
             <div class="back_inner">
                 <div class="back_hdr">
-                    <a href="#" class="back_btn" aria-label="뒤로가기">정기점검</a>
+                    <a href="#" class="back_btn" aria-label="뒤로가기">고장신고</a>
                 </div>
                 <div class="swiper_tab_wrap">
                     <div class="swiper swiper_tab">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <a href="./assignList.html" class="tab_btn">
-                                    <span class="txt">배정(1)</span>
+                                    <span class="txt">접수(1)</span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a href="./progList.html" class="tab_btn active">
-                                    <span class="txt">진행 중(2)</span>
+                                <a href="./progList.html" class="tab_btn">
+                                    <span class="txt">조치 중(0)</span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a href="./compList.html" class="tab_btn">
-                                    <span class="txt">완료(0)</span>
+                                <a href="./compList.html" class="tab_btn active">
+                                    <span class="txt">조치 완료(1)</span>
                                 </a>
                             </div>
                         </div>
@@ -63,47 +63,40 @@
                 </div>
                 <div class="back_body">
                     <div class="ttl_area type3">
-                        <h1 class="ttl">충전기 점검 현황</h1>
+                        <h1 class="ttl">충전기 신고 현황</h1>
                     </div>
                     <div class="site_mgmt_area">
                         <ul class="site_mgmt_list">
                             <li class="site_mgmt_item">
                                 <div class="site_mgmt_card">
+                                    <div class="apl_area">
+                                        <span class="apl_num">접수번호 : 0000235</span>
+                                        <span class="apl_date">12:55:25</span>
+                                    </div>
+                                    <hr class="hr type3">
                                     <div class="ttl_box">
                                         <b class="ttl">금능현대아파트 전기충전소</b>
-                                        <span class="txt">충청북도 충주시 금릉로 45</span>
+                                        <span class="txt">경기도 성남시 수정구 창업로 34 C동 지하</span>
+                                        <span class="txt">충전기번호 : 319601</span>
                                     </div>
                                     <hr class="hr type3">
                                     <ul class="caution_more_list">
-                                        <li class="caution_more_item"><span class="txt">배정일 : </span><span class="txt">2023-10-20</span></li>
-                                        <li class="caution_more_item"><span class="txt">점검일 : </span></li>
-                                        <li class="caution_more_item"><span class="txt">점검자 : </span><span class="txt">최출동</span></li>
+                                        <li class="caution_more_item"><span class="txt">우선순위 : 긴급</span></li>
+                                        <li class="caution_more_item"><span class="txt flex_shrink_0">고장신고 항목 : </span><span class="txt">LCD 파손 및 터치 불량</span></li>
+                                        <li class="caution_more_item">
+                                            <span class="txt flex_shrink_0">내용 : </span>
+                                            <span class="txt">일요일 오후에 유선 접수하고 리셋해주셨는 여전히 충전이 안됩니다. 오늘도 동일한 증상이 계속 입니다.</span>
+                                        </li>
                                     </ul>
                                     <div class="btn_area">
-                                        <button type="button" class="btn btn_ml btn_secondary">정기 점검 작성</button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="site_mgmt_item">
-                                <div class="site_mgmt_card">
-                                    <div class="ttl_box">
-                                        <b class="ttl">대영채비 판교센터 전기차충전소</b>
-                                        <span class="txt">경기도 성남시 대왕판교로 15길 판교센터 지하 2층</span>
-                                    </div>
-                                    <hr class="hr type3">
-                                    <ul class="caution_more_list">
-                                        <li class="caution_more_item"><span class="txt">배정일 : </span><span class="txt">2023-10-20</span></li>
-                                        <li class="caution_more_item"><span class="txt">점검일 : </span></li>
-                                        <li class="caution_more_item"><span class="txt">점검자 : </span><span class="txt">최출동</span></li>
-                                    </ul>
-                                    <div class="btn_area">
-                                        <button type="button" class="btn btn_ml btn_secondary">정기 점검 작성</button>
+                                        <button type="button" class="btn btn_ml btn_secondary">내용 보기</button>
                                     </div>
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </div>
+                
                 <div class="fltg_dummy"></div>
                 <div class="fltg_ftr_wrap type2">
                     <div class="fltg_ftr">
@@ -114,13 +107,13 @@
                                     <span class="txt">홈</span>
                                 </a>
                             </li>
-                            <li class="fltg_item active">
+                            <li class="fltg_item">
                                 <a class="fltg_btn" href="#">
                                     <i class="ico ico_check"></i>
                                     <span class="txt">정기점검</span>
                                 </a>
                             </li>
-                            <li class="fltg_item">
+                            <li class="fltg_item active">
                                 <a class="fltg_btn" href="#">
                                     <i class="ico ico_trouble"></i>
                                     <span class="txt">고장신고</span>
