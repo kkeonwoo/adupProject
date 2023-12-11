@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+/* CSS Document */
+*{padding:0;margin:0;-webkit-text-size-adjust: none; -moz-text-size-adjust: none; -ms-text-size-adjust: none;box-sizing: border-box;-ms-box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;font-family: 'Noto Sans KR','맑은 고딕','sans-serif';font-size:18px;font-weight: 400; line-height: 1;color:#000;}
+h1,h2,h3,h4,h5,h6,em,strong,li,dd,a,address{padding:0;margin:0;}
+html{overflow-y:scroll;}
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,tr,td,thead,tbody,form,fieldset,legend,input,textarea,button{margin:0;padding:0;}
+ul,ol,li,dl,dt,dd {list-style:none;}
+i.ico { display: inline-block; position: relative; background-repeat: no-repeat; background-position: center center; background-size: auto; text-indent: -99999px; font-size: 0;}
+i,em,address{font-style:normal;}
+label,button{cursor:pointer;}
+button{border:none;background:none;vertical-align:middle;-webkit-appearance: none;-webkit-border-radius: 0;}
+img,fieldset,iframe {border:none;}
+img{vertical-align:top;}
+textarea{font-size:16px;resize: none;}
+select {-webkit-appearance: none;-moz-appearance: none;-ms-appearance: none;-o-appearance: none;vertical-align:middle;border-radius: 0}
+
+select::-ms-expand {display: none;}
+input,textarea {-webkit-appearance: none;-webkit-border-radius: 0;}
+table{border:none; border-collapse:collapse; padding:0; border-spacing:0;table-layout: fixed;width:100%;}
+u {text-decoration:none;}
+font{ font-weight: inherit; font-size: inherit; line-height: inherit; color: inherit;}
+::-webkit-input-placeholder {font:18px 'Noto Sans KR', '맑은 고딕','sans-serif'; font-weight: 300; color: #BCBCBC;}
+::-moz-placeholder {font:18px 'Noto Sans KR', '맑은 고딕', 'sans-serif'; font-weight: 300; color: #BCBCBC;}
+:-ms-input-placeholder {font:18px 'Noto Sans KR', '맑은 고딕', 'sans-serif'; font-weight: 300; color: #BCBCBC;}
+:-moz-placeholder {font:18px 'Noto Sans KR', '맑은 고딕', 'sans-serif'; font-weight: 300; color: #BCBCBC;}
+
+.header ::-webkit-input-placeholder { font-size: 18rem; color: #fff;}
+.header ::-moz-placeholder { font-size: 18rem; color: #fff;}
+.header :-ms-input-placeholder { font-size: 18rem; color: #fff;}
+.header :-moz-placeholder { font-size: 18rem; color: #fff;}
+#menu ::-webkit-input-placeholder { font-size: 18rem; color: #fff;}
+#menu ::-moz-placeholder { font-size: 18rem; color: #fff;}
+#menu :-ms-input-placeholder { font-size: 18rem; color: #fff;}
+#menu :-moz-placeholder { font-size: 18rem; color: #fff;}
+.footer ::-webkit-input-placeholder { font-size: 18rem; color: #fff;}
+.footer ::-moz-placeholder { font-size: 18rem; color: #fff;}
+.footer :-ms-input-placeholder { font-size: 18rem; color: #fff;}
+.footer :-moz-placeholder { font-size: 18rem; color: #fff;}
+
+.sm_placeholder::-webkit-input-placeholder { opacity: 0;}
+.sm_placeholder::-moz-placeholder { opacity: 0;}
+.sm_placeholder:-ms-input-placeholder { opacity: 0;}
+.sm_placeholder:-moz-placeholder { opacity: 0;}
+
+@media screen and (max-width: 1023px){
+    ::-webkit-input-placeholder { font-size: 12px; }
+    ::-moz-placeholder { font-size: 12px; }
+    :-ms-input-placeholder { font-size: 12px; }
+    :-moz-placeholder { font-size: 12px; }
+
+    .header ::-webkit-input-placeholder { font-size: 14px; }
+    .header ::-moz-placeholder { font-size: 14px; }
+    .header :-ms-input-placeholder { font-size: 14px; }
+    .header :-moz-placeholder { font-size: 14px; }
+
+    .sm_placeholder::-webkit-input-placeholder { opacity: 1;}
+    .sm_placeholder::-moz-placeholder { opacity: 1;}
+    .sm_placeholder:-ms-input-placeholder { opacity: 1;}
+    .sm_placeholder:-moz-placeholder { opacity: 1;}
+}
+
+/*바로가기*/
+.skip a{display:block;position:absolute;left:0;top:-9999em;width:100%;padding:15px 0;background-color:#494e53;color:#fff;font: medium 14px/3.4 'gothic_a1',sans-serif;text-align:center;z-index: 99999;}
+.skip a:hover,.skip a:active,.skip a:focus{top:0}
+
+/*기본*/
+#wrap{position:relative;width:100%;}
+#header{position:relative;}
+#container{position:relative;*zoom:1;}
+#container:after{display:block;clear:both;content:'';}
+#footer{position:relative;}
+
+a{text-decoration:none;}
+a:link,a:visited,a:active,a:focus{}
+a:hover{text-decoration:none;}
+.blind {position: absolute;width: 1px !important;height: 1px !important;padding: 0 !important;margin: -1px !important;overflow: hidden !important;clip: rect(0, 0, 0, 0) !important;white-space: nowrap !important;border: 0 !important;}
+.hide {display:none;}
+
+/* display */
+.inline { display: inline !important; width: auto !important;}
+.inline-block { display: inline-block !important; width: auto !important;}
+
+/* float해제 */
+.clearfix:after{content:''; display:block; clear:both;}
+.fr {float:right;}
+.fl {float:left;}
+ul:after,ol:after {content:''; display:block; clear:both;}
+
+/*정렬*/
+.text-center {text-align:center !important;}
+.text-right {text-align:right !important;}
+.text-left {text-align:left !important;}
+
+/*display-table*/
+.table {display:table;width:100%;}
+.row {display:table-row;}
+.th {display:table-cell;vertical-align:middle;}
+.td {display:table-cell;vertical-align:middle;}
+.inline {display:inline-block;vertical-align:middle;}
+
+/*checkbox 스타일*/
+.fancy-box { display: inline-block;}
+.fancy-box [type="checkbox"].fancy-check { position: absolute;left: -9999px;}
+.fancy-box .fancy-check ~ .ico-fancy > span { display: table-cell !important;transform:translateY(0.1em);vertical-align: middle;padding-left:10px;font-size:18px;color:#000;}
+.fancy-box [type="checkbox"].fancy-check + .ico-fancy { display: table; margin-right: 50px; cursor: pointer; }
+.fancy-box [type="checkbox"].fancy-check + .ico-fancy:before {content:'';display:inline-block;width:24px;height:24px;background:url("../../images/icons/ico_checkbox.svg") no-repeat center;outline:none;vertical-align: middle;}
+.fancy-box [type="checkbox"].fancy-check:checked + .ico-fancy:before {background-position:0 -24px;}
+.fancy-box [type="checkbox"].fancy-check:not(:checked) + .ico-fancy:before {background-position:0 0;}
+.fancy-box [type="radio"].fancy-check { position: absolute;left: -9999px;}
+.fancy-box [type="radio"].fancy-check + .ico-fancy { display: table; margin-right: 50px; cursor: pointer; }
+.fancy-box [type="radio"].fancy-check + .ico-fancy:before {content:'';display:inline-block;width:24px;height:24px;background:url("../../images/icons/ico_radio.svg") no-repeat center;outline:none;vertical-align: middle;}
+.fancy-box [type="radio"].fancy-check:checked + .ico-fancy:before {background-position:0 -24px;}
+.fancy-box [type="radio"].fancy-check:not(:checked) + .ico-fancy:before {background-position:0 0;}
+.fancy-box input[type=password] { font-family: 'Noto Sans KR' , '맑은 고딕', 'sans-serif' !important;}
+
+.filebox input[type="file"] { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; }
+.filebox label { display: inline-block;width: 110px;height: 35px;border:2px solid #C8C8C8;font-size: 18px;font-weight: 300;line-height:35px;text-align:center;} /* named upload */
+.filebox .upload-name { display: inline-block;margin-left: 60px;background: transparent;border: none;font-size: 16px;font-weight:300;-webkit-appearance: none;-moz-appearance: none; appearance: none; vertical-align:middle;}
+
+/* hide */
+.he { overflow: hidden; position: absolute; width: 1px; height: 1px; border: none; clip: rect(1px 1px 1px 1px);}
+.ht { overflow: hidden; color: transparent; text-indent: 100%; white-space: nowrap;}
+.es { overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+
+/*ellipsis*/
+.ellipsis2 { overflow: hidden; text-overflow: ellipsis; display: -webkit-box; max-height: 50px; min-height: 50px; line-height: 25px; -webkit-line-clamp: 2; -webkit-box-orient: vertical; text-align: left;}
+.ellipsis3 { overflow: hidden; text-overflow: ellipsis; display: -webkit-box; max-height: 75px; min-height: 75px; line-height: 25px; -webkit-line-clamp: 3; -webkit-box-orient: vertical; text-align: left;}
+
+.btn_container {display:flex;align-items:center;}
+.btn_container.center {justify-content:center;}
+.btn_container.flex_start {justify-content:flex-start;}
+.btn_container.flex_end {justify-content:flex-end;}
+.btn_container.between {justify-content:space-between;}
+.btn_container.mt {margin-top: 60px;}
+.btn_container .btn + .btn {margin-left: 12px;}
+.btn {display:inline-block;width: 140px;height:50px;padding-top:0.1em;font-size: 18px;line-height: 50px;text-align:center;font-weight:500;}
+.btn.lg {width: 195px;}
+.btn.border {border: 1px solid #C8C8C8;}
+.btn.sm { height: 36px; font-weight: 300; line-height: 36px;}
+.btn.ico_search { width: auto; padding: 0 33px;}
+.btn.ico_search::after { content: ''; display: inline-block; transform: translateY(0.2em); width: 17px; height: 17px; margin-left: 10px; background-image: url('../../images/icons/ico_search.svg'); background-position: center center; background-size: 100% auto; background-repeat: no-repeat;}
+.btn.black {border-color: #333;background: #333;color: #fff;}
+.btn.gray {background: #C8C8C8;color: #fff;}
+.btn.radius {border-radius: 4px;}
