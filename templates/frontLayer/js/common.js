@@ -271,7 +271,7 @@ ProjectName = {
                 slideTabletView = [4,3],
                 slideMobileView = [1,1];
             tg.addClass('instance_' + index);
-
+            
             var swiper = new Swiper('.instance_' + index + ' .swiper', {
                 loop:true,
                 slidesPerView: slideMobileView[index],

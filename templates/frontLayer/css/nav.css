@@ -28,6 +28,14 @@
 .type3 .depth2_list { display: none; position: absolute; left: 50%; width: 100%; padding: 10px; border-radius: 10px; background-color: #ccc; transform: translateX(-50%);}
 .type3 .depth2_list > ul > li { padding: 10px 0;}
 
+.type4 { height: var(--header-height); overflow: hidden;}
+.type4 > div { position: relative; height: var(--header-height);}
+.type4 .gnb_overlay_bg { position: absolute; top: var(--header-height); left: 0; width: 100%; background-color: #ccc; box-shadow: 0 3px 5px rgba(0, 0, 0, .15);}
+.type4 .depth1_list { display: flex; justify-content: center; align-items: center; width: fit-content; margin: 0 auto;}
+.type4 .depth1_list > li { position: relative; height: var(--header-height); padding: 0 20px; line-height: var(--header-height); text-align: center;}
+.type4 .depth2_list { width: 100%; padding: 10px 0;}
+.type4 .depth2_list li { padding: 10px 0;} 
+
 /* 
 #header { display: flex; align-items: center; position: relative; width: 100%; height: var(--header-height); border-bottom: 1px solid #ccc; background-color: var(--header-bg-color);}
 #header .gnb_overlay_bg { display: none; position: absolute; top: var(--header-height); left: 0; width: 100%; background-color: var(--header-bg-color); box-shadow: 0 3px 5px rgba(0, 0, 0, .15);}

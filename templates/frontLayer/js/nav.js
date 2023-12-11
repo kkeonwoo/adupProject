@@ -21,6 +21,7 @@ const Nav = {
 		$header.is('.type1') && this.type1();
 		$header.is('.type2') && this.type2();
 		$header.is('.type3') && this.type3();
+		$header.is('.type4') && this.type4();
 	},
 	type1: function() {
 		/**
@@ -120,6 +121,63 @@ const Nav = {
 		$depth1Item.on('mouseleave', closeMenu);
 		$firstItem.on('keydown', (e) => { if(e.keyCode === 9 && e.shiftKey) closeMenu(); })
 		$LastItem.on('focusout', closeMenu);
+	},
+	type4: function() {
+		let $depth1Area = $('.depth1_area'),
+			$depth2Area = $('.depth2_area'),
+			$depth2List = $depth2Area.find('.depth2_list'),
+			$bgOverlay = $('.gnb_overlay_bg'),
+			depth2Ht = this.maxHeight($depth2List);
+
+			
+		const openMenu = () => { 
+			$bgOverlay.animate({ height : depth2Ht })
+			$header.stop().animate({ height : headerHt + depth2Ht })
+		}
+		const closeMenu = () => { 
+			$bgOverlay.animate({ height : 0 })
+			$header.stop().animate({ height : headerHt })
+		}
+
+		// open event
+		$depth1List.on('mouseenter focusin', openMenu);
+
+		// close event
+		$header.on('mouseleave', closeMenu);
+		$firstItem.on('keydown', (e) => { if(e.keyCode === 9 && e.shiftKey) closeMenu(); })
+		$LastItem.on('focusout', closeMenu);
+
+		// focus event
+		$depth1Link.on('keydown', function (e) {
+			let dep1Idx = $(this).closest('.depth1_item').index();
+			
+			if ( e.keyCode === 9 ) {
+				if ( e.shiftKey ) {
+					if (dep1Idx <= 0) return;
+					e.preventDefault();
+					$depth2List.eq(dep1Idx - 1).find('li').last().find('.depth2_link').get(0).focus();
+				} else {
+					e.preventDefault();
+					$depth2List.eq(dep1Idx).find('.depth2_link').get(0).focus();
+				}
+			}
+		})
+		$depth2List.each((idx, item) => {
+			let $depth2Item = $(item).find('li');
+			
+			$depth2Item.first().find('a').on('keydown', function(e) {
+				if ( e.keyCode === 9 && e.shiftKey ) {
+					e.preventDefault();
+					$('.depth1_item').eq(idx).find('.depth1_link').focus();
+				}
+			})
+			$depth2Item.last().find('a').on('keydown', function(e) {
+				if ( e.keyCode === 9 && idx < $depth2List.length - 1 && !e.shiftKey) {
+					e.preventDefault();
+					$('.depth1_item').eq(idx + 1).find('.depth1_link').focus();
+				}
+			})
+		})
 	},
 	maxHeight: function(obj) {
 		const heightArray = $(obj).map(function () {
