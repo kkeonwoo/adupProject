@@ -1,4 +1,9 @@
 @charset "utf-8";
+/* *******************************************************
+    * filename : components.css
+    * description : 공용 컴포넌트
+    * date : 2023-12-12
+******************************************************* */
 
 /* button */
 .btn { display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: center; min-width: 100px; font-weight: 400; line-height: 1.53; color: #697a8d; background-color: transparent; border: 1px solid transparent; padding: 10px; font-size: 16px; border-radius: 6px; transition: all .2s ease-in-out; user-select: none; text-align: center; vertical-align: middle; cursor: pointer; outline: none;}

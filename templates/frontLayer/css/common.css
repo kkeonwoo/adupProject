@@ -1,4 +1,9 @@
 @charset "UTF-8";
+/* *******************************************************
+    * filename : common.css
+    * description : reset / common css
+    * date : 2023-12-12
+******************************************************* */
 
 :root {
     /* gnb width */
@@ -318,6 +323,8 @@ input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none;}
 .color_blue { color: var(--fn-blue) !important;}
 .color_skyblue { color: var(--fn-skyblue) !important;}
 .color_orange { color: var(--fn-orange) !important;}
+.text-ellipsis { white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.line-clamp2{ overflow:hidden; display:block; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;}
 
 /*바로가기*/
 .skip a{display:block;position:absolute;left:0;top:-9999em;width:100%;padding:15px 0;background-color:#494e53;color:#fff;font:16px 'Noto Sans KR', '맑은 고딕','sans-serif'; font-weight: 400;text-align:center;z-index: 99999;}
@@ -333,6 +340,12 @@ input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none;}
 
 a{text-decoration: none;background-color: transparent;-webkit-text-decoration-skip: objects;}
 a:hover{text-decoration:none;}
-.blind {position: absolute;width: 1px !important;height: 1px !important;padding: 0 !important;margin: -1px !important;overflow: hidden !important;clip: rect(0, 0, 0, 0) !important;white-space: nowrap !important;border: 0 !important;}
+.blind {position: absolute;top: 0;left: 0;width: 1px !important;height: 1px !important;padding: 0 !important;margin: -1px !important;overflow: hidden !important;clip: rect(0, 0, 0, 0) !important;white-space: nowrap !important;border: 0 !important;font-size: 0;line-height: 0;}
 .hide {display:none;}
 .hidden {overflow: hidden !important;}
+
+.mo { display: none;}
+@media all and ( max-width: 767px) {
+    .mo { display: block;}
+    .pc { display: none;}
+}
