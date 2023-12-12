@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+/* Noto Sans KR */
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-weight: 100;
+    src: url(../font/notokr/notokr-light.woff2) format('woff2'),
+    url(../font/notokr/notokr-light.woff) format('woff');
+}
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-weight: 400;
+    src: url(../font/notokr/notokr-regular.woff2) format('woff2'),
+    url(../font/notokr/notokr-regular.woff) format('woff');
+}
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-weight: 500;
+    src: url(../font/notokr/notokr-medium.woff2) format('woff2'),
+    url(../font/notokr/notokr-medium.woff) format('woff');
+}
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-weight: 700;
+    src: url(../font/notokr/notokr-bold.woff2) format('woff2'),
+    url(../font/notokr/notokr-bold.woff) format('woff');
+}
+
+/* Pretendard */
+@font-face {
+    font-family: 'pretendard';
+    font-weight: 100;
+    src: url(../font/Pretendard/Pretendard-Light.woff2) format('woff2'),
+    url(../font/Pretendard/Pretendard-Light.woff) format('woff');
+}
+@font-face {
+    font-family: 'pretendard';
+    font-weight: 400;
+    src: url(../font/Pretendard/Pretendard-Light.woff2) format('woff2'),
+    url(../font/Pretendard/Pretendard-Light.woff) format('woff');
+}
+@font-face {
+    font-family: 'pretendard';
+    font-weight: 500;
+    src: url(../font/Pretendard/Pretendard-Light.woff2) format('woff2'),
+    url(../font/Pretendard/Pretendard-Light.woff) format('woff');
+}
+@font-face {
+    font-family: 'pretendard';
+    font-weight: 700;
+    src: url(../font/Pretendard/Pretendard-Light.woff2) format('woff2'),
+    url(../font/Pretendard/Pretendard-Light.woff) format('woff');
+}
+@font-face {
+    font-family: 'pretendard';
+    font-weight: 900;
+    src: url(../font/Pretendard/Pretendard-Black.woff2) format('woff2'),
+    url(../font/Pretendard/Pretendard-Black.woff) format('woff');
+}
