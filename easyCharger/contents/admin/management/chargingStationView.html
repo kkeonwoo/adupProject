@@ -55,7 +55,7 @@
 
                 <!-- s:section_tit -->
                 <div class="section_top">
-                    <h2 class="section_tit sub" data-menu="충전소 운영 관리">충전소 운영 상세정보</h2>
+                    <h2 class="section_tit sub" data-menu="충전소 운영 관리">충전소 관리 상세정보</h2>
                     <div class="location">
                         <span>홈</span>
                         <span>1depth</span>
@@ -86,7 +86,7 @@
                                     <label for="iptChargingStation" class="form_label">충전소 명</label>
                                 </th>
                                 <td colspan="3">
-                                    <input type="text" class="form_control wd240" id="iptChargingStation">
+                                    <input type="text" class="form_control" id="iptChargingStation">
                                 </td>
                                 <th scope="row">
                                     <label for="selectChargingStation" class="form_label">업체</label>
@@ -105,10 +105,18 @@
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="iptChargingStationID" class="form_label">충전소 ID</label>
+                                    <label for="selectChargingStationID" class="form_label">충전소 ID</label>
                                 </th>
                                 <td colspan="3">
-                                    <input type="text" class="form_control wd240" id="iptChargingStationID">
+                                    <div class="custom_select wd240">
+                                        <select id="selectChargingStationID">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
                                 </td>
                                 <th scope="row">
                                     <label for="selectOperate" class="form_label">운영상태</label>
@@ -127,7 +135,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="selectCharerType" class="form_label">충전기 유형</label>
+                                    <label for="selectCharerType" class="form_label">충전기 구분</label>
                                 </th>
                                 <td>
                                     <div class="custom_select">
@@ -141,7 +149,7 @@
                                     </div>
                                 </td>
                                 <th scope="row">
-                                    <label for="selectDetail" class="form_label">상세 유형</label>
+                                    <label for="selectDetail" class="form_label">충전기 구분 상세</label>
                                 </th>
                                 <td colspan="3">
                                     <div class="custom_select">
@@ -197,7 +205,7 @@
                                 <th scope="row">
                                     <label for="radioOpen1" class="form_label">환경부 상태 전송</label>
                                 </th>
-                                <td colspan="3">
+                                <td colspan="7">
                                     <ul class="form_check_list gap_px_30">
                                         <li class="form_check_item">
                                             <label class="form_check">
@@ -214,20 +222,6 @@
                                             </label>
                                         </li>
                                     </ul>
-                                </td>
-                                <th scope="row">
-                                    <label for="selectCustomerNumber" class="form_label">한전고객번호</label>
-                                </th>
-                                <td colspan="3">
-                                    <div class="custom_select wd240">
-                                        <select id="selectCustomerNumber">
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                        </select>
-                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -349,7 +343,7 @@
                     <table>
                         <colgroup>
                             <col width="140" />
-                            <col width="500" />
+                            <col width="585" />
                             <col width="140" />
                             <col width="*" />
                         </colgroup>
@@ -461,7 +455,7 @@
                                     <label for="radioPayment1" class="form_label">주차장 정보</label>
                                 </th>
                                 <td>
-                                    <div class="d_flex align_items_center gap_px_30">
+                                    <div class="d_flex align_items_center gap_px_60">
                                         <ul class="form_check_list gap_px_30">
                                             <li class="form_check_item">
                                                 <label class="form_check">
@@ -479,15 +473,15 @@
                                             </li>
                                         </ul>
                                         <div class="d_flex align_items_center gap_px_10 w_auto">
-                                            <input type="text" class="form_control wd80">
+                                            <input type="text" class="form_control wd120">
                                             시간 / 기준
-                                            <input type="text" class="form_control wd80">
+                                            <input type="text" class="form_control wd120">
                                             원
                                         </div>
                                     </div>
                                 </td>
                                 <th scope="row">
-                                    <label for="iptPayment" class="form_label">미출차<br>주차요금 부과</label>
+                                    <label for="iptPayment" class="form_label">미출차 주차요금 부과</label>
                                 </th>
                                 <td>
                                     <div class="d_flex align_items_center gap_px_10">
@@ -582,6 +576,7 @@
                         </tbody>
                     </table>
                     <div class="btn_end">
+                        <button class="btn btn_outline" type="button">목록</button>
                         <button class="btn btn_primary" type="button">저장</button>
                     </div>
                 </article>

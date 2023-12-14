@@ -55,7 +55,7 @@
 
                 <!-- s:section_tit -->
                 <div class="section_top">
-                    <h2 class="section_tit">충전기 결제 내역 조회</h2>
+                    <h2 class="section_tit">구독 상품 현황 조회</h2>
                     <div class="location">
                         <span>홈</span>
                         <span>1depth</span>
@@ -70,15 +70,13 @@
                         <colgroup>
                             <col width="140" />
                             <col width="*" />
-                            <col width="140" />
-                            <col width="*" />
                         </colgroup>
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <label for="startDate" class="form_label">등록일자</label>
+                                    <label for="startDate" class="form_label">기간</label>
                                 </th>
-                                <td colspan="3">
+                                <td>
                                     <div class="d_flex gap_px_50 align_items_center">
                                         <div class="d_flex date_wrap">
                                             <div class="date_item">
@@ -89,7 +87,7 @@
                                                 <input type="text" class="form_control form_datepicker endDate" data-type="dateSearch" />
                                             </div>
                                         </div>
-                                        <ul class="form_check_list d_flex gap_px_30">
+                                        <ul class="fomr_check_list d_flex gap_px_30">
                                             <li class="form_check_item">
                                                 <label class="form_check">
                                                     <input class="form_check_input checkbox" type="radio" name="month">
@@ -104,22 +102,24 @@
                                                     <span class="form_check_txt">3개월</span>
                                                 </label>
                                             </li>
-                                        </ul>
+                                        </div>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="iptCharger" class="form_label">충전소 명</label>
+                                    <label for="selectSubscribe" class="form_label">구독 상품</label>
                                 </th>
                                 <td>
-                                    <input type="text" class="form_control wd420" id="iptCharger">
-                                </td>
-                                <th scope="row">
-                                    <label for="iptChargerNumber" class="form_label">충전기 번호</label>
-                                </th>
-                                <td>
-                                    <input type="text" class="form_control wd420" id="iptChargerNumber">
+                                    <div class="custom_select wd240">
+                                        <select id="selectSubscribe">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -130,118 +130,43 @@
                 </article>
 
                 <article class="tbl_ver mt_px_40">
-                    <div class="tbl_top_info end">
+                    <div class="tbl_top_info">
                         <div class="total">총 <em>120</em>개의 목록</div>
-                        <button type="button" class="btn_ico excel"><span>엑셀 다운로드</span></button>
                     </div>
-                    <div class="sticky_tbl h_max_290">
+                    <div class="sticky_tbl h_max_460">
                         <table>
                             <colgroup>
-                                <col width="110" />
+                                <col width="55" />
+                                <col width="85" />
+                                <col width="95" />
                                 <col width="*" />
-                                <col width="105" />
-                                <col width="125" />
-                                <col width="140" />
-                                <col width="135" />
-                                <col width="140" />
+                                <col width="110" />
                                 <col width="110" />
                                 <col width="110" />
                                 <col width="110" />
                             </colgroup>
                             <thead>
                                 <tr>
-                                    <th scope="col">거래일자</th>
-                                    <th scope="col">충전소 명</th>
-                                    <th scope="col">지역</th>
-                                    <th scope="col">충전기 번호</th>
-                                    <th scope="col">충전량(kWh)</th>
-                                    <th scope="col">충전시간(분)</th>
-                                    <th scope="col">프로모션정보</th>
-                                    <th scope="col">충전금액</th>
-                                    <th scope="col">결제금액</th>
-                                    <th scope="col">미결제금액</th>
+                                    <th scope="col">기간</th>
+                                    <th scope="col">구독 상품</th>
+                                    <th scope="col">제공충전량 (kWh)</th>
+                                    <th scope="col">구매</th>
+                                    <th scope="col">할인</th>
+                                    <th scope="col">사용</th>
+                                    <th scope="col">환불</th>
+                                    <th scope="col">잔여</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <div>2023.10.06</div>
+                                        <div>2023-11-01~<br>2023-12-31</div>
                                     </td>
                                     <td>
-                                        <div>강남충전소</div>
+                                        <div>개인</div>
                                     </td>
                                     <td>
-                                        <div>서울 강남</div>
-                                    </td>
-                                    <td>
-                                        <div>626262</div>
-                                    </td>
-                                    <td>
-                                        <div>20</div>
-                                    </td>
-                                    <td>
-                                        <div>180</div>
-                                    </td>
-                                    <td>
-                                        <div>-</div>
-                                    </td>
-                                    <td>
-                                        <div>50,000</div>
-                                    </td>
-                                    <td>
-                                        <div>50,000</div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div>2023.10.06</div>
-                                    </td>
-                                    <td>
-                                        <div>강남충전소</div>
-                                    </td>
-                                    <td>
-                                        <div>서울 강남</div>
-                                    </td>
-                                    <td>
-                                        <div>626262</div>
-                                    </td>
-                                    <td>
-                                        <div>20</div>
-                                    </td>
-                                    <td>
-                                        <div>180</div>
-                                    </td>
-                                    <td>
-                                        <div>-</div>
-                                    </td>
-                                    <td>
-                                        <div>50,000</div>
-                                    </td>
-                                    <td>
-                                        <div>50,000</div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
+                                        <div>300</div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -261,51 +186,13 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div></div>
+                                        <div>2023-11-01~<br>2023-12-31</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>비즈니스</div>
                                     </td>
                                     <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
+                                        <div>600</div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -325,19 +212,13 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div></div>
+                                        <div>2023-11-01~<br>2023-12-31</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>화물차</div>
                                     </td>
                                     <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
+                                        <div>1,200</div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -379,7 +260,7 @@
                             </ul>
                         </nav>
                         <!-- e:pagination -->
-                        
+
                     </div>
 
                 </article>
@@ -390,6 +271,132 @@
 
     </div>
     <!-- e:wrap -->
+
+    <!-- s:구독 상품 등록 -->
+    <div class="modal modal_close" id="modalAppSubscribe">
+        <div class="modal_centered">
+            <div class="modal_box">
+                <div class="modal_header">
+                    <h1>구독 상품 관리</h1>
+                    <button type="button" class="btn_modal_close close">close</button>
+                </div>
+                <div class="modal_body">
+                    <div class="modal_content">
+                        <h2>구독 상품 정보</h2>
+                        <div class="tbl_hor_modal"> 
+                            <table>
+                                <colgroup>
+                                    <col width="120" />
+                                    <col width="*" />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <label for="selectModalSubscribe" class="form_label">구독 상품</label>
+                                        </th>
+                                        <td>
+                                            <div class="custom_select">
+                                                <select id="selectModalSubscribe">
+                                                    <option value="">선택</option>
+                                                    <option value="">선택</option>
+                                                    <option value="">선택</option>
+                                                    <option value="">선택</option>
+                                                    <option value="">선택</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <label for="iptModalSubscribe2" class="form_label">제공 충전량</label>
+                                        </th>
+                                        <td>
+                                            <input type="text" class="form_control" id="iptModalSubscribe2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <label for="iptModalSubscribe3" class="form_label">구독 금액</label>
+                                        </th>
+                                        <td>
+                                            <input type="text" class="form_control" id="iptModalSubscribe3">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <label for="iptModalSubscribeY" class="form_label">충전 속도</label>
+                                        </th>
+                                        <td>
+                                            <div class="d_flex gap_px_30">
+                                                <div class="fancy_img_box radio">
+                                                    <input type="radio" name="group" id="iptModalSubscribeY">
+                                                    <label for="iptModalSubscribeY">
+                                                        <span>급속</span>
+                                                    </label>
+                                                </div>
+                                                <div class="fancy_img_box radio">
+                                                    <input type="radio" name="group" id="iptModalSubscribeN">
+                                                    <label for="iptModalSubscribeN">
+                                                        <span>완속</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <label for="iptModaldate1" class="form_label">시작 일자</label>
+                                        </th>
+                                        <td>
+                                            <div class="date_item">
+                                                <input type="text" class="form_control form_datepicker startDate" data-type="dateModal" id="iptModaldate1" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <label for="iptModaldate2" class="form_label">종료 일자</label>
+                                        </th>
+                                        <td>
+                                            <div class="date_item">
+                                                <input type="text" class="form_control form_datepicker endDate" data-type="dateModal" id="iptModaldate2" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <label for="iptModalSubscribeY" class="form_label">사용 여부</label>
+                                        </th>
+                                        <td>
+                                            <div class="d_flex gap_px_30">
+                                                <div class="fancy_img_box radio">
+                                                    <input type="radio" name="group2" id="iptModalSubscribeY2">
+                                                    <label for="iptModalSubscribeY2">
+                                                        <span>사용</span>
+                                                    </label>
+                                                </div>
+                                                <div class="fancy_img_box radio">
+                                                    <input type="radio" name="group2" id="iptModalSubscribeN2">
+                                                    <label for="iptModalSubscribeN2">
+                                                        <span>사용 안함</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="btn_center">
+                        <button type="button" class="btn btn_outline close">삭제</button>
+                        <button type="button" class="btn btn_primary close">저장</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- e:구독 상품 등록 -->
 
 </body>
 

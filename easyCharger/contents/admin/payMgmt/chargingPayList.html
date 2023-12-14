@@ -55,7 +55,7 @@
 
                 <!-- s:section_tit -->
                 <div class="section_top">
-                    <h2 class="section_tit">충전기 관리</h2>
+                    <h2 class="section_tit">충전 요금제 관리</h2>
                     <div class="location">
                         <span>홈</span>
                         <span>1depth</span>
@@ -73,336 +73,160 @@
                             <col width="140" />
                             <col width="*" />
                             <col width="140" />
-                            <col width="290" />
+                            <col width="*" />
                         </colgroup>
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <label for="iptStationName" class="form_label">충전소명</label>
+                                    <label for="startDate" class="form_label">기간</label>
                                 </th>
-                                <td>
-                                    <input type="text" class="form_control wd200" id="iptStationName">
-                                </td>
-                                <th scope="row">
-                                    <label for="iptNumber" class="form_label">충전소번호</label>
-                                </th>
-                                <td>
-                                    <input type="text" class="form_control wd200" id="iptNumber">
-                                </td>
-                                <th scope="row">
-                                    <label for="selectLocal" class="form_label">지역</label>
-                                </th>
-                                <td>
-                                    <div class="d_flex gap_px_12 align_items_center">
-                                        <div class="custom_select">
-                                            <select id="selectLocal">
-                                                <option value="">선택</option>
-                                                <option value="">선택</option>
-                                                <option value="">선택</option>
-                                                <option value="">선택</option>
-                                                <option value="">선택</option>
-                                            </select>
+                                <td colspan="5">
+                                    <div class="d_flex gap_px_50 align_items_center">
+                                        <div class="d_flex date_wrap">
+                                            <div class="date_item">
+                                                <input type="text" class="form_control form_datepicker startDate" id="startDate" data-type="dateSearch" />
+                                            </div>
+                                            -
+                                            <div class="date_item">
+                                                <input type="text" class="form_control form_datepicker endDate" data-type="dateSearch" />
+                                            </div>
                                         </div>
-                                        <div class="custom_select">
-                                            <select id="selectLocal2">
-                                                <option value="">선택</option>
-                                                <option value="">선택</option>
-                                                <option value="">선택</option>
-                                                <option value="">선택</option>
-                                                <option value="">선택</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                                <th scope="row">
-                                    <label for="selectState" class="form_label">충전기상태</label>
-                                </th>
-                                <td>
-                                    <div class="custom_select wd200">
-                                        <select id="selectState">
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                        </select>
-                                    </div>
-                                </td>
-                                <th scope="row">
-                                    <label for="selectCompany" class="form_label">제조사</label>
-                                </th>
-                                <td>
-                                    <div class="custom_select wd200">
-                                        <select id="selectCompany">
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                        </select>
-                                    </div>
-                                </td>
-                                <th scope="row">
-                                    <label for="selectModelName" class="form_label">모델명</label>
-                                </th>
-                                <td>
-                                    <div class="custom_select wd200">
-                                        <select id="selectModelName">
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                        </select>
+                                        <ul class="form_check_list d_flex gap_px_30">
+                                            <li class="form_check_item">
+                                                <label class="form_check">
+                                                    <input class="form_check_input checkbox" type="radio" name="month">
+                                                    <span class="ico"></span>
+                                                    <span class="form_check_txt">1개월</span>
+                                                </label>
+                                            </li>
+                                            <li class="form_check_item">
+                                                <label class="form_check">
+                                                    <input class="form_check_input checkbox" type="radio" name="month">
+                                                    <span class="ico"></span>
+                                                    <span class="form_check_txt">3개월</span>
+                                                </label>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="iptChargerMngt">운영상태</label>
+                                    <label for="selectPaymentState" class="form_label">상태</label>
                                 </th>
-                                <td colspan="5">
-                                    <input type="text" class="form_control wd200" id="iptChargerMngt">
+                                <td>
+                                    <div class="custom_select fill">
+                                        <select id="selectPaymentState">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="selectPaymentType" class="form_label">요금설정</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select fill">
+                                        <select id="selectPaymentType">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="selectPaymentName" class="form_label">요금제명</label>
+                                </th>
+                                <td>
+                                    <input type="text" class="form_control" id="selectPaymentName">
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="btn_end">
-                        <button class="btn btn_secondary" type="button">검색</button>
+                        <button class="btn btn_secondary" type="button">조회</button>
                     </div>
                 </article>
 
                 <article class="tbl_ver mt_px_40">
                     <div class="tbl_top_info end">
                         <div class="total">총 <em>120</em>개의 목록</div>
-                        <button type="button" class="btn_ico excel"><span>엑셀 다운로드</span></button>
                     </div>
-                    <div class="scroll_tbl sticky_tbl h_max_420">
+                    <div class="sticky_tbl h_max_410">
                         <table>
                             <colgroup>
-                                <col width="135" />
-                                <col width="125" />
-                                <col width="70" />
+                                <col width="50" />
+                                <col width="80" />
+                                <col width="110" />
                                 <col width="*" />
-                                <col width="80" />
+                                <col width="85" />
+                                <col width="85" />
+                                <col width="85" />
+                                <col width="120" />
+                                <col width="120" />
                                 <col width="100" />
                                 <col width="100" />
-                                <col width="70" />
-                                <col width="70" />
-                                <col width="90" />
-                                <col width="70" />
-                                <col width="70" />
-                                <col width="70" />
-                                <col width="70" />
-                                <col width="100" />
-                                <col width="80" />
-                                <col width="70" />
                             </colgroup>
                             <thead>
                                 <tr>
-                                    <th rowspan="2" scope="col">업체</th>
-                                    <th rowspan="2" scope="col">충전소명</th>
-                                    <th rowspan="2" scope="col">충전ID</th>
-                                    <th rowspan="2" scope="col">주소</th>
-                                    <th rowspan="2" scope="col">한전<br>고객번호</th>
-                                    <th rowspan="2" scope="col">MAC주소<br>(SID+CID)</th>
-                                    <th rowspan="2" scope="col">충전기<br>시리얼번호</th>
-                                    <th colspan="4" scope="colgroup">충전기 모델</th>
-                                    <th colspan="3" scope="colgroup">요금</th>
-                                    <th rowspan="2" scope="col">개통일</th>
-                                    <th rowspan="2" scope="col">운영상태</th>
-                                    <th rowspan="2" scope="col">충전기<br>등록</th>
+                                    <th scope="col" rowspan="2">No</th>
+                                    <th scope="col" rowspan="2">사용여부</th>
+                                    <th scope="col" rowspan="2">요금설정</th>
+                                    <th scope="col" rowspan="2">요금제명</th>
+                                    <th scope="col" rowspan="2">회원가</th>
+                                    <th scope="col" rowspan="2">비회원가</th>
+                                    <th scope="col" rowspan="2">할인율 (%)</th>
+                                    <th scope="col" colspan="2">적용기간</th>
+                                    <th scope="col" rowspan="2">등록일</th>
+                                    <th scope="col" rowspan="2">최종수정일</th>
                                 </tr>
                                 <tr>
-                                    <th scope="col">제조사</th>
-                                    <th scope="col">모델명</th>
-                                    <th scope="col">모델번호</th>
-                                    <th scope="col">용량</th>
-                                    <th scope="col">회원</th>
-                                    <th scope="col">비회원</th>
-                                    <th scope="col">운영비</th>
+                                    <th scope="col">시작일자</th>
+                                    <th scope="col">종료일자</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <div>이지차저이지차저</div>
+                                        <div>8</div>
                                     </td>
                                     <td>
-                                        <div>충전소</div>
+                                        <div>사용</div>
                                     </td>
                                     <td>
-                                        <div>5816161</div>
+                                        <div>프로모션 요금</div>
                                     </td>
                                     <td>
-                                        <div>세종특별자치시 정부2청사로 10</div>
+                                        <div>OOO 아파트 - 중간부하 요금제</div>
                                     </td>
                                     <td>
-                                        <div>44695</div>
+                                        <div>290</div>
                                     </td>
                                     <td>
-                                        <div>급속(50kW)</div>
+                                        <div>400</div>
                                     </td>
                                     <td>
-                                        <div>15616515661</div>
+                                        <div></div>
                                     </td>
                                     <td>
-                                        <div>지커넥트</div>
+                                        <div>2023-08-24</div>
                                     </td>
                                     <td>
-                                        <div>모델명</div>
+                                        <div>2023-08-24</div>
                                     </td>
                                     <td>
-                                        <div>모델번호</div>
+                                        <div>2023-08-24</div>
                                     </td>
                                     <td>
-                                        <div>용량</div>
-                                    </td>
-                                    <td>
-                                        <div>123</div>
-                                    </td>
-                                    <td>
-                                        <div>15616</div>
-                                    </td>
-                                    <td>
-                                        <div>1156</div>
-                                    </td>
-                                    <td>
-                                        <div>2021-08-24</div>
-                                    </td>
-                                    <td>
-                                        <div>정상운영</div>
-                                    </td>
-                                    <td>
-                                        <div>등록</div>
+                                        <div>2023-08-24</div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <div>이지차저이지차저</div>
-                                    </td>
-                                    <td>
-                                        <div>충전소</div>
-                                    </td>
-                                    <td>
-                                        <div>5816161</div>
-                                    </td>
-                                    <td>
-                                        <div>세종특별자치시 정부2청사로 10</div>
-                                    </td>
-                                    <td>
-                                        <div>44695</div>
-                                    </td>
-                                    <td>
-                                        <div>급속(50kW)</div>
-                                    </td>
-                                    <td>
-                                        <div>15616515661</div>
-                                    </td>
-                                    <td>
-                                        <div>지커넥트</div>
-                                    </td>
-                                    <td>
-                                        <div>모델명</div>
-                                    </td>
-                                    <td>
-                                        <div>모델번호</div>
-                                    </td>
-                                    <td>
-                                        <div>용량</div>
-                                    </td>
-                                    <td>
-                                        <div>123</div>
-                                    </td>
-                                    <td>
-                                        <div>15616</div>
-                                    </td>
-                                    <td>
-                                        <div>1156</div>
-                                    </td>
-                                    <td>
-                                        <div>2021-08-24</div>
-                                    </td>
-                                    <td>
-                                        <div>정상운영</div>
-                                    </td>
-                                    <td>
-                                        <div>등록</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div>이지차저이지차저</div>
-                                    </td>
-                                    <td>
-                                        <div>충전소</div>
-                                    </td>
-                                    <td>
-                                        <div>5816161</div>
-                                    </td>
-                                    <td>
-                                        <div>세종특별자치시 정부2청사로 10</div>
-                                    </td>
-                                    <td>
-                                        <div>44695</div>
-                                    </td>
-                                    <td>
-                                        <div>급속(50kW)</div>
-                                    </td>
-                                    <td>
-                                        <div>15616515661</div>
-                                    </td>
-                                    <td>
-                                        <div>지커넥트</div>
-                                    </td>
-                                    <td>
-                                        <div>모델명</div>
-                                    </td>
-                                    <td>
-                                        <div>모델번호</div>
-                                    </td>
-                                    <td>
-                                        <div>용량</div>
-                                    </td>
-                                    <td>
-                                        <div>123</div>
-                                    </td>
-                                    <td>
-                                        <div>15616</div>
-                                    </td>
-                                    <td>
-                                        <div>1156</div>
-                                    </td>
-                                    <td>
-                                        <div>2021-08-24</div>
-                                    </td>
-                                    <td>
-                                        <div>정상운영</div>
-                                    </td>
-                                    <td>
-                                        <div>등록</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
                                     <td>
                                         <div></div>
                                     </td>
@@ -471,44 +295,8 @@
                                     <td>
                                         <div></div>
                                     </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
                                     <td>
                                         <div></div>
                                     </td>
@@ -577,6 +365,23 @@
                                     <td>
                                         <div></div>
                                     </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
                                     <td>
                                         <div></div>
                                     </td>
@@ -615,6 +420,23 @@
                                     <td>
                                         <div></div>
                                     </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td>
                                         <div></div>
                                     </td>
@@ -674,7 +496,7 @@
                         </nav>
                         <!-- e:pagination -->
 
-                        <a href="./chargerView.html" class="btn btn_primary">등록</a>
+                        <a href="./chargingPayView.html" class="btn btn_primary">등록</a>
                         
                     </div>
 

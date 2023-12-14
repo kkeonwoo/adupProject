@@ -55,7 +55,7 @@
 
                 <!-- s:section_tit -->
                 <div class="section_top">
-                    <h2 class="section_tit">충전소 운영 관리</h2>
+                    <h2 class="section_tit">충전소 관리</h2>
                     <div class="location">
                         <span>홈</span>
                         <span>1depth</span>
@@ -69,13 +69,60 @@
                     <table>
                         <colgroup>
                             <col width="140" />
-                            <col width="*" />
+                            <col width="225" />
                             <col width="140" />
-                            <col width="*" />
                             <col width="140" />
-                            <col width="290" />
+                            <col width="85" />
+                            <col width="105" />
+                            <col width="35" />
+                            <col width="105" />
+                            <col width="*" />
                         </colgroup>
                         <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <label for="startDate">등록일자</label>
+                                </th>
+                                <td colspan="2">
+                                    <div class="d_flex date_wrap">
+                                        <div class="date_item">
+                                            <input type="text" class="form_control form_datepicker startDate hasDatepicker" id="startDate" data-type="dateSearch">
+                                        </div>
+                                        -
+                                        <div class="date_item">
+                                            <input type="text" class="form_control form_datepicker endDate hasDatepicker" data-type="dateSearch" id="dp1702532927483">
+                                        </div>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="selectCharerType">충전소 구분</label>
+                                </th>
+                                <td colspan="2">
+                                    <div class="custom_select">
+                                        <select id="selectCharerType">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <th colspan="2" scope="row">
+                                    <label for="selectDetail">충전소 구분 상세</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select">
+                                        <select id="selectDetail">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
                             <tr>
                                 <th scope="row">
                                     <label for="iptStationName" class="form_label">충전소명</label>
@@ -86,13 +133,13 @@
                                 <th scope="row">
                                     <label for="iptStationID" class="form_label">충전소ID</label>
                                 </th>
-                                <td>
+                                <td colspan="2">
                                     <input type="text" class="form_control wd200" id="iptStationID">
                                 </td>
-                                <th scope="row">
+                                <th colspan="2" scope="row">
                                     <label for="selectLocal" class="form_label">지역</label>
                                 </th>
-                                <td>
+                                <td colspan="2">
                                     <div class="d_flex gap_px_12 align_items_center">
                                         <div class="custom_select">
                                             <select id="selectLocal">
@@ -126,7 +173,7 @@
                                 <th scope="row">
                                     <label for="selectOperate" class="form_label">운영상태</label>
                                 </th>
-                                <td colspan="3">
+                                <td colspan="6">
                                     <div class="custom_select">
                                         <select id="selectOperate">
                                             <option value="">선택</option>
@@ -158,16 +205,14 @@
                                 <col width="75" />
                                 <col width="*" />
                                 <col width="100" />
-                                <col width="115" />
-                                <col width="105" />
+                                <col width="110" />
+                                <col width="110" />
                                 <col width="80" />
-                                <col width="80" />
+                                <col width="100" />
+                                <col width="100" />
                                 <col width="105" />
                                 <col width="105" />
-                                <col width="105" />
-                                <col width="80" />
-                                <col width="85" />
-                                <col width="70" />
+                                <col width="200" />
                             </colgroup>
                             <thead>
                                 <tr>
@@ -175,17 +220,15 @@
                                     <th scope="col">충전소명</th>
                                     <th scope="col">충전ID</th>
                                     <th scope="col">주소</th>
-                                    <th scope="col">충전소<br>유형</th>
-                                    <th scope="col">충전소<br>상세유형</th>
+                                    <th scope="col">충전소<br>구분</th>
+                                    <th scope="col">충전소<br>구분 상세</th>
                                     <th scope="col">이용시간</th>
                                     <th scope="col">개방형태</th>
-                                    <th scope="col">시공업체</th>
                                     <th scope="col">계약<br>등록일</th>
                                     <th scope="col">계약<br>만료일</th>
                                     <th scope="col">개통일</th>
-                                    <th scope="col">한전<br>고객번호</th>
                                     <th scope="col">운영상태</th>
-                                    <th scope="col">충전기<br>등록</th>
+                                    <th scope="col">충전기 수</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -215,9 +258,6 @@
                                         <div>완전개방</div>
                                     </td>
                                     <td>
-                                        <div>이지차저</div>
-                                    </td>
-                                    <td>
                                         <div>2021-08-24</div>
                                     </td>
                                     <td>
@@ -225,9 +265,6 @@
                                     </td>
                                     <td>
                                         <div>2021-08-24</div>
-                                    </td>
-                                    <td>
-                                        <div>56842</div>
                                     </td>
                                     <td>
                                         <div>정상운영</div>
@@ -262,9 +299,6 @@
                                         <div>완전개방</div>
                                     </td>
                                     <td>
-                                        <div>이지차저</div>
-                                    </td>
-                                    <td>
                                         <div>2021-08-24</div>
                                     </td>
                                     <td>
@@ -272,9 +306,6 @@
                                     </td>
                                     <td>
                                         <div>2021-08-24</div>
-                                    </td>
-                                    <td>
-                                        <div>56842</div>
                                     </td>
                                     <td>
                                         <div>정상운영</div>
@@ -309,9 +340,6 @@
                                         <div>완전개방</div>
                                     </td>
                                     <td>
-                                        <div>이지차저</div>
-                                    </td>
-                                    <td>
                                         <div>2021-08-24</div>
                                     </td>
                                     <td>
@@ -319,9 +347,6 @@
                                     </td>
                                     <td>
                                         <div>2021-08-24</div>
-                                    </td>
-                                    <td>
-                                        <div>56842</div>
                                     </td>
                                     <td>
                                         <div>정상운영</div>
@@ -356,9 +381,6 @@
                                         <div>완전개방</div>
                                     </td>
                                     <td>
-                                        <div>이지차저</div>
-                                    </td>
-                                    <td>
                                         <div>2021-08-24</div>
                                     </td>
                                     <td>
@@ -366,9 +388,6 @@
                                     </td>
                                     <td>
                                         <div>2021-08-24</div>
-                                    </td>
-                                    <td>
-                                        <div>56842</div>
                                     </td>
                                     <td>
                                         <div>정상운영</div>
@@ -403,9 +422,6 @@
                                         <div>완전개방</div>
                                     </td>
                                     <td>
-                                        <div>이지차저</div>
-                                    </td>
-                                    <td>
                                         <div>2021-08-24</div>
                                     </td>
                                     <td>
@@ -413,9 +429,6 @@
                                     </td>
                                     <td>
                                         <div>2021-08-24</div>
-                                    </td>
-                                    <td>
-                                        <div>56842</div>
                                     </td>
                                     <td>
                                         <div>정상운영</div>
@@ -450,9 +463,6 @@
                                         <div>완전개방</div>
                                     </td>
                                     <td>
-                                        <div>이지차저</div>
-                                    </td>
-                                    <td>
                                         <div>2021-08-24</div>
                                     </td>
                                     <td>
@@ -460,9 +470,6 @@
                                     </td>
                                     <td>
                                         <div>2021-08-24</div>
-                                    </td>
-                                    <td>
-                                        <div>56842</div>
                                     </td>
                                     <td>
                                         <div>정상운영</div>
@@ -497,9 +504,6 @@
                                         <div>완전개방</div>
                                     </td>
                                     <td>
-                                        <div>이지차저</div>
-                                    </td>
-                                    <td>
                                         <div>2021-08-24</div>
                                     </td>
                                     <td>
@@ -507,9 +511,6 @@
                                     </td>
                                     <td>
                                         <div>2021-08-24</div>
-                                    </td>
-                                    <td>
-                                        <div>56842</div>
                                     </td>
                                     <td>
                                         <div>정상운영</div>
@@ -544,9 +545,6 @@
                                         <div>완전개방</div>
                                     </td>
                                     <td>
-                                        <div>이지차저</div>
-                                    </td>
-                                    <td>
                                         <div>2021-08-24</div>
                                     </td>
                                     <td>
@@ -554,9 +552,6 @@
                                     </td>
                                     <td>
                                         <div>2021-08-24</div>
-                                    </td>
-                                    <td>
-                                        <div>56842</div>
                                     </td>
                                     <td>
                                         <div>정상운영</div>
@@ -591,9 +586,6 @@
                                         <div>완전개방</div>
                                     </td>
                                     <td>
-                                        <div>이지차저</div>
-                                    </td>
-                                    <td>
                                         <div>2021-08-24</div>
                                     </td>
                                     <td>
@@ -601,9 +593,6 @@
                                     </td>
                                     <td>
                                         <div>2021-08-24</div>
-                                    </td>
-                                    <td>
-                                        <div>56842</div>
                                     </td>
                                     <td>
                                         <div>정상운영</div>
@@ -638,9 +627,6 @@
                                         <div>완전개방</div>
                                     </td>
                                     <td>
-                                        <div>이지차저</div>
-                                    </td>
-                                    <td>
                                         <div>2021-08-24</div>
                                     </td>
                                     <td>
@@ -648,9 +634,6 @@
                                     </td>
                                     <td>
                                         <div>2021-08-24</div>
-                                    </td>
-                                    <td>
-                                        <div>56842</div>
                                     </td>
                                     <td>
                                         <div>정상운영</div>

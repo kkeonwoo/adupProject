@@ -74,15 +74,13 @@
                             <col width="*" />
                             <col width="140" />
                             <col width="*" />
-                            <col width="140" />
-                            <col width="*" />
                         </colgroup>
                         <tbody>
                             <tr>
                                 <th scope="row">
                                     <label for="startDate" class="form_label">거래일자</label>
                                 </th>
-                                <td colspan="7">
+                                <td colspan="3">
                                     <div class="d_flex gap_px_50 align_items_center">
                                         <div class="d_flex date_wrap">
                                             <div class="date_item">
@@ -111,22 +109,30 @@
                                         </div>
                                     </div>
                                 </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <label for="iptMemberInfo" class="form_label">회원명</label>
-                                </th>
-                                <td colspan="3">
-                                    <input type="text" class="form_control wd420" id="iptMemberInfo">
-                                </td>
                                 <th scope="row">
                                     <label for="iptCharger" class="form_label">충전소 명</label>
                                 </th>
-                                <td colspan="3">
-                                    <input type="text" class="form_control wd420" id="iptCharger">
+                                <td>
+                                    <input type="text" class="form_control" id="iptCharger">
                                 </td>
                             </tr>
                             <tr>
+                                <th scope="row">
+                                    <label for="selectMemberInfo" class="form_label">회원정보</label>
+                                </th>
+                                <td colspan="3">
+                                    <div class="form_group">
+                                        <div class="custom_select">
+                                            <select id="selectMemberInfo">
+                                                <option value="">회원이름</option>
+                                                <option value="">회원ID</option>
+                                                <option value="">전화번호</option>
+                                                <option value="">회원카드</option>
+                                            </select>
+                                        </div>
+                                        <input type="text" class="form_control wd420" id="iptMemberInfo">
+                                    </div>
+                                </td>
                                 <th scope="row">
                                     <label for="selectMemberType" class="form_label">회원구분</label>
                                 </th>
@@ -141,6 +147,8 @@
                                         </select>
                                     </div>
                                 </td>
+                            </tr>
+                            <tr>
                                 <th scope="row">
                                     <label for="selectPaymentType" class="form_label">결제구분</label>
                                 </th>
@@ -211,9 +219,10 @@
                                 <col width="100" />
                                 <col width="155" />
                                 <col width="120" />
+                                <col width="*" />
                                 <col width="100" />
-                                <col width="100" />
-                                <col width="75" />
+                                <col width="*" />
+                                <col width="*" />
                                 <col width="*" />
                             </colgroup>
                             <thead>
@@ -224,7 +233,7 @@
                                     <th rowspan="2" scope="col">회원구분</th>
                                     <th rowspan="2" scope="col">결제구분</th>
                                     <th colspan="6" scope="colgroup">충전 정보</th>
-                                    <th colspan="5" scope="colgroup">결제 정보</th>
+                                    <th colspan="6" scope="colgroup">결제 정보</th>
                                 </tr>
                                 <tr>
                                     <th scope="col">충전사업자</th>
@@ -234,6 +243,7 @@
                                     <th scope="col">충전시간(분)</th>
                                     <th scope="col">총 충전시간(시작-종료)</th>
                                     <th scope="col">결제수단</th>
+                                    <th scope="col">승인번호</th>
                                     <th scope="col">충전금액(선불)</th>
                                     <th scope="col">신용카드</th>
                                     <th scope="col">포인트</th>
@@ -277,6 +287,9 @@
                                     </td>
                                     <td>
                                         <div>신용카드</div>
+                                    </td>
+                                    <td>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div>50,000</div>
@@ -329,6 +342,9 @@
                                         <div>신용카드+포인트</div>
                                     </td>
                                     <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
                                         <div>50,000</div>
                                     </td>
                                     <td>
@@ -379,6 +395,9 @@
                                         <div>신용카드</div>
                                     </td>
                                     <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
                                         <div>50,000</div>
                                     </td>
                                     <td>
@@ -404,8 +423,10 @@
                                     <td>
                                         <div>회원</div>
                                     </td>
-                                    <td>
-                                        <div>포인트 충전</div>
+                                    <td onclick="EasyCharger.openModal($('#modalPoint'))">
+                                        <div>
+                                            포인트 부여
+                                        </div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -427,6 +448,9 @@
                                     </td>
                                     <td>
                                         <div>신용카드</div>
+                                    </td>
+                                    <td>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -476,6 +500,69 @@
 
     </div>
     <!-- e:wrap -->
+
+     <!-- s:메뉴 상세 -->
+     <div class="modal modal_close" id="modalPoint">
+        <div class="modal_centered">
+            <div class="modal_box">
+                <div class="modal_header">
+                    <h1>포인트 부여 정보 상세</h1>
+                    <button type="button" class="btn_modal_close close">close</button>
+                </div>
+                <div class="modal_body">
+                    <div class="modal_content">
+                        <h2>포인트 부여 정보</h2>
+                        <div class="tbl_hor_modal"> 
+                            <table>
+                                <colgroup>
+                                    <col width="120" />
+                                    <col width="*" />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            등록일
+                                        </th>
+                                        <td>
+                                            2023-10-22 15:55:30
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            관리자
+                                        </th>
+                                        <td>
+                                            홍길동
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            부여 포인트
+                                        </th>
+                                        <td>
+                                            50,000
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            내용
+                                        </th>
+                                        <td>
+                                            포인트 누적 손실로 보상
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="btn_center">
+                        <button type="button" class="btn btn_primary close">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- e:메뉴 상세 -->
 
 </body>
 
