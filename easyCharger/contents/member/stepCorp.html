@@ -45,8 +45,6 @@
                         <div class="prg_area">
                             <ul class="prg_list">
                                 <li class="prg_item active"></li>
-                                <li class="prg_item active"></li>
-                                <li class="prg_item active"></li>
                             </ul>
                         </div>
                     </div>
@@ -91,10 +89,47 @@
                                         <input type="text" id="frmMail" class="form_control" placeholder="이메일 입력">
                                         <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
                                     </div>
+                                    <button type="button" class="btn btn_md btn_secondary">계정추가</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cnt_group">
+                        <p class="msg">
+                            법인 정보를 입력해주세요.
+                        </p>
+                        <div class="cnt_box">
+                            <hr class="hr"/>
+                            <div class="form_group">
+                                <label for="frmCorp" class="form_label require">법인명</label>
+                                <div class="form_box">
+                                    <div class="form_control_bx">
+                                        <input type="text" id="frmCorp" class="form_control" placeholder="법인명 입력">
+                                        <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
+                                    </div>
+                                    <button type="button" class="btn btn_md btn_secondary">검색</button>
                                 </div>
                             </div>
                             <div class="form_group">
-                                <label for="frmAdrs" class="form_label">주소</label>
+                                <label for="frmBizNum" class="form_label require">사업자 등록번호</label>
+                                <div class="form_box">
+                                    <div class="form_control_bx">
+                                        <input type="text" id="frmBizNum" class="form_control" placeholder="사업자등록번호 입력">
+                                        <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <label for="frmRep" class="form_label require">대표자명</label>
+                                <div class="form_box">
+                                    <div class="form_control_bx">
+                                        <input type="text" id="frmRep" class="form_control" placeholder="대표자명 입력">
+                                        <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <label for="frmAdrs" class="form_label require">주소</label>
                                 <div class="form_box">
                                     <div class="form_control_bx">
                                         <input type="text" id="frmAdrs" class="form_control" placeholder="주소 입력">
@@ -115,50 +150,6 @@
                     </div>
                     <div class="cnt_group">
                         <p class="msg">
-                            법인 정보를 입력해주세요.
-                        </p>
-                        <div class="cnt_box">
-                            <hr class="hr"/>
-                            <div class="form_group">
-                                <label for="frmCorp" class="form_label require">법인명</label>
-                                <div class="form_box">
-                                    <div class="form_control_bx">
-                                        <input type="text" id="frmCorp" class="form_control" placeholder="법인명 입력">
-                                        <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form_group">
-                                <label for="frmCorpNum" class="form_label require">법인번호</label>
-                                <div class="form_box">
-                                    <div class="form_control_bx">
-                                        <input type="text" id="frmCorpNum" class="form_control" placeholder="법인번호 입력">
-                                        <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form_group">
-                                <label for="frmRep" class="form_label require">대표자명</label>
-                                <div class="form_box">
-                                    <div class="form_control_bx">
-                                        <input type="text" id="frmRep" class="form_control" placeholder="대표자명 입력">
-                                        <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form_group">
-                                <label for="frmBizNum" class="form_label require">사업자 등록번호</label>
-                                <div class="form_box">
-                                    <div class="form_control_bx">
-                                        <input type="text" id="frmBizNum" class="form_control" placeholder="사업자등록번호 입력">
-                                        <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cnt_group">
-                        <p class="msg">
                             담당자 정보를 입력해주세요.
                         </p>
                         <div class="cnt_box">
@@ -166,8 +157,8 @@
                             <div class="form_group">
                                 <label for="frmManager" class="form_label">담당자</label>
                                 <div class="form_box">
-                                    <div class="form_control_bx disabled">
-                                        <input type="text" id="frmManager" class="form_control" placeholder="담당자 입력" disabled>
+                                    <div class="form_control_bx">
+                                        <input type="text" id="frmManager" class="form_control" placeholder="담당자 입력">
                                         <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
                                     </div>
                                 </div>
@@ -175,8 +166,8 @@
                             <div class="form_group">
                                 <label for="frmPhone" class="form_label">휴대폰 번호</label>
                                 <div class="form_box">
-                                    <div class="form_control_bx disabled">
-                                        <input type="text" id="frmPhone" class="form_control" placeholder="휴대폰 번호 입력" disabled>
+                                    <div class="form_control_bx">
+                                        <input type="text" id="frmPhone" class="form_control" placeholder="휴대폰 번호 입력">
                                         <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
                                     </div>
                                 </div>
@@ -184,8 +175,8 @@
                             <div class="form_group">
                                 <label for="frmTel" class="form_label">전화 번호</label>
                                 <div class="form_box">
-                                    <div class="form_control_bx disabled">
-                                        <input type="text" id="frmTel" class="form_control" placeholder="전화 번호 입력" disabled>
+                                    <div class="form_control_bx">
+                                        <input type="text" id="frmTel" class="form_control" placeholder="전화 번호 입력">
                                         <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
                                     </div>
                                 </div>
@@ -193,8 +184,8 @@
                             <div class="form_group">
                                 <label for="frmMail2" class="form_label">이메일</label>
                                 <div class="form_box">
-                                    <div class="form_control_bx disabled">
-                                        <input type="text" id="frmMail2" class="form_control" placeholder="이메일 입력" disabled>
+                                    <div class="form_control_bx">
+                                        <input type="text" id="frmMail2" class="form_control" placeholder="이메일 입력">
                                         <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
                                     </div>
                                 </div>

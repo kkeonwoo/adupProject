@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../frontLayer/css/package.css">
+    <script src="../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../frontLayer/js/fn.js"></script>
+    <script src="../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:back_page -->
+        <div class="back_page">
+            <div class="back_inner">
+                <div class="back_hdr">
+                    <a href="#" class="back_btn">My</a>
+                </div>
+                <div class="back_body">
+                    <div class="cnt_group mt_px_10">
+                        <div class="cnt_box type2">
+                            <div class="form_ttl_group">
+                                <b class="ttl fs_px_20">충전 정보</b>
+                            </div>
+                            <div class="main_info_area mt_px_18">
+                                <div class="main_info_hdr">
+                                    <b class="ttl">이번달</b>
+                                    <a href="#" class="more_btn">더보기</a>
+                                </div>
+                                <div class="main_info_body">
+                                    <ul class="main_info_list">
+                                        <li class="main_info_item">
+                                            <div class="main_info_box">
+                                                <span class="main_info_dt">충전금액</span>
+                                                <b class="main_info_dd">52,000원</b>
+                                            </div>
+                                        </li>
+                                        <li class="main_info_item">
+                                            <div class="main_info_box">
+                                                <span class="main_info_dt">충전시간</span>
+                                                <b class="main_info_dd">12시간 08분</b>
+                                            </div>
+                                        </li>
+                                        <li class="main_info_item">
+                                            <div class="main_info_box">
+                                                <span class="main_info_dt">충전량</span>
+                                                <b class="main_info_dd">15,200kWh</b>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="subscribe_info">
+                                        <span class="status">구독 중</span>
+                                        <span class="distance">115/300kWh</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form_ttl_group mt_px_30">
+                                <b class="ttl">카드정보</b>
+                                <a href="#" class="more_btn">더보기</a>
+                            </div>
+                            <div class="collec_area">
+                                <ul class="collec_list">
+                                    <li class="collec_item">
+                                        <div class="img_box">
+                                            <img class="img" src="../../frontLayer/images/@/@sample.png" alt=""/>
+                                        </div>
+                                        <div class="txt_box">
+                                            <div class="dt_area">
+                                                <span class="dt">이지아이신용카드</span>
+                                            </div>
+                                            <div class="dd_area">
+                                                <span class="dd">1234-56**-****-3456</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <hr class="hr">
+                            <div class="form_ttl_group">
+                                <b class="ttl">등록 차량</b>
+                                <a href="#" class="more_btn">더보기</a>
+                            </div>
+                            <div class="collec_area">
+                                <ul class="collec_list">
+                                    <li class="collec_item">
+                                        <div class="img_box">
+                                            <img class="img" src="../../frontLayer/images/@/@sample_02.png" alt=""/>
+                                        </div>
+                                        <div class="txt_box">
+                                            <div class="dt_area">
+                                                <span class="dt">아이오닉5</span>
+                                                <span class="dt">현대</span>
+                                            </div>
+                                            <div class="dd_area">
+                                                <span class="dd">123가4567</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="form_ttl_group mt_px_40">
+                                <b class="ttl fs_px_20">혜택</b>
+                            </div>
+                            <div class="bnr_bens_area">
+                                <a href="#" class="bnr_link">
+                                    <img class="img" src="../../frontLayer/images/@/@banner.jpg" alt=""/>
+                                </a>
+                                <a href="#" class="bnr_link">
+                                    <img class="img" src="../../frontLayer/images/@/@banner.jpg" alt=""/>
+                                </a>
+                                <a href="#" class="bnr_link">
+                                    <img class="img" src="../../frontLayer/images/@/@banner.jpg" alt=""/>
+                                </a>
+                                <a href="#" class="bnr_link">
+                                    <img class="img" src="../../frontLayer/images/@/@banner.jpg" alt=""/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="hr opacity_0"/>
+                </div>
+                <div class="back_ftr"></div>
+            </div>
+        </div>
+        <!-- e:back_page -->
+
+        <!-- s:fltg_ftr_wrap -->
+        <div class="fltg_ftr_wrap">
+            <div class="fltg_ftr">
+                <ul class="fltg_list">
+                    <li class="fltg_item">
+                        <a class="fltg_btn" href="#">
+                            <i class="ico ico_home"></i>
+                            <span class="txt">홈</span>
+                        </a>
+                    </li>
+                    <li class="fltg_item">
+                        <a class="fltg_btn" href="#">
+                            <i class="ico ico_charger"></i>
+                            <span class="txt">충전소찾기</span>
+                        </a>
+                    </li>
+                    <li class="fltg_item">
+                        <a class="fltg_btn" href="#">
+                            <i class="ico ico_timeline"></i>
+                            <span class="txt">이용내역</span>
+                        </a>
+                    </li>
+                    <li class="fltg_item active">
+                        <a class="fltg_btn" href="#">
+                            <i class="ico ico_user"></i>
+                            <span class="txt">My</span>
+                        </a>
+                    </li>
+                    <li class="fltg_item">
+                        <a class="fltg_btn" href="#">
+                            <i class="ico ico_menu"></i>
+                            <span class="txt">메뉴</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- e:fltg_ftr_wrap -->
+
+    </div>
+    <!-- e:wrapper -->
+    
+</body>
+
+</html>

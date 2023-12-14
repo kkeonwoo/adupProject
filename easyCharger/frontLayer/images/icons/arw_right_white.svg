@@ -1,0 +1,19 @@
+<svg id="_" data-name="&gt;" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        opacity: 0;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 3px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="28" height="28"/>
+  <path id="_2" data-name="&gt;" class="cls-2" d="M668.788,1328.17l10.987,9.99-10.987,9.99" transform="translate(-660 -1324)"/>
+</svg>

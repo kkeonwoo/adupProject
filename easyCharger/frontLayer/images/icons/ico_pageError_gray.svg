@@ -1,0 +1,22 @@
+<svg id="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="180" height="180" viewBox="0 0 180 180">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: red;
+        opacity: 0;
+      }
+
+      .cls-2 {
+        fill: #999;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" x="10" y="10" width="160" height="160"/>
+  <image id="Vector_Smart_Object" data-name="Vector Smart Object" x="48" y="24" width="84" height="133" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAACFCAYAAADFCd9LAAADDklEQVR4nO3YO2sUYRiG4ccYRBCNjVYiIlb+AkFCOk+liK3lCyk9FJaCJ9DKmMD7C1KJZQTxkM7GQ6OIguQHiDlgUFGDjMzC+LGQbPZhson31SXs987MvTPLt7stMyckjUsaEvqxImlqiJg2f1sOEdNqaLiYdkjS4ia/qLaNSJrrHLMMuhgRC1v68s0y85+BPO5mBDUjqBlBzQhqRlAzgpoR1IygZgQ1I6gZQc0IakZQM4KaEdSMoGYENSOoGUHNCGpGUDOCmhHUjKBmBDUjqBlBzQhqRlAzgpoR1IygZgQ1I6gZQc0IakZQM4KaEdSMoGYENSOoGUHNCGpGUDOCmhHUjKBmBDUjqBlBzQhqRlAzgpoR1IygZgQ1I6gZQc0IakZQM4KaEdSMoGYENSOoGUHNCGpGUDOCmhHUjKBmBDUjqBlBzQhqRlAzgpoR1IygZgQ1I6gZQc0IakZQM4KaEdSMoGYENSOoGUHNCGpGUDOCmhHUjKBmBDUjqBlBzQhqRlCz4WLcsczcuemvql27mkcrg85s0YtuDY+8WXmHPpa0Y9NfVbuqhsc7RyyDno+IhS188XaZuVfSfGcuj7wZQc0I2r/mtuk7Qft3sDHhM0H7d7Qx4QNB+zfamPCq3DZtiMw8LGlPn8deiohPbZ5/Zlb9zjT+NbvhQTPzjqTLpll3I+KKY9YanZS0r37psqRng/DInx7QWWvRfPMeRMTyIDzyNyTdljTS55ylelYrMrO6O8cax7qnLl89WxcR05KmN/o8epGZ1d7zfmPJTES8FBv7dZuUdKRe/FPSxc4ggvYoM69KutBYdT0i3nf+IGgP6pg3Gyuelp/bA7EPHXT1Z+ZkcWe+lXQuIn43T587dBWZeULS6y4xT0XEfLmaO7SLzNxeBav3mWPFK2YlnY2IL93WlkFHMrOt8x4kuyUdqH/oGK2/bOwvzu+XpFuSrpWPeVMZdO5/qLcOjyRdioh3qy2tgq7wWdrVN0kPJU1ExIu1LqqCTkka/8+j/qh+HJb0UdIbSc8lPYmIrz1NkfQH2sdysV+AHCIAAAAASUVORK5CYII="/>
+  <g>
+    <image id="Vector_Smart_Object-2" data-name="Vector Smart Object" x="105" y="33" width="65" height="56" xlink:href="data:img/png;base64,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"/>
+    <path class="cls-2" d="M420.485,559.686l2.829,2.829-19.8,19.8-2.829-2.829Z" transform="translate(-270 -510)"/>
+    <path class="cls-2" d="M423.314,579.485l-2.829,2.829-19.8-19.8,2.829-2.829Z" transform="translate(-270 -510)"/>
+  </g>
+</svg>

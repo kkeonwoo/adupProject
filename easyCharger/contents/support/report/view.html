@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../../frontLayer/css/package.css">
+    <script src="../../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../../frontLayer/js/fn.js"></script>
+    <script src="../../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:step_page -->
+        <div class="step_page">
+            <div class="step_inner">
+                <div class="step_hdr">
+                    <button type="button" class="close_btn" aria-label="닫기버튼"></button>
+                </div>
+                <div class="step_body">
+                    <div class="ttl_area">
+                        <h1 class="ttl">고장신고 내역</h1>
+                    </div>
+                    <div class="cnt_box type3">
+                        <div class="cnt_group">
+                            <p class="msg">
+                                고장신고가 정상적으로 접수되었습니다.<br/>
+                                빠르게 처리하겠습니다.
+                            </p>
+                            <div class="prg_step_area">
+                                <ul class="prg_step_list">
+                                    <li class="prg_step_item">신청완료</li>
+                                    <li class="prg_step_item">접수완료</li>
+                                    <li class="prg_step_item active">조치 중</li>
+                                    <li class="prg_step_item">조치완료</li>
+                                </ul>
+                            </div>
+                            <div class="form_ttl_group mt_px_15">
+                                <b class="ttl">고객정보</b>
+                            </div>
+                            <div class="form_group">
+                                <label class="form_label">이름</label>
+                                <div class="form_box">
+                                    <span class="val_txt">홍길동</span>
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <label class="form_label">휴대폰번호</label>
+                                <div class="form_box">
+                                    <span class="val_txt">010-1234-5678</span>
+                                </div>
+                            </div>
+                            <hr class="hr"/>
+                            <div class="form_ttl_group">
+                                <b class="ttl">충전소 정보</b>
+                            </div>
+                            <div class="form_group">
+                                <ul class="caution_more_list">
+                                    <li class="caution_more_item">
+                                        <span class="txt">충전기번호 : 342903</span>
+                                    </li>
+                                    <li class="caution_more_item">
+                                        <span class="txt">가산본점 전기차충전소</span>
+                                    </li>
+                                    <li class="caution_more_item">
+                                        <span class="txt">서울 금천구 디지털로9길 가로수빌딩 123</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <hr class="hr"/>
+                            <div class="form_ttl_group">
+                                <b class="ttl">고장신고</b>
+                            </div>
+                            <div class="form_group">
+                                <p class="reg_txt">LCD 파손 및 터치 불량</p>
+                            </div>
+                            <hr class="hr"/>
+                            <div class="form_ttl_group">
+                                <b class="ttl">상세사유</b>
+                            </div>
+                            <div class="form_group">
+                                <p class="reg_txt">충전기 화면이 처음부터 터치가 안됩니다.</p>
+                            </div>
+                            <hr class="hr"/>
+                            <a href="tal:1544-3332" class="cs_banner mt_px_30">
+                                <img class="img" src="../../../frontLayer/images/img/img_cs_banner.jpg" alt="고객센터 1544-3332">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="step_ftr">
+                    <div class="btn_area">
+                        <button type="button" class="btn btn_lg btn_primary">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:step_page -->
+
+    </div>
+    <!-- e:wrapper -->
+    
+</body>
+
+</html>

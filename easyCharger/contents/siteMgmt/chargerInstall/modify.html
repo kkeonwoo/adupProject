@@ -64,22 +64,11 @@
                             <div class="ttl_box type2">
                                 <b class="ttl">설치 정보</b>
                                 <button type="button" class="btn btn_xs btn_secondary">개인정보 보호 해제</button>
-                            </div>
-                            <div class="desc_box mt_px_10">
-                                <ul class="desc_list">
-                                    <li class="desc_item"><span class="txt">접수 날짜 : 2023-10-02</span></li>
-                                    <li class="desc_item"><span class="txt">신청자명 : 홍*동</span></li>
-                                    <li class="desc_item"><span class="txt">연락처 : 010-1234-****</span></li>
-                                    <li class="desc_item"><span class="txt">이메일 : OOOOOOO@OOOO.com</span></li>
-                                    <li class="desc_item d_flex">
-                                        <span class="txt flex_shrink_0">문의 내용 : </span>
-                                        <span class="txt">
-                                            집밥으로 사용하려고 신청합니다. 
-                                            차량은 2대이고 오전/오후에 1대 충전을 하고 밤에
-                                            1대를 돌아가면서 계속 충전을 할 계획입니다.
-                                        </span>
-                                </li>
-                                </ul>
+                                <span class="txt">접수 날짜 : 2023-10-02</span>
+                                <span class="txt">완료 날짜 : 2023-11-03</span>
+                                <span class="txt">신청자명 : 홍*동</span>
+                                <span class="txt">연락처 : 010-1234-****</span>
+                                <span class="txt">이메일 : OOOOOOO@OOOO.com</span>
                             </div>
                         </div>
                     </div>
@@ -94,6 +83,16 @@
                         <li class="caution_more_item"><span class="txt">주차면 수 : 1</span></li>
                         <li class="caution_more_item"><span class="txt">신청기 수 : 1</span></li>
                         <li class="caution_more_item"><span class="txt">충전기 설치일자 : 2023-10-28</span></li>
+                        <li class="caution_more_item txt_indent">
+                            <span class="txt">
+                                문의 내용 :
+                            </span>
+                            <span class="txt">
+                                집밥으로 사용하려고 신청합니다.
+                                차량은 2대이고 오전/오후에 1대 충전을 하고 밤에
+                                1대를 돌아가면서 계속 충전을 할 계획입니다.
+                            </span>
+                        </li>
                     </ul>
 
                     <div class="form_ttl_group mt_px_30">
@@ -120,17 +119,21 @@
 
                     <hr class="hr">
 
-                    <div class="img_upload_area">
-                        <div class="ttl_box">
-                            <b class="ttl">사진 첨부</b>
-                            <div class="btn_area">
-                                <button type="button" class="btn btn_xs btn_secondary">앨범</button>
-                                <button type="button" class="btn btn_xs btn_secondary">카메라</button>
+                    <div class="form_group">
+                        <div class="upload_ttl_area">
+                            <div class="ttl_box">
+                                <b class="ttl">사진 첨부</b>
+                                <div class="btn_area">
+                                    <button type="button" class="btn btn_xs btn_secondary">앨범</button>
+                                </div>
                             </div>
                         </div>
-                        <div class="img_box">
-                            <img src="" alt="" class="img">
-                            <button type="button" class="btn btn_close_rounded">close</button>
+                    </div>
+
+                    <div class="form_group">
+                        <div class="upload_preview_area">
+                            <img class="img" src="../../../frontLayer/images/@/@img_siteMgmt.jpg" alt="">
+                            <button type="button" class="remove_btn" aria-label="사진삭제"></button>
                         </div>
                     </div>
                     

@@ -37,12 +37,12 @@
         <div class="back_page">
             <div class="back_inner">
                 <div class="back_hdr">
-                    <a href="#" class="back_btn">주소지 입력</a>
+                    <a href="#" class="back_btn">배송지 입력</a>
                 </div>
                 <div class="back_body">
                     <div class="cnt_group mt_px_10">
                         <p class="msg">
-                            카드를 수령할 배송ac지를 입력해주세요.
+                            카드를 수령할 배송지를 입력해주세요.
                         </p>
                         <hr class="hr"/>
                         <div class="cnt_box type2">
@@ -79,13 +79,43 @@
                                     <textarea id="frmRequest" class="form_control" name="" cols="30" rows="10" placeholder="요청사항 입력"></textarea>
                                 </div>
                             </div>
+                            <hr class="hr"/>
+                            <div class="form_ttl_group flex_wrap">
+                                <b class="ttl">포인트 결제</b>
+                                <span class="sub_ttl">이지차저 RF카드 신청 시, 3,000P가 차감됩니다.</span>
+                            </div>
+                            <div class="form_group mt_px_30">
+                                <span class="form_label fw_700 fs_px_16">보유 포인트</span>
+                                <div class="form_box justify_content_end">
+                                    <span class="val_txt fw_500 fs_px_16">3,000 P</span>
+                                </div>
+                            </div>
+                            <div class="form_ttl_group mt_px_30">
+                                <b class="ttl">사용하실 포인트</b>
+                            </div>
+                            <div class="form_group">
+                                <label for="formPonint" class="form_label">포인트</label>
+                                <div class="form_box">
+                                    <div class="input_group val_chk">
+                                        <input type="text" id="formPonint" class="form_control" placeholder="0">
+                                        <span class="input_group_txt">P</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <div class="form_box justify_content_end">
+                                    <button type="button" class="btn btn_sm btn_secondary w_auto">포인트 충전</button>
+                                </div>
+                            </div>
+                            <div class="cnt_group">
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="back_ftr">
                     <div class="btn_area">
                         <button type="button" class="btn btn_lg btn_outline_secondary">뒤로</button>
-                        <button type="button" class="btn btn_lg btn_primary">저장</button>
+                        <button type="button" class="btn btn_lg btn_info">결제하기</button>
                     </div>
                 </div>
             </div>

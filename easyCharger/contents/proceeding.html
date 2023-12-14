@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../frontLayer/css/package.css">
+    <script src="../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../frontLayer/js/current-device.min.js"></script>
+    <script src="../frontLayer/js/simplebar.min.js"></script>
+    <script src="../frontLayer/js/swiper.min.js"></script>
+    <script src="../frontLayer/js/gsap.min.js"></script>
+    <script src="../frontLayer/js/clipboard.min.js"></script>
+    <script src="../frontLayer/js/fn.js"></script>
+    <script src="../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:home_page -->
+        <div class="home_page">
+            <div class="home_inner">
+                <div class="home_hdr">
+                    <h1 class="logo">
+                        <img class="img" src="../frontLayer/images/img/logo.svg" alt=""/>
+                    </h1>
+                </div>
+                <div class="home_body">
+                    <a href="#" class="card_proc_area">
+                        <div class="card_proc_inner">
+                            <i class="ico"></i>
+                            <div class="txt_box">
+                                <b class="percent">
+                                    60<span class="txt">%</span>
+                                </b>
+                                <span class="msg">충전 진행 중</span>
+                            </div>
+                        </div>
+                        <div class="gauge" style="height: 60%;"></div>
+                    </a>
+                    <div class="check_veh_area">
+                        <a href="#" class="check_veh_link">
+                            <i class="ico ico_qr"></i>
+                            <b class="txt">QR충전</b>
+                        </a>
+                        <a href="#" class="check_veh_link">
+                            <i class="ico ico_hand"></i>
+                            <b class="txt">직접입력</b>
+                            <span class="sub_txt">(충전기번호)</span>
+                        </a>
+                    </div>
+                    <div class="main_info_area">
+                        <div class="main_info_hdr">
+                            <b class="ttl">이번달</b>
+                            <a href="#" class="more_btn">더보기</a>
+                        </div>
+                        <div class="main_info_body">
+                            <ul class="main_info_list">
+                                <li class="main_info_item">
+                                    <div class="main_info_box">
+                                        <span class="main_info_dt">충전금액</span>
+                                        <b class="main_info_dd">52,000원</b>
+                                    </div>
+                                </li>
+                                <li class="main_info_item">
+                                    <div class="main_info_box">
+                                        <span class="main_info_dt">충전시간</span>
+                                        <b class="main_info_dd">12시간 08분</b>
+                                    </div>
+                                </li>
+                                <li class="main_info_item">
+                                    <div class="main_info_box">
+                                        <span class="main_info_dt">충전량</span>
+                                        <b class="main_info_dd">15,200kWh</b>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="subscribe_info">
+                                <span class="status">구독 중</span>
+                                <span class="distance">115/300kWh</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="find_btn_area">
+                        <a href="" class="find_btn">
+                            <i class="ico ico_lightning"></i>
+                            <span class="txt">가까운 충전소 찾기</span>
+                        </a>
+                        <a href="" class="find_btn">
+                            <i class="ico ico_highway"></i>
+                            <span class="txt">고속도로 충전소 찾기</span>
+                        </a>
+                    </div>
+                    <div class="swiper_evnet_bnr_wrap mt_px_30">
+                        <div class="swiper swiper_evnet_bnr">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a href="#" class="img_box">
+                                        <img class="img" src="../frontLayer/images/@/@banner.jpg" alt="이지차저 구독서비스 신청하기 매월 50% 할인 충전">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#" class="img_box">
+                                        <img class="img" src="../frontLayer/images/@/@banner.jpg" alt="이지차저 구독서비스 신청하기 매월 50% 할인 충전">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#" class="img_box">
+                                        <img class="img" src="../frontLayer/images/@/@banner.jpg" alt="이지차저 구독서비스 신청하기 매월 50% 할인 충전">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#" class="img_box">
+                                        <img class="img" src="../frontLayer/images/@/@banner.jpg" alt="이지차저 구독서비스 신청하기 매월 50% 할인 충전">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    <div class="swiper_tab_wrap mt_px_20">
+                        <div class="swiper swiper_tab mx_px_n16">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <button type="button" class="tab_btn active">
+                                        <span class="txt">최근 방문 충전소</span>
+                                    </button>
+                                </div>
+                                <div class="swiper-slide">
+                                    <button type="button" href="./point.html" class="tab_btn">
+                                        <span class="txt">단골 충전소</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper_tab_content">
+                            <div class="swiper_tab_pannel active">
+                                <div class="location_area type2">
+                                    <ul class="location_list">
+                                        <li class="location_item">
+                                            <div class="location_info">
+                                                <div class="ttl_area">
+                                                    <div class="brand_box">
+                                                        <span class="brand_name">이지차저</span>
+                                                        <button type="button" class="zzim_btn">
+                                                            <i class="ico"></i>
+                                                        </button>
+                                                    </div>
+                                                    <b class="location_name fw_700">강남내곡 전기차충전소</b>
+                                                </div>
+                                                <div class="count_area">
+                                                    <span class="txt">완속 2/5</span>
+                                                </div>
+                                                <div class="desc_area type2">
+                                                    <span class="distance">10.7km</span>
+                                                    <div class="address_box">
+                                                        <span class="address">서울 강남구 강남내곡로 13길</span>
+                                                        <button type="button" class="copy_btn" aria-label="복사" onclick="EasyCharger.notification.set('주소가 복사되었습니다.')" data-clipboard-text="서울 강남구 강남내곡로 13길"></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d_flex gap_px_10 justify_content_between align_items_start mt_px_10">
+                                                    <ul class="lb_list mt_0">
+                                                        <li class="lb_item">
+                                                            <span class="txt">개방</span>
+                                                        </li>
+                                                        <li class="lb_item">
+                                                            <span class="txt">완속</span>
+                                                        </li>
+                                                        <li class="lb_item">
+                                                            <span class="txt">전기트럭전용</span>
+                                                        </li>
+                                                    </ul>
+                                                    <button type="button" class="btn btn_xs btn_outline_secondary">길안내</button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="location_item">
+                                            <div class="location_info">
+                                                <div class="ttl_area">
+                                                    <div class="brand_box">
+                                                        <span class="brand_name">이지차저</span>
+                                                        <button type="button" class="zzim_btn active">
+                                                            <i class="ico"></i>
+                                                        </button>
+                                                    </div>
+                                                    <b class="location_name fw_700">강남내곡 전기차충전소</b>
+                                                </div>
+                                                <div class="count_area">
+                                                    <span class="txt">완속 2/5</span>
+                                                    <span class="txt">급속 6/20</span>
+                                                </div>
+                                                <div class="desc_area type2">
+                                                    <span class="distance">10.7km</span>
+                                                    <div class="address_box">
+                                                        <span class="address">충남 계룡시 두마면 농소로 64 계룡대실 LH리슈빌 (농소리 972)</span>
+                                                        <button type="button" class="copy_btn" aria-label="복사" onclick="EasyCharger.notification.set('주소가 복사되었습니다.')" data-clipboard-text="충남 계룡시 두마면 농소로 64 계룡대실 LH리슈빌 (농소리 972)"></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d_flex gap_px_10 justify_content_between align_items_start mt_px_10">
+                                                    <ul class="lb_list mt_0">
+                                                        <li class="lb_item">
+                                                            <span class="txt">개방</span>
+                                                        </li>
+                                                        <li class="lb_item">
+                                                            <span class="txt">완속</span>
+                                                        </li>
+                                                        <li class="lb_item">
+                                                            <span class="txt">전기트럭전용</span>
+                                                        </li>
+                                                    </ul>
+                                                    <button type="button" class="btn btn_xs btn_outline_secondary">길안내</button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="swiper_tab_pannel">
+                                <div class="location_area type2">
+                                    <ul class="location_list">
+                                        <li class="location_item">
+                                            <div class="location_info">
+                                                <div class="ttl_area">
+                                                    <div class="brand_box">
+                                                        <span class="brand_name">이지차저</span>
+                                                        <button type="button" class="zzim_btn active">
+                                                            <i class="ico"></i>
+                                                        </button>
+                                                    </div>
+                                                    <b class="location_name fw_700">강남본점 전기차충전소</b>
+                                                </div>
+                                                <div class="count_area">
+                                                    <span class="txt">완속 2/5</span>
+                                                    <span class="txt">급속 6/20</span>
+                                                </div>
+                                                <div class="desc_area type2">
+                                                    <span class="distance">10.7km</span>
+                                                    <div class="address_box">
+                                                        <span class="address">서울 강남구 강남내곡로 13길</span>
+                                                        <button type="button" class="copy_btn" aria-label="복사" onclick="EasyCharger.notification.set('주소가 복사되었습니다.')" data-clipboard-text="서울 강남구 강남내곡로 13길"></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d_flex gap_px_10 justify_content_between align_items_start mt_px_10">
+                                                    <ul class="lb_list mt_0">
+                                                        <li class="lb_item">
+                                                            <span class="txt">개방</span>
+                                                        </li>
+                                                        <li class="lb_item">
+                                                            <span class="txt">완속</span>
+                                                        </li>
+                                                        <li class="lb_item">
+                                                            <span class="txt">전기트럭전용</span>
+                                                        </li>
+                                                    </ul>
+                                                    <button type="button" class="btn btn_xs btn_outline_secondary">길안내</button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="location_item">
+                                            <div class="location_info">
+                                                <div class="ttl_area">
+                                                    <div class="brand_box">
+                                                        <span class="brand_name">이지차저</span>
+                                                        <button type="button" class="zzim_btn active">
+                                                            <i class="ico"></i>
+                                                        </button>
+                                                    </div>
+                                                    <b class="location_name fw_700">강남내곡 전기차충전소</b>
+                                                </div>
+                                                <div class="count_area">
+                                                    <span class="txt">완속 2/5</span>
+                                                    <span class="txt">급속 6/20</span>
+                                                </div>
+                                                <div class="desc_area type2">
+                                                    <span class="distance">10.7km</span>
+                                                    <div class="address_box">
+                                                        <span class="address">충남 계룡시 두마면 농소로 64 계룡대실 LH리슈빌 (농소리 972)</span>
+                                                        <button type="button" class="copy_btn" aria-label="복사" onclick="EasyCharger.notification.set('주소가 복사되었습니다.')" data-clipboard-text="충남 계룡시 두마면 농소로 64 계룡대실 LH리슈빌 (농소리 972)"></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d_flex gap_px_10 justify_content_between align_items_start mt_px_10">
+                                                    <ul class="lb_list mt_0">
+                                                        <li class="lb_item">
+                                                            <span class="txt">개방</span>
+                                                        </li>
+                                                        <li class="lb_item">
+                                                            <span class="txt">완속</span>
+                                                        </li>
+                                                        <li class="lb_item">
+                                                            <span class="txt">전기트럭전용</span>
+                                                        </li>
+                                                    </ul>
+                                                    <button type="button" class="btn btn_xs btn_outline_secondary">길안내</button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="hr type2 mt_0"/>
+                    <a href="#" class="see_more_btn mt_0">
+                        <span class="txt">더보기</span>
+                    </a>
+                    <hr class="hr type2 opacity_0"/>
+                    <div class="fltg_dummy"></div>
+                </div>
+                <div class="fltg_ftr_wrap">
+                    <div class="fltg_ftr">
+                        <ul class="fltg_list">
+                            <li class="fltg_item active">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_home"></i>
+                                    <span class="txt">홈</span>
+                                </a>
+                            </li>
+                            <li class="fltg_item">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_charger"></i>
+                                    <span class="txt">충전소찾기</span>
+                                </a>
+                            </li>
+                            <li class="fltg_item">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_timeline"></i>
+                                    <span class="txt">이용내역</span>
+                                </a>
+                            </li>
+                            <li class="fltg_item">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_user"></i>
+                                    <span class="txt">My</span>
+                                </a>
+                            </li>
+                            <li class="fltg_item">
+                                <a class="fltg_btn" href="#">
+                                    <i class="ico ico_menu"></i>
+                                    <span class="txt">메뉴</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:home_page -->
+
+        <!-- s:fltg_ftr_wrap -->
+        <div class="fltg_ftr_wrap">
+            <div class="fltg_ftr">
+                <ul class="fltg_list">
+                    <li class="fltg_item active">
+                        <a class="fltg_btn" href="#">
+                            <i class="ico ico_home"></i>
+                            <span class="txt">홈</span>
+                        </a>
+                    </li>
+                    <li class="fltg_item">
+                        <a class="fltg_btn" href="#">
+                            <i class="ico ico_charger"></i>
+                            <span class="txt">충전소찾기</span>
+                        </a>
+                    </li>
+                    <li class="fltg_item">
+                        <a class="fltg_btn" href="#">
+                            <i class="ico ico_timeline"></i>
+                            <span class="txt">이용내역</span>
+                        </a>
+                    </li>
+                    <li class="fltg_item">
+                        <a class="fltg_btn" href="#">
+                            <i class="ico ico_user"></i>
+                            <span class="txt">My</span>
+                        </a>
+                    </li>
+                    <li class="fltg_item">
+                        <a class="fltg_btn" href="#">
+                            <i class="ico ico_menu"></i>
+                            <span class="txt">메뉴</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- e:fltg_ftr_wrap -->
+
+    </div>
+    <!-- e:wrapper -->
+    
+</body>
+
+</html>

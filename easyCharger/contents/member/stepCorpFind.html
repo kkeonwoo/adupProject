@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../frontLayer/css/package.css">
+    <script src="../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../frontLayer/js/fn.js"></script>
+    <script src="../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:step_page -->
+        <div class="step_page">
+            <div class="step_inner">
+                <div class="step_hdr">
+                    <button type="button" class="close_btn" aria-label="닫기버튼"></button>
+                </div>
+                <div class="step_body">
+                    <div class="ttl_area">
+                        <h1 class="ttl">법인명 찾기</h1>
+                    </div>
+                    <div class="cnt_group">
+                        <div class="cnt_box">
+                            <div class="form_group type_w_auto">
+                                <label for="frmId" class="form_label">법인명</label>
+                                <div class="form_box">
+                                    <div class="form_control_bx">
+                                        <input type="text" id="frmId" class="form_control" placeholder="법인명 입력">
+                                        <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
+                                    </div>
+                                    <button type="button" class="btn btn_md btn_secondary w_px_70 flex_shrink_0">검색</button>
+                                </div>
+                            </div>
+                            <hr class="hr mb_0"/>
+                            <div class="inner_scroll type_corp_find">
+                                <div class="corp_find_area">
+                                    <ul class="corp_find_list">
+                                        <li class="corp_find_item">
+                                            <a href="#" class="corp_find_link">
+                                                <b class="name">가나다 법인</b>
+                                                <p class="adrs">서울시 서초구 양재동 2345-33 가나다빌딩 4층</p>
+                                            </a>
+                                        </li>
+                                        <li class="corp_find_item">
+                                            <a href="#" class="corp_find_link">
+                                                <b class="name">㈜ 다나와</b>
+                                                <p class="adrs">경기도 의왕시 내손동 453-33 다나와빌딩 18층 1803호</p>
+                                            </a>
+                                        </li>
+                                        <li class="corp_find_item">
+                                            <a href="#" class="corp_find_link">
+                                                <b class="name">나스타 주식회사</b>
+                                                <p class="adrs">경기도 성남시 수정수 시흥동 제2판교 22층 2206호</p>
+                                            </a>
+                                        </li>
+                                        <li class="corp_find_item">
+                                            <a href="#" class="corp_find_link">
+                                                <b class="name">가나다 법인</b>
+                                                <p class="adrs">서울시 서초구 양재동 2345-33 가나다빌딩 4층</p>
+                                            </a>
+                                        </li>
+                                        <li class="corp_find_item">
+                                            <a href="#" class="corp_find_link">
+                                                <b class="name">㈜ 다나와</b>
+                                                <p class="adrs">경기도 의왕시 내손동 453-33 다나와빌딩 18층 1803호</p>
+                                            </a>
+                                        </li>
+                                        <li class="corp_find_item">
+                                            <a href="#" class="corp_find_link">
+                                                <b class="name">나스타 주식회사</b>
+                                                <p class="adrs">경기도 성남시 수정수 시흥동 제2판교 22층 2206호</p>
+                                            </a>
+                                        </li>
+                                        <li class="corp_find_item">
+                                            <a href="#" class="corp_find_link">
+                                                <b class="name">가나다 법인</b>
+                                                <p class="adrs">서울시 서초구 양재동 2345-33 가나다빌딩 4층</p>
+                                            </a>
+                                        </li>
+                                        <li class="corp_find_item">
+                                            <a href="#" class="corp_find_link">
+                                                <b class="name">㈜ 다나와</b>
+                                                <p class="adrs">경기도 의왕시 내손동 453-33 다나와빌딩 18층 1803호</p>
+                                            </a>
+                                        </li>
+                                        <li class="corp_find_item">
+                                            <a href="#" class="corp_find_link">
+                                                <b class="name">나스타 주식회사</b>
+                                                <p class="adrs">경기도 성남시 수정수 시흥동 제2판교 22층 2206호</p>
+                                            </a>
+                                        </li>
+                                        <li class="corp_find_item">
+                                            <a href="#" class="corp_find_link">
+                                                <b class="name">가나다 법인</b>
+                                                <p class="adrs">서울시 서초구 양재동 2345-33 가나다빌딩 4층</p>
+                                            </a>
+                                        </li>
+                                        <li class="corp_find_item">
+                                            <a href="#" class="corp_find_link">
+                                                <b class="name">㈜ 다나와</b>
+                                                <p class="adrs">경기도 의왕시 내손동 453-33 다나와빌딩 18층 1803호</p>
+                                            </a>
+                                        </li>
+                                        <li class="corp_find_item">
+                                            <a href="#" class="corp_find_link">
+                                                <b class="name">나스타 주식회사</b>
+                                                <p class="adrs">경기도 성남시 수정수 시흥동 제2판교 22층 2206호</p>
+                                            </a>
+                                        </li>
+                                        <li class="corp_find_item">
+                                            <a href="#" class="corp_find_link">
+                                                <b class="name">가나다 법인</b>
+                                                <p class="adrs">서울시 서초구 양재동 2345-33 가나다빌딩 4층</p>
+                                            </a>
+                                        </li>
+                                        <li class="corp_find_item">
+                                            <a href="#" class="corp_find_link">
+                                                <b class="name">㈜ 다나와</b>
+                                                <p class="adrs">경기도 의왕시 내손동 453-33 다나와빌딩 18층 1803호</p>
+                                            </a>
+                                        </li>
+                                        <li class="corp_find_item">
+                                            <a href="#" class="corp_find_link">
+                                                <b class="name">나스타 주식회사</b>
+                                                <p class="adrs">경기도 성남시 수정수 시흥동 제2판교 22층 2206호</p>
+                                            </a>
+                                        </li>
+                                        <li class="corp_find_item">
+                                            <a href="#" class="corp_find_link">
+                                                <b class="name">가나다 법인</b>
+                                                <p class="adrs">서울시 서초구 양재동 2345-33 가나다빌딩 4층</p>
+                                            </a>
+                                        </li>
+                                        <li class="corp_find_item">
+                                            <a href="#" class="corp_find_link">
+                                                <b class="name">㈜ 다나와</b>
+                                                <p class="adrs">경기도 의왕시 내손동 453-33 다나와빌딩 18층 1803호</p>
+                                            </a>
+                                        </li>
+                                        <li class="corp_find_item">
+                                            <a href="#" class="corp_find_link">
+                                                <b class="name">나스타 주식회사</b>
+                                                <p class="adrs">경기도 성남시 수정수 시흥동 제2판교 22층 2206호</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:step_page -->
+
+    </div>
+    <!-- e:wrapper -->
+    
+</body>
+
+</html>

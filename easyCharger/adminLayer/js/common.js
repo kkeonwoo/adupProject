@@ -87,9 +87,6 @@ EasyCharger = {
         $(document).on('click', '.sub_menu_list a', function (e) {
             e.stopPropagation();
         });
-        // $(window).on('load',function(){
-            
-        // });
     },
     checkbox: function () {
         //checkbox 클릭 이벤트
@@ -529,13 +526,11 @@ EasyCharger = {
     datepicker : function(){
         $(".datepicker").datepicker({
             dateFormat: "yy-mm-dd", // 날짜의 형식
-            minDate: 0,
             nextText: ">",
             prevText: "<"
         });
         $(".startDate").datepicker({
             dateFormat: "yy-mm-dd", // 날짜의 형식
-            minDate: 0,
             nextText: ">",
             prevText: "<",
             onSelect: function (date) {

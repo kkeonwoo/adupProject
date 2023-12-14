@@ -66,7 +66,7 @@
                         <hr class="hr"/>
                         <div class="form_ttl_group">
                             <b class="ttl">사용하실 포인트</b>
-                            <button type="button" class="btn btn_sm btn_secondary">포인트 충전</button>
+                            <a class="more_link" href="#" onclick="EasyCharger.openModal($('#modalUsePoint'))">포인트 사용 설정</a>
                         </div>
                         <div class="form_group">
                             <label for="formPonint" class="form_label">포인트</label>
@@ -86,6 +86,9 @@
                                     <span class="form_check_txt">잔액사용</span>
                                 </label>
                             </div>
+                        </div>
+                        <div class="form_group justify_content_end">
+                            <button type="button" class="btn btn_sm btn_secondary w_auto">포인트 충전</button>
                         </div>
                     </div>
                 </div>
@@ -109,6 +112,51 @@
                         </div>
                         <div class="btn_area">
                             <button type="button" class="btn btn_md btn_primary close">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close pos_bottom" id="modalUsePoint">
+            <div class="modal_centered">
+                <div class="modal_box">
+                    <div class="modal_header type2">
+                        <h2 class="ttl">포인트 사용 설정</h2>
+                        <button type="button" class="close_btn close" aria-label="닫기"></button>
+                    </div>
+                    <div class="modal_body inner_scroll">
+                        <div class="divr_group pb_0">
+                            <div class="divr_body">
+                                <p class="divr_explain">
+                                    결제를 이용할 때, 포인트와 카드결제 중 <br/>
+                                    먼저 사용할 수단을 선택할 수 있습니다.
+                                </p>
+                                <ul class="form_check_list mt_px_20">
+                                    <li class="form_check_item">
+                                        <label class="form_check">
+                                            <input class="form_check_input" type="radio" name="radio02">
+                                            <span class="ico"></span>
+                                            <span class="form_check_txt">전액 포인트 우선 사용</span>
+                                        </label>
+                                    </li>
+                                    <li class="form_check_item">
+                                        <label class="form_check">
+                                            <input class="form_check_input" type="radio" name="radio02" checked>
+                                            <span class="ico"></span>
+                                            <span class="form_check_txt">신용카드 우선 사용</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal_ftr">
+                        <div class="btn_area type2">
+                            <button type="button" class="btn btn_lg btn_outline_secondary close">취소</button>
+                            <button type="button" class="btn btn_lg btn_primary close">저장</button>
                         </div>
                     </div>
                 </div>

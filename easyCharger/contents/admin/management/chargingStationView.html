@@ -198,20 +198,22 @@
                                     <label for="radioOpen1" class="form_label">환경부 상태 전송</label>
                                 </th>
                                 <td colspan="3">
-                                    <div class="d_flex gap_px_30">
-                                        <div class="fancy_img_box radio">
-                                            <input type="radio" name="open" id="radioOpen1">
-                                            <label for="radioOpen1">
-                                                <span>내부</span>
+                                    <ul class="form_check_list gap_px_30">
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="open" id="radioOpen1">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">내부</span>
                                             </label>
-                                        </div>
-                                        <div class="fancy_img_box radio">
-                                            <input type="radio" name="open" id="radioOpen2">
-                                            <label for="radioOpen2">
-                                                <span>외부</span>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="open">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">외부</span>
                                             </label>
-                                        </div>
-                                    </div>
+                                        </li>
+                                    </ul>
                                 </td>
                                 <th scope="row">
                                     <label for="selectCustomerNumber" class="form_label">한전고객번호</label>
@@ -237,45 +239,47 @@
                                         <div class="btn_end">
                                             <button type="button" class="btn_add" id="btnAddFile">파일 추가</button>
                                         </div>
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">파일명</th>
-                                                    <th scope="col">크기</th>
-                                                    <th scope="col">기능</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div>Image01.gif</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>9.05MB</div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="btn_center">
-                                                            <button type="button" class="btn btn_secondary sm">미리보기</button>
-                                                            <button type="button" class="btn btn_secondary sm">삭제</button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>Image01.gif</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>9.05MB</div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="btn_center">
-                                                            <button type="button" class="btn btn_secondary sm">미리보기</button>
-                                                            <button type="button" class="btn btn_secondary sm">삭제</button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <div class="sticky_tbl h_max_125">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">파일명</th>
+                                                        <th scope="col">크기</th>
+                                                        <th scope="col">기능</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <div>Image01.gif</div>
+                                                        </td>
+                                                        <td>
+                                                            <div>9.05MB</div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="btn_center">
+                                                                <button type="button" class="btn btn_secondary sm">미리보기</button>
+                                                                <button type="button" class="btn btn_secondary sm">삭제</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div>Image01.gif</div>
+                                                        </td>
+                                                        <td>
+                                                            <div>9.05MB</div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="btn_center">
+                                                                <button type="button" class="btn btn_secondary sm">미리보기</button>
+                                                                <button type="button" class="btn btn_secondary sm">삭제</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                         <p class="caution">※ 최대 10MB까지 업로드 가능</p>
                                     </div>
                                 </td>
@@ -289,45 +293,47 @@
                                         <div class="btn_end">
                                             <button type="button" class="btn_add" id="btnAddFile2">파일 추가</button>
                                         </div>
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">파일명</th>
-                                                    <th scope="col">크기</th>
-                                                    <th scope="col">기능</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div>Image01.gif</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>9.05MB</div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="btn_center">
-                                                            <button type="button" class="btn btn_secondary sm">미리보기</button>
-                                                            <button type="button" class="btn btn_secondary sm">삭제</button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>Image01.gif</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>9.05MB</div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="btn_center">
-                                                            <button type="button" class="btn btn_secondary sm">미리보기</button>
-                                                            <button type="button" class="btn btn_secondary sm">삭제</button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <div class="sticky_tbl h_max_125">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">파일명</th>
+                                                        <th scope="col">크기</th>
+                                                        <th scope="col">기능</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <div>Image01.gif</div>
+                                                        </td>
+                                                        <td>
+                                                            <div>9.05MB</div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="btn_center">
+                                                                <button type="button" class="btn btn_secondary sm">미리보기</button>
+                                                                <button type="button" class="btn btn_secondary sm">삭제</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div>Image01.gif</div>
+                                                        </td>
+                                                        <td>
+                                                            <div>9.05MB</div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="btn_center">
+                                                                <button type="button" class="btn btn_secondary sm">미리보기</button>
+                                                                <button type="button" class="btn btn_secondary sm">삭제</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                         <p class="caution">※ 최대 10MB까지 업로드 가능</p>
                                     </div>
                                 </td>
@@ -353,64 +359,73 @@
                                     <label for="iptChargingStation" class="form_label">이용 가능 요일</label>
                                 </th>
                                 <td colspan="3">
-                                    <div class="d_flex gap_px_30">
-                                        <div class="fancy_img_box">
-                                            <input type="checkbox" name="day" id="chkAll" class="chkall">
-                                            <label for="chkAll">
-                                                <span>전체</span>
+                                    <ul class="form_check_list gap_px_30">
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input chkall" type="checkbox" name="day" id="chkAll">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">전체</span>
                                             </label>
-                                        </div>
-                                        <div class="fancy_img_box">
-                                            <input type="checkbox" name="day" id="chkDayWeekday">
-                                            <label for="chkDayWeekday">
-                                                <span>평일</span>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="checkbox" name="day">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">평일</span>
                                             </label>
-                                        </div>
-                                        <span class="gap_px_week">(</span>
-                                        <div class="fancy_img_box">
-                                            <input type="checkbox" name="day" id="chkDayWeekday1">
-                                            <label for="chkDayWeekday1">
-                                                <span>월요일</span>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <span class="gap_px_week">(</span>
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="checkbox" name="day">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">월요일</span>
                                             </label>
-                                        </div>
-                                        <div class="fancy_img_box">
-                                            <input type="checkbox" name="day" id="chkDayWeekday2">
-                                            <label for="chkDayWeekday2">
-                                                <span>화요일</span>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="checkbox" name="day">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">화요일</span>
                                             </label>
-                                        </div>
-                                        <div class="fancy_img_box">
-                                            <input type="checkbox" name="day" id="chkDayWeekday3">
-                                            <label for="chkDayWeekday3">
-                                                <span>수요일</span>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="checkbox" name="day">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">수요일</span>
                                             </label>
-                                        </div>
-                                        <div class="fancy_img_box">
-                                            <input type="checkbox" name="day" id="chkDayWeekday4">
-                                            <label for="chkDayWeekday4">
-                                                <span>목요일</span>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="checkbox" name="day">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">목요일</span>
                                             </label>
-                                        </div>
-                                        <div class="fancy_img_box">
-                                            <input type="checkbox" name="day" id="chkDayWeekday5">
-                                            <label for="chkDayWeekday5">
-                                                <span>금요일</span>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="checkbox" name="day">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">금요일</span>
                                             </label>
-                                        </div>
-                                        <span class="gap_px_week2">)</span>
-                                        <div class="fancy_img_box">
-                                            <input type="checkbox" name="day" id="chkDayWeekend1">
-                                            <label for="chkDayWeekend1">
-                                                <span>토요일</span>
+                                            <span class="gap_px_week2">)</span>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="checkbox" name="day">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">토요일</span>
                                             </label>
-                                        </div>
-                                        <div class="fancy_img_box">
-                                            <input type="checkbox" name="day" id="chkDayWeekend2">
-                                            <label for="chkDayWeekend2">
-                                                <span>일요일</span>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="checkbox" name="day">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">일요일</span>
                                             </label>
-                                        </div>
-                                    </div>
+                                        </li>
+                                    </ul>
                                 </td>
                             </tr>
                             <tr>
@@ -447,20 +462,22 @@
                                 </th>
                                 <td>
                                     <div class="d_flex align_items_center gap_px_30">
-                                        <div class="d_flex gap_px_30 w_auto">
-                                            <div class="fancy_img_box radio">
-                                                <input type="radio" name="open" id="radioPayment1">
-                                                <label for="radioPayment1">
-                                                    <span>무료</span>
+                                        <ul class="form_check_list gap_px_30">
+                                            <li class="form_check_item">
+                                                <label class="form_check">
+                                                    <input class="form_check_input" type="radio" name="open" id="radioPayment1">
+                                                    <span class="ico"></span>
+                                                    <span class="form_check_txt">무료</span>
                                                 </label>
-                                            </div>
-                                            <div class="fancy_img_box radio">
-                                                <input type="radio" name="open" id="radioPayment2">
-                                                <label for="radioPayment2">
-                                                    <span>유료</span>
+                                            </li>
+                                            <li class="form_check_item">
+                                                <label class="form_check">
+                                                    <input class="form_check_input" type="radio" name="open">
+                                                    <span class="ico"></span>
+                                                    <span class="form_check_txt">유료</span>
                                                 </label>
-                                            </div>
-                                        </div>
+                                            </li>
+                                        </ul>
                                         <div class="d_flex align_items_center gap_px_10 w_auto">
                                             <input type="text" class="form_control wd80">
                                             시간 / 기준
@@ -616,99 +633,113 @@
                 </article>
 
                 <article class="tbl_ver mt_px_20">
-                    <table>
-                        <colgroup>
-                            <col width="55" />
-                            <col width="*" />
-                            <col width="255" />
-                            <col width="95" />
-                            <col width="160" />
-                        </colgroup>
-                        <thead>
-                            <tr>
-                                <th scope="col">
-                                    <div class="fancy_img_box">
-                                        <input type="checkbox" name="eventNum" class="chkall" id="chkEventAll">
-                                        <label for="chkEventAll">
-                                            <span class="blind">check all</span>
-                                        </label>
-                                    </div>
-                                </th>
-                                <th scope="col">이벤트</th>
-                                <th scope="col">이벤트 기간</th>
-                                <th scope="col">등록자</th>
-                                <th scope="col">등록일</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="fancy_img_box">
-                                        <input type="checkbox" name="eventNum" id="chkEvent3">
-                                        <label for="chkEvent3">
-                                            <span class="blind">number 1</span>
-                                        </label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>이지차저 대박 행운 이벤트</div>
-                                </td>
-                                <td>
-                                    <div>2023-08-24 ~ 2023-09-08</div>
-                                </td>
-                                <td>
-                                    <div>홍길동</div>
-                                </td>
-                                <td>
-                                    <div>2023-12-31</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="fancy_img_box">
-                                        <input type="checkbox" name="eventNum" id="chkEvent2">
-                                        <label for="chkEvent2">
-                                            <span class="blind">number 2</span>
-                                        </label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>이지차저 대박 행운 이벤트</div>
-                                </td>
-                                <td>
-                                    <div>2023-08-24 ~ 2023-09-08</div>
-                                </td>
-                                <td>
-                                    <div>홍길동</div>
-                                </td>
-                                <td>
-                                    <div>2023-12-31</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="fancy_img_box">
-                                        <input type="checkbox" name="eventNum" id="chkEvent1">
-                                        <label for="chkEvent1">
-                                            <span class="blind">number 1</span>
-                                        </label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>이지차저 대박 행운 이벤트</div>
-                                </td>
-                                <td>
-                                    <div>2023-08-24 ~ 2023-09-08</div>
-                                </td>
-                                <td>
-                                    <div>홍길동</div>
-                                </td>
-                                <td>
-                                    <div>2023-12-31</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="sticky_tbl h_max_170">
+                        <table>
+                            <colgroup>
+                                <col width="55" />
+                                <col width="*" />
+                                <col width="255" />
+                                <col width="95" />
+                                <col width="160" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <ul class="form_check_list justify_content_center">
+                                            <li class="form_check_item">
+                                                <label class="form_check">
+                                                    <input class="form_check_input chkall" type="checkbox" name="eventNum" id="chkEventAll">
+                                                    <span class="ico"></span>
+                                                    <span class="form_check_txt blind">전체</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </th>
+                                    <th scope="col">이벤트</th>
+                                    <th scope="col">이벤트 기간</th>
+                                    <th scope="col">등록자</th>
+                                    <th scope="col">등록일</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <ul class="form_check_list justify_content_center">
+                                            <li class="form_check_item">
+                                                <label class="form_check">
+                                                    <input class="form_check_input" type="checkbox" name="eventNum">
+                                                    <span class="ico"></span>
+                                                    <span class="form_check_txt blind">number 1</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <div>이지차저 대박 행운 이벤트</div>
+                                    </td>
+                                    <td>
+                                        <div>2023-08-24 ~ 2023-09-08</div>
+                                    </td>
+                                    <td>
+                                        <div>홍길동</div>
+                                    </td>
+                                    <td>
+                                        <div>2023-12-31</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <ul class="form_check_list justify_content_center">
+                                            <li class="form_check_item">
+                                                <label class="form_check">
+                                                    <input class="form_check_input" type="checkbox" name="eventNum">
+                                                    <span class="ico"></span>
+                                                    <span class="form_check_txt blind">number 2</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <div>이지차저 대박 행운 이벤트</div>
+                                    </td>
+                                    <td>
+                                        <div>2023-08-24 ~ 2023-09-08</div>
+                                    </td>
+                                    <td>
+                                        <div>홍길동</div>
+                                    </td>
+                                    <td>
+                                        <div>2023-12-31</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <ul class="form_check_list justify_content_center">
+                                            <li class="form_check_item">
+                                                <label class="form_check">
+                                                    <input class="form_check_input" type="checkbox" name="eventNum">
+                                                    <span class="ico"></span>
+                                                    <span class="form_check_txt blind">number 3</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <div>이지차저 대박 행운 이벤트</div>
+                                    </td>
+                                    <td>
+                                        <div>2023-08-24 ~ 2023-09-08</div>
+                                    </td>
+                                    <td>
+                                        <div>홍길동</div>
+                                    </td>
+                                    <td>
+                                        <div>2023-12-31</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="btn_end">
                         <button class="btn btn_outline" type="button">삭제</button>
                         <button class="btn btn_primary" type="button">추가</button>

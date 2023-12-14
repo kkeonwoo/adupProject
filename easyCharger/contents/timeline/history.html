@@ -37,7 +37,7 @@
         <div class="back_page type_bg_gray">
             <div class="back_inner">
                 <div class="back_hdr">
-                    <a href="#" class="back_btn" aria-label="뒤로가기">타임라인</a>
+                    <a href="#" class="back_btn" aria-label="뒤로가기">이용내역</a>
                 </div>
                 <div class="swiper_tab_wrap">
                     <div class="swiper swiper_tab">
@@ -89,7 +89,7 @@
                     </div>
                     <div class="total_ttl_area">
                         <span class="txt">
-                            총 <span class="f_inherit color_orange">12</span>개
+                            총 <span class="f_inherit color_orange">12</span>건
                         </span>
                     </div>
                     <div class="history_area">
@@ -97,6 +97,7 @@
                             <li class="history_item">
                                 <div class="history_card">
                                     <span class="date">8/30(수)</span>
+                                    <span class="biz_name">충전사업자 명</span>
                                     <a href="#" class="link_area">
                                         <div class="desc_box">
                                             <b class="ttl">판교글로벌비지니스 전기차충전소</b>
@@ -119,6 +120,7 @@
                             <li class="history_item">
                                 <div class="history_card">
                                     <span class="date">8/29(화)</span>
+                                    <span class="biz_name">충전사업자 명</span>
                                     <a href="#" class="link_area">
                                         <div class="desc_box">
                                             <b class="ttl">판교휴먼아파트 전기차충전소</b>
@@ -138,6 +140,7 @@
                                     </a>
                                 </div>
                                 <div class="history_card">
+                                    <span class="biz_name">충전사업자 명</span>
                                     <a href="#" class="link_area">
                                         <div class="desc_box">
                                             <b class="ttl">가산본점 전기차충전소</b>
@@ -161,45 +164,49 @@
                     </div>
                 </div>
                 <div class="fltg_dummy"></div>
-                <div class="fltg_ftr_wrap">
-                    <div class="fltg_ftr">
-                        <ul class="fltg_list">
-                            <li class="fltg_item">
-                                <a class="fltg_btn" href="#">
-                                    <i class="ico ico_home"></i>
-                                    <span class="txt">홈</span>
-                                </a>
-                            </li>
-                            <li class="fltg_item">
-                                <a class="fltg_btn" href="#">
-                                    <i class="ico ico_charger"></i>
-                                    <span class="txt">충전소찾기</span>
-                                </a>
-                            </li>
-                            <li class="fltg_item active">
-                                <a class="fltg_btn" href="#">
-                                    <i class="ico ico_timeline"></i>
-                                    <span class="txt">타임라인</span>
-                                </a>
-                            </li>
-                            <li class="fltg_item">
-                                <a class="fltg_btn" href="#">
-                                    <i class="ico ico_user"></i>
-                                    <span class="txt">My</span>
-                                </a>
-                            </li>
-                            <li class="fltg_item">
-                                <a class="fltg_btn" href="#">
-                                    <i class="ico ico_menu"></i>
-                                    <span class="txt">메뉴</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <!-- e:back_page -->
+
+        <!-- s:fltg_ftr_wrap -->
+        <div class="fltg_ftr_wrap">
+            <div class="fltg_ftr">
+                <ul class="fltg_list">
+                    <li class="fltg_item">
+                        <a class="fltg_btn" href="#">
+                            <i class="ico ico_home"></i>
+                            <span class="txt">홈</span>
+                        </a>
+                    </li>
+                    <li class="fltg_item">
+                        <a class="fltg_btn" href="#">
+                            <i class="ico ico_charger"></i>
+                            <span class="txt">충전소찾기</span>
+                        </a>
+                    </li>
+                    <li class="fltg_item active">
+                        <a class="fltg_btn" href="#">
+                            <i class="ico ico_timeline"></i>
+                            <span class="txt">이용내역</span>
+                        </a>
+                    </li>
+                    <li class="fltg_item">
+                        <a class="fltg_btn" href="#">
+                            <i class="ico ico_user"></i>
+                            <span class="txt">My</span>
+                        </a>
+                    </li>
+                    <li class="fltg_item">
+                        <a class="fltg_btn" href="#">
+                            <i class="ico ico_menu"></i>
+                            <span class="txt">메뉴</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- e:fltg_ftr_wrap -->
 
         <!-- s:modal -->
         <div class="modal modal_close pos_bottom" id="modalFilter">
@@ -285,11 +292,6 @@
                                         <input class="form_check_input" type="radio" name="radio03">
                                         <span class="ico"></span>
                                         <span class="form_check_txt">취소</span>
-                                    </label>
-                                    <label class="form_check">
-                                        <input class="form_check_input" type="radio" name="radio03">
-                                        <span class="ico"></span>
-                                        <span class="form_check_txt">부분취소</span>
                                     </label>
                                 </div>
                             </div>

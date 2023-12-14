@@ -1,13 +1,15 @@
-<svg id="홈" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: red;
-        opacity: 0;
-      }
-    </style>
-  </defs>
-  <rect class="cls-1" width="56" height="56"/>
-  <rect class="cls-1" x="8" y="8" width="40" height="40"/>
-  <image id="Vector_Smart_Object" data-name="Vector Smart Object" x="12" y="10" width="32" height="36" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAkCAYAAADo6zjiAAABTElEQVRYhe2XMU7DQBBFZ1CKYCmIgipt6kgUOUFukCptOAdH4AIIIWi4AifgANBzASgQAaG4sh4a5G0Sx/ZsbNz4SZGizO5/35KziSUGYARcAz/5y96PosK8AFPglV3ss2nb8hWwKZAHbLZqQzwEbkvE29jaYVPyCfDskAdsz+RQ+QJYR8gDtncRIx4AVweIt7GsQV35GHhqUB6wzHGVfA68tyAPWPa8SKzAJZC1KA9kuUuDPAEe/0G8jTkTu/I7Eblw36nNcG8FNiJy3FGB1ArQkfyPoy7lfYG+QF/AqPcTuYudHS8i8p1PTkTkXETUn+TnDZgV5MzymYuYAsuSi1l6w2KO4jNV/dhT4FREPj1hMTdhtm+gqmtvWP817Av0BWIKNPoXzgqkjvWpqn5VrfHkWYEHx4Y6a315+YPJDZCWHNk2szVJVaIrD5Jfwt9umgl9bMUAAAAASUVORK5CYII="/>
+<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_679_348)">
+<mask id="mask0_679_348" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="10" width="32" height="36">
+<path d="M44 10H12V45.25H44V10Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_679_348)">
+<path d="M12 42.25V22.75C12 22.2843 12.1084 21.8249 12.3167 21.4084C12.525 20.9918 12.8274 20.6294 13.2 20.35L26.2 10.6C26.7193 10.2105 27.3509 10 28 10C28.6491 10 29.2807 10.2105 29.8 10.6L42.8 20.35C43.1726 20.6294 43.475 20.9918 43.6833 21.4084C43.8916 21.8249 44 22.2843 44 22.75V42.25C44 43.0456 43.6839 43.8087 43.1213 44.3713C42.5587 44.9339 41.7956 45.25 41 45.25H35C34.2044 45.25 33.4413 44.9339 32.8787 44.3713C32.3161 43.8087 32 43.0456 32 42.25V34.25C32 33.4544 31.6839 32.6913 31.1213 32.1287C30.5587 31.5661 29.7956 31.25 29 31.25H27C26.2044 31.25 25.4413 31.5661 24.8787 32.1287C24.3161 32.6913 24 33.4544 24 34.25V42.25C24 43.0456 23.6839 43.8087 23.1213 44.3713C22.5587 44.9339 21.7956 45.25 21 45.25H15C14.2044 45.25 13.4413 44.9339 12.8787 44.3713C12.3161 43.8087 12 43.0456 12 42.25Z" fill="white"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_679_348">
+<rect width="32" height="35.25" fill="white" transform="translate(12 10)"/>
+</clipPath>
+</defs>
 </svg>

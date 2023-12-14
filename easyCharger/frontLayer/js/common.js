@@ -31,6 +31,7 @@ EasyCharger = {
         this.datepicker();
         this.chooseTab.init();
         this.aside.init();
+        this.acco.init();
     },
     checkbox: function () {
         /**
@@ -416,6 +417,7 @@ EasyCharger = {
     },
     bottomSheet: {
         simplebar: null,
+        boxObserver: null,
         /**
          * bottom sheet 초기화
          */
@@ -537,19 +539,28 @@ EasyCharger = {
             const bs = EasyCharger.bottomSheet;
             let fbsHdrHgt = $('.fbs_hdr').outerHeight();
             $('.fbs_body').css({'height': `calc(100% - ${fbsHdrHgt}px - 16px)`});
-            let box_observer = new ResizeObserver(entries => {
+            bs.boxObserver = new ResizeObserver(entries => {
                 for (let entry of entries) {
                     fbsHdrHgt = $('.fbs_hdr').outerHeight();
                     $('.fbs_body').css({'height': `calc(100% - ${fbsHdrHgt}px - 16px)`});
-                    bs.simplebar.recalculate();
+                    bs.simplebar?.recalculate();
                     bs.isDragging = true;
                     bs.dragStop(undefined,bs);
                 }
             });
             const lbListEl = document.querySelector('.lb_list');
             const locationItemEl = document.querySelector('.location_item');
-            box_observer.observe(lbListEl);
-            box_observer.observe(locationItemEl);
+            if(locationItemEl === null) return;
+            bs.boxObserver.observe(lbListEl);
+            bs.boxObserver.observe(locationItemEl);
+        },
+        /**
+         * 내부요소 리사이즈감시 제거
+         */
+        disconnect(){
+            const bs = EasyCharger.bottomSheet;
+            bs.boxObserver.disconnect();
+            bs.boxObserver.disconnect();
         }
     },
     phInput: {
@@ -666,6 +677,14 @@ EasyCharger = {
             let swiperTab = new Swiper(".swiper_tab", {
                 slidesPerView: "auto",
             });
+            $(document).on('click','.swiper_tab button.tab_btn',(e)=>{
+                const $this = $(e.currentTarget);
+                const $swiperTabWrap = $this.closest('.swiper_tab_wrap');
+                const idx = $this.closest('.swiper-slide').index();
+                $this.closest('.swiper-slide').siblings('.swiper-slide').find('.tab_btn').removeClass('active');
+                $this.addClass('active');
+                $swiperTabWrap.find('.swiper_tab_pannel').removeClass('active').eq(idx).addClass('active')
+            })
         },
     },
     dummy: {
@@ -677,7 +696,10 @@ EasyCharger = {
          * fltg_ftr 요소 공간만큼 fltg_dummy 높이 채움
          */
         fltg(){
-            if(!fn.exists('.fltg_dummy')) return;
+            if(!fn.exists('.fltg_ftr_wrap')) return;
+            if(!fn.exists('.fltg_dummy')){
+                $('.home_body, .back_body, .step_body').append('<div class="fltg_dummy"></div>');
+            }
             let fltgFtrHgt = $('.fltg_ftr').outerHeight();
             $('.fltg_dummy').css({'height': `${fltgFtrHgt}px`});
             let box_observer = new ResizeObserver(entries => {
@@ -842,6 +864,28 @@ EasyCharger = {
                 const $this = $(e.currentTarget);
                 $('.aside').removeClass('active');
                 $('.fltg_item').removeClass('active');
+            });
+        },
+    },
+    acco: {
+        init(){
+            this.toggle();
+        },
+        /**
+         * 아코디언 토글 이벤트
+         */
+        toggle(){
+            $(document).on('click','.acco_item .toggle_btn',(e)=>{
+                const $this = $(e.currentTarget);
+                const $accoItem = $this.closest('.acco_item');
+                const isActive = $accoItem.hasClass('active');
+                $accoItem.toggleClass('active');
+                $accoItem.find('.acco_body').stop().slideToggle(450);
+                if(isActive){
+                    $this.attr({'aria-label':'내용열기','aria-expanded':false});
+                } else {
+                    $this.attr({'aria-label':'내용닫기','aria-expanded':true});
+                }
             });
         },
     },

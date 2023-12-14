@@ -105,45 +105,47 @@
                                         <div class="btn_end">
                                             <button type="button" class="btn_add" id="btnAddFile">파일 추가</button>
                                         </div>
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">파일명</th>
-                                                    <th scope="col">크기</th>
-                                                    <th scope="col">기능</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div>Image01.gif</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>9.05MB</div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="btn_center">
-                                                            <button type="button" class="btn btn_secondary sm">미리보기</button>
-                                                            <button type="button" class="btn btn_secondary sm">삭제</button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>Image01.gif</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>9.05MB</div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="btn_center">
-                                                            <button type="button" class="btn btn_secondary sm">미리보기</button>
-                                                            <button type="button" class="btn btn_secondary sm">삭제</button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <div class="sticky_tbl h_max_125">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">파일명</th>
+                                                        <th scope="col">크기</th>
+                                                        <th scope="col">기능</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <div>Image01.gif</div>
+                                                        </td>
+                                                        <td>
+                                                            <div>9.05MB</div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="btn_center">
+                                                                <button type="button" class="btn btn_secondary sm">미리보기</button>
+                                                                <button type="button" class="btn btn_secondary sm">삭제</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div>Image01.gif</div>
+                                                        </td>
+                                                        <td>
+                                                            <div>9.05MB</div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="btn_center">
+                                                                <button type="button" class="btn btn_secondary sm">미리보기</button>
+                                                                <button type="button" class="btn btn_secondary sm">삭제</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                         <p class="caution">※ 최대 10MB까지 업로드 가능</p>
                                     </div>
                                 </td>
@@ -161,20 +163,22 @@
                                     <label for="radioTarget1" class="form_label">배너 링크</label>
                                 </th>
                                 <td>
-                                    <div class="d_flex gap_px_30 mb_px_8">
-                                        <div class="fancy_img_box radio">
-                                            <input type="radio" name="target" id="radioTarget1">
-                                            <label for="radioTarget1">
-                                                <span>내부</span>
+                                    <ul class="form_check_list d_flex gap_px_30 mb_px_8">
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="target" id="radioTarget1">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">내부</span>
                                             </label>
-                                        </div>
-                                        <div class="fancy_img_box radio">
-                                            <input type="radio" name="target" id="radioTarget2">
-                                            <label for="radioTarget2">
-                                                <span>외부</span>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="target">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">외부</span>
                                             </label>
-                                        </div>
-                                    </div>
+                                        </li>
+                                    </ul>
                                     <input type="text" class="form_control" id="iptLink">
                                 </td>
                             </tr>
@@ -183,26 +187,29 @@
                                     <label for="radioOpen1" class="form_label">게시 구분</label>
                                 </th>
                                 <td>
-                                    <div class="d_flex gap_px_30 mb_px_5">
-                                        <div class="fancy_img_box radio">
-                                            <input type="radio" name="open" id="radioOpen1">
-                                            <label for="radioOpen1">
-                                                <span>게시</span>
+                                    <ul class="form_check_list d_flex gap_px_30 mb_px_5">
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="open" id="radioOpenAll">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">전체</span>
                                             </label>
-                                        </div>
-                                        <div class="fancy_img_box radio">
-                                            <input type="radio" name="open" id="radioOpen2">
-                                            <label for="radioOpen2">
-                                                <span>비게시</span>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="open">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">게시</span>
                                             </label>
-                                        </div>
-                                        <div class="fancy_img_box radio">
-                                            <input type="radio" name="open" id="radioOpen3">
-                                            <label for="radioOpen3">
-                                                <span>영구게시</span>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="open">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">비게시</span>
                                             </label>
-                                        </div>
-                                    </div>
+                                        </li>
+                                    </ul>
                                 </td>
                             </tr>
                             <tr>

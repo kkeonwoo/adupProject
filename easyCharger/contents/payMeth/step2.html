@@ -46,78 +46,100 @@
                             <ul class="prg_list">
                                 <li class="prg_item active"></li>
                                 <li class="prg_item active"></li>
-                                <li class="prg_item"></li>
-                                <li class="prg_item"></li>
-                                <li class="prg_item"></li>
                             </ul>
                         </div>
                     </div>
                     <div class="cnt_group">
-                        <p class="msg">유효기간을 입력해주세요.</p>
+                        <p class="msg">이용약관을 체크해주세요.</p>
                         <p class="desc">체크카드, 신용카드 모두 가능해요.</p>
                         <div class="cnt_box">
                             <hr class="hr"/>
-                            <div class="ph_group type2">
-                                <div class="ph_box">
-                                    <span class="ph_ttl">유효기간</span>
-                                    <label class="ph_masking">
-                                        <input type="text" class="form_control blind" value="" inputmode="none">
-                                        <span class="ph_txt">
-                                            <span class="ph_val"></span>
-                                        </span>
+                            <ul class="form_check_list">
+                                <li class="form_check_item">
+                                    <label class="form_check">
+                                        <input type="checkbox" class="form_check_input" name="agree1"/>
+                                        <i class="ico"></i>
+                                        <span class="form_check_txt">전자금융 거래 이용약관</span>
                                     </label>
-                                </div>
-                            </div>
-                            <span class="caution p_0 info">월/년도(MMYY) 순서로 4자리 숫자</span>
-                            <div class="cn_area">
-                                <div class="cn_list">
-                                    <div class="ph_group">
-                                        <div class="ph_box">
-                                            <span class="ph_ttl">카드번호</span>
-                                            <input type="text" class="form_control" value="1351">
-                                        </div>
-                                    </div>
-                                    <div class="ph_group">
-                                        <div class="ph_box">
-                                            <input type="text" class="form_control" value="0101">
-                                        </div>
-                                    </div>
-                                    <div class="ph_group">
-                                        <div class="ph_box">
-                                            <label class="ph_masking">
-                                                <input type="text" class="form_control blind" data-txt-num="4" inputmode="none">
-                                                <span class="ph_txt">
-                                                    <span class="ph_val"></span>
-                                                </span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="ph_group">
-                                        <div class="ph_box">
-                                            <label class="ph_masking">
-                                                <input type="text" class="form_control blind" data-txt-num="4" inputmode="none">
-                                                <span class="ph_txt">
-                                                    <span class="ph_val"></span>
-                                                </span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span class="cn_badge">국민카드</span>
-                            </div>
+                                    <a href="./terms.html" class="btn btn_sm btn_outline_secondary">약관보기</a>
+                                </li>
+                                <li class="form_check_item">
+                                    <label class="form_check">
+                                        <input type="checkbox" class="form_check_input" name="agree1"/>
+                                        <i class="ico"></i>
+                                        <span class="form_check_txt">개인정보 수집 및 이용안내</span>
+                                    </label>
+                                    <a href="./terms.html" class="btn btn_sm btn_outline_secondary">약관보기</a>
+                                </li>
+                                <li class="form_check_item">
+                                    <label class="form_check">
+                                        <input type="checkbox" class="form_check_input" name="agree1"/>
+                                        <i class="ico"></i>
+                                        <span class="form_check_txt">개인정보 제3자 제공 및 위탁안내</span>
+                                    </label>
+                                    <a href="./terms.html" class="btn btn_sm btn_outline_secondary">약관보기</a>
+                                </li>
+                                <li class="form_check_item type_all">
+                                    <label class="form_check">
+                                        <input type="checkbox" class="form_check_input chkall" name="agree1"/>
+                                        <i class="ico"></i>
+                                        <span class="form_check_txt">전체 동의</span>
+                                    </label>
+                                </li>
+                            </ul>
                         </div>
+
+                        <!-- s:확인용 예시 모달버튼 -->
+                        <div class="mt_px_30">
+                            <button type="button" class="btn btn_md btn_secondary" onclick="EasyCharger.openModal($('#modalTerms'))">모달 - 이용약관 체크</button>
+                            <button type="button" class="btn btn_md btn_secondary" onclick="EasyCharger.openModal($('#modalCardNum'))">모달 - 카드번호 다름</button>
+                        </div>
+                        <!-- e:확인용 예시 모달버튼 -->
                     </div>
                 </div>
                 <div class="step_ftr">
                     <div class="btn_area">
-                        <a href="./step3.html" class="skip_btn">건너뛰기</a>
-                        <a href="./step1.html" class="btn btn_lg btn_outline_secondary">뒤로</a>
-                        <a href="./step3.html" class="btn btn_lg btn_primary">다음</a>
+                        <a href="./step4.html" class="btn btn_lg btn_outline_secondary">뒤로</a>
+                        <a href="#" class="btn btn_lg btn_primary">다음</a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- e:step_page -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close z_9100" id="modalTerms">
+            <div class="modal_centered">
+                <div class="modal_box">
+                    <div class="modal_body">
+                        <div class="modal_content">
+                            <p class="msg">이용약관을 체크해주세요.</p>
+                        </div>
+                        <div class="btn_area">
+                            <button type="button" class="btn btn_md btn_primary close">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close z_9100" id="modalCardNum">
+            <div class="modal_centered">
+                <div class="modal_box">
+                    <div class="modal_body">
+                        <div class="modal_content">
+                            <p class="msg">카드번호가 틀립니다.</p>
+                        </div>
+                        <div class="btn_area">
+                            <button type="button" class="btn btn_md btn_primary close">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
 
     </div>
     <!-- e:wrapper -->

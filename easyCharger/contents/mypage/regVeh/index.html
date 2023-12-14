@@ -80,9 +80,8 @@
                                             <span class="brand">현대</span>
                                         </div>
                                         <span class="veh_num">12가3456</span>
-                                        <div class="btn_area">
-                                            <button type="button" class="btn btn_xs btn_outline_secondary" onclick="EasyCharger.openModal($('#modalRemove'))">삭제</button>
-                                            <button type="button" class="btn btn_xs btn_secondary">수정</button>
+                                        <div class="btn_area justify_content_end">
+                                            <button type="button" class="btn btn_xs btn_secondary w_px_60" onclick="EasyCharger.openModal($('#modalRemove'))">삭제</button>
                                         </div>
                                     </div>
                                 </div>
@@ -98,9 +97,9 @@
                                             <span class="brand">현대</span>
                                         </div>
                                         <span class="veh_num">12가3456</span>
-                                        <div class="btn_area">
-                                            <button type="button" class="btn btn_xs btn_outline_secondary" onclick="EasyCharger.openModal($('#modalRemove'))">삭제</button>
-                                            <button type="button" class="btn btn_xs btn_secondary">수정</button>
+                                        <div class="btn_area justify_content_end">
+                                            <button type="button" class="btn btn_xs btn_info w_px_60" onclick="EasyCharger.openModal($('#modalRep'))">대표등록</button>
+                                            <button type="button" class="btn btn_xs btn_secondary w_px_60" onclick="EasyCharger.openModal($('#modalRemove'))">삭제</button>
                                         </div>
                                     </div>
                                 </div>
@@ -135,6 +134,26 @@
                             <p class="msg">
                                 등록되어 있는 차량정보를 <br/>
                                 삭제하시겠습니까?
+                            </p>
+                        </div>
+                        <div class="btn_area">
+                            <button type="button" class="btn btn_md btn_outline_secondary close">취소</button>
+                            <button type="button" class="btn btn_md btn_primary close">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close z_9100" id="modalRep">
+            <div class="modal_centered">
+                <div class="modal_box">
+                    <div class="modal_body">
+                        <div class="modal_content">
+                            <p class="msg">
+                                대표차량으로 변경하시겠습니까?
                             </p>
                         </div>
                         <div class="btn_area">

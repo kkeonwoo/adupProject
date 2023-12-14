@@ -88,9 +88,26 @@
                             <div class="form_group">
                                 <label for="frmMail" class="form_label require">이메일</label>
                                 <div class="form_box">
-                                    <div class="form_control_bx error">
-                                        <input type="text" id="frmMail" class="form_control" placeholder="이메일 입력" value="홍길동@nnnnn.com">
-                                        <button type="button" class="btn_reset" aria-label="초기화"></button>
+                                    <div class="mail_control_bx">
+                                        <input type="text" id="frmMail" class="form_control" placeholder="이메일 입력" value="">
+                                        <span class="at">@</span>
+                                        <div class="form_select">
+                                            <select class="select">
+                                                <option>naver.com</option>
+                                                <option>nate.com</option>
+                                                <option>gmail.com</option>
+                                                <option>hanmail.net</option>
+                                                <option>daum.net</option>
+                                                <option>직접입력</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <div class="form_box">
+                                    <div class="mail_control_bx">
+                                        <input type="text" id="frmMail2" class="form_control w_px_126 flex_none ms_auto" placeholder="직접 입력" value="">
                                     </div>
                                 </div>
                             </div>

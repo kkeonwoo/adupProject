@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../../frontLayer/css/package.css">
+    <script src="../../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../../frontLayer/js/fn.js"></script>
+    <script src="../../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:back_page -->
+        <div class="back_page">
+            <div class="back_inner">
+                <div class="back_hdr">
+                    <a href="#" class="back_btn">고장신고</a>
+                </div>
+                <div class="back_body">
+                    <div class="cnt_group mt_px_20">
+                        <div class="cnt_box type2">
+                            <div class="form_ttl_group">
+                                <b class="ttl require">고객정보</b>
+                            </div>
+                            <div class="form_group">
+                                <label for="frmName" class="form_label">이름</label>
+                                <div class="form_box">
+                                    <div class="form_control_bx">
+                                        <input type="text" id="frmName" class="form_control" placeholder="이름 입력" value="홍길동">
+                                        <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <label for="frmPhone" class="form_label">휴대폰 번호</label>
+                                <div class="form_box">
+                                    <div class="form_control_bx">
+                                        <input type="text" id="frmPhone" class="form_control" placeholder="휴대폰 번호 확인 입력" value="010-1234-5678">
+                                        <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <label for="frmModel" class="form_label">차량모델</label>
+                                <div class="form_box">
+                                    <div class="form_control_bx">
+                                        <input type="text" id="frmModel" class="form_control" placeholder="차량모델 입력" value="아이오닉5">
+                                        <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="hr"/>
+                            <div class="form_ttl_group">
+                                <b class="ttl require">충전소 정보</b>
+                            </div>
+                            <div class="form_group">
+                                <label for="frmChargingName" class="form_label">충전소명</label>
+                                <div class="form_box">
+                                    <div class="form_control_bx">
+                                        <input type="text" id="frmChargingName" class="form_control" placeholder="">
+                                        <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
+                                    </div>
+                                    <button type="button" class="btn btn_md btn_secondary" onclick="EasyCharger.openModal($('#modalFind'))">찾기</button>
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <label for="frmNum" class="form_label">충전기번호</label>
+                                <div class="form_box">
+                                    <div class="form_control_bx">
+                                        <input type="text" id="frmNum" class="form_control" placeholder="" value="">
+                                        <button type="button" class="btn_reset" aria-label="초기화" disabled></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="hr"/>
+                            <div class="form_ttl_group">
+                                <b class="ttl require">고장신고</b>
+                            </div>
+                            <div class="form_group">
+                                <div class="form_box w_100">
+                                    <ul class="form_check_list">
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input type="radio" class="form_check_input" name="type1" checked/>
+                                                <i class="ico"></i>
+                                                <span class="form_check_txt">LCD 파손 및 터치 불량</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input type="radio" class="form_check_input" name="type1"/>
+                                                <i class="ico"></i>
+                                                <span class="form_check_txt">충전 커넥터 접촉 불량</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input type="radio" class="form_check_input" name="type1"/>
+                                                <i class="ico"></i>
+                                                <span class="form_check_txt">충전 커넥터 파손</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input type="radio" class="form_check_input" name="type1"/>
+                                                <i class="ico"></i>
+                                                <span class="form_check_txt">캐노피, 주차 스토퍼 파손</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input type="radio" class="form_check_input" name="type1"/>
+                                                <i class="ico"></i>
+                                                <span class="form_check_txt">기타</span>
+                                            </label>
+                                        </li>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="hr"/>
+                            <div class="form_ttl_group">
+                                <b class="ttl">상세사유</b>
+                            </div>
+                            <div class="form_group">
+                                <textarea class="form_control" name="" id="" rows="4" placeholder=""></textarea>
+                            </div>
+                            <hr class="hr"/>
+                            <div class="form_ttl_group">
+                                <b class="ttl">사진첨부</b>
+                                <div class="d_flex w_auto gap_px_8">
+                                    <button type="button" class="btn btn_xs btn_secondary">첨부</button>
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <div class="upload_preview_area">
+                                    <img class="img" src="../../../frontLayer/images/@/@img_03.jpg" alt=""/>
+                                    <button type="button" class="remove_btn" aria-label="사진삭제"></button>
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <div class="upload_preview_area empty">
+                                    <button type="button" class="remove_btn" aria-label="사진삭제"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="back_ftr">
+                    <div class="btn_area">
+                        <button type="button" class="btn btn_lg btn_outline_secondary">취소</button>
+                        <button type="button" class="btn btn_lg btn_primary" onclick="EasyCharger.openModal($('#modalItem'))">신고하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:back_page -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close pos_bottom" id="modalFind">
+            <div class="modal_centered">
+                <div class="modal_box">
+                    <div class="modal_header type2 pb_px_15">
+                        <h2 class="ttl fs_px_20">충전소 찾기</h2>
+                        <button type="button" class="close_btn close" aria-label="닫기"></button>
+                    </div>
+                    <div class="modal_body inner_scroll pb_0">
+                        <div class="location_area type2 pb_px_10">
+                            <ul class="location_list">
+                                <li class="location_item">
+                                    <div class="location_info">
+                                        <div class="ttl_area">
+                                            <div class="brand_box">
+                                                <i class="ico ico_ec"></i>
+                                                <span class="brand_name">충전사업자 명</span>
+                                            </div>
+                                            <b class="location_name">강남내곡 전기차충전소</b>
+                                        </div>
+                                        <div class="count_area">
+                                            <span class="txt">완속 2/5</span>
+                                            <span class="txt">급속 6/20</span>
+                                        </div>
+                                        <div class="desc_area">
+                                            <span class="distance">10.7km</span>
+                                            <div class="address_box">
+                                                <span class="address">서울 강남구 강남내곡로 13길</span>
+                                                <button type="button" class="copy_btn" aria-label="복사" onclick="EasyCharger.notification.set('주소가 복사되었습니다.')" data-clipboard-text="서울 강남구 강남내곡로 13길"></button>
+                                            </div>
+                                        </div>
+                                        <ul class="lb_list">
+                                            <li class="lb_item">
+                                                <span class="txt">개방</span>
+                                            </li>
+                                            <li class="lb_item">
+                                                <span class="txt">완속</span>
+                                            </li>
+                                            <li class="lb_item">
+                                                <span class="txt">전기트럭전용</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="location_item">
+                                    <div class="location_info">
+                                        <div class="ttl_area">
+                                            <div class="brand_box">
+                                                <i class="ico ico_ec"></i>
+                                                <span class="brand_name">충전사업자 명</span>
+                                            </div>
+                                            <b class="location_name">강남내곡 전기차충전소</b>
+                                        </div>
+                                        <div class="count_area">
+                                            <span class="txt">완속 2/5</span>
+                                            <span class="txt">급속 6/20</span>
+                                        </div>
+                                        <div class="desc_area">
+                                            <span class="distance">10.7km</span>
+                                            <div class="address_box">
+                                                <span class="address">서울 강남구 강남내곡로 13길</span>
+                                                <button type="button" class="copy_btn" aria-label="복사" onclick="EasyCharger.notification.set('주소가 복사되었습니다.')" data-clipboard-text="서울 강남구 강남내곡로 13길"></button>
+                                            </div>
+                                        </div>
+                                        <ul class="lb_list">
+                                            <li class="lb_item">
+                                                <span class="txt">개방</span>
+                                            </li>
+                                            <li class="lb_item">
+                                                <span class="txt">완속</span>
+                                            </li>
+                                            <li class="lb_item">
+                                                <span class="txt">전기트럭전용</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="location_item">
+                                    <div class="location_info">
+                                        <div class="ttl_area">
+                                            <div class="brand_box">
+                                                <i class="ico ico_ec"></i>
+                                                <span class="brand_name">충전사업자 명</span>
+                                            </div>
+                                            <b class="location_name">강남내곡 전기차충전소</b>
+                                        </div>
+                                        <div class="count_area">
+                                            <span class="txt">완속 2/5</span>
+                                            <span class="txt">급속 6/20</span>
+                                        </div>
+                                        <div class="desc_area">
+                                            <span class="distance">10.7km</span>
+                                            <div class="address_box">
+                                                <span class="address">서울 강남구 강남내곡로 13길</span>
+                                                <button type="button" class="copy_btn" aria-label="복사" onclick="EasyCharger.notification.set('주소가 복사되었습니다.')" data-clipboard-text="서울 강남구 강남내곡로 13길"></button>
+                                            </div>
+                                        </div>
+                                        <ul class="lb_list">
+                                            <li class="lb_item">
+                                                <span class="txt">개방</span>
+                                            </li>
+                                            <li class="lb_item">
+                                                <span class="txt">완속</span>
+                                            </li>
+                                            <li class="lb_item">
+                                                <span class="txt">전기트럭전용</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+        <!-- s:modal -->
+        <div class="modal modal_close z_9100" id="modalItem">
+            <div class="modal_centered">
+                <div class="modal_box">
+                    <div class="modal_body">
+                        <div class="modal_content">
+                            <p class="msg">고장신고 항목을 선택해 주세요.</p>
+                        </div>
+                        <div class="btn_area">
+                            <button type="button" class="btn btn_md btn_primary close">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:modal -->
+
+    </div>
+    <!-- e:wrapper -->
+    
+</body>
+
+</html>

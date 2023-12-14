@@ -82,11 +82,21 @@
 
 .tab_list {display:flex;align-items:center;}
 .tab_list li {width: 100%;}
-.tab_list li button {display:block;width:100%;height: 40px;border:1px solid var(--fn-gray-cc);font-size:16px;font-weight: 500;line-height:40px;color:var(--fn-gray-55);text-align:center;}
-.tab_list li button[aria-selected="true"] {background-color:var(--fn-blue);border-color:var(--fn-blue);color:var(--fn-white);}
-.tab_list li button[aria-selected="true"]:after {}
+.tab_list li + li {margin-left:-1px;}
+.tab_list li a,
+.tab_list li button {display:block;position:relative;width:100%;height: 40px;border:1px solid var(--fn-gray-cc);font-size:16px;font-weight: 500;line-height:40px;color:var(--fn-gray-55);text-align:center;}
+.tab_list li [aria-selected="true"] {z-index:1;background-color:var(--fn-blue);border-color:var(--fn-blue);color:var(--fn-white);}
+.tab_list li [aria-selected="true"]:after {}
+.tab_list li:first-child a,
 .tab_list li:first-child button {border-radius:5px 0 0 5px;}
-.tab_list li:nth-child(2) button {border-left:none;border-right:none;}
-.tab_list li:last-child button {border-radius:0 5px 5px 0;}
+.tab_list li + li a,
+.tab_list li + li button {border-left:none;}
+.tab_list li:last-child a,
+.tab_list li:last-child button {border-radius:0 5px 5px 0;border-right:1px solid var(--fn-gray-cc);}
+.tab_list li:last-child [aria-selected="true"] {border-right:none;}
 .tab_panel:first-child {display:block;}
 .tab_panel[hidden="false"] {display:none;}
+.tab_list.lg li a,
+.tab_list.lg li button {height:50px;line-height:50px;font-size:20px;}
+
+#chartWrap {height:300px;border:1px solid var(--fn-gray-e4);}

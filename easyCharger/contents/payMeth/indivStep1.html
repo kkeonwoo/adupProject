@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지차저</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="../../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../frontLayer/images/favicons/favicon.ico">
+    <link rel="stylesheet" href="../../frontLayer/css/package.css">
+    <script src="../../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../frontLayer/js/simplebar.min.js"></script>
+    <script src="../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../frontLayer/js/clipboard.min.js"></script>
+    <script src="../../frontLayer/js/fn.js"></script>
+    <script src="../../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrapper">
+
+        <!-- s:step_page -->
+        <div class="step_page">
+            <div class="step_inner">
+                <div class="step_hdr">
+                    <button type="button" class="close_btn" aria-label="닫기버튼"></button>
+                </div>
+                <div class="step_body">
+                    <div class="ttl_area">
+                        <h1 class="ttl">카드 등록</h1>
+                        <div class="prg_area">
+                            <ul class="prg_list">
+                                <li class="prg_item active"></li>
+                                <li class="prg_item"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cnt_group">
+                        <div class="form_check_list">
+                            <label class="form_check">
+                                <input type="radio" class="form_check_input" name="radio1" checked>
+                                <i class="ico"></i>
+                                <span class="form_check_txt">개인</span>
+                            </label>
+                            <label class="form_check">
+                                <input type="radio" class="form_check_input" name="radio1">
+                                <i class="ico"></i>
+                                <span class="form_check_txt">법인사업자</span>
+                            </label>
+                        </div>
+                        <p class="desc mt_px_20">체크카드, 신용카드 모두 가능해요.</p>
+                        <div class="cnt_box">
+                            <hr class="hr"/>
+                            <div class="cn_area mt_px_40">
+                                <div class="cn_list">
+                                    <div class="ph_group">
+                                        <div class="ph_box">
+                                            <span class="ph_ttl">카드번호</span>
+                                            <input type="text" class="form_control" value="0101">
+                                        </div>
+                                    </div>
+                                    <div class="ph_group">
+                                        <div class="ph_box">
+                                            <input type="text" class="form_control" value="1234">
+                                        </div>
+                                    </div>
+                                    <div class="ph_group">
+                                        <div class="ph_box">
+                                            <label class="ph_masking">
+                                                <input type="text" class="form_control blind" data-txt-num="4" inputmode="none">
+                                                <span class="ph_txt">
+                                                    <span class="ph_val"></span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="ph_group">
+                                        <div class="ph_box">
+                                            <label class="ph_masking">
+                                                <input type="text" class="form_control blind" data-txt-num="4" inputmode="none">
+                                                <span class="ph_txt">
+                                                    <span class="ph_val"></span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <span class="cn_badge">국민카드</span> -->
+                            </div>
+                            <div class="ph_group type2 mt_px_37">
+                                <div class="ph_box">
+                                    <span class="ph_lb">유효기간</span>
+                                    <label class="ph_masking">
+                                        <input type="text" class="form_control blind" value="" data-txt-num="4" inputmode="none">
+                                        <span class="ph_txt">
+                                            <span class="ph_val"></span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <span class="caution p_0 info">월/년도(MMYY) 순서로 4자리 숫자</span>
+                            <div class="ph_group type2">
+                                <div class="ph_box">
+                                    <span class="ph_lb">생년월일</span>
+                                    <input type="text" class="form_control" value="19880707">
+                                </div>
+                            </div>
+                            <span class="caution p_0 info">“-”없이 8자리 숫자만 입력(EX: 19880707)</span>
+                            <div class="ph_group type2 mt_px_37">
+                                <div class="ph_box">
+                                    <span class="ph_lb">비밀번호</span>
+                                    <label class="ph_masking">
+                                        <input type="text" class="form_control blind" value="" data-txt-num="2" inputmode="none">
+                                        <span class="ph_txt">
+                                            <span class="ph_val"></span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step_ftr">
+                    <div class="btn_area">
+                        <a href="./step2.html" class="skip_btn">건너뛰기</a>
+                        <a href="#" class="btn btn_lg btn_outline_secondary">뒤로</a>
+                        <a href="./step2.html" class="btn btn_lg btn_primary">다음</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:step_page -->
+
+        <!-- s:keypad -->
+        <div class="keypad_area keypad_close">
+            <button type="button" class="key_btn">4</button>
+            <button type="button" class="key_btn">5</button>
+            <button type="button" class="key_btn">3</button>
+            <button type="button" class="key_btn">1</button>
+            <button type="button" class="key_btn">0</button>
+            <button type="button" class="key_btn">9</button>
+            <button type="button" class="key_btn">8</button>
+            <button type="button" class="key_btn">6</button>
+            <button type="button" class="key_btn">2</button>
+            <button type="button" class="key_btn type_empty"></button>
+            <button type="button" class="key_btn">7</button>
+            <button type="button" class="key_btn type_remove"></button>
+        </div>
+        <!-- e:keypad -->
+
+    </div>
+    <!-- e:wrapper -->
+
+</body>
+
+</html>
