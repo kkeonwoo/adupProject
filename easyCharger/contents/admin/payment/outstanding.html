@@ -55,7 +55,7 @@
 
                 <!-- s:section_tit -->
                 <div class="section_top">
-                    <h2 class="section_tit">AS접수 관리</h2>
+                    <h2 class="section_tit">충전기 결제 내역 조회</h2>
                     <div class="location">
                         <span>홈</span>
                         <span>1depth</span>
@@ -78,17 +78,17 @@
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <label for="startDate" class="form_label">접수 일자</label>
+                                    <label for="startDate" class="form_label">등록일자</label>
                                 </th>
                                 <td colspan="5">
                                     <div class="d_flex gap_px_50 align_items_center">
                                         <div class="d_flex date_wrap">
                                             <div class="date_item">
-                                                <input type="text" class="form_control form_datepicker startDate hasDatepicker" id="startDate" data-type="dateSearch">
+                                                <input type="text" class="form_control form_datepicker startDate" id="startDate" data-type="dateSearch" />
                                             </div>
                                             -
                                             <div class="date_item">
-                                                <input type="text" class="form_control form_datepicker endDate hasDatepicker" data-type="dateSearch" id="dp1702620095299">
+                                                <input type="text" class="form_control form_datepicker endDate" data-type="dateSearch" />
                                             </div>
                                         </div>
                                         <ul class="form_check_list d_flex gap_px_30">
@@ -109,30 +109,44 @@
                                         </ul>
                                     </div>
                                 </td>
-                                
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="iptChargingStation" class="form_label">충전소 명</label>
+                                    <label for="selectMemberInfo" class="form_label">회원정보</label>
                                 </th>
                                 <td>
-                                    <input type="text" class="form_control" id="iptChargingStation" placeholder="충전소명 입력">
+                                    <div class="form_group">
+                                        <div class="custom_select">
+                                            <select id="selectMemberInfo">
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                                <option value="">선택</option>
+                                            </select>
+                                        </div>
+                                        <input type="text" class="form_control" id="iptMemberInfo">
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="iptCharger" class="form_label">충전소 명</label>
+                                </th>
+                                <td>
+                                    <input type="text" class="form_control" id="iptCharger">
                                 </td>
                                 <th scope="row">
                                     <label for="iptChargerID" class="form_label">충전기 ID</label>
                                 </th>
-                                <td colspan="3">
-                                    <input type="text" class="form_control wd240" id="iptChargerID" placeholder="충전소 ID 입력">
+                                <td>
+                                    <input type="text" class="form_control" id="iptChargerID">
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="selectCompany" class="form_label">진행 상태</label>
+                                    <label for="selectCalc" class="form_label">정산</label>
                                 </th>
                                 <td>
                                     <div class="custom_select">
-                                        <select id="selectCompany">
-                                            <option value="">선택</option>
+                                        <select id="selectCalc">
                                             <option value="">선택</option>
                                             <option value="">선택</option>
                                             <option value="">선택</option>
@@ -141,26 +155,11 @@
                                     </div>
                                 </td>
                                 <th scope="row">
-                                    <label for="selectResult" class="form_label">처리결과</label>
+                                    <label for="selectResultMsg" class="form_label">결과메시지</label>
                                 </th>
-                                <td>
+                                <td colspan="3">
                                     <div class="custom_select">
-                                        <select id="selectResult">
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                        </select>
-                                    </div>
-                                </td>
-                                <th scope="row">
-                                    <label for="selectRank" class="form_label">우선순위</label>
-                                </th>
-                                <td>
-                                    <div class="custom_select">
-                                        <select id="selectRank">
-                                            <option value="">선택</option>
+                                        <select id="selectResultMsg">
                                             <option value="">선택</option>
                                             <option value="">선택</option>
                                             <option value="">선택</option>
@@ -177,12 +176,14 @@
                 </article>
 
                 <article class="tbl_ver mt_px_40">
-                    <div class="tbl_top_info">
+                    <div class="tbl_top_info end">
                         <div class="total">총 <em>120</em>개의 목록</div>
+                        <button type="button" class="btn_ico excel"><span>엑셀 다운로드</span></button>
                     </div>
-                    <div class="sticky_tbl h_max_460">
+                    <div class="sticky_tbl h_max_290">
                         <table>
                             <colgroup>
+                                <col width="*">
                                 <col width="*">
                                 <col width="*">
                                 <col width="*">
@@ -198,53 +199,28 @@
                             </colgroup>
                             <thead>
                                 <tr>
-                                    <th scope="col">접수번호</th>
-                                    <th scope="col">충전소 명</th>
-                                    <th scope="col">충전기<br>ID</th>
-                                    <th scope="col">신고 항목</th>
-                                    <th scope="col">파일첨부</th>
-                                    <th scope="col">신청자</th>
-                                    <th scope="col">우선<br>순위</th>
-                                    <th scope="col">접수자</th>
-                                    <th scope="col">접수일자</th>
-                                    <th scope="col">담당자</th>
-                                    <th scope="col">진행상태</th>
-                                    <th scope="col">점검<br>일자</th>
-                                    <th scope="col">처리<br>결과</th>
-                                    <th scope="col">완료일자</th>
+                                    <th scope="col">거래일시</th>
+                                    <th scope="col">오더번호</th>
+                                    <th scope="col">회원ID</th>
+                                    <th scope="col">회원명</th>
+                                    <th scope="col">휴대폰번호</th>
+                                    <th scope="col">충전소명</th>
+                                    <th scope="col">충전기 ID</th>
+                                    <th scope="col">금액</th>
+                                    <th scope="col">충전량(kWh)</th>
+                                    <th scope="col">SMS발송</th>
+                                    <th scope="col">정산</th>
+                                    <th scope="col">결과코드</th>
+                                    <th scope="col">결과메시지</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <div>0000235</div>
+                                        <div></div>
                                     </td>
                                     <td>
-                                        <div>OOOO 전기충전소</div>
-                                    </td>
-                                    <td>
-                                        <div>충전 커넥터 접촉 불량</div>
-                                    </td>
-                                    <td>
-                                        <div>Y</div>
-                                    </td>
-                                    <td>
-                                        <div>김가나</div>
-                                    </td>
-                                    <td>
-                                        <div>긴급</div>
-                                    </td>
-                                    <td>
-                                        <div>강감찬</div>
-                                    </td>
-                                    <td>
-                                        <div>2023.08.01</div>
-                                    </td>
-                                    <td>
-                                        <div>홍길동</div>
-                                    </td>
-                                    <td>
-                                        <div>접수</div>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -253,7 +229,32 @@
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>점검완료</div>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div>20</div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <button class="btn sm btn_secondary" type="button">발송</button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <button class="btn sm btn_secondary" type="button">결제</button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -261,34 +262,10 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div>0000235</div>
+                                        <div></div>
                                     </td>
                                     <td>
-                                        <div>OOOO 전기충전소</div>
-                                    </td>
-                                    <td>
-                                        <div>충전 커넥터 접촉 불량</div>
-                                    </td>
-                                    <td>
-                                        <div>Y</div>
-                                    </td>
-                                    <td>
-                                        <div>김가나</div>
-                                    </td>
-                                    <td>
-                                        <div>긴급</div>
-                                    </td>
-                                    <td>
-                                        <div>강감찬</div>
-                                    </td>
-                                    <td>
-                                        <div>2023.08.01</div>
-                                    </td>
-                                    <td>
-                                        <div>홍길동</div>
-                                    </td>
-                                    <td>
-                                        <div>접수</div>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -297,7 +274,28 @@
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>점검완료</div>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -305,34 +303,10 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div>0000235</div>
+                                        <div></div>
                                     </td>
                                     <td>
-                                        <div>OOOO 전기충전소</div>
-                                    </td>
-                                    <td>
-                                        <div>충전 커넥터 접촉 불량</div>
-                                    </td>
-                                    <td>
-                                        <div>Y</div>
-                                    </td>
-                                    <td>
-                                        <div>김가나</div>
-                                    </td>
-                                    <td>
-                                        <div>긴급</div>
-                                    </td>
-                                    <td>
-                                        <div>강감찬</div>
-                                    </td>
-                                    <td>
-                                        <div>2023.08.01</div>
-                                    </td>
-                                    <td>
-                                        <div>홍길동</div>
-                                    </td>
-                                    <td>
-                                        <div>접수</div>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -341,7 +315,28 @@
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>점검완료</div>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -349,34 +344,10 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div>0000235</div>
+                                        <div></div>
                                     </td>
                                     <td>
-                                        <div>OOOO 전기충전소</div>
-                                    </td>
-                                    <td>
-                                        <div>충전 커넥터 접촉 불량</div>
-                                    </td>
-                                    <td>
-                                        <div>Y</div>
-                                    </td>
-                                    <td>
-                                        <div>김가나</div>
-                                    </td>
-                                    <td>
-                                        <div>긴급</div>
-                                    </td>
-                                    <td>
-                                        <div>강감찬</div>
-                                    </td>
-                                    <td>
-                                        <div>2023.08.01</div>
-                                    </td>
-                                    <td>
-                                        <div>홍길동</div>
-                                    </td>
-                                    <td>
-                                        <div>접수</div>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -385,7 +356,28 @@
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>점검완료</div>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -393,34 +385,10 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div>0000235</div>
+                                        <div></div>
                                     </td>
                                     <td>
-                                        <div>OOOO 전기충전소</div>
-                                    </td>
-                                    <td>
-                                        <div>충전 커넥터 접촉 불량</div>
-                                    </td>
-                                    <td>
-                                        <div>Y</div>
-                                    </td>
-                                    <td>
-                                        <div>김가나</div>
-                                    </td>
-                                    <td>
-                                        <div>긴급</div>
-                                    </td>
-                                    <td>
-                                        <div>강감찬</div>
-                                    </td>
-                                    <td>
-                                        <div>2023.08.01</div>
-                                    </td>
-                                    <td>
-                                        <div>홍길동</div>
-                                    </td>
-                                    <td>
-                                        <div>접수</div>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -429,7 +397,28 @@
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>점검완료</div>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -437,34 +426,10 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div>0000235</div>
+                                        <div></div>
                                     </td>
                                     <td>
-                                        <div>OOOO 전기충전소</div>
-                                    </td>
-                                    <td>
-                                        <div>충전 커넥터 접촉 불량</div>
-                                    </td>
-                                    <td>
-                                        <div>Y</div>
-                                    </td>
-                                    <td>
-                                        <div>김가나</div>
-                                    </td>
-                                    <td>
-                                        <div>긴급</div>
-                                    </td>
-                                    <td>
-                                        <div>강감찬</div>
-                                    </td>
-                                    <td>
-                                        <div>2023.08.01</div>
-                                    </td>
-                                    <td>
-                                        <div>홍길동</div>
-                                    </td>
-                                    <td>
-                                        <div>접수</div>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -473,42 +438,10 @@
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>점검완료</div>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div>0000235</div>
-                                    </td>
-                                    <td>
-                                        <div>OOOO 전기충전소</div>
-                                    </td>
-                                    <td>
-                                        <div>충전 커넥터 접촉 불량</div>
-                                    </td>
-                                    <td>
-                                        <div>Y</div>
-                                    </td>
-                                    <td>
-                                        <div>김가나</div>
-                                    </td>
-                                    <td>
-                                        <div>긴급</div>
-                                    </td>
-                                    <td>
-                                        <div>강감찬</div>
-                                    </td>
-                                    <td>
-                                        <div>2023.08.01</div>
-                                    </td>
-                                    <td>
-                                        <div>홍길동</div>
-                                    </td>
-                                    <td>
-                                        <div>접수</div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -517,42 +450,7 @@
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>점검완료</div>
-                                    </td>
-                                    <td>
                                         <div></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div>0000235</div>
-                                    </td>
-                                    <td>
-                                        <div>OOOO 전기충전소</div>
-                                    </td>
-                                    <td>
-                                        <div>충전 커넥터 접촉 불량</div>
-                                    </td>
-                                    <td>
-                                        <div>Y</div>
-                                    </td>
-                                    <td>
-                                        <div>김가나</div>
-                                    </td>
-                                    <td>
-                                        <div>긴급</div>
-                                    </td>
-                                    <td>
-                                        <div>강감찬</div>
-                                    </td>
-                                    <td>
-                                        <div>2023.08.01</div>
-                                    </td>
-                                    <td>
-                                        <div>홍길동</div>
-                                    </td>
-                                    <td>
-                                        <div>접수</div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -561,95 +459,7 @@
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>점검완료</div>
-                                    </td>
-                                    <td>
                                         <div></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div>0000235</div>
-                                    </td>
-                                    <td>
-                                        <div>OOOO 전기충전소</div>
-                                    </td>
-                                    <td>
-                                        <div>충전 커넥터 접촉 불량</div>
-                                    </td>
-                                    <td>
-                                        <div>Y</div>
-                                    </td>
-                                    <td>
-                                        <div>김가나</div>
-                                    </td>
-                                    <td>
-                                        <div>긴급</div>
-                                    </td>
-                                    <td>
-                                        <div>강감찬</div>
-                                    </td>
-                                    <td>
-                                        <div>2023.08.01</div>
-                                    </td>
-                                    <td>
-                                        <div>홍길동</div>
-                                    </td>
-                                    <td>
-                                        <div>접수</div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div>점검완료</div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div>0000235</div>
-                                    </td>
-                                    <td>
-                                        <div>OOOO 전기충전소</div>
-                                    </td>
-                                    <td>
-                                        <div>충전 커넥터 접촉 불량</div>
-                                    </td>
-                                    <td>
-                                        <div>Y</div>
-                                    </td>
-                                    <td>
-                                        <div>김가나</div>
-                                    </td>
-                                    <td>
-                                        <div>긴급</div>
-                                    </td>
-                                    <td>
-                                        <div>강감찬</div>
-                                    </td>
-                                    <td>
-                                        <div>2023.08.01</div>
-                                    </td>
-                                    <td>
-                                        <div>홍길동</div>
-                                    </td>
-                                    <td>
-                                        <div>접수</div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div>점검완료</div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -679,8 +489,7 @@
                             </ul>
                         </nav>
                         <!-- e:pagination -->
-
-                        <a href="./breakDownView.html" class="btn btn_primary">등록</a>
+                        
                     </div>
 
                 </article>

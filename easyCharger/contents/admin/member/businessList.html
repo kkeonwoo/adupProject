@@ -55,7 +55,7 @@
 
                 <!-- s:section_tit -->
                 <div class="section_top">
-                    <h2 class="section_tit">사업자 현황 관리</h2>
+                    <h2 class="section_tit">법인 회원 관리</h2>
                     <div class="location">
                         <span>홈</span>
                         <span>1depth</span>
@@ -69,8 +69,6 @@
                     <table>
                         <colgroup>
                             <col width="140" />
-                            <col width="317" />
-                            <col width="140" />
                             <col width="*" />
                             <col width="140" />
                             <col width="*" />
@@ -80,7 +78,7 @@
                                 <th scope="row">
                                     <label for="startDate" class="form_label">가입 일자</label>
                                 </th>
-                                <td colspan="5">
+                                <td colspan="3">
                                     <div class="d_flex gap_px_50 align_items_center">
                                         <div class="d_flex date_wrap">
                                             <div class="date_item">
@@ -106,7 +104,29 @@
                                                     <span class="form_check_txt">3개월</span>
                                                 </label>
                                             </li>
-                                        </div>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="iptBusinessName" class="form_label">사업자 명</label>
+                                </th>
+                                <td>
+                                    <input type="text" class="form_control wd420" id="iptBusinessName" placeholder="사업자명 검색">
+                                </td>
+                                <th scope="row">
+                                    <label for="selectUsage" class="form_label">용도구분</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select">
+                                        <select id="selectUsage">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
                                     </div>
                                 </td>
                             </tr>
@@ -114,8 +134,22 @@
                                 <th scope="row">
                                     <label for="iptBusinessInfo" class="form_label">사업자 정보</label>
                                 </th>
-                                <td colspan="5">
-                                    <input type="text" class="form_control wd420" id="iptBusinessInfo" placeholder="이름, 회사명 검색">
+                                <td>
+                                    <input type="text" class="form_control wd420" id="iptBusinessInfo">
+                                </td>
+                                <th scope="row">
+                                    <label for="selectAuthor" class="form_label">승인상태</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select">
+                                        <select id="selectAuthor">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -540,7 +574,7 @@
                         </nav>
                         <!-- e:pagination -->
 
-                        <a href="./memberView.html" class="btn btn_primary">신규</a>
+                        <a href="./businessView.html" class="btn btn_primary">신규</a>
                         
                     </div>
 

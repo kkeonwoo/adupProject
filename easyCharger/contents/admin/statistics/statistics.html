@@ -93,14 +93,14 @@
                                         <col width="140" />
                                         <col width="*" />
                                         <col width="140" />
-                                        <col width="290" />
+                                        <col width="*" />
                                     </colgroup>
                                     <tbody>
                                         <tr>
                                             <th scope="row">
-                                                <label for="selectMonth" class="form_label">조회기간</label>
+                                                <label for="selectMonth" class="form_label">기간</label>
                                             </th>
-                                            <td colspan="3">
+                                            <td colspan="5">
                                                 <div class="d_flex gap_px_10 align_items_center">
                                                     <div class="custom_select">
                                                         <select id="selectMonth">
@@ -122,11 +122,31 @@
                                                     </div>
                                                 </div>
                                             </td>
+                                        </tr>
+                                        <tr>
                                             <th scope="row">
-                                                <label for="iptCharerId" class="form_label">충전기 ID</label>
+                                                <label for="iptChargingStation" class="form_label">충전소 명</label>
                                             </th>
                                             <td>
-                                                <input type="text" class="form_control wd240" id="iptCharerId" placeholder="충전소 ID 입력">
+                                                <input type="text" class="form_control" id="iptChargingStation" placeholder="충전소명 입력">
+                                            </td>
+                                            <th scope="row">
+                                                <label for="iptCharerId" class="form_label">충전소번호</label>
+                                            </th>
+                                            <td>
+                                                <input type="text" class="form_control" id="iptCharerId" placeholder="충전소번호 입력">
+                                            </td>
+                                            <th scope="row">
+                                                <label for="selectCharerType" class="form_label">충전소 구분</label>
+                                            </th>
+                                            <td>
+                                                <div class="custom_select">
+                                                    <select id="selectCharerType">
+                                                        <option value="">선택</option>
+                                                        <option value="">선택</option>
+                                                        <option value="">선택</option>
+                                                    </select>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -134,7 +154,7 @@
                                                 <label for="selectCompany" class="form_label">제조사</label>
                                             </th>
                                             <td>
-                                                <div class="custom_select wd200">
+                                                <div class="custom_select">
                                                     <select id="selectCompany">
                                                         <option value="">선택</option>
                                                         <option value="">선택</option>
@@ -145,11 +165,11 @@
                                                 </div>
                                             </td>
                                             <th scope="row">
-                                                <label for="selectPayment" class="form_label">결제방식</label>
+                                                <label for="selectModelName" class="form_label">모델명</label>
                                             </th>
                                             <td>
-                                                <div class="custom_select wd200">
-                                                    <select id="selectPayment">
+                                                <div class="custom_select">
+                                                    <select id="selectModelName">
                                                         <option value="">선택</option>
                                                         <option value="">선택</option>
                                                         <option value="">선택</option>
@@ -159,30 +179,51 @@
                                                 </div>
                                             </td>
                                             <th scope="row">
-                                                <label for="selectLocal" class="form_label">지역</label>
+                                                <label for="selectCharerType" class="form_label">충전기 유형</label>
                                             </th>
                                             <td>
-                                                <div class="d_flex gap_px_12 align_items_center">
-                                                    <div class="custom_select">
-                                                        <select id="selectLocal">
-                                                            <option value="">전체</option>
-                                                            <option value="">지역</option>
-                                                            <option value="">지역</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="custom_select">
-                                                        <select id="selectLocal2">
-                                                            <option value="">전체</option>
-                                                            <option value="">지역</option>
-                                                            <option value="">지역</option>
-                                                        </select>
-                                                    </div>
+                                                <div class="custom_select">
+                                                    <select id="selectCharerType">
+                                                        <option value="">전체</option>
+                                                        <option value="">지역</option>
+                                                        <option value="">지역</option>
+                                                    </select>
                                                 </div>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                <div class="btn_end">
+                                <div class="d_flex justify_content_between align_content_center mt_px_25">
+                                    <ul class="form_check_list gap_px_30">
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="charger">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">이용자 수</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="charger">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">충전건 수</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="charger">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">충전량</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="charger">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">결제금액</span>
+                                            </label>
+                                        </li>
+                                    </ul>
                                     <button class="btn btn_secondary" type="button">조회</button>
                                 </div>
                             </article>
@@ -377,7 +418,7 @@
                                     <tbody>
                                         <tr>
                                            <th scope="row">
-                                                <label for="selectMonth" class="form_label">조회기간</label>
+                                                <label for="selectMonth" class="form_label">기간</label>
                                             </th>
                                             <td>
                                                 <div class="d_flex gap_px_10 align_items_center">
@@ -425,9 +466,38 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <div class="btn_end">
+                                <div class="d_flex justify_content_between align_content_center mt_px_25">
+                                    <ul class="form_check_list gap_px_30">
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="charger">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">이용자 수</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="charger">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">충전건 수</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="charger">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">충전량</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="charger">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">결제금액</span>
+                                            </label>
+                                        </li>
+                                    </ul>
                                     <button class="btn btn_secondary" type="button">조회</button>
-                                </div>
                             </article>
 
                             <article class="tbl_ver mt_px_40">
@@ -446,19 +516,22 @@
                                         <col width="220" />
                                         <col width="220" />
                                         <col width="*" />
+                                        <col width="*" />
                                     </colgroup>
                                     <thead>
                                         <tr>
                                             <th rowspan="2" scope="col">월</th>
                                             <th colspan="2" scope="colgroup">회원가입</th>
                                             <th colspan="2" scope="colgroup">RF 카드 발급 현황</th>
-                                            <th rowspan="2" scope="col">구독회원</th>
+                                            <th scope="col">구독회원</th>
+                                            <th rowspan="2" scope="col">이용율</th>
                                         </tr>
                                         <tr>
                                             <th scope="col">개인</th>
                                             <th scope="col">법인</th>
                                             <th scope="col">실물</th>
                                             <th scope="col">모바일</th>
+                                            <th scope="col">회원 수</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -478,8 +551,11 @@
                                             <td>
                                                 <div>700</div>
                                             </td>
+                                            <td>
+                                                <div></div>
+                                            </td>
                                             <td class="bdr0">
-                                                <div>200</div>
+                                                <div>4.7%</div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -498,8 +574,11 @@
                                             <td>
                                                 <div>700</div>
                                             </td>
+                                            <td>
+                                                <div></div>
+                                            </td>
                                             <td class="bdr0">
-                                                <div>200</div>
+                                                <div>4.7%</div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -518,8 +597,11 @@
                                             <td>
                                                 <div>700</div>
                                             </td>
+                                            <td>
+                                                <div></div>
+                                            </td>
                                             <td class="bdr0">
-                                                <div>200</div>
+                                                <div>4.7%</div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -538,8 +620,11 @@
                                             <td>
                                                 <div>700</div>
                                             </td>
+                                            <td>
+                                                <div></div>
+                                            </td>
                                             <td class="bdr0">
-                                                <div>200</div>
+                                                <div>4.7%</div>
                                             </td>
                                         </tr>
                                         <tr class="total">
@@ -558,8 +643,11 @@
                                             <td>
                                                 <div><b>2,252,000</b></div>
                                             </td>
+                                            <td>
+                                                <div></div>
+                                            </td>
                                             <td class="bdr0">
-                                                <div><b>6,000</b></div>
+                                                <div>4.7%</div>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -572,6 +660,8 @@
                                 <table>
                                     <colgroup>
                                         <col width="140" />
+                                        <col width="400" />
+                                        <col width="140" />
                                         <col width="*" />
                                         <col width="140" />
                                         <col width="*" />
@@ -579,7 +669,7 @@
                                     <tbody>
                                         <tr>
                                            <th scope="row">
-                                                <label for="selectMonth" class="form_label">조회기간</label>
+                                                <label for="selectMonth" class="form_label">기간</label>
                                             </th>
                                             <td>
                                                 <div class="d_flex gap_px_10 align_items_center">
@@ -624,33 +714,15 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                           <th scope="row">
-                                                <label for="selectVolume" class="form_label">용량</label>
-                                            </th>
-                                            <td>
-                                                <div class="custom_select wd200">
-                                                    <select id="selectVolume">
-                                                        <option value="">전체</option>
-                                                        <option value="">전체</option>
-                                                        <option value="">전체</option>
-                                                        <option value="">전체</option>
-                                                        <option value="">전체</option>
-                                                    </select>
-                                                </div>
-                                            </td>
                                             <th scope="row">
-                                                <label for="selectCate" class="form_label">구분</label>
+                                                <label for="selectCharerType" class="form_label">충전기 유형</label>
                                             </th>
                                             <td>
-                                                <div class="custom_select wd200">
-                                                    <select id="selectCate">
-                                                        <option value="">설치</option>
-                                                        <option value="">설치</option>
-                                                        <option value="">설치</option>
-                                                        <option value="">설치</option>
-                                                        <option value="">설치</option>
+                                                <div class="custom_select">
+                                                    <select id="selectCharerType">
+                                                        <option value="">선택</option>
+                                                        <option value="">선택</option>
+                                                        <option value="">선택</option>
                                                     </select>
                                                 </div>
                                             </td>
@@ -680,14 +752,14 @@
                                     </colgroup>
                                     <thead>
                                         <tr>
-                                            <th rowspan="2" scope="col">월</th>
+                                            <th rowspan="2" scope="col">날짜</th>
                                             <th colspan="4" scope="colgroup">충전기 현황</th>
                                         </tr>
                                         <tr>
-                                            <th scope="col">신청</th>
-                                            <th scope="col">완료</th>
-                                            <th scope="col">미완료</th>
-                                            <th scope="col" class="bdr0">취소</th>
+                                            <th scope="col">운영대수</th>
+                                            <th scope="col">사용</th>
+                                            <th scope="col">미사용</th>
+                                            <th scope="col" class="bdr0">사용율</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -705,7 +777,7 @@
                                                 <div>14</div>
                                             </td>
                                             <td class="bdr0">
-                                                <div>1</div>
+                                                <div>25%</div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -722,7 +794,7 @@
                                                 <div>14</div>
                                             </td>
                                             <td class="bdr0">
-                                                <div>1</div>
+                                                <div>25%</div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -739,7 +811,7 @@
                                                 <div>14</div>
                                             </td>
                                             <td class="bdr0">
-                                                <div>1</div>
+                                                <div>25%</div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -756,7 +828,7 @@
                                                 <div>14</div>
                                             </td>
                                             <td class="bdr0">
-                                                <div>1</div>
+                                                <div>25%</div>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1127,13 +1199,14 @@
                                         <col width="95" />
                                         <col width="95" />
                                         <col width="95" />
+                                        <col width="95" />
                                     </colgroup>
                                     <thead>
                                         <tr>
                                             <th rowspan="2" scope="col">월</th>
                                             <th colspan="3" scope="colgroup">충전소 정보</th>
                                             <th colspan="2" scope="colgroup">충전 요금</th>
-                                            <th colspan="3" scope="colgroup">한전 청구 내역</th>
+                                            <th colspan="4" scope="colgroup">한전 청구 내역</th>
                                             <th colspan="2" scope="colgroup">비교</th>
                                         </tr>
                                         <tr>
@@ -1144,6 +1217,7 @@
                                             <th scope="col">충전량</th>
                                             <th scope="col">기본요금</th>
                                             <th scope="col">청구 요금</th>
+                                            <th scope="col">전력량 요금</th>
                                             <th scope="col">충전량</th>
                                             <th scope="col">요금</th>
                                             <th scope="col" class="bdr0">충전량</th>
@@ -1176,36 +1250,7 @@
                                                 <div>542,365</div>
                                             </td>
                                             <td>
-                                                <div>35,515</div>
-                                            </td>
-                                            <td>
-                                                <div>0</div>
-                                            </td>
-                                            <td class="bdr0">
-                                                <div>0</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div>OOOO 충전소</div>
-                                            </td>
-                                            <td>
-                                                <div>서울 강남</div>
-                                            </td>
-                                            <td>
-                                                <div>5kW</div>
-                                            </td>
-                                            <td>
-                                                <div>542,365</div>
-                                            </td>
-                                            <td>
-                                                <div>35,515</div>
-                                            </td>
-                                            <td>
                                                 <div></div>
-                                            </td>
-                                            <td>
-                                                <div>542,365</div>
                                             </td>
                                             <td>
                                                 <div>35,515</div>
@@ -1240,6 +1285,9 @@
                                                 <div>542,365</div>
                                             </td>
                                             <td>
+                                                <div></div>
+                                            </td>
+                                            <td>
                                                 <div>35,515</div>
                                             </td>
                                             <td>
@@ -1270,6 +1318,44 @@
                                             </td>
                                             <td>
                                                 <div>542,365</div>
+                                            </td>
+                                            <td>
+                                                <div></div>
+                                            </td>
+                                            <td>
+                                                <div>35,515</div>
+                                            </td>
+                                            <td>
+                                                <div>0</div>
+                                            </td>
+                                            <td class="bdr0">
+                                                <div>0</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>OOOO 충전소</div>
+                                            </td>
+                                            <td>
+                                                <div>서울 강남</div>
+                                            </td>
+                                            <td>
+                                                <div>5kW</div>
+                                            </td>
+                                            <td>
+                                                <div>542,365</div>
+                                            </td>
+                                            <td>
+                                                <div>35,515</div>
+                                            </td>
+                                            <td>
+                                                <div></div>
+                                            </td>
+                                            <td>
+                                                <div>542,365</div>
+                                            </td>
+                                            <td>
+                                                <div></div>
                                             </td>
                                             <td>
                                                 <div>35,515</div>
@@ -1307,6 +1393,9 @@
                                                 <div>542,365</div>
                                             </td>
                                             <td>
+                                                <div></div>
+                                            </td>
+                                            <td>
                                                 <div>35,515</div>
                                             </td>
                                             <td>
@@ -1340,6 +1429,9 @@
                                             </td>
                                             <td>
                                                 <div>542,365</div>
+                                            </td>
+                                            <td>
+                                                <div></div>
                                             </td>
                                             <td>
                                                 <div>35,515</div>
@@ -1377,6 +1469,9 @@
                                                 <div>542,365</div>
                                             </td>
                                             <td>
+                                                <div></div>
+                                            </td>
+                                            <td>
                                                 <div>35,515</div>
                                             </td>
                                             <td>
@@ -1412,6 +1507,9 @@
                                                 <div>542,365</div>
                                             </td>
                                             <td>
+                                                <div></div>
+                                            </td>
+                                            <td>
                                                 <div>35,515</div>
                                             </td>
                                             <td>
@@ -1445,6 +1543,9 @@
                                             </td>
                                             <td>
                                                 <div>542,365</div>
+                                            </td>
+                                            <td>
+                                                <div></div>
                                             </td>
                                             <td>
                                                 <div>35,515</div>

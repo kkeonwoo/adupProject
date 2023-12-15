@@ -529,6 +529,9 @@ EasyCharger = {
             nextText: ">",
             prevText: "<"
         });
+        $(".startDate").on('focus', function() {
+            console.log('aaa');
+        })
         $(".startDate").datepicker({
             dateFormat: "yy-mm-dd", // 날짜의 형식
             nextText: ">",

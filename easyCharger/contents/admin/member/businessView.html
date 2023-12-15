@@ -55,7 +55,7 @@
 
                 <!-- s:section_tit -->
                 <div class="section_top">
-                    <h2 class="section_tit sub" data-menu="사업자 현황 관리">사업자 현황 상세정보</h2>
+                    <h2 class="section_tit sub" data-menu="법인 회원관리">법인 회원관리 상세정보</h2>
                     <div class="location">
                         <span>홈</span>
                         <span>1depth</span>
@@ -109,19 +109,25 @@
                                 <th scope="row">
                                     <label for="iptAddress" class="form_label">주소</label>
                                 </th>
-                                <td colspan="3">
+                                <td>
                                     <div class="d_flex align_items_center gap_px_10">
-                                        <input type="text" class="form_control fill" id="iptAddress">
+                                        <input type="text" class="form_control wd240" id="iptAddress">
                                         <button type="button" class="btn btn_secondary sm">주소검색</button>
                                     </div>
                                 </td>
-                            </tr>
-                            <tr>
                                 <th scope="row">
-                                    <div>가입일자</div>
+                                    <label for="selectAuthor" class="form_label">승인상태</label>
                                 </th>
-                                <td colspan="3">
-                                    <div>2023-08-30</div>
+                                <td>
+                                    <div class="custom_select">
+                                        <select id="selectAuthor">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>

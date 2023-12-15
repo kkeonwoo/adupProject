@@ -55,7 +55,7 @@
 
                 <!-- s:section_tit -->
                 <div class="section_top">
-                    <h2 class="section_tit">구독 상품 현황 조회</h2>
+                    <h2 class="section_tit">타사 회원카드 정보</h2>
                     <div class="location">
                         <span>홈</span>
                         <span>1depth</span>
@@ -70,49 +70,17 @@
                         <colgroup>
                             <col width="140" />
                             <col width="*" />
+                            <col width="140" />
+                            <col width="*" />
                         </colgroup>
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <label for="startDate" class="form_label">기간</label>
+                                    <label for="selectEnterpriser" class="form_label">사업자명</label>
                                 </th>
                                 <td>
-                                    <div class="d_flex gap_px_50 align_items_center">
-                                        <div class="d_flex date_wrap">
-                                            <div class="date_item">
-                                                <input type="text" class="form_control form_datepicker startDate" id="startDate" data-type="dateSearch" />
-                                            </div>
-                                            -
-                                            <div class="date_item">
-                                                <input type="text" class="form_control form_datepicker endDate" data-type="dateSearch" />
-                                            </div>
-                                        </div>
-                                        <ul class="fomr_check_list d_flex gap_px_30">
-                                            <li class="form_check_item">
-                                                <label class="form_check">
-                                                    <input class="form_check_input checkbox" type="radio" name="month">
-                                                    <span class="ico"></span>
-                                                    <span class="form_check_txt">1개월</span>
-                                                </label>
-                                            </li>
-                                            <li class="form_check_item">
-                                                <label class="form_check">
-                                                    <input class="form_check_input checkbox" type="radio" name="month">
-                                                    <span class="ico"></span>
-                                                    <span class="form_check_txt">3개월</span>
-                                                </label>
-                                            </li>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <label for="selectSubscribe" class="form_label">구독 상품</label>
-                                </th>
-                                <td>
-                                    <div class="custom_select wd240">
-                                        <select id="selectSubscribe">
+                                    <div class="custom_select">
+                                        <select id="selectEnterpriser">
                                             <option value="">선택</option>
                                             <option value="">선택</option>
                                             <option value="">선택</option>
@@ -120,6 +88,57 @@
                                             <option value="">선택</option>
                                         </select>
                                     </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="iptUserCardNum" class="form_label">회원카드 번호</label>
+                                </th>
+                                <td>
+                                    <input type="text" class="form_control" id="iptUserCardNum" placeholder="회원카드 검색">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="selectOfflinePay" class="form_label">현장결제 전용</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select">
+                                        <select id="selectOfflinePay">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="radioCardSuspend1" class="form_label">정지 여부</label>
+                                </th>
+                                <td>
+                                    <ul class="form_check_list d_flex gap_px_30">
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="suspend" id="radioCardSuspend1">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">전체</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="suspend">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">정상</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="suspend">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">정지</span>
+                                            </label>
+                                        </li>
+                                    
+                                </ul>
                                 </td>
                             </tr>
                         </tbody>
@@ -130,45 +149,37 @@
                 </article>
 
                 <article class="tbl_ver mt_px_40">
-                    <div class="tbl_top_info">
+                    <div class="tbl_top_info end">
                         <div class="total">총 <em>120</em>개의 목록</div>
+                        <button type="button" class="btn_ico excel"><span>엑셀 다운로드</span></button>
                     </div>
-                    <div class="sticky_tbl h_max_330">
+                    <div class="sticky_tbl h_max_460">
                         <table>
                             <colgroup>
-                                <col width="*" />
-                                <col width="*" />
-                                <col width="*" />
-                                <col width="*" />
-                                <col width="*" />
-                                <col width="*" />
-                                <col width="*" />
-                                <col width="*" />
+                                <col width="*">
+                                <col width="*">
+                                <col width="*">
+                                <col width="*">
+                                <col width="*">
+                                <col width="*">
+                                <col width="*">
+                                <col width="*">
                             </colgroup>
                             <thead>
                                 <tr>
-                                    <th scope="col">기간</th>
-                                    <th scope="col">구독 상품</th>
-                                    <th scope="col">제공충전량 (kWh)</th>
-                                    <th scope="col">구매</th>
-                                    <th scope="col">할인</th>
-                                    <th scope="col">사용</th>
-                                    <th scope="col">환불</th>
-                                    <th scope="col">잔여</th>
+                                    <th scope="col">기관코드</th>
+                                    <th scope="col">사업자명</th>
+                                    <th scope="col">사용자명</th>
+                                    <th scope="col">회원카드 번호</th>
+                                    <th scope="col">현장결제 전용 여부</th>
+                                    <th scope="col">정지여부</th>
+                                    <th scope="col">등록일자</th>
+                                    <th scope="col">수정일자</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <div>2023-11-01~<br>2023-12-31</div>
-                                    </td>
-                                    <td>
-                                        <div>개인</div>
-                                    </td>
-                                    <td>
-                                        <div>300</div>
-                                    </td>
-                                    <td>
                                         <div></div>
                                     </td>
                                     <td>
@@ -176,23 +187,6 @@
                                     </td>
                                     <td>
                                         <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div>비즈니스</div>
-                                    </td>
-                                    <td>
-                                        <div>600</div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -215,10 +209,114 @@
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>화물차</div>
+                                        <div></div>
                                     </td>
                                     <td>
-                                        <div>1,200</div>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
+                                    </td>
+                                    <td>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div></div>
@@ -365,6 +463,8 @@
                         </nav>
                         <!-- e:pagination -->
 
+                        <a href="./memberView.html" class="btn btn_primary">신규</a>
+                        
                     </div>
 
                 </article>

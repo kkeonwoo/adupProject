@@ -55,7 +55,7 @@
 
                 <!-- s:section_tit -->
                 <div class="section_top">
-                    <h2 class="section_tit sub" data-menu="고장신고 관리">고장신고 관리 상세</h2>
+                    <h2 class="section_tit sub" data-menu="AS접수 관리">AS접수 관리 상세</h2>
                     <div class="location">
                         <span>홈</span>
                         <span>1depth</span>
@@ -81,27 +81,47 @@
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <label for="iptDate1" class="form_label">접수일자</label>
+                                    <div>접수번호</div>
                                 </th>
                                 <td>
-                                    <div class="date_item">
-                                        <input type="text" class="form_control datepicker wd100" id="iptDate1">
+                                    <div>0000235</div>
+                                </td>
+                                <th scope="row">
+                                    <div>접수일자</div>
+                                </th>
+                                <td>
+                                    <div>2021-08-24</div>
+                                </td>
+                                <th scope="row">
+                                    <label for="selectState" class="form_label">진행상태</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select fill">
+                                        <select id="selectState">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
                                     </div>
                                 </td>
+                            </tr>
+                            <tr>
                                 <th scope="row">
                                     <label for="iptChargingStation" class="form_label">충전소 명</label>
                                 </th>
-                                <td>
+                                <td colspan="3">
                                     <div class="d_flex align_items_center gap_px_10">
                                         <input type="text" class="form_control fill" id="iptChargingStation">
                                         <button type="button" class="btn btn_secondary sm">찾기</button>
                                     </div>
                                 </td>
                                 <th scope="row">
-                                    <label for="iptChargerNumber" class="form_label">충전기 번호</label>
+                                    <label for="iptChargerID" class="form_label">충전기 ID</label>
                                 </th>
                                 <td>
-                                    <input type="text" class="form_control fill" id="iptChargerNumber">
+                                    <input type="text" class="form_control" id="iptChargerID">
                                 </td>
                             </tr>
                             <tr>
@@ -109,7 +129,10 @@
                                     <label for="iptAddress" class="form_label">충전소 주소</label>
                                 </th>
                                 <td colspan="5">
-                                    <input type="text" class="form_control wd610" id="iptAddress">
+                                    <div class="form_group">
+                                        <input type="text" class="form_control" id="iptAddress">
+                                        <input type="text" class="form_control" id="iptAddress02">
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -126,7 +149,7 @@
                                     <input type="text" class="form_control fill" id="iptPhoneNumber">
                                 </td>
                                 <th scope="row">
-                                    <label for="iptMail" class="form_label">이메일</label>
+                                    <label for="iptMail" class="form_label">차량모델</label>
                                 </th>
                                 <td>
                                     <input type="text" class="form_control fill" id="iptMail">
@@ -134,10 +157,18 @@
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="iptBreakDown" class="form_label">고장신고 항목</label>
+                                    <label for="selectBreakDown" class="form_label">고장신고 항목</label>
                                 </th>
                                 <td colspan="5">
-                                    <input type="text" class="form_control wd610" id="iptBreakDown">
+                                    <div class="custom_select">
+                                        <select id="selectBreakDown">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -149,124 +180,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">
-                                    <label for="iptReceptionist" class="form_label">접수자</label>
-                                </th>
-                                <td>
-                                    <input type="text" class="form_control fill" id="iptReceptionist">
-                                </td>
-                                <th scope="row">
-                                    <label for="selectState" class="form_label">진행상태</label>
-                                </th>
-                                <td>
-                                    <div class="custom_select fill">
-                                        <select id="selectState">
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                        </select>
-                                    </div>
-                                </td>
-                                <th scope="row">
-                                    <label for="iptDate2" class="form_label">예정일</label>
-                                </th>
-                                <td>
-                                    <div class="date_item">
-                                        <input type="text" class="form_control datepicker wd100" id="iptDate2">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <label for="iptManager" class="form_label">담당자</label>
-                                </th>
-                                <td>
-                                    <input type="text" class="form_control fill" id="iptManager">
-                                </td>
-                                <th scope="row">
-                                    <label for="selectPriority" class="form_label">우선순위</label>
-                                </th>
-                                <td>
-                                    <div class="custom_select fill">
-                                        <select id="selectPriority">
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                        </select>
-                                    </div>
-                                </td>
-                                <th scope="row">
-                                    <label for="iptDate3" class="form_label">완료일자</label>
-                                </th>
-                                <td>
-                                    <div class="date_item">
-                                        <input type="text" class="form_control datepicker wd100" id="iptDate3">
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </article>
-
-                <article class="tbl_hor view mt_px_40">
-                    <div class="tbl_top_info">
-                        <h3 class="tbl_tit">조치 결과</h3>
-                    </div>
-                    <table>
-                        <colgroup>
-                            <col width="140" />
-                            <col width="*" />
-                            <col width="140" />
-                            <col width="*" />
-                            <col width="140" />
-                            <col width="*" />
-                        </colgroup>
-                        <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <label for="iptManager2" class="form_label">담당자</label>
-                                </th>
-                                <td>
-                                    <input type="text" class="form_control fill" id="iptManager2">
-                                </td>
-                                <th scope="row">
-                                    <label for="iptDate4" class="form_label">점검일자</label>
-                                </th>
-                                <td>
-                                    <div class="date_item">
-                                        <input type="text" class="form_control datepicker wd100" id="iptDate4">
-                                    </div>
-                                </td>
-                                <th scope="row">
-                                    <label for="selectResult" class="form_label">점검결과</label>
-                                </th>
-                                <td>
-                                    <div class="custom_select">
-                                        <select id="selectResult">
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                        </select>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <label for="iptContent2" class="form_label">점검내용</label>
-                                </th>
-                                <td colspan="5">
-                                    <textarea id="iptContent2" class="form_control wd610 ht70"></textarea>
-                                </td>
-                            </tr>
-                            <tr>
                                 <th>
-                                    <label for="btnAddFile" class="form_label">조치 전,<br>파일 첨부</label>
+                                    <label for="btnAddFile" class="form_label">파일 첨부</label>
                                 </th>
                                 <td colspan="5">
                                     <div class="tbl_ver file">
@@ -319,13 +234,153 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>
-                                    <label for="btnAddFile2" class="form_label">조치 후,<br>파일 첨부</label>
+                                <th scope="row">
+                                    <label for="iptReceptionist" class="form_label">접수자</label>
                                 </th>
-                                <td colspan="5">
+                                <td>
+                                    <input type="text" class="form_control fill" id="iptReceptionist">
+                                </td>
+                                <th scope="row">
+                                    <label for="selectPriority" class="form_label">우선순위</label>
+                                </th>
+                                <td colspan="3">
+                                    <div class="custom_select">
+                                        <select id="selectPriority">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+
+                <article class="tbl_hor view mt_px_40">
+                    <div class="tbl_top_info">
+                        <h3 class="tbl_tit">조치 결과</h3>
+                    </div>
+                    <table>
+                        <colgroup>
+                            <col width="140" />
+                            <col width="*" />
+                            <col width="140" />
+                            <col width="*" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <label for="iptManager2" class="form_label">담당자</label>
+                                </th>
+                                <td>
+                                    <input type="text" class="form_control wd100" id="iptManager2">
+                                </td>
+                                <th scope="row">
+                                    <label for="iptDate4" class="form_label">점검일자</label>
+                                </th>
+                                <td>
+                                    <div class="date_item">
+                                        <input type="text" class="form_control datepicker wd100" id="iptDate4">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="selectResult" class="form_label">처리결과</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select">
+                                        <select id="selectResult wd240">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="iptDate5" class="form_label">완료일자</label>
+                                </th>
+                                <td>
+                                    <div class="date_item">
+                                        <input type="text" class="form_control datepicker wd100" id="iptDate5">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="iptContent2" class="form_label">점검내용</label>
+                                </th>
+                                <td colspan="3">
+                                    <textarea id="iptContent2" class="form_control wd610 ht70"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label for="btnAddFile2" class="form_label">조치 전,<br>파일 첨부</label>
+                                </th>
+                                <td colspan="3">
                                     <div class="tbl_ver file">
                                         <div class="btn_end">
                                             <button type="button" class="btn_add" id="btnAddFile2">파일 추가</button>
+                                        </div>
+                                        <div class="sticky_tbl h_max_125">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">파일명</th>
+                                                        <th scope="col">크기</th>
+                                                        <th scope="col">기능</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <div>Image01.gif</div>
+                                                        </td>
+                                                        <td>
+                                                            <div>9.05MB</div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="btn_center">
+                                                                <button type="button" class="btn btn_secondary sm">미리보기</button>
+                                                                <button type="button" class="btn btn_secondary sm">삭제</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div>Image01.gif</div>
+                                                        </td>
+                                                        <td>
+                                                            <div>9.05MB</div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="btn_center">
+                                                                <button type="button" class="btn btn_secondary sm">미리보기</button>
+                                                                <button type="button" class="btn btn_secondary sm">삭제</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p class="caution">※ 최대 10MB까지 업로드 가능</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label for="btnAddFile3" class="form_label">조치 후,<br>파일 첨부</label>
+                                </th>
+                                <td colspan="3">
+                                    <div class="tbl_ver file">
+                                        <div class="btn_end">
+                                            <button type="button" class="btn_add" id="btnAddFile3">파일 추가</button>
                                         </div>
                                         <div class="sticky_tbl h_max_125">
                                             <table>
