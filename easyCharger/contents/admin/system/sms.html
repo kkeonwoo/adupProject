@@ -461,7 +461,7 @@
                 <div class="modal_body">
                     <div class="modal_content">
                         <h2>메시지 설정</h2>
-                        <div> 
+                        <div class="tbl_ver"> 
                             <table>
                                 <colgroup>
                                     <col width="120" />
@@ -561,10 +561,11 @@
                     <div class="modal_content">
                         <div class="d_flex gap_px_40 half_content">
                             <div>
-                                <div class="tbl_top_info">
+                                <div class="tbl_top_info flex_column align_items_start">
                                     <h2 class="tbl_tit">대상자 설정</h2>
+                                    <div class="total">총 <em>120</em>건</div>
                                 </div>
-                                <div class="sticky_tbl h_max_450">
+                                <div class="tbl_ver sticky_tbl h_max_450">
                                     <table>
                                         <colgroup>
                                             <col width="50">
@@ -795,7 +796,7 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="tbl_top_info">
+                                <div class="tbl_top_info mb_px_33">
                                     <h2 class="tbl_tit">메시지 설정</h2>
                                 </div>
                                 <div class="tbl_hor_modal">
@@ -807,33 +808,47 @@
                                         <tbody>
                                             <tr>
                                                 <th scope="row">
-                                                    <div>메시지 내용</div>
+                                                    <div><label for="iptMsgInfo" class="form_label">메시지 내용</label></div>
                                                 </th>
                                                 <td>
                                                     <div>
-                                                        <textarea name="" id="" cols="30" rows="10" class="form_control"></textarea>
+                                                        <div class="form_group column">
+                                                            <textarea name="" id="iptMsgInfo" cols="30" rows="10" class="form_control"></textarea>
+                                                            <div class="d_flex justify_content_between">
+                                                                <ul class="form_check_list">
+                                                                    <li class="form_check_item">
+                                                                        <label class="form_check">
+                                                                            <input class="form_check_input" type="checkbox" id="chkMarketing">
+                                                                            <span class="ico"></span>
+                                                                            <span class="form_check_txt">광고 마케팅</span>
+                                                                        </label>
+                                                                    </li>
+                                                                </ul>
+                                                                <button type="button" class="btn sm btn_secondary">미리보기</button>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">
-                                                    <div>미리보기</div>
+                                                    <div><label for="iptPreview" class="form_label">미리보기</label></div>
                                                 </th>
                                                 <td>
-                                                    <div>
-                                                        <textarea name="" id="" cols="30" rows="10" class="form_control"></textarea>
+                                                    <div class="form_group column align_items_end">
+                                                        <textarea name="" id="iptPreview" cols="30" rows="10" class="form_control"></textarea>
+                                                        <p class="caution">0/1000 byte</p>
                                                     </div>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
+                                <div class="btn_center">
+                                    <button type="button" class="btn btn_primary close">보내기</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="btn_center">
-                        <button type="button" class="btn btn_outline close">삭제</button>
-                        <button type="button" class="btn btn_primary close">저장</button>
                     </div>
                 </div>
             </div>
