@@ -529,9 +529,6 @@ EasyCharger = {
             nextText: ">",
             prevText: "<"
         });
-        $(".startDate").on('focus', function() {
-            console.log('aaa');
-        })
         $(".startDate").datepicker({
             dateFormat: "yy-mm-dd", // 날짜의 형식
             nextText: ">",
@@ -543,8 +540,8 @@ EasyCharger = {
                 var minDate = $(this).datepicker('getDate');
                 endDate.datepicker('setDate', minDate);
                 startDate.setDate(startDate.getDate() + 30);
-                endDate.datepicker('option', 'maxDate', startDate);
-                endDate.datepicker('option', 'minDate', minDate);
+                // endDate.datepicker('option', 'maxDate', startDate); 종료 일자의 최대 선택 가능 기간
+                // endDate.datepicker('option', 'minDate', minDate); 종료 일자의 최소 선택 가능 기간
             }
         });
         $('.endDate').datepicker({

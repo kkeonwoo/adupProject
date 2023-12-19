@@ -302,6 +302,7 @@ a:focus {outline:none;}
 .align_self_stretch {align-self: stretch !important;}
 .w_max_100 { max-width: 100% !important;}
 .w_auto { width:auto;}
+.half_content > div {width:50%;}
 .h_max_125 { max-height: 125px;}
 .h_max_165 { max-height: 165px;}
 .h_max_170 { max-height: 170px;}
@@ -316,7 +317,6 @@ a:focus {outline:none;}
 .h_max_460 { max-height: 460px;}
 .h_max_480 { max-height: 480px;}
 .h_max_500 { max-height: 500px;}
-.half_content > div {width:50%;}
 
 .gap_px_5 { gap: 5px !important;}
 .gap_px_6 { gap: 6px !important;}
@@ -584,11 +584,19 @@ div[class^="tbl_ver"].bdr .bdr0 {border-right:none;}
 .scroll_tbl {overflow-x:auto;}
 .scroll_tbl table {width:1600px;}
 .scroll_tbl_ver {overflow-y:auto;max-height:450px;}
+
+/* table sticky header */
 .sticky_tbl { overflow-y: auto;}
 .sticky_tbl table,
 .modal .tbl_hor_modal .sticky_tbl table { border-top: none; border-collapse: separate; border-spacing: 0;}
 .sticky_tbl table thead { position: sticky; top: 0; z-index: 8;}
 .sticky_tbl table tr:nth-child(1) th { border-top: 2px solid var(--fn-gray-11);}
+
+/* table flex layout */
+.tbl_flex table tr { display: flex;}
+.tbl_flex table tr th { display: flex; justify-content: center; align-items: center; width: 140px;}
+.tbl_flex table tr td { display: block;}
+.tbl_flex table tr td.fill { flex: 1;}
 
 /*title*/
 .section_top {position:relative;}

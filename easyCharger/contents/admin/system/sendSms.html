@@ -55,7 +55,7 @@
 
                 <!-- s:section_tit -->
                 <div class="section_top">
-                    <h2 class="section_tit">메시지 로그</h2>
+                    <h2 class="section_tit">SMS 발송 내역</h2>
                     <div class="location">
                         <span>홈</span>
                         <span>1depth</span>
@@ -76,22 +76,20 @@
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <label for="startDate">기간</label>
+                                    <label for="startDate" class="form_label">조회기간</label>
                                 </th>
                                 <td colspan="3">
                                     <div class="d_flex gap_px_50 align_items_center">
                                         <div class="d_flex date_wrap">
                                             <div class="date_item">
-                                                <input type="text" class="form_control form_datepicker startDate" id="startDate"
-                                                    data-type="dateSearch">
+                                                <input type="text" class="form_control form_datepicker startDate" id="startDate" data-type="dateSearch">
                                             </div>
                                             -
                                             <div class="date_item">
-                                                <input type="text" class="form_control form_datepicker endDate" data-type="dateSearch"
-                                                    id="dp1702544882626">
+                                                <input type="text" class="form_control form_datepicker endDate" data-type="dateSearch" id="dp1702872226163">
                                             </div>
                                         </div>
-                                        <ul class="fomr_check_list d_flex gap_px_30">
+                                        <ul class="form_check_list d_flex gap_px_30">
                                             <li class="form_check_item">
                                                 <label class="form_check">
                                                     <input class="form_check_input checkbox" type="radio" name="month">
@@ -112,16 +110,46 @@
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="iptChargeStationName" class="form_label">충전소 명</label>
+                                    <label for="iptTarget" class="form_label">대상자</label>
                                 </th>
                                 <td>
-                                    <input type="text" id="iptChargeStationName" class="form_control wd220">
+                                    <input type="text" class="form_control" id="iptTarget">
                                 </td>
                                 <th scope="row">
-                                    <label for="iptChargeStationId" class="form_label">충전소 ID</label>
+                                    <label for="iptRespNumber" class="form_label">수신번호</label>
                                 </th>
                                 <td>
-                                    <input type="text" id="iptChargeStationId" class="form_control wd220">
+                                    <input type="text" class="form_control" id="iptRespNumber">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="selectRespResult" class="form_label">전송결과</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select">
+                                        <select id="selectRespResult">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="selectSendType" class="form_label">발송타입</label>
+                                </th>
+                                <td>
+                                    <div class="custom_select">
+                                        <select id="selectSendType">
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                            <option value="">선택</option>
+                                        </select>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -132,242 +160,286 @@
                 </article>
 
                 <article class="tbl_ver mt_px_40">
-                    <div class="tbl_top_info end">
-                        <div class="total">총 <em>120</em>개의 목록</div>
+                    <div class="tbl_top_info">
+                        <div class="total">총 <em>120</em>건</div>
                     </div>
-                    <div class="scroll_tbl sticky_tbl h_max_420">
+                    <div class="sticky_tbl h_max_460">
                         <table>
                             <colgroup>
-                                <col width="145" />
-                                <col width="150" />
-                                <col width="115" />
-                                <col width="*" />
+                                <col width="50" />
+                                <col width="80" />
                                 <col width="120" />
-                                <col width="165" />
-                                <col width="175" />
+                                <col width="80" />
+                                <col width="200" />
+                                <col width="*" />
+                                <col width="100" />
                             </colgroup>
                             <thead>
                                 <tr>
-                                    <th scope="col">일시</th>
-                                    <th scope="col">충전소 명</th>
-                                    <th scope="col">충전소 ID</th>
-                                    <th scope="col">API</th>
-                                    <th scope="col">API Name</th>
-                                    <th scope="col">Request Parameter</th>
-                                    <th scope="col">Response Parameter</th>
+                                    <th scope="col">No</th>
+                                    <th scope="col">대상자</th>
+                                    <th scope="col">수신번호</th>
+                                    <th scope="col">발송타입</th>
+                                    <th scope="col">발송시간</th>
+                                    <th scope="col">메시지</th>
+                                    <th scope="col">전송결과</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <div></div>
+                                        <div>1</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>000</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>010-2222-2222</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>수동</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>
+                                            2023-11-02 15:30:55
+                                        </div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>충전이 완료되었습니다.</div>
                                     </td>
                                     <td>
-                                        <div></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
+                                        <div>성공</div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div></div>
+                                        <div>1</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>000</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>010-2222-2222</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>수동</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>
+                                            2023-11-02 15:30:55
+                                        </div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>충전이 완료되었습니다.</div>
                                     </td>
                                     <td>
-                                        <div></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
+                                        <div>성공</div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div></div>
+                                        <div>1</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>000</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>010-2222-2222</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>수동</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>
+                                            2023-11-02 15:30:55
+                                        </div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>충전이 완료되었습니다.</div>
                                     </td>
                                     <td>
-                                        <div></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
+                                        <div>성공</div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div></div>
+                                        <div>1</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>000</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>010-2222-2222</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>수동</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>
+                                            2023-11-02 15:30:55
+                                        </div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>충전이 완료되었습니다.</div>
                                     </td>
                                     <td>
-                                        <div></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
-                                    </td>
-                                    <td>
-                                        <div></div>
+                                        <div>성공</div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div></div>
+                                        <div>1</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>000</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>010-2222-2222</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>수동</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>
+                                            2023-11-02 15:30:55
+                                        </div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>충전이 완료되었습니다.</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>성공</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>1</div>
+                                    </td>
+                                    <td>
+                                        <div>000</div>
+                                    </td>
+                                    <td>
+                                        <div>010-2222-2222</div>
+                                    </td>
+                                    <td>
+                                        <div>수동</div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            2023-11-02 15:30:55
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>충전이 완료되었습니다.</div>
+                                    </td>
+                                    <td>
+                                        <div>성공</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>1</div>
+                                    </td>
+                                    <td>
+                                        <div>000</div>
+                                    </td>
+                                    <td>
+                                        <div>010-2222-2222</div>
+                                    </td>
+                                    <td>
+                                        <div>수동</div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            2023-11-02 15:30:55
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>충전이 완료되었습니다.</div>
+                                    </td>
+                                    <td>
+                                        <div>성공</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>1</div>
+                                    </td>
+                                    <td>
+                                        <div>000</div>
+                                    </td>
+                                    <td>
+                                        <div>010-2222-2222</div>
+                                    </td>
+                                    <td>
+                                        <div>수동</div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            2023-11-02 15:30:55
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>충전이 완료되었습니다.</div>
+                                    </td>
+                                    <td>
+                                        <div>성공</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>1</div>
+                                    </td>
+                                    <td>
+                                        <div>000</div>
+                                    </td>
+                                    <td>
+                                        <div>010-2222-2222</div>
+                                    </td>
+                                    <td>
+                                        <div>수동</div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            2023-11-02 15:30:55
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>충전이 완료되었습니다.</div>
+                                    </td>
+                                    <td>
+                                        <div>성공</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>1</div>
+                                    </td>
+                                    <td>
+                                        <div>000</div>
+                                    </td>
+                                    <td>
+                                        <div>010-2222-2222</div>
+                                    </td>
+                                    <td>
+                                        <div>수동</div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            2023-11-02 15:30:55
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>충전이 완료되었습니다.</div>
+                                    </td>
+                                    <td>
+                                        <div>성공</div>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+
                     <div class="btn_end">
                         <!-- s:pagination -->
                         <nav class="pagination" aria-label="board pages">
@@ -390,6 +462,7 @@
                         </nav>
                         <!-- e:pagination -->
 
+                        <button class="btn btn_primary" type="button">등록</button>
                     </div>
 
                 </article>
