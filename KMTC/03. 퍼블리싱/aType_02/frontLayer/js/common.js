@@ -79,7 +79,7 @@ App = {
             
             arrowPath.forEach((el, idx) => {
                 let path = document.getElementById(`mPath${idx+1}`);
-                tlAsia.fromTo(path, { autoAlpha: 0, strokeDashoffset: path.getTotalLength(), strokeDasharray: path.getTotalLength() }, { autoAlpha: 1, strokeDashoffset: 0 })
+                tlAsia.fromTo(path, { autoAlpha: 0, strokeDashoffset: path.getTotalLength(), strokeDasharray: path.getTotalLength() }, { autoAlpha: 1, strokeDashoffset: 0 }, '-=0.1')
             })
 
             tlMob.from('.tooltip_mobile', { autoAlpha: 0, y: 100, stagger: {each:0.2}, duration: 1})
