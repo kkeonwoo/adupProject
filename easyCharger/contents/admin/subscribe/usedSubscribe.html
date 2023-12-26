@@ -110,18 +110,10 @@
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="selectSubscribe" class="form_label">구독 상품</label>
+                                    <label for="iptSubscribe" class="form_label">구독 상품</label>
                                 </th>
                                 <td>
-                                    <div class="custom_select wd240">
-                                        <select id="selectSubscribe">
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                        </select>
-                                    </div>
+                                    <input type="text" id="iptSubscribe" class="form_control fill" placeholder="구독 상품명 입력">
                                 </td>
                                 <th scope="row">
                                     <label for="selectStatus" class="form_label">상태</label>
@@ -143,14 +135,14 @@
                                     <label for="iptOrderNum" class="form_label">오더번호</label>
                                 </th>
                                 <td>
-                                    <input type="text" id="iptOrderNum" class="form_control wd240">
+                                    <input type="text" id="iptOrderNum" class="form_control fill">
                                 </td>
                                 <th scope="row">
                                     <label for="selectUserInfo" class="form_label">회원정보</label>
                                 </th>
                                 <td>
                                     <div class="form_group">
-                                        <div class="custom_select">
+                                        <div class="custom_select wd100">
                                             <select id="selectUserInfo">
                                                 <option value="">회원명</option>
                                                 <option value="">회원ID</option>
@@ -158,7 +150,7 @@
                                                 <option value="">휴대폰번호</option>
                                             </select>
                                         </div>
-                                        <input type="text" id="iptUserInfo" class="form_control">
+                                        <input type="text" id="iptUserInfo" class="form_control wd130">
                                     </div>
                                 </td>
                             </tr>
@@ -173,21 +165,21 @@
                     <div class="tbl_top_info">
                         <div class="total">총 <em>120</em>개의 목록</div>
                     </div>
-                    <div class="sticky_tbl h_max_350">
+                    <div class="scroll_tbl sticky_tbl h_max_350">
                         <table>
                             <colgroup>
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
+                                <col width="90">
+                                <col width="100">
+                                <col width="115">
+                                <col width="135">
+                                <col width="110">
+                                <col width="135">
+                                <col width="65">
+                                <col width="90">
+                                <col width="95">
+                                <col width="95">
+                                <col width="150">
+                                <col width="120">
                                 <col width="*">
                             </colgroup>
                             <thead>
@@ -197,14 +189,14 @@
                                     <th scope="col">회원명</th>
                                     <th scope="col">휴대폰번호</th>
                                     <th scope="col">구독상품</th>
-                                    <th scope="col">제공충전량<br>(kWh)</th>
+                                    <th scope="col">제공충전량(kWh)</th>
                                     <th scope="col">회차</th>
                                     <th scope="col">구독상태</th>
                                     <th scope="col">충전기 ID</th>
                                     <th scope="col">충전일자</th>
                                     <th scope="col">충전시간</th>
                                     <th scope="col">충전량(kWh)</th>
-                                    <th scope="col">잔여 충전량<br>(kWh)</th>
+                                    <th scope="col">잔여 충전량(kWh)</th>
                                 </tr>
                             </thead>
                             <tbody>

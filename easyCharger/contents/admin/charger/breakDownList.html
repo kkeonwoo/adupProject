@@ -71,7 +71,9 @@
                             <col width="140" />
                             <col width="*" />
                             <col width="140" />
-                            <col width="*" />
+                            <col width="55" />
+                            <col width="140" />
+                            <col width="55" />
                             <col width="140" />
                             <col width="*" />
                         </colgroup>
@@ -80,7 +82,7 @@
                                 <th scope="row">
                                     <label for="startDate" class="form_label">접수 일자</label>
                                 </th>
-                                <td colspan="5">
+                                <td colspan="7">
                                     <div class="d_flex gap_px_50 align_items_center">
                                         <div class="d_flex date_wrap">
                                             <div class="date_item">
@@ -115,7 +117,7 @@
                                 <th scope="row">
                                     <label for="iptChargingStation" class="form_label">충전소 명</label>
                                 </th>
-                                <td>
+                                <td colspan="3">
                                     <input type="text" class="form_control" id="iptChargingStation" placeholder="충전소명 입력">
                                 </td>
                                 <th scope="row">
@@ -143,7 +145,7 @@
                                 <th scope="row">
                                     <label for="selectResult" class="form_label">처리결과</label>
                                 </th>
-                                <td>
+                                <td colspan="3">
                                     <div class="custom_select">
                                         <select id="selectResult">
                                             <option value="">선택</option>
@@ -180,37 +182,39 @@
                     <div class="tbl_top_info">
                         <div class="total">총 <em>120</em>개의 목록</div>
                     </div>
-                    <div class="sticky_tbl h_max_460">
+                    <div class="scroll_tbl sticky_tbl h_max_460">
                         <table>
                             <colgroup>
+                                <col width="95">
+                                <col width="105">
+                                <col width="95">
                                 <col width="*">
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
-                                <col width="*">
+                                <col width="75">
+                                <col width="75">
+                                <col width="75">
+                                <col width="75">
+                                <col width="105">
+                                <col width="75">
+                                <col width="85">
+                                <col width="105">
+                                <col width="105">
+                                <col width="105">
                             </colgroup>
                             <thead>
                                 <tr>
                                     <th scope="col">접수번호</th>
                                     <th scope="col">충전소 명</th>
-                                    <th scope="col">충전기<br>ID</th>
+                                    <th scope="col">충전소 ID</th>
                                     <th scope="col">신고 항목</th>
                                     <th scope="col">파일첨부</th>
                                     <th scope="col">신청자</th>
-                                    <th scope="col">우선<br>순위</th>
+                                    <th scope="col">우선순위</th>
                                     <th scope="col">접수자</th>
                                     <th scope="col">접수일자</th>
                                     <th scope="col">담당자</th>
                                     <th scope="col">진행상태</th>
-                                    <th scope="col">점검<br>일자</th>
-                                    <th scope="col">처리<br>결과</th>
+                                    <th scope="col">점검일자</th>
+                                    <th scope="col">처리결과</th>
                                     <th scope="col">완료일자</th>
                                 </tr>
                             </thead>
@@ -220,7 +224,10 @@
                                         <div>0000235</div>
                                     </td>
                                     <td>
-                                        <div>OOOO 전기충전소</div>
+                                        <div>전기충전소명</div>
+                                    </td>
+                                    <td>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div>충전 커넥터 접촉 불량</div>
@@ -247,16 +254,13 @@
                                         <div>접수</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                     <td>
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>점검완료</div>
-                                    </td>
-                                    <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                 </tr>
                                 <tr>
@@ -264,7 +268,10 @@
                                         <div>0000235</div>
                                     </td>
                                     <td>
-                                        <div>OOOO 전기충전소</div>
+                                        <div>전기충전소명</div>
+                                    </td>
+                                    <td>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div>충전 커넥터 접촉 불량</div>
@@ -291,16 +298,13 @@
                                         <div>접수</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                     <td>
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>점검완료</div>
-                                    </td>
-                                    <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                 </tr>
                                 <tr>
@@ -308,7 +312,10 @@
                                         <div>0000235</div>
                                     </td>
                                     <td>
-                                        <div>OOOO 전기충전소</div>
+                                        <div>전기충전소명</div>
+                                    </td>
+                                    <td>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div>충전 커넥터 접촉 불량</div>
@@ -335,16 +342,13 @@
                                         <div>접수</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                     <td>
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>점검완료</div>
-                                    </td>
-                                    <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                 </tr>
                                 <tr>
@@ -352,7 +356,10 @@
                                         <div>0000235</div>
                                     </td>
                                     <td>
-                                        <div>OOOO 전기충전소</div>
+                                        <div>전기충전소명</div>
+                                    </td>
+                                    <td>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div>충전 커넥터 접촉 불량</div>
@@ -379,16 +386,13 @@
                                         <div>접수</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                     <td>
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>점검완료</div>
-                                    </td>
-                                    <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                 </tr>
                                 <tr>
@@ -396,7 +400,10 @@
                                         <div>0000235</div>
                                     </td>
                                     <td>
-                                        <div>OOOO 전기충전소</div>
+                                        <div>전기충전소명</div>
+                                    </td>
+                                    <td>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div>충전 커넥터 접촉 불량</div>
@@ -423,16 +430,13 @@
                                         <div>접수</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                     <td>
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>점검완료</div>
-                                    </td>
-                                    <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                 </tr>
                                 <tr>
@@ -440,7 +444,10 @@
                                         <div>0000235</div>
                                     </td>
                                     <td>
-                                        <div>OOOO 전기충전소</div>
+                                        <div>전기충전소명</div>
+                                    </td>
+                                    <td>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div>충전 커넥터 접촉 불량</div>
@@ -467,16 +474,13 @@
                                         <div>접수</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                     <td>
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>점검완료</div>
-                                    </td>
-                                    <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                 </tr>
                                 <tr>
@@ -484,7 +488,10 @@
                                         <div>0000235</div>
                                     </td>
                                     <td>
-                                        <div>OOOO 전기충전소</div>
+                                        <div>전기충전소명</div>
+                                    </td>
+                                    <td>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div>충전 커넥터 접촉 불량</div>
@@ -511,16 +518,13 @@
                                         <div>접수</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                     <td>
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>점검완료</div>
-                                    </td>
-                                    <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                 </tr>
                                 <tr>
@@ -528,7 +532,10 @@
                                         <div>0000235</div>
                                     </td>
                                     <td>
-                                        <div>OOOO 전기충전소</div>
+                                        <div>전기충전소명</div>
+                                    </td>
+                                    <td>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div>충전 커넥터 접촉 불량</div>
@@ -555,16 +562,13 @@
                                         <div>접수</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                     <td>
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>점검완료</div>
-                                    </td>
-                                    <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                 </tr>
                                 <tr>
@@ -572,7 +576,10 @@
                                         <div>0000235</div>
                                     </td>
                                     <td>
-                                        <div>OOOO 전기충전소</div>
+                                        <div>전기충전소명</div>
+                                    </td>
+                                    <td>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div>충전 커넥터 접촉 불량</div>
@@ -599,16 +606,13 @@
                                         <div>접수</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                     <td>
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>점검완료</div>
-                                    </td>
-                                    <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                 </tr>
                                 <tr>
@@ -616,7 +620,10 @@
                                         <div>0000235</div>
                                     </td>
                                     <td>
-                                        <div>OOOO 전기충전소</div>
+                                        <div>전기충전소명</div>
+                                    </td>
+                                    <td>
+                                        <div></div>
                                     </td>
                                     <td>
                                         <div>충전 커넥터 접촉 불량</div>
@@ -643,16 +650,13 @@
                                         <div>접수</div>
                                     </td>
                                     <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                     <td>
                                         <div></div>
                                     </td>
                                     <td>
-                                        <div>점검완료</div>
-                                    </td>
-                                    <td>
-                                        <div></div>
+                                        <div>2023-10-15</div>
                                     </td>
                                 </tr>
                             </tbody>

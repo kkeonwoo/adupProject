@@ -310,6 +310,7 @@ a:focus {outline:none;}
 .h_max_250 { max-height: 250px;}
 .h_max_260 { max-height: 260px;}
 .h_max_290 { max-height: 290px;}
+.h_max_300 { max-height: 300px;}
 .h_max_330 { max-height: 330px;}
 .h_max_350 { max-height: 350px;}
 .h_max_410 { max-height: 410px;}
@@ -429,12 +430,14 @@ textarea.form_control {padding:12px;min-height:260px;resize:none;}
 
 .wd240 {width:240px;}
 .form_control.wd80 {width:80px;}
+.custom_select.wd100,
 .form_control.wd100 {width:100px;}
 .form_control.wd115 {width:115px;}
 .form_control.wd120,
 .custom_select,
 .form_select,
 .form_select .form_btn {width:120px;}
+.form_control.wd130 {width:130px;}
 .form_control.wd200,
 .custom_select.wd200,
 .form_select.wd200,
@@ -443,7 +446,10 @@ textarea.form_control {padding:12px;min-height:260px;resize:none;}
 .form_control.wd240,
 .form_select.wd240,
 .form_select.wd240 .form_btn {width:240px !important;}
-.form_control.wd220 {width:220px !important;}
+.form_control.wd220,
+.custom_select.wd220 {width:220px !important;}
+.form_control.wd300 {width:300px !important;}
+.form_control.wd335 {width:335px !important;}
 .form_control.wd420 {width:420px !important;}
 .form_control.wd480 {width:478px !important;}
 .form_control.wd610 {width:608px !important;}
@@ -658,6 +664,7 @@ div[class^="tbl_ver"].bdr .bdr0 {border-right:none;}
 .modal .tbl_ver_modal table td {border-bottom:1px solid var(--fn-gray-e4);color:var(--fn-gray-55);text-align:center;font-weight:500;}
 .modal .tbl_ver_modal table td > div {display:flex;align-items:center;justify-content:center;min-height:40px;color:inherit;font-weight:inherit;}
 .modal .tbl_hor_modal table tr td:last-child {border-right:none;}
+.modal .tbl_hor_modal table tr td.ht125 { height: 125px;}
 .modal .form_control {max-width:100%;min-height:28px;padding:3px 12px;}
 .modal textarea.form_control {max-width:100%;min-height:260px;padding:12px;}
 .modal textarea.form_control.ht175 {min-height:175px;}
