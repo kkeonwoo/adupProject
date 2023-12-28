@@ -94,67 +94,73 @@
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="iptPaymentName" class="form_label">요금제명</label>
+                                    <label for="radioPaymentName" class="form_label">요금제명</label>
                                 </th>
                                 <td colspan="3">
-                                    <input type="text" class="form_control" id="iptPaymentName">
+                                    <ul class="form_check_list gap_px_30">
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="paymentName" id="radioPaymentName">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">Y</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="paymentName">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">N</span>
+                                            </label>
+                                        </li>
+                                    </ul>
                                 </td>
                                 <th scope="row">
-                                    <label for="SelectPayment" class="form_label">요금제명</label>
+                                    <label for="radioPayment" class="form_label">요금제명</label>
                                 </th>
                                 <td colspan="3">
-                                    <div class="custom_select wd240">
-                                        <select id="SelectPayment">
-                                            <option value="">선택</option>
-                                            <option value="">단일 요금</option>
-                                            <option value="">계시별 요금</option>
-                                            <option value="">프로모션 요금</option>
-                                        </select>
-                                    </div>
+                                    <ul class="form_check_list gap_px_30">
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="payment" id="radioPayment">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">단일요금</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="payment">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">계시별 요금</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="payment">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">프로모션 요금</span>
+                                            </label>
+                                        </li>
+                                    </ul>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="selectPaymentUser" class="form_label">회원가</label>
+                                    <label for="iptPaymentUser" class="form_label">회원가</label>
                                 </th>
                                 <td>
-                                    <div class="custom_select">
-                                        <select id="selectPaymentUser">
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                        </select>
-                                    </div>
+                                    <input type="text" id="iptPaymentUser" class="form_control wd120">
                                 </td>
                                 <th scope="row">
-                                    <label for="selectPaymentNotUser" class="form_label">비회원가</label>
+                                    <label for="iptPaymentNotUser" class="form_label">비회원가</label>
                                 </th>
                                 <td colspan="3">
-                                    <div class="custom_select">
-                                        <select id="selectPaymentNotUser">
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                        </select>
-                                    </div>
+                                    <input type="text" id="iptPaymentNotUser" class="form_control wd120">
                                 </td>
                                 <th scope="row">
-                                    <label for="selectPaymentDiscount" class="form_label">할인율 (%)</label>
+                                    <label for="iptPaymentDiscount" class="form_label">할인율 (%)</label>
                                 </th>
                                 <td>
-                                    <div class="custom_select">
-                                        <select id="selectPaymentDiscount">
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                        </select>
-                                    </div>
+                                    <input type="text" id="iptPaymentDiscount" class="form_control wd120">
                                 </td>
                             </tr>
                             <tr>

@@ -66,27 +66,29 @@
                 <!-- e:section_tit -->
 
                 <article class="tbl_hor view">
-                    <div class="tbl_top_info">
-                        <h3 class="tbl_tit">점검 내용</h3>
-                    </div>
                     <table>
                         <colgroup>
                             <col width="140" />
                             <col width="*" />
-                            <col width="140" />
-                            <col width="55" />
-                            <col width="140" />
-                            <col width="55" />
                             <col width="140" />
                             <col width="*" />
                         </colgroup>
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <label for="iptTitle" class="form_label">제목</label>
+                                    <label for="iptChargingStationName" class="form_label">충전소 이름</label>
                                 </th>
-                                <td colspan="7">
-                                    <input type="text" class="form_control wd610" id="iptTitle">
+                                <td>
+                                    <div class="d_flex align_items_center gap_px_10">
+                                        <input type="text" class="form_control fill" id="iptChargingStationName">
+                                        <button type="button" class="btn btn_secondary sm">찾기</button>
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="iptChargerNumber" class="form_label">충전기 번호</label>
+                                </th>
+                                <td>
+                                    <input type="text" class="form_control wd240" id="iptChargerNumber">
                                 </td>
                             </tr>
                             <tr>
@@ -95,81 +97,94 @@
                                 </th>
                                 <td colspan="3">
                                     <div class="d_flex align_items_center gap_px_10">
-                                        <input type="text" class="form_control fill" id="iptChargingStation">
+                                        <input type="text" class="form_control wd415" id="iptChargingStation">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="iptRequest" class="form_label">점검 항목</label>
+                                </th>
+                                <td>
+                                    <div class="date_item">
+                                        <input type="text" class="form_control datepicker wd100" id="iptRequest">
+                                    </div>
+                                </td>
+                                <th scope="row">
+                                    <label for="iptReceptionist" class="form_label">접수자</label>
+                                </th>
+                                <td>
+                                    <div class="d_flex align_items_center gap_px_10">
+                                        <input type="text" class="form_control wd100" id="iptReceptionist">
                                         <button type="button" class="btn btn_secondary sm">찾기</button>
                                     </div>
                                 </td>
-                                <th scope="row">
-                                    <label for="iptChargerNumber" class="form_label">충전기 번호</label>
-                                </th>
-                                <td colspan="3">
-                                    <input type="text" class="form_control wd240" id="iptChargerNumber">
-                                </td>
                             </tr>
+                        </tbody>
+                    </table>
+                </article>
+                
+                <article class="tbl_hor view mt_px_40">
+                    <div class="tbl_top_info">
+                        <h3 class="tbl_tit">기본정보</h3>
+                    </div>
+                    <table>
+                        <colgroup>
+                            <col width="140" />
+                            <col width="*" />
+                            <col width="140" />
+                            <col width="*" />
+                        </colgroup>
+                        <tbody>
                             <tr>
                                 <th scope="row">
-                                    <label for="iptAddress" class="form_label">충전소 주소</label>
-                                </th>
-                                <td colspan="7">
-                                    <input type="text" class="form_control wd610" id="iptAddress">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <label for="selectRequest" class="form_label">점검 항목</label>
-                                </th>
-                                <td colspan="7">
-                                    <div class="d_flex align_items_center gap_px_10">
-                                        <div class="custom_select">
-                                            <select id="selectRequest">
-                                                <option value="">선택</option>
-                                                <option value="">선택</option>
-                                                <option value="">선택</option>
-                                                <option value="">선택</option>
-                                                <option value="">선택</option>
-                                            </select>
-                                        </div>
-                                        <input type="text" class="form_control wd480">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <label for="iptWrite" class="form_label">등록자</label>
+                                    <label for="iptDate" class="form_label">점검일자</label>
                                 </th>
                                 <td>
-                                    <input type="text" class="form_control fill" id="iptWrite">
-                                </td>
-                                <th scope="row">
-                                    <label for="iptDate" class="form_label">등록일자</label>
-                                </th>
-                                <td colspan="3">
                                     <div class="date_item">
                                         <input type="text" class="form_control datepicker wd100" id="iptDate">
                                     </div>
                                 </td>
                                 <th scope="row">
-                                    <label for="iptDate2" class="form_label">예정일</label>
+                                    <label for="iptChargeStationNumber" class="form_label">충전기 번호</label>
                                 </th>
                                 <td>
-                                    <div class="date_item">
-                                        <input type="text" class="form_control datepicker wd100" id="iptDate2">
+                                    <div class="d_flex align_items_center gap_px_10">
+                                        <input type="text" class="form_control wd100" id="iptChargeStationNumber">
+                                        <button type="button" class="btn btn_secondary sm">찾기</button>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="selectState" class="form_label">진행상태</label>
+                                    <label for="iptTempt" class="form_label">주변 온도/습도</label>
                                 </th>
-                                <td colspan="7">
-                                    <div class="custom_select">
-                                        <select id="selectState">
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                            <option value="">선택</option>
-                                        </select>
+                                <td colspan="3">
+                                    <div class="d_flex align_items_center gap_px_10">
+                                        <input type="text" class="form_control wd60" id="iptTempt">
+                                        ℃
+                                        <input type="text" class="form_control wd60 ms_px_20" id="iptTempt2">
+                                        % RH
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="iptChargerNumber" class="form_label">충전기 총수</label>
+                                </th>
+                                <td colspan="3">
+                                    <div class="d_flex align_items_center gap_px_10">
+                                        총수량
+                                        <input type="text" class="form_control wd60" id="iptChargerNumber">
+                                        <span class="me_px_10">기</span> &#40;사용가능
+                                        <input type="text" class="form_control wd60" id="iptChargerNumber2">
+                                        <span class="me_px_10">기,</span> 사용중
+                                        <input type="text" class="form_control wd60" id="iptChargerNumber3">
+                                        <span class="me_px_10">기,</span> 사용불가
+                                        <input type="text" class="form_control wd60" id="iptChargerNumber4">
+                                        <span class="me_px_10">기,</span> 상태 미확인
+                                        <input type="text" class="form_control wd60" id="iptChargerNumber5">
+                                        기&#41;
                                     </div>
                                 </td>
                             </tr>
@@ -179,38 +194,196 @@
 
                 <article class="tbl_hor view mt_px_40">
                     <div class="tbl_top_info">
-                        <h3 class="tbl_tit">점검 결과</h3>
+                        <h3 class="tbl_tit">충전기 점검표</h3>
                     </div>
                     <table>
                         <colgroup>
                             <col width="140" />
                             <col width="*" />
-                            <col width="140" />
-                            <col width="*" />
+                            <col width="245" />
                         </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    <div>충전기 ID</div>
+                                </th>
+                                <th scope="col">
+                                    <div>점검(조사)항목</div>
+                                </th>
+                                <th scope="col">
+                                    <div>판정</div>
+                                </th>
+                            </tr>
+                        </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">
-                                    <label for="iptManager2" class="form_label">점검자</label>
+                                <th scope="row" rowspan="5">
+                                    <div>319601</div>
                                 </th>
                                 <td>
-                                    <input type="text" class="form_control fill" id="iptManager2">
+                                    <label for="radioReport" class="form_label ms_px_15">누구든 사용할 수 있도록 개방되어 있는가?</label>
                                 </td>
-                                <th scope="row">
-                                    <label for="iptDate4" class="form_label">점검일자</label>
-                                </th>
                                 <td>
-                                    <div class="date_item">
-                                        <input type="text" class="form_control datepicker wd100" id="iptDate4">
-                                    </div>
+                                    <ul class="form_check_list gap_px_30 justify_content_center">
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="report" id="radioReport">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">예</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="report">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">아니오</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="radioReport2" class="form_label ms_px_15">이용자의 인지가 쉽고, 충전기까지 가는 이정표가 있는가?</label>
+                                </td>
+                                <td>
+                                    <ul class="form_check_list gap_px_30 justify_content_center">
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="report2" id="radioReport2">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">예</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="report2">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">아니오</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="radioReport3" class="form_label ms_px_15">전기자동차 전용주차임을 알리는 표지 설치 여부</label>
+                                </td>
+                                <td>
+                                    <ul class="form_check_list gap_px_30 justify_content_center">
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="report3" id="radioReport3">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">예</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="report3">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">아니오</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <ul class="form_check_list d_flex gap_px_30 ms_px_15">
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="checkbox">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">화면</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="checkbox">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">터치</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="checkbox">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">통신</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="checkbox">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">카드</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="checkbox">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">충전</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <ul class="form_check_list d_flex gap_px_30 ms_px_15">
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="checkbox">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">차단기</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="checkbox">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">전원</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="checkbox">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">간헐오류</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="checkbox">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">커넥터</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="checkbox">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">충전</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="iptContent2" class="form_label">점검내용</label>
+                                </th>
+                                <td colspan="2">
+                                    <input type="text" id="iptContent2" class="form_control wd420">
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">
                                     <label for="selectResult" class="form_label">점검결과</label>
                                 </th>
-                                <td colspan="3">
-                                    <div class="custom_select">
+                                <td colspan="2">
+                                    <div class="custom_select wd240">
                                         <select id="selectResult">
                                             <option value="">선택</option>
                                             <option value="">선택</option>
@@ -222,18 +395,10 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">
-                                    <label for="iptContent2" class="form_label">점검내용</label>
-                                </th>
-                                <td colspan="3">
-                                    <textarea id="iptContent2" class="form_control wd610 ht70"></textarea>
-                                </td>
-                            </tr>
-                            <tr>
                                 <th>
                                     <label for="btnAddFile" class="form_label">점검 전,<br>파일 첨부</label>
                                 </th>
-                                <td colspan="3">
+                                <td colspan="2">
                                     <div class="tbl_ver file">
                                         <div class="btn_end">
                                             <button type="button" class="btn_add" id="btnAddFile">파일 추가</button>
@@ -287,7 +452,7 @@
                                 <th>
                                     <label for="btnAddFile2" class="form_label">점검 후,<br>파일 첨부</label>
                                 </th>
-                                <td colspan="3">
+                                <td colspan="2">
                                     <div class="tbl_ver file">
                                         <div class="btn_end">
                                             <button type="button" class="btn_add" id="btnAddFile2">파일 추가</button>
@@ -341,6 +506,7 @@
                     </table>
 
                     <div class="btn_end">
+                        <button class="btn btn_secondary me_auto" type="button">점검보고서 PDF 다운로드</button>
                         <a href="./asList.html" class="btn btn_outline">목록</a>
                         <button class="btn btn_primary" type="button">등록</button>
                     </div>

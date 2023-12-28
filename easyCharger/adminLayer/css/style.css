@@ -64,18 +64,18 @@
 .all_menu #header .btn_alarm {background-image:url(../images/icons/ico_bell_black.png);}
 .all_menu #header .user::before {background-image:url(../images/icons/ico_user_black.png);}
 .all_menu #header .user::after {background-color:rgba(0,0,0,0.2);}
-.all_menu #header .form_select .form_btn {color:var(--fn-gray-11);}
-.all_menu #header .form_select .form_btn::after {background-image:url(../images/icons/arw_gray.png);}
+.all_menu #header .form_select .form_btn,
+.all_menu #header .custom_select select {color:var(--fn-gray-11);}
+.all_menu #header .form_select .form_btn::after
+.all_menu #header .custom_select select::after{background-image:url(../images/icons/arw_gray.png);}
 .all_menu_wrap .content_inner {width:1440px;margin:0 auto;}
 .all_menu_wrap .logo {margin-top:-114px;}
 .all_menu_list {margin-top:60px;}
 .all_menu_list > ul {display:flex;flex-wrap:wrap;gap:80px 35px;}
 .all_menu_list > ul > li {flex-basis:260px;}
-.all_menu_list > ul > li.type_lg {flex-basis:555px;}
 .all_menu_list > ul > li .menu_name {display:flex;align-items:center;height:60px;padding:0 40px;border-radius:60px;border:1px solid var(--fn-gray-cc);background-color:var(--fn-white);font-size:20px;font-weight:700;box-shadow:14px 14px 10px 0px rgba(0, 0, 0, 0.02);}
 .all_menu_list > ul > li .all_sub_menu_list {padding:30px 40px 0 40px;}
 .all_menu_list > ul > li .all_sub_menu_list > a {display:block;margin-bottom:17px;font-size:18px;font-weight:500;color:var(--fn-gray-11);}
-.all_menu_list > ul > li.type_lg .all_sub_menu_list > ul {column-count:2;}
 .all_menu_list > ul > li .all_sub_menu_list > ul > li > a {display:inline-block;position:relative;padding-left:13px;font-size:16px;line-height:28px;color:var(--fn-gray-33);transition:color .15s;}
 .all_menu_list > ul > li .all_sub_menu_list > ul > li > a:hover {color:var(--fn-orange);}
 .all_menu_list > ul > li .all_sub_menu_list > ul > li > a::before {content:'';display:block;position:absolute;left:2px;top:12px;width:5px;height:5px;background-color:var(--fn-gray-aa);border-radius:50%;vertical-align:middle;}

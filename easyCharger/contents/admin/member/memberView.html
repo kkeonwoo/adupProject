@@ -66,8 +66,9 @@
                 <!-- e:section_tit -->
 
                 <article class="tbl_hor view">
-                    <div class="tbl_top_info">
+                    <div class="tbl_top_info end">
                         <h3 class="tbl_tit">기본 정보</h3>
+                        <button type="button" class="btn sm btn_secondary">개인정보 보호 해제</button>
                     </div>
                     <table>
                         <colgroup>
@@ -144,8 +145,8 @@
                                 </th>
                                 <td colspan="3">
                                     <div class="d_flex align_items_center gap_px_10">
-                                        <input type="text" class="form_control wd240" id="iptAddress">
-                                        <input type="text" class="form_control wd240" id="iptAddress02">
+                                        <input type="text" class="form_control wd335" id="iptAddress">
+                                        <input type="text" class="form_control wd335" id="iptAddress02">
                                         <button type="button" class="btn btn_secondary sm">주소검색</button>
                                     </div>
                                 </td>
@@ -155,9 +156,8 @@
                 </article>
 
                 <article class="tbl_hor view mt_px_40">
-                    <div class="tbl_top_info end">
+                    <div class="tbl_top_info">
                         <h3 class="tbl_tit">부가 정보</h3>
-                        <button type="button" class="btn_ico excel"><span>개인정보 보호 해제</span></button>
                     </div>
                     <table>
                         <colgroup>
@@ -208,7 +208,7 @@
                                     <div>보유 포인트</div>
                                 </th>
                                 <td>
-                                    <div class="d_flex align_items_center gap_px_10">
+                                    <div class="d_flex align_items_center gap_px_40">
                                         <div>3,000</div>
                                         <button type="button" class="btn btn_secondary sm" onclick="EasyCharger.openModal($('#modalChargePoint'))">충전</button>
                                     </div>
@@ -216,7 +216,7 @@
                             </tr>
                             <tr>
                                 <th>
-                                    <label for="btnAddFile" class="form_label">파일첨부</label>
+                                    <label for="btnAddFile" class="form_label">첨부파일</label>
                                 </th>
                                 <td colspan="3">
                                     <div class="tbl_ver file">
@@ -274,7 +274,7 @@
 
                 <article class="tbl_ver mt_px_40">
                     <div class="tbl_top_info">
-                        <h3 class="tbl_tit">카드 관리</h3>
+                        <h3 class="tbl_tit">부가 정보</h3>
                     </div>
                     <div class="sticky_tbl h_max_125">
                         <table>
@@ -595,11 +595,11 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">
+                                        <th scope="row" class="pt_px_20 vertical_align_top">
                                             <label for="iptInfo" class="form_label">내용</label>
                                         </th>
                                         <td>
-                                            <textarea id="iptInfo" cols="30" rows="1" class="form_control ht175"></textarea>
+                                            <textarea id="iptInfo" cols="30" rows="1" class="form_control ht110"></textarea>
                                         </td>
                                     </tr>
                                 </tbody>

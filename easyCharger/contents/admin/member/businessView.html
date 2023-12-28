@@ -55,7 +55,7 @@
 
                 <!-- s:section_tit -->
                 <div class="section_top">
-                    <h2 class="section_tit sub" data-menu="법인 회원관리">법인 회원관리 상세정보</h2>
+                    <h2 class="section_tit sub" data-menu="법인 회원관리">법인 회원관리상세</h2>
                     <div class="location">
                         <span>홈</span>
                         <span>1depth</span>
@@ -66,8 +66,9 @@
                 <!-- e:section_tit -->
 
                 <article class="tbl_hor view">
-                    <div class="tbl_top_info">
+                    <div class="tbl_top_info end">
                         <h3 class="tbl_tit">기본 정보</h3>
+                        <button type="button" class="btn btn_secondary">개인정보 보호 해제</button>
                     </div>
                     <table>
                         <colgroup>
@@ -79,10 +80,10 @@
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <label for="iptBusinessId" class="form_label">아이디</label>
+                                    <label for="iptBusinessCompany" class="form_label">회사명</label>
                                 </th>
                                 <td>
-                                    <input type="text" class="form_control wd240" id="iptBusinessId">
+                                    <input type="text" class="form_control wd240" id="iptBusinessCompany">
                                 </td>
                                 <th scope="row">
                                     <label for="iptBusinessName" class="form_label">대표자명</label>
@@ -93,10 +94,32 @@
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="iptBusinessCompany" class="form_label">회사명</label>
+                                    <label for="radioType1" class="form_label">용도구분</label>
                                 </th>
                                 <td>
-                                    <input type="text" class="form_control wd240" id="iptBusinessCompany">
+                                    <ul class="form_check_list d_flex gap_px_30">
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="type" id="radioType1">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">로밍</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="type">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">B2B</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="type">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">충전회원</span>
+                                            </label>
+                                        </li>
+                                    </ul>
                                 </td>
                                 <th scope="row">
                                     <label for="iptBusinessNumber" class="form_label">사업자등록번호</label>
@@ -111,8 +134,9 @@
                                 </th>
                                 <td>
                                     <div class="d_flex align_items_center gap_px_10">
-                                        <input type="text" class="form_control wd240" id="iptAddress">
-                                        <button type="button" class="btn btn_secondary sm">주소검색</button>
+                                        <input type="text" class="form_control fill" id="iptAddress">
+                                        <input type="text" class="form_control wd80" id="iptAddress2">
+                                        <button type="button" class="btn btn_secondary sm flex_shrink_0">주소검색</button>
                                     </div>
                                 </td>
                                 <th scope="row">
@@ -156,7 +180,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="iptMemberPhone" class="form_label">휴대폰 번호</label>
+                                    <label for="iptMemberPhone" class="form_label">연락처</label>
                                 </th>
                                 <td>
                                     <input type="text" class="form_control wd240" id="iptMemberPhone">
@@ -166,6 +190,81 @@
                                 </th>
                                 <td>
                                     <input type="text" class="form_control wd240" id="iptMemberMail">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+                
+                <article class="tbl_hor view mt_px_40">
+                    <div class="tbl_top_info">
+                        <h3 class="tbl_tit">기본 정보</h3>
+                    </div>
+                    <table>
+                        <colgroup>
+                            <col width="140" />
+                            <col width="*" />
+                            <col width="140" />
+                            <col width="*" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <label for="radioCompanyName" class="form_label">회사명</label>
+                                </th>
+                                <td>
+                                    <ul class="form_check_list d_flex gap_px_30">
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="company" id="radioCompanyName">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">환경부</span>
+                                            </label>
+                                        </li>
+                                        <li class="form_check_item">
+                                            <label class="form_check">
+                                                <input class="form_check_input" type="radio" name="company">
+                                                <span class="ico"></span>
+                                                <span class="form_check_txt">한전</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <th scope="row">
+                                    <label for="iptOperateCode" class="form_label">관리 기관 코드</label>
+                                </th>
+                                <td>
+                                    <input type="text" class="form_control wd240" id="iptOperateCode">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="iptNomalPrice" class="form_label">기본 단가</label>
+                                </th>
+                                <td colspan="3">
+                                    <div class="d_flex gap_px_10 align_items_center">
+                                        완속
+                                        <input type="text" class="form_control wd120 me_px_20" id="iptNomalPrice">
+                                        급속
+                                        <input type="text" class="form_control wd120 me_px_20">
+                                        초급속
+                                        <input type="text" class="form_control wd120">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="iptCalcPrice" class="form_label">정산 단가</label>
+                                </th>
+                                <td colspan="3">
+                                    <div class="d_flex gap_px_10 align_items_center">
+                                        완속
+                                        <input type="text" class="form_control wd120 me_px_20" id="iptCalcPrice">
+                                        급속
+                                        <input type="text" class="form_control wd120 me_px_20">
+                                        초급속
+                                        <input type="text" class="form_control wd120">
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -186,7 +285,7 @@
                                 <th scope="row">
                                     <label for="iptBusinessNote" class="form_label">비고</label>
                                 </th>
-                                <td>
+                                <td colspan="3">
                                     <input type="text" class="form_control wd240" id="iptBusinessNote">
                                 </td>
                             </tr>
@@ -209,20 +308,6 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div>Image01.gif</div>
-                                                        </td>
-                                                        <td>
-                                                            <div>9.05MB</div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="btn_center">
-                                                                <button type="button" class="btn btn_secondary sm">미리보기</button>
-                                                                <button type="button" class="btn btn_secondary sm">삭제</button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
                                                     <tr>
                                                         <td>
                                                             <div>Image01.gif</div>
@@ -263,20 +348,6 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div>Image01.gif</div>
-                                                        </td>
-                                                        <td>
-                                                            <div>9.05MB</div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="btn_center">
-                                                                <button type="button" class="btn btn_secondary sm">미리보기</button>
-                                                                <button type="button" class="btn btn_secondary sm">삭제</button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
                                                     <tr>
                                                         <td>
                                                             <div>Image01.gif</div>

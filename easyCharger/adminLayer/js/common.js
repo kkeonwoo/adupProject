@@ -42,6 +42,7 @@ EasyCharger = {
         this.tab();
         this.datepicker();
         this.fileAttach();
+        this.tooltip();
 
         $(".toggle").length && $(".toggle").toggleMethod();
     },
@@ -586,6 +587,28 @@ EasyCharger = {
             }
         });
     },
+    tooltip: function() {
+        $(document).on({
+            mouseover: function () {
+                let brTxt = $(this).attr('data-tooltip'); /* 줄바꿈 text */
+                let txt = brTxt !== undefined ? brTxt : $(this).html();
+                let wrap = `
+                    <div class="tooltip">
+                        <p class="tooltip_txt">${txt}</p>
+                    </div>
+                `
+                $body.append(wrap);
+
+                const tooltip = $('.tooltip');
+                const offsetLeft = $(this).offset().left;
+                const offsetTop = $(this).offset().top;
+                tooltip.css({"left":`${offsetLeft}px`,"top":`${offsetTop}px`})
+            },
+            mouseleave: function () {
+                $('.tooltip').remove();
+            }
+        }, '.tooltip_btn')
+    }
 }
 $(function () {
     $window = $(window);

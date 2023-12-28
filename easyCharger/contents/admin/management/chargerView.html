@@ -164,9 +164,9 @@
                                     <label for="selectChargerModel" class="form_label">충전기 모델</label>
                                 </th>
                                 <td colspan="3">
-                                    <div class="d_flex gap_px_10 align_items_center">
+                                    <div class="d_flex gap_px_10 justify_content_between align_items_center">
                                         제조사
-                                        <div class="custom_select">
+                                        <div class="custom_select wd150">
                                             <select id="selectChargerModel">
                                                 <option value="">선택</option>
                                                 <option value="">선택</option>
@@ -176,7 +176,7 @@
                                             </select>
                                         </div>
                                         모델명
-                                        <div class="custom_select">
+                                        <div class="custom_select wd150">
                                             <select id="selectChargerModel2">
                                                 <option value="">선택</option>
                                                 <option value="">선택</option>
@@ -206,7 +206,7 @@
                                 <th scope="row">
                                     <label for="radioProtocol1" class="form_label">프로토콜 유형</label>
                                 </th>
-                                <td colspan="7">
+                                <td colspan="3">
                                     <ul class="form_check_list gap_px_30">
                                         <li class="form_check_item">
                                             <label class="form_check">
@@ -226,10 +226,16 @@
                                             <label class="form_check">
                                                 <input class="form_check_input" type="radio" name="protocol">
                                                 <span class="ico"></span>
-                                                <span class="form_check_txt">OCPP2.0.1</span>
+                                                <span class="form_check_txt">미사용</span>
                                             </label>
                                         </li>
                                     </ul>
+                                </td>
+                                <th scope="row">
+                                    <label for="iptKepcoNumber" class="form_label">한전 고객번호</label>
+                                </th>
+                                <td colspan="3">
+                                    <input type="text" class="form_control wd240" id="iptKepcoNumber">
                                 </td>
                             </tr>
                             <tr>

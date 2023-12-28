@@ -507,7 +507,7 @@
                                                             <div>단일요금</div>
                                                         </th>
                                                         <td>
-                                                            <label for="selectMember">회원</label>
+                                                            <label for="selectMember">요금제</label>
                                                         </td>
                                                         <td>
                                                             <div class="custom_select sm wd240 auto">
@@ -519,28 +519,14 @@
                                                                     <option value="">선택</option>
                                                                 </select>
                                                             </div>
-                                                            <div class="d_flex justify_content_end wd240 auto">
-                                                                1,000원
-                                                            </div>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <label for="selectNonMember">비회원</label>
+                                                            <label for="selectNonMember">단가</label>
                                                         </td>
                                                         <td>
-                                                            <div class="custom_select sm wd240 auto">
-                                                                <select id="selectNonMember">
-                                                                    <option value="">선택</option>
-                                                                    <option value="">선택</option>
-                                                                    <option value="">선택</option>
-                                                                    <option value="">선택</option>
-                                                                    <option value="">선택</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="d_flex justify_content_end wd240 auto">
-                                                                1,000원
-                                                            </div>
+                                                            <div class="justify_content_start ms_px_10">회원 : 200, 비회원 : 300</div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -589,18 +575,10 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <label for="selectNonMember2-1">비회원</label>
+                                                            <label>단가</label>
                                                         </td>
                                                         <td>
-                                                            <div class="custom_select sm wd240 auto">
-                                                                <select id="selectNonMember2-1">
-                                                                    <option value="">선택</option>
-                                                                    <option value="">선택</option>
-                                                                    <option value="">선택</option>
-                                                                    <option value="">선택</option>
-                                                                    <option value="">선택</option>
-                                                                </select>
-                                                            </div>
+                                                            <div class="justify_content_start ms_px_10">회원 : 200, 비회원 : 300</div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -627,15 +605,7 @@
                                                             <label for="selectNonMember2-2">비회원</label>
                                                         </td>
                                                         <td>
-                                                            <div class="custom_select sm wd240 auto">
-                                                                <select id="selectNonMember2-2">
-                                                                    <option value="">선택</option>
-                                                                    <option value="">선택</option>
-                                                                    <option value="">선택</option>
-                                                                    <option value="">선택</option>
-                                                                    <option value="">선택</option>
-                                                                </select>
-                                                            </div>
+                                                            <div class="justify_content_start ms_px_10">회원 : 200, 비회원 : 300</div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -662,15 +632,7 @@
                                                             <label for="selectNonMember2-3">비회원</label>
                                                         </td>
                                                         <td>
-                                                            <div class="custom_select sm wd240 auto">
-                                                                <select id="selectNonMember2-3">
-                                                                    <option value="">선택</option>
-                                                                    <option value="">선택</option>
-                                                                    <option value="">선택</option>
-                                                                    <option value="">선택</option>
-                                                                    <option value="">선택</option>
-                                                                </select>
-                                                            </div>
+                                                            <div class="justify_content_start ms_px_10">회원 : 200, 비회원 : 300</div>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -691,26 +653,23 @@
                                                 <tbody>
                                                     <tr>
                                                         <th scope="row">
-                                                            <label for="iptPromotion">프로모션</label>
+                                                            <label for="selectPromotion">프로모션</label>
                                                         </th>
                                                         <td>
-                                                            <div class="d_flex justify_content_start align_items_start flex_column">
-                                                                <div class="d_flex align_items_center gap_px_10">
-                                                                    <input type="text" class="form_control wd240" id="iptPromotion">
-                                                                    %
-                                                                </div>
-                                                                <div class="auto mt_px_20 mb_px_8">
-                                                                    프로모션 기간
-                                                                </div>
-                                                                <div class="d_flex date_wrap">
-                                                                    <div class="date_item">
-                                                                        <input type="text" class="form_control form_datepicker startDate" id="startDate" data-type="dateForm" />
-                                                                    </div>
-                                                                    -
-                                                                    <div class="date_item">
-                                                                        <input type="text" class="form_control form_datepicker endDate" data-type="dateForm" />
-                                                                    </div>
-                                                                </div>
+                                                            <div class="custom_select wd240">
+                                                                <select id="selectPromotion">
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                    <option value="">선택</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="auto justify_content_start my_px_15 ms_px_10">
+                                                                할인률 : 5%
+                                                            </div>
+                                                            <div class="auto justify_content_start ms_px_10">
+                                                                적용기간 : 2023-10-01 ~ 2023-12-31
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -718,7 +677,7 @@
                                                         <th scope="col">
                                                             <label for="iptReason2" class="form_label">사유</label>
                                                         </th>
-                                                        <td colspan="2">
+                                                        <td>
                                                             <textarea id="iptReason2" cols="30" rows="1" class="form_control h_65"></textarea>
                                                         </td>
                                                     </tr>
