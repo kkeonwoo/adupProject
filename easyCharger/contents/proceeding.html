@@ -52,7 +52,14 @@
                                 <span class="msg">충전 진행 중</span>
                             </div>
                         </div>
-                        <div class="gauge" style="height: 60%;"></div>
+                        <!-- ex) 진행률 60%: transform: translateY(-60%); -->
+                        <!-- ex) 진행률 80%: transform: translateY(-80%); -->
+                        <div class="wave_area" style="transform: translateY(-60%);">
+                            <div class="wave wave1"></div>
+                            <div class="wave wave2"></div>
+                            <div class="wave wave3"></div>
+                            <div class="wave wave4"></div>
+                        </div>
                     </a>
                     <div class="check_veh_area">
                         <a href="#" class="check_veh_link">

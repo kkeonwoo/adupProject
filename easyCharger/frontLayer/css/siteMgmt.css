@@ -13,10 +13,37 @@
 /* button */
 .btn_list { display: flex; flex-direction: column; gap: 12px;}
 .btn_ml { min-width: 80px; min-height: 32px; padding: 7px 10px; border-radius: 4px; font-size: 12px;}
+.btn_ms { min-width: 70px; min-height: 30px; padding: 7px 10px; border-radius: 15px; font-size: 12px;}
+.btn_white { border-color: var(--fn-white); background-color: var(--fn-white); color: var(--fn-gray-11);}
 .btn_close_rounded { min-width: 24px; min-height: 24px; border: 1px solid var(--fn-gray-aa); border-radius: 50%; background: url('../images/icons/ico_close.svg') no-repeat center center / 18px 18px #fff; font-size: 0; text-indent: -9999em;}
 /* common */
 
 /* style */
+/* home */
+.login_page.type3 { position: relative; height: 100dvh; padding: 0; background: none;}
+.login_page.type3 > .login_inner { padding: 0;}
+.login_page.type3 > .login_inner > .login_hdr { display: block; height: 185px; padding: 15px; background: url('../images/img/bg_siteMgmt_home.png') no-repeat center center / cover;}
+.login_page.type3 .mg_ttl { margin: 26px 0 20px; font-size: 26px; text-align: center;}
+.login_page.type3 .user_info { display: flex; justify-content: space-between; align-items: center; max-width: 280px; margin: 0 auto; padding: 9px; border-radius: 24px; background-color: rgba(0, 0, 0, .6);}
+.login_page.type3 .user_info .user_name { padding-left: 20px; font-size: 14px; color: #fff;}
+.login_page.type3 .login_body { height: calc(100dvh - 185px); padding: 30px 15px; background-color: var(--fn-gray-f8);}
+.login_page.type3 .st_ttl { font-weight: 700; font-size: 20px;}
+.login_page.type3 .st_list { margin-top: 20px;}
+.login_page.type3 .st_list .st_item { padding: 20px; border-radius: 12px; background-color: var(--fn-white); box-shadow: 10px 10px 10px rgba(0, 0, 0, .04);}
+.login_page.type3 .st_list .st_item + .st_item { margin-top: 16px;}
+.login_page.type3 .st_list .st_item .ttl { font-weight: 700; font-size: 16px;}
+.login_page.type3 .pg_list { display: flex; align-items: center; margin-top: 20px;}
+.login_page.type3 .pg_list .pg_item { width: 33.33%; text-align: center;}
+.login_page.type3 .pg_list .pg_item + .pg_item { padding-top: 5px; border-left: 1px solid var(--fn-gray-e4);}
+.login_page.type3 .pg_item .ico { display: block; width: 30px; height: 30px; margin: 0 auto 13px; background-position: center center; background-size: 100% auto;}
+.login_page.type3 .pg_item:nth-child(1) .ico { background-image: url('../images/icons/ico_assign.svg');}
+.login_page.type3 .pg_item:nth-child(2) .ico { background-image: url('../images/icons/ico_progress.svg');}
+.login_page.type3 .pg_item:nth-child(3) .ico { background-image: url('../images/icons/ico_complete.svg');}
+.login_page.type3 .st_item.charger .pg_item:nth-child(1) .ico { background-image: url('../images/icons/ico_charger_assign.svg');}
+.login_page.type3 .st_item.charger .pg_item:nth-child(2) .ico { background-image: url('../images/icons/ico_charger_progress.svg');}
+.login_page.type3 .st_item.charger .pg_item:nth-child(3) .ico { background-image: url('../images/icons/ico_charger_complete.svg');}
+.login_page.type3 .pg_item .txt { font-size: 12px; color: var(--fn-gray-55);}
+
 /* back page */
 .back_page .back_body > .ttl_area.type3 { margin-top: 30px;}
 .back_page .back_body > .ttl_area.type3 .ttl { font-weight: 700; font-size: 20px; line-height: 1;}

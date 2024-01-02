@@ -70,7 +70,14 @@
                             커넥터를 분리한 후 제자리에 놓아주세요.<br/>
                             다음 사용자를 위해 출차해 주세요.
                         </p>
-                        <div class="gauge" style="height: 100%;"></div>
+                        <!-- ex) 진행률 60%: transform: translateY(-60%); -->
+                        <!-- ex) 진행률 80%: transform: translateY(-80%); -->
+                        <div class="wave_area" style="transform: translateY(-100%);">
+                            <div class="wave wave1"></div>
+                            <div class="wave wave2"></div>
+                            <div class="wave wave3"></div>
+                            <div class="wave wave4"></div>
+                        </div>
                     </div>
                     <ul class="lbl_list">
                         <li class="lbl_item">
