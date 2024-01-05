@@ -12,6 +12,9 @@
 //     end:'80% center',
 //     markers:true,
 //     scrub:1,
+//     onScrubComplete() { // scrub이 number 타입일 때만 사용 가능
+//       console.log('?')
+//     }
 //   }
 // })
 
