@@ -82,7 +82,12 @@ App = {
                 tlAsia.fromTo(path, { autoAlpha: 0, strokeDashoffset: path.getTotalLength(), strokeDasharray: path.getTotalLength() }, { autoAlpha: 1, strokeDashoffset: 0 }, '-=0.1')
             })
 
-            tlMob.from('.tooltip_mobile', { autoAlpha: 0, y: 100, stagger: {each:0.2}, duration: 1})
+            // 2024-01-04 수정
+            let mm = gsap.matchMedia();
+            mm.add('(max-width: 721px)', () => {
+                tlMob.from('.tooltip', { autoAlpha: 0, y: 100, stagger: {each:0.2}, duration: 1})
+            })
+            // 2024-01-04 수정
         }
     },
     gnb : function(){
@@ -286,12 +291,25 @@ App = {
 
         serviceSwiper = new Swiper('#serviceMb .swiper', serviceSettings)
     },
+    // 2024-01-04 수정
     network: {
         init() {
-            $('.tooltip').hide();
-            $('.coord').on('mouseover', (e) => { if (!$(e.currentTarget).hasClass('active')) this.showTooltip(e) })
-            $('.coord_box').on('mouseleave', (e) => { this.hideTooltip(e)})
-            $('.map_area .btn_wrap button').on('click', (e) => { if (!$(e.currentTarget).hasClass('active')) this.showTooltip(e) })
+            const mediaQuery = '(max-width: 721px)';
+            const mediaQueryList = window.matchMedia(mediaQuery);
+            function breakpoints(e) {
+                if (!e.matches) {
+                    $('.tooltip').hide();
+                    $('.coord').on('mouseover', (e) => { if (!$(e.currentTarget).hasClass('active')) App.network.showTooltip(e) })
+                    $('.coord').on('mouseleave', (e) => { App.network.hideTooltip()})
+                    $('.map_area .btn_wrap button').on('click', (e) => { if (!$(e.currentTarget).hasClass('active')) App.network.showTooltip(e) })
+                } else {
+                    App.network.hideTooltip();
+                    $('.tooltip').show();
+                }
+            }
+            breakpoints(mediaQueryList);
+            mediaQueryList.addEventListener('change', breakpoints);
+
         },
         showTooltip(e) {
             let t = e.currentTarget,
@@ -311,6 +329,7 @@ App = {
             $('.map_area .btn_wrap').find('button').removeClass('active');
         }
     },
+    // 2024-01-04 수정
 }
 
 $(function(){ 

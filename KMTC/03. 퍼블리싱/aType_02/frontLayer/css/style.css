@@ -192,19 +192,41 @@
 #sectionNetwork .title_wrap h2,
 #sectionNetwork .title_wrap .sub_exp {color:#fff;}
 #sectionNetwork .map_area {width:100%;max-width:1420px;margin:0 auto;position:relative;}
-#sectionNetwork .map_area .btn_wrap {position:absolute;right:48px;top:48px;z-index:2;display:flex;flex-direction:row;align-items:center;margin-left:43px;}
+/* 2024-01-04 수정 */
+#sectionNetwork .map_area .btn_wrap {position:absolute;right:48px;top:48px;z-index:120;display:flex;flex-direction:row;align-items:center;margin-left:43px;}
 #sectionNetwork .map_area .btn_wrap button {display:block;text-align:center;color:#4A4A4A;font-weight:400;width:90px;line-height:32px;text-align:center;}
 #sectionNetwork .map_area .btn_wrap button + button {margin-left:-1px; border-left: 1px solid #fff;}
 #sectionNetwork .map_area .btn_wrap button.active + button { border-left: none;}
 #sectionNetwork .map_area .btn_wrap button.active {border:1px solid #2E3192;background-color:#2E3192;color:#fff;font-weight:700;}
 #sectionNetwork .map_area .map_bg {position:absolute;z-index:1;width:100%;height:0;padding-top:43.80281690140845%;}
 #sectionNetwork .map_area .map_bg svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
-#sectionNetwork .map_area .map_bg svg .coord_box { position: relative; z-index: 100;}
-#sectionNetwork .map_area .map_bg svg .coord { cursor: pointer;}
-#sectionNetwork .map_area .map_bg svg.tooltip { position: absolute; top: unset; width: unset; height: unset; }
-#sectionNetwork .map_area .map_bg svg#tooltipCn { left: calc(423 / 1420 * 100%); bottom: calc(300 / 622 * 100%);}
-#sectionNetwork .map_area .map_bg svg#tooltipKor { left: calc(500 / 1420 * 100%); bottom: calc(339 / 622 * 100%);}
-#sectionNetwork .map_area .map_bg svg#tooltipViet { left: calc(357 / 1420 * 100%); bottom: calc(240 / 622 * 100%);}
+/* #sectionNetwork .map_area .map_bg svg .coord_box { position: relative; z-index: 100;}
+#sectionNetwork .map_area .map_bg svg .coord { cursor: pointer;} */
+#sectionNetwork .map_area .map_coord { position: absolute; width: 100%; padding-top: 43.80281690140845%; z-index: 100;}
+#sectionNetwork .map_area .map_coord .coord { position: absolute; width: calc(20 / 1420 * 100vw); max-width: 20px; object-fit: contain; cursor: pointer;}
+#sectionNetwork .map_area .map_coord .coord.kor:nth-child(1) { left: calc(567 / 1420 * 100%); bottom: calc(287 / 622 * 100%);} /* 좌표 값 calc( 요소 위치 (px) / 부모 너비 * 100% ) */
+#sectionNetwork .map_area .map_coord .coord.cn:nth-child(2) { left: calc(522 / 1420 * 100%); bottom: calc(261 / 622 * 100%);} /* 좌표 값 calc( 요소 위치 (px) / 부모 너비 * 100% ) */
+#sectionNetwork .map_area .map_coord .coord.cn:nth-child(3) { left: calc(488 / 1420 * 100%); bottom: calc(218 / 622 * 100%);} /* 좌표 값 calc( 요소 위치 (px) / 부모 너비 * 100% ) */
+#sectionNetwork .map_area .map_coord .coord.cn:nth-child(4) { left: calc(471 / 1420 * 100%); bottom: calc(230 / 622 * 100%);} /* 좌표 값 calc( 요소 위치 (px) / 부모 너비 * 100% ) */
+#sectionNetwork .map_area .map_coord .coord.cn:nth-child(5) { left: calc(461 / 1420 * 100%); bottom: calc(256 / 622 * 100%);} /* 좌표 값 calc( 요소 위치 (px) / 부모 너비 * 100% ) */
+#sectionNetwork .map_area .map_coord .coord.viet:nth-child(6) { left: calc(415 / 1420 * 100%); bottom: calc(205 / 622 * 100%);} /* 좌표 값 calc( 요소 위치 (px) / 부모 너비 * 100% ) */
+#sectionNetwork .map_area .map_coord .coord.viet:nth-child(7) { left: calc(431 / 1420 * 100%); bottom: calc(188 / 622 * 100%);} /* 좌표 값 calc( 요소 위치 (px) / 부모 너비 * 100% ) */
+#sectionNetwork .map_area .map_coord .coord.viet:nth-child(8) { left: calc(413 / 1420 * 100%); bottom: calc(158 / 622 * 100%);} /* 좌표 값 calc( 요소 위치 (px) / 부모 너비 * 100% ) */
+#sectionNetwork .map_area .map_tooltip { position: absolute; width: 100%; padding-top: 43.80281690140845%; z-index: 110; pointer-events: none;}
+#sectionNetwork .map_area .map_tooltip .tooltip { position: absolute; width: calc(152 / 1420 * 100%); padding-top: calc(152 / 1420 * 100%); border-width: 2px; border-style: solid; border-radius: 50%; background-color: #fff; }
+#sectionNetwork .map_area .map_tooltip .tooltip .ttl { position: absolute; top: 50%; left: 50%; width: 100%; transform: translate(-50%, -50%); font-family: 'pretendard', '맑은 고딕', sans-serif; font-weight: 500; font-size: clamp(8px ,1.267605633802817vw, 18px); line-height: 1.6; letter-spacing: 0; text-align: center; color: inherit;}
+#sectionNetwork .map_area .map_tooltip .tooltip .ttl b { font-family: inherit; font-size: inherit; color: inherit; letter-spacing: 0;}
+#sectionNetwork .map_area .map_tooltip .tooltip:before,
+#sectionNetwork .map_area .map_tooltip .tooltip:after { content: ""; position: absolute; width: 0; height: 0; border-style: solid;}
+#sectionNetwork .map_area .map_tooltip .tooltip:before { left: 50%; bottom: 0px; transform: translate(-50%, 95%); border-width: 0.7042253521126761vw 0.35211267605633806vw 0; border-color: #fff transparent transparent transparent; z-index: 10;}
+#sectionNetwork .map_area .map_tooltip .tooltip:after {	right: 50%; bottom: 0px; transform: translate(50%, 100%); border-width: 0.9859154929577465vw 0.49295774647887325vw 0; border-color: #2E3192 transparent transparent transparent;}
+#sectionNetwork .map_area .map_tooltip #tooltipKor { left: calc(500 / 1420 * 100%); bottom: calc(335 / 622 * 100%); /* 좌표 값 calc( 요소 위치 (px) / 부모 너비 * 100% ) */ border-color: #2E3192; color: #2E3192;}
+#sectionNetwork .map_area .map_tooltip #tooltipKor:after { border-color: #2E3192 transparent transparent transparent;}
+#sectionNetwork .map_area .map_tooltip #tooltipCn { left: calc(423 / 1420 * 100%); bottom: calc(300 / 622 * 100%); /* 좌표 값 calc( 요소 위치 (px) / 부모 너비 * 100% ) */ border-color: #E98913; color: #E98913;}
+#sectionNetwork .map_area .map_tooltip #tooltipCn:after { border-color: #E98913 transparent transparent transparent;}
+#sectionNetwork .map_area .map_tooltip #tooltipViet { left: calc(357 / 1420 * 100%); bottom: calc(240 / 622 * 100%); /* 좌표 값 calc( 요소 위치 (px) / 부모 너비 * 100% ) */ border-color: #2E926E; color: #2E926E;}
+#sectionNetwork .map_area .map_tooltip #tooltipViet:after { border-color: #2E926E transparent transparent transparent;}
+/* // 2024-01-04 수정 */
 #sectionNetwork .map_area .rect_blur { pointer-events: none;}
 
 #sectionNotice {position:relative;z-index:1;}
@@ -318,6 +340,10 @@
 	#sectionNetwork .content_inner {padding:0;}
 	#sectionNetwork .map_area {width:calc(100% - 40px);margin-top:-60px;}
 	#sectionNetwork .map_area .map_bg {position: relative;}
+	/* 2024-01-04 수정 */
+	#sectionNetwork .map_area .map_coord,
+	#sectionNetwork .map_area .map_tooltip { bottom: 0;}
+	/* // 2024-01-04 수정 */
 
 	#sectionNotice .content_inner {padding-top:0;}
 	#sectionNotice .title_wrap {margin-bottom:0;padding:40px 20px;}
@@ -364,19 +390,34 @@
 	#sectionNetwork .map_area .btn_wrap {display: none; right:0;top:0;margin-left:0;width:100%;}
 	#sectionNetwork .map_area .btn_wrap button {width:50%;}
 	#sectionNetwork .map_area .btn_wrap button + button {width:calc(50% + 1px)}
-	#sectionNetwork .map_area .map_bg {position: relative; padding-top: calc(460 / 360 * 100%); background-color: #F3F3F3;}
-	#sectionNetwork .map_area .map_bg svg#tooltipCn { left: calc(423 / 1420 * 100%); bottom: calc(300 / 622 * 100%);}
+	/* 2024-01-04 수정 */
+	#sectionNetwork .map_area .map_bg {position: relative; padding-top: calc(430 / 320 * 100%); background-color: #F3F3F3;}
+	/* #sectionNetwork .map_area .map_bg svg#tooltipCn { left: calc(423 / 1420 * 100%); bottom: calc(300 / 622 * 100%);}
 	#sectionNetwork .map_area .map_bg svg#tooltipKor { left: calc(500 / 1420 * 100%); bottom: calc(339 / 622 * 100%);}
-	#sectionNetwork .map_area .map_bg svg#tooltipViet { left: calc(357 / 1420 * 100%); bottom: calc(240 / 622 * 100%);}
+	#sectionNetwork .map_area .map_bg svg#tooltipViet { left: calc(357 / 1420 * 100%); bottom: calc(240 / 622 * 100%);} */
 	#sectionNetwork .map_area .map_bg svg { padding: 20px; height: unset;}
 	#sectionNetwork .map_area .map_bg svg.map {top: unset; bottom: 0; padding: 0;}
 	#sectionNetwork .map_area .map_bg svg.mobile { overflow: visible;}
-	#sectionNetwork .map_area .map_bg svg.tooltip {display: none !important;}
+	/* #sectionNetwork .map_area .map_bg svg.tooltip {display: none !important;} */
+	#sectionNetwork .map_area .map_tooltip { padding-top: calc(430 / 320 * 100%)}
+	#sectionNetwork .map_area .map_tooltip .tooltip { width: calc(132 / 320 * 100%); padding-top: calc(132 / 320 * 100%);}
+	#sectionNetwork .map_area .map_tooltip #tooltipKor { bottom: calc(274 / 430 * 100%); left: calc(94 / 320 * 100%);} /* 좌표 값 calc( 요소 위치 (px) / 부모 너비 * 100% ) */
+	#sectionNetwork .map_area .map_tooltip #tooltipCn { bottom: calc(142 / 430 * 100%); left: calc(20 / 320 * 100%);} /* 좌표 값 calc( 요소 위치 (px) / 부모 너비 * 100% ) */
+	#sectionNetwork .map_area .map_tooltip #tooltipViet { bottom: calc(142 / 430 * 100%); left: calc(168 / 320 * 100%);} /* 좌표 값 calc( 요소 위치 (px) / 부모 너비 * 100% ) */
+	#sectionNetwork .map_area .map_tooltip .tooltip::before,
+	#sectionNetwork .map_area .map_tooltip .tooltip::after { content: none; }
+	#sectionNetwork .map_area .map_tooltip .tooltip .ttl { font-size: clamp(18px, 5vw,36px);}
+	/* // 2024-01-04 수정 */
 }
 @media all and (max-width: 375px){
 	.section .title_wrap .sub_exp br {display:none;}
 	.main_visual .swiper-pagination span {margin:0 5px !important;}
 }
+/* 2024-01-04 수정 */
+@media all and (max-width: 360px) {
+	#sectionNetwork .map_area .map_tooltip .tooltip .ttl { font-size: clamp(14px, 5vw, 18px);}
+}
+/* // 2024-01-04 수정 */
 
 @keyframes bounce { 
 	0% {transform:translate(-50%,0);} 
