@@ -405,9 +405,12 @@ table + .btn_end { margin-top: 12px;}
 .form_control:focus { border-color: var(--fn-focus);}
 .form_control::placeholder {color:var(--fn-gray-99);transition: all .25s ease;}
 .form_control:focus::placeholder { transform: translate(0.2em);}
-.form_control:read-only,
+/* 2024-01-05 수정 */
+.form_control:not(.form_datepicker):read-only,
 .form_control:disabled { background-color: var(--fn-gray-f4); cursor: not-allowed;color:var(--fn-gray-aa);}
-.form_control:read-only { cursor: not-allowed;}
+.form_control:not(.form_datepicker):read-only { cursor: not-allowed;}
+.form_control.form_datepicker:read-only { cursor: pointer;}
+/* // 2024-01-05 수정 */
 textarea.form_control {padding:12px;min-height:260px;resize:none;}
 .form_select { position: relative; width:100%;}
 .form_select.active { z-index: 10; }
