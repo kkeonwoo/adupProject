@@ -42,18 +42,66 @@ ProjectName = {
         fn.exists('.accordion') && this.accordionFunc.init();
         fn.exists('.draggable_section') && this.drag.init();
     },
-    tab : function(){
-        // 1. active class로 키고 끄기
-        // 2. aria-selected true/false
-        // 3. 접근성 : 왼, 위 (이전) / 우, 하 (다음)
-        // 4. tab_header에서 탭 하면 tabindex: -1, content로 포커스 
-        $('.tab_btn').click(function(e) {
-            let t = e.currentTarget,
-                idx = $(t).closest('.tab_item').index();
-            const tabHeader = $(t).closest('.tab_header'),
-                  tabContainer = tabHeader.siblings('.tab_container');
-            tabHeader.find('.tab_item').removeClass('active').eq(idx).addClass('active');
-            tabContainer.find('.tab_cnt').removeClass('active').eq(idx).addClass('active');
+    tab: function() {
+        // 탭 컨텐츠 숨기기
+        $('.tab_panel').hide();
+
+        // 첫번째 탭콘텐츠 보이기
+        $('.tab_container').each(function () {
+            $(this).find('.tabs li button').attr('tabindex', -1);
+            $(this).find('.tabs li:first button').addClass('active').attr('tabindex', null); //Activate first tab
+            $(this).find('.tab_panel').attr('tabindex', 0);
+            $(this).find('.tab_panel').first().show();
+        });
+        
+        //탭메뉴 클릭 이벤트
+        let inProgress = false;
+        $('.tabs li button').on({
+            click: function(e) {
+                e.preventDefault();
+
+                var activeTab = $(this).closest('.tab_item').index();
+                if(!inProgress) {
+                    inProgress = true;
+                    $(this).closest('.tab_item').siblings().find('.tab_link').removeClass('active');
+                    $(this).addClass('active');
+                    $(this).closest('.tab_container').find('.tab_panel').hide();
+                    $(this).closest('.tab_container').find('.tab_panel').eq(activeTab).stop().fadeIn(() => inProgress = false);
+                }
+            },
+            keydown: function(e) {
+                e.preventDefault();
+                let activeIdx = $(e.currentTarget).closest('.tab_item').index();
+                
+                if (e.keyCode === 37 || e.keyCode === 38) {
+                    if (activeIdx < 1) return;
+                    $(this).closest('li').find('.tab_link').removeClass('active');
+                    $(this).closest('.tab_container').find('.tab_panel').removeClass('active').hide();
+                    $(this).closest('li').prev().find('.tab_link').addClass('active').focus();
+                    $(this).closest('.tab_container').find('.tab_panel').eq(activeIdx - 1).addClass('active').stop().fadeIn();
+                } else if (e.keyCode === 39 || e.keyCode === 40) {
+                    if (activeIdx < $(this).closest('.tabs').find('.tab_item').length - 1) {
+                        $(this).closest('li').find('.tab_link').removeClass('active');
+                        $(this).closest('.tab_container').find('.tab_panel').removeClass('active').hide();
+                        $(this).closest('li').next().find('.tab_link').addClass('active').focus();
+                        $(this).closest('.tab_container').find('.tab_panel').eq(activeIdx + 1).addClass('active').stop().fadeIn();
+                    }
+                } else if (e.keyCode === 9) {
+                    console.log('aaaa', activeIdx);
+                    console.log($(this).closest('.tabs').siblings().find('.tab_panel').eq(activeIdx));
+                    $(this).closest('.tabs').siblings().find('.tab_panel').eq(activeIdx).focus();
+                }
+            }
+        });
+
+        $('.tab_panel').on('keydown', function(e) {
+            let idx = $(this).index();
+            
+            if (idx === $(this).closest('.tab_content').find('.tab_panel').length - 1) return;
+            e.preventDefault();
+            if (e.keyCode === 9) {
+                $(this).closest('.tab_container').find('.tab_item').eq(idx).find('.tab_link').focus();
+            }
         })
     },
     select : {
