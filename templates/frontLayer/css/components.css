@@ -111,8 +111,8 @@
 
 /*tab*/
 .tab_container {position: relative;max-width:600px;margin:auto;}
-.tab_container .tab_content {width:100%;padding: 30px 0;}
-.tabs ul {width: 100%;display:flex; padding:0}
+.tab_container .tab_content {width:100%;padding: 30px;}
+.tabs {width: 100%;display:flex; padding:0}
 .tabs li {flex: 1; background: #f6f7f9;border-top: 1px solid #ddd;border-left: 1px solid #ddd;border-right: 1px solid #ddd;border-bottom: 1px solid #222;text-align: center;}
 .tabs li + li {margin-left: -1px;}
 .tabs li.active {position: relative; z-index: 10;background: #fff;border-top: 1px solid #222;border-left: 1px solid #222;border-right: 1px solid #222;border-bottom-color: transparent;}

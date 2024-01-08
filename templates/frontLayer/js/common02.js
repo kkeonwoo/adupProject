@@ -57,7 +57,6 @@ ProjectName = {
         })
     },
     select : {
-        lastSelected : null,
         init() {
             let selectBox = $('.form_select'),
                 selectBtn = selectBox.find('.form_btn');
@@ -83,8 +82,7 @@ ProjectName = {
                 click: (e) => {
                     let t = e.currentTarget,
                         formSelect = $(t).closest('.form_select'),
-                        optionArea = formSelect.find('.option_area'),
-                        optionItem = formSelect.find('.option_item');
+                        optionArea = formSelect.find('.option_area');
 
                     if (!fn.hasClass(formSelect, 'show')) {
                         $(t).addClass('active');
@@ -96,8 +94,6 @@ ProjectName = {
                         optionItem = optionArea.find('.option_item');
                         
                         this.handlePosOption(t);
-                        this.lastSelected = optionItem.filter((idx, item) => fn.hasClass(item, 'selected') && item);
-                        return this.lastSelected; // tracking selected item to opening option
                     } else {
                         this.closeOption();
                     }
@@ -212,7 +208,6 @@ ProjectName = {
          */
         closeOption() {
             $('.form_select').removeClass('show');
-            $('.form_select').find('.select_btn').attr('aria-expanded', false);
             $('.form_select').find('.option_area').removeClass('show top');
             $('body > .option_area').remove();
         },
