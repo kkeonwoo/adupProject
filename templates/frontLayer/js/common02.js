@@ -43,6 +43,10 @@ ProjectName = {
         fn.exists('.draggable_section') && this.drag.init();
     },
     tab : function(){
+        // 1. active class로 키고 끄기
+        // 2. aria-selected true/false
+        // 3. 접근성 : 왼, 위 (이전) / 우, 하 (다음)
+        // 4. tab_header에서 탭 하면 tabindex: -1, content로 포커스 
         $('.tab_btn').click(function(e) {
             let t = e.currentTarget,
                 idx = $(t).closest('.tab_item').index();
@@ -127,11 +131,13 @@ ProjectName = {
              */
             $(document).on('click', 'body > .option_area .option_btn', (e) => {
                 let t = e.currentTarget,
+                    optionItem = $('.form_select.show').find('.option_item'),
+                    activeIdx = $(t).closest('.option_item').index(),
                     selectBtn = $('.form_select.active').find('.form_btn');
 
                 selectBtn.addClass('active');
-                this.handleSelectOption(optionItem.siblings(), optionItem);
-                this.handleBtnText($(t).closest('.option_item'));
+                this.handleSelectOption(optionItem, optionItem.eq(activeIdx));
+                this.handleBtnText(optionItem.eq(activeIdx));
                 this.closeOption();
             });
 
