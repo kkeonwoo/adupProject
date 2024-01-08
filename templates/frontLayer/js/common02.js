@@ -59,10 +59,9 @@ ProjectName = {
     select : {
         lastSelected : null,
         init() {
-            const selectBox = $('.form_select');
-            let selectBtn = selectBox.find('.form_btn'),
-                optionArea = $('body > .option_area, .form_select .option_area'),
-                optionItem = optionArea.find('.option_item');
+            let selectBox = $('.form_select'),
+                selectBtn = selectBox.find('.form_btn');
+
             /**
              * selectBox 모달 내부 위치 시
              */
