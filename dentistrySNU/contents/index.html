@@ -40,6 +40,93 @@
         <script src="../frontLayer/js/common.js"></script>
     </head>
 <body>
+
+    <div class="form_select">
+        <button type="button" id="menu-button" class="form_btn" aria-expanded="false" aria-haspopup="true" aria-controls="menu-list">select box</button>
+        
+        <div id="menu-list" class="option_area" role="list" aria-orientation="vertical" aria-labelledby="menu-button">
+            <ul class="option_list" role="listbox">
+                <li class="option_item selected" role="option" aria-selected="true"><button class="option_btn" type="button">option01</button></li>
+                <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option02</button></li>
+                <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option03</button></li>
+                <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option04</button></li>
+                <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option05</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="content">
+
+            <button type="button" class="btn btn_primary modal_toggle" onclick="ProjectName.modal.openModal($('#modalTest02'))">컨턴츠가 넘칠때 모달 열기2</button>
+            <br/>
+            <br/>
+            
+            <div class="modal modal_close" id="modalTest02">
+                <div class="modal_centered" tabindex="0">
+                    <div class="modal_box">
+                        <button type="button" class="btn_modal_close close">
+                            <span class="blind">닫기</span>
+                        </button>
+                        <div style="height: 100vh;"></div>
+                        modalTest02
+                        <br/>
+                        <br/>
+                        <div class="form_select">
+                            <button type="button" id="menu-button" class="form_btn" aria-expanded="false" aria-haspopup="true" aria-controls="menu-list">select box</button>
+                            
+                            <div id="menu-list" class="option_area" role="list" aria-orientation="vertical" aria-labelledby="menu-button">
+                                <ul class="option_list" role="listbox">
+                                    <li class="option_item selected" role="option" aria-selected="true"><button class="option_btn" type="button">option01</button></li>
+                                    <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option02</button></li>
+                                    <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option03</button></li>
+                                    <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option04</button></li>
+                                    <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option05</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="height: 100vh;"></div>
+                        
+                        <div class="btn_wrap">
+                            <button type="button" class="btn btn_primary close">확인</button>
+                            <button type="button" class="btn btn_secondary close">취소</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+
+        <div class="content">
+            <div class="tab_container">
+                <div class="tabs">
+                    <ul>
+                        <li class="active">
+                            <button type="button" rel="tab1">탭1-1</button>
+                        </li>
+                        <li>
+                            <button type="button" rel="tab2">탭1-2</button>
+                        </li>
+                        <li>
+                            <button type="button" rel="tab3">탭1-3</button>
+                        </li>
+                    </ul>
+                </div>
+                <div id="tab1" class="tab_content">
+                    <h1 class="blind">탭1 내용</h1>
+                    탭1
+                </div>
+                <div id="tab2" class="tab_content">
+                    <h1 class="blind">탭2 내용</h1>
+                    탭2
+                </div>
+                <div id="tab3" class="tab_content">
+                    <h1 class="blind">탭3 내용</h1>
+                    탭3
+                </div>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>
