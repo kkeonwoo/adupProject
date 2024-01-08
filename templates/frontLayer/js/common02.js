@@ -63,8 +63,10 @@ ProjectName = {
              * selectBox 모달 내부 위치 시
              */
             selectBox.each((i, t) => {
-                let tParents = $(t).parents();
+                let firstOption = $(t).find('.option_item').eq(0),
+                    tParents = $(t).parents();
 
+                ProjectName.select.handleBtnText(firstOption);
                 // 부모 요소에 스크롤 이벤트 발생 시
                 if (tParents.css('overflow') === 'visible' || tParents.css('overflow') === 'auto') {
                     tParents.on('scroll', function() { setTimeout(() => ProjectName.select.closeOption()); })
@@ -78,38 +80,19 @@ ProjectName = {
                 click: (e) => {
                     let t = e.currentTarget,
                         formSelect = $(t).closest('.form_select'),
-                        selectedIdx = $(t).attr('selected-idx'),
-                        windowHt = $(window).outerHeight() + $(window).scrollTop(), // 화면 하단 높이
-                        posXSelectBtn = $(t).offset().left,
-                        posYSelectBtn = $(t).outerHeight() + $(t).offset().top, // select 버튼 하단 높이
-                        selectBtnWdh = $(t).outerWidth(),
-                        selectBtnHt = $(t).outerHeight(),
-                        gap = windowHt - posYSelectBtn,
                         optionArea = formSelect.find('.option_area'),
-                        optionItem = formSelect.find('.option_item'),
-                        optionAreaHt = optionArea.outerHeight(),
-                        posYOptionArea = posYSelectBtn - (optionAreaHt + selectBtnHt);
+                        optionItem = formSelect.find('.option_item');
 
-                    if (!fn.hasClass(formSelect, 'active')) {
+                    if (!fn.hasClass(formSelect, 'show')) {
                         $(t).addClass('active');
-                        formSelect.addClass('active');
+                        formSelect.addClass('show');
                         $('body > .option_area').remove();
                         $('body').append(`${optionArea.prop('outerHTML')}`);
-                        optionArea = $('body > .option_area');
-                        optionItem = optionArea.find('.option_item')
 
-                        if (selectedIdx) {
-                            optionArea.find('.option_item').removeClass('selected');
-                            optionArea.find('.option_item').eq(selectedIdx).addClass('selected').attr('aria-selected', true);
-                        }
-                        // option 열기
-                        if (gap < optionAreaHt) { // 화면과 select 하단의 차이가 optionArea 높이보다 작다면
-                            optionArea.addClass('top');
-                            optionArea.addClass('show').css({'top': posYOptionArea, 'left': posXSelectBtn, 'width': selectBtnWdh});
-                        } else {
-                            optionArea.removeClass('top');
-                            optionArea.addClass('show').css({'top': posYSelectBtn, 'left': posXSelectBtn, 'width': selectBtnWdh});
-                        }
+                        optionArea = $('body > .option_area');
+                        optionItem = optionArea.find('.option_item');
+                        
+                        this.handlePosOption(t);
                         this.lastSelected = optionItem.filter((idx, item) => fn.hasClass(item, 'selected') && item);
                         return this.lastSelected; // tracking selected item to opening option
                     } else {
@@ -122,25 +105,16 @@ ProjectName = {
                         tActiveItem = $(t).siblings().find('.selected'),
                         optionItem = $(document).find('body > .option_area .option_item'),
                         activeIdx = tActiveItem.index();
-                    
-                    if (e.keyCode === 38) {
-                        // up
+
+                    if (e.keyCode === 38 && activeIdx <= 0) return;
+                    if (e.keyCode === 40 && activeIdx >= tOptionItem.length - 1) return;
+                    if (e.keyCode === 38 || e.keyCode === 40) {
                         e.preventDefault();
-                        if (activeIdx <= 0) return;
                         $(t).addClass('active');
                         $(t).closest('.form_select').addClass('active');
-                        this.handleSelectOption(tOptionItem, tOptionItem.eq(activeIdx - 1));
-                        this.handleSelectOption(optionItem, optionItem.eq(activeIdx - 1));
-                        this.handleBtnText(tOptionItem.eq(activeIdx - 1));
-                    } else if (e.keyCode === 40) {
-                        // down
-                        e.preventDefault();
-                        if (activeIdx >= tOptionItem.length - 1) return;
-                        $(t).addClass('active');
-                        $(t).closest('.form_select').addClass('active');
-                        this.handleSelectOption(tOptionItem, tOptionItem.eq(activeIdx + 1));
-                        this.handleSelectOption(optionItem, optionItem.eq(activeIdx + 1));
-                        this.handleBtnText(tOptionItem.eq(activeIdx + 1));
+                        this.handleSelectOption(tOptionItem, tOptionItem.eq(e.keyCode === 38 ? activeIdx - 1 : activeIdx + 1));
+                        this.handleSelectOption(optionItem, optionItem.eq(e.keyCode === 38 ? activeIdx - 1 : activeIdx + 1));
+                        this.handleBtnText(tOptionItem.eq(e.keyCode === 38 ? activeIdx - 1 : activeIdx + 1));
                     } else if (e.keyCode === 9 || e.keyCode === 27) {
                         // escape
                         this.closeOption();
@@ -172,16 +146,41 @@ ProjectName = {
                     !$(e.target).closest('.form_select').length && ProjectName.select.closeOption();
                 },
                 resize: function() {
-                    let formSelect = $('.form_select.active'),
-                        formSelectWdh = formSelect.outerWidth(),
+                    let formSelect = $('.form_select.show'),
+                        formSelectWdh = fn.hasClass(formSelect, 'show') && formSelect.outerWidth(),
+                        posXSelectBtn = fn.hasClass(formSelect, 'show') && formSelect.offset().left,
                         optionArea = $('body > .option_area');
 
-                        optionArea.css({'width' : formSelectWdh})
+                        if (fn.hasClass(optionArea, 'show')) optionArea.css({'width' : formSelectWdh, 'left': posXSelectBtn})
                 },
                 scroll: function() {
-                    ProjectName.select.closeOption();
+                    fn.hasClass('.form_select', 'show') && ProjectName.select.closeOption();
                 }
             })
+        },
+        /**
+         * option 위치 설정
+         * @param {t} target
+         */
+        handlePosOption(t) {
+            let windowHt = $(window).outerHeight() + $(window).scrollTop(), // 화면 하단 높이
+                posXSelectBtn = $(t).offset().left,
+                posYSelectBtn = $(t).outerHeight() + $(t).offset().top, // select 버튼 하단 높이
+                selectBtnWdh = $(t).outerWidth(),
+                selectBtnHt = $(t).outerHeight(),
+                gap = windowHt - posYSelectBtn,
+                optionArea = $('body > .option_area'),
+                optionAreaHt = optionArea.outerHeight(),
+                posYOptionArea = posYSelectBtn - (optionAreaHt + selectBtnHt);
+
+            // option 열기
+            if (gap < optionAreaHt) { // 화면과 select 하단의 차이가 optionArea 높이보다 작다면
+                optionArea.addClass('top');
+                optionArea.addClass('show').css({'top': posYOptionArea, 'left': posXSelectBtn, 'width': selectBtnWdh});
+            } else {
+                optionArea.removeClass('top');
+                optionArea.addClass('show').css({'top': posYSelectBtn, 'left': posXSelectBtn, 'width': selectBtnWdh});
+            }
         },
         /**
          * selectBtn 텍스트 값 변경
@@ -190,7 +189,7 @@ ProjectName = {
         handleBtnText(t) {
             let selectedText = $(t).find('.option_btn').text(),
                 selectedIdx = $(t).closest('.option_item').index(),
-                selectBtn = $('.form_select.active').find('.form_btn');
+                selectBtn = $(t).closest('.form_select').find('.form_btn');
 
             selectBtn.text(selectedText).attr('selected-idx', selectedIdx);
         },
@@ -207,7 +206,7 @@ ProjectName = {
          * select option list 닫기
          */
         closeOption() {
-            $('.form_select').removeClass('active');
+            $('.form_select').removeClass('show');
             $('.form_select').find('.select_btn').attr('aria-expanded', false);
             $('.form_select').find('.option_area').removeClass('show top');
             $('body > .option_area').remove();
