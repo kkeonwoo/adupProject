@@ -43,60 +43,71 @@ ProjectName = {
         fn.exists('.draggable_section') && this.drag.init();
     },
     tab: function() {
+        let tabContainer = $('.tab_container');
+        let tabLink = $('.tab_link');
+        let tabPanel = $('.tab_panel');
         // 탭 컨텐츠 숨기기
-        $('.tab_panel').hide();
+        tabPanel.hide();
 
         // 첫번째 탭콘텐츠 보이기
-        $('.tab_container').each(function () {
-            $(this).find('.tabs li button').attr('tabindex', -1);
-            $(this).find('.tabs li:first button').addClass('active').attr('tabindex', null); //Activate first tab
-            $(this).find('.tab_panel').attr('tabindex', 0);
-            $(this).find('.tab_panel').first().show();
+        tabContainer.each(function () {
+            let tabItem = $(this).find('.tabs .tab_item');
+            let tabLink = $(this).find('.tabs li button');
+            let tabPanel = $(this).find('.tab_panel');
+
+            tabLink.attr('tabindex', -1);
+            tabItem.first().find('.tab_link').addClass('active').attr('tabindex', null);
+            tabPanel.attr('tabindex', 0).first().show();
         });
         
         //탭메뉴 클릭 이벤트
         let inProgress = false;
-        $('.tabs li button').on({
+        tabLink.on({
             click: function(e) {
                 e.preventDefault();
+                let tabItem = $(this).closest('.tab_item');
+                let tabPanel = $(this).closest('.tab_container').find('.tab_panel');
+                let activeTab = tabItem.index();
 
-                var activeTab = $(this).closest('.tab_item').index();
                 if(!inProgress) {
                     inProgress = true;
-                    $(this).closest('.tab_item').siblings().find('.tab_link').removeClass('active');
-                    $(this).addClass('active');
-                    $(this).closest('.tab_container').find('.tab_panel').hide();
-                    $(this).closest('.tab_container').find('.tab_panel').eq(activeTab).stop().fadeIn(() => inProgress = false);
+                    tabItem.siblings().find('.tab_link').removeClass('active').attr('aria-selected', false);
+                    $(this).addClass('active').attr('aria-selected', true);
+                    tabPanel.hide();
+                    tabPanel.eq(activeTab).stop().fadeIn(() => inProgress = false);
                 }
             },
             keydown: function(e) {
                 e.preventDefault();
+                let tabPanel = $(this).closest('.tab_container').find('.tab_panel');
+                let tabItem = $(this).closest('li');
+                let tabLink = tabItem.find('.tab_link');
+                let prevTabLink = tabItem.prev().find('.tab_link');
+                let nextTabLink = tabItem.next().find('.tab_link');
                 let activeIdx = $(e.currentTarget).closest('.tab_item').index();
                 
                 if (e.keyCode === 37 || e.keyCode === 38) {
                     if (activeIdx < 1) return;
-                    $(this).closest('li').find('.tab_link').removeClass('active');
-                    $(this).closest('.tab_container').find('.tab_panel').removeClass('active').hide();
-                    $(this).closest('li').prev().find('.tab_link').addClass('active').focus();
-                    $(this).closest('.tab_container').find('.tab_panel').eq(activeIdx - 1).addClass('active').stop().fadeIn();
+                    tabLink.removeClass('active').attr('aria-selected', false);
+                    tabPanel.removeClass('active').hide();
+                    prevTabLink.addClass('active').focus().attr('aria-selected', true);
+                    tabPanel.eq(activeIdx - 1).addClass('active').stop().fadeIn();
                 } else if (e.keyCode === 39 || e.keyCode === 40) {
                     if (activeIdx < $(this).closest('.tabs').find('.tab_item').length - 1) {
-                        $(this).closest('li').find('.tab_link').removeClass('active');
-                        $(this).closest('.tab_container').find('.tab_panel').removeClass('active').hide();
-                        $(this).closest('li').next().find('.tab_link').addClass('active').focus();
-                        $(this).closest('.tab_container').find('.tab_panel').eq(activeIdx + 1).addClass('active').stop().fadeIn();
+                        tabLink.removeClass('active').attr('aria-selected', false);
+                        tabPanel.removeClass('active').hide();
+                        nextTabLink.addClass('active').focus().attr('aria-selected', true);
+                        tabPanel.eq(activeIdx + 1).addClass('active').stop().fadeIn();
                     }
                 } else if (e.keyCode === 9) {
-                    console.log('aaaa', activeIdx);
-                    console.log($(this).closest('.tabs').siblings().find('.tab_panel').eq(activeIdx));
                     $(this).closest('.tabs').siblings().find('.tab_panel').eq(activeIdx).focus();
                 }
             }
         });
 
-        $('.tab_panel').on('keydown', function(e) {
+        tabPanel.on('keydown', function(e) {
             let idx = $(this).index();
-            
+
             if (idx === $(this).closest('.tab_content').find('.tab_panel').length - 1) return;
             e.preventDefault();
             if (e.keyCode === 9) {
