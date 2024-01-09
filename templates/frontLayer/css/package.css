@@ -7,5 +7,6 @@
 
 /* 추가 css */
 @import url(style.css);
+@import url(nav.css);
 @import url(swiper.css);
 @import url(components.css);

@@ -116,26 +116,24 @@ const Nav = {
 		const closeMenu = () => {
 			$depth2Item.stop().hide();
 		}
-
+		
 		$depth1Item.on('mouseenter focusin', openMenu);
 		$depth1Item.on('mouseleave', closeMenu);
 		$firstItem.on('keydown', (e) => { if(e.keyCode === 9 && e.shiftKey) closeMenu(); })
 		$LastItem.on('focusout', closeMenu);
 	},
 	type4: function() {
-		let $depth1Area = $('.depth1_area'),
-			$depth2Area = $('.depth2_area'),
+		let $depth2Area = $('.depth2_area'),
 			$depth2List = $depth2Area.find('.depth2_list'),
 			$bgOverlay = $('.gnb_overlay_bg'),
 			depth2Ht = this.maxHeight($depth2List);
 
-			
-		const openMenu = () => { 
-			$bgOverlay.animate({ height : depth2Ht })
+		const openMenu = () => {
+			$bgOverlay.stop().animate({ height : depth2Ht })
 			$header.stop().animate({ height : headerHt + depth2Ht })
 		}
 		const closeMenu = () => { 
-			$bgOverlay.animate({ height : 0 })
+			$bgOverlay.stop().animate({ height : 0 })
 			$header.stop().animate({ height : headerHt })
 		}
 
@@ -145,7 +143,7 @@ const Nav = {
 		// close event
 		$header.on('mouseleave', closeMenu);
 		$firstItem.on('keydown', (e) => { if(e.keyCode === 9 && e.shiftKey) closeMenu(); })
-		$LastItem.on('focusout', closeMenu);
+		$LastItem.on('keydown', (e) => { if(e.keyCode === 9 && !e.shiftKey) closeMenu(); });
 
 		// focus event
 		$depth1Link.on('keydown', function (e) {

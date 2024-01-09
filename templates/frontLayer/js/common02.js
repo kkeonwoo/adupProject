@@ -34,8 +34,8 @@ $.namespace = function() {
 $.namespace('ProjectName');
 ProjectName = {
     init : function(){
-        this.tab();
-        this.select.init();
+        fn.exists('.tab_container') && this.tab();
+        fn.exists('.form_select') && this.select.init();
         this.setSwiper();
         this.datepicker();
         fn.exists('.alert_btn') && this.alert.init();
