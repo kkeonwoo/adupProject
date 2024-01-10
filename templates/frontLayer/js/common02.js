@@ -72,9 +72,9 @@ ProjectName = {
                 if(!inProgress) {
                     inProgress = true;
                     tabItem.siblings().find('.tab_link').removeClass('active').attr('aria-selected', false);
-                    $(this).addClass('active').attr('aria-selected', true);
-                    tabPanel.hide();
-                    tabPanel.eq(activeTab).stop().fadeIn(() => inProgress = false);
+                    $(this).addClass('active').focus().attr('aria-selected', true);
+                    tabPanel.removeClass('active').hide();
+                    tabPanel.eq(activeTab).addClass('active').stop().fadeIn(() => inProgress = false);
                 }
             },
             keydown: function(e) {
@@ -89,15 +89,15 @@ ProjectName = {
                 if (e.keyCode === 37 || e.keyCode === 38) {
                     if (activeIdx < 1) return;
                     tabLink.removeClass('active').attr('aria-selected', false);
-                    tabPanel.removeClass('active').hide();
                     prevTabLink.addClass('active').focus().attr('aria-selected', true);
-                    tabPanel.eq(activeIdx - 1).addClass('active').stop().fadeIn();
+                    tabPanel.removeClass('active').hide();
+                    tabPanel.eq(activeIdx - 1).addClass('active').stop().fadeIn(() => inProgress = false);
                 } else if (e.keyCode === 39 || e.keyCode === 40) {
                     if (activeIdx < $(this).closest('.tabs').find('.tab_item').length - 1) {
                         tabLink.removeClass('active').attr('aria-selected', false);
-                        tabPanel.removeClass('active').hide();
                         nextTabLink.addClass('active').focus().attr('aria-selected', true);
-                        tabPanel.eq(activeIdx + 1).addClass('active').stop().fadeIn();
+                        tabPanel.removeClass('active').hide();
+                        tabPanel.eq(activeIdx + 1).addClass('active').stop().fadeIn(() => inProgress = false);
                     }
                 } else if (e.keyCode === 9) {
                     $(this).closest('.tabs').siblings().find('.tab_panel').eq(activeIdx).focus();
