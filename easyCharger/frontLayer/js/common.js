@@ -32,6 +32,7 @@ EasyCharger = {
         this.chooseTab.init();
         this.aside.init();
         this.acco.init();
+        this.handleBtnAct();
     },
     checkbox: function () {
         /**
@@ -888,6 +889,17 @@ EasyCharger = {
                 }
             });
         },
+    },
+    handleBtnAct: function(){
+        let typeBox = $('.type_box');
+        
+        if (typeBox) {
+            typeBox.on('click', (e)=>{
+                let $t = $(e.currentTarget);
+
+                $t.addClass('active').siblings().removeClass('active');
+            })
+        }
     },
 }
 $(()=>{

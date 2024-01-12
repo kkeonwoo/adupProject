@@ -80,13 +80,16 @@
 [class$='_page'] [class$='_body'] .cnt_group > .msg { font-size: 16px; line-height: 1.4375; color: var(--fn-gray-55);}
 [class$='_page'] [class$='_body'] .cnt_group > .desc { font-size: 12px; line-height: 1.91666; color: var(--fn-gray-99);}
 [class$='_page'] [class$='_body'] .cnt_group + .btn_area { margin-top: 156px;}
-.step_page .regn_info_area { padding: 30px 0 10px;}
-.step_page .regn_info_area .txt_area { position: relative; width: 170px;}
-.step_page .regn_info_area .txt_area::after { content: ''; display: block; position: absolute; left: calc(100% - 15px); top: 45%; transform: translateY(-50%); width: 456px; height: 181px; background-image: url('../images/img/bg_charger_02.png'); background-position: center center; background-size: 100% auto; background-repeat: no-repeat; pointer-events: none;}
+.step_page .regn_info_area { position: relative; padding: 30px 0 10px;}
+.step_page .regn_info_area .regn_msg { font-size: 18px; line-height: 1.333333;}
+.step_page .regn_info_area .txt_area { position: relative; z-index: 10; width: 170px;}
 .step_page .regn_info_area .txt_area .explain { font-size: 18px; line-height: 1.333333; word-break: keep-all; word-wrap: break-word; overflow-wrap: anywhere;}
 .step_page .regn_info_area .txt_area .txt_box { margin-top: 11px; padding: 12px 0 25px; border-top: 1px dashed var(--fn-gray-e4);}
+.step_page .regn_info_area .txt_area .txt_box:first-child { margin-top: 0; border-top: none;}
 .step_page .regn_info_area .txt_area .txt_box .txt { font-size: 14px; color: var(--fn-orange);}
 .step_page .regn_info_area .txt_area .txt_box .num { display: block; margin-top: 3px; font-weight: 500; font-size: 24px;}
+.step_page .regn_info_area .regn_bg { display: block; position: absolute; right: 0; bottom: 0; transform: scale(0.5); transform-origin: right bottom; width: 200%; height: 200%; background-position: right bottom; background-repeat: no-repeat; pointer-events: none;}
+.step_page .regn_info_area .regn_bg .car { position: absolute; right: 0; bottom: 0;}
 .step_page .charger_type_area .ttl_area .ttl { font-weight: 700; font-size: 20px; line-height: 1.15;}
 .step_page .charger_type_area .ico_area { margin-top: 17px;}
 .step_page .charger_type_area .ico_list { display: flex; flex-wrap: wrap; gap: 14px 11px;}
@@ -94,6 +97,21 @@
 .step_page .charger_type_area .ico_item .ico_thumb { overflow: hidden; height: 61px; border: 1px solid var(--fn-gray-e4); border-radius: 6px;}
 .step_page .charger_type_area .ico_item .ico_thumb .ico { width: 100%; height: 100%; object-fit: cover;}
 .step_page .charger_type_area .ico_item .txt { display: block; margin-top: 3px; font-size: 14px; line-height: 1.642857; color: var(--fn-gray-55); text-align: center;}
+.step_page .charger_type_area .speed_ttl { display: block; margin-top: 18px; font-weight: 700; font-size: 16px; line-height: 1.4375;}
+.step_page .charger_type_area .speed_area { display: grid; gap: 8px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 10px;}
+.step_page .charger_type_area .speed_area .type_box { display: flex; gap: 6px; align-items: center; padding: 8px 14px; border: 1px solid var(--fn-gray-e4); border-radius: 6px;}
+.step_page .charger_type_area .speed_area.slow .type_box.active { border-color: var(--fn-blue);}
+.step_page .charger_type_area .speed_area.fast .type_box.active { border-color: var(--fn-red);}
+.step_page .charger_type_area .speed_area .type_box .ico { flex-shrink: 0; width: 32px; height: 32px; background-position: center center; background-size: 100% auto; background-repeat: no-repeat; opacity: 0.5;}
+.step_page .charger_type_area .speed_area .type_box.active .ico { opacity: 1;}
+.step_page .charger_type_area .speed_area .type_box .ico.type_slow1 { background-image: url('../images/icons/type_slow01.png');}
+.step_page .charger_type_area .speed_area .type_box .ico.type_slow2 { background-image: url('../images/icons/type_slow02.png');}
+.step_page .charger_type_area .speed_area .type_box .ico.type_slow3 { background-image: url('../images/icons/type_slow03.png');}
+.step_page .charger_type_area .speed_area .type_box .ico.type_fast1 { background-image: url('../images/icons/type_fast01.png');}
+.step_page .charger_type_area .speed_area .type_box .ico.type_fast2 { background-image: url('../images/icons/type_fast02.png');}
+.step_page .charger_type_area .speed_area .type_box .ico.type_fast3 { background-image: url('../images/icons/type_fast03.png');}
+.step_page .charger_type_area .speed_area .type_box .txt { font-size: 14px; color: var(--fn-gray-aa);}
+.step_page .charger_type_area .speed_area .type_box.active .txt { font-size: 14px; color: var(--fn-gray-11);}
 
 .step_page .step_ftr,
 .back_page .back_ftr { position: relative; z-index: 100;} 
@@ -366,12 +384,20 @@ body:not(.mode_full) .fbs_body .simplebar-track.simplebar-vertical { opacity: 0 
 .ttl_sub_area .ttl { margin-top: 25px; font-weight: 700; font-size: 20px; line-height: 1.15;}
 .card_info_area { margin-top: 15px; padding: 30px 0; border-radius: 10px; background-color: var(--fn-gray-f4);}
 .card_info_area .card_preview { display: block; position: relative; width: 248px; max-width: 90%; margin: 0 auto; border-radius: 10px; background-image: url('../images/img/bg_card_dark.jpg'); background-position: center center; background-size: 100% auto; background-repeat: no-repeat; box-shadow: 10px 15px 21px 0px rgba(0, 0, 0, 0.2);}
+.card_info_area .card_preview.type2 { background-image: url('../images/img/bg_card_gradation.png');}
+.card_info_area .card_preview.type3 { background-image: url('../images/img/bg_card_gradation02.png');  background-size: auto auto;}
+.card_info_area .card_preview + .card_preview { margin-top: 15px;}
 .card_info_area .card_preview::before { content: ''; display: block; padding-top: calc(150 / 248 * 100%);}
 .card_info_area .card_preview .name,
 .card_info_area .card_preview .num { position: absolute; font-size: 16px; color: var(--fn-white); line-height: 1;}
 .card_info_area .card_preview .name { left: 20px; top: 18px; font-weight: 500;}
 .card_info_area .card_preview .num { right: 20px; bottom: 18px;}
-.card_info_area .card_preview .nickname_btn { position: absolute; right: 20px; top: 20px; padding: 8px 12px; border-radius: 4px; background-color: #fff; font-weight: 500; font-size: 12px; line-height: 1.25;}
+.card_info_area .card_preview .nickname_btn { position: absolute; right: 20px; top: 20px; padding: 8px 12px; border-radius: 4px; background-color: var(--fn-white); font-weight: 500; font-size: 12px; line-height: 1.25;}
+.card_info_area .card_preview .card_logo_box,
+.card_info_area .card_preview .card_logo { position: absolute; left: 20px; top: 18px; transform: scale(0.5); transform-origin: left top;}
+.card_info_area .card_preview .card_logo_box .txt { display: block; margin-top: 5px; font-weight: 700; font-size: 28px; color: var(--fn-white); white-space: nowrap;}
+.card_info_area .card_preview .change_btn { position: absolute; right: 20px; top: 20px; padding: 10px 12px; border-radius: 100px; background-color: rgba(0,0,0,.3); font-weight: 500; font-size: 12px; line-height: 1; color: var(--fn-white);}
+.card_info_area .card_preview .txt_box { position: absolute; right: 20px; bottom: 18px; font-size: 16px; text-align: right;}
 .card_info_area .card_choice { width: 208px; margin: 25px auto 0;}
 .card_info_area .card_choice .ttl { font-weight: 700; font-size: 16px; line-height: 1.25;}
 .card_info_area .card_choice .form_check_list { margin-top: 12px;}
@@ -384,7 +410,7 @@ body:not(.mode_full) .fbs_body .simplebar-track.simplebar-vertical { opacity: 0 
 .card_preview_null .txt_area .ttl .ico_add { background-image: url('../images/icons/ico_add_circle.svg');}
 .card_preview_null .txt_area .ttl .txt { font-weight: 500; font-size: 16px;}
 .card_preview_null .txt_area .desc { display: block; margin-top: 8px; font-size: 14px; color: var(--fn-gray-55);}
-.card_proc_area { display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden; width: 100%; height: 130px; margin: 5px auto 16px; padding: 20px; border: 2px solid var(--fn-gray-11); border-radius: 10px; background-color: var(--fn-white);}
+.card_proc_area { display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden; width: 100%; height: 130px; margin: 5px auto 16px; padding: 20px; border: 2px solid var(--fn-gray-11); border-radius: 10px;  background-color: #a7e8f4;}
 .card_proc_area::after { content: ''; display: block; position: absolute; z-index: 11; right: 6.402439%; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; background-image: url('../images/icons/arw_right_black.svg'); background-position: center center; background-size: 100% auto; background-repeat: no-repeat;}
 .card_proc_area .card_proc_inner { display: flex; gap: 15px; align-items: center; position: relative; z-index: 10;}
 .card_proc_area .card_proc_inner .ico { display: block; flex-shrink: 0; width: 64px; height: 64px; background-image: url('../images/icons/ico_battery_outline.svg'); background-position: center center; background-size: 100% auto; background-repeat: no-repeat;}
@@ -393,7 +419,7 @@ body:not(.mode_full) .fbs_body .simplebar-track.simplebar-vertical { opacity: 0 
 .card_proc_area .card_proc_inner .txt_box .percent .txt { font-weight: inherit; font-size: 20px;}
 .card_proc_area .card_proc_inner .txt_box .msg { display: block; margin-top: 8px; font-size: 16px; line-height: 1;}
 .card_proc_area .gauge { position: absolute; left: 0; bottom: 0; width: 100%; height: 100%; background-image: url('../images/img/bg_battery.png'); background-position: center bottom; background-size: auto 130px; background-repeat: repeat;}
-.card_proc_area2 { display: flex; flex-direction: column; gap: 20px; justify-content: center; align-items: center; position: relative; overflow: hidden; width: 100%; margin: 5px auto 16px; padding: 20px; border: 2px solid var(--fn-gray-11); border-radius: 10px; background-color: var(--fn-white);}
+.card_proc_area2 { display: flex; flex-direction: column; gap: 20px; justify-content: center; align-items: center; position: relative; overflow: hidden; width: 100%; margin: 5px auto 16px; padding: 20px; border: 2px solid var(--fn-gray-11); border-radius: 10px; background-color: #a7e8f4;}
 .card_proc_area2 .ttl { position: relative; z-index: 10; font-size: 20px; line-height: 1.25; text-align: center;}
 .card_proc_area2 .card_proc_inner { display: flex; gap: 15px; align-items: center; position: relative; z-index: 10;}
 .card_proc_area2 .card_proc_inner .ico { display: block; flex-shrink: 0; width: 64px; height: 64px; background-image: url('../images/icons/ico_battery_outline.svg'); background-position: center center; background-size: 100% auto; background-repeat: no-repeat;}
@@ -404,6 +430,20 @@ body:not(.mode_full) .fbs_body .simplebar-track.simplebar-vertical { opacity: 0 
 .card_proc_area2 .card_proc_inner .txt_box .msg { display: block; margin-top: 8px; font-size: 16px; line-height: 1;}
 .card_proc_area2 .desc { position: relative; z-index: 10; font-size: 11px; line-height: 1.363636; color: var(--fn-gray-55); text-align: center;}
 .card_proc_area2 .gauge { position: absolute; left: 0; bottom: 0; width: 100%; height: 100%; background-image: url('../images/img/bg_battery_02.png'); background-position: center bottom; background-size: auto 204px; background-repeat: repeat;}
+.wave_area { position: absolute; left: 0; top: 0; width: 100%; height: 100%;}
+.wave_area .wave { position: absolute; left: 50%; bottom: 24.5%; transform: translateX(-50%); width: 8000px; height: 8000px; border-radius: 49%; background-color: rgba(255, 255, 255, 0.65); animation: wave 9s linear infinite;}
+.wave_area .wave1 { left: 45%;}
+.wave_area .wave2 { left: 20%; border-radius: 49.5%; animation: wave 8s linear infinite;}
+.wave_area .wave3 { left: 60%; border-radius: 48.5%; animation: wave 11s linear infinite;}
+.wave_area .wave4 { left: 80%; border-radius: 48.7%; animation: wave 13s linear infinite;}
+@keyframes wave{
+    0%{
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100%{
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
 
 
 .card_info_area .card_point_preview { display: block; position: relative; width: 248px; max-width: 90%; margin: 0 auto; border-radius: 10px; background-image: url('../images/img/bg_card_point.jpg'); background-position: center center; background-size: 100% auto; background-repeat: no-repeat; box-shadow: 10px 15px 21px 0px rgba(0, 0, 0, 0.2);}
