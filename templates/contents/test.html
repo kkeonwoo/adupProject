@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Document</title>
+    <style>
+        body{margin: 0;padding: 0;background-color: #222;}
+        section{position: relative;width: 100%;height: 100dvh;overflow: hidden;}
+        section:nth-child(2){background-color: #fff;}
+        #mask-1,#mask-2{overflow: hidden;}
+        #mask-1,#mask-2,#content{position: absolute;width: 100%;height: 100%;transition: transform .4s;}
+        #content{background: url('../frontLayer/images/favicons/apple-icon.png') no-repeat center center / 100% auto;}
+    </style>
+    <script src="../frontLayer/js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <section>
+        <div id="mask-1">
+            <div id="mask-2">
+                <div id="content"></div>
+            </div>
+        </div>
+    </section>
+    <section></section>
+    <script>
+        function init () {
+            $('#mask-1').css({'transform': 'translateY(-40%)'})
+            $('#mask-2').css({'transform': 'translateY(80%)'})
+            $('#content').css({'transform': 'translateY(-40%)'})
+        }
+        init();
+        function handleClip () {
+            let prot = false;
+            $('#content').on('click', function() {
+                if (!prot) {
+                    $('#mask-1,#mask-2,#content').css({'transform': 'translateY(0)'})
+                } else {
+                    init();
+                }
+                prot = !prot;
+            })
+        }
+        handleClip ();
+    </script>
+</body>
+</html>

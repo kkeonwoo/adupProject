@@ -7,7 +7,7 @@
 // // gnb PC
 let $header = $('#header'),
 	headerHt = $header.outerHeight(),
-	$gnb = $('#gnb'),
+	$gnb = $('.gnb'),
 	$firstItem = $gnb.find('a').first(),
 	$LastItem = $gnb.find('a').last(),
 	$depth1List = $gnb.find('.depth1_list'),
