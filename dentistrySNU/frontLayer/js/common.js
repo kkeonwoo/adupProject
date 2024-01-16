@@ -15,133 +15,62 @@ $.namespace('dentistrySNU');
 dentistrySNU = {
     init : function(){
         this.tab();
-        this.modal();
-        this.swiper.init();
         this.select.init();
+        this.swiper.init();
     },
-    tab : function(){
-        // 탭 컨텐츠 숨기기
-        $('.tab_content').hide();
+    tab: function() {
+        let tabLink, tabItem, tabPanel, activeIdx;
+        tabLink = $('.tab_link');
+        tabPanel = $('.tab_panel');
 
-        // 첫번째 탭콘텐츠 보이기
-        $('.tab_container').each(function () {
-            $(this).children('.tabs li:first').addClass('active'); //Activate first tab
-            $(this).children('.tab_content').first().show();
-        });
-        
         //탭메뉴 클릭 이벤트
-        let inProgress = false;
-        $('.tabs li button').click(function(e) {
-            e.preventDefault();
-
-            var activeTab = $(this).attr('rel');
-            if(!inProgress) {
-                inProgress = true;
-                $(this).parent().siblings('li').removeClass('active');
-                $(this).parent().addClass('active');
-                $(this).closest('.tab_container').find('.tab_content').hide();
-                $('#' + activeTab).fadeIn(() => inProgress = false);
-            }
-        });
-    },
-    modal : function(){
-        var $modal, $modalButton;
-        $modalButton = $('.modal_toggle');
-        $modalButton.on('click',function(){
-            $modal = $($(this).data('target'));
-            dentistrySNU.openModal($modal);
-        });
-    },
-    closeModal : function(
-        $modal, 
-        focusedElementBeforeModal = document.activeElement
-    ){
-        fn.removeHidden();
-        $('.modal').off('scroll',function(){});
-        $('html, body').removeClass('hidden');
-        $modal.addClass('modal_close');
-        $modal.removeClass('active');
-        focusedElementBeforeModal.focus();
-    },
-    openModal : function(
-        $modal, 
-        focusableElementsString = '.modal_centered, a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]', 
-        $modalCloseButton = $('.modal .close')
-    ){
-        fn.addHidden();
-        $modal.addClass('active');
-        $('.modal').on('scroll',function(){
-            if ($('.form_select').hasClass('active')){
-                let $formSelect = $('.form_select.active');
-                let selectTop = $($formSelect).offset().top;
-                let selectLeft = $($formSelect).offset().left;
-                let selectW = $($formSelect).outerWidth();
-                let selectH = $($formSelect).outerHeight();
-                $('.option_area').css({
-                    'top': selectTop + selectH, 
-                    'left': selectLeft, 
-                    'width': selectW
-                });
-            }
-        })
-
-        $modal.on('keydown',function(e){
-            trapTabKey(e);
-        });
-
-        $modal.on('click',function(e){
-            if ($(e.target).closest('.modal_box').length < 1 && $('.modal.active').attr('data-dim-click') !== 'false') {
-                dentistrySNU.closeModal($modal);
-            }
-        });
-
-        $modalCloseButton.on('click',function(){
-            dentistrySNU.closeModal($modal);
-        })
-
-        var focusableElements = $modal.find(focusableElementsString),
-            focusableElements = Array.prototype.slice.call(focusableElements),
-            firstTabStop = focusableElements[0],
-            lastTabStop = focusableElements[focusableElements.length - 1];
-
-        $($modal).removeClass('modal_close');
-        firstTabStop.focus();
-
-        function trapTabKey(e) {
-            // Check for TAB key press
-            if (e.keyCode === 9) {
-                // SHIFT + TAB
-                if (e.shiftKey) {
-                    if (document.activeElement === firstTabStop) {
-                        e.preventDefault();
-                        lastTabStop.focus();
-                    }
-                } else {
-                    if (document.activeElement === lastTabStop) {
-                        e.preventDefault();
-                        firstTabStop.focus();
-                    }
+        tabLink.on({
+            click: function(e) {
+                init(e);
+                handleTab(tabItem, tabPanel, activeIdx);
+            },
+            keydown: function(e) {
+                init(e);
+                if (e.keyCode === 37 || e.keyCode === 38) {
+                    if (activeIdx > 0) handleTab(tabItem, tabPanel, activeIdx - 1);
+                } else if (e.keyCode === 39 || e.keyCode === 40) {
+                    if (activeIdx < tabItem.length - 1) handleTab(tabItem, tabPanel, activeIdx + 1);
+                } else if (e.keyCode === 9) {
+                    tabPanel.eq(activeIdx).focus();
                 }
             }
-            // ESCAPE
-            if (e.keyCode === 27) {
-                dentistrySNU.closeModal($modal);
-            }
+        })
+
+        function init(e) {
+            e.preventDefault();
+            tabItem = $(e.currentTarget).closest('.tab_container').find('.tab_item');
+            tabPanel = $(e.currentTarget).closest('.tab_container').find('.tab_panel');
+            activeIdx = $(e.currentTarget).closest('.tab_item').index();
         }
-    },
-    swiper : {
-        init: () => {
 
-        },
+        function handleTab(tabItem, tabPanel, activeIdx) {
+            tabItem.find('.tab_link').removeClass('active').attr({'aria-selected': false, 'tabindex': -1});
+            tabItem.eq(activeIdx).find('.tab_link').addClass('active').focus().attr({'aria-selected': false, 'tabindex': null});
+            tabPanel.attr('hidden', true);
+            tabPanel.eq(activeIdx).attr('hidden', false);
+        }
 
+        //키보드 이벤트
+        tabPanel.on('keydown', function (e) {
+            let idx = $(this).index();
+            let activeTabLink = $(this).closest('.tab_container').find('.tab_item').eq(idx).find('.tab_link');
+            tabPanel = $(this).closest('.tab_content').find('.tab_panel');
+
+            if (idx === tabPanel.length - 1) return;
+            e.preventDefault();
+            if (e.keyCode === 9) activeTabLink.focus();
+        })
     },
     select : {
-        lastSelected : null,
         init() {
-            const selectBox = $('.form_select');
-            let selectBtn = selectBox.find('.form_btn'),
-                optionArea = $('body > .option_area, .form_select .option_area'),
-                optionItem = optionArea.find('.option_item');
+            let selectBox = $('.form_select'),
+                selectBtn = selectBox.find('.form_btn');
+
             /**
              * selectBox 모달 내부 위치 시
              */
@@ -163,8 +92,7 @@ dentistrySNU = {
                 click: (e) => {
                     let t = e.currentTarget,
                         formSelect = $(t).closest('.form_select'),
-                        optionArea = formSelect.find('.option_area'),
-                        optionItem = formSelect.find('.option_item');
+                        optionArea = formSelect.find('.option_area');
 
                     if (!fn.hasClass(formSelect, 'show')) {
                         $(t).addClass('active');
@@ -176,8 +104,6 @@ dentistrySNU = {
                         optionItem = optionArea.find('.option_item');
                         
                         this.handlePosOption(t);
-                        this.lastSelected = optionItem.filter((idx, item) => fn.hasClass(item, 'selected') && item);
-                        return this.lastSelected; // tracking selected item to opening option
                     } else {
                         this.closeOption();
                     }
@@ -292,9 +218,67 @@ dentistrySNU = {
          */
         closeOption() {
             $('.form_select').removeClass('show');
-            $('.form_select').find('.select_btn').attr('aria-expanded', false);
             $('.form_select').find('.option_area').removeClass('show top');
             $('body > .option_area').remove();
+        },
+    },
+    swiper : {
+        init() {
+
+        },
+    },
+    modal : {
+        /**
+         * 모달 열기
+         * @param {$modal} init의 data-target
+         * 초점 이동, 키보드 조작
+         */
+        openModal ($modal) {
+            let $modalCloseButton = $('.modal .close');
+
+            fn.addHidden();
+            $modal.addClass('active').removeClass('modal_close');
+            $modal.on('click',function(e){
+                if ($(e.target).closest('.modal_box').length < 1 && $('.modal.active').attr('data-dim-click') !== 'false') {
+                    dentistrySNU.modal.closeModal($modal);
+                }
+            });
+            $modalCloseButton.on('click', () => dentistrySNU.modal.closeModal($modal));
+            $modal.on('keydown', (e) => trapTabKey(e));
+
+            var focusableElements = $modal.find(':focusable'),
+                firstTabStop = focusableElements[0],
+                lastTabStop = focusableElements[focusableElements.length - 1];
+
+            firstTabStop.focus();
+
+            function trapTabKey(e) {
+                if (e.keyCode === 9) {
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstTabStop) {
+                            e.preventDefault();
+                            lastTabStop.focus();
+                        }
+                    } else {
+                        if (document.activeElement === lastTabStop) {
+                            e.preventDefault();
+                            firstTabStop.focus();
+                        }
+                    }
+                }
+                if (e.keyCode === 27) {
+                    dentistrySNU.modal.closeModal($modal);
+                }
+            }
+        },
+        /**
+         * 모달 닫기
+         * @param {$modal} init의 data-target
+         */
+        closeModal ($modal) {
+            fn.removeHidden();
+            $modal.off('scroll');
+            $modal.addClass('modal_close').removeClass('active');
         },
     },
 }

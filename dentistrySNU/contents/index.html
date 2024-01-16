@@ -1,132 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta http-equiv="Content-Script-Type" content="text/javascript" />
-        <meta http-equiv="Content-Style-Type" content="text/css" />
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        <meta name="format-detection" content="telephone=no" />
-        <title>Templates</title>
-        <meta name="keywords" content="" />
-        <meta name="description" content="" />
-        <!-- SNS share -->
-        <meta property="og:title" content="" />
-        <meta property="og:url" content=""/>
-        <meta property="og:image" content="" />
-        <meta property="og:description" content="" />
-        <!-- Favicon -->
-        <link rel="icon" type="image/png" sizes="16x16"  href="../frontLayer/images/favicons/favicon-16x16.png">
-        <link rel="icon" type="image/png" sizes="32x32"  href="../frontLayer/images/favicons/favicon-32x32.png">
-        <link rel="apple-touch-icon" sizes="57x57" href="../frontLayer/images/favicons/apple-touch-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="../frontLayer/images/favicons/apple-touch-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="../frontLayer/images/favicons/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="../frontLayer/images/favicons/apple-touch-icon-76x76.png">
-        <link rel="icon" type="image/png" sizes="96x96"  href="../frontLayer/images/favicons/apple-touch-icon-96x96.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="../frontLayer/images/favicons/apple-touch-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="../frontLayer/images/favicons/apple-touch-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="../frontLayer/images/favicons/apple-touch-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="../frontLayer/images/favicons/apple-touch-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="../frontLayer/images/favicons/apple-touch-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192"  href="../frontLayer/images/favicons/android-icon-192x192.png">
-        <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="theme-color" content="#ffffff">
-        <link rel="canonical" href=""/>
-        <link rel="stylesheet" href="../frontLayer/css/package.css">
-        <script src="../frontLayer/js/jquery-3.3.1.min.js"></script>
-        <script src="../frontLayer/js/jquery-ui.min.js"></script>
-        <script src="../frontLayer/js/swiper.min.js"></script>
-        <script src="../frontLayer/js/fn.js"></script>
-        <script src="../frontLayer/js/common.js"></script>
-    </head>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- SNS share -->
+    <meta property="og:title" content="" />
+    <meta property="og:url" content=""/>
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+    <title>Document</title>
+    <!-- link:css -->
+    <link rel="stylesheet" href="../frontLayer/css/package.css">
+    <!-- link:script -->
+    <script src="../frontLayer/js/jquery-3.3.1.min.js"></script>
+    <script src="../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../frontLayer/js/swiper.min.js"></script>
+    <script src="../frontLayer/js/fn.js"></script>
+    <script src="../frontLayer/js/common.js"></script>
+</head>
 <body>
-
-    <div class="form_select">
-        <button type="button" id="menu-button" class="form_btn" aria-expanded="false" aria-haspopup="true" aria-controls="menu-list">select box</button>
-        
-        <div id="menu-list" class="option_area" role="list" aria-orientation="vertical" aria-labelledby="menu-button">
-            <ul class="option_list" role="listbox">
-                <li class="option_item selected" role="option" aria-selected="true"><button class="option_btn" type="button">option01</button></li>
-                <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option02</button></li>
-                <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option03</button></li>
-                <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option04</button></li>
-                <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option05</button></li>
-            </ul>
+    <div id="wrap">
+        <!-- skip -->
+        <div class="skip">
+            <a href="#container">본문 바로가기</a>
         </div>
-    </div>
-
-    <div class="section">
-        <div class="content">
-
-            <button type="button" class="btn btn_primary modal_toggle" onclick="ProjectName.modal.openModal($('#modalTest02'))">컨턴츠가 넘칠때 모달 열기2</button>
-            <br/>
-            <br/>
+        <!-- //skip -->
+        <!-- header -->
+        <header id="header">
             
-            <div class="modal modal_close" id="modalTest02">
-                <div class="modal_centered" tabindex="0">
-                    <div class="modal_box">
-                        <button type="button" class="btn_modal_close close">
-                            <span class="blind">닫기</span>
-                        </button>
-                        <div style="height: 100vh;"></div>
-                        modalTest02
-                        <br/>
-                        <br/>
-                        <div class="form_select">
-                            <button type="button" id="menu-button" class="form_btn" aria-expanded="false" aria-haspopup="true" aria-controls="menu-list">select box</button>
-                            
-                            <div id="menu-list" class="option_area" role="list" aria-orientation="vertical" aria-labelledby="menu-button">
-                                <ul class="option_list" role="listbox">
-                                    <li class="option_item selected" role="option" aria-selected="true"><button class="option_btn" type="button">option01</button></li>
-                                    <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option02</button></li>
-                                    <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option03</button></li>
-                                    <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option04</button></li>
-                                    <li class="option_item" role="option" aria-selected="false"><button class="option_btn" type="button">option05</button></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div style="height: 100vh;"></div>
-                        
-                        <div class="btn_wrap">
-                            <button type="button" class="btn btn_primary close">확인</button>
-                            <button type="button" class="btn btn_secondary close">취소</button>
-                        </div>
-                    </div>
-                </div>
+        </header>
+        <!-- //header -->
+        <!-- container -->
+        <main id="container">
+            <!-- spot -->
+            <div class="spot">
+                
             </div>
-        
-        </div>
+            <!-- //spot -->
+            <!-- content -->
+            <div id="content">
+                <section class="section">
+                    
+                </section>
+            </div>
+            <!-- //content -->
+        </main>
+        <!-- //container -->
+        <!-- footer -->
+        <footer id="footer">
 
-        <div class="content">
-            <div class="tab_container">
-                <div class="tabs">
-                    <ul>
-                        <li class="active">
-                            <button type="button" rel="tab1">탭1-1</button>
-                        </li>
-                        <li>
-                            <button type="button" rel="tab2">탭1-2</button>
-                        </li>
-                        <li>
-                            <button type="button" rel="tab3">탭1-3</button>
-                        </li>
-                    </ul>
-                </div>
-                <div id="tab1" class="tab_content">
-                    <h1 class="blind">탭1 내용</h1>
-                    탭1
-                </div>
-                <div id="tab2" class="tab_content">
-                    <h1 class="blind">탭2 내용</h1>
-                    탭2
-                </div>
-                <div id="tab3" class="tab_content">
-                    <h1 class="blind">탭3 내용</h1>
-                    탭3
-                </div>
-            </div>
-        </div>
+        </footer>
+        <!-- //footer -->
     </div>
-    
 </body>
 </html>

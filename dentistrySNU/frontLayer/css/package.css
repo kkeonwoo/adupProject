@@ -3,9 +3,10 @@
 /* common */
 @import url(fonts.css);
 @import url(common.css);
-@import url(components.css);
 @import url(jquery-ui.css);
 
 /* 추가 css */
 @import url(style.css);
+@import url(nav.css);
 @import url(swiper.css);
+@import url(components.css);
