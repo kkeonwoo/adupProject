@@ -67,16 +67,17 @@ ProjectName = {
 
         function init(e) {
             e.preventDefault();
-            tabItem = $(e.currentTarget).closest('.tab_container').find('.tab_item');
-            tabPanel = $(e.currentTarget).closest('.tab_container').find('.tab_panel');
-            activeIdx = $(e.currentTarget).closest('.tab_item').index();
+            let $t = $(e.currentTarget);
+            tabItem = $t.closest('.tab_container').find('.tab_item');
+            tabPanel = $t.closest('.tab_container').find('.tab_panel');
+            activeIdx = $t.closest('.tab_item').index();
         }
 
         function handleTab(tabItem, tabPanel, activeIdx) {
             tabItem.find('.tab_link').removeClass('active').attr({'aria-selected': false, 'tabindex': -1});
             tabItem.eq(activeIdx).find('.tab_link').addClass('active').focus().attr({'aria-selected': false, 'tabindex': null});
-            tabPanel.attr('hidden', true);
-            tabPanel.eq(activeIdx).attr('hidden', false);
+            tabPanel.attr({'tabindex': -1, 'hidden': true});
+            tabPanel.eq(activeIdx).attr({'tabindex': 0, 'hidden': false});
         }
 
         //키보드 이벤트
