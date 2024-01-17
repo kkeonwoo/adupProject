@@ -2,16 +2,12 @@
 /* *******************************************************
     * filename : common.css
     * description : reset / common css
-    * date : 2023-12-12
+    * date : 2023-01-17
 ******************************************************* */
 
 :root {
-    /* gnb width */
-    --gnb-mobile-width: 40%;
     /* header height */
-    --header-height: 100px;
-    /* header color */
-    --header-bg-color: #fff;
+    --header-height: 140px;
 
     /* color */
     --color-primary: #696cff;
@@ -22,6 +18,13 @@
     --color-info: #17a2b8;
     --color-light: #ccc;
     --color-dark: #333;
+    --color-f7f7f7: #f7f7f7;
+    --color-efefef: #efefef;
+    --color-aeaeae: #aeaeae;
+    --color-5e5e5e: #5e5e5e;
+    --color-191919: #191919;
+    --color-192C54: #192C54;
+    --color-a0c101: #a0c101;
     --color-muted: #6c757d;
     --color-white: #fff;
     --focus-color: #333;
@@ -29,9 +32,10 @@
 }
 
 /* CSS Document */
-*{padding:0;margin:0;-webkit-text-size-adjust: none; -moz-text-size-adjust: none; -ms-text-size-adjust: none;box-sizing: border-box;-ms-box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;font-family: 'Noto Sans KR','맑은 고딕','sans-serif';font-size:16px;font-weight: 400; line-height: 1; color:#000000;}
+*{padding:0;margin:0;-webkit-text-size-adjust: none; -moz-text-size-adjust: none; -ms-text-size-adjust: none;box-sizing: border-box;-ms-box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;font-family: 'SpoqaHanSansNeo','맑은 고딕','sans-serif';font-size:18px;font-weight: 400; line-height: 1.25; color:var(--color-191919);}
 h1,h2,h3,h4,h5,h6,em,strong,li,dd,a,address{padding:0;margin:0;}
 html{overflow-y:scroll;}
+body { overflow: hidden;}
 body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,tr,td,thead,tbody,form,fieldset,legend,input,textarea,button{margin:0;padding:0;}
 ul,ol,li,dl,dt,dd {list-style:none;}
 i,em,address{font-style:normal;}
@@ -62,10 +66,10 @@ menu,
 nav,
 section {display: block;margin: 0;}
 audio,canvas,progress,video {display: inline-block;}
-::-webkit-input-placeholder {font:16px 'Noto Sans KR', '맑은 고딕','sans-serif'; font-weight: 400; color: #D4D4D4;}
-::-moz-placeholder {font:16px 'Noto Sans KR', '맑은 고딕', 'sans-serif'; font-weight: 400; color: #D4D4D4;}
-:-ms-input-placeholder {font:16px 'Noto Sans KR', '맑은 고딕', 'sans-serif'; font-weight: 400; color: #D4D4D4;}
-:-moz-placeholder {font:16px 'Noto Sans KR', '맑은 고딕', 'sans-serif'; font-weight: 400; color: #D4D4D4;}
+::-webkit-input-placeholder {font:16px 'SpoqaHanSansNeo', '맑은 고딕','sans-serif'; font-weight: 400; color: #D4D4D4;}
+::-moz-placeholder {font:16px 'SpoqaHanSansNeo', '맑은 고딕', 'sans-serif'; font-weight: 400; color: #D4D4D4;}
+:-ms-input-placeholder {font:16px 'SpoqaHanSansNeo', '맑은 고딕', 'sans-serif'; font-weight: 400; color: #D4D4D4;}
+:-moz-placeholder {font:16px 'SpoqaHanSansNeo', '맑은 고딕', 'sans-serif'; font-weight: 400; color: #D4D4D4;}
 input[type=reset],
 input[type=button],
 input[type=submit] {-webkit-appearance: button;-moz-appearance: button;appearance: button;}
@@ -331,9 +335,9 @@ input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none;}
 .skip a:hover,.skip a:active,.skip a:focus{top:0}
 
 /*기본*/
-#wrap{position:relative;width:100%;min-width:1200px;}
+#wrap{position:relative;width:100%;}
 #header{position:relative;}
-#container{position:relative;}
+#container{position:relative;z-index: 20;}
 #container:after{display:block;clear:both;content:'';}
 #footer{position:relative;}
 .content_inner {width:100%;margin:0 auto;}
@@ -343,6 +347,7 @@ a:hover{text-decoration:none;}
 .blind {position: absolute;top: 0;left: 0;width: 1px !important;height: 1px !important;padding: 0 !important;margin: -1px !important;overflow: hidden !important;clip: rect(0, 0, 0, 0) !important;white-space: nowrap !important;border: 0 !important;font-size: 0;line-height: 0;}
 .hide {display:none;}
 .hidden {overflow: hidden !important;}
+.img { display: block; width: 100%; max-width: 100%; object-fit: cover;}
 
 .mo { display: none;}
 @media all and ( max-width: 767px) {

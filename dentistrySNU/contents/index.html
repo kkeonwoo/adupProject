@@ -18,6 +18,7 @@
     <script src="../frontLayer/js/jquery-3.3.1.min.js"></script>
     <script src="../frontLayer/js/jquery-ui.min.js"></script>
     <script src="../frontLayer/js/swiper.min.js"></script>
+    <script src="../frontLayer/js/lodash.js"></script>
     <script src="../frontLayer/js/fn.js"></script>
     <script src="../frontLayer/js/common.js"></script>
 </head>
@@ -29,21 +30,128 @@
         </div>
         <!-- //skip -->
         <!-- header -->
-        <header id="header">
-            
+        <header id="header" class="type4">
+            <div class="header_inner">
+                <h1 class="logo">
+                    <a href="/" class="logo_link">
+                        <img src="../frontLayer/images/common/logo.svg" alt="서울대학교 치의학박물관" class="logo_img img white">
+                        <img src="../frontLayer/images/common/logo_color.svg" alt="서울대학교 치의학박물관" class="logo_img img color">
+                    </a>
+                </h1>
+                <nav class="gnb">
+                    <h2 class="blind">Menu</h2>
+                    <div class="gnb_wrapper">
+                        <div class="gnb_inner">
+                            <div class="depth1_area">
+                                <ul class="depth1_list">
+                                    <li class="depth1_item">
+                                        <a href="#" class="depth1_link">전시</a>
+                                    </li>
+                                    <li class="depth1_item">
+                                        <a href="#" class="depth1_link">소장유물</a>
+                                    </li>
+                                    <li class="depth1_item">
+                                        <a href="#" class="depth1_link">교육 컨텐츠</a>
+                                    </li>
+                                    <li class="depth1_item">
+                                        <a href="#" class="depth1_link">학술/자료</a>
+                                    </li>
+                                    <li class="depth1_item">
+                                        <a href="#" class="depth1_link">소식</a>
+                                    </li>
+                                    <li class="depth1_item">
+                                        <a href="#" class="depth1_link">박물관 소개</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
         </header>
         <!-- //header -->
         <!-- container -->
         <main id="container">
             <!-- spot -->
             <div class="spot">
-                
+                <img src="../frontLayer/images/img/spot.jpg" alt="" class="img">
             </div>
             <!-- //spot -->
             <!-- content -->
             <div id="content">
-                <section class="section">
-                    
+                <section class="section section01 f_height">
+                    <div class="inner">
+                        <div class="ttl_area">
+                            <span class="txt">Exhibition Introduction</span>
+                            <h3 class="h_ttl">전시 소개</h3>
+                        </div>
+                        <div class="swiper_exhbn_wrapper">
+                            <button type="button" class="swiper-button-prev"></button>
+                            <div class="swiper swiper_exhbn">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <a href="#" class="exhbn_swiper_card">
+                                            <span class="exhbn_cate">기획전시</span>
+                                            <div class="exhbn_img_area">
+                                                <img src="../frontLayer/images/@/@exhbn_01.jpg" alt="나누는 삶 치과의사의 비전" class="img">
+                                            </div>
+                                            <div class="exhbn_txt_area">
+                                                <h4 class="h_exhbn">나누는 삶 치과의사의 비전</h4>
+                                                <span class="date">2023. 07. 06 - 2023. 09. 27</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#" class="exhbn_swiper_card">
+                                            <span class="exhbn_cate">기획전시</span>
+                                            <div class="exhbn_img_area">
+                                                <img src="../frontLayer/images/@/@exhbn_02.jpg" alt="나누는 삶 치과의사의 비전" class="img">
+                                            </div>
+                                            <div class="exhbn_txt_area">
+                                                <h4 class="h_exhbn">나누는 삶 치과의사의 비전</h4>
+                                                <span class="date">2023. 07. 06 - 2023. 09. 27</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#" class="exhbn_swiper_card">
+                                            <span class="exhbn_cate">기획전시</span>
+                                            <div class="exhbn_img_area">
+                                                <img src="../frontLayer/images/@/@exhbn_03.jpg" alt="나누는 삶 치과의사의 비전" class="img">
+                                            </div>
+                                            <div class="exhbn_txt_area">
+                                                <h4 class="h_exhbn">나누는 삶 치과의사의 비전</h4>
+                                                <span class="date">2023. 07. 06 - 2023. 09. 27</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#" class="exhbn_swiper_card">
+                                            <span class="exhbn_cate">기획전시</span>
+                                            <div class="exhbn_img_area">
+                                                <img src="../frontLayer/images/@/@exhbn_04.jpg" alt="나누는 삶 치과의사의 비전" class="img">
+                                            </div>
+                                            <div class="exhbn_txt_area">
+                                                <h4 class="h_exhbn">나누는 삶 치과의사의 비전</h4>
+                                                <span class="date">2023. 07. 06 - 2023. 09. 27</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="swiper-button-next"></button>
+                        </div>
+                    </div>
+                </section>
+                <section class="section section02">
+                    <div class="inner">
+                        <div class="ttl_area">
+                            <span class="txt">Collectible Artifacts</span>
+                            <h3 class="h_ttl">소장 유물</h3>
+                            <p class="p_desc">치의학박물관 소장 유물로 한국 치의학의 역사를 확인할 수 있습니다.</p>
+                            <a href="#" class="btn"></a>
+                        </div>
+                    </div>
                 </section>
             </div>
             <!-- //content -->

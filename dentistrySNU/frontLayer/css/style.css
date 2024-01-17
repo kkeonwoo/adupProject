@@ -2,5 +2,55 @@
 /* *******************************************************
     * filename : style.css
     * description : 전체 레이아웃
-    * date : 2023-12-12
+    * date : 2024-01-17
 ******************************************************* */
+
+/* header */
+#header.type4 { position: fixed; width: 100%; overflow: hidden; z-index: 30; transition: background-color .3s ease-in-out;}
+#header.type4 .header_inner { display: flex; justify-content: space-between; align-items: center; position: relative; max-width: 1600px; margin: 0 auto;}
+#header.type4 .logo .logo_img { height: 60px;}
+#header.type4 .logo .logo_img.white { display: block;}
+#header.type4 .logo .logo_img.color { display: none;}
+#header.type4 .depth1_list { display: flex;}
+#header.type4 .depth1_list .depth1_item { position: relative; height: var(--header-height); padding: 0 28px; line-height: var(--header-height); text-align: center;}
+#header.type4 .depth1_list .depth1_link { color: var(--color-white);}
+
+#header.type4.color { background-color: var(--color-white);}
+#header.type4.color .logo .logo_img.white,
+#header.type4.fixed .logo .logo_img.white { display: none;}
+#header.type4.color .logo .logo_img.color,
+#header.type4.fixed .logo .logo_img.color { display: block;}
+#header.type4.color .depth1_list .depth1_link,
+#header.type4.fixed .depth1_list .depth1_link { color: var(--color-191919);}
+
+#header.type4.fixed { background-color: rgba(255, 255, 255, 0.4); backdrop-filter: blur(40px);}
+
+/* common */
+.inner { width: 100%; max-width: 1600px; margin: 0 auto;}
+.h_exhbn { font-weight: 700; font-size: 24px;}
+.date { display: block; margin-top: 16px; font-size: 14px; color: var(--color-5e5e5e);}
+.section.f_height { display: flex; align-items: center; min-height: 100dvh;}
+.section .ttl_area { position: relative; z-index: 10;}
+.section .ttl_area .h_ttl { margin-top: 16px; font-family: SunBatang, sans-serif; font-weight: 700; font-size: 40px; letter-spacing: -1.6px; color: var(--color-192C54);}
+
+/* spot */
+.spot { min-height: 100dvh;}
+
+/* exhbn */
+.section01 { background-color: var(--color-f7f7f7);}
+.section01 .swiper_exhbn_wrapper { position: relative; margin-top: 48px;}
+.section01 .swiper_exhbn_wrapper::before,
+.section01 .swiper_exhbn_wrapper::after { content: 'SEOUL NATIONAL UNIVERSITY'; display: block; position: absolute; font-family: 'SunBatang', serif; font-weight: 100; font-size: 100px; color: var(--color-efefef); line-height: 1.18; letter-spacing: -4px; white-space: nowrap;}
+.section01 .swiper_exhbn_wrapper::before { content: 'DENTAL MUSEUM'; top: -90px; left: -125px;}
+.section01 .swiper_exhbn_wrapper::after { content: 'SEOUL NATIONAL UNIVERSITY'; bottom: -55px; right: -300px;}
+.section01 .swiper_exhbn_wrapper [class*="swiper-button-"] { display: flex; justify-content: center; align-items: center; position: absolute; top: 204px; width: 72px; height: 72px; margin: 0; background-color: var(--color-white); background-repeat: no-repeat; background-position: center center; background-size: calc(40 / 72 * 100%) auto; box-shadow: 2px 2px 16px 0px rgba(0, 0, 0, 0.20);}
+.section01 .swiper_exhbn_wrapper .swiper-button-prev { left: 0; transform: translateX(-50%); background-image: url('../images/icons/arw_left_black.svg');}
+.section01 .swiper_exhbn_wrapper .swiper-button-next { right: 0; transform: translateX(50%); background-image: url('../images/icons/arw_right_black.svg');}
+.section01 .swiper_exhbn { padding: 4px;}
+.section01 .swiper_exhbn .swiper-slide.swiper-slide-active .exhbn_img_area { outline: 4px solid var(--color-a0c101); }
+.section01 .swiper_exhbn .exhbn_swiper_card { position: relative;}
+.section01 .swiper_exhbn .exhbn_cate { display: flex; justify-content: center; align-items: center; position: absolute; top: 0; right: 0; width: 100%; max-width: 110px; min-height: 40px; font-size: 20px; font-weight: 700; background-color: var(--color-191919); color: var(--color-white);}
+.section01 .swiper_exhbn .exhbn_txt_area { margin-top: 32px; padding-bottom: 16px; border-bottom: 1px solid var(--color-aeaeae); text-align: left;}
+
+@media all and (min-width: 1921px) {
+}

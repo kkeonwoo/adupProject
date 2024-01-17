@@ -12,31 +12,34 @@ $.namespace = function() {
 };
 
 $.namespace('dentistrySNU');
+let $header;
 dentistrySNU = {
     init : function(){
         this.tab();
         this.select.init();
         this.swiper.init();
+        this.gnb.init();
     },
     tab: function() {
         let tabLink, tabItem, tabPanel, activeIdx;
         tabLink = $('.tab_link');
         tabPanel = $('.tab_panel');
 
-        //탭메뉴 클릭 이벤트
         tabLink.on({
-            click: function(e) {
+            click: (e) => {
                 init(e);
                 handleTab(tabItem, tabPanel, activeIdx);
             },
-            keydown: function(e) {
-                init(e);
+            keydown: (e) => {
+                if (!e.shiftKey) init(e);
                 if (e.keyCode === 37 || e.keyCode === 38) {
                     if (activeIdx > 0) handleTab(tabItem, tabPanel, activeIdx - 1);
                 } else if (e.keyCode === 39 || e.keyCode === 40) {
                     if (activeIdx < tabItem.length - 1) handleTab(tabItem, tabPanel, activeIdx + 1);
                 } else if (e.keyCode === 9) {
-                    tabPanel.eq(activeIdx).focus();
+                    if (!e.shiftKey) {
+                        tabPanel.eq(activeIdx).focus();
+                    }
                 }
             }
         })
@@ -55,17 +58,6 @@ dentistrySNU = {
             tabPanel.attr({'tabindex': -1, 'hidden': true});
             tabPanel.eq(activeIdx).attr({'tabindex': 0, 'hidden': false});
         }
-
-        //키보드 이벤트
-        tabPanel.on('keydown', function (e) {
-            let idx = $(this).index();
-            let activeTabLink = $(this).closest('.tab_container').find('.tab_item').eq(idx).find('.tab_link');
-            tabPanel = $(this).closest('.tab_content').find('.tab_panel');
-
-            if (idx === tabPanel.length - 1) return;
-            e.preventDefault();
-            if (e.keyCode === 9) activeTabLink.focus();
-        })
     },
     select : {
         init() {
@@ -225,8 +217,21 @@ dentistrySNU = {
     },
     swiper : {
         init() {
-
+            this.exhbnSwiper();
         },
+        exhbnSwiper() {
+            if(!fn.exists('.swiper_exhbn')) return;
+
+            const swiperExhbn = new Swiper('.swiper_exhbn', {
+                loop: true,
+                slidesPerView: 4,
+                spaceBetween: 32,
+                navigation: {
+                    nextEl: '.swiper_exhbn_wrapper .swiper-button-next',
+                    prevEl: '.swiper_exhbn_wrapper .swiper-button-prev'
+                }
+            })
+        }
     },
     modal : {
         /**
@@ -239,13 +244,15 @@ dentistrySNU = {
 
             fn.addHidden();
             $modal.addClass('active').removeClass('modal_close');
-            $modal.on('click',function(e){
-                if ($(e.target).closest('.modal_box').length < 1 && $('.modal.active').attr('data-dim-click') !== 'false') {
-                    dentistrySNU.modal.closeModal($modal);
-                }
+            $modal.on({
+                click: (e) => {
+                    if ($(e.target).closest('.modal_box').length < 1 && $('.modal.active').attr('data-dim-click') !== 'false') {
+                        ProjectName.modal.closeModal($modal);
+                    }
+                },
+                keydown: (e) => trapTabKey(e),
             });
-            $modalCloseButton.on('click', () => dentistrySNU.modal.closeModal($modal));
-            $modal.on('keydown', (e) => trapTabKey(e));
+            $modalCloseButton.on('click', () => ProjectName.modal.closeModal($modal));
 
             var focusableElements = $modal.find(':focusable'),
                 firstTabStop = focusableElements[0],
@@ -267,9 +274,7 @@ dentistrySNU = {
                         }
                     }
                 }
-                if (e.keyCode === 27) {
-                    dentistrySNU.modal.closeModal($modal);
-                }
+                if (e.keyCode === 27) ProjectName.modal.closeModal($modal);
             }
         },
         /**
@@ -278,11 +283,99 @@ dentistrySNU = {
          */
         closeModal ($modal) {
             fn.removeHidden();
-            $modal.off('scroll');
             $modal.addClass('modal_close').removeClass('active');
         },
     },
+    gnb : {
+        init: function() {
+            this.type4();
+            this.fixed();
+        },
+        type4: function() {
+            if (!fn.hasClass($header, '.type4')) return;
+            let $bgOverlay = $('.gnb_overlay_bg'),
+                $gnb = $('#gnb'),
+                $depth1List = $gnb.find('.depth1_list'),
+                $depth1Item = $gnb.find('.depth1_item'),
+                $depth1Link = $depth1Item.children('a');
+                $firstItem = $gnb.find('a').first(),
+                $LastItem = $gnb.find('a').last(),
+                $depth2Area = $('.depth2_area'),
+                $depth2List = $depth2Area.find('.depth2_list'),
+                headerHt = $header.outerHeight(),
+                depth2Ht = this.maxHeight($depth2List);
+
+            const openMenu = () => { 
+                $bgOverlay.animate({ height : depth2Ht })
+                $header.stop().animate({ height : headerHt + depth2Ht })
+            }
+            const closeMenu = () => { 
+                $bgOverlay.animate({ height : 0 })
+                $header.stop().animate({ height : headerHt })
+            }
+
+            // open event
+            $depth1List.on('mouseenter focusin', openMenu);
+
+            // close event
+            $header.on('mouseleave', closeMenu);
+            $firstItem.on('keydown', (e) => { if(e.keyCode === 9 && e.shiftKey) closeMenu(); })
+            $LastItem.on('focusout', closeMenu);
+
+            // focus event
+            $depth1Link.on('keydown', function (e) {
+                let dep1Idx = $(this).closest('.depth1_item').index();
+                
+                if ( e.keyCode === 9 ) {
+                    if ( e.shiftKey ) {
+                        if (dep1Idx <= 0) return;
+                        e.preventDefault();
+                        $depth2List.eq(dep1Idx - 1).find('li').last().find('.depth2_link').get(0).focus();
+                    } else {
+                        e.preventDefault();
+                        $depth2List.eq(dep1Idx).find('.depth2_link').get(0).focus();
+                    }
+                }
+            })
+            $depth2List.each((idx, item) => {
+                let $depth2Item = $(item).find('li');
+                
+                $depth2Item.first().find('a').on('keydown', function(e) {
+                    if ( e.keyCode === 9 && e.shiftKey ) {
+                        e.preventDefault();
+                        $('.depth1_item').eq(idx).find('.depth1_link').focus();
+                    }
+                })
+                $depth2Item.last().find('a').on('keydown', function(e) {
+                    if ( e.keyCode === 9 && idx < $depth2List.length - 1 && !e.shiftKey) {
+                        e.preventDefault();
+                        $('.depth1_item').eq(idx + 1).find('.depth1_link').focus();
+                    }
+                })
+            })
+        },
+        maxHeight: function(obj) {
+            const heightArray = $(obj).map(function () {
+                return $(this).outerHeight(true);
+            });
+            const maxHeight = Math.max(...heightArray);
+
+            return maxHeight;
+        },
+        fixed: function() {
+            $(window).scroll(_.throttle(() => {
+                let st = $(document).scrollTop();
+
+                if (st > 0) {
+                    $header.addClass('fixed');
+                } else {
+                    $header.removeClass('fixed');
+                }
+            }, 300))
+        }
+    }
 }
 $(() => {
+    $header = $('#header');
     dentistrySNU.init();
 });
