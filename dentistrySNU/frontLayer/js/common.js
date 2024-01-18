@@ -218,6 +218,8 @@ dentistrySNU = {
     swiper : {
         init() {
             this.exhbnSwiper();
+            this.collectSwiper();
+            this.videoSwiper();
         },
         exhbnSwiper() {
             if(!fn.exists('.swiper_exhbn')) return;
@@ -227,11 +229,52 @@ dentistrySNU = {
                 slidesPerView: 4,
                 spaceBetween: 32,
                 navigation: {
-                    nextEl: '.swiper_exhbn_wrapper .swiper-button-next',
-                    prevEl: '.swiper_exhbn_wrapper .swiper-button-prev'
+                    nextEl: '.swiper_exhbn_wrap .swiper-button-next',
+                    prevEl: '.swiper_exhbn_wrap .swiper-button-prev'
                 }
             })
-        }
+        },
+        collectSwiper() {
+            if(!fn.exists('.swiper_col') || !fn.exists('.swiper_col_sub')) return;
+
+            const swiperCol = new Swiper('.swiper_col', {
+                loop: true,
+                slidesPerView: 'auto',
+                spaceBetween: 32,
+            })
+
+            const siwperColSub = new Swiper('.swiper_col_sub', {
+                loop:true,
+                slidesPerView: 'auto',
+                spaceBetween: 32,
+                navigation: {
+                    nextEl: '.swiper_col_sub .swiper-button-next'
+                }
+            })
+            swiperCol.controller.control = siwperColSub;
+            siwperColSub.controller.control = swiperCol;
+        },
+        videoSwiper() {
+            if(!fn.exists('.swiper_video') || !fn.exists('.swiper_video_sub')) return;
+
+            const swiperVideo = new Swiper('.swiper_video', {
+                loop: true,
+                slidesPerView: 'auto',
+                spaceBetween: 32,
+                navigation: {
+                    nextEl: '.swiper_video_sub .swiper-button-next',
+                    prevEl: '.swiper_video_sub .swiper-button-prev'
+                },
+            })
+
+            const siwperVideoSub = new Swiper('.swiper_video_sub', {
+                loop:true,
+                slidesPerView: 'auto',
+                spaceBetween: 32,
+            })
+            swiperVideo.controller.control = siwperVideoSub;
+            siwperVideoSub.controller.control = swiperVideo;
+        },
     },
     modal : {
         /**
