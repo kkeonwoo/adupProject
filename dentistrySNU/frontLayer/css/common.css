@@ -10,27 +10,17 @@
     --header-height: 140px;
 
     /* color */
-    --color-primary: #696cff;
-    --color-secondary: #788393;
-    --color-success: #28a745;
-    --color-danger: #FF0000;
-    --color-warning: #ffc107;
-    --color-info: #17a2b8;
-    --color-light: #ccc;
-    --color-dark: #333;
     --color-f7f7f7: #f7f7f7;
     --color-f4f3ee: #f4f3ee;
     --color-efefef: #efefef;
     --color-aeaeae: #aeaeae;
     --color-5e5e5e: #5e5e5e;
     --color-191919: #191919;
+    --color-041A71: #041A71;
     --color-192C54: #192C54;
     --color-fffdfa: #fffdfa;
     --color-a0c101: #a0c101;
-    --color-muted: #6c757d;
     --color-white: #fff;
-    --focus-color: #333;
-    --focus-color2: var(--color-red);
 }
 
 /* CSS Document */
@@ -347,7 +337,7 @@ a:hover{text-decoration:none;}
 .blind {position: absolute;top: 0;left: 0;width: 1px !important;height: 1px !important;padding: 0 !important;margin: -1px !important;overflow: hidden !important;clip: rect(0, 0, 0, 0) !important;white-space: nowrap !important;border: 0 !important;font-size: 0;line-height: 0;}
 .hide {display:none;}
 .hidden {overflow: hidden !important;}
-.img { display: block; max-width: 100%;}
+.img { display: block; width: 100%; max-width: 100%; object-fit: cover;}
 .ico { display: inline-block; background-repeat: no-repeat; background-position: center center; background-size: 100% auto;}
 
 /* logo */
@@ -360,11 +350,13 @@ a:hover{text-decoration:none;}
 .inner.type2 { max-width: unset; margin-left: calc(160 / 1920 * 100vw);}
 
 /* text */
-[class*="h_"] { font-weight: 700; font-size: 24px;}
+[class^="h_"] { font-weight: 700; font-size: 24px;}
 .date, .txt:not(.ttl_area .txt){ display: block; margin-top: 16px; font-size: 14px; color: var(--color-5e5e5e);}
 .ttl_area { position: relative; z-index: 10;}
 .ttl_area .h_ttl { margin-top: 16px; font-family: 'SunBatang', sans-serif; font-weight: 700; font-size: 40px; line-height: 1.175; letter-spacing: -1.6px; color: var(--color-192C54);}
-.ttl_area .p_desc { margin-top: 16px; line-height: 1.6; color: var(--color-5e5e5e);}
+[class$="_area"] .p_desc { margin-top: 16px; line-height: 1.6; color: var(--color-5e5e5e);}
+[class$="_img_area"] { position: relative; width: 100%; overflow: hidden;}
+[class$="_img_area"] .img { position: absolute; top: 50%; left: 0; transform: translateY(-50%);}
 [class$="_card"] [class$="_txt_area"] { padding-bottom: 16px; border-bottom: 1px solid var(--color-aeaeae); text-align: left;}
 
 /* common */

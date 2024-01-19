@@ -131,7 +131,7 @@
                                 <td>
                                     <a href="./contents/index.html"></a>
                                 </td>
-                                <td></td>
+                                <td>2024-01-18</td>
                                 <td></td>
                             </tr>
                         </tbody>
@@ -163,7 +163,7 @@
                                 <td>
                                     <a href="./contents/exhibit/planned.html"></a>
                                 </td>
-                                <td></td>
+                                <td>2024-01-18</td>
                                 <td></td>
                             </tr>
                             <tr>
@@ -446,19 +446,19 @@
                 return false;
             })
 
-            $(".tab a").on("click", function(e){
-                e.preventDefault();
-                const idx = $(this).index();
-                tabActive(idx);
-                window.localStorage.setItem('tabIndex', idx);
-            })
+            // $(".tab a").on("click", function(e){
+            //     e.preventDefault();
+            //     const idx = $(this).index();
+            //     tabActive(idx);
+            //     window.localStorage.setItem('tabIndex', idx);
+            // })
 
-            function tabActive(idx){
-                $('.tab > a').removeClass('active').eq(idx).addClass('active');
-                $('.section_wrap > div').hide().eq(idx).show();
-            }
+            // function tabActive(idx){
+            //     $('.tab > a').removeClass('active').eq(idx).addClass('active');
+            //     $('.section_wrap > div').hide().eq(idx).show();
+            // }
 
-            tabActive(window.localStorage.getItem('tabIndex'));
+            // tabActive(window.localStorage.getItem('tabIndex'));
         });
 
     </script>

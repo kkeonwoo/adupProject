@@ -220,6 +220,7 @@ dentistrySNU = {
             this.exhbnSwiper();
             this.collectSwiper();
             this.videoSwiper();
+            this.dataSwiper();
         },
         exhbnSwiper() {
             if(!fn.exists('.swiper_exhbn')) return;
@@ -274,6 +275,19 @@ dentistrySNU = {
             })
             swiperVideo.controller.control = siwperVideoSub;
             siwperVideoSub.controller.control = swiperVideo;
+        },
+        dataSwiper() {
+            if(!fn.exists('.data_swiper')) return;
+
+            const swiperVideo = new Swiper('.data_swiper', {
+                loop: true,
+                slidesPerView: 4,
+                spaceBetween: 32,
+                navigation: {
+                    nextEl: '.swiper_data_wrap .swiper-button-next',
+                    prevEl: '.swiper_data_wrap .swiper-button-prev'
+                },
+            })
         },
     },
     modal : {
@@ -335,9 +349,9 @@ dentistrySNU = {
             this.fixed();
         },
         type4: function() {
-            if (!fn.hasClass($header, '.type4')) return;
+            // if (!fn.hasClass($('#header'), '.type4')) return;
             let $bgOverlay = $('.gnb_overlay_bg'),
-                $gnb = $('#gnb'),
+                $gnb = $('.gnb'),
                 $depth1List = $gnb.find('.depth1_list'),
                 $depth1Item = $gnb.find('.depth1_item'),
                 $depth1Link = $depth1Item.children('a');
@@ -348,7 +362,10 @@ dentistrySNU = {
                 headerHt = $header.outerHeight(),
                 depth2Ht = this.maxHeight($depth2List);
 
+                console.log($depth2List);
             const openMenu = () => { 
+                console.log(depth2Ht);
+                console.log('open');
                 $bgOverlay.animate({ height : depth2Ht })
                 $header.stop().animate({ height : headerHt + depth2Ht })
             }
@@ -358,6 +375,7 @@ dentistrySNU = {
             }
 
             // open event
+            console.log($depth1List);
             $depth1List.on('mouseenter focusin', openMenu);
 
             // close event
