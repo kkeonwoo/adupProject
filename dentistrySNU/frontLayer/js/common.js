@@ -227,11 +227,31 @@ dentistrySNU = {
 
             const swiperExhbn = new Swiper('.swiper_exhbn', {
                 loop: true,
-                slidesPerView: 4,
-                spaceBetween: 32,
+                slidesPerView: 'auto',
+                spaceBetween: 20,
+                observer : true,
+                observeParents : true,
                 navigation: {
                     nextEl: '.swiper_exhbn_wrap .swiper-button-next',
                     prevEl: '.swiper_exhbn_wrap .swiper-button-prev'
+                },
+                breakpoints: {
+                    1081: {
+                        slidesPerView: 4,
+                        spaceBetween: 32,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 25,
+                    }
+                },
+                on: {
+                    init: function(){
+                        dentistrySNU.swiper.posBtnTop('.swiper_exhbn_wrap');
+                    },
+                    resize: function() {
+                        dentistrySNU.swiper.posBtnTop('.swiper_exhbn_wrap');
+                    }
                 }
             })
         },
@@ -263,8 +283,8 @@ dentistrySNU = {
                 slidesPerView: 'auto',
                 spaceBetween: 32,
                 navigation: {
-                    nextEl: '.swiper_video_sub .swiper-button-next',
-                    prevEl: '.swiper_video_sub .swiper-button-prev'
+                    nextEl: '.swiper_video_cnt .swiper-button-next',
+                    prevEl: '.swiper_video_cnt .swiper-button-prev'
                 },
             })
 
@@ -289,6 +309,14 @@ dentistrySNU = {
                 },
             })
         },
+        posBtnTop(t) {
+            let $t = $(t);
+            let swiperBtn = $t.find('.btn_ico');
+            let imgHt = $t.find('.img').outerHeight();
+            let swiperBtnHt = $t.find('.btn_ico').outerHeight();
+
+            swiperBtn.css({'top': (imgHt - swiperBtnHt) / 2});
+        }
     },
     modal : {
         /**
@@ -349,7 +377,7 @@ dentistrySNU = {
             this.fixed();
         },
         type4: function() {
-            // if (!fn.hasClass($('#header'), '.type4')) return;
+            if (!fn.hasClass('#header', 'type4')) return;
             let $bgOverlay = $('.gnb_overlay_bg'),
                 $gnb = $('.gnb'),
                 $depth1List = $gnb.find('.depth1_list'),
@@ -362,10 +390,7 @@ dentistrySNU = {
                 headerHt = $header.outerHeight(),
                 depth2Ht = this.maxHeight($depth2List);
 
-                console.log($depth2List);
             const openMenu = () => { 
-                console.log(depth2Ht);
-                console.log('open');
                 $bgOverlay.animate({ height : depth2Ht })
                 $header.stop().animate({ height : headerHt + depth2Ht })
             }
@@ -375,7 +400,6 @@ dentistrySNU = {
             }
 
             // open event
-            console.log($depth1List);
             $depth1List.on('mouseenter focusin', openMenu);
 
             // close event

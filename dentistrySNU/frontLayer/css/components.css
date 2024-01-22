@@ -189,6 +189,10 @@
 .alert * { color: inherit;}
 .alert .btn_close {width: 15px; height: 15px; background-color: #000;}
 
+@media all and (max-width: 1079px) {
+    .btn_ico { min-width: 60px; height: 60px;}
+}
+
 @keyframes modal-open {
     from {
         opacity: 0;
