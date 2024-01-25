@@ -33,6 +33,7 @@
 
 /* spot */
 .spot:not(.sub) { min-height: 100dvh; display: flex; justify-content: center;}
+.spot:not(.sub) .img { width: unset; max-width: unset; height: 100%;}
 .spot.sub { margin-top: var(--header-height);}
 .spot.sub .sub_img_area { position: absolute; top: 0; right: 0; z-index: -1; width: calc(1624 / 1920 * 100%); height: 360px;}
 .spot.sub .sub_img_area .img { height: 100%;}
@@ -70,9 +71,10 @@
 .section01 .swiper_exhbn .exhbn_txt_area { margin-top: 32px;}
 
 /* collection */
-.section02 { padding: 160px 0; background-color: var(--color-fffdfa);}
+.section02 { background-color: var(--color-fffdfa);}
+.section02 .fp-scroller { transition: transform .3s !important;}
 .section02::before { content: ''; display: block; position: absolute; top: 0; right: 0; width: 100%;  height: calc(1405 / 1920 * 100%); background: url('../images/img/bg_main_sec02.png') lightgray no-repeat right center / auto 100%; mix-blend-mode: color-burn;}
-.section02 .inner { display: flex; gap: 48px;}
+.section02 .inner { display: flex; gap: 48px; padding-top: 160px; padding-bottom: 160px;}
 .section02 .cnt_left { width: calc(600 / 1920 * 100vw);}
 .section02 .cnt_left .swiper_col .col_img_area { width: 100%; height: calc(670 / 1920 * 100vw); overflow: hidden;}
 .section02 .cnt_right { width: calc(1112 / 1920 * 100vw); overflow: hidden;}

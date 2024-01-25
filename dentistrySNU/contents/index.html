@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -8,20 +9,24 @@
     <meta name="description" content="" />
     <!-- SNS share -->
     <meta property="og:title" content="" />
-    <meta property="og:url" content=""/>
+    <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <meta property="og:description" content="" />
     <title>Document</title>
     <!-- link:css -->
     <link rel="stylesheet" href="../frontLayer/css/package.css">
+    <link rel="stylesheet" href="../frontLayer/css/jquery.fullpage.css">
     <!-- link:script -->
     <script src="../frontLayer/js/jquery-3.3.1.min.js"></script>
     <script src="../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../frontLayer/js/scrolloverflow.js"></script>
+    <script src="../frontLayer/js/jquery.fullpage.js"></script>
     <script src="../frontLayer/js/swiper.min.js"></script>
     <script src="../frontLayer/js/lodash.js"></script>
     <script src="../frontLayer/js/fn.js"></script>
     <script src="../frontLayer/js/common.js"></script>
 </head>
+
 <body>
     <div id="wrap">
         <!-- skip -->
@@ -35,7 +40,8 @@
                 <h1 class="logo">
                     <a href="/" class="logo_link">
                         <img src="../frontLayer/images/common/logo.svg" alt="서울대학교 치의학박물관" class="logo_img img white">
-                        <img src="../frontLayer/images/common/logo_color.svg" alt="서울대학교 치의학박물관" class="logo_img img color">
+                        <img src="../frontLayer/images/common/logo_color.svg" alt="서울대학교 치의학박물관"
+                            class="logo_img img color">
                     </a>
                 </h1>
                 <nav class="gnb">
@@ -116,13 +122,12 @@
         <!-- //header -->
         <!-- container -->
         <main id="container">
-            <!-- spot -->
-            <div class="spot">
-                <img src="../frontLayer/images/img/spot.jpg" alt="" class="img">
-            </div>
-            <!-- //spot -->
-            <!-- content -->
-            <div id="content">
+            <div id="fullpage">
+                <!-- spot -->
+                <section class="spot section">
+                    <img src="../frontLayer/images/img/spot.jpg" alt="" class="img">
+                </section>
+                <!-- //spot -->
                 <!-- exhbn -->
                 <section class="section section01">
                     <div class="inner">
@@ -138,7 +143,8 @@
                                         <a href="#" class="exhbn_swiper_card">
                                             <span class="exhbn_cate">기획전시</span>
                                             <div class="exhbn_img_area">
-                                                <img src="../frontLayer/images/@/@exhbn_01.jpg" alt="나누는 삶 치과의사의 비전" class="img">
+                                                <img src="../frontLayer/images/@/@exhbn_01.jpg" alt="나누는 삶 치과의사의 비전"
+                                                    class="img">
                                             </div>
                                             <div class="exhbn_txt_area">
                                                 <h4 class="h_exhbn">나누는 삶 치과의사의 비전</h4>
@@ -150,7 +156,8 @@
                                         <a href="#" class="exhbn_swiper_card">
                                             <span class="exhbn_cate">기획전시</span>
                                             <div class="exhbn_img_area">
-                                                <img src="../frontLayer/images/@/@exhbn_02.jpg" alt="나누는 삶 치과의사의 비전" class="img">
+                                                <img src="../frontLayer/images/@/@exhbn_02.jpg" alt="나누는 삶 치과의사의 비전"
+                                                    class="img">
                                             </div>
                                             <div class="exhbn_txt_area">
                                                 <h4 class="h_exhbn">나누는 삶 치과의사의 비전</h4>
@@ -162,7 +169,8 @@
                                         <a href="#" class="exhbn_swiper_card">
                                             <span class="exhbn_cate">기획전시</span>
                                             <div class="exhbn_img_area">
-                                                <img src="../frontLayer/images/@/@exhbn_03.jpg" alt="나누는 삶 치과의사의 비전" class="img">
+                                                <img src="../frontLayer/images/@/@exhbn_03.jpg" alt="나누는 삶 치과의사의 비전"
+                                                    class="img">
                                             </div>
                                             <div class="exhbn_txt_area">
                                                 <h4 class="h_exhbn">나누는 삶 치과의사의 비전</h4>
@@ -174,7 +182,8 @@
                                         <a href="#" class="exhbn_swiper_card">
                                             <span class="exhbn_cate">기획전시</span>
                                             <div class="exhbn_img_area">
-                                                <img src="../frontLayer/images/@/@exhbn_04.jpg" alt="나누는 삶 치과의사의 비전" class="img">
+                                                <img src="../frontLayer/images/@/@exhbn_04.jpg" alt="나누는 삶 치과의사의 비전"
+                                                    class="img">
                                             </div>
                                             <div class="exhbn_txt_area">
                                                 <h4 class="h_exhbn">나누는 삶 치과의사의 비전</h4>
@@ -199,11 +208,13 @@
                                         <div class="swiper-slide">
                                             <div class="col_swiper_card">
                                                 <div class="col_img_area">
-                                                    <img src="../frontLayer/images/@/@collect_01.jpg" alt="틀니 플라스크 가황고무압력 제조기" class="img">
+                                                    <img src="../frontLayer/images/@/@collect_01.jpg"
+                                                        alt="틀니 플라스크 가황고무압력 제조기" class="img">
                                                 </div>
                                                 <div class="col_txt_area">
                                                     <h4 class="h_col">틀니 플라스크 가황고무압력 제조기</h4>
-                                                    <span class="txt">Denture Flask Cross-Bar Culcanizer & Denture Wax Rims&#41;</span>
+                                                    <span class="txt">Denture Flask Cross-Bar Culcanizer & Denture Wax
+                                                        Rims&#41;</span>
                                                 </div>
                                             </div>
                                             <span class="txt text_right">장익태(제16회) 기증</span>
@@ -211,7 +222,8 @@
                                         <div class="swiper-slide">
                                             <div class="col_swiper_card">
                                                 <div class="col_img_area">
-                                                    <img src="../frontLayer/images/@/@collect_02.jpg" alt="보존기구함" class="img">
+                                                    <img src="../frontLayer/images/@/@collect_02.jpg" alt="보존기구함"
+                                                        class="img">
                                                 </div>
                                                 <div class="col_txt_area">
                                                     <h4 class="h_col">보존기구함</h4>
@@ -223,7 +235,8 @@
                                         <div class="swiper-slide">
                                             <div class="col_swiper_card">
                                                 <div class="col_img_area">
-                                                    <img src="../frontLayer/images/@/@collect_03.jpg" alt="" class="img">
+                                                    <img src="../frontLayer/images/@/@collect_03.jpg" alt=""
+                                                        class="img">
                                                 </div>
                                                 <div class="col_txt_area">
                                                     <h4 class="h_col">에어터빈 하이스피드와 체어</h4>
@@ -235,7 +248,8 @@
                                         <div class="swiper-slide">
                                             <div class="col_swiper_card">
                                                 <div class="col_img_area">
-                                                    <img src="../frontLayer/images/@/@collect_04.jpg" alt="" class="img">
+                                                    <img src="../frontLayer/images/@/@collect_04.jpg" alt=""
+                                                        class="img">
                                                 </div>
                                                 <div class="col_txt_area">
                                                     <h4 class="h_col">경성치전시절 진료실풍경</h4>
@@ -261,18 +275,21 @@
                                         <div class="swiper-slide">
                                             <div class="col_swiper_card">
                                                 <div class="col_img_area">
-                                                    <img src="../frontLayer/images/@/@collect_01.jpg" alt="틀니 플라스크 가황고무압력 제조기" class="img">
+                                                    <img src="../frontLayer/images/@/@collect_01.jpg"
+                                                        alt="틀니 플라스크 가황고무압력 제조기" class="img">
                                                 </div>
                                                 <div class="col_txt_area">
                                                     <h4 class="h_col">틀니 플라스크 가황고무압력 제조기</h4>
-                                                    <span class="txt">Denture Flask Cross-Bar Culcanizer & Denture Wax Rims&#41;</span>
+                                                    <span class="txt">Denture Flask Cross-Bar Culcanizer & Denture Wax
+                                                        Rims&#41;</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="col_swiper_card">
                                                 <div class="col_img_area">
-                                                    <img src="../frontLayer/images/@/@collect_02.jpg" alt="보존기구함" class="img">
+                                                    <img src="../frontLayer/images/@/@collect_02.jpg" alt="보존기구함"
+                                                        class="img">
                                                 </div>
                                                 <div class="col_txt_area">
                                                     <h4 class="h_col">보존기구함</h4>
@@ -283,7 +300,8 @@
                                         <div class="swiper-slide">
                                             <div class="col_swiper_card">
                                                 <div class="col_img_area">
-                                                    <img src="../frontLayer/images/@/@collect_03.jpg" alt="" class="img">
+                                                    <img src="../frontLayer/images/@/@collect_03.jpg" alt=""
+                                                        class="img">
                                                 </div>
                                                 <div class="col_txt_area">
                                                     <h4 class="h_col">에어터빈 하이스피드와 체어</h4>
@@ -294,7 +312,8 @@
                                         <div class="swiper-slide">
                                             <div class="col_swiper_card">
                                                 <div class="col_img_area">
-                                                    <img src="../frontLayer/images/@/@collect_04.jpg" alt="" class="img">
+                                                    <img src="../frontLayer/images/@/@collect_04.jpg" alt=""
+                                                        class="img">
                                                 </div>
                                                 <div class="col_txt_area">
                                                     <h4 class="h_col">경성치전시절 진료실풍경</h4>
@@ -311,7 +330,7 @@
                 </section>
                 <!-- collection -->
                 <!-- training -->
-                <section class="section section03">
+                <section class="section section03 fp-auto-height fp-auto-height-responsive">
                     <div class="inner type2">
                         <div class="ttl_area">
                             <span class="txt">Traning videos</span>
@@ -426,44 +445,44 @@
                     </div>
                 </section>
                 <!-- // training -->
+                <!-- footer -->
+                <footer id="footer" class="section fp-auto-height fp-auto-height-responsive">
+                    <div class="inner">
+                        <div class="f_cnt_left">
+                            <div class="f_logo logo">
+                                <img src="../frontLayer/images/common/logo.svg" alt="서울대학교 치의학박물관" class="logo_img">
+                            </div>
+                        </div>
+                        <div class="f_cnt_right">
+                            <div class="f_cnt">
+                                <div class="f_nav">
+                                    <ul class="f_nav_list">
+                                        <li class="f_nav_item">
+                                            <a href="#" class="f_nav_link">관람안내와 위치</a>
+                                        </li>
+                                        <li class="f_nav_item">
+                                            <a href="#" class="f_nav_link">개인정보처리방침</a>
+                                        </li>
+                                        <li class="f_nav_item">
+                                            <a href="#" class="f_nav_link">이메일무단수집거부</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="f_info">
+                                    <span class="address txt">서울시 종로구 대학로 101(연건동) 서울대학교 치의학대학원 본관 1층</span>
+                                    <span class="tel txt">TEL. (02) 740-8779</span>
+                                </div>
+                                <div class="copyright">Copyright 2023 Seoul National University All Rights Reserved.</div>
+                            </div>
+                            <button type="button" class="btn btn_family">FAMILY SITE</button>
+                        </div>
+                    </div>
+                </footer>
+                <!-- //footer -->
             </div>
-            <!-- //content -->
         </main>
         <!-- //container -->
-        <!-- footer -->
-        <footer id="footer">
-            <div class="inner">
-                <div class="f_cnt_left">
-                    <div class="f_logo logo">
-                        <img src="../frontLayer/images/common/logo.svg" alt="서울대학교 치의학박물관" class="logo_img">
-                    </div>
-                </div>
-                <div class="f_cnt_right">
-                    <div class="f_cnt">
-                        <div class="f_nav">
-                            <ul class="f_nav_list">
-                                <li class="f_nav_item">
-                                    <a href="#" class="f_nav_link">관람안내와 위치</a>
-                                </li>
-                                <li class="f_nav_item">
-                                    <a href="#" class="f_nav_link">개인정보처리방침</a>
-                                </li>
-                                <li class="f_nav_item">
-                                    <a href="#" class="f_nav_link">이메일무단수집거부</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="f_info">
-                            <span class="address txt">서울시 종로구 대학로 101(연건동) 서울대학교 치의학대학원 본관 1층</span>
-                            <span class="tel txt">TEL. (02) 740-8779</span>
-                        </div>
-                        <div class="copyright">Copyright 2023 Seoul National University All Rights Reserved.</div>
-                    </div>
-                    <button type="button" class="btn btn_family">FAMILY SITE</button>
-                </div>
-            </div>
-        </footer>
-        <!-- //footer -->
     </div>
 </body>
+
 </html>

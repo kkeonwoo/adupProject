@@ -19,6 +19,7 @@ dentistrySNU = {
         this.select.init();
         this.swiper.init();
         this.gnb.init();
+        this.fullpage();
     },
     tab: function() {
         let tabLink, tabItem, tabPanel, activeIdx;
@@ -387,15 +388,38 @@ dentistrySNU = {
                 $LastItem = $gnb.find('a').last(),
                 $depth2Area = $('.depth2_area'),
                 $depth2List = $depth2Area.find('.depth2_list'),
-                headerHt = $header.outerHeight(),
-                depth2Ht = this.maxHeight($depth2List);
+                headerHt = $header.outerHeight();
+
+            let gnbHgt = 0;
+            const depthHgtFn = () => {
+                gnbHgt = 0
+                $depth2List.each((idx, item) => {
+                    if (gnbHgt < $(item).outerHeight()) {
+                        gnbHgt = $(item).outerHeight();
+                    }
+                })
+            }
+            depthHgtFn();
+
+            let box_observer = new ResizeObserver(entries => {
+                for (let entry of entries) {
+                    const cr = entry.contentRect;
+                    depthHgtFn();
+                }
+            });
+
+            const box = document.querySelectorAll(`.depth2_list`);
+
+            box.forEach((t, _) => {
+                box_observer.observe(t);
+            })
 
             const openMenu = () => { 
-                $bgOverlay.animate({ height : depth2Ht })
-                $header.stop().animate({ height : headerHt + depth2Ht })
+                $bgOverlay.stop().animate({ height : gnbHgt })
+                $header.stop().animate({ height : headerHt + gnbHgt })
             }
             const closeMenu = () => { 
-                $bgOverlay.animate({ height : 0 })
+                $bgOverlay.stop().animate({ height : 0 })
                 $header.stop().animate({ height : headerHt })
             }
 
@@ -439,14 +463,6 @@ dentistrySNU = {
                 })
             })
         },
-        maxHeight: function(obj) {
-            const heightArray = $(obj).map(function () {
-                return $(this).outerHeight(true);
-            });
-            const maxHeight = Math.max(...heightArray);
-
-            return maxHeight;
-        },
         fixed: function() {
             $(window).scroll(_.throttle(() => {
                 let st = $(document).scrollTop();
@@ -458,6 +474,25 @@ dentistrySNU = {
                 }
             }, 300))
         }
+    },
+    fullpage : function() {
+        if (!fn.exists('#fullpage')) return;
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                css3: true,
+                scrollOverflow: true,
+                scrollOverflowOptions: {
+                    scrollbars: false,
+                },
+                onLeave: function(origin, destination, direction, trigger) {
+                    if (destination !== 1) {
+                        $header.addClass('fixed');
+                    } else {
+                        $header.removeClass('fixed');
+                    }
+                },
+            });
+        });
     }
 }
 $(() => {
