@@ -1,0 +1,158 @@
+@charset "utf-8";
+
+/* ---------------------------------------
+  CONTENTS
+--------------------------------------- */
+
+* { word-break: keep-all; word-wrap: break-word; font-size: 26px;}
+
+.pc, .d_block { display: block !important;}
+.mobile, .d_none { display: none !important;}
+
+@media all and (max-width:1024px){
+  .mobile, .d_lg_block { display: block !important;}
+  .pc, .d_lg_none { display: none !important;}
+}
+
+.fw_100 { font-weight: 100 !important;}
+.fw_200 { font-weight: 200 !important;}
+.fw_300 { font-weight: 300 !important;}
+.fw_400 { font-weight: 400 !important;}
+.fw_400 { font-weight: 400 !important;}
+.fw_700 { font-weight: 700 !important;}
+.fw_800 { font-weight: 800 !important;}
+.fw_900 { font-weight: 900 !important;}
+.f_inherit { font-weight: inherit; font-size: inherit; color: inherit;}
+
+.color_blue { color: #163bd4 !important;}
+.color_skyblue { color: #43ccff !important;}
+
+.btn { display: block; width: 100%; max-width: 260px; padding: 20px 36px; font-weight: 500; font-size: 26px; border-radius: 32px; box-shadow: 0 3px 7px rgba(110, 110, 110, .45);}
+.btn.enter { color: #fff; background: url('../images/web/ico_chevron-right_wh.svg') #163bd4 no-repeat center right 28px / 26px auto;}
+.btn.more { border: 2px solid #bbbbbb; background-color: #fff; background: url('../images/web/ico_chevron-right_bk.svg') no-repeat center right 28px / 26px auto;}
+
+#spot { position:relative; text-align: center;}
+#spot .spot_img_area .img { width: 100%;}
+
+#main { position: relative; z-index: 20; margin-top: calc(-180 / 1920 * 100vw);}
+#main .inner { width: 100%; max-width: 1020px; margin: 0 auto; padding: 0 55px;}
+#main .evt_card { background-color: #1f3589; border-radius: 25px; padding: 50px 40px;}
+#main .evt_card + .evt_card { margin-top: 47px;}
+#main .evt_card * { color: #fff; letter-spacing: -0.036em;}
+#main .evt_card .evt_box + .evt_box { margin-top: 40px; padding-top: 40px; border-top: 1px solid rgba(226, 222, 207, .3); }
+/* 행사 내용 타이틀 */
+#main .evt_card .sub_ttl { position: relative; z-index: 5; font-weight: 900; font-size: 46px; letter-spacing: -0.056em;}
+#main .evt_card .sub_ttl::before { content: ''; display: block; position: absolute; left: 0; bottom: 0; z-index: -1; width: 128px; height: 8px; border-radius: 4px; background-color: #009bdd; transform: translateY(-4px);}
+#main .evt_card .h_ttl { display: flex; align-items: center; gap: 15px; margin-top: 58px;}
+#main .evt_card .h_ttl .txt { font-weight: 400; font-size: 42px;}
+#main .evt_card .h_ttl .txt.color_skyblue { font-size: 58px; margin-right: 5px;}
+#main .evt_card .h_ttl + .p_desc { margin-top: 20px; font-weight: 500; font-size: 33px; line-height: 1;}
+/* 행사 참여 단계 */
+#main .evt_card .step { display: flex; gap: 10px;}
+#main .evt_card .step .step_ttl { position: relative; font-weight: 300; font-size: 38px; line-height: 1.45; text-decoration: underline; text-underline-offset: 8px;}
+#main .evt_card .step .step_txt { font-weight: 500; font-size: 38px; line-height: 1.45;}
+/* 행사 내용 문장 */
+#main .evt_card span.txt { font-weight: 700; font-size: 36px; line-height: 1.16;}
+#main .evt_card .p_desc { position: relative; font-weight: 700; font-size: 30px; line-height: 1.43;}
+#main .evt_card .p_txt { position: relative; font-size: 27px; line-height: 1.6;}
+#main .evt_card .p_txt + .p_txt { margin-top: 3px;}
+#main .evt_card .p_txt.add { padding-left: 40px;}
+#main .evt_card .p_txt.add::before { content: ''; display: block; position: absolute; top: 0; left: 0; width: 30px; height: 30px; background: url('../images/web/ico_add.png') no-repeat center center / 100% auto; transform: translateY(6px);}
+#main .evt_card .p_txt.dot { padding-left: 15px;}
+#main .evt_card .p_txt.dot::before { content: '•'; display: block; position: absolute; top: 0; left: 0; font-weight: 400;}
+/* 행사대상 */
+#main .evt_card.type02 .sub_ttl { font-size: 40px;}
+#main .evt_card.type02 .sub_ttl::before { width: 136px;}
+#main .evt_card.type02 .p_txt { font-weight: 500; letter-spacing: -0.056em;}
+
+/* 대상카드 */
+.section02 { margin-top: 50px; padding: 45px 0 80px; background-color: #1f3589;}
+.section02 .evt_card_ttl .h_ttl { position: relative; z-index: 5; font-weight: 700; font-size: 38px; color: #1f3589; text-align: center; letter-spacing: -0.056em;}
+.section02 .evt_card_ttl .h_ttl::before { content: ''; display: block; position: absolute; top: -12px; left: 50%; z-index: -1; width: 185px; height: 82px; background: url('../images/web/img_sec02_ttl.png') no-repeat center center / 100% auto; transform: translateX(-50%);}
+.section02 .evt_card_list { margin-top: 60px;}
+.section02 .evt_card_item + .evt_card_item { margin-top: 55px;}
+.section02 .evt_card_box { display: flex; align-items: center; padding: 45px 35px 45px 30px; background-color: #fff; border-radius: 10px; box-shadow: 4px 4px 16px rgba(0, 0, 0, .2);}
+.section02 .evt_card_box .card_img_area { position: relative; width: 320px; text-align: center; z-index: 5;}
+.section02 .evt_card_box .card_img_area::before { content: ''; display: block; position: absolute; top: 0; left: 50%; z-index: -1; width: 405px; height: 170px; border-radius: 100%; background-color: #eeeeee; opacity: .6; transform: translate(-50%,  calc(50% - 5px)) rotate(-43deg);}
+.section02 .evt_card_box .card_img_area .img { margin: 0 auto;}
+.section02 .evt_card_box .card_img_area .p_txt { margin-top: 25px; font-weight: 900; font-size: 26px; line-height: 1.3; color: #1c1c1b;}
+.section02 .evt_card_box .card_img_area .p_txt strong { position: relative; z-index: 5; font-weight: inherit; font-size: inherit; color: #1f3589;}
+.section02 .evt_card_box .card_img_area .p_txt strong::before { content: ''; display: block; position: absolute; left: 50%; bottom: 0; z-index: -1; width: 100%; height: 10px; background-color: #fffc00; transform: translate(-50%, 3px);}
+.section02 .evt_card_box .card_info_area { flex: 1;}
+.section02 .evt_card_box .p_card_txt { display: inline-block; margin-top: 28px; padding: 9px 17px 5px; font-weight: 700; font-size: 32px; color: #163bd4; letter-spacing: -0.056em; background-color: #a1e6ff;}
+.section02 .evt_card_box .btn_wrap { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 30px;}
+
+/* 안내사항 */
+.section03 { position: relative; padding: 50px 0 85px; background: url('../images/web/bg_sec03.jpg') no-repeat center bottom / 100% auto;}
+#main .evt_card.type02 { position: relative;}
+#main .evt_card.type02 * { letter-spacing: -0.056em;}
+#main .evt_card.type02.white { background-color: #fff;}
+#main .evt_card.type02.white * { color: #353535; letter-spacing: -0.076em;}
+#main .evt_card.type02 .evt_card_hdr { position: absolute; top: 0; left: 50%; width: calc(100% + 46px); padding: 27px; border-radius: 25px; background-color: #1c1c1b; transform: translateX(-50%);}
+#main .evt_card.type02.white .evt_card_hdr { background-color: #343434;}
+#main .evt_card.type02 .evt_card_hdr .h_ttl { justify-content: center; margin-top: 0; font-weight: 900; font-size: 38px; color: #fff; letter-spacing: -0.016em;}
+#main .evt_card.type02 .evt_card_body { padding-top: 87px;}
+#main .evt_card.type02 .evt_box + .evt_box { margin-top: 30px; padding-top: unset; border: none;}
+#main .evt_card.type02 .h_sub_ttl { font-weight: 700; font-size: 28px; line-height: 1.5;}
+
+@media all and (max-width:1024px){
+  .btn { max-width: 135px; padding: 9px 18px; font-size: 16px; border-radius: 32px; text-align: left;}
+  .btn.enter { background: url('../images/web/ico_chevron-right_wh.svg') #163bd4 no-repeat center right 12px / 16px auto;}
+  .btn.more { background: url('../images/web/ico_chevron-right_bk.svg') no-repeat center right 12px / 16px auto;}
+  
+  #main { margin-top: calc(-260 / 720 * 100vw);}
+  #main .inner { max-width: 720px; padding: 0 calc(32 / 720 * 100vw);}
+  #main .evt_card { padding: 20px 15px; border-radius: 12px;}
+  #main .evt_card + .evt_card { margin-top: 22px;}
+  #main .evt_card .evt_box + .evt_box { margin-top: 18px; padding-top: 18px;}
+  /* 행사 내용 타이틀 */
+  #main .evt_card .sub_ttl { font-size: 20px;}
+  #main .evt_card .sub_ttl::before { width: 60px; height: 4px; border-radius: 2px; transform: translateY(-2px);}
+  #main .evt_card .h_ttl { gap: 5px; margin-top: 16px;}
+  #main .evt_card .h_ttl .txt { font-size: 18px;}
+  #main .evt_card .h_ttl .txt.color_skyblue { font-size: 25px; margin-right: 5px;}
+  #main .evt_card .h_ttl + .p_desc { margin-top: 12px; font-size: 15px; line-height: 1.3;}
+  #main .evt_card .h_ttl .img { height: 28px;}
+  /* 행사 참여 단계 */
+  #main .evt_card .step { gap: 3px;}
+  #main .evt_card .step .step_ttl { font-size: 16px; line-height: 1.5; text-underline-offset: 4px;}
+  #main .evt_card .step .step_txt { font-size: 16px; line-height: 1.5;}
+  /* 행사 내용 문장 */
+  #main .evt_card span.txt { font-size: 18px;}
+  #main .evt_card .p_desc { font-size: 14px;}
+  #main .evt_card .p_txt { font-size: 13px; line-height: 1.38;}
+  #main .evt_card .p_txt + .p_txt { margin-top: unset;}
+  #main .evt_card .p_txt.add { padding-left: 18px;}
+  #main .evt_card .p_txt.add::before { width: 12px; height: 12px; transform: translateY(3px);}
+  #main .evt_card .p_txt.dot { padding-left: 7px;}
+  /* 행사대상 */
+  #main .evt_card.type02 .sub_ttl { font-size: 20px;}
+  #main .evt_card.type02 .sub_ttl::before { width: 70px;}
+  
+  /* 대상카드 */
+  .section02 { margin-top: 32px; padding: 30px 0 40px;}
+  .section02 .evt_card_ttl .h_ttl { font-size: 20px;}
+  .section02 .evt_card_ttl .h_ttl::before { top: -5px; width: 93px; height: 41px;}
+  .section02 .evt_card_list { margin-top: 35px;}
+  .section02 .evt_card_item + .evt_card_item { margin-top: 28px;}
+  .section02 .evt_card_box { flex-direction: column; gap: 22px; padding: 35px 17px 20px; border-radius: 5px;}
+  .section02 .evt_card_box .card_img_area::before { top: 0; left: 50%; z-index: -1; width: 265px; height: 110px; border-radius: 100%; transform: translate(-50%, calc(50%)) rotate(-30deg);}
+  .section02 .evt_card_box .card_img_area .img { height: 210px;}
+  .section02 .evt_card_box .card_img_area .p_txt {font-size: 15px;}
+  .section02 .evt_card_box .card_img_area .p_txt strong::before { height: 5px; transform: translate(-50%, 0);}
+  .section02 .evt_card_box .card_info_area { position: relative; width: 100%; max-width: 290px; text-align: center;}
+  .section02 .evt_card_box .card_info_area::before { content: ''; display: block; width: 11px; height: 6px; margin: 0 auto 11px; background: url('../images/mob/arw_bottom_black.png') no-repeat center center / 100% auto;}
+  .section02 .evt_card_box .h_card_ttl { height: 32px;}
+  .section02 .evt_card_box .h_card_ttl .img { height: 100%; object-fit: cover;}
+  .section02 .evt_card_box .p_card_txt { margin-top: 10px; padding: 5px 14px 2px; font-size: 16px;}
+  .section02 .evt_card_box .btn_wrap { gap: 15px; margin-top: 20px;}
+  
+  /* 안내사항 */
+  .section03 { padding: 27px 0 35px; background-image: url('../images/mob/bg_sec03.jpg'); background-size: 100% 100%;}
+  #main .evt_card.type02 { padding: 20px 18px;}
+  #main .evt_card.type02 .evt_card_hdr { width: calc(100% + 17px); padding: 16px; border-radius: 12px;}
+  #main .evt_card.type02 .evt_card_hdr .h_ttl { font-size: 20px;}
+  #main .evt_card.type02 .evt_card_body { padding-top: 57px;}
+  #main .evt_card.type02 .evt_box + .evt_box { margin-top: 15px;}
+  #main .evt_card.type02 .h_sub_ttl { font-size: 14px;}
+}
