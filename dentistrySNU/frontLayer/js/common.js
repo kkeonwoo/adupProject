@@ -388,35 +388,14 @@ dentistrySNU = {
                 $LastItem = $gnb.find('a').last(),
                 $depth2Area = $('.depth2_area'),
                 $depth2List = $depth2Area.find('.depth2_list'),
-                headerHt = $header.outerHeight();
+                headerHt = $header.outerHeight(),
+                depth2Ht = this.maxHeight($depth2List);
 
-            let gnbHgt = 0;
-            const depthHgtFn = () => {
-                gnbHgt = 0
-                $depth2List.each((idx, item) => {
-                    if (gnbHgt < $(item).outerHeight()) {
-                        gnbHgt = $(item).outerHeight();
-                    }
-                })
-            }
-            depthHgtFn();
-
-            let box_observer = new ResizeObserver(entries => {
-                for (let entry of entries) {
-                    const cr = entry.contentRect;
-                    depthHgtFn();
-                }
-            });
-
-            const box = document.querySelectorAll(`.depth2_list`);
-
-            box.forEach((t, _) => {
-                box_observer.observe(t);
-            })
+            this.resize('.depth2_list');
 
             const openMenu = () => { 
-                $bgOverlay.stop().animate({ height : gnbHgt })
-                $header.stop().animate({ height : headerHt + gnbHgt })
+                $bgOverlay.stop().animate({ height : depth2Ht })
+                $header.stop().animate({ height : headerHt + depth2Ht })
             }
             const closeMenu = () => { 
                 $bgOverlay.stop().animate({ height : 0 })
@@ -461,6 +440,28 @@ dentistrySNU = {
                         $('.depth1_item').eq(idx + 1).find('.depth1_link').focus();
                     }
                 })
+            })
+        },
+        maxHeight: function(obj) {
+            const heightArray = $(obj).map(function () {
+                return $(this).outerHeight(true);
+            });
+            const maxHeight = Math.max(...heightArray);
+
+            return maxHeight;
+        },
+        resize: function(obj) {
+            let box_observer = new ResizeObserver(entries => {
+                for (let entry of entries) {
+                    const cr = entry.contentRect;
+                    depth2Ht = this.maxHeight(obj);
+                }
+            });
+
+            const box = document.querySelectorAll(obj);
+
+            box.forEach((t, _) => {
+                box_observer.observe(t);
             })
         },
         fixed: function() {
