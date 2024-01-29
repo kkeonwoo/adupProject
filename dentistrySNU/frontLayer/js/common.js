@@ -218,10 +218,27 @@ dentistrySNU = {
     },
     swiper : {
         init() {
+            this.spotSwiper();
             this.exhbnSwiper();
             this.collectSwiper();
             this.videoSwiper();
             this.dataSwiper();
+        },
+        spotSwiper() {
+            if(!fn.exists('.swiper_spot')) return;
+
+            const swiperExhbn = new Swiper('.swiper_spot', {
+                slidesPerView: 1,
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper_spot .swiper-pagination",
+                    clickable: true,
+                },
+            })
         },
         exhbnSwiper() {
             if(!fn.exists('.swiper_exhbn')) return;

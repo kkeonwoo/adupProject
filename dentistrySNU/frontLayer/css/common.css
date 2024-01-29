@@ -317,7 +317,7 @@ input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none;}
 .color_blue { color: var(--fn-blue) !important;}
 .color_skyblue { color: var(--fn-skyblue) !important;}
 .color_orange { color: var(--fn-orange) !important;}
-.text-ellipsis { white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.text-ellipsis { display: block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
 .line-clamp2{ overflow:hidden; display:block; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;}
 .text_right { text-align: right !important;}
 
@@ -350,6 +350,7 @@ a:hover{text-decoration:none;}
 /* text */
 [class^="h_"] { font-weight: 700; font-size: 24px;}
 .date, .txt:not(.ttl_area .txt){ display: block; margin-top: 16px; font-size: 14px; color: var(--color-5e5e5e);}
+.date { user-select: none;}
 .ttl_area { position: relative; z-index: 10;}
 .ttl_area .h_ttl { margin-top: 16px; font-family: 'SunBatang', sans-serif; font-weight: 700; font-size: 40px; line-height: 1.175; letter-spacing: -1.6px; color: var(--color-192C54);}
 .section .ttl_area .btn { margin-top: 48px;}
@@ -357,8 +358,7 @@ a:hover{text-decoration:none;}
 [class$="_img_area"] { position: relative; width: 100%; overflow: hidden;}
 [class$="_img_area"] .img { position: absolute; top: 50%; left: 0; transform: translateY(-50%);}
 [class$="_card"] [class$="_txt_area"] { padding-bottom: 16px; border-bottom: 1px solid var(--color-aeaeae); text-align: left;}
-[class$="_card"] [class$="_txt_area"] [class^="h_"],
-[class$="_card"] [class$="_txt_area"] .txt { overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;}
+/* .text_ellipsis { overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;} */
 
 @media all and (max-width: 1661px) {
 }
