@@ -223,6 +223,8 @@ dentistrySNU = {
             this.collectSwiper();
             this.videoSwiper();
             this.dataSwiper();
+
+            $(window).on('resize', this.handleResize);
         },
         spotSwiper() {
             if(!fn.exists('.swiper_spot')) return;
@@ -242,6 +244,7 @@ dentistrySNU = {
         },
         exhbnSwiper() {
             if(!fn.exists('.swiper_exhbn')) return;
+            dentistrySNU.swiper.posBtnTop('.swiper_exhbn_wrap');
 
             const swiperExhbn = new Swiper('.swiper_exhbn', {
                 loop: true,
@@ -265,7 +268,7 @@ dentistrySNU = {
                 },
                 on: {
                     init: function(){
-                        dentistrySNU.swiper.posBtnTop('.swiper_exhbn_wrap');
+                        
                     },
                     resize: function() {
                         dentistrySNU.swiper.posBtnTop('.swiper_exhbn_wrap');
@@ -279,19 +282,22 @@ dentistrySNU = {
             const swiperCol = new Swiper('.swiper_col', {
                 loop: true,
                 slidesPerView: 'auto',
+                initialSlide: 0, // 초기 슬라이드의 인덱스 설정 
                 spaceBetween: 32,
             })
-
-            const siwperColSub = new Swiper('.swiper_col_sub', {
+            
+            const swiperColSub = new Swiper('.swiper_col_sub', {
                 loop:true,
                 slidesPerView: 'auto',
                 spaceBetween: 32,
                 navigation: {
-                    nextEl: '.swiper_col_sub .swiper-button-next'
-                }
+                    prevEl: '.cnt_right .swiper-button-prev',
+                    nextEl: '.cnt_right .swiper-button-next'
+                },
             })
-            swiperCol.controller.control = siwperColSub;
-            siwperColSub.controller.control = swiperCol;
+
+            swiperCol.controller.control = swiperColSub;
+            swiperColSub.controller.control = swiperCol;
         },
         videoSwiper() {
             if(!fn.exists('.swiper_video') || !fn.exists('.swiper_video_sub')) return;
@@ -334,6 +340,13 @@ dentistrySNU = {
             let swiperBtnHt = $t.find('.btn_ico').outerHeight();
 
             swiperBtn.css({'top': (imgHt - swiperBtnHt) / 2});
+        },
+        handelResize() {
+            this.spotSwiper.update();
+            this.exhbnSwiper.update();
+            this.collectSwiper.update();
+            this.videoSwiper.update();
+            this.dataSwiper.update();
         }
     },
     modal : {
@@ -350,12 +363,12 @@ dentistrySNU = {
             $modal.on({
                 click: (e) => {
                     if ($(e.target).closest('.modal_box').length < 1 && $('.modal.active').attr('data-dim-click') !== 'false') {
-                        ProjectName.modal.closeModal($modal);
+                        dentistrySNU.modal.closeModal($modal);
                     }
                 },
                 keydown: (e) => trapTabKey(e),
             });
-            $modalCloseButton.on('click', () => ProjectName.modal.closeModal($modal));
+            $modalCloseButton.on('click', () => dentistrySNU.modal.closeModal($modal));
 
             var focusableElements = $modal.find(':focusable'),
                 firstTabStop = focusableElements[0],
@@ -377,7 +390,7 @@ dentistrySNU = {
                         }
                     }
                 }
-                if (e.keyCode === 27) ProjectName.modal.closeModal($modal);
+                if (e.keyCode === 27) dentistrySNU.modal.closeModal($modal);
             }
         },
         /**
@@ -498,10 +511,6 @@ dentistrySNU = {
         $(document).ready(function() {
             $('#fullpage').fullpage({
                 css3: true,
-                scrollOverflow: true,
-                scrollOverflowOptions: {
-                    scrollbars: false,
-                },
                 onLeave: function(origin, destination, direction, trigger) {
                     if (destination !== 1) {
                         $header.addClass('fixed');
