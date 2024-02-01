@@ -21,11 +21,16 @@
     --color-041A71: #041A71;
     --color-369fff: #369FFF;
     --color-192C54: #192C54;
+    --color-primary: #192C54;
     --color-fffdfa: #fffdfa;
     --color-a0c101: #a0c101;
     --color-54b428: #54b428;
     --color-116D2B: #116D2B;
     --color-white: #fff;
+    --focus-color: #fafdec;
+
+    /* transition */
+    --transition-custom: cubic-bezier(0.65, 0.05, 0.36, 1);
 }
 
 /* CSS Document */
@@ -360,7 +365,8 @@ a:hover{text-decoration:none;}
 .date, .txt:not(.ttl_area .txt){ display: block; margin-top: 16px; font-size: 14px; color: var(--color-5e5e5e);}
 .date { user-select: none;}
 .ttl_area { position: relative; z-index: 10;}
-.ttl_area .h_ttl { margin-top: 16px; font-family: 'SunBatang', sans-serif; font-weight: 700; font-size: 40px; line-height: 1.175; letter-spacing: -2.4px; color: var(--color-192C54);}
+.ttl_area .txt + .h_ttl { margin-top: 16px;}
+.ttl_area .h_ttl { font-family: 'SunBatang', sans-serif; font-weight: 700; font-size: 40px; line-height: 1.175; letter-spacing: -2.4px; color: var(--color-192C54);}
 [class$="_area"] .p_desc { margin-top: 16px; line-height: 1.6; color: var(--color-5e5e5e);}
 [class$="_img_area"] { position: relative; width: 100%; overflow: hidden;}
 [class$="_img_area"] .img { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}

@@ -12,7 +12,7 @@ $.namespace = function() {
 };
 
 $.namespace('dentistrySNU');
-let $header;
+let $header, $depth2Area, $depth2List, $bgOverlay;
 dentistrySNU = {
     init : function(){
         this.tab();
@@ -20,6 +20,7 @@ dentistrySNU = {
         this.swiper.init();
         this.gnb.init();
         this.fullpage();
+        this.history();
     },
     tab: function() {
         let tabLink, tabItem, tabPanel, activeIdx;
@@ -132,9 +133,9 @@ dentistrySNU = {
                 let t = e.currentTarget,
                     optionItem = $('.form_select.show').find('.option_item'),
                     activeIdx = $(t).closest('.option_item').index(),
-                    selectBtn = $('.form_select.active').find('.form_btn');
+                    selectBtn = $('.form_select').find('.form_btn.active');
 
-                selectBtn.addClass('active');
+                selectBtn.addClass('selected');
                 this.handleSelectOption(optionItem, optionItem.eq(activeIdx));
                 this.handleBtnText(optionItem.eq(activeIdx));
                 this.closeOption();
@@ -223,8 +224,6 @@ dentistrySNU = {
             this.collectSwiper();
             this.videoSwiper();
             this.dataSwiper();
-
-            $(window).on('resize', this.handleResize);
         },
         spotSwiper() {
             if(!fn.exists('.swiper_spot')) return;
@@ -244,7 +243,6 @@ dentistrySNU = {
         },
         exhbnSwiper() {
             if(!fn.exists('.swiper_exhbn')) return;
-            dentistrySNU.swiper.posBtnTop('.swiper_exhbn_wrap');
 
             const swiperExhbn = new Swiper('.swiper_exhbn', {
                 loop: true,
@@ -268,10 +266,10 @@ dentistrySNU = {
                 },
                 on: {
                     init: function(){
-                        
+                        dentistrySNU.swiper.posBtnTop(document.querySelector('.swiper_exhbn_wrap'));
                     },
                     resize: function() {
-                        dentistrySNU.swiper.posBtnTop('.swiper_exhbn_wrap');
+                        dentistrySNU.swiper.posBtnTop(document.querySelector('.swiper_exhbn_wrap'));
                     }
                 }
             })
@@ -336,18 +334,14 @@ dentistrySNU = {
         posBtnTop(t) {
             let $t = $(t);
             let swiperBtn = $t.find('.btn_ico');
-            let imgHt = $t.find('.img').outerHeight();
             let swiperBtnHt = $t.find('.btn_ico').outerHeight();
+            let imgHt = $t.find('.img').map((i, el) => {
+                return $(el).outerHeight();
+            })
+            let maxHt = Math.max(...imgHt);
 
-            swiperBtn.css({'top': (imgHt - swiperBtnHt) / 2});
+            swiperBtn.css({'top': (maxHt - swiperBtnHt) / 2});
         },
-        handelResize() {
-            this.spotSwiper.update();
-            this.exhbnSwiper.update();
-            this.collectSwiper.update();
-            this.videoSwiper.update();
-            this.dataSwiper.update();
-        }
     },
     modal : {
         /**
@@ -409,36 +403,23 @@ dentistrySNU = {
         },
         type4: function() {
             if (!fn.hasClass('#header', 'type4')) return;
-            let $bgOverlay = $('.gnb_overlay_bg'),
-                $gnb = $('.gnb'),
+            let $gnb = $('.gnb'),
                 $depth1List = $gnb.find('.depth1_list'),
                 $depth1Item = $gnb.find('.depth1_item'),
                 $depth1Link = $depth1Item.children('a');
                 $firstItem = $gnb.find('a').first(),
                 $LastItem = $gnb.find('a').last(),
-                $depth2Area = $('.depth2_area'),
-                $depth2List = $depth2Area.find('.depth2_list'),
                 headerHt = $header.outerHeight(),
-                depth2Ht = this.maxHeight($depth2List);
-
+                
             this.resize('.depth2_list');
 
-            const openMenu = () => { 
-                $bgOverlay.stop().animate({ height : depth2Ht })
-                $header.stop().animate({ height : headerHt + depth2Ht })
-            }
-            const closeMenu = () => { 
-                $bgOverlay.stop().animate({ height : 0 })
-                $header.stop().animate({ height : headerHt })
-            }
-
             // open event
-            $depth1List.on('mouseenter focusin', openMenu);
+            $depth1List.on('mouseenter focusin', this.openMenu);
 
             // close event
-            $header.on('mouseleave', closeMenu);
+            $header.on('mouseleave', this.closeMenu);
             $firstItem.on('keydown', (e) => { if(e.keyCode === 9 && e.shiftKey) closeMenu(); })
-            $LastItem.on('focusout', closeMenu);
+            $LastItem.on('focusout', this.closeMenu);
 
             // focus event
             $depth1Link.on('keydown', function (e) {
@@ -472,7 +453,20 @@ dentistrySNU = {
                 })
             })
         },
-        maxHeight: function(obj) {
+        openMenu() { 
+            depth2Ht = dentistrySNU.gnb.maxHeight($depth2List);
+            $bgOverlay.stop().animate({ height : depth2Ht })
+            $header.stop().animate({ height : headerHt + depth2Ht })
+        },
+        closeMenu() { 
+            console.log('close');
+            $bgOverlay.stop().animate({ height : 0 })
+            $header.stop().animate({ height : headerHt }, function() {
+                if (fn.hasClass('.spot', 'active') || !fn.exists('#fullpage')) return;
+                $header.addClass('up');
+            })
+        },
+        maxHeight(obj) {
             const heightArray = $(obj).map(function () {
                 return $(this).outerHeight(true);
             });
@@ -504,14 +498,22 @@ dentistrySNU = {
                     $header.removeClass('fixed');
                 }
             }, 300))
-        }
+        },
     },
     fullpage : function() {
         if (!fn.exists('#fullpage')) return;
+
         $(document).ready(function() {
             $('#fullpage').fullpage({
                 css3: true,
                 onLeave: function(origin, destination, direction, trigger) {
+                    if (direction === 'down') {
+                        dentistrySNU.gnb.closeMenu();
+                        handleHdr();
+                    } else {
+                        $header.removeClass('up');
+                    }
+                    
                     if (destination !== 1) {
                         $header.addClass('fixed');
                     } else {
@@ -520,9 +522,55 @@ dentistrySNU = {
                 },
             });
         });
-    }
+
+        function handleHdr() {
+            $(window).on('mousemove', function(e) {
+                if (!fn.exists('.up')) return;
+
+                let posY = e.clientY;
+                if (posY < $header.outerHeight()) {
+                    $header.removeClass('up');
+                }
+            })
+        }
+    },
+    history : function() {
+        if(!fn.exists('.history_page')) return;
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        let lastBoxHt = $('.history_box').last().outerHeight();
+        let rightHt = $('.cnt_right').outerHeight();
+        let marginTop = 94;
+        let moveY = rightHt - lastBoxHt - marginTop;
+
+        gsap.set('.history_cnt_wrap .img_area', {autoAlpha: 0, y: 100})
+        const tl = gsap.timeline()
+        .to('.cnt_right', { y: -moveY}, '<')
+
+        ScrollTrigger.create({
+            trigger: '.history_cnt_wrap',
+            start: 'top+=10% center',
+            end: 'bottom center',
+            markers:true,
+            pin: true,
+            pinSpacing: false,
+            scrub: 1,
+            animation: tl,
+            onEnter: () => {
+                gsap.to('.history_cnt_wrap .img_area', { autoAlpha: 1, y: 0, duration: .5})
+            },
+            onLeaveBack: () => {
+                gsap.to('.history_cnt_wrap .img_area', {autoAlpha: 0, y: 100})
+            }
+        })
+    },
 }
 $(() => {
     $header = $('#header');
+    $depth2Area = $('.depth2_area');
+    $depth2List = $depth2Area.find('.depth2_list');
+    $bgOverlay = $('.gnb_overlay_bg');
+
     dentistrySNU.init();
 });
