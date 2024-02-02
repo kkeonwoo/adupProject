@@ -82,7 +82,7 @@
 .spot.sub .inner { display: flex; justify-content: space-between; align-items: end; padding-top: 130px;}
 .spot.sub .sub_cnt_left { width: 580px; padding: 40px; background: url('../images/img/bg_sub_cnt.png') var(--color-191919) no-repeat left 236px center / 700px auto;}
 .spot.sub .sub_cnt_left .ttl_area .h_ttl { margin-top: 0; font-weight: 500; font-size: 48px; color: var(--color-white);letter-spacing: -1.92px;}
-.spot.sub .sub_cnt_left .ttl_area .p_desc { font-size: 20px; line-height: 1.2; color: var(--color-white);}
+.spot.sub .sub_cnt_left .ttl_area .p_desc { margin-top: 16px; font-size: 20px; line-height: 1.2; color: var(--color-white);}
 .spot.sub .sub_cnt_right { flex: 1;}
 .spot.sub .sub_cnt_right .search_area { justify-content: end;}
 .spot.sub .sub_cnt_right .search_area .search_box { width: 100%; max-width: 500px;}
@@ -110,7 +110,7 @@
 .section01 .cnt_right .ttl_area [class^="swiper-button"] { position: static;}
 .section01 .cnt_right .swiper_col_sub_wrap { overflow: hidden;}
 .section01 .cnt_right .swiper_col_sub { position: relative; margin-top: 40px; margin-left: calc(-32px - 400 / 1920 * 100vw);}
-.section01 .cnt_right .swiper_col_sub .swiper-slide { width: calc(400 / 1920 * 100vw); max-width: 400px; height: unset;}
+.section01 .cnt_right .swiper_col_sub .swiper-slide { width: calc(400 / 1920 * 100vw); max-width: 400px; height: unset; margin-right: 32px;}
 .section01 .cnt_right .swiper_col_sub .col_swiper_card { display: flex; flex-direction: column; align-items: stretch; height: 100%;}
 .section01 .cnt_right .swiper_col_sub .col_img_area { width: 100%; height: calc(400 / 1920 * 100vw); overflow: hidden;}
 .section01 .cnt_right .swiper_col_sub .col_txt_area { flex: 1;}
@@ -172,6 +172,7 @@
 .section_sub .guide_list .guide_item::before { content: '•'; display: inline-block; padding-right: 10px; font-weight: inherit; font-size: inherit; line-height: inherit; color: inherit;}
 .section_sub .guide_list .guide_item + .guide_item { margin-top: 16px;}
 /* sub txt content layout */
+.section_sub .ttl_area .h_ttl + .p_desc { margin-top: 16px;}
 .section_sub .ttl_area .p_desc { font-size: 20px; color: var(--color-191919);}
 .section_sub .cnt_group + .cnt_group { margin-top: 94px;}
 .section_sub .cnt_group .ttl_area .h_ttl { color: var(--color-191919);}
@@ -309,8 +310,8 @@
 #footer .btn_family::after { content: ''; display: inline-block; position: absolute; top: 50%; right: 20px; width: 24px; height: 24px; background: url('../images/icons/arw_bottom_white.svg') no-repeat center center / 100% auto; transform: translateY(-50%);}
 
 /* float btn */
-.float_area { position: fixed; top: 50%; left: 0; z-index: 20; transform: translateY(-50%);}
-.float_area .float_box { display: flex; flex-direction: column; max-width: 80px; height: 328px;}
+.float_area { position: absolute; top: 50%; left: 0; z-index: 20; transform: translateY(-50%); transition: top .5s cubic-bezier(0.65,0.05,0.36,1);;}
+.float_area .float_box { display: flex; flex-direction: column; max-width: 80px; height: 328px; box-shadow: 2px 2px 16px 0px rgba(0, 0, 0, 0.20);}
 .float_area .float_txt_box { flex: 1; display: flex; justify-content: center; align-items: center; background-color: var(--color-191919);}
 .float_area .float_txt { display: block; font-weight: 700; font-size: 24px; white-space: nowrap; color: var(--color-white); transform: rotate(-90deg);}
 .float_area .float_btn { display: block; padding: 24px 22px; font-weight: 700; font-size: 24px; line-height: 1; color: var(--color-white); background-color: var(--color-a0c101); text-align: center;}
@@ -330,7 +331,7 @@
     .swiper_data_wrap [class^="swiper-button"] { top: calc(300 / 1660 * 100vw);}
 }
 
-@media screen and (max-width: 1079.99px) {
+@media screen and (max-width: 1023.99px) {
     /* exhbn */
     .section02 .swiper_exhbn_wrap { padding: 0 28px;}
     .section02 .swiper_exhbn_wrap .swiper-button-prev { left: 28px;}
@@ -345,7 +346,6 @@
 @media screen and (max-width: 767.98px) {
     /* exhbn */
     .section02 .swiper_exhbn_wrap { padding: 0;}
-    /* .section02 .swiper_exhbn_wrap [class^="swiper-button"] { display: none;} */
     .section02 .swiper_exhbn .swiper-slide { width: 240px;}
 }
 

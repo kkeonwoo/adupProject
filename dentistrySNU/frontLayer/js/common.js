@@ -21,6 +21,8 @@ dentistrySNU = {
         this.gnb.init();
         this.fullpage();
         this.history();
+        this.aosSetting();
+        this.floatingBtn();
     },
     tab: function() {
         let tabLink, tabItem, tabPanel, activeIdx;
@@ -255,7 +257,7 @@ dentistrySNU = {
                     prevEl: '.swiper_exhbn_wrap .swiper-button-prev'
                 },
                 breakpoints: {
-                    1081: {
+                    1024: {
                         slidesPerView: 4,
                         spaceBetween: 32,
                     },
@@ -280,14 +282,13 @@ dentistrySNU = {
             const swiperCol = new Swiper('.swiper_col', {
                 loop: true,
                 slidesPerView: 'auto',
-                initialSlide: 0, // 초기 슬라이드의 인덱스 설정 
                 spaceBetween: 32,
             })
             
             const swiperColSub = new Swiper('.swiper_col_sub', {
                 loop:true,
                 slidesPerView: 'auto',
-                spaceBetween: 32,
+                // spaceBetween: 32,
                 navigation: {
                     prevEl: '.cnt_right .swiper-button-prev',
                     nextEl: '.cnt_right .swiper-button-next'
@@ -459,7 +460,6 @@ dentistrySNU = {
             $header.stop().animate({ height : headerHt + depth2Ht })
         },
         closeMenu() { 
-            console.log('close');
             $bgOverlay.stop().animate({ height : 0 })
             $header.stop().animate({ height : headerHt }, function() {
                 if (fn.hasClass('.spot', 'active') || !fn.exists('#fullpage')) return;
@@ -544,27 +544,50 @@ dentistrySNU = {
         let marginTop = 94;
         let moveY = rightHt - lastBoxHt - marginTop;
 
-        gsap.set('.history_cnt_wrap .img_area', {autoAlpha: 0, y: 100})
-        const tl = gsap.timeline()
-        .to('.cnt_right', { y: -moveY}, '<')
-
+        gsap.set('.history_cnt_wrap .img_area', { autoAlpha: 0, y: 50})
+        gsap.set('.cnt_right', { autoAlpha: 0})
+        const tl = gsap.timeline({ paused : true})
+        .to('.cnt_right', { autoAlpha: 1})
+        .to('.history_cnt_wrap .img_area', { autoAlpha: 1, y: 0, duration: .4}, '-=.2')
         ScrollTrigger.create({
             trigger: '.history_cnt_wrap',
             start: 'top+=10% center',
             end: 'bottom center',
-            markers:true,
+            // markers:true,
             pin: true,
             pinSpacing: false,
             scrub: 1,
-            animation: tl,
-            onEnter: () => {
-                gsap.to('.history_cnt_wrap .img_area', { autoAlpha: 1, y: 0, duration: .5})
-            },
-            onLeaveBack: () => {
-                gsap.to('.history_cnt_wrap .img_area', {autoAlpha: 0, y: 100})
-            }
+            animation: gsap.to('.cnt_right', { y: -moveY}, '<'),
+            onEnter: () => tl.play(),
+            onLeaveBack: () => tl.reverse(),
         })
     },
+    aosSetting : function() {
+        if ($('[data-aos]').length === 0) return;
+        $(document).ready(function() {
+            AOS.init({
+                duration: 1000,
+                delay: 100,
+                easing: 'ease',
+            });
+        })
+        let scrollRef = 0;
+        
+        window.addEventListener('scroll', function () {
+            scrollRef <= 10 ? scrollRef++ : AOS.refresh();
+        });
+    },
+    floatingBtn : function() {
+        $(document).ready(function () {
+            let floatBtn = $('.float_area');
+
+            $(window).scroll(function () {
+                let st = $(window).scrollTop();
+
+                floatBtn.css('top', 'calc(50% + ' + st + 'px)');
+            });
+        });
+    }
 }
 $(() => {
     $header = $('#header');
