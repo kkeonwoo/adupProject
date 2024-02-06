@@ -14,11 +14,13 @@
     <title>Document</title>
     <!-- link:css -->
     <link rel="stylesheet" href="../../frontLayer/css/package.css">
+    <link rel="stylesheet" href="../../frontLayer/css/aos.css">
     <!-- link:script -->
     <script src="../../frontLayer/js/jquery-3.3.1.min.js"></script>
     <script src="../../frontLayer/js/jquery-ui.min.js"></script>
     <script src="../../frontLayer/js/swiper.min.js"></script>
     <script src="../../frontLayer/js/lodash.js"></script>
+    <script src="../../frontLayer/js/aos.js"></script>
     <script src="../../frontLayer/js/fn.js"></script>
     <script src="../../frontLayer/js/common.js"></script>
 </head>
@@ -76,12 +78,12 @@
             <section class="spot sub">
                 <!-- sub visual area -->
                 <div class="sub_img_area">
-                    <img src="../../frontLayer/images/img/bg_sub.jpg" alt="" class="img">
+                    <img src="../../frontLayer/images/img/bg_sub_col.jpg" alt="" class="img">
                 </div>
                 <!-- // sub visual area -->
                 <div class="inner">
                     <div class="sub_cnt_left">
-                        <div class="ttl_area">
+                        <div data-aos="fade-up" class="ttl_area">
                             <h3 class="h_ttl">유물 기증안내</h3>
                             <p class="p_desc">
                                 소중한 유물기증을 항상 기다리고 있습니다
@@ -120,23 +122,55 @@
             <!-- //spot -->
             <!-- content -->
             <div id="content">
-                <section class="section_sub">
+                <section class="section_sub donate_page">
                     <div class="inner">
-                        <div class="txt_box">
-                            <p class="p_txt">
-                                개인이나 단체가 소중히 간직해 온 문화재를 모두 함께 감상하고 연구할 수 있도록 해 주는 훌륭한 일입니다. 또한, 기증된 문화재는 서울대학교 치의학박물관의 훌륭한 시설에서 영구적으로 보관ㆍ관리될 수 있습니다. 서울대학교 치의학박물관은 단 한 점의 유물도 소중하게 기다리고 있겠습니다.
+                        <div data-aos="fade-up" data-aos-offset="300" class="txt_box">
+                            <h3 class="h_ttl">
+                                개인이나 단체가 소중히 간직해 온 문화재를 모두 함께 감상하고 연구할 수 있도록 해 주는 훌륭한 일입니다.
+                            </h3>
+                            <p class="p_desc">
+                                또한, 기증된 문화재는 서울대학교 치의학박물관의 훌륭한 시설에서 영구적으로 보관ㆍ관리될 수 있습니다. 서울대학교 치의학박물관은 단 한 점의 유물도 소중하게 기다리고 있겠습니다.
                             </p>
                         </div>
-                        <div class="txt_group">
-                            <h4 class="h_ttl">주요 수집 품목</h4>
-                            <div class="txt_box">
-                                <p class="p_txt"></p>
+                        <div class="cnt_group collect">
+                            <div data-aos="fade-up" data-aos-offset="300" class="ttl_area">
+                                <h4 class="h_ttl">주요 수집 품목</h4>
+                            </div>
+                            <div data-aos="fade-up" data-aos-offset="300" class="cnt_area">
+                                <ul class="collect_list">
+                                    <li class="collect_item circle">
+                                        <span class="txt">
+                                            치의학 관련 기구,<br>
+                                            약품, 문서, 서적 등
+                                        </span>
+                                    </li>
+                                    <li class="collect_item circle">
+                                        <span class="txt">
+                                            서울대학교<br>
+                                            치과대학사 관련 사료
+                                        </span>
+                                    </li>
+                                    <li class="collect_item circle">
+                                        <span class="txt">
+                                            전통 치의학 관련 사료
+                                        </span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="txt_group">
-                            <h4 class="h_ttl">기증 문의</h4>
-                            <div class="txt_box">
-                                <p class="p_txt"></p>
+                        <div data-aos="fade-up" data-aos-offset="300" class="cnt_group">
+                            <div class="ttl_area">
+                                <h4 class="h_ttl">기증 문의</h4>
+                            </div>
+                            <div class="cnt_area type2">
+                                <div class="cnt_box">
+                                    <h5 class="h_ttl">전화</h5>
+                                    <span class="txt">02-740-8799</span>
+                                </div>
+                                <div class="cnt_box">
+                                    <h5 class="h_ttl">이메일</h5>
+                                    <span class="txt">museumsd@snu.ac.kr</span>
+                                </div>
                             </div>
                         </div>
                     </div>

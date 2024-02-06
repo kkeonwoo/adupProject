@@ -539,27 +539,64 @@ dentistrySNU = {
 
         gsap.registerPlugin(ScrollTrigger);
 
-        let lastBoxHt = $('.history_box').last().outerHeight();
-        let rightHt = $('.cnt_right').outerHeight();
-        let marginTop = 94;
-        let moveY = rightHt - lastBoxHt - marginTop;
-
-        gsap.set('.history_cnt_wrap .img_area', { autoAlpha: 0, y: 50})
-        gsap.set('.cnt_right', { autoAlpha: 0})
-        const tl = gsap.timeline({ paused : true})
-        .to('.cnt_right', { autoAlpha: 1})
-        .to('.history_cnt_wrap .img_area', { autoAlpha: 1, y: 0, duration: .4}, '-=.2')
-        ScrollTrigger.create({
-            trigger: '.history_cnt_wrap',
-            start: 'top+=10% center',
-            end: 'bottom center',
-            // markers:true,
-            pin: true,
-            pinSpacing: false,
-            scrub: 1,
-            animation: gsap.to('.cnt_right', { y: -moveY}, '<'),
-            onEnter: () => tl.play(),
-            onLeaveBack: () => tl.reverse(),
+        ScrollTrigger.matchMedia({
+            "(min-width: 767px)": function() {
+                let tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".history",
+                        pin: '.cnt_left',
+                        pinSpacing: false,
+                        scrub: .125,
+                        start: "top +=40%",
+                        // markers: true,
+                        end: 'bottom-=10% +=60%',
+                    }
+                });
+                
+                $('.history_box').each(function(index) {
+                    let __self = this;
+                    gsap.timeline({
+                        scrollTrigger: {
+                            trigger: __self,
+                            scrub: true,
+                            ease: "linear",
+                            start: 'top center',
+                            end: 'bottom center',
+                            id: 'history_box',
+                            // markers: true,
+                            invalidateOnRefresh: true,
+                            onEnter: function() {
+                                $('.cnt_left .img_area:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
+                                $('.history_box:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
+                                gsap.to($('.cnt_left .img_area'), { duration: .6, y: index * -100 + '%' })
+                            },
+                            onEnterBack: function() {
+                                $('.cnt_left .img_area:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
+                                $('.history_box:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
+                                gsap.to($('.cnt_left .img_area'), { duration: .6, y: index * -100 + '%' })
+                            },
+                        }
+                    })
+                });
+    
+                // if($('.history-detail').hasClass('yearData_2000')) {
+                //     let year_change = document.querySelector(".years>span");
+                //     ScrollTrigger.create({
+                //         trigger: '.history-detail[data-year="2000"]',
+                //         start: "top center",
+                //         end: "bottom center",
+                //         endTrigger: ".top-btn",
+                //         // markers: true,
+                //         onEnter: () => {
+                //             year_change.innerText = "20";
+                //         },
+                //         onLeaveBack: () => {
+                //             year_change.innerText = "19";
+                //         },
+                //     });
+                // }
+    
+            }
         })
     },
     aosSetting : function() {
