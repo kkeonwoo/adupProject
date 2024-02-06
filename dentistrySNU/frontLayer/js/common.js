@@ -249,12 +249,16 @@ dentistrySNU = {
             const swiperExhbn = new Swiper('.swiper_exhbn', {
                 loop: true,
                 slidesPerView: 'auto',
-                spaceBetween: 20,
+                spaceBetween: 8,
                 observer : true,
                 observeParents : true,
                 navigation: {
                     nextEl: '.swiper_exhbn_wrap .swiper-button-next',
                     prevEl: '.swiper_exhbn_wrap .swiper-button-prev'
+                },
+                pagination: {
+                    el: ".section02 .swiper-pagination",
+                    clickable: true,
                 },
                 breakpoints: {
                     1024: {
@@ -462,7 +466,7 @@ dentistrySNU = {
         closeMenu() { 
             $bgOverlay.stop().animate({ height : 0 })
             $header.stop().animate({ height : headerHt }, function() {
-                if (fn.hasClass('.spot', 'active') || !fn.exists('#fullpage')) return;
+                if (fn.hasClass('.spot', 'active') || !fn.exists('#fullpage') || fn.exists('.mobile')) return;
                 $header.addClass('up');
             })
         },
@@ -506,7 +510,9 @@ dentistrySNU = {
         $(document).ready(function() {
             $('#fullpage').fullpage({
                 css3: true,
-                onLeave: function(origin, destination, direction, trigger) {
+                responsiveWidth: 1024,
+                keyboardScrolling: true,
+                'onLeave': function(origin, destination, direction, trigger) {
                     if (direction === 'down') {
                         dentistrySNU.gnb.closeMenu();
                         handleHdr();
@@ -524,6 +530,8 @@ dentistrySNU = {
         });
 
         function handleHdr() {
+            if (fn.exists('.mobile')) return;
+
             $(window).on('mousemove', function(e) {
                 if (!fn.exists('.up')) return;
 
@@ -631,6 +639,14 @@ $(() => {
     $depth2Area = $('.depth2_area');
     $depth2List = $depth2Area.find('.depth2_list');
     $bgOverlay = $('.gnb_overlay_bg');
+
+    $(document).ready(function() {
+        fn.windowSize();
+    
+        $(window).resize(function() {
+            fn.windowSize();
+        });
+    });
 
     dentistrySNU.init();
 });

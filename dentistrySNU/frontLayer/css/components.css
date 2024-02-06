@@ -169,6 +169,11 @@
 .swiper-button-prev, .swiper-rtl .swiper-button-next,
 .swiper-button-next, .swiper-rtl .swiper-button-prev {background-repeat:no-repeat;background-position:center;}
 .swiper-button-prev:after, .swiper-button-next:after {display:none;}
+.section .swiper-pagination { position: absolute; bottom: 30px;}
+.section .swiper-pagination .swiper-pagination-bullet { position: relative; width: 10px; height: 10px; margin: 0 12px; background-color: var(--color-white); opacity: .5; transition: opacity .3s;}
+.section .swiper-pagination .swiper-pagination-bullet::before { content: ''; display: block; position: absolute; top: 50%; left: 50%; width: 24px; height: 24px; border: .5px solid var(--color-white); border-radius: 100%; transform: translate(-50%, -50%); opacity: 0; transition: opacity .3s;}
+.section .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active::before { opacity: 1;}
+.section .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active { opacity: 1;}
 
 /* accordion */
 .accordion .accordion_item { border: 1px solid #ccc;}
@@ -189,6 +194,29 @@
 .alert.alert-error {background-color: indianred;}
 .alert * { color: inherit;}
 .alert .btn_close {width: 15px; height: 15px; background-color: #000;}
+
+@media all and (max-width: 1661px) {
+    /* button */
+    .btn { min-width: 10.4167vw; padding: 0.7292vw 1.0417vw; font-size: 0.8333vw;}
+    .btn_ico { min-width: 3.7500vw; height: 3.7500vw;}
+    .btn_ico.outline { min-width: 2.5000vw; height: 2.5000vw;}
+    .btn_xm { min-width: 4.1667vw; padding: 0.6771vw;}
+    .btn_sm { padding: 0.7292vw 1.4583vw;}
+}
+
+@media all and (max-width: 1400px) {
+    /* button */
+    .btn { min-width: 146px; padding: 10px 15px; font-size: 12px;}
+    .btn_ico { min-width: 53px; height: 53px;}
+    .btn_ico.outline { min-width: 35px; height: 35px;}
+    .btn_xm { min-width: 58px; padding: 9px;}
+    .btn_sm { padding: 10px 20px;}
+}
+
+@media all and (max-width: 1024px) {
+    .swiper-pagination { bottom: 20px;}
+    .swiper-pagination .swiper-pagination-bullet { margin: 0 24px;}
+}
 
 @media all and (max-width: 1079px) {
     .btn_ico { min-width: 60px; height: 60px;}

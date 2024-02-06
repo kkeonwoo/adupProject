@@ -84,5 +84,15 @@ fn = {
     },
     hasClass(obj, className) {
         return $(obj).hasClass(className);
+    },
+    windowSize() {
+        let windowWidth = $(window).outerWidth();
+        let $body = $('body');
+    
+        if (windowWidth <= 1024) {
+            $body.removeClass('pc').addClass('mobile');
+        } else {
+            $body.removeClass('mobile').addClass('pc');
+        }
     }
 }
