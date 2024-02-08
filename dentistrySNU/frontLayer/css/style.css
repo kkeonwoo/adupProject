@@ -286,6 +286,7 @@
 .section_sub.greeting_page .txt { margin-top: 48px; font-size: 32px; color: var(--color-191919);}
 /* sub exhbn detail */
 .section_sub.detail { position: relative;}
+.section_sub.detail .video { width: 100%; max-width: 1200px; margin-bottom: 40px;}
 .section_sub.detail .btn_outline_primary { position: relative;}
 .section_sub.detail .btn_outline_primary::before { content: ''; display: block; position: absolute; top: 50%; width: 24px; height: 24px; background-repeat: no-repeat; background-position: center center; background-size: 100% auto; transform: translateY(-50%);}
 .section_sub.detail .btn_outline_primary.btn_prev::before { left: 16px; background-image: url('../images/icons/arw_left_blue.svg');}
@@ -767,7 +768,7 @@
     #header.type4 .depth1_list .depth1_item { height: unset; line-height: unset; padding: 32px 20px; border-top: 1px solid var(--color-aeaeae); text-align: left;}
     #header.type4 .depth1_list .depth1_link { display: block; position: relative; width: 100%; font-weight: 700; font-size: 24px; color: var(--color-191919);}
     #header.type4 .depth1_list .depth1_link::before { content: ''; display: block; position: absolute; top: 50%; right: 20px; width: 24px; height: 24px; background: url('../images/icons/arw_bottom_black.svg') no-repeat center center / 100% auto; transition: transform .4s; transform: rotate(180deg) translateY(50%);}
-    #header.type4 .depth1_list .depth1_item.open::before { transform: rotate(0) translateY(-50%);}
+    #header.type4 .depth1_list .depth1_link.open::before { transform: translateY(-50%) rotate(0);}
     #header.type4 .depth2_area { display: none;}
     #header.type4 .depth2_list { position: relative; height: unset; padding: 0; padding-top: 32px;}
     #header.type4 .depth2_list li + li { margin-top: 32px;}
@@ -958,6 +959,7 @@
     .swiper_data_wrap .data_swiper { margin-top: 20px;}
     .section_sub .inner > .swiper_data_wrap + .btn_wrap { margin-top:  88px;}
     /* sub exhbn detail */
+    .section_sub.detail .video { margin-bottom: 16px;}
     .section_sub.detail .btn_blue { width: 100%; order: 1;}
     .section_sub.detail .btn_outline_primary.btn_prev,
     .section_sub.detail .btn_outline_primary.btn_next { width: calc(50% - 4px);}

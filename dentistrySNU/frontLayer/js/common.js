@@ -430,7 +430,10 @@ dentistrySNU = {
                     dentistrySNU.gnb.gnbMob();
                 } else {
                     $header.css('height', 140);
-                    if($header.hasClass('open')) $header.removeClass('open');
+                    if($header.hasClass('open')) {
+                        fn.removeHidden();
+                        $header.removeClass('open');
+                    } 
                     dentistrySNU.gnb.type4();
                 }
             });
@@ -488,13 +491,13 @@ dentistrySNU = {
             })
         },
         openMenu() { 
-            depth2Ht = dentistrySNU.gnb.maxHeight($depth2List);
-            $bgOverlay.stop().animate({ height : depth2Ht })
-            $header.addClass('color').stop().animate({ height : headerHt + depth2Ht })
+            // depth2Ht = dentistrySNU.gnb.maxHeight($depth2List);
+            // $bgOverlay.stop().animate({ height : depth2Ht })
+            $header.addClass('color').stop().animate({ height : 555 })
         },
         closeMenu() { 
-            $bgOverlay.stop().animate({ height : 0 })
-            $header.stop().animate({ height : headerHt }, function() {
+            // $bgOverlay.stop().animate({ height : 0 })
+            $header.stop().animate({ height : 140 }, function() {
                 if (fn.exists('#fullpage')) $header.removeClass('color');
                 if (fn.hasClass('.spot', 'active') || !fn.exists('#fullpage') || fn.exists('.mobile')) return;
                 $header.addClass('up');
@@ -554,7 +557,7 @@ dentistrySNU = {
                 e.preventDefault();
                 $depth2Area = $(this).siblings();
                 $(this).toggleClass('open');
-                $depth2Area.stop().slideToggle()
+                $depth2Area.stop().slideToggle();
             })
         }
     },
@@ -610,7 +613,7 @@ dentistrySNU = {
                     pinSpacing: false,
                     scrub: .125,
                     start: "top +=40%",
-                    // markers: true,
+                    markers: true,
                     end: 'bottom-=10% +=60%',
                 }
             });
