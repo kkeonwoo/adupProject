@@ -58,6 +58,7 @@
                 </h1>
                 <nav class="gnb">
                     <h2 class="blind">Menu</h2>
+                    <div class="gnb_overlay_bg"></div>
                     <div class="gnb_wrapper">
                         <div class="gnb_inner">
                             <div class="depth1_area">
@@ -68,7 +69,7 @@
                                             <ul class="depth2_list">
                                                 <li><a href="/contents/exhibit/permanent.html" class="depth2_link">상설 전시</a></li>
                                                 <li><a href="/contents/exhibit/planned.html" class="depth2_link">기획 전시</a></li>
-                                                <li><a href="/contents/exhibit/online.html" class="depth2_link">온라인 전시</a></li>
+                                                <li><a href="/contents/exhibit/online.html" class="depth2_link">온라인 전시<br>(VR뮤지엄)</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -96,7 +97,6 @@
                                             <ul class="depth2_list">
                                                 <li><a href="/contents/academicData/publish.html" class="depth2_link">발간도서</a></li>
                                                 <li><a href="/contents/academicData/research.html" class="depth2_link">조사연구</a></li>
-                                                <li><a href="/contents/academicData/academic.html" class="depth2_link">학술</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -106,6 +106,7 @@
                                             <ul class="depth2_list">
                                                 <li><a href="/contents/news/notice.html" class="depth2_link">공지사항</a></li>
                                                 <li><a href="/contents/news/report.html" class="depth2_link">보도자료</a></li>
+                                                <li><a href="/contents/news/academic.html" class="depth2_link">행사</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -126,6 +127,7 @@
                         </div>
                     </div>
                 </nav>
+                <button class="btn_hamburger"></button>
             </div>
         </header>
         <!-- //header -->
@@ -150,24 +152,37 @@
                         <div id="lnb">
                             <ul class="lnb_list">
                                 <li class="lnb_item">
-                                    <a href="#" class="lnb_link">
+                                    <a href="/contents/index.html" class="lnb_link">
                                         <i class="ico home"></i>
                                     </a>
                                 </li>
                                 <li class="lnb_item">
-                                    <button type="button" class="btn btn_outline_white">박물관 소개</button>
-                                    <div class="lnb_depth">
-                                        <ul class="lnb_depth_list">
-                                            <li><a href="#" class="lnb_depth_item"></a></li>
-                                        </ul>
+                                    <div class="lnb_depth form_select">
+                                        <button type="button" id="menu-button" class="btn btn_outline_white form_btn">학술/자료</button>
+                                        <div id="menu-list" class="option_area">
+                                            <ul class="lnb_depth_list option_list">
+                                                <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/exhibit/planned.html" class="option_btn" type="button">전시</a></li>
+                                                <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/collection/intro.html" class="option_btn" type="button">소장유물</a></li>
+                                                <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/edu/last.html" class="option_btn" type="button">교육 컨텐츠</a></li>
+                                                <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/academicData/publish.html" class="option_btn" type="button">학술/자료</a></li>
+                                                <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/news/notice.html" class="option_btn" type="button">소식</a></li>
+                                                <li class="lnb_depth_item option_item selected" aria-selected="true"><a href="/contents/intro/greeting.html" class="option_btn" type="button">박물관 소개</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </li>
                                 <li class="lnb_item">
-                                    <button type="button" class="btn btn_outline_white">관람안내와 위치</button>
-                                    <div class="lnb_depth">
-                                        <ul class="lnb_depth_list">
-                                            <li><a href="#" class="lnb_depth_item"></a></li>
-                                        </ul>
+                                    <div class="lnb_depth form_select">
+                                        <button type="button" id="menu-button" class="btn btn_outline_white form_btn">관람안내와 위치</button>
+                                        <div id="menu-list" class="option_area">
+                                            <ul class="lnb_depth_list option_list">
+                                                <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/intro/greeting.html" class="option_btn" type="button">관장 인사말</a></li>
+                                                <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/intro/history.html" class="option_btn" type="button">연혁</a></li>
+                                                <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/intro/directors.html" class="option_btn" type="button">역대 관장</a></li>
+                                                <li class="lnb_depth_item option_item selected" aria-selected="true"><a href="/contents/intro/guideLocate.html" class="option_btn" type="button">관람안내와 위치</a></li>
+                                                <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/intro/guideDonate.html" class="option_btn" type="button">박물관 후원안내</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </li>
                             </ul>
@@ -271,7 +286,7 @@
                                 <ul class="guide_list">
                                     <li class="guide_item">
                                         <span class="guide_ttl">[4호선] 혜화역(3번 출구)</span>
-                                        <span class="guide_txt">3번 출구로 나와 서울대학교병원 방면으로 20M 정도 직진하면 우측에 서울대학교 의대본관이 보입니다. 의대본관을 지나 내려오시면 치의학대학원이 있습니다.</span>
+                                        <span class="guide_txt f_inherit">3번 출구로 나와 서울대학교병원 방면으로 20M 정도 직진하면 우측에 서울대학교 의대본관이 보입니다. 의대본관을 지나 내려오시면 치의학대학원이 있습니다.</span>
                                     </li>
                                     <li class="guide_item">
                                         <span class="guide_ttl">[3호선] 안국역(6번 출구)</span>
@@ -310,7 +325,7 @@
                             </ul>
                         </div>
                         <div class="f_info">
-                            <span class="address txt">서울시 종로구 대학로 101(연건동) 서울대학교 치의학대학원 본관 1층</span>
+                            <span class="address txt">서울시 종로구 대학로 101(연건동) 서울대학교<br class="mo"> 치의학대학원 본관 1층</span>
                             <span class="tel txt">TEL. (02) 740-8779</span>
                         </div>
                         <div class="copyright">Copyright 2023 Seoul National University All Rights Reserved.</div>
@@ -328,7 +343,7 @@
             <div class="float_txt_box">
                 <span class="float_txt">관람신청 및 문의</span>
             </div>
-            <a href="#" class="float_btn">
+            <a href="/contents/intro/guideLocate.html" class="float_btn">
                 GO
             </a>
         </div>

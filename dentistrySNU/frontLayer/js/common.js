@@ -75,7 +75,7 @@ dentistrySNU = {
                 let firstOption = $(t).find('.option_item').eq(0),
                     tParents = $(t).parents();
 
-                dentistrySNU.select.handleBtnText(firstOption);
+                // dentistrySNU.select.handleBtnText(firstOption);
                 // 부모 요소에 스크롤 이벤트 발생 시
                 if (tParents.css('overflow') === 'visible' || tParents.css('overflow') === 'auto') {
                     tParents.on('scroll', function() { setTimeout(() => dentistrySNU.select.closeOption()); })
@@ -308,10 +308,15 @@ dentistrySNU = {
             const swiperVideo = new Swiper('.swiper_video', {
                 loop: true,
                 slidesPerView: 'auto',
-                spaceBetween: 32,
+                spaceBetween: 8,
                 navigation: {
                     nextEl: '.swiper_video_cnt .swiper-button-next',
                     prevEl: '.swiper_video_cnt .swiper-button-prev'
+                },
+                breakpoints: {
+                    1024: {
+                        spaceBetween: 32,
+                    },
                 },
             })
 
@@ -328,11 +333,21 @@ dentistrySNU = {
 
             const swiperVideo = new Swiper('.data_swiper', {
                 loop: true,
-                slidesPerView: 4,
-                spaceBetween: 32,
+                slidesPerView: 'auto',
+                spaceBetween: 8,
                 navigation: {
                     nextEl: '.swiper_data_wrap .swiper-button-next',
                     prevEl: '.swiper_data_wrap .swiper-button-prev'
+                },
+                pagination: {
+                    el: ".swiper_data_wrap .swiper-pagination",
+                    clickable: true,
+                },
+                breakpoints: {
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 32,
+                    },
                 },
             })
         },
@@ -405,9 +420,23 @@ dentistrySNU = {
         init: function() {
             this.type4();
             this.fixed();
+            this.gnbMob(); 
+
+            $(window).on('resize', function() {
+                let windowWidth = $(window).outerWidth();
+                console.log(windowWidth);
+                if (windowWidth <= 1024) {
+                    $header.css('height', 72);
+                    dentistrySNU.gnb.gnbMob();
+                } else {
+                    $header.css('height', 140);
+                    if($header.hasClass('open')) $header.removeClass('open');
+                    dentistrySNU.gnb.type4();
+                }
+            });
         },
         type4: function() {
-            if (!fn.hasClass('#header', 'type4')) return;
+            if(!$('#header').hasClass('type4')) return;
             let $gnb = $('.gnb'),
                 $depth1List = $gnb.find('.depth1_list'),
                 $depth1Item = $gnb.find('.depth1_item'),
@@ -419,15 +448,15 @@ dentistrySNU = {
             this.resize('.depth2_list');
 
             // open event
-            $depth1List.on('mouseenter focusin', this.openMenu);
+            $depth1List.on('mouseenter.type4 focusin.type4', this.openMenu);
 
             // close event
-            $header.on('mouseleave', this.closeMenu);
-            $firstItem.on('keydown', (e) => { if(e.keyCode === 9 && e.shiftKey) closeMenu(); })
-            $LastItem.on('focusout', this.closeMenu);
+            $header.on('mouseleave.type4', this.closeMenu);
+            $firstItem.on('keydown.type4', (e) => { if(e.keyCode === 9 && e.shiftKey) closeMenu(); })
+            $LastItem.on('focusout.type4', this.closeMenu);
 
             // focus event
-            $depth1Link.on('keydown', function (e) {
+            $depth1Link.on('keydown.type4', function (e) {
                 let dep1Idx = $(this).closest('.depth1_item').index();
                 
                 if ( e.keyCode === 9 ) {
@@ -444,13 +473,13 @@ dentistrySNU = {
             $depth2List.each((idx, item) => {
                 let $depth2Item = $(item).find('li');
                 
-                $depth2Item.first().find('a').on('keydown', function(e) {
+                $depth2Item.first().find('a').on('keydown.type4', function(e) {
                     if ( e.keyCode === 9 && e.shiftKey ) {
                         e.preventDefault();
                         $('.depth1_item').eq(idx).find('.depth1_link').focus();
                     }
                 })
-                $depth2Item.last().find('a').on('keydown', function(e) {
+                $depth2Item.last().find('a').on('keydown.type4', function(e) {
                     if ( e.keyCode === 9 && idx < $depth2List.length - 1 && !e.shiftKey) {
                         e.preventDefault();
                         $('.depth1_item').eq(idx + 1).find('.depth1_link').focus();
@@ -461,11 +490,12 @@ dentistrySNU = {
         openMenu() { 
             depth2Ht = dentistrySNU.gnb.maxHeight($depth2List);
             $bgOverlay.stop().animate({ height : depth2Ht })
-            $header.stop().animate({ height : headerHt + depth2Ht })
+            $header.addClass('color').stop().animate({ height : headerHt + depth2Ht })
         },
         closeMenu() { 
             $bgOverlay.stop().animate({ height : 0 })
             $header.stop().animate({ height : headerHt }, function() {
+                if (fn.exists('#fullpage')) $header.removeClass('color');
                 if (fn.hasClass('.spot', 'active') || !fn.exists('#fullpage') || fn.exists('.mobile')) return;
                 $header.addClass('up');
             })
@@ -503,6 +533,30 @@ dentistrySNU = {
                 }
             }, 300))
         },
+        gnbMob: function() {
+            let hamburger = $('.btn_hamburger');
+            let $depth01Link = $('.depth1_link');
+
+            hamburger.on('click.gnbMob', () => {
+                if($('#header').hasClass('open')) {
+                    // 닫기
+                    $header.removeClass('open');
+                    $depth2Area.stop().slideUp();
+                    fn.removeHidden();
+                } else {
+                    // 열기
+                    $header.addClass('open');
+                    fn.addHidden();
+                }
+            })
+            
+            $depth01Link.on('click.gnbMob', function(e) {
+                e.preventDefault();
+                $depth2Area = $(this).siblings();
+                $(this).toggleClass('open');
+                $depth2Area.stop().slideToggle()
+            })
+        }
     },
     fullpage : function() {
         if (!fn.exists('#fullpage')) return;
@@ -546,66 +600,88 @@ dentistrySNU = {
         if(!fn.exists('.history_page')) return;
 
         gsap.registerPlugin(ScrollTrigger);
+        let mm = gsap.matchMedia();
 
-        ScrollTrigger.matchMedia({
-            "(min-width: 767px)": function() {
-                let tl = gsap.timeline({
+        mm.add("(min-width: 769px)", function() {
+            let tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".history",
+                    pin: '.cnt_left',
+                    pinSpacing: false,
+                    scrub: .125,
+                    start: "top +=40%",
+                    // markers: true,
+                    end: 'bottom-=10% +=60%',
+                }
+            });
+            
+            $('.history_box').each(function(index) {
+                let __self = this;
+                gsap.timeline({
                     scrollTrigger: {
-                        trigger: ".history",
-                        pin: '.cnt_left',
-                        pinSpacing: false,
-                        scrub: .125,
-                        start: "top +=40%",
+                        trigger: __self,
+                        scrub: true,
+                        ease: "linear",
+                        start: 'top center',
+                        end: 'bottom center',
+                        id: 'history_box',
                         // markers: true,
-                        end: 'bottom-=10% +=60%',
+                        invalidateOnRefresh: true,
+                        onEnter: function() {
+                            $('.cnt_left .img_area:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
+                            $('.history_box:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
+                            gsap.to($('.cnt_left .img_area'), { duration: .6, y: index * -100 + '%' })
+                        },
+                        onEnterBack: function() {
+                            $('.cnt_left .img_area:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
+                            $('.history_box:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
+                            gsap.to($('.cnt_left .img_area'), { duration: .6, y: index * -100 + '%' })
+                        },
                     }
-                });
-                
-                $('.history_box').each(function(index) {
-                    let __self = this;
-                    gsap.timeline({
-                        scrollTrigger: {
-                            trigger: __self,
-                            scrub: true,
-                            ease: "linear",
-                            start: 'top center',
-                            end: 'bottom center',
-                            id: 'history_box',
-                            // markers: true,
-                            invalidateOnRefresh: true,
-                            onEnter: function() {
-                                $('.cnt_left .img_area:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
-                                $('.history_box:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
-                                gsap.to($('.cnt_left .img_area'), { duration: .6, y: index * -100 + '%' })
-                            },
-                            onEnterBack: function() {
-                                $('.cnt_left .img_area:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
-                                $('.history_box:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
-                                gsap.to($('.cnt_left .img_area'), { duration: .6, y: index * -100 + '%' })
-                            },
-                        }
-                    })
-                });
-    
-                // if($('.history-detail').hasClass('yearData_2000')) {
-                //     let year_change = document.querySelector(".years>span");
-                //     ScrollTrigger.create({
-                //         trigger: '.history-detail[data-year="2000"]',
-                //         start: "top center",
-                //         end: "bottom center",
-                //         endTrigger: ".top-btn",
-                //         // markers: true,
-                //         onEnter: () => {
-                //             year_change.innerText = "20";
-                //         },
-                //         onLeaveBack: () => {
-                //             year_change.innerText = "19";
-                //         },
-                //     });
-                // }
-    
-            }
+                })
+            });
         })
+
+        // mm.add("(max-width: 768px)", function() {
+        //     let tl02 = gsap.timeline({
+        //         scrollTrigger: {
+        //             trigger: ".cnt_left",
+        //             pin: '.cnt_left',
+        //             // pinSpacing: false,
+        //             scrub: .125,
+        //             start: "bottom center",
+        //             markers: true,
+        //             end: 'bottom',
+        //         }
+        //     });
+            
+        //     // $('.history_box').each(function(index) {
+        //     //     let __self = this;
+        //     //     gsap.timeline({
+        //     //         scrollTrigger: {
+        //     //             trigger: __self,
+        //     //             scrub: true,
+        //     //             ease: "linear",
+        //     //             start: 'top center',
+        //     //             end: 'bottom center',
+        //     //             id: 'history_box',
+        //     //             // markers: true,
+        //     //             invalidateOnRefresh: true,
+        //     //             onEnter: function() {
+        //     //                 $('.cnt_left .img_area:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
+        //     //                 $('.history_box:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
+        //     //                 gsap.to($('.cnt_left .img_area'), { duration: .6, y: index * -100 + '%' })
+        //     //             },
+        //     //             onEnterBack: function() {
+        //     //                 $('.cnt_left .img_area:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
+        //     //                 $('.history_box:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
+        //     //                 gsap.to($('.cnt_left .img_area'), { duration: .6, y: index * -100 + '%' })
+        //     //             },
+        //     //         }
+        //     //     })
+        //     // });
+        // })
+
     },
     aosSetting : function() {
         if ($('[data-aos]').length === 0) return;
@@ -623,9 +699,9 @@ dentistrySNU = {
         });
     },
     floatingBtn : function() {
+        if (fn.exists('.mobile')) return;
         $(document).ready(function () {
             let floatBtn = $('.float_area');
-
             $(window).scroll(function () {
                 let st = $(window).scrollTop();
 
@@ -639,7 +715,7 @@ $(() => {
     $depth2Area = $('.depth2_area');
     $depth2List = $depth2Area.find('.depth2_list');
     $bgOverlay = $('.gnb_overlay_bg');
-
+    
     $(document).ready(function() {
         fn.windowSize();
     

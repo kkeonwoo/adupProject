@@ -58,6 +58,7 @@
                 </h1>
                 <nav class="gnb">
                     <h2 class="blind">Menu</h2>
+                    <div class="gnb_overlay_bg"></div>
                     <div class="gnb_wrapper">
                         <div class="gnb_inner">
                             <div class="depth1_area">
@@ -68,7 +69,7 @@
                                             <ul class="depth2_list">
                                                 <li><a href="/contents/exhibit/permanent.html" class="depth2_link">상설 전시</a></li>
                                                 <li><a href="/contents/exhibit/planned.html" class="depth2_link">기획 전시</a></li>
-                                                <li><a href="/contents/exhibit/online.html" class="depth2_link">온라인 전시</a></li>
+                                                <li><a href="/contents/exhibit/online.html" class="depth2_link">온라인 전시<br>(VR뮤지엄)</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -96,7 +97,6 @@
                                             <ul class="depth2_list">
                                                 <li><a href="/contents/academicData/publish.html" class="depth2_link">발간도서</a></li>
                                                 <li><a href="/contents/academicData/research.html" class="depth2_link">조사연구</a></li>
-                                                <li><a href="/contents/academicData/academic.html" class="depth2_link">학술</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -106,6 +106,7 @@
                                             <ul class="depth2_list">
                                                 <li><a href="/contents/news/notice.html" class="depth2_link">공지사항</a></li>
                                                 <li><a href="/contents/news/report.html" class="depth2_link">보도자료</a></li>
+                                                <li><a href="/contents/news/academic.html" class="depth2_link">행사</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -126,6 +127,7 @@
                         </div>
                     </div>
                 </nav>
+                <button class="btn_hamburger"></button>
             </div>
         </header>
         <!-- //header -->
@@ -150,24 +152,34 @@
                         <div id="lnb">
                             <ul class="lnb_list">
                                 <li class="lnb_item">
-                                    <a href="#" class="lnb_link">
+                                    <a href="/contents/index.html" class="lnb_link">
                                         <i class="ico home"></i>
                                     </a>
                                 </li>
                                 <li class="lnb_item">
-                                    <button type="button" class="btn btn_outline_white">소장유물</button>
-                                    <div class="lnb_depth">
-                                        <ul class="lnb_depth_list">
-                                            <li><a href="#" class="lnb_depth_item"></a></li>
-                                        </ul>
+                                    <div class="lnb_depth form_select">
+                                        <button type="button" id="menu-button" class="btn btn_outline_white form_btn">소장유물</button>
+                                        <div id="menu-list" class="option_area">
+                                            <ul class="lnb_depth_list option_list">
+                                                <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/exhibit/planned.html" class="option_btn" type="button">전시</a></li>
+                                                <li class="lnb_depth_item option_item selected" aria-selected="true"><a href="/contents/collection/intro.html" class="option_btn" type="button">소장유물</a></li>
+                                                <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/edu/last.html" class="option_btn" type="button">교육 컨텐츠</a></li>
+                                                <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/academicData/publish.html" class="option_btn" type="button">학술/자료</a></li>
+                                                <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/news/notice.html" class="option_btn" type="button">소식</a></li>
+                                                <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/intro/greeting.html" class="option_btn" type="button">박물관 소개</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </li>
                                 <li class="lnb_item">
-                                    <button type="button" class="btn btn_outline_white">소장유물 소개</button>
-                                    <div class="lnb_depth">
-                                        <ul class="lnb_depth_list">
-                                            <li><a href="#" class="lnb_depth_item"></a></li>
-                                        </ul>
+                                    <div class="lnb_depth form_select">
+                                        <button type="button" id="menu-button" class="btn btn_outline_white form_btn">소장유물 소개</button>
+                                        <div id="menu-list" class="option_area">
+                                            <ul class="lnb_depth_list option_list">
+                                                <li class="lnb_depth_item option_item selected" aria-selected="true"><a href="/contents/collection/intro.html" class="option_btn" type="button">소장유물 소개</a></li>
+                                                <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/collection/donate.html" class="option_btn" type="button">유물 기증안내</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </li>
                             </ul>
@@ -177,7 +189,7 @@
                     <div class="sub_cnt_right">
                         <div class="form_group search_area">
                             <div class="form_select">
-                                <button type="button" id="menu-button" class="form_btn">select box</button>
+                                <button type="button" id="menu-button" class="form_btn">제목</button>
                                 <div id="menu-list" class="option_area">
                                     <ul class="option_list">
                                         <li class="option_item selected" aria-selected="true"><button class="option_btn" type="button">제목</button></li>
@@ -198,7 +210,8 @@
             <div id="content">
                 <section class="section_sub col_intro_page">
                     <div class="inner">
-                        <div data-aos="fade-up" data-aos-offset="300" class="exhbn_list type2">
+                        <!-- list pc -->
+                        <div data-aos="fade-up" data-aos-offset="300" class="exhbn_list type2 pc">
                             <div class="exhbn_item">
                                 <a href="#" class="exhbn_card">
                                     <div class="exhbn_img_area">
@@ -332,6 +345,55 @@
                                 </a>
                             </div>
                         </div>
+                        <!-- // list pc -->
+                        <!-- list mobile -->
+                        <div data-aos="fade-up" data-aos-offset="300" class="exhbn_list type2 mo">
+                            <div class="exhbn_item">
+                                <a href="#" class="exhbn_card">
+                                    <div class="exhbn_img_area">
+                                        <img src="../../frontLayer/images/@/@collect_07.jpg" alt="" class="img">
+                                    </div>
+                                    <div class="exhbn_txt_area">
+                                        <h4 class="h_col">1930년대 꽃 무늬 풋엔진</h4>
+                                        <span class="date">한국 / 1930년대</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="exhbn_item">
+                                <a href="#" class="exhbn_card">
+                                    <div class="exhbn_img_area">
+                                        <img src="../../frontLayer/images/@/@collect_01.jpg" alt="" class="img">
+                                    </div>
+                                    <div class="exhbn_txt_area">
+                                        <h4 class="h_col">1930년대 꽃 무늬 풋엔진</h4>
+                                        <span class="date">한국 / 1930년대</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="exhbn_item">
+                                <a href="#" class="exhbn_card">
+                                    <div class="exhbn_img_area">
+                                        <img src="../../frontLayer/images/@/@collect_04.jpg" alt="" class="img">
+                                    </div>
+                                    <div class="exhbn_txt_area">
+                                        <h4 class="h_col">1930년대 꽃 무늬 풋엔진</h4>
+                                        <span class="date">한국 / 1930년대</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="exhbn_item">
+                                <a href="#" class="exhbn_card">
+                                    <div class="exhbn_img_area">
+                                        <img src="../../frontLayer/images/@/@collect_05.jpg" alt="" class="img">
+                                    </div>
+                                    <div class="exhbn_txt_area">
+                                        <h4 class="h_col">1930년대 꽃 무늬 풋엔진</h4>
+                                        <span class="date">한국 / 1930년대</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- // list mobile -->
                     </div>
                     <!-- pagination -->
                     <nav class="pagination" aria-label="Search results pages">
@@ -347,6 +409,7 @@
                             <li><a class="ico last" href="#">Last</a></li>
                         </ul>
                     </nav>
+                <button class="btn_hamburger"></button>
                     <!-- // pagination -->
                 </section>
             </div>
@@ -377,7 +440,7 @@
                             </ul>
                         </div>
                         <div class="f_info">
-                            <span class="address txt">서울시 종로구 대학로 101(연건동) 서울대학교 치의학대학원 본관 1층</span>
+                            <span class="address txt">서울시 종로구 대학로 101(연건동) 서울대학교<br class="mo"> 치의학대학원 본관 1층</span>
                             <span class="tel txt">TEL. (02) 740-8779</span>
                         </div>
                         <div class="copyright">Copyright 2023 Seoul National University All Rights Reserved.</div>
@@ -395,7 +458,7 @@
             <div class="float_txt_box">
                 <span class="float_txt">관람신청 및 문의</span>
             </div>
-            <a href="#" class="float_btn">
+            <a href="/contents/intro/guideLocate.html" class="float_btn">
                 GO
             </a>
         </div>

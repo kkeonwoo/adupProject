@@ -61,18 +61,26 @@
 .form_select .form_btn.selected { color: var(--color-191919);}
 .form_select .form_btn::after { content: ''; display: block; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; background-image: url('../images/icons/arw_bottom_gray.svg'); background-position: center center; background-size: 100% auto; background-repeat: no-repeat; pointer-events: none; transition: transform .45s; }
 .form_select.show .form_btn::after { transform: translateY(-50%) rotate(180deg);}
-.option_area { position: absolute; z-index: 99999; left: 0; top: 0; overflow-y: auto; transform: translateY(0); width: 100%; max-height: 250px; background-color: #FFFFFF;}
+.option_area { position: absolute; z-index: 99999; left: 0; top: 0; overflow-y: auto; transform: translateY(0); width: 100%;}
 .option_area:not(.show) { display: none;}
 .option_area.top {transform: translateY(-10px);}
 .option_area.active .option_list { display: block; }
 .option_area .option_list { border: 1px solid var(--color-5e5e5e); border-top: none;}
-.option_area .option_item + .option_item { border-top: 1px solid var(--color-5e5e5e);}
+.option_area .option_item + .option_item { border-top: 1px solid var(--color-5e5e5e); background-color: var(--color-white);}
+.option_area .lnb_depth_list .option_item + .option_item { border-color: var(--color-white);}
+.option_area .lnb_depth_list .lnb_depth_item { background-color: rgba(86, 86, 86, .8); backdrop-filter: blur(4px);}
 .option_area .option_item .option_btn { display: flex; width: 100%; padding: 14px 16px; font-weight: 500; font-size: 16px; color: var(--color-5e5e5e); text-align: left; }
+.option_area .lnb_depth_list .option_item .option_btn { padding: 12px 16px; color: var(--color-white);}
 .option_area .option_item:hover .option_btn,
 .option_area .option_item.active .option_btn { background-color: var(--focus-color); }
+.option_area .lnb_depth_list .option_item:hover .option_btn,
+.option_area .lnb_depth_list .option_item.active .option_btn { background-color:rgba(86, 86, 86, .8); color: var(--color-a0c101); }
 .option_area .option_item.selected,
 .option_area .option_item.active,
 .option_area .option_item:focus { background-color: var(--focus-color);}
+.option_area .lnb_depth_list .option_item.selected .option_btn,
+.option_area .lnb_depth_list .option_item.active .option_btn,
+.option_area .lnb_depth_list .option_item:focus .option_btn { background-color:rgba(86, 86, 86, .8); color: var(--color-a0c101); }
 
 .input_group { position: relative; display: flex; flex-wrap: wrap; align-items: stretch; width: 100%;}
 .input_group .input_group_txt { display: flex; align-items: center; padding: 10px 20px; background-color: #fff; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; line-height: 1.25; color: #666; text-align: center; white-space: nowrap;}
@@ -169,11 +177,16 @@
 .swiper-button-prev, .swiper-rtl .swiper-button-next,
 .swiper-button-next, .swiper-rtl .swiper-button-prev {background-repeat:no-repeat;background-position:center;}
 .swiper-button-prev:after, .swiper-button-next:after {display:none;}
-.section .swiper-pagination { position: absolute; bottom: 30px;}
-.section .swiper-pagination .swiper-pagination-bullet { position: relative; width: 10px; height: 10px; margin: 0 12px; background-color: var(--color-white); opacity: .5; transition: opacity .3s;}
-.section .swiper-pagination .swiper-pagination-bullet::before { content: ''; display: block; position: absolute; top: 50%; left: 50%; width: 24px; height: 24px; border: .5px solid var(--color-white); border-radius: 100%; transform: translate(-50%, -50%); opacity: 0; transition: opacity .3s;}
-.section .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active::before { opacity: 1;}
-.section .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active { opacity: 1;}
+.section .swiper-pagination  { position: absolute; bottom: 30px;}
+.swiper_data_wrap .swiper-pagination  { position: absolute; bottom: -32px; transform: translateY(100%);}
+.section .swiper-pagination .swiper-pagination-bullet,
+.swiper_data_wrap .swiper-pagination .swiper-pagination-bullet { position: relative; width: 10px; height: 10px; margin: 0 12px; background-color: var(--color-white); opacity: .5; transition: opacity .3s;}
+.section .swiper-pagination .swiper-pagination-bullet::before,
+.swiper_data_wrap .swiper-pagination .swiper-pagination-bullet::before { content: ''; display: block; position: absolute; top: 50%; left: 50%; width: 24px; height: 24px; border: .5px solid var(--color-white); border-radius: 100%; transform: translate(-50%, -50%); opacity: 0; transition: opacity .3s;}
+.section .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active::before,
+.swiper_data_wrap .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active::before { opacity: 1;}
+.section .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active,
+.swiper_data_wrap .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active { opacity: 1;}
 
 /* accordion */
 .accordion .accordion_item { border: 1px solid #ccc;}
@@ -202,6 +215,19 @@
     .btn_ico.outline { min-width: 2.5000vw; height: 2.5000vw;}
     .btn_xm { min-width: 4.1667vw; padding: 0.6771vw;}
     .btn_sm { padding: 0.7292vw 1.4583vw;}
+    /*input*/
+    .form_group { gap: 0.8333vw;}
+    .form_group + .form_group { margin-top: 0.7813vw;}
+    .form_group .form_txt { font-size: 0.8333vw;}
+    .form_control { min-height: 2.5vw; padding: 0.6771vw 0.8333vw; font-size: 0.8333vw;}
+    .form_control::placeholder,
+    .form_control:-moz-placeholder { font-size: 0.9375vw;}
+    /* select */
+    .form_select .form_btn { min-height: 2.5vw; padding: 0.6771vw 0.8333vw; padding-right: calc(0.8333vw * 2 + 0.7292vw); font-size: 0.8333vw;}
+    .form_select .form_btn::after { right: 0.8333vw; width: 1.0417vw; height: 1.0417vw;}
+    .option_area { max-height: 13.0208vw;}
+    .option_area.top { transform: translateY(-0.5208vw);}
+    .option_area .option_item .option_btn { padding: 0.7292vw 0.8333vw; font-size: 0.8333vw;}
 }
 
 @media all and (max-width: 1400px) {
@@ -211,11 +237,55 @@
     .btn_ico.outline { min-width: 35px; height: 35px;}
     .btn_xm { min-width: 58px; padding: 9px;}
     .btn_sm { padding: 10px 20px;}
+    /*input*/
+    .form_group { gap: 12px;}
+    .form_group + .form_group { margin-top: 11px;}
+    .form_group .form_txt { font-size: 12px;}
+    .form_control { min-height: 35px; padding: 9px 12px; font-size: 12px;}
+    .form_control::placeholder,
+    .form_control:-moz-placeholder { font-size: 13px;}
+    /* select */
+    .form_select .form_btn { min-height: 35px; padding: 9px 12px; padding-right: calc(12px * 2 + 10px); font-size: 12px;}
+    .form_select .form_btn::after { right: 12px; width: 15px; height: 15px;}
+    .option_area { max-height: 182px;}
+    .option_area.top { transform: translateY(-7px);}
+    .option_area .option_item .option_btn { padding: 10px 12px; font-size: 12px;}
 }
 
 @media all and (max-width: 1024px) {
+    /* button */
+    .btn { min-width: 146px; padding: 14px; font-size: 16px;}
+    .btn_ico { min-width: 53px; height: 53px;}
+    .btn_ico.outline { min-width: 35px; height: 35px;}
+    .btn_xm { min-width: 80px; padding: 14px;}
+    .btn_sm { padding: 10px 20px;}
+    /*input*/
+    .form_group { gap: 8px;}
+    .form_group + .form_group { margin-top: 11px;}
+    .form_group .form_txt { font-size: 12px;}
+    .form_control { min-height: 48px; padding: 14px 16px; font-size: 16px;}
+    .form_control::placeholder,
+    .form_control:-moz-placeholder { font-size: 16px;}
+    /* select */
+    .form_select .form_btn { min-height: 48px; padding: 14px 16px; padding-right: calc(16px * 2 + 20px); font-size: 16px;}
+    .form_select .form_btn::after { right: 16px; width: 20px; height: 20px;}
+    .option_area { max-height: 182px;}
+    .option_area.top { transform: translateY(-7px);}
+    .option_area .option_item .option_btn { padding: 14px 16px; font-size: 16px;}
+
     .swiper-pagination { bottom: 20px;}
-    .swiper-pagination .swiper-pagination-bullet { margin: 0 24px;}
+    .swiper-pagination .swiper-pagination-bullet,
+    .swiper_data_wrap .swiper-pagination-bullet { margin: 0 24px;}
+}
+
+@media all and (max-width: 768px) {
+    /*paging*/
+    .pagination ul li a { min-width: 20px; height: 36px;}
+    .pagination ul li a.current::before { bottom: 0;}
+    .pagination ul li .ico.first { margin-right: -4px;}
+    .pagination ul li .ico.prev { margin-right: 0;}
+    .pagination ul li .ico.next { margin-left: 0;}
+    .pagination ul li .ico.last { margin-left: -4px;}
 }
 
 @media all and (max-width: 1079px) {
