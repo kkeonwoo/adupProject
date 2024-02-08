@@ -12,7 +12,7 @@ $.namespace = function() {
 };
 
 $.namespace('dentistrySNU');
-let $header, $depth2Area, $depth2List, $bgOverlay;
+let $header, $depth2Area, $depth2List, $bgOverlay, resizeStatus;
 dentistrySNU = {
     init : function(){
         this.tab();
@@ -424,30 +424,23 @@ dentistrySNU = {
 
             $(window).on('resize', function() {
                 let windowWidth = $(window).outerWidth();
-                console.log(windowWidth);
                 if (windowWidth <= 1024) {
                     $header.css('height', 72);
-                    dentistrySNU.gnb.gnbMob();
                 } else {
                     $header.css('height', 140);
-                    if($header.hasClass('open')) {
-                        fn.removeHidden();
-                        $header.removeClass('open');
-                    } 
-                    dentistrySNU.gnb.type4();
                 }
             });
         },
         type4: function() {
-            if(!$('#header').hasClass('type4')) return;
+            if(!$('#header').hasClass('type4') || $('#header').hasClass('header_mob')) return;
+
             let $gnb = $('.gnb'),
                 $depth1List = $gnb.find('.depth1_list'),
                 $depth1Item = $gnb.find('.depth1_item'),
                 $depth1Link = $depth1Item.children('a');
                 $firstItem = $gnb.find('a').first(),
-                $LastItem = $gnb.find('a').last(),
-                headerHt = $header.outerHeight(),
-                
+                $LastItem = $gnb.find('a').last();
+
             this.resize('.depth2_list');
 
             // open event
@@ -491,12 +484,12 @@ dentistrySNU = {
             })
         },
         openMenu() { 
-            // depth2Ht = dentistrySNU.gnb.maxHeight($depth2List);
-            // $bgOverlay.stop().animate({ height : depth2Ht })
-            $header.addClass('color').stop().animate({ height : 555 })
+            if(!$('#header').hasClass('type4') || $('#header').hasClass('header_mob')) return;
+            depth2Ht = dentistrySNU.gnb.maxHeight($depth2List);
+            $header.addClass('color').stop().animate({ height : depth2Ht + $header.outerHeight() })
         },
         closeMenu() { 
-            // $bgOverlay.stop().animate({ height : 0 })
+            if(!$('#header').hasClass('type4') || $('#header').hasClass('header_mob')) return;
             $header.stop().animate({ height : 140 }, function() {
                 if (fn.exists('#fullpage')) $header.removeClass('color');
                 if (fn.hasClass('.spot', 'active') || !fn.exists('#fullpage') || fn.exists('.mobile')) return;
@@ -537,14 +530,16 @@ dentistrySNU = {
             }, 300))
         },
         gnbMob: function() {
+            if ($('#header').hasClass('header_pc')) return;
             let hamburger = $('.btn_hamburger');
             let $depth01Link = $('.depth1_link');
 
-            hamburger.on('click.gnbMob', () => {
+            hamburger.on('click', () => {
                 if($('#header').hasClass('open')) {
                     // 닫기
+                    $('.depth2_area').stop().hide();
+                    $depth01Link.removeClass('open');
                     $header.removeClass('open');
-                    $depth2Area.stop().slideUp();
                     fn.removeHidden();
                 } else {
                     // 열기
@@ -555,8 +550,8 @@ dentistrySNU = {
             
             $depth01Link.on('click.gnbMob', function(e) {
                 e.preventDefault();
-                $depth2Area = $(this).siblings();
                 $(this).toggleClass('open');
+                $depth2Area = $(this).siblings();
                 $depth2Area.stop().slideToggle();
             })
         }
@@ -705,12 +700,33 @@ dentistrySNU = {
         if (fn.exists('.mobile')) return;
         $(document).ready(function () {
             let floatBtn = $('.float_area');
-            $(window).scroll(function () {
-                let st = $(window).scrollTop();
-
-                floatBtn.css('top', 'calc(50% + ' + st + 'px)');
-            });
+            if (resizeStatus) {
+                resizeStatus = false;
+                $(window).scroll(function () {
+                    let st = $(window).scrollTop();
+    
+                    floatBtn.css('top', 'calc(50% + ' + st + 'px)');
+                });
+            }
         });
+    },
+    windowSize() {
+        let windowWidth = window.outerWidth;
+        let $body = $('body');
+    
+        if (windowWidth <= 1024) {
+            console.log('mobile');
+            $('.depth2_area').css('display', 'none');
+            $header.addClass('header_mob').removeClass('header_pc');
+            $body.removeClass('pc').addClass('mobile');
+        } else {
+            console.log('pc');
+            fn.removeHidden();
+            $header.removeClass('open');
+            $('.depth2_area').css('display', 'block');
+            $header.addClass('header_pc').removeClass('header_mob')
+            $body.removeClass('mobile').addClass('pc');
+        }
     }
 }
 $(() => {
@@ -720,10 +736,12 @@ $(() => {
     $bgOverlay = $('.gnb_overlay_bg');
     
     $(document).ready(function() {
-        fn.windowSize();
-    
+        resizeStatus = false;
+        dentistrySNU.windowSize();
+        
         $(window).resize(function() {
-            fn.windowSize();
+            resizeStatus = true;
+            dentistrySNU.windowSize();
         });
     });
 
