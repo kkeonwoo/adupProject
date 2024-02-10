@@ -609,7 +609,7 @@ dentistrySNU = {
                     imgBox.removeClass('show').eq(year).addClass('show');
                 } 
             })
-            if ($('body').hasClass('pc')) {
+            if ($('.history_page').hasClass('ly_pc')) {
                 if ( $('.history_box').eq(0).offset().top > $('.img_area').offset().top) {
                     imgBox.removeClass('show')
                 }
@@ -671,6 +671,15 @@ dentistrySNU = {
             $('.depth2_area').css('display', 'block');
             $header.addClass('header_pc').removeClass('header_mob')
             $body.removeClass('mobile').addClass('pc');
+        }
+
+        if (windowWidth <= 768) {
+            $('.history_page').removeClass('ly_pc');
+            $('.history_page').addClass('ly_mob');
+        } else {
+            $('.history_page').addClass('ly_pc');
+            $('.history_page').removeClass('ly_mob');
+
         }
     }
 }
