@@ -597,88 +597,35 @@ dentistrySNU = {
     history : function() {
         if(!fn.exists('.history_page')) return;
 
-        gsap.registerPlugin(ScrollTrigger);
-        let mm = gsap.matchMedia();
+        $(window).scroll(function() {
+            let imgBox = $('.cnt_left .img_area');
+            let scrollTop = $(window).scrollTop();
+            let windowPosY = $(window).outerHeight() / 2 + scrollTop + 70;
 
-        mm.add("(min-width: 769px)", function() {
-            let tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".history",
-                    pin: '.cnt_left',
-                    pinSpacing: false,
-                    scrub: .125,
-                    start: "top +=40%",
-                    markers: true,
-                    end: 'bottom-=10% +=60%',
+            $('.history_box').each(function() {
+                let year = $(this).data('year');
+                let yearPosY = $(".cnt_right .history_box[data-year='" + year + "']").offset().top;
+                if ( yearPosY <= windowPosY ) {
+                    imgBox.removeClass('show').eq(year).addClass('show');
+                } 
+            })
+            if ($('body').hasClass('pc')) {
+                if ( $('.history_box').eq(0).offset().top > $('.img_area').offset().top) {
+                    imgBox.removeClass('show')
                 }
-            });
-            
-            $('.history_box').each(function(index) {
-                let __self = this;
-                gsap.timeline({
-                    scrollTrigger: {
-                        trigger: __self,
-                        scrub: true,
-                        ease: "linear",
-                        start: 'top center',
-                        end: 'bottom center',
-                        id: 'history_box',
-                        // markers: true,
-                        invalidateOnRefresh: true,
-                        onEnter: function() {
-                            $('.cnt_left .img_area:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
-                            $('.history_box:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
-                            gsap.to($('.cnt_left .img_area'), { duration: .6, y: index * -100 + '%' })
-                        },
-                        onEnterBack: function() {
-                            $('.cnt_left .img_area:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
-                            $('.history_box:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
-                            gsap.to($('.cnt_left .img_area'), { duration: .6, y: index * -100 + '%' })
-                        },
-                    }
-                })
-            });
+                if ( $('.history').offset().top + $('.history').outerHeight() < $('.img_area').offset().top + $('.img_area').outerHeight()) {
+                    imgBox.removeClass('show')
+                }
+            } else {
+                if ($('.history').offset().top < scrollTop + 100) {
+                    $('.cnt_left .img_wrap').addClass('fixed');
+                    $('.history_page').addClass('ani');
+                } else {
+                    $('.cnt_left .img_wrap').removeClass('fixed');
+                    $('.history_page').removeClass('ani');
+                }
+            }
         })
-
-        // mm.add("(max-width: 768px)", function() {
-        //     let tl02 = gsap.timeline({
-        //         scrollTrigger: {
-        //             trigger: ".cnt_left",
-        //             pin: '.cnt_left',
-        //             // pinSpacing: false,
-        //             scrub: .125,
-        //             start: "bottom center",
-        //             markers: true,
-        //             end: 'bottom',
-        //         }
-        //     });
-            
-        //     // $('.history_box').each(function(index) {
-        //     //     let __self = this;
-        //     //     gsap.timeline({
-        //     //         scrollTrigger: {
-        //     //             trigger: __self,
-        //     //             scrub: true,
-        //     //             ease: "linear",
-        //     //             start: 'top center',
-        //     //             end: 'bottom center',
-        //     //             id: 'history_box',
-        //     //             // markers: true,
-        //     //             invalidateOnRefresh: true,
-        //     //             onEnter: function() {
-        //     //                 $('.cnt_left .img_area:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
-        //     //                 $('.history_box:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
-        //     //                 gsap.to($('.cnt_left .img_area'), { duration: .6, y: index * -100 + '%' })
-        //     //             },
-        //     //             onEnterBack: function() {
-        //     //                 $('.cnt_left .img_area:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
-        //     //                 $('.history_box:nth-child(' + (index + 1) + ')').addClass('active').siblings().removeClass('active');
-        //     //                 gsap.to($('.cnt_left .img_area'), { duration: .6, y: index * -100 + '%' })
-        //     //             },
-        //     //         }
-        //     //     })
-        //     // });
-        // })
 
     },
     aosSetting : function() {
@@ -715,12 +662,10 @@ dentistrySNU = {
         let $body = $('body');
     
         if (windowWidth <= 1024) {
-            console.log('mobile');
             $('.depth2_area').css('display', 'none');
             $header.addClass('header_mob').removeClass('header_pc');
             $body.removeClass('pc').addClass('mobile');
         } else {
-            console.log('pc');
             fn.removeHidden();
             $header.removeClass('open');
             $('.depth2_area').css('display', 'block');
