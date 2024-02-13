@@ -160,7 +160,7 @@
                                     <div class="lnb_depth form_select">
                                         <button type="button" id="menu-button" class="btn btn_outline_white form_btn">전시</button>
                                         <div id="menu-list" class="option_area">
-                                            <ul class="lnb_depth_list option_list">
+                                            <ul class="color_dark option_list">
                                                 <li class="lnb_depth_item option_item selected" aria-selected="true"><a href="/contents/exhibit/planned.html" class="option_btn" type="button">전시</a></li>
                                                 <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/collection/intro.html" class="option_btn" type="button">소장유물</a></li>
                                                 <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/edu/last.html" class="option_btn" type="button">교육 컨텐츠</a></li>
@@ -175,7 +175,7 @@
                                     <div class="lnb_depth form_select">
                                         <button type="button" id="menu-button" class="btn btn_outline_white form_btn">온라인 전시</button>
                                         <div id="menu-list" class="option_area">
-                                            <ul class="lnb_depth_list option_list">
+                                            <ul class="color_dark option_list">
                                                 <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/exhibit/permanent.html" class="option_btn" type="button">상설 전시</a></li>
                                                 <li class="lnb_depth_item option_item" aria-selected="false"><a href="/contents/exhibit/planned.html" class="option_btn" type="button">기획 전시</a></li>
                                                 <li class="lnb_depth_item option_item selected" aria-selected="true"><a href="/contents/exhibit/online.html" class="option_btn" type="button">온라인 전시</a></li>
@@ -212,7 +212,7 @@
                 <section class="section_sub exhbn_page">
                     <div class="inner">
                         <!-- list pc -->
-                        <div data-aos="fade-up" data-aos-offset="300" class="exhbn_list pc">
+                        <!-- <div data-aos="fade-up" data-aos-offset="300" class="exhbn_list pc">
                             <div class="exhbn_item">
                                 <a href="#" class="exhbn_card">
                                     <div class="exhbn_img_area">
@@ -389,10 +389,10 @@
                                     </div>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- // list pc -->
                         <!-- list mobile -->
-                        <div data-aos="fade-up" data-aos-offset="300" class="exhbn_list mo">
+                        <!-- <div data-aos="fade-up" data-aos-offset="300" class="exhbn_list mo">
                             <div class="exhbn_item">
                                 <a href="#" class="exhbn_card">
                                     <div class="exhbn_img_area">
@@ -437,11 +437,21 @@
                                     </div>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- // list mobile -->
+                        <!-- 온라인 전시 없는 경우 -->
+                        <div class="empty_list">
+                            <div class="empty_item">
+                                <i class="ico"></i>
+                                <p class="p_txt">
+                                    <strong>온라인 전시 준비중</strong>입니다.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- // 온라인 전시 없는 경우 -->
                     </div>
                     <!-- pagination -->
-                    <nav class="pagination" aria-label="Search results pages">
+                    <!-- <nav class="pagination" aria-label="Search results pages">
                         <ul>
                             <li><a class="ico first" href="#">First</a></li>
                             <li><a class="ico prev" href="#">Previous</a></li>
@@ -453,7 +463,7 @@
                             <li><a class="ico next" href="#">Next</a></li>
                             <li><a class="ico last" href="#">Last</a></li>
                         </ul>
-                    </nav>
+                    </nav> -->
                 <button class="btn_hamburger"></button>
                     <!-- // pagination -->
                 </section>
@@ -490,7 +500,18 @@
                         </div>
                         <div class="copyright">Copyright 2023 Seoul National University All Rights Reserved.</div>
                     </div>
-                    <button type="button" class="btn btn_family">FAMILY SITE</button>
+                    <div class="form_select">
+                                        <button type="button" id="menu-button" class="btn form_btn btn_family">FAMILY SITE</button>
+                                        <div id="menu-list" class="option_area">
+                                            <ul class="color_dark option_list">
+                                                <li class="option_item" aria-selected="false"><a target="_blank" href="https://www.snu.ac.kr/index.html" class="option_btn" type="button">서울대학교</a></li>
+                                                <li class="option_item" aria-selected="false"><a target="_blank" href="https://dentistry.snu.ac.kr/" class="option_btn" type="button">치의학대학원</a></li>
+                                                <li class="option_item" aria-selected="false"><a target="_blank" href="https://dri.snu.ac.kr/" class="option_btn" type="button">치의학연구소</a></li>
+                                                <li class="option_item" aria-selected="false"><a target="_blank" href="https://lib.snu.ac.kr/about/libraries/dental-library/d-introduction/" class="option_btn" type="button">치의학도서관</a></li>
+                                                <li class="option_item" aria-selected="false"><a target="_blank" href="https://cedudent.snu.ac.kr/" class="option_btn" type="button">치의학교육연수원</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                 </div>
             </div>
         </footer>

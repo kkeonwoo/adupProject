@@ -427,7 +427,7 @@ dentistrySNU = {
                 if (windowWidth <= 1024) {
                     $header.css('height', 72);
                 } else {
-                    $header.css('height', 140);
+                    $header.css('height', 100);
                 }
             });
         },
@@ -485,12 +485,11 @@ dentistrySNU = {
         },
         openMenu() { 
             if(!$('#header').hasClass('type4') || $('#header').hasClass('header_mob')) return;
-            depth2Ht = dentistrySNU.gnb.maxHeight($depth2List);
-            $header.addClass('color').stop().animate({ height : depth2Ht + $header.outerHeight() })
+            $header.addClass('color').stop().animate({ height : 100 + 415 })
         },
         closeMenu() { 
             if(!$('#header').hasClass('type4') || $('#header').hasClass('header_mob')) return;
-            $header.stop().animate({ height : 140 }, function() {
+            $header.stop().animate({ height : 100 }, function() {
                 if (fn.exists('#fullpage')) $header.removeClass('color');
                 if (fn.hasClass('.spot', 'active') || !fn.exists('#fullpage') || fn.exists('.mobile')) return;
                 $header.addClass('up');
@@ -565,6 +564,9 @@ dentistrySNU = {
                 responsiveWidth: 1024,
                 keyboardScrolling: true,
                 'onLeave': function(origin, destination, direction, trigger) {
+                    if ($('.form_select').hasClass('show')) {
+                        dentistrySNU.select.closeOption();
+                    }
                     if (direction === 'down') {
                         dentistrySNU.gnb.closeMenu();
                         handleHdr();
@@ -647,12 +649,12 @@ dentistrySNU = {
         if (fn.exists('.mobile')) return;
         $(document).ready(function () {
             let floatBtn = $('.float_area');
-            if (resizeStatus) {
-                resizeStatus = false;
+            if (!resizeStatus) {
                 $(window).scroll(function () {
                     let st = $(window).scrollTop();
-    
+                    
                     floatBtn.css('top', 'calc(50% + ' + st + 'px)');
+                    resizeStatus = false;
                 });
             }
         });

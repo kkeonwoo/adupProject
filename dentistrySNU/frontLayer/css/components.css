@@ -67,20 +67,20 @@
 .option_area.active .option_list { display: block; }
 .option_area .option_list { border: 1px solid var(--color-5e5e5e); border-top: none;}
 .option_area .option_item + .option_item { border-top: 1px solid var(--color-5e5e5e); background-color: var(--color-white);}
-.option_area .lnb_depth_list .option_item + .option_item { border-color: var(--color-white);}
-.option_area .lnb_depth_list .lnb_depth_item { background-color: rgba(86, 86, 86, .8); backdrop-filter: blur(4px);}
+.option_area .color_dark .option_item + .option_item { border-color: var(--color-white);}
+.option_area .color_dark .option_item { background-color: rgba(86, 86, 86, .8); backdrop-filter: blur(4px);}
 .option_area .option_item .option_btn { display: flex; width: 100%; padding: 14px 16px; font-weight: 500; font-size: 16px; color: var(--color-5e5e5e); text-align: left; }
-.option_area .lnb_depth_list .option_item .option_btn { padding: 12px 16px; color: var(--color-white);}
+.option_area .color_dark .option_item .option_btn { padding: 12px 16px; color: var(--color-white);}
 .option_area .option_item:hover .option_btn,
 .option_area .option_item.active .option_btn { background-color: var(--focus-color); }
-.option_area .lnb_depth_list .option_item:hover .option_btn,
-.option_area .lnb_depth_list .option_item.active .option_btn { background-color:rgba(86, 86, 86, .8); color: var(--color-a0c101); }
+.option_area .color_dark .option_item:hover .option_btn,
+.option_area .color_dark .option_item.active .option_btn { background-color:rgba(86, 86, 86, .8); color: var(--color-a0c101); }
 .option_area .option_item.selected,
 .option_area .option_item.active,
 .option_area .option_item:focus { background-color: var(--focus-color);}
-.option_area .lnb_depth_list .option_item.selected .option_btn,
-.option_area .lnb_depth_list .option_item.active .option_btn,
-.option_area .lnb_depth_list .option_item:focus .option_btn { background-color:rgba(86, 86, 86, .8); color: var(--color-a0c101); }
+.option_area .color_dark .option_item.selected .option_btn,
+.option_area .color_dark .option_item.active .option_btn,
+.option_area .color_dark .option_item:focus .option_btn { background-color:rgba(86, 86, 86, .8); color: var(--color-a0c101); }
 
 .input_group { position: relative; display: flex; flex-wrap: wrap; align-items: stretch; width: 100%;}
 .input_group .input_group_txt { display: flex; align-items: center; padding: 10px 20px; background-color: #fff; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; line-height: 1.25; color: #666; text-align: center; white-space: nowrap;}

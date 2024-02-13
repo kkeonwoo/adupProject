@@ -7,7 +7,7 @@
 
 :root {
     /* header height */
-    --header-height: 140px;
+    --header-height: 100px;
 
     /* color */
     --color-f7f7f7: #f7f7f7;
@@ -360,6 +360,7 @@ a:hover{text-decoration:none;}
 .section { display: flex; align-items: center; position: relative; overflow: hidden;}
 .fp-tableCell > .inner { padding: 94px 30px;}
 .inner { width: 100%; max-width: 1660px; margin: 0 auto; padding: 0 30px;}
+.video { position: absolute; top: 0; left: 0; width: 100%; object-fit: cover;}
 
 /* text */
 [class^="h_"] { font-weight: 700; font-size: 24px;}
