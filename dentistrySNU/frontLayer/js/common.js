@@ -352,15 +352,17 @@ dentistrySNU = {
             })
         },
         posBtnTop(t) {
-            let $t = $(t);
-            let swiperBtn = $t.find('.btn_ico');
-            let swiperBtnHt = $t.find('.btn_ico').outerHeight();
-            let imgHt = $t.find('.img').map((i, el) => {
-                return $(el).outerHeight();
-            })
-            let maxHt = Math.max(...imgHt);
-
-            swiperBtn.css({'top': (maxHt - swiperBtnHt) / 2});
+            setTimeout(() => {
+                let $t = $(t);
+                let swiperBtn = $t.find('.btn_ico');
+                let swiperBtnHt = $t.find('.btn_ico').outerHeight();
+                let imgHt = $t.find('.img').map((i, el) => {
+                    return $(el).outerHeight();
+                })
+                let maxHt = Math.max(...imgHt);
+    
+                swiperBtn.css({'top': (maxHt - swiperBtnHt) / 2});
+            }, 300);
         },
     },
     modal : {
@@ -548,10 +550,12 @@ dentistrySNU = {
             })
             
             $depth01Link.on('click.gnbMob', function(e) {
-                e.preventDefault();
-                $(this).toggleClass('open');
-                $depth2Area = $(this).siblings();
-                $depth2Area.stop().slideToggle();
+                if ($('#header').hasClass('open')) {
+                    e.preventDefault();
+                    $(this).toggleClass('open');
+                    $depth2Area = $(this).siblings();
+                    $depth2Area.stop().slideToggle();
+                }
             })
         }
     },
@@ -649,14 +653,13 @@ dentistrySNU = {
         if (fn.exists('.mobile')) return;
         $(document).ready(function () {
             let floatBtn = $('.float_area');
-            if (!resizeStatus) {
-                $(window).scroll(function () {
+            $(window).scroll(function () {
+                if (!resizeStatus) {
                     let st = $(window).scrollTop();
                     
                     floatBtn.css('top', 'calc(50% + ' + st + 'px)');
-                    resizeStatus = false;
-                });
-            }
+                }
+            });
         });
     },
     windowSize() {
@@ -698,6 +701,9 @@ $(() => {
         $(window).resize(function() {
             resizeStatus = true;
             dentistrySNU.windowSize();
+            setTimeout(() => {
+                resizeStatus = false;
+            }, 300);
         });
     });
 
