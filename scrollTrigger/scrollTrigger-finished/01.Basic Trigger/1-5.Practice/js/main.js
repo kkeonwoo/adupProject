@@ -30,7 +30,7 @@ const showDemo = ()=>{
 
   gsap.to('.loader',{autoAlpha:0})
   document.body.style.overflow = 'auto';
-  document.scrollingElement.scrollTo(0,0)
+  document.scrollingElement.scrollTo(0,0);
 
   gsap.utils.toArray('section').forEach((section,index)=>{
 
