@@ -18,8 +18,9 @@
     --color-5e5e5e: #5e5e5e;
     --color-2a2a2a: #2a2a2a;
     --color-191919: #191919;
-    --color-041A71: #041A71;
+    --color-1b3b86: #1b3b86;
     --color-369fff: #369FFF;
+    --color-041A71: #041A71;
     --color-192C54: #192C54;
     --color-primary: #192C54;
     --color-fffdfa: #fffdfa;
@@ -344,7 +345,7 @@ a{text-decoration: none;background-color: transparent;-webkit-text-decoration-sk
 a:hover{text-decoration:none;}
 #wrap{width:100%; height: 100%;}
 #header{position:relative; z-index: 30;}
-#container{position:relative; z-index: 20;}
+#container{position:relative; z-index: 20; overflow: hidden;}
 #footer{position:relative; z-index: 10;}
 .mo, .hide {display:none;}
 .blind {position: absolute;top: 0;left: 0;width: 1px !important;height: 1px !important;padding: 0 !important;margin: -1px !important;overflow: hidden !important;clip: rect(0, 0, 0, 0) !important;white-space: nowrap !important;border: 0 !important;font-size: 0;line-height: 0;}

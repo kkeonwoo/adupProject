@@ -12,7 +12,7 @@ $.namespace = function() {
 };
 
 $.namespace('dentistrySNU');
-let $header, $depth2Area, $depth2List, $bgOverlay, resizeStatus;
+let $header, $depth2Area, $depth2List, $bgOverlay;
 dentistrySNU = {
     init : function(){
         this.tab();
@@ -650,23 +650,21 @@ dentistrySNU = {
         });
     },
     floatingBtn : function() {
-        if (fn.exists('.mobile')) return;
         $(document).ready(function () {
             let floatBtn = $('.float_area');
             $(window).scroll(function () {
-                if (!resizeStatus) {
-                    let st = $(window).scrollTop();
-                    
-                    floatBtn.css('top', 'calc(50% + ' + st + 'px)');
-                }
+                if ($('body').hasClass('mobile')) return;
+                let st = $(window).scrollTop();
+                
+                floatBtn.css('top', 'calc(50% + ' + st + 'px)');
             });
         });
     },
     windowSize() {
-        let windowWidth = window.outerWidth;
+        let windowWidth = $(window).outerWidth();
         let $body = $('body');
-    
-        if (windowWidth <= 1024) {
+
+        if (windowWidth < 1024) {
             $('.depth2_area').css('display', 'none');
             $header.addClass('header_mob').removeClass('header_pc');
             $body.removeClass('pc').addClass('mobile');
@@ -684,7 +682,6 @@ dentistrySNU = {
         } else {
             $('.history_page').addClass('ly_pc');
             $('.history_page').removeClass('ly_mob');
-
         }
     }
 }
@@ -695,15 +692,9 @@ $(() => {
     $bgOverlay = $('.gnb_overlay_bg');
     
     $(document).ready(function() {
-        resizeStatus = false;
         dentistrySNU.windowSize();
-        
         $(window).resize(function() {
-            resizeStatus = true;
             dentistrySNU.windowSize();
-            setTimeout(() => {
-                resizeStatus = false;
-            }, 300);
         });
     });
 
