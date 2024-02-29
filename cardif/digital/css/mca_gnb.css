@@ -1,0 +1,251 @@
+/* header : mycardifApp */
+.header.mycardif {padding: 0;}
+.header.mycardif:before { top:6rem; height: 0.1rem;z-index:11;}
+.header.mycardif .inner { height: auto; margin-top: 0; width: 100%;}
+.header.mycardif .prev { display: block; }
+.header.mycardif .prev a {margin-top: 2rem; margin-left: 2rem;}
+/*
+.header.mycardif .gnb{float:right;margin:0 0 2rem 0; height: auto;}
+.header.mycardif .gnb li{float:left;}
+.header.mycardif .gnb .on{font-weight:bold}
+.header.mycardif .gnb li a{display:block;padding:0;line-height:5.2rem; color: #000; font-size:1.2rem; font-weight:bold; }
+.header.mycardif .gnb li a:active {background: #00915a;}
+.header.mycardif .gnb li.on > a { color:#00915a;}
+.header.mycardif .gnb li.on > a:after { transform:scale(1); height:100% }
+.header.mycardif .gnb-toggle{background:#fff}
+.header.mycardif .menu-list > li{display:none;margin-top:0}
+.header.mycardif .menu-list > li .menu-tit{display:none}
+.header.mycardif .menu-list > li.on{display:block}
+.header.mycardif .menu-list .depth2 > li{display:inline-block;vertical-align:top}
+.header.mycardif .menu-list .depth2 > li > a{font-size:1.6rem; font-weight: normal;}
+*/
+
+@media all and (min-width:901px)  {
+    .header.mycardif .logo a {margin:1.4rem 0 0 0; width: 15rem;}
+    /*2023-02-17 웹접근성 메뉴 구조 변경*/
+    .header.mycardif .gnb {
+        float: right;
+        margin: 0 0 2rem 0;
+        height: auto;
+    }
+    .header.mycardif .gnb > ul > li {
+        float:left;
+    }
+    .header.mycardif .gnb > ul > li + li {
+        margin-left: 1rem;
+        padding-left: 1rem;
+    }
+    /*2023-03-17 웹접근성 메뉴 구조 변경*/
+    .header.mycardif .gnb > ul > li > a {
+        display: block;
+        position:static;
+        padding: 0;
+        line-height: 5.2rem;
+        color: #000;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    /*//2023-03-17 웹접근성 메뉴 구조 변경*/
+    .header.mycardif .gnb > ul > li > a::after {
+        display:none;
+    }
+    .header.mycardif .sub_menu {
+        overflow: hidden;
+        position: absolute;
+        top:6rem;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        min-width: 1200px;
+        box-sizing: border-box;
+        text-align: center;
+        background: #fff;
+        border-bottom: 3px solid #00915a;
+        box-shadow: 0 5px 10px -3px rgb(0 0 0 / 10%);
+        display: none;
+    }
+    .header.mycardif .sub_menu_inner {
+        width: 1200px;
+        margin: 0 auto;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    .header.mycardif .sub_menu .depth2 > li {
+        width: calc(100% / 4);
+        border-right: 1px solid #00915a;
+        padding-bottom: 1rem;
+        margin-top: 0rem;
+        margin-bottom: 0;
+        padding-top: 1rem;
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+    .header.mycardif .sub_menu .depth2 > li a {
+        padding: 0.6rem 2rem;
+        line-height: 4rem;
+        display: inline-block;
+        width: 100%;
+        vertical-align: middle;
+        border-bottom: 2px solid transparent;
+        font-size: 1.6rem;
+        font-weight: normal;
+    }
+    .header.mycardif .sub_menu .depth2 > li:nth-child(4n+1){
+        border-left: 1px solid #00915a;
+    }
+    /*//2023-02-17 웹접근성 메뉴 구조 변경*/
+    /*.header.mycardif .gnb li+li{margin-left:1rem;padding-left: 1rem;}
+    .header.mycardif .all-menu{overflow:hidden;position:absolute;top:6rem;left:0;z-index:10;width:100%;min-width:1200px;box-sizing:border-box;text-align:center;background:#fff;border-bottom:3px solid #00915a;box-shadow:0 5px 10px -3px rgba(0,0,0,0.10);display:none; }
+    .header.mycardif .menu-list{width: 1200px; margin: 0 auto;margin-bottom:0;margin-top:0;}
+    .header.mycardif .menu-list li ul.depth2{overflow-x:hidden; overflow-y:hidden; max-height: 48rem; min-height: auto;display: flex; flex-wrap: wrap; flex-direction: row; justify-content: flex-start; width: 1200px; margin:0 auto; margin-right: 0; align-items:strech; text-align: left; }
+    .header.mycardif .menu-list li ul.depth2 li {width:calc(100% / 4); border-right:1px solid #00915a;  padding-bottom:1rem; margin-top: 0rem; margin-bottom:0;padding-top: 1rem;padding-right: 2rem;padding-left: 2rem}
+    .header.mycardif .menu-list .depth2 > li a{padding: 0.6rem 2rem; line-height: 4rem;display: inline-block;width: 100%; vertical-align: middle;border-bottom:2px solid transparent}
+    .header.mycardif .menu-list .depth2 > li a:hover {color: #00915a; line-height: 4rem;border-bottom:1px solid #00915a; background: none;}
+    .header.mycardif .menu-list li ul.depth2 li:nth-child(4n+1) {border-left:1px solid #00915a;}
+    */
+}
+@media only screen and (max-width:900px){
+    .header.mycardif .logo{position:absolute;left:0; top:1.5rem; transform:translateX(7%) scale(1); padding:0}
+    .header.mycardif .logo a{display:block;max-width:21rem; min-height:3rem;background: url('../img/common/icon_bnp_logo.png') no-repeat; background-size: contain; color: transparent; margin: 0 0.6rem}
+    .header.mycardif .accTradeList.title > ul > li .topArea { margin-bottom:0;margin:0 auto; font-size: 1.6rem; font-weight: bold; color:#141414; text-align: center; line-height: 1.8rem;padding-top:2rem; max-width:20rem}
+
+    /*2023-02-21 웹접근성 메뉴 구조 변경*/
+    .header.mycardif .gnb-toggle {
+        display: block;
+        overflow: hidden;
+        position: absolute;
+        top: 2.1rem;
+        right: 2rem;
+        width: 2.4rem;
+        height: 2.2rem;
+        border-top: 2px solid #000;
+        border-bottom: 2px solid #000;
+        color: transparent;
+        transform: scale(0.8);
+    }
+
+    .header.mycardif .gnb-toggle:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 2px;
+        background: #000;
+        margin-top: -1px;
+    }
+
+    .header.mycardif .gnb-toggle.on {
+        position: absolute;
+        right: 1.8rem;
+        top: 1.8rem;
+        width: 3rem;
+        height: 3rem;
+        color: transparent;
+        border: 0;
+        background: transparent;
+        z-index: 99999;
+    }
+    /*//2023-02-21 웹접근성 메뉴 구조 변경*/
+
+    .header.mycardif .gnb-toggle.on:before { content: ""; position: absolute; left:50%; top: 0; width: 2px; height: 100%; background: #fff; transform: rotate(45deg);border-radius: 5px;}
+    .header.mycardif .gnb-toggle.on:after { content: ""; position: absolute; right:45%; top: 0; width: 2px; height: 100%; background: #fff; transform: rotate(-45deg);border-radius: 5px;}
+
+    /*2023-03-02 웹접근성 메뉴 구조 변경*/
+    .header.mycardif .m_top {
+        background: #00915a;
+        right: 100%;
+        left: -100rem;
+        z-index: 10;
+        padding: 0;
+        transition: right 0.5s, left 0.5s;
+        height: auto;
+    }
+    .header.mycardif .m_top.on {
+        left: 0;
+        padding-left: 0;
+        width: 100%;
+        z-index: 9999;
+    }
+    /*//2023-03-02 웹접근성 메뉴 구조 변경*/
+
+    .header.mycardif .m_top .loginStatus { height: 6rem;}
+    .header.mycardif .m_top .icon_home{position: absolute; right: 6.4rem; top:1.8rem; display:inline-block;background: url('../img/common/icon_home_wh.png') no-repeat; background-size: 100%; width:2.4rem; height: 2.4rem;color: transparent;image-rendering: -webkit-optimize-contrast;}
+    .header.mycardif .m_top .icon_login{position: absolute; right: 10rem; top:1.8rem; display:inline-block;background: url('../img/common/icon_login_wh.png') no-repeat; background-size: 2.4rem; width:8rem; height: 2.4rem;color:#fff; font-size: 1.4rem; line-height: 2.4rem;padding-left: 2.8rem;image-rendering: -webkit-optimize-contrast;}
+    .header.mycardif .m_top .icon_logout{position: absolute; right: 11rem; top:1.8rem; display:inline-block;background: url('../img/common/icon_logout.png') no-repeat; background-size: 2.4rem; width:8rem; height: 2.4rem;color:#fff; font-size: 1.4rem; line-height: 2.4rem;padding-left: 2.8rem;}
+    .header.mycardif .m_top .loginName {height: 3.8rem; color: #fff; font-size: 2rem; line-height: 1.8rem;padding:0.6rem 2rem 0 2rem}
+    .msg_box02 {position: relative;width:100%;height: 4.8rem;}
+    .msg_box02 a{color:#dbdfe1; font-size: 1.6rem; line-height: 2rem;font-weight:normal;overflow:hidden; display:block; text-overflow:ellipsis; white-space:nowrap;border-top:1px solid #33a77b; margin: 0 2rem; padding: 1.2rem 3rem 1rem 2rem;}
+    .msg_box02 a:before {content: ''; position: absolute; display:block;line-height: 3rem;background:url('../img/common/icon_msg02.png') no-repeat; width: 3rem; height: 3rem; background-size: 0.8rem 1.2rem; top:1.8rem; margin-left: -1.8rem;image-rendering: -webkit-optimize-contrast;}
+    .msg_box02 a:after {content: ''; position: absolute; display:inline-block;line-height: 3rem;background:url('../img/common/icon_arrow_msg.png') no-repeat; width: 2rem; height: 2rem;  background-size: 100%; right: 2rem; top:1.4rem;}
+
+    .header.mycardif .m_menu {position: absolute; width: 100%; height: auto;}
+
+    /*2023-02-22 웹접근성 메뉴 구조 변경*/
+    .header.mycardif .gnb::before {
+        background-color:#f7f7f7;
+    }
+    /*로그인전*/
+    .header.mycardif .m_menu .gnb {padding-top:6rem;}
+    .header.mycardif .m_menu .gnb > ul > li .menu-tit.on {top:calc(6rem - 2px);}
+    .header.mycardif .m_menu .gnb > ul > li:nth-child(1) > a {top:calc(6rem + 10px + .8rem);}
+    .header.mycardif .m_menu .gnb > ul > li:nth-child(2) > a {top:calc(6rem + (4rem * 1) + 10px + .8rem);}
+    .header.mycardif .m_menu .gnb > ul > li:nth-child(3) > a {top:calc(6rem + (4rem * 2) + 10px + .8rem);}
+    .header.mycardif .m_menu .gnb > ul > li:nth-child(4) > a {top:calc(6rem + (4rem * 3) + 10px + .8rem);}
+    .header.mycardif .m_menu .gnb > ul > li:nth-child(5) > a {top:calc(6rem + (4rem * 4) + 10px + .8rem);}
+    .header.mycardif .m_menu .gnb > ul > li:nth-child(6) > a {top:calc(6rem + (4rem * 5) + 10px + .8rem);}
+    .header.mycardif .m_menu .gnb > ul > li:nth-child(7) > a {top:calc(6rem + (4rem * 6) + 10px + .8rem);}
+    .header.mycardif .m_menu .gnb > ul > li:nth-child(8) > a {top:calc(6rem + (4rem * 7) + 10px + .8rem);}
+    .header.mycardif .m_menu .gnb > ul > li:nth-child(9) > a {top:calc(6rem + (4rem * 8) + 10px + .8rem);}
+    .header.mycardif .m_menu .gnb > ul > li:nth-child(10) > a {top:calc(6rem + (4rem * 9) + 10px + .8rem);}
+    .header.mycardif .m_menu .gnb > ul > li:nth-child(11) > a {top:calc(6rem + (4rem * 10) + 10px + .8rem);}
+    .header.mycardif .m_menu .gnb > ul > li:nth-child(12) > a {top:calc(6rem + (4rem * 11) + 10px + .8rem);}
+    /*로그인후*/
+    .header.mycardif .m_menu.type_login .gnb {padding-top:9.8rem;}
+    .header.mycardif .m_menu.type_login .gnb > ul > li .menu-tit.on {top:calc(9.8rem - 2px);}
+    .header.mycardif .m_menu.type_login .gnb > ul > li:nth-child(1) > a {top:calc(9.8rem + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login .gnb > ul > li:nth-child(2) > a {top:calc(9.8rem + (4rem * 1) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login .gnb > ul > li:nth-child(3) > a {top:calc(9.8rem + (4rem * 2) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login .gnb > ul > li:nth-child(4) > a {top:calc(9.8rem + (4rem * 3) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login .gnb > ul > li:nth-child(5) > a {top:calc(9.8rem + (4rem * 4) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login .gnb > ul > li:nth-child(6) > a {top:calc(9.8rem + (4rem * 5) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login .gnb > ul > li:nth-child(7) > a {top:calc(9.8rem + (4rem * 6) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login .gnb > ul > li:nth-child(8) > a {top:calc(9.8rem + (4rem * 7) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login .gnb > ul > li:nth-child(9) > a {top:calc(9.8rem + (4rem * 8) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login .gnb > ul > li:nth-child(10) > a {top:calc(9.8rem + (4rem * 9) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login .gnb > ul > li:nth-child(11) > a {top:calc(9.8rem + (4rem * 10) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login .gnb > ul > li:nth-child(12) > a {top:calc(9.8rem + (4rem * 11) + 10px + .8rem);}
+    /*로그인후 개인화메세지포함*/
+    .header.mycardif .m_menu.type_login.type_msg .gnb {padding-top:14.6rem;}
+    .header.mycardif .m_menu.type_login.type_msg .gnb > ul > li .menu-tit.on {top:calc(14.6rem - 2px);}
+    .header.mycardif .m_menu.type_login.type_msg .gnb > ul > li:nth-child(1) > a {top:calc(14.6rem + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login.type_msg .gnb > ul > li:nth-child(2) > a {top:calc(14.6rem + (4rem * 1) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login.type_msg .gnb > ul > li:nth-child(3) > a {top:calc(14.6rem + (4rem * 2) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login.type_msg .gnb > ul > li:nth-child(4) > a {top:calc(14.6rem + (4rem * 3) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login.type_msg .gnb > ul > li:nth-child(5) > a {top:calc(14.6rem + (4rem * 4) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login.type_msg .gnb > ul > li:nth-child(6) > a {top:calc(14.6rem + (4rem * 5) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login.type_msg .gnb > ul > li:nth-child(7) > a {top:calc(14.6rem + (4rem * 6) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login.type_msg .gnb > ul > li:nth-child(8) > a {top:calc(14.6rem + (4rem * 7) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login.type_msg .gnb > ul > li:nth-child(9) > a {top:calc(14.6rem + (4rem * 8) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login.type_msg .gnb > ul > li:nth-child(10) > a {top:calc(14.6rem + (4rem * 9) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login.type_msg .gnb > ul > li:nth-child(11) > a {top:calc(14.6rem + (4rem * 10) + 10px + .8rem);}
+    .header.mycardif .m_menu.type_login.type_msg .gnb > ul > li:nth-child(12) > a {top:calc(14.6rem + (4rem * 11) + 10px + .8rem);}
+    /*//2023-02-22 웹접근성 메뉴 구조 변경*/
+
+}
+
+/*2023-02-17 웹접근성 메뉴 구조 변경*/
+@media only screen and (max-width: 360px) {
+    .header.mycardif .gnb > ul > li > a {
+        padding-left:1rem;
+    }
+}
+/*//2023-02-17 웹접근성 메뉴 구조 변경*/
+
+/*2023-03-02 웹접근성 메뉴 구조 변경*/
+@media only screen and (max-width: 320px) {
+    .header.mycardif .gnb > ul > li > a {
+        padding-left:.5rem;
+    }
+}
+/*//2023-03-02 웹접근성 메뉴 구조 변경*/
