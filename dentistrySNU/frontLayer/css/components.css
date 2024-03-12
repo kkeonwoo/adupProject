@@ -27,6 +27,7 @@
 .rounded_pill { border-radius: 50rem !important;}
 .btn_xm { min-width: 80px; padding: 13px;}
 .btn_sm { min-width: unset; padding: 14px 28px;}
+.btn_plus { min-width: 30px; height: 30px; padding: 0; background: url('../images/icons/ico_plus_white.png') no-repeat center center / 100% auto}
 /* hr */
 .hr { width: 100%; height: 0; margin: 20px 0; border: none; border-top: 1px solid var(--fn-gray-e4);}
 
@@ -215,6 +216,7 @@
     .btn_ico.outline { min-width: 2.5000vw; height: 2.5000vw;}
     .btn_xm { min-width: 4.1667vw; padding: 0.6771vw;}
     .btn_sm { padding: 0.7292vw 1.4583vw;}
+    .btn_plus { min-width: 1.5625vw; height: 1.5625vw; padding: 0;}
     /*input*/
     .form_group { gap: 0.8333vw;}
     .form_group + .form_group { margin-top: 0.7813vw;}
@@ -237,6 +239,7 @@
     .btn_ico.outline { min-width: 35px; height: 35px;}
     .btn_xm { min-width: 58px; padding: 9px;}
     .btn_sm { padding: 10px 20px;}
+    .btn_plus { min-width: 22px; height: 22px; padding: 0;}
     /*input*/
     .form_group { gap: 12px;}
     .form_group + .form_group { margin-top: 11px;}

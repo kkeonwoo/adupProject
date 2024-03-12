@@ -798,6 +798,9 @@
     .spot .spot_info_area .info_box .info_body .shortcut_item .txt_box .ico { height: 32px;}
     .spot .spot_info_area .info_box .info_body .txt { margin-top: 16px;}
 
+    /* spot sub */
+    .spot.sub { margin-top: 72px;}
+
     /* collection */
     .section01 .inner { gap: 44px;}
     .section01 .cnt_left { display: none;}
@@ -885,10 +888,10 @@
     /* sub common */
     .section_sub .dot,
     .section_sub .exp_cnt_right .guide_list { padding-left: 7px;}
-    .section_sub .guide_list .guide_item { display: flex; flex-wrap: wrap; align-items: center;}
+    .section_sub .guide_list .guide_item { display: flex;}
     .section_sub:not(.detail) .guide_list .guide_item .guide_txt { display: block; width: 100%; margin-top: 8px;}
     .section_sub .dot::before,
-    .section_sub .guide_list .guide_item::before { content: '•'; padding-right: 10px; line-height: 1; vertical-align: top;}
+    .section_sub .guide_list .guide_item::before { content: '•'; padding-right: 10px; line-height: inherit; vertical-align: top;}
     .section_sub .guide_list .guide_item + .guide_item { margin-top: 16px;}
     /* sub exhbn cnt */
     .exhbn_list.pc { display: none !important;}
@@ -917,7 +920,11 @@
     .section_sub .cnt_group .cnt_list .txt { margin-top: 16px; font-size: 24px;}
     .section_sub .cnt_group .cnt_list .p_desc { font-size: 13px;}
     .section_sub .cnt_group .map_area { margin-top: 18px;}
-    .section_sub .cnt_group .guide_ttl { font-size: 16px;}
+    .section_sub .cnt_group .guide_ttl { flex-shrink: 0; font-size: 16px;}
+    .section_sub .cnt_group .guide_list:not(.type2) .guide_item .guide_ttl { margin-right: 16px;}
+    .section_sub .cnt_group .guide_list:not(.type2) .guide_item .guide_txt { margin-top: 0;}
+    .section_sub .cnt_group .guide_list.type2 .guide_item { flex-wrap: wrap;}
+    .section_sub .cnt_group .guide_list.type2 .guide_txt { width: 100%;}
     .section_sub .cnt_group .guide_list + .p_ref { padding-left: 23px; text-indent: -23px;}
     .section_sub .cnt_group .guide_list + .p_ref,
     .section_sub .cnt_group .p_txt + .guide_list { margin-top: 16px;}
