@@ -302,7 +302,6 @@ $(function(){
         slidesPerView: 1,
         slidesPerGroup: 1,
         spaceBetween: 0,
-        loop: true,
 		observer: true,
         observeParents: true,
 		pagination: {
@@ -319,41 +318,31 @@ $(function(){
                 slidesPerGroup: 4,
                 spaceBetween: 72,
             },
-            661: {
+            660: {
                 slidesPerView: 2,
                 slidesPerGroup: 2,
                 spaceBetween: 64,
             }
         },
         on: {
+            init: function() {
+                perView = this.slidesPerViewDynamic();
+                swiperActIdx = (this.realIndex / perView) + 1;
+                $cur.text(swiperActIdx);
+                $tot.text(Math.ceil(swiperLength / perView));
+            },
             slideChange: function() {
-                swiperIdxUpdate();
+                swiperActIdx = Math.ceil((this.realIndex / perView)) + 1;
+                $cur.text(swiperActIdx);
+            },
+            resize: function() {
+                perView = this.slidesPerViewDynamic();
+                swiperActIdx = Math.ceil((this.realIndex / perView)) + 1;
+                $cur.text(swiperActIdx);
+                $tot.text(Math.ceil(swiperLength / perView));
             }
         }
 	});
-    
-    // 초기값 세팅
-    perView = lifeBnSwiper.slidesPerViewDynamic();
-    swiperActIdx = (lifeBnSwiper.realIndex / perView) + 1;
-    $cur.text(swiperActIdx);
-    $tot.text(Math.ceil(swiperLength / perView));
-
-    // slidesPerView 값 대응
-    $(window).on('resize', function() {
-        perView = lifeBnSwiper.slidesPerViewDynamic();
-        swiperActIdx = Math.floor((lifeBnSwiper.realIndex / perView) + 1);
-        $cur.text(swiperActIdx);
-        $tot.text(Math.ceil(swiperLength / perView));
-    })
-
-    $('.lifeBn .btn.btn_round').on('click', () => {
-        swiperIdxUpdate();
-    })
-    
-    function swiperIdxUpdate() {
-        swiperActIdx = (lifeBnSwiper.realIndex / perView) + 1;
-        $cur.text(swiperActIdx);
-    }
     /* // 2024-02-23 홈페이지 리뉴얼 수정 */
 
 	// bottom banner

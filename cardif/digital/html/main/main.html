@@ -10,14 +10,14 @@
 	<meta name="robots" content="noindex, nofollow">
 	<title>메인 | BNP파리바 카디프생명</title>
 
-	<link rel="apple-touch-icon" href="../../img/common/apple-touch-icon.png">
-	<link rel="shortcut icon" href="../../img/common/favicon.ico">
-	<link rel="icon" href="../../img/common/favicon-16.png" sizes="16x16">
-	<link rel="icon" href="../../img/common/favicon-32.png" sizes="32x32">
-	<link rel="icon" href="../../img/common/android-chrome-192.png" sizes="192x192">
-	<link rel="icon" href="../../img/common/android-chrome-512.png" sizes="512x512">
+	<link rel="apple-touch-icon" href="../../../img/common/apple-touch-icon.png">
+	<link rel="shortcut icon" href="../../../img/common/favicon.ico">
+	<link rel="icon" href="../../../img/common/favicon-16.png" sizes="16x16">
+	<link rel="icon" href="../../../img/common/favicon-32.png" sizes="32x32">
+	<link rel="icon" href="../../../img/common/android-chrome-192.png" sizes="192x192">
+	<link rel="icon" href="../../../img/common/android-chrome-512.png" sizes="512x512">
 
-    <link rel="stylesheet" type="text/css" href="../../css/mobile.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/mobile copy.css" />
     <script type="text/javascript" src="../../js/jquery-3.6.0.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="../../js/common_ui.js" charset="utf-8"></script>
     <script type="text/javascript" src="../../js/ui.style.js" charset="utf-8"></script>
@@ -232,6 +232,209 @@
         </header>
 		<!-- //header (uat 추가) -->
 
+		<style>
+			/* main common */
+			.btn_round { position: relative; width: 5.6rem; height: 5.6rem; border: 1px solid #DBDFE1; border-radius: 100%; background-color: #fff;}
+			.btn_round::after { content: ''; display: block; position: absolute; top: 50%; left: 50%; width: 3.2rem; height: 3.2rem; background-repeat: no-repeat; background-position: center center; background-size: 100% auto; transform: translate(-50%, -50%);}
+			.btn_ico { display: flex; justify-content: center; align-items: center; gap: 1.6rem; font-size: 0; line-height: 0;}
+			.btn_ico::after { content: ''; display: inline-block; width: 3.2rem; height: 3.2rem; background-repeat: no-repeat; background-position: center center; background-size: 100% auto; transform: rotate(180deg);}
+
+			.mob_favWrap { display: none;}
+			.favWrap .fav { display: flex; justify-content: space-between; flex-wrap: nowrap; align-items: center; gap: 4rem; position: relative; width: 1200px; margin: -8rem auto; padding: 2.5rem 4.8rem; background:#fff; box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1); border-radius: 1rem; z-index: 2;}
+			.favWrap .fav .listBtnWrap { flex: 1; margin-bottom: unset;}
+			.favWrap .fav .listBtnWrap > ul { display: flex; justify-content: space-between; margin-right: 0rem;}
+			.favWrap .fav .listBtnWrap > ul:after { content: unset;}
+			.favWrap .fav .listBtnWrap > ul > li { float:left; margin-right:0.6rem; margin-bottom:0; width:calc(100% / 6 - 0.6rem); height:8rem; border:none; border-radius: 0;}
+			.favWrap .fav .listBtnWrap > ul > li a { padding: 0;}
+			.favWrap .fav .listBtnWrap > ul > li a .icon{ display: inline-block; width: 7.2rem; height: 7.2rem; vertical-align: middle; font-size: 0; background-image: url('../../img/common/icon_set_mycf_shorcut.png'); background-size: 22rem auto; background-repeat: no-repeat; image-rendering: -webkit-optimize-contrast;}
+			.favWrap .fav .listBtnWrap > ul > li a .icon.lb001 { background-position: 0 0;} /* 보험계약조회 */
+			.favWrap .fav .listBtnWrap > ul > li a .icon.lb002 { background-position: -7.2rem 0;} /* 보험계약대출 */
+			.favWrap .fav .listBtnWrap > ul > li a .icon.lb003 { background-position: -14.4rem 0;} /* 보험금청구 */
+			.favWrap .fav .listBtnWrap > ul > li a .icon.lb004 { background-position: 0 -7.2rem;} /* 변액보험관리 */
+			.favWrap .fav .listBtnWrap > ul > li a .icon.lb005 { background-position: -7.2rem -7.2rem;} /* 펀드변경 */
+			.favWrap .fav .listBtnWrap > ul > li a .icon.lb006 { background-position: -14.4rem -7.2rem;} /* 투자리포트 */
+			.favWrap .fav .listBtnWrap > ul > li a .tit { margin-top: 1rem; font-size:1.8rem; line-height:2.8rem; color:#000;}
+			.certi_box { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 24.5rem; height: 10rem; margin-right: unset; text-align: center;}
+			.certi_box .certi01 { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: .4rem; width: 100%; height: 100%; padding-top: unset; border-radius: 1rem; font-size: 1.8rem; line-height: 2.8rem; text-align: center; background: #00915A; color: #fff;}
+			.certi_box .certi01 i { display: block; width: 2.4rem; height: 2.4rem; margin: 0 auto; font-size:0; background-image:url('../../img/common/icon_certi.png'); background-size: 100% auto; image-rendering: -webkit-optimize-contrast;}
+			.certi_box .tit { font-size: 1.8rem; line-height: 2.8rem; color: #000; font-weight: bold;}
+			.certi_box .txt { margin-top: .8rem; font-size: 1.6rem; line-height: 2.4rem; color: #424242;}
+
+			.swipe-wrap { margin-top: 0rem; padding-top: 16rem; background:#fff; min-height: 49rem; z-index: 1;}
+
+			/* main product swipe */
+			.main-swipe-wrap .swiper-ly { position: relative;}
+			.main-swipe-wrap .swiper-container.main-swiper { max-width: unset; overflow: visible;}
+			.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide { max-width: unset; width: unset; height: unset; padding: unset; border-radius: 1rem; border: 1px solid #e6e6e6;}
+			.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide.swiper-slide-active { box-shadow: 0 0 15px rgba(0, 0, 0, .2);}
+
+			.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide:not(.swiper-slide-active)::before,
+			.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide:not(.swiper-slide-active)::before { content: ''; display: block; position: absolute; top: 0; left: 0; z-index: 5; width: 100%; height: 100%; border-radius: 1rem; background-color: rgba(230, 230, 230, .5); backdrop-filter: blur(4px);}
+			.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide .prd_card { display: flex; align-items: center; gap: 3.2rem; position: relative;}
+			.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide .prd_card::before { content: ''; display: block; position: absolute; z-index: -1; top: 0; right: 3.2rem; width: 28.5rem; height: 12.6rem; background: url('../../img/common/bg_main_swipe.png') no-repeat center center / 100% auto;}
+			.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide .prd_card.on, 
+			.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide .prd_card { width: 64rem; height: 32rem; padding: 4rem 5rem;}
+			.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide .ico { display: block; width: 24rem; height: 24rem; border-radius: 50%; background-repeat: no-repeat; background-position: center center; background-size: 100% auto;}
+			.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide .txt_area { position: unset; border-radius: unset; width: unset; height: unset;}
+			.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide p { margin: 1.6rem 0 2.4rem;}
+			.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide .keyword { position: unset; display: inline-block; padding: .8rem 1.4rem; border: 1px solid #00915A; border-radius: 10rem; font-size: 1.4rem; line-height: 2.2rem; color: #00915A;}
+			.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide .keyword + .keyword { margin-left: .5rem;}
+			.main-swipe-wrap .swiper-ly .btn_wrap { display: flex; justify-content: space-between; position: absolute; z-index: 30; top: calc(50% - 4.5rem); left: 50%; width: 100%; max-width: 86.4rem; transform: translate(-50%, -50%);}
+			.main-swipe-wrap .swiper-ly .btn_wrap .btn { font-size: 0; line-height: 0;}
+			.main-swipe-wrap .swiper-ly .btn_wrap .btn::after { content: ''; background-image: url('../../img/common/icon_arw_left_gray.svg');}
+			.main-swipe-wrap .swiper-ly .btn_wrap .btn.swiper-button-prev { left: 0;}
+			.main-swipe-wrap .swiper-ly .btn_wrap .btn.swiper-button-next { right: 0; transform: rotate(180deg);}
+			.main-swipe-wrap .swiper-pagination { display: none;}
+			.main-swipe-wrap .btn.btn_ico { max-width: 38rem; margin: 3rem auto 0; height: 6rem; line-height: 6rem; font-weight: 700; font-size: 2rem;}
+			.main-swipe-wrap .btn.btn_ico::after { background-image: url('../../img/common/icon_arw_left_white.svg');}
+
+			.center { display: block; width: 1200px; margin:10rem auto;}
+			.center .cbn_list { display: flex; flex-direction: row; gap: 4.5rem; height: unset; margin-top: 3rem; padding: unset;}
+			.center .cbn_list .cbn_item { width: 100%; padding: 4rem; border: 1px solid #E6E6E6; border-radius: 2rem; height: 51rem; image-rendering: -webkit-optimize-contrast;}
+			.center .cbn_list .cbn_item .tit { font-size:3.2rem; line-height: 5.1rem; font-weight: bold; color:#000;}
+			.center .cbn_list .cbn_item .txt { margin-top: 1.6rem; font-size:1.8rem; color:#7B7B7B; line-height: 2.8rem;}
+			.center .cbn_list .cbn_item .sbtn { justify-content: center; gap: 0; position: relative; margin-top: 2.4rem; padding: 0; width: 5.6rem; height: 5.6rem; border-radius: 5.6rem; transition: all .3s;}
+			.center .cbn_list .cbn_item .sbtn::after { background-image: url('../../img/common/icon_arw_left_gray.svg'); transition: all .3s;}
+			.center .cbn_list .cbn_item .sbtn .txt { display: inline-block; width: 0; overflow: hidden; font-size: 1.8rem; transition: all .3s;}
+			.center .cbn_list .cbn_item .img_area { width: 20rem; height: 20rem; margin: 2.4rem auto 0; background-repeat: no-repeat; background-position: center center; background-size: 100% auto;}
+			.center .cbn_list .cbn_item.cbn01 .img_area { background-image: url('../../img/common/img_sec02_01.png');}
+			.center .cbn_list .cbn_item.cbn02 .img_area { background-image: url('../../img/common/img_sec02_02.png');}
+			.center .cbn_list .cbn_item.cbn03 .img_area { background-image: url('../../img/common/img_sec02_03.png');}
+
+			/* swipe_라이프스테이지 */
+			.swipe-wrap.lifeBn { padding: 10rem 0; background-color: #F7F8F9;}
+			.swipe-wrap.lifeBn .swiper-container { overflow:hidden; position:relative; margin: 0 auto; padding: 0; width: 100%; max-width: 1150px; height: 100%; margin-top:3rem;}
+			.swiper-wrapper.lifeBn { display: flex; position:relative; z-index:1; width:100%; height:100%;}
+			.swiper-wrapper.lifeBn .swiper-slide { width: 27rem; max-width: unset; height: unset; margin-right: 72px !important; padding: 0; overflow: visible;}
+			.swiper-wrapper.lifeBn .swiper-slide::before { content: ''; display: block; position: absolute; right: 0; width: 1px; height: 100%; background-color: #BABABA; transform: translateX(3.6rem);}
+			.swiper-wrapper.lifeBn .swiper-slide .lifeBn_link { display: flex; flex-direction: column; align-items: stretch; width: 100%; height: 100%; min-height: 32.2rem; padding: 0; border:0;}
+			.swiper-wrapper.lifeBn .swiper-slide .lifeBn_link .txt_area { flex: 1; position: static; width: 100%; height: unset; border-radius: 0; overflow: visible;}
+			.swiper-wrapper.lifeBn .swiper-slide .keyword { position: static; padding: .2rem .8rem; border-radius: .5rem; background-color: rgba(0, 145, 90, .1); font-size: 1.6rem; line-height: 2.6rem; color: #000;}
+			.swiper-wrapper.lifeBn .swiper-slide .tit { display: block; width: 100%; margin-top: 2.4rem; font-weight: 700; line-height: 3.2rem; letter-spacing: -1px;}
+			.swiper-wrapper.lifeBn .swiper-slide .txt { display: -webkit-box; position: static; margin-top: .8rem; overflow: hidden; text-overflow: ellipsis; font-size: 1.6rem; line-height: 2.6rem; letter-spacing: -1px; -webkit-line-clamp: 2; -webkit-box-orient: vertical; color:#000;}
+			.swiper-wrapper.lifeBn .swiper-slide .txt:after { content: none;}
+			.swiper-wrapper.lifeBn .swiper-slide .ico { display: block; width: 100%; height: 10rem; background-repeat: no-repeat; background-position: center right; background-size: auto 100%; }
+			.swipe-wrap.lifeBn .swiper_controller { display: flex; align-items: center; max-width: 120rem; margin: 3rem auto 0;}
+			.swipe-wrap.lifeBn .swiper-pagination { display: flex; width: 26rem; margin-top: 1rem !important; margin-right: 4rem;}
+			.swipe-wrap.lifeBn .swiper-fraction { display: flex; align-items: center; gap: .8rem;}
+			.swipe-wrap.lifeBn .swiper-fraction span { font-weight: 700; font-size: 1.8rem; line-height: 2.8rem; color: #000;}
+			.swipe-wrap.lifeBn .swiper-fraction span.hypon { display: block; width: .8rem; height: .1rem; background-color: #000;}
+			.swipe-wrap.lifeBn .swiper-fraction span.tot { font-weight: 400; color: #727272;}
+			.swipe-wrap.lifeBn .btn_wrap { display: flex; align-items: center; gap: 2.4rem;}
+			.swipe-wrap.lifeBn .btn_wrap .btn { background-color: transparent; border-color: #BABABA; font-size: 0; line-height: 0;}
+			.swipe-wrap.lifeBn .btn_wrap .btn::after { content: ''; background-image: url('../../img/common/icon_arw_left_black.svg'); background-size: 100% auto;}
+			.swipe-wrap.lifeBn .btn_wrap .btn.swiper-button-prev { left: 0;}
+			.swipe-wrap.lifeBn .btn_wrap .btn.swiper-button-next { right: 0; transform: rotate(180deg);}
+
+			.btBn:not(.type02) { display: none;}
+			.btBn.bgGreen.type02 { margin-top: 0;}
+			.networkGo a.btn_nt:after {content: '';position: absolute; display: inline-block; width: .8rem; height: .7rem; right: 1rem; top: 1.2rem; background-color: #fff;}
+
+			@media all and (min-width:901px) {
+				.favWrap .fav .listBtnWrap > ul > li { float: unset; width: fit-content; min-width: 10.3rem; height: 11rem; margin-right: 0; margin-bottom: 0; border:none;}
+
+				.center .cbn_list .cbn_item:hover { background-color: #00915A;}
+				.center .cbn_list .cbn_item:hover .tit,
+				.center .cbn_list .cbn_item:hover .txt { color:#fff;}
+				.center .cbn_list .cbn_item:hover .sbtn { justify-content: space-between; width: 100%; padding: 0 2rem;}
+				.center .cbn_list .cbn_item:hover .sbtn::after { background-image: url('../../img/common/icon_arw_left_white.svg');}
+				.center .cbn_list .cbn_item:hover .sbtn .txt { width: fit-content; margin-top: 0;}
+			}
+
+			@media all and (max-width:900px) {
+				/* main common */
+				.btn_ico { gap: .8rem;}
+				.btn_ico::after { width: 2.4rem; height: 2.4rem;}
+				.btn_round { width: 4rem; height: 4rem;}
+				.btn_round::after { width: 2.2rem; height: 2.2rem;}
+				
+				.rolling-banner { min-height: 46rem;}
+				.rolling-banner .bx-viewport { height: 46rem !important;}
+				.rolling-banner .bx-controls{position:absolute;top: 84%;left:50%;transform:translateX(-50%);margin-left:0}
+
+				.favWrap { display: none;}
+				.mob_favWrap { display: flex; flex-direction: column-reverse; align-items: end; position: fixed; bottom: 2rem; right: 2rem; z-index: 99999; transition: all .4s .2s;}
+				.mob_favWrap.up { bottom: 7.8rem;}
+				.mob_favWrap .btn { position: relative; width: 5.6rem; height: 5.6rem; border: none; font-weight: 700; font-size: 1.4rem; line-height: 1.8rem; z-index: 99999; transition: background .4s; word-break: keep-all; box-shadow: 5px 5px 20px rgba(0, 0, 0, .2);}
+				.mob_favWrap .btn::before { content: ''; display: block; position: absolute; top: 50%; left: 50%; opacity: 0; width: 3.2rem; height: 3.2rem; background: url('../../img/common/ico_close_white.svg') no-repeat center center / 100% auto; transform: translate(-50%, -50%);}
+				.mob_favWrap.open .btn { text-indent: -999999em; background-color: #000;}
+				.mob_favWrap.open .btn::before { opacity: 1;}
+				.mob_favWrap .listBtnWrap { opacity: 0; height: 0; overflow: hidden; z-index: 90005; transition: opacity .4s;}
+				.mob_favWrap.open .listBtnWrap { opacity: 1; height: fit-content;}
+				.mob_favWrap .listBtnWrap .btn_list { display: flex; flex-direction: column-reverse; gap: 1.2rem; position: relative; margin: 0; margin-bottom: 1.6rem;}
+				.mob_favWrap .listBtnWrap .btn_list .btn_item { float: unset; width: unset; height: fit-content; margin: 0; border: none;}
+				.mob_favWrap .listBtnWrap .fav_link { display: flex; flex-direction: row-reverse; align-items: center; gap: 1.2rem; padding: 0;}
+				.mob_favWrap .listBtnWrap .tit { margin-top: 0; font-size: 1.4rem; line-height: 2.6rem; color: #fff;}
+				.mob_favWrap .listBtnWrap .login .tit { font-weight: 700;}
+				.mob_favWrap .listBtnWrap .icon { display: block; position: relative; width: 5.6rem; height: 5.6rem; border-radius: 100%; background-color: #fff; text-indent: -9999em;}
+				.mob_favWrap .listBtnWrap .icon::before { content: ''; display: block; position: absolute; top: 50%; left: 50%; width: 4.8rem; height: 4.8rem; background-repeat: no-repeat; background-position: center center; background-size: 100% auto; transform: translate(-50%, -50%);}
+				.mob_favWrap .listBtnWrap .btn_item:nth-child(1) .icon::before { background-image: url('../../img/common/ico_mfav_01.png');}
+				.mob_favWrap .listBtnWrap .btn_item:nth-child(2) .icon::before { background-image: url('../../img/common/ico_mfav_02.png');}
+				.mob_favWrap .listBtnWrap .btn_item:nth-child(3) .icon::before { background-image: url('../../img/common/ico_mfav_03.png');}
+				.mob_favWrap .listBtnWrap .btn_item.login .icon::before { width: 3.2rem; height: 3.2rem; background-image: url('../../img/common/ico_mfav_04.png');}
+				.mob_favWrap .listBtnWrap .login .icon { background-color: #00915A;}
+				.mob_favWrap .dim { display: none;}
+				.mob_favWrap.open .dim { display: block;}
+
+				.swipe-wrap.wideView {width: 100vw; margin-top: -4rem; margin-left: -2rem; padding-top:2.4rem; background:#fff;}
+				.swipe-wrap.main-swipe-wrap { padding: 2.4rem 0 0; border-top-left-radius: 2rem; border-top-right-radius: 2rem;}
+				.main-swipe-wrap .swiper-container.main-swiper { overflow: hidden; margin-left: 2rem;}
+				.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide { width: 46%; max-width: 41.5rem;}
+				.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide.swiper-slide-active { box-shadow: unset;}
+				.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide.swiper-slide-next::before { background-color: transparent; backdrop-filter: none;}
+				.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide .prd_card { width: 100%; height: 100%; flex-direction: column; gap: 1.6rem; padding: 3rem; text-align: center;}
+				.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide .prd_card::before { right: 0;}
+				.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide .ico { width: 16rem; height: 16rem;}
+				.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide .txt { margin: .8rem 0; font-size: 1.8rem;}
+				.main-swipe-wrap .swiper-ly .btn_wrap .btn { display: none;}
+				.main-swipe-wrap .btn.btn_ico { width: 88.88%; max-width: 32rem; height: 4.8rem; font-size: 1.6rem;}
+				.main-swipe-wrap .swiper-pagination { display: block; max-width: 20.8rem; margin-bottom: 0;}
+
+				.swipe-wrap.lifeBn { padding: 5rem 4rem; margin: 0 -2rem;}
+				.swiper-wrapper.lifeBn .swiper-slide { min-width: unset; max-width: unset; margin-right: 64px !important;}
+				.swiper-wrapper.lifeBn .swiper-slide::before { transform: translateX(3.2rem);}
+				.swiper-wrapper.lifeBn .swiper-slide .lifeBn_link { gap: 2.4rem; max-width: unset; min-height: 27.5rem;}
+				.swiper-wrapper.lifeBn .swiper-slide .tit { padding-top: 0; font-size: 1.8rem;}
+				.swiper-wrapper.lifeBn .swiper-slide .txt { margin-top: .8rem; font-size: 1.4rem; line-height: 2rem;}
+				.swiper-wrapper.lifeBn .swiper-slide .ico { height: 12rem;}
+				.swipe-wrap.lifeBn .swiper_controller { width: 100%;}
+				.swipe-wrap.lifeBn .swiper-pagination { width: 100%; max-width: 16rem; margin-top: 0; margin-bottom: 0; margin-right: 1.6rem;}
+				.swipe-wrap.lifeBn .btn_wrap { gap: .8rem;}
+				.swipe-wrap.lifeBn .swiper-fraction span { font-size: 1.4rem; line-height: 2.8rem;}
+
+				.btBn:not(.type02) { display: block;}
+				.networkGo a.btn_nt:after {content: '';position: absolute; display: inline-block; width: .8rem;height: .7rem;right: 1rem;top: 1.2rem;background-color: #000;}
+
+				.center {display: flex; width: 100%; flex-direction:column; margin:5rem auto; justify-content: space-between; align-items:center}
+				.center .cbn_list .cbn_item .tit,
+				.center .cbn_list .cbn_item .txt { padding-right: 6.4rem;}
+				.center .cbn_list .cbn_item .tit { margin-top:0; font-size: 2rem; line-height: 3.2rem; font-weight: bold;}
+				.center .cbn_list .cbn_item .txt { margin-top: .8rem; font-size: 1.4rem; line-height: 2rem;}
+				.center .cbn_list {display: flex; flex-direction: column; gap: 4rem; width: 100%; align-items: flex-start;}
+				.center .cbn_list .cbn_item { position: relative; height: fit-content; padding: 0 2.4rem 4rem; border: none; border-bottom: 1px solid #E6E6E6; border-radius: 0;}
+				.center .cbn_list .cbn_item:last-of-type { border-bottom: none; padding-bottom: 0;}
+				.center .cbn_list .cbn_item .sbtn { justify-content: center; position: absolute; top: 0; right: 2.4rem; width: 4.8rem; height: 4.8rem; margin-top: 0; padding: 0;}
+				.center .cbn_list .cbn_item .sbtn::after { width: 2.8rem; height: 2.8rem;}
+				.center .cbn_list .cbn_item .sbtn .txt { display: none;}
+
+				.moveTopbtn {z-index: 10000000;position: fixed;right:2.8rem;bottom:3rem;display: none;box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);border: solid 1px #e6e6e6;border-radius: 0.4rem;width: 4rem; height: 4rem; text-align: center; background:#fff url(../../img/common/icon_top.png) no-repeat 50%; background-size: 2rem;opacity: 0.9; font-size: 0; margin-right:0;}
+			}
+
+			@media ( min-width:661px ) and ( max-width:900px ) {
+				.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide .main_br { display: none;}
+			}
+
+			@media ( min-width:0 ) and ( max-width:660px ) {
+				.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide { width: unset; max-width: unset;}
+				.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide.swiper-slide-next::before { background-color: rgba(230, 230, 230, 0.5 ); backdrop-filter: blur(4px);}
+				.main-swipe-wrap .main-swiper .swiper-wrapper .swiper-slide .main_br { display: block;}
+				
+				.swipe-wrap.lifeBn { padding: 5rem 2rem;}
+				.swiper-wrapper.lifeBn .swiper-slide { margin-right: 0 !important;}
+				.swiper-wrapper.lifeBn .swiper-slide::before { content: none;}
+			}
+		</style>
+
         <div id="containerWrap" class="container" role="main">
             <!-- contents -->
             <div class="contents">
@@ -247,9 +450,9 @@
                                         <span></span><!-- max 문자수 -->
                                     </div>
                                     <picture>
-                                        <source media="(max-width: 900px)" srcset="../../img/common/img_main_bnn01_m.png">
-                                        <source media="(min-width: 901px)" srcset="../../img/common/img_main_bnn01.png">
-                                        <img src="../../img/common/img_main_bnn01.png" alt=""/><!-- 2021-10-25 alt속성 수정 -->
+                                        <source media="(max-width: 900px)" srcset="../../../img/common/img_main_bnn01_m.png">
+                                        <source media="(min-width: 901px)" srcset="../../../img/common/img_main_bnn01.png">
+                                        <img src="../../../img/common/img_main_bnn01.png" alt=""/><!-- 2021-10-25 alt속성 수정 -->
                                     </picture>
                                 </a>
                             </div>
@@ -260,9 +463,9 @@
                                         <span></span>
                                     </div>
                                     <picture>
-                                        <source media="(max-width: 900px)" srcset="../../img/common/img_main_bnn01_m.png">
-                                        <source media="(min-width: 901px)" srcset="../../img/common/img_main_bnn02.png">
-                                        <img src="../../img/common/img_main_bnn02.png" alt=""/>
+                                        <source media="(max-width: 900px)" srcset="../../../img/common/img_main_bnn01_m.png">
+                                        <source media="(min-width: 901px)" srcset="../../../img/common/img_main_bnn02.png">
+                                        <img src="../../../img/common/img_main_bnn02.png" alt=""/>
                                     </picture>
                                 </a>
                             </div>
@@ -273,9 +476,9 @@
                                         <span></span>
                                     </div>
                                     <picture>
-                                        <source media="(max-width: 900px)" srcset="../../img/common/img_main_bnn01_m.png">
-                                        <source media="(min-width: 901px)" srcset="../../img/common/img_main_bnn03.png">
-                                        <img src="../../img/common/img_main_bnn03.png" alt=""/>
+                                        <source media="(max-width: 900px)" srcset="../../../img/common/img_main_bnn01_m.png">
+                                        <source media="(min-width: 901px)" srcset="../../../img/common/img_main_bnn03.png">
+                                        <img src="../../../img/common/img_main_bnn03.png" alt=""/>
                                     </picture>
                                 </a>
                             </div>
@@ -286,9 +489,9 @@
                                         <span></span>
                                     </div>
                                     <picture>
-                                        <source media="(max-width: 900px)" srcset="../../img/common/img_main_bnn01_m.png">
-                                        <source media="(min-width: 901px)" srcset="../../img/common/img_main_bnn04.png">
-                                        <img src="../../img/common/img_main_bnn04.png" alt=""/>
+                                        <source media="(max-width: 900px)" srcset="../../../img/common/img_main_bnn01_m.png">
+                                        <source media="(min-width: 901px)" srcset="../../../img/common/img_main_bnn04.png">
+                                        <img src="../../../img/common/img_main_bnn04.png" alt=""/>
                                     </picture>
                                 </a>
                             </div>
@@ -348,8 +551,8 @@
 							<!-- //인증서로그인 : 로그인전 -->
 							<!-- 인증서로그인 : 로그인후 -->
 							<div class="certi_box" style="display: none;">
-								<p>홍길동님, 안녕하세요!</p>
-								<span>보험금 청구 간편하게 청구하세요.</span>
+								<p class="tit">홍길동님, 안녕하세요!</p>
+								<span class="txt">보험금 청구 간편하게 청구하세요.</span>
 							</div>
 							<!-- //인증서로그인 : 로그인후 -->
 							<!-- 앱다운로드 : pc 노출안함 / mobile 노출  -->
@@ -360,31 +563,32 @@
 							<!-- //앱다운로드 -->
 						</div>
 					</div>
+					<!-- MY 카디프 메뉴 : pc 노출안함 / mobile 노출 -->
 					<div class="mob_favWrap">
 						<button type="button" class="btn btn_float btn_round bgGreen">MY 카디프</button>
 						<div class="listBtnWrap">
 							<ul class="btn_list">
 								<li class="btn_item">
 									<a href="../mycardifApp/CTCST001M.html" role="button" title="보험계약조회 화면이동" class="fav_link">
-										<i class="icon lb001"></i>
+										<i class="icon lb001">보험 계약조회</i>
 										<p class="tit">보험 계약조회</p>
 									</a>
 								</li>
 								<li class="btn_item">
 									<a href="../mycardifApp/LNLRT001M.html" role="button" title="보험계약대출 화면이동" class="fav_link">
-										<i class="icon lb002"></i>
+										<i class="icon lb002">보험 계약대출</i>
 										<p class="tit">보험 계약대출</p>
 									</a>
 								</li>
 								<li class="btn_item">
 									<a href="../mycardifApp/CHIAC001M.html" role="button" title="보험금청구 화면이동" class="fav_link">
-										<i class="icon lb003"></i>
+										<i class="icon lb003">보험금 청구</i>
 										<p class="tit">보험금 청구</p>
 									</a>
 								</li>
 								<li class="btn_item login">
 									<a href="" role="button" title="로그인 화면으로 이동" class="fav_link">
-										<i class="icon lb004"></i>
+										<i class="icon lb004">로그인</i>
 										<p class="tit">로그인</p>
 									</a>
 								</li>
@@ -392,6 +596,7 @@
 						</div>
 						<div class="dim"></div>
 					</div>
+					<!-- //MY 카디프 메뉴 -->
 					<!-- //자주찾는메뉴 -->
                     <!-- 추천상품배너 : 6ea : 2024-02-23 홈페이지 리뉴얼 수정 -->
                     <div class="swipe-wrap wideView main-swipe-wrap">
@@ -402,7 +607,7 @@
 								<div class="swiper-wrapper">
 									<div class="swiper-slide">
 										<div class="prd_card"><!-- 2021-10-25 alt속성 수정 -->
-											<i class="ico" style="background-image: url('../../img/common/img_main_swipe01.png');"></i>
+											<i class="ico" style="background-image: url('../../../img/common/img_main_swipe01.png');"></i>
 											<div class="txt_area">
 												<strong>더세이프대출안심보험</strong>
 												<p>예기치 못한 사고 시 대출금 상환!</p>
@@ -413,7 +618,7 @@
 									</div>
 									<div class="swiper-slide">
 										<div class="prd_card">
-											<i class="ico" style="background-image: url('../../img/common/img_main_swipe02.png');"></i>
+											<i class="ico" style="background-image: url('../../../img/common/img_main_swipe02.png');"></i>
 											<div class="txt_area">
 												<strong>예시</strong>
 												<p>예시 텍스트</p>
@@ -424,10 +629,10 @@
 									</div>
 									<div class="swiper-slide">
 										<div class="prd_card">
-											<i class="ico" style="background-image: url('../../img/common/img_main_swipe03.png');"></i>
+											<i class="ico" style="background-image: url('../../../img/common/img_main_swipe03.png');"></i>
 											<div class="txt_area">
-												<strong>(e)대출안심 보장보험<br class="pc">(플랜선택형)</strong>
-												<p>온라인으로 편리하게 준비하는<br class="pc">대출안전장치!</p>
+												<strong>(e)대출안심 보장보험<br class="main_br">(플랜선택형)</strong>
+												<p>온라인으로 편리하게 준비하는<br class="main_br">대출안전장치!</p>
 												<span class="keyword">일반보장</span>
 												<span class="keyword">암보장</span>
 												<span class="keyword">3대질병</span>
@@ -437,8 +642,8 @@
 								</div>
 							</div>
 							<div class="btn_wrap">
-								<button class="btn btn_round swiper-button-prev"></button>
-								<button class="btn btn_round swiper-button-next"></button>
+								<button class="btn btn_round swiper-button-prev">이전</button>
+								<button class="btn btn_round swiper-button-next">다음</button>
 							</div>
 							<a href="" role="button" class="btn btn_ico bgGreen">바로가기</a>
 							<div class="swiper-pagination"></div>
@@ -493,7 +698,7 @@
 											<strong class="tit">Z세대 직장인 신조어 8가지!</strong>
 											<p class="txt">Z세대 직장인과 그들의 신조어 8가지를 알아보다.</p>
 										</div>
-										<i class="ico" style="background-image: url('../../img/common/img_sec04_01.svg');"></i>
+										<i class="ico" style="background-image: url('../../../img/common/img_sec04_01.svg');"></i>
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
@@ -506,7 +711,7 @@
 											</strong>
 											<p class="txt">미리 확인해야 할 사항을 정리해봤습니다.</p>
 										</div>
-										<i class="ico" style="background-image: url('../../img/common/img_sec04_02.svg');"></i>
+										<i class="ico" style="background-image: url('../../../img/common/img_sec04_02.svg');"></i>
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
@@ -519,7 +724,7 @@
 											</strong>
 											<p class="txt">주택청약통장 가입기간, 납입횟수, 팩트체크까지.</p>
 										</div>
-										<i class="ico" style="background-image: url('../../img/common/img_sec04_03.svg');"></i>
+										<i class="ico" style="background-image: url('../../../img/common/img_sec04_03.svg');"></i>
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
@@ -531,7 +736,7 @@
 											</strong>
 											<p class="txt">가계부를 쉽고 효과적으로 작성하는 방법을 알아보고, 부자 되는 여정을 시작해보세요.</p>
 										</div>
-										<i class="ico" style="background-image: url('../../img/common/img_sec04_04.svg');"></i>
+										<i class="ico" style="background-image: url('../../../img/common/img_sec04_04.svg');"></i>
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
@@ -539,9 +744,9 @@
 										<div class="txt_area">
 											<span class="keyword">NEW&BEST</span>
 											<strong class="tit">Z세대 직장인 신조어 8가지!</strong>
-											<p>Z세대 직장인과 그들의 신조어 8가지를 알아보다.</p>
+											<p class="txt">Z세대 직장인과 그들의 신조어 8가지를 알아보다.</p>
 										</div>
-										<i class="ico" style="background-image: url('../../img/common/img_sec04_01.svg');"></i>
+										<i class="ico" style="background-image: url('../../../img/common/img_sec04_01.svg');"></i>
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
@@ -554,7 +759,7 @@
 											</strong>
 											<p class="txt">미리 확인해야 할 사항을 정리해봤습니다.</p>
 										</div>
-										<i class="ico" style="background-image: url('../../img/common/img_sec04_02.svg');"></i>
+										<i class="ico" style="background-image: url('../../../img/common/img_sec04_02.svg');"></i>
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
@@ -567,7 +772,42 @@
 											</strong>
 											<p class="txt">주택청약통장 가입기간, 납입횟수, 팩트체크까지.</p>
 										</div>
-										<i class="ico" style="background-image: url('../../img/common/img_sec04_03.svg');"></i>
+										<i class="ico" style="background-image: url('../../../img/common/img_sec04_03.svg');"></i>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="" title="상세화면으로 이동" class="lifeBn_link">
+                                        <div class="txt_area">
+											<span class="keyword">NEW&BEST</span>
+											<strong class="tit">
+												가계부 작성법의 기본 원칙 8가지
+											</strong>
+											<p class="txt">가계부를 쉽고 효과적으로 작성하는 방법을 알아보고, 부자 되는 여정을 시작해보세요.</p>
+										</div>
+										<i class="ico" style="background-image: url('../../../img/common/img_sec04_04.svg');"></i>
+                                    </a>
+                                </div>
+								<div class="swiper-slide">
+                                    <a href="" title="상세화면으로 이동" class="lifeBn_link">
+										<div class="txt_area">
+											<span class="keyword">NEW&BEST</span>
+											<strong class="tit">Z세대 직장인 신조어 8가지!</strong>
+											<p class="txt">Z세대 직장인과 그들의 신조어 8가지를 알아보다.</p>
+										</div>
+										<i class="ico" style="background-image: url('../../../img/common/img_sec04_01.svg');"></i>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="" title="상세화면으로 이동" class="lifeBn_link">
+                                        <div class="txt_area">
+											<span class="keyword">NEW&BEST</span>
+											<strong class="tit">
+												부동산 매매계약 대금<br>
+												지급 시, 이것 확인하자!
+											</strong>
+											<p class="txt">미리 확인해야 할 사항을 정리해봤습니다.</p>
+										</div>
+										<i class="ico" style="background-image: url('../../../img/common/img_sec04_02.svg');"></i>
                                     </a>
                                 </div>
                             </div>
@@ -575,13 +815,13 @@
                         <div class="swiper_controller">
 							<div class="swiper-pagination"></div>
 							<div class="btn_wrap">
-								<button class="btn btn_round swiper-button-prev"></button>
+								<button class="btn btn_round swiper-button-prev">이전</button>
 								<div class="swiper-fraction">
 									<span class="cur"></span>
 									<span class="hypon"></span>
 									<span class="tot"></span>
 								</div>
-								<button class="btn btn_round swiper-button-next"></button>
+								<button class="btn btn_round swiper-button-next">다음</button>
 							</div>
 						</div>
                     </div>
@@ -636,16 +876,16 @@
 				<div class="scEvent slider">
 					<div class="slides">
 						<div class="bn active">
-								<a href="#" title="독서의 계절 이벤트 바로가기"><img src="../../img/common/img_eventthumb1.png" alt=""></a><!-- 2021-10-25 alt속성 수정  -->
+								<a href="#" title="독서의 계절 이벤트 바로가기"><img src="../../../img/common/img_eventthumb1.png" alt=""></a><!-- 2021-10-25 alt속성 수정  -->
 						</div>
 						<div class="bn">
-							<a href="#" title="홈페이지 개편 이벤트 바로가기"><img src="../../img/common/img_eventthumb2.png" alt=""></a>
+							<a href="#" title="홈페이지 개편 이벤트 바로가기"><img src="../../../img/common/img_eventthumb2.png" alt=""></a>
 						</div>
 						<div class="bn active">
-							<a href="#" title="독서의 계절 이벤트 바로가기"><img src="../../img/common/img_eventthumb1.png" alt=""></a>
+							<a href="#" title="독서의 계절 이벤트 바로가기"><img src="../../../img/common/img_eventthumb1.png" alt=""></a>
 					</div>
 					<div class="bn">
-						<a href="#" title="홈페이지 개편 이벤트 바로가기"><img src="../../img/common/img_eventthumb2.png" alt=""></a>
+						<a href="#" title="홈페이지 개편 이벤트 바로가기"><img src="../../../img/common/img_eventthumb2.png" alt=""></a>
 					</div>
 					</div>
 					<div class="page-btns">
@@ -704,7 +944,7 @@
                     <div class="contect only-pc">
                         <p class="footTit">MY카디프 앱 다운로드</p>
                         <figure class="footCont">
-                            <img src="../../img/common/QR.png" alt="카디프앱다운로드 QR코드" class="qr"><!--  2021-10-25 alt속성 수정 -->
+                            <img src="../../../img/common/QR.png" alt="카디프앱다운로드 QR코드" class="qr"><!--  2021-10-25 alt속성 수정 -->
                         </figure>
                     </div>
                 </div>
@@ -771,7 +1011,7 @@
             <div class="footBottom">
                 <div class="inner">
                     <figure class="footLogo">
-                        <img src="../../img/common/icon_bnp_logo.png" alt="bnp파리바 카디프생명">
+                        <img src="../../../img/common/icon_bnp_logo.png" alt="bnp파리바 카디프생명">
                     </figure>
                     <address>
                         서울특별시 중구 후암로 110 (남대문로 5가) BNP파리바카디프 생명보험(주)<br>
