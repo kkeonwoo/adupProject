@@ -115,7 +115,10 @@ $(document).ready(function(){
 		<!--상단 타이틀영역-->
 		<div class="titleArea02">
 			<h2 class="page_title">신용케어 가이드</h2>
-			<p class="page_sub_title"></p>
+			<p class="page_sub_title">
+				신용관리가 처음인 사람부터 고수인 사람까지<br>
+				누구에게나 유익한 신용관리 콘텐츠 공유 드려요!
+			</p>
 		</div>
 		<!--//상단 타이틀영역-->
 		<div>
@@ -176,6 +179,27 @@ $(document).ready(function(){
 				/*20230324 신용케어 가이드 목록 원복 */
 				.titleArea02::before {display:none;}
 				/*//20230324 신용케어 가이드 목록 원복 */
+
+				/* 홈페이지 리뉴얼 */
+				.section .ttl_sec_area { margin-bottom: 4rem;}
+				.section .ttl_sec_area .h_ttl { font-weight: 700; font-size: 2.8rem; line-height: 4rem; letter-spacing: -0.01em;}
+				.section .cnt_list { display: flex; flex-wrap: wrap; position: relative; z-index: 1; width: 100%; height: 100%; box-sizing: content-box; transition-property: transform; transform: translate3d(0px, 0, 0);}
+				.section .cnt_list .cnt_item { position: relative; z-index: 5; width: 33.33%; height: 39.6rem; padding: 0; border-right: 1px solid #e6e6e6;}
+				.section .cnt_list .cnt_item:nth-child(3n) { border-right: none}
+				.section .cnt_list .cnt_item:nth-child(n+4) { border-top: 1px solid #e6e6e6;}
+				.section .cnt_list .cnt_item::before { content: ''; display: block; position: absolute; z-index: -1; opacity: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(255,255,255,0) 36%, rgba(138,202,187,0.8) 100%); transition: opacity .4s; user-select: none; pointer-events: none;}
+				.section .cnt_list .cnt_item:hover::before { opacity: 1;}
+				.section .cnt_list .cnt_item .cnt_link { display: flex; flex-direction: column; width: 100%; height: 100%; min-height: 32.2rem; padding: 4.4rem; border: none;}
+				.section .cnt_list .cnt_item:nth-child(3n+1) .cnt_link { padding-left: 0;}
+				.section .cnt_list .cnt_item:nth-child(n+4) .cnt_link { padding-top: 4.4rem;}
+				.section .cnt_list .cnt_item .cnt_link .txt_area { flex: 1; position: static; width: 100%; height: unset; border-radius: 0; overflow: visible;}
+				.section .cnt_list .cnt_item .keyword { position: static; padding: .2rem .8rem; border-radius: .5rem; font-size: 16px; line-height: 2.6rem; color: #000; background-color: rgba(0, 145, 90, .1);}
+				.section .cnt_list .cnt_item .tit { display: block; width: 100%; padding-top: 2.4rem; font-weight: 700; font-size: 2rem; line-height: 3.2rem; letter-spacing: -1px;}
+				.section .cnt_list .cnt_item .txt { display: -webkit-box; margin-top: .8rem; overflow: hidden; text-overflow: ellipsis; font-size: 1.6rem; line-height: 2.6rem; letter-spacing: -1px; -webkit-line-clamp: 2; -webkit-box-orient: vertical; color:#000;}
+				.section .cnt_list .cnt_item .ico { display: block; width: 100%; height: 10rem; background-repeat: no-repeat; background-position: center right; background-size: auto 100%;}
+
+				.section.sec01 { margin-top: 7rem;}
+				/* // 홈페이지 리뉴얼 */
 				
 				/* 모바일 css */
 				@media only screen and (max-width: 900px){
@@ -315,6 +339,97 @@ $(document).ready(function(){
 			</script>
 			
 			<div class="wideView bgWhite">
+				<div class="section sec01">
+					<div class="inner">
+						<div class="ttl_sec_area">
+							<h2 class="h_ttl">투자관리 라이브러리</h2>
+						</div>
+						<div class="cnt_wrap">
+							<div class="cnt_area">
+								<ul class="cnt_list">
+									<li class="cnt_item">
+										<a href="#" title="상세화면으로 이동" class="cnt_link">
+											<div class="txt_area">
+												<span class="keyword">NEW&BEST</span>
+												<strong class="tit">Z세대 직장인 신조어 8가지!</strong>
+												<p class="txt">Z세대 직장인과 그들의 신조어 8가지를 알아보다.</p>
+											</div>
+											<i class="ico" style="background-image: url('../../../img/common/img_sec04_01.svg');"></i>
+										</a>
+									</li>
+									<li class="cnt_item">
+										<a href="#" title="상세화면으로 이동" class="cnt_link">
+											<div class="txt_area">
+												<span class="keyword">NEW&BEST</span>
+												<strong class="tit">
+													부동산 매매계약 대금<br>
+													지급 시, 이것 확인하자!
+												</strong>
+												<p class="txt">미리 확인해야 할 사항을 정리해봤습니다.</p>
+											</div>
+											<i class="ico" style="background-image: url('../../../img/common/img_sec04_02.svg');"></i>
+										</a>
+									</li>
+									<li class="cnt_item">
+										<a href="#" title="상세화면으로 이동" class="cnt_link">
+											<div class="txt_area">
+												<span class="keyword">NEW&amp;BEST</span>
+												<strong class="tit">
+													주택청약 매 달 얼마씩<br>
+													넣어야 할까
+												</strong>
+												<p class="txt">주택청약통장 가입기간, 납입횟수, 팩트체크까지.</p>
+											</div>
+											<i class="ico" style="background-image: url('../../../img/common/img_sec04_03.svg');"></i>
+										</a>
+									</li>
+									<li class="cnt_item">
+										<a href="#" title="상세화면으로 이동" class="cnt_link">
+											<div class="txt_area">
+												<span class="keyword">NEW&BEST</span>
+												<strong class="tit">
+													가계부 작성법의 기본 원칙 8가지
+												</strong>
+												<p class="txt">가계부를 쉽고 효과적으로 작성하는 방법을 알아보고, 부자 되는 여정을 시작해보세요.</p>
+											</div>
+											<i class="ico" style="background-image: url('../../../img/common/img_sec04_04.svg');"></i>
+										</a>
+									</li>
+									<li class="cnt_item">
+										<a href="#" title="상세화면으로 이동" class="cnt_link">
+											<div class="txt_area">
+												<span class="keyword">NEW&BEST</span>
+												<strong class="tit">
+													주택청약 매 달 얼마씩<br>
+													넣어야 할까
+												</strong>
+												<p class="txt">주택청약통장 가입기간, 납입횟수, 팩트체크까지.</p>
+											</div>
+											<i class="ico" style="background-image: url('../../../img/common/img_sec04_03.svg');"></i>
+										</a>
+									</li>
+									<li class="cnt_item">
+										<a href="#" title="상세화면으로 이동" class="cnt_link">
+											<div class="txt_area">
+												<span class="keyword">NEW&BEST</span>
+												<strong class="tit">Z세대 직장인 신조어 8가지!</strong>
+												<p class="txt">Z세대 직장인과 그들의 신조어 8가지를 알아보다.</p>
+											</div>
+											<i class="ico" style="background-image: url('../../../img/common/img_sec04_01.svg');"></i>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="section">
+					<div class="inner">
+						<div class="ttl_sec_area">
+							<h2 class="h_ttl">신용관리 라이브러리</h2>
+						</div>
+					</div>
+				</div>
 				<div class="section">
 					<div class="inner bgSkyblue mt5">
 						<div class="title lifeB_insure">

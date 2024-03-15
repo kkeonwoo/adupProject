@@ -125,40 +125,22 @@ $(document).ready(function(){
 		<div>
 
 			<script>
-				$(document).ready(function() {
-					// 컨텐츠 영역 이동
-					const sections = $('.vi-mgnt-sec');
-					const btnScroll = $('.vi-mgnt-sec1').find('.cnt-info-box');
-					let arrPosY = [];
-	
-					sections.each((idx, section) => {
-						if (idx !== 0) {
-							let scrollTg = $(section).find('.ttl-sec-area');
-							
-							if(scrollTg) {
-								let posY = $(section).offset().top;
-								arrPosY.push(posY);
+				function goToScroll(name) {
+					let defaultOffset = $('.contents').offset().top;
+					let location = document.querySelector("." + name).offsetTop;
+					console.log(location);
+					window.scrollTo({top: location + defaultOffset, behavior: 'smooth'});
+				}
+				
+				// 컨텐츠 드롭다운
+				const btnDropdown = $('.vi-mgnt-sec .cnt-info-box.dropdown').find('.cnt-info-hdr');
 
-								btnScroll.on('click', function(e) {
-									e.preventDefault();
-									let idx = $(this).index();
+				btnDropdown.on('click', function(e) {
+					e.preventDefault();
+					let dropdownCnt = $(this).siblings();
 
-									window.scrollTo({ top: arrPosY[idx], behavior: "smooth" });
-								})
-							}
-						}
-					})
-	
-					// 컨텐츠 드롭다운
-					const btnDropdown = $('.vi-mgnt-sec .cnt-info-box.dropdown').find('.cnt-info-hdr');
-	
-					btnDropdown.on('click', function(e) {
-						e.preventDefault();
-						let dropdownCnt = $(this).siblings();
-	
-						$(this).closest('.cnt-info-box').toggleClass('open');
-						dropdownCnt.stop().slideToggle();
-					})
+					$(this).closest('.cnt-info-box').toggleClass('open');
+					dropdownCnt.stop().slideToggle();
 				})
 			</script>
 
@@ -408,27 +390,27 @@ $(document).ready(function(){
 						<div class="card-area">
 							<div class="card-box">
 								<div class="cnt-area">
-									<div class="cnt-info-box">
+									<div class="cnt-info-box" onclick="goToScroll('vi-mgnt-sec2 .ttl-sec-area')">
 										<h3 class="ttl">
 											투자관리<br class="pc">
 											꿀팁을 얻고 싶다면?
 										</h3>
 										<i class="ico"></i>
 									</div>
-									<div class="cnt-info-box">
+									<div class="cnt-info-box" onclick="goToScroll('vi-mgnt-sec3 .ttl-sec-area')">
 										<h3 class="ttl">
 											월간 투자시장 전망<br class="pc">
 											알아보세요!
 										</h3>
 										<i class="ico"></i>
 									</div>
-									<div class="cnt-info-box">
+									<div class="cnt-info-box" onclick="goToScroll('vi-mgnt-sec4 .ttl-sec-area')">
 										<h3 class="ttl">
 											변액보험 고객이라면?
 										</h3>
 										<i class="ico"></i>
 									</div>
-									<div class="cnt-info-box">
+									<div class="cnt-info-box" onclick="goToScroll('vi-mgnt-sec5 .ttl-sec-area')">
 										<h3 class="ttl">
 											MY카디프로 <br class="pc">
 											더 효율적인 투자관리를!
