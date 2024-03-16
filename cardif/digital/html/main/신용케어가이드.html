@@ -181,24 +181,65 @@ $(document).ready(function(){
 				/*//20230324 신용케어 가이드 목록 원복 */
 
 				/* 홈페이지 리뉴얼 */
-				.section .ttl_sec_area { margin-bottom: 4rem;}
-				.section .ttl_sec_area .h_ttl { font-weight: 700; font-size: 2.8rem; line-height: 4rem; letter-spacing: -0.01em;}
-				.section .cnt_list { display: flex; flex-wrap: wrap; position: relative; z-index: 1; width: 100%; height: 100%; box-sizing: content-box; transition-property: transform; transform: translate3d(0px, 0, 0);}
-				.section .cnt_list .cnt_item { position: relative; z-index: 5; width: 33.33%; height: 39.6rem; padding: 0; border-right: 1px solid #e6e6e6;}
-				.section .cnt_list .cnt_item:nth-child(3n) { border-right: none}
-				.section .cnt_list .cnt_item:nth-child(n+4) { border-top: 1px solid #e6e6e6;}
-				.section .cnt_list .cnt_item::before { content: ''; display: block; position: absolute; z-index: -1; opacity: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(255,255,255,0) 36%, rgba(138,202,187,0.8) 100%); transition: opacity .4s; user-select: none; pointer-events: none;}
-				.section .cnt_list .cnt_item:hover::before { opacity: 1;}
-				.section .cnt_list .cnt_item .cnt_link { display: flex; flex-direction: column; width: 100%; height: 100%; min-height: 32.2rem; padding: 4.4rem; border: none;}
-				.section .cnt_list .cnt_item:nth-child(3n+1) .cnt_link { padding-left: 0;}
-				.section .cnt_list .cnt_item:nth-child(n+4) .cnt_link { padding-top: 4.4rem;}
-				.section .cnt_list .cnt_item .cnt_link .txt_area { flex: 1; position: static; width: 100%; height: unset; border-radius: 0; overflow: visible;}
-				.section .cnt_list .cnt_item .keyword { position: static; padding: .2rem .8rem; border-radius: .5rem; font-size: 16px; line-height: 2.6rem; color: #000; background-color: rgba(0, 145, 90, .1);}
-				.section .cnt_list .cnt_item .tit { display: block; width: 100%; padding-top: 2.4rem; font-weight: 700; font-size: 2rem; line-height: 3.2rem; letter-spacing: -1px;}
-				.section .cnt_list .cnt_item .txt { display: -webkit-box; margin-top: .8rem; overflow: hidden; text-overflow: ellipsis; font-size: 1.6rem; line-height: 2.6rem; letter-spacing: -1px; -webkit-line-clamp: 2; -webkit-box-orient: vertical; color:#000;}
-				.section .cnt_list .cnt_item .ico { display: block; width: 100%; height: 10rem; background-repeat: no-repeat; background-position: center right; background-size: auto 100%;}
+				.wideView .section { padding: 0 2rem;}
+				.section .ttl-sec-area { margin-bottom: 4rem;}
+				.section .ttl-sec-area .h-ttl { font-weight: 700; font-size: 2.8rem; line-height: 4rem; letter-spacing: -0.01em; color: #000;}
+				.section .cnt-area { margin-bottom: 12rem;}
+				.section .dropdown { background-color: #F7F8F9; border-radius: 1.6rem;}
+				.section .dropdown .cnt-info-hdr::after { content: ''; display: none; position: absolute; bottom: 3.6rem; left: 54.58333333333333%; width: 30rem; height: 21.2rem; background-repeat: no-repeat; background-position: center center; background-size: 100% auto; pointer-events: none;}
+				.section .dropdown + .dropdown { margin-top: 2.4rem;}
+				.section .dropdown + .dropdown.open { margin-top: 9.2rem;}
+				.section .dropdown .cnt-info-hdr { display: flex; justify-content: space-between; position: relative; z-index: 5; padding: 4rem; padding-right: 3rem; border-radius: 1.6rem; border: 1px solid #DBDFE1; background-color: #fff; cursor: pointer;}
+				.section .dropdown .cnt-info-hdr::before { content: ''; display: block; position: absolute; top: 0; left: 0; z-index: -1; width: 100%; height: 100%; background-image: url('/cmsHtml/product/igvac001m/image/bg_sec2_green.png'); background-repeat: no-repeat; background-position: center 35%; background-size: auto 100%;}
+				.section .dropdown.open .cnt-info-hdr::after { display: block;}
+				.section .dropdown .cnt-info-hdr .h-ttl { font-size: 3.2rem; line-height: 4.6rem; color: #000;}
+				.section .dropdown.open .cnt-info-hdr .h-ttl { color: #fff;}
+				.section .dropdown .cnt-info-hdr .h-ttl br { display: none;}
+				.section .dropdown.open .cnt-info-hdr .h-ttl br { display: block;}
+				.section .dropdown .cnt-info-hdr .btn-cate { display: flex; align-items: center; gap: .8rem; position: relative; font-size: 1.6rem; line-height: 2.8rem; color: #000; background-color: transparent;}
+				.section .dropdown.open .cnt-info-hdr .btn-cate { color: #fff;}
+				.section .dropdown .cnt-info-hdr .btn-cate::after { content: ''; display: inline-block; width: 2.4rem; height: 2.4rem; border-radius: 100%; background: url('/cmsHtml/product/igvac001m/image/ico_arw_bottom_black.svg') no-repeat center center / 2rem 2rem #fff; transition: transform .4s;}
+				.section .dropdown.open .cnt-info-hdr .btn-cate::after { transform: rotate(180deg);}
+				.section .dropdown .cnt-info-body { display: none; padding: 3.2rem 4rem;}
+				.section .dropdown .cnt-info-body .cnt-item + .cnt-item { padding-top: 3.2rem; border-top: 1px solid #E6E6E6;}
+				.section .dropdown .cnt-info-body .cnt-item .h-ttl { font-size: 2rem; line-height: 3.2rem; color: #000;}
+				.section .dropdown .cnt-info-body .cnt-item .cnt-link { display: flex; justify-content: space-between; align-items: center;}
+				.section .dropdown .cnt-info-body .cnt-item .more { display: flex; align-items: center; gap: .8rem; position: relative; font-size: 1.6rem; line-height: 2.6rem; color: #000;}
+				.section .dropdown .cnt-info-body .cnt-item .more::after { content: ''; display: inline-block; width: 2rem; height: 2rem; background: url('/cmsHtml/product/igvac001m/image/icon_more.svg') no-repeat center center / 100% auto;}
 
+				.section .dropdown.open:nth-child(1) .cnt-info-hdr { background-color: #00965E;}
+				.section .dropdown.open:nth-child(2) .cnt-info-hdr { background-color: #F1875A;}
+				.section .dropdown.open:nth-child(3) .cnt-info-hdr { background-color: #147394;}
+				.section .dropdown.open:nth-child(4) .cnt-info-hdr { background-color: #186F65;}
+				.section .dropdown.open:nth-child(5) .cnt-info-hdr { background-color: #E35053;}
+				.section .dropdown.open:nth-child(1) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_01.png');}
+				.section .dropdown.open:nth-child(2) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_02.png');}
+				.section .dropdown.open:nth-child(3) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_03.png');}
+				.section .dropdown.open:nth-child(4) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_04.png');}
+				.section .dropdown.open:nth-child(5) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_05.png');}
+				.section .dropdown:nth-child(1) .cnt-info-hdr::after { bottom: -2.4rem; width: 36rem; height: 27.2rem;}
+				.section .dropdown:nth-child(1) .cnt-info-hdr::after { background-image: url('../../img/신용케어가이드/bg_dropdown_01_white.png');}
+				.section .dropdown:nth-child(2) .cnt-info-hdr::after { background-image: url('../../img/신용케어가이드/bg_dropdown_02_white.png');}
+				.section .dropdown:nth-child(3) .cnt-info-hdr::after { background-image: url('../../img/신용케어가이드/bg_dropdown_03_white.png');}
+				.section .dropdown:nth-child(4) .cnt-info-hdr::after { background-image: url('../../img/신용케어가이드/bg_dropdown_04_white.png');}
+				.section .dropdown:nth-child(5) .cnt-info-hdr::after { background-image: url('../../img/신용케어가이드/bg_dropdown_05_white.png');}
+				
 				.section.sec01 { margin-top: 7rem;}
+				.section.sec01 .cnt-list { display: flex; flex-wrap: wrap; position: relative; z-index: 1; width: 100%; height: 100%; box-sizing: content-box; transition-property: transform; transform: translate3d(0px, 0, 0);}
+				.section.sec01 .cnt-list .cnt-item { position: relative; z-index: 5; width: 33.33%; height: 39.6rem; padding: 0; border-right: 1px solid #e6e6e6;}
+				.section.sec01 .cnt-list .cnt-item:nth-child(3n) { border-right: none}
+				.section.sec01 .cnt-list .cnt-item:nth-child(n+4) { border-top: 1px solid #e6e6e6;}
+				.section.sec01 .cnt-list .cnt-item::before { content: ''; display: block; position: absolute; z-index: -1; opacity: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(255,255,255,0) 36%, rgba(138,202,187,0.8) 100%); transition: opacity .4s; user-select: none; pointer-events: none;}
+				.section.sec01 .cnt-list .cnt-item:hover::before { opacity: 1;}
+				.section.sec01 .cnt-list .cnt-item .cnt-link { display: flex; flex-direction: column; width: 100%; height: 100%; min-height: 32.2rem; padding: 4.4rem; border: none;}
+				.section.sec01 .cnt-list .cnt-item:nth-child(3n+1) .cnt-link { padding-left: 0;}
+				.section.sec01 .cnt-list .cnt-item:nth-child(n+4) .cnt-link { padding-top: 4.4rem;}
+				.section.sec01 .cnt-list .cnt-item .cnt-link .txt-area { flex: 1; position: static; width: 100%; height: unset; border-radius: 0; overflow: visible;}
+				.section.sec01 .cnt-list .cnt-item .keyword { position: static; padding: .2rem .8rem; border-radius: .5rem; font-size: 16px; line-height: 2.6rem; color: #000; background-color: rgba(0, 145, 90, .1);}
+				.section.sec01 .cnt-list .cnt-item .tit { display: block; width: 100%; padding-top: 2.4rem; font-weight: 700; font-size: 2rem; line-height: 3.2rem; letter-spacing: -1px;}
+				.section.sec01 .cnt-list .cnt-item .txt { display: -webkit-box; margin-top: .8rem; overflow: hidden; text-overflow: ellipsis; font-size: 1.6rem; line-height: 2.6rem; letter-spacing: -1px; -webkit-line-clamp: 2; -webkit-box-orient: vertical; color:#000;}
+				.section.sec01 .cnt-list .cnt-item .ico { display: block; width: 100%; height: 10rem; background-repeat: no-repeat; background-position: center right; background-size: auto 100%;}
+
 				/* // 홈페이지 리뉴얼 */
 				
 				/* 모바일 css */
@@ -321,35 +362,31 @@ $(document).ready(function(){
 					// });
 					/*// 20230426 배너 고정 추가 */
 
-					/* 24-03-06 아코디언 기능 추가 */
-					$('.bestProduct').each((idx, el) => {
-						let section = $(el).prev().not('.sub03');
-						
-						if (section) {
-							let tg = $(section).find('.inner');
+					// 컨텐츠 드롭다운
+					const btnDropdown = $('.section .cnt-info-box.dropdown').find('.cnt-info-hdr');
 
-							$(tg).on('click', function(e) {
-								e.preventDefault();
-								$(this).closest('.section').next('.bestProduct').stop().slideToggle();
-							})
-						}
+					btnDropdown.on('click', function(e) {
+						e.preventDefault();
+						let dropdownCnt = $(this).siblings();
+
+						$(this).closest('.cnt-info-box').toggleClass('open');
+						dropdownCnt.stop().slideToggle();
 					})
-					/*// 24-03-06 아코디언 기능 추가 */
 				});
 			</script>
 			
 			<div class="wideView bgWhite">
 				<div class="section sec01">
 					<div class="inner">
-						<div class="ttl_sec_area">
-							<h2 class="h_ttl">투자관리 라이브러리</h2>
+						<div class="ttl-sec-area">
+							<h2 class="h-ttl">투자관리 라이브러리</h2>
 						</div>
-						<div class="cnt_wrap">
-							<div class="cnt_area">
-								<ul class="cnt_list">
-									<li class="cnt_item">
-										<a href="#" title="상세화면으로 이동" class="cnt_link">
-											<div class="txt_area">
+						<div class="cnt-wrap">
+							<div class="cnt-area">
+								<ul class="cnt-list">
+									<li class="cnt-item">
+										<a href="#" title="상세화면으로 이동" class="cnt-link">
+											<div class="txt-area">
 												<span class="keyword">NEW&BEST</span>
 												<strong class="tit">Z세대 직장인 신조어 8가지!</strong>
 												<p class="txt">Z세대 직장인과 그들의 신조어 8가지를 알아보다.</p>
@@ -357,9 +394,9 @@ $(document).ready(function(){
 											<i class="ico" style="background-image: url('../../../img/common/img_sec04_01.svg');"></i>
 										</a>
 									</li>
-									<li class="cnt_item">
-										<a href="#" title="상세화면으로 이동" class="cnt_link">
-											<div class="txt_area">
+									<li class="cnt-item">
+										<a href="#" title="상세화면으로 이동" class="cnt-link">
+											<div class="txt-area">
 												<span class="keyword">NEW&BEST</span>
 												<strong class="tit">
 													부동산 매매계약 대금<br>
@@ -370,9 +407,9 @@ $(document).ready(function(){
 											<i class="ico" style="background-image: url('../../../img/common/img_sec04_02.svg');"></i>
 										</a>
 									</li>
-									<li class="cnt_item">
-										<a href="#" title="상세화면으로 이동" class="cnt_link">
-											<div class="txt_area">
+									<li class="cnt-item">
+										<a href="#" title="상세화면으로 이동" class="cnt-link">
+											<div class="txt-area">
 												<span class="keyword">NEW&amp;BEST</span>
 												<strong class="tit">
 													주택청약 매 달 얼마씩<br>
@@ -383,9 +420,9 @@ $(document).ready(function(){
 											<i class="ico" style="background-image: url('../../../img/common/img_sec04_03.svg');"></i>
 										</a>
 									</li>
-									<li class="cnt_item">
-										<a href="#" title="상세화면으로 이동" class="cnt_link">
-											<div class="txt_area">
+									<li class="cnt-item">
+										<a href="#" title="상세화면으로 이동" class="cnt-link">
+											<div class="txt-area">
 												<span class="keyword">NEW&BEST</span>
 												<strong class="tit">
 													가계부 작성법의 기본 원칙 8가지
@@ -395,9 +432,9 @@ $(document).ready(function(){
 											<i class="ico" style="background-image: url('../../../img/common/img_sec04_04.svg');"></i>
 										</a>
 									</li>
-									<li class="cnt_item">
-										<a href="#" title="상세화면으로 이동" class="cnt_link">
-											<div class="txt_area">
+									<li class="cnt-item">
+										<a href="#" title="상세화면으로 이동" class="cnt-link">
+											<div class="txt-area">
 												<span class="keyword">NEW&BEST</span>
 												<strong class="tit">
 													주택청약 매 달 얼마씩<br>
@@ -408,9 +445,9 @@ $(document).ready(function(){
 											<i class="ico" style="background-image: url('../../../img/common/img_sec04_03.svg');"></i>
 										</a>
 									</li>
-									<li class="cnt_item">
-										<a href="#" title="상세화면으로 이동" class="cnt_link">
-											<div class="txt_area">
+									<li class="cnt-item">
+										<a href="#" title="상세화면으로 이동" class="cnt-link">
+											<div class="txt-area">
 												<span class="keyword">NEW&BEST</span>
 												<strong class="tit">Z세대 직장인 신조어 8가지!</strong>
 												<p class="txt">Z세대 직장인과 그들의 신조어 8가지를 알아보다.</p>
@@ -425,178 +462,268 @@ $(document).ready(function(){
 				</div>
 				<div class="section">
 					<div class="inner">
-						<div class="ttl_sec_area">
-							<h2 class="h_ttl">신용관리 라이브러리</h2>
+						<div class="ttl-sec-area">
+							<h2 class="h-ttl">신용관리 라이브러리</h2>
+						</div>
+						<div class="cnt-area">
+							<div class="cnt-info-box dropdown">
+								<div class="cnt-info-hdr">
+									<h3 class="h-ttl">
+										첫 걸음부터 안전하게<br> <strong class="fw-700 f-inherit">신용생활</strong> 시작하기
+									</h3>
+									<button type="button" class="btn-cate">카테고리 펼쳐보기</button>
+								</div>
+								<div class="cnt-info-body">
+									<ul class="cnt-list">
+										<li class="cnt-item">
+											<a href="/life-stage/credit-recovery-debt-adjustment.do" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">신용회복, 채무조정 vs 개인회생·파산, 어떤게 유리할까?</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/life-stage/10-tips-for-credit-score-management.do" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">신용관리 잘 하는 사람들 특징 10가지</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/life-stage/10-tips-for-credit-score-management.do" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">신용관리 잘 하는 사람들 특징 10가지</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/life-stage/10-tips-for-credit-score-management.do" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">신용관리 잘 하는 사람들 특징 10가지</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/life-stage/office-worker-loan-trend-survey.do" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">당신의 대출은 안녕하신가요?</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/life-stage/credit-card-score.do" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">신용카드 잘 쓰고 신용점수 올리는 방법</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/life-stage/sectional-credit-score-improvement.do" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">신용점수 올리는 꿀팁</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/life-stage/credit-card-installment.do" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">신용카드 할부 및 리볼빙 똑똑하게 사용하기</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="cnt-info-box dropdown">
+								<div class="cnt-info-hdr">
+									<h3 class="h-ttl">
+										슬기로운<br> <strong class="fw-700 f-inherit">대출 상환</strong> 하기 
+									</h3>
+									<button type="button" class="btn-cate">카테고리 펼쳐보기</button>
+								</div>
+								<div class="cnt-info-body">
+									<ul class="cnt-list">
+										<li class="cnt-item">
+											<a href="/life-stage/loan-switching-platform.do" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">대환대출 플랫폼에서 대출 갈아타기!</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/life-stage/how-to-lower-interest-rate-via-loan-switching.do" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">온라인 대환대출로 금리인하 전략 세우기</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/life-stage/rental-scam-prevention.do" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">전세보증금 사기, 빌라왕 사태</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/대출상환체크사항/life_stage_content.html" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">대출상환 후 반드시 체크해야 할 사항</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/대출연체방지/life_stage_content.html" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">대출연체 방지를 위해 미리 알아둬야 할 것</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/life-stage/mortgage-loan-insurance-japan.do" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">신용생명보험 가입, 일본 주택담보대출 대출자 99%가 선택</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/life-stage/credit-life-insurance.do" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">우리 가족 대출상환 책임져줄 ‘신용생명보험’</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<!--<li class="cnt-item">
+											<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit203/life_stage_content.html" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">개인신용평가 대응권, 금융소비자라면 적극적으로 활용하세요!</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>-->
+										<li class="cnt-item">
+											<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit202/life_stage_content.html" title="상세화면으로 이동">
+												<h4 class="h-ttl">대출자라면 꼭 알아야하는 이자계산서가 있다?!</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit201/life_stage_content.html" title="상세화면으로 이동">
+												<h4 class="h-ttl">대출금리 줄이는 방법, 금리인하요구권 제대로 알고 활용하자!</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="https://www.cardif.co.kr/life-stage/wealth-building/cmsContents.do?cmsPath=/cmsHtml/life-stage/LSAST002M/D0019/life_stage_content.html" title="상세화면으로 이동">
+												<h4 class="h-ttl">주택담보대출 상환방식과 대출이자 줄이는 방법</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/life-stage/credit-loan-overdraft.do" title="상세화면으로 이동">
+												<h4 class="h-ttl">신용대출과 마이너스 통장 차이점</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/life-stage/loan-repayment-order.do" title="상세화면으로 이동">
+												<h4 class="h-ttl">대출상환 순서 제대로 알기</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="cnt-info-box dropdown">
+								<div class="cnt-info-hdr">
+									<h3 class="h-ttl">
+										내 자산 <br>가치 있게 <strong class="fw-700 f-inherit">상속</strong>하기
+									</h3>
+									<button type="button" class="btn-cate">카테고리 펼쳐보기</button>
+								</div>
+								<div class="cnt-info-body">
+									<ul class="cnt-list">
+										<!--<li class="cnt-item">
+											<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit301/life_stage_content.html" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">빚 대물림 방지법, 들어보셨나요?</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>-->
+										<li class="cnt-item">
+											<a href="/life-stage/inheritance-renunciation.do" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">부모님 빚, 상속포기가 최선일까</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/life-stage/debt-inheritance.do" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">빚을 물려받는다고요? 빚 상속 해결 방법은요?</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit006/life_stage_content.html" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">차근차근 준비하는 상속세 재원 준비</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit008/life_stage_content.html" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">금리상승기, 업계와 학계가 바라보는 신용생명보험의 역할</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="cnt-info-box dropdown">
+								<div class="cnt-info-hdr">
+									<h3 class="h-ttl">
+										투자에 대한 콘텐츠를 <br> <strong class="fw-700">더 원한다면</strong>
+									</h3>
+									<button type="button" class="btn-cate">카테고리 펼쳐보기</button>
+								</div>
+								<div class="cnt-info-body">
+									<!-- <ul class="cnt-list">
+										<li class="cnt-item">
+											<a href="#" class="cnt-link">
+												<h4 class="h-ttl"></h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+									</ul> -->
+								</div>
+							</div>
+							<div class="cnt-info-box dropdown">
+								<div class="cnt-info-hdr">
+									<h3 class="h-ttl">
+										과장 없는 <br> <strong class="fw-700 f-inherit">과장일기 시즌 2</strong> (웹툰)
+									</h3>
+									<button type="button" class="btn-cate">카테고리 펼쳐보기</button>
+								</div>
+								<div class="cnt-info-body">
+									<!-- <ul class="cnt-list">
+										<li class="cnt-item">
+											<a href="#" class="cnt-link">
+												<h4 class="h-ttl"></h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+									</ul> -->
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="section">
-					<div class="inner bgSkyblue mt5">
-						<div class="title lifeB_insure">
-							<p>
-								<span class="bigBlue">첫 걸음부터 안전하게 <span class="bold">신용생활</span> 시작하기</span>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="bestProduct">
-					<div class="swiper-container swiper-container-initialized swiper-container-horizontal firstS swiper-container-ios">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide width_33 swiper-slide-active">
-								<a href="/life-stage/credit-recovery-debt-adjustment.do" title="상세화면으로 이동">
-									<strong class="fontChange2">신용회복, 채무조정 vs 개인회생·파산, 어떤게 유리할까?</strong>
-									<p>감당하기 힘든 빚을 줄이고 신용을 회복하는 방법이 있을까요? </p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-							<div class="swiper-slide width_33 swiper-slide-active">
-								<a href="/life-stage/10-tips-for-credit-score-management.do" title="상세화면으로 이동">
-									<strong class="fontChange2">신용관리 잘 하는 사람들 특징 10가지</strong>
-									<p>신용카드는 1개월 만기 신용대출과 같습니다. 신용카드 잘 쓰고 신용관리하는 방법 자세히 알아보았습니다. </p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-							<div class="swiper-slide width_33 swiper-slide-active" style="margin-right: 10px;">
-								<a href="/life-stage/office-worker-loan-trend-survey.do" title="상세화면으로 이동">
-									<strong class="fontChange2">당신의 대출은 안녕하신가요?</strong>
-									<p>직장인분들께 묻습니다<br>”당신의 대출은 안녕하십니까?”</p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-							<div class="swiper-slide width_33 swiper-slide-active" style="margin-right: 10px;">
-								<a href="/life-stage/credit-card-score.do" title="상세화면으로 이동">
-									<strong class="fontChange2">신용카드 잘 쓰고 신용점수 올리는 방법</strong>
-									<p>'신용점수'의 의미와 활용에 대해 살펴보고, 개인 신용평가 핵심 요소 4가지를 알려드립니다.</p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-							<div class="swiper-slide width_33 swiper-slide-next" style="margin-right: 10px;">
-								<a href="/life-stage/sectional-credit-score-improvement.do" title="상세화면으로 이동">
-									<strong class="fontChange2">신용점수 올리는 꿀팁</strong>
-									<p>신용점수 구간별로 신용도 올리는 노하우를 알려드립니다. </p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-							<div class="swiper-slide width_33" style="margin-right: 10px;">
-								<a href="/life-stage/credit-card-installment.do" title="상세화면으로 이동">
-									<strong class="fontChange2">신용카드 할부 및 리볼빙 똑똑하게 사용하기</strong>
-									<p>건강한 신용생활을 위해 금융거래, 대출관리 시 꼭 명심해야 할 5가지를 짚어드립니다. </p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-						</div>
-						<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-						<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-						<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-					</div>
-					<div class="swiper-pagination1 swiper-pagination swiper-pagination-progressbar">
-						<span class="swiper-pagination-progressbar-fill" style="transform: translate3d(0px, 0px, 0px) scaleX(0.25) scaleY(1); transition-duration: 300ms;"></span>
-					</div>
-				</div>
-				<div class="section">
-					<div class="inner mt5" style="background-color: #00915a !important;max-height: 80px;border-radius: 10px;">
-						<div class="title lifeB_insure">
-							<p>
-								<span class="bigBlue">슬기로운 <span class="bold">대출 상환</span> 하기 </span>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="bestProduct">
+				<!-- <div class="bestProduct">
 					<div class="swiper-container swiper-container-initialized swiper-container-horizontal secondS swiper-container-ios">
-						<div class="swiper-wrapper">  
-						<div class="swiper-slide width_33 swiper-slide-active">
-							<a href="/life-stage/loan-switching-platform.do" title="상세화면으로 이동">
-								<strong class="fontChange2">대환대출 플랫폼에서 대출 갈아타기!</strong>
-								<p>온라인 플랫폼에서 쉽고 편리하게 할 수 있는 대환대출에 대해 살펴봅니다.</p>
-								<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-						<div class="swiper-slide width_33 swiper-slide-active">
-							<a href="/life-stage/how-to-lower-interest-rate-via-loan-switching.do" title="상세화면으로 이동">
-								<strong class="fontChange2">온라인 대환대출로 금리인하 전략 세우기</strong>
-								<p>온라인 대환대출을 활용하여 대출금리를 줄이는 방법에 대해 알아봅니다.</p>
-								<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-						<div class="swiper-slide width_33 swiper-slide-next">
-							<a href="/life-stage/rental-scam-prevention.do" title="상세화면으로 이동">
-								<strong class="fontChange2">전세보증금 사기, 빌라왕 사태</strong>
-								<p>최근 빌라왕 사태의 전말과 전세보증금 반환을 위해 임차인이 미리 고려해야할 대안에 대해 이야기합니다.</p>
-								<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-						<div class="swiper-slide width_33">
-							<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/대출상환체크사항/life_stage_content.html" title="상세화면으로 이동">
-								<strong class="fontChange2">대출상환 후 반드시 체크해야 할 사항</strong>
-								<p>대출상환 마무리 단계에 꼭 해야할 일？ 근저당권 말소와 신용점수 확인에 대해 알아봅니다.</p>
-								<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-						<div class="swiper-slide width_33">
-							<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/대출연체방지/life_stage_content.html" title="상세화면으로 이동">
-								<strong class="fontChange2">대출연체 방지를 위해 미리 알아둬야 할 것</strong>
-								<p>대출연체 방지와 신용점수 보호를 위해 미리 알아둬야 할 것들을 살펴보았습니다.</p>
-								<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-						<div class="swiper-slide width_33">
-							<a href="/life-stage/mortgage-loan-insurance-japan.do" title="상세화면으로 이동">
-								<strong class="fontChange2">신용생명보험 가입, 일본 주택담보대출 대출자 99%가 선택</strong>
-								<p>일본은 주택담보대출 시 단체신용생명보험에 99% 가입한다?</p>
-								<p class="plusAdd">더보기</p>
-							</a>
-						</div>              
-						<div class="swiper-slide width_33 swiper-slide-active" style="margin-right: 10px;">
-							<a href="/life-stage/credit-life-insurance.do" title="상세화면으로 이동">
-								<strong class="fontChange2">우리 가족 대출상환 책임져줄 ‘신용생명보험’</strong>
-								<p>가정의 주소득자에게 건강이나 소득상 큰 변화가 생긴다면, 대출상환을 위해 어떤 준비가 되어 있으신가요?</p>
-								<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-						<!--<div class="swiper-slide width_33 swiper-slide-active" style="margin-right: 10px;">
-							<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit203/life_stage_content.html" title="상세화면으로 이동">
-								<strong class="fontChange2">개인신용평가 대응권, 금융소비자라면 적극적으로 활용하세요!</strong>
-								<p>개인신용평가에 이용된 정보가 부정확하거나 최신이 아니라고 판단될 경우, 금융기관에 설명을 요구하는 권리에 대해 알아봅니다.</p>
-								<p class="plusAdd">더보기</p>
-							</a>
-						</div>-->
-						<div class="swiper-slide width_33 swiper-slide-active" style="margin-right: 10px;">
-							<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit202/life_stage_content.html" title="상세화면으로 이동">
-								<strong class="fontChange2">대출자라면 꼭 알아야하는 이자계산서가 있다?!</strong>
-								<p>대출계약의 주요사항이 담긴 대출금리 산정내역서의 필요 이유와, 구성내용, 그리고 금리를 낮추기 위해 활용하는 방법을 소개해 드립니다.</p>
-								<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-						<div class="swiper-slide width_33 swiper-slide-active" style="margin-right: 10px;">
-							<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit201/life_stage_content.html" title="상세화면으로 이동">
-								<strong class="fontChange2">대출금리 줄이는 방법, 금리인하요구권 제대로 알고 활용하자!</strong>
-								<p>금리인하요구권이란 무엇인지, 신청조건과 방법에 대해 자세히 알아봅니다.</p>
-								<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-						<div class="swiper-slide width_33 swiper-slide-active" style="margin-right: 10px;">
-							<a href="https://www.cardif.co.kr/life-stage/wealth-building/cmsContents.do?cmsPath=/cmsHtml/life-stage/LSAST002M/D0019/life_stage_content.html" title="상세화면으로 이동">
-							<strong class="fontChange2">주택담보대출 상환방식과 대출이자 줄이는 방법</strong>
-							<p>주택담보대출 상환방식은 어떤 것이 있는지, 그리고 대출이자를 줄이는 방법은 무엇인지 정리해봤습니다.</p>
-							<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-						<div class="swiper-slide width_33 swiper-slide-next" style="margin-right: 10px;">
-							<a href="/life-stage/credit-loan-overdraft.do" title="상세화면으로 이동">
-							<strong class="fontChange2">신용대출과 마이너스 통장 차이점</strong>
-							<p>나에게 유리한 신용대출과 마이너스 통장은 무엇인지 확인해봅니다.</p>
-							<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-						<div class="swiper-slide width_33" style="margin-right: 10px;">
-							<a href="/life-stage/loan-repayment-order.do" title="상세화면으로 이동">
-							<strong class="fontChange2">대출상환 순서 제대로 알기</strong>
-							<p>저축보다는 대출이 우선순위! 대출상환 순서에 정답이 있다. </p>
-							<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-				
+						<div class="swiper-wrapper">
+							<li class="cnt-item">
+								<a href="/life-stage/inheritance-renunciation.do" title="상세화면으로 이동" class="cnt-link">
+									<h4 class="h-ttl">부모님 빚, 상속포기가 최선일까</h4>
+									<button type="button" class="more">더보기</button>
+								</a>
+							</li>
+							<li class="cnt-item">
+								<a href="/life-stage/debt-inheritance.do" title="상세화면으로 이동" class="cnt-link">
+									<h4 class="h-ttl">빚을 물려받는다고요? 빚 상속 해결 방법은요?</h4>
+									<button type="button" class="more">더보기</button>
+								</a>
+							</li>
+							<li class="cnt-item">
+								<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit006/life_stage_content.html" title="상세화면으로 이동" class="cnt-link">
+									<h4 class="h-ttl">차근차근 준비하는 상속세 재원 준비</h4>
+									<button type="button" class="more">더보기</button>
+								</a>
+							</li>
+							<li class="cnt-item">
+								<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit008/life_stage_content.html" title="상세화면으로 이동" class="cnt-link">
+									<h4 class="h-ttl">금리상승기, 업계와 학계가 바라보는 신용생명보험의 역할</h4>
+									<button type="button" class="more">더보기</button>
+								</a>
+							</li>
 						</div>
 						<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
 						<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
@@ -605,66 +732,7 @@ $(document).ready(function(){
 					<div class="swiper-pagination2 swiper-pagination swiper-pagination-progressbar">
 						<span class="swiper-pagination-progressbar-fill" style="transform: translate3d(0px, 0px, 0px) scaleX(0.25) scaleY(1); transition-duration: 300ms;"></span>
 					</div>
-				</div>
-				<div class="section">
-					<div class="inner bgIvory mt5">
-						<div class="title lifeB_insure">
-						<p>
-						<span class="bigBlue">내 자산 가치 있게 <span class="bold">상속</span>하기 </span></p>
-						</div>
-					</div>
-				</div>
-				<div class="bestProduct">
-					<div class="swiper-container swiper-container-initialized swiper-container-horizontal secondS swiper-container-ios">
-						<div class="swiper-wrapper">
-							<!--<div class="swiper-slide width_33 swiper-slide-active" style="margin-right: 10px;">
-								<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit301/life_stage_content.html
-								" title="상세화면으로 이동">
-								<strong class="fontChange2">빚 대물림 방지법, 들어보셨나요?</strong>
-								<p>미성년자의 채무상환 부담을 줄일 수 있도록 스스로 ‘한정승인’할 수 있는 기회를 주는 제도에 대해 알아봅니다.
-								</p>
-								<p class="plusAdd">더보기</p>
-								</a>
-							</div>-->
-							<div class="swiper-slide width_33 swiper-slide-active" style="margin-right: 10px;">
-								<a href="/life-stage/inheritance-renunciation.do" title="상세화면으로 이동">
-									<strong class="fontChange2">부모님 빚, 상속포기가 최선일까</strong>
-									<p>더 이상 부자의 전유물이 아닌 상속,
-										상속세가 부과되는 구조를 파악하고 우리집 상속 준비 상태를 점검해봅니다.
-									</p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-							<div class="swiper-slide width_33 swiper-slide-next" style="margin-right: 10px;">
-								<a href="/life-stage/debt-inheritance.do" title="상세화면으로 이동">
-									<strong class="fontChange2">빚을 물려받는다고요? 빚 상속 해결 방법은요?</strong>
-									<p>상속 대상에 대해 알아보고, 갑작스런 빚더미로 부터 가족을 보호하기 위한 방법을 확인해봅니다. </p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-							<div class="swiper-slide width_33" style="margin-right: 10px;">
-								<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit006/life_stage_content.html" title="상세화면으로 이동">
-									<strong class="fontChange2">차근차근 준비하는 상속세 재원 준비</strong>
-									<p>현금납부가 원칙인 상속세, 부담을 최소화하며 준비하는 방법을 체크해봅니다. </p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-							<div class="swiper-slide width_33" style="margin-right: 10px;">
-								<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit008/life_stage_content.html" title="상세화면으로 이동">
-									<strong class="fontChange2">금리상승기, 업계와 학계가 바라보는 신용생명보험의 역할</strong>
-									<p>김규동(2022.9.6), 「신용생명보험 현황 및 과제」, 『KIRI리포트』, 보험연구원</p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-						</div>
-						<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-						<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-						<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-					</div>
-					<div class="swiper-pagination2 swiper-pagination swiper-pagination-progressbar">
-						<span class="swiper-pagination-progressbar-fill" style="transform: translate3d(0px, 0px, 0px) scaleX(0.25) scaleY(1); transition-duration: 300ms;"></span>
-					</div>
-				</div>
+				</div> -->
 				<div class="section">
 					<div class="inner bannerSky mt5">
 						<div class="bnCredit">
@@ -674,84 +742,10 @@ $(document).ready(function(){
 					</div>
 				</div>
 				<div class="section">
-					<div class="inner bgPurple mt5">
-						<div class="title lifeB_insure">
-						<p><span class="bold">내 집 마련</span> 꿀팁 시리즈</p>
-						</div>
-					</div>
-				</div>
-				<div class="bestProduct">
-				<div class="swiper-container swiper-container-initialized swiper-container-horizontal thirdS swiper-container-ios">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide width_33 swiper-slide-active" style="margin-right: 10px;">
-							<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit402/life_stage_content.html" title="상세화면으로 이동">
-								<strong class="fontChange2">4가지 키워드로 본 2022년 부동산 결산</strong>
-								<p>집 값 하락, 역 전세난, 미분양, 규제완화 등 키워드를 통해 2022년 부동산 시장을 다시 살펴봅니다.</p>
-								<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-						<div class="swiper-slide width_33 swiper-slide-active" style="margin-right: 10px;">
-							<a href="/life-stage/real-estate-asset-protection.do" title="상세화면으로 이동">
-								<strong class="fontChange2">부동산 자산 보호를 위한 필수템 3종</strong>
-								<p>내 집 마련에 성공했다면 꼭 알아야 하는 우리집 지키미 3총사 - 주택화재, 일상배상, 신용생명보험 - 를 알려드립니다.</p>
-								<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-						<div class="swiper-slide width_33 swiper-slide-active" style="margin-right: 10px;">
-							<a href="/life-stage/home-purchase-checklist.do" title="상세화면으로 이동">
-								<strong class="fontChange2">내 집 마련 전 알아야 할 3가지</strong>
-								<p>평생의 보금자리가 될지도 모를 내 집 마련 전, 꼭 체크해야할 것 3가지를 알려드립니다.</p>
-								<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-						<div class="swiper-slide width_33 swiper-slide-next" style="margin-right: 10px;">
-							<a href="/life-stage/real-estate-payment.do" title="상세화면으로 이동">
-								<strong class="fontChange2">부동산 매매계약 대금지급 필수 확인 3가지</strong>
-								<p>부동산 매매 시 사고를 미연에 방지하기 위한 필수 확인 사항을 짚어드립니다.</p>
-								<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-						<div class="swiper-slide width_33" style="margin-right: 10px;">
-							<a href="https://www.cardif.co.kr/life-stage/my-house/cmsContents.do?cmsPath=/cmsHtml/life-stage/LSHOM002M/D005/life_stage_content.html" title="상세화면으로 이동">
-								<strong class="fontChange2">안전한 내 집 마련을 위한 부동산 권리관계</strong>
-								<p>처음 하는 부동산 매매계약! 헷갈리는 부동산 권리 관계 용어 미리 확인해봅니다.</p>
-								<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-						<div class="swiper-slide width_33 swiper-slide-active" style="margin-right: 10px;">
-							<a href="/life-stage/moving-preparation.do" title="상세화면으로 이동">
-								<strong class="fontChange2">이사할 때 완벽 체크리스트</strong>
-								<p>이사 전과 이사 당일 그리고 이사 직후 확인해야 할 10가지 사항들을 알려드립니다.</p>
-								<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-						<div class="swiper-slide width_33 swiper-slide-active" style="margin-right: 10px;">
-							<a href="/life-stage/sick-building-syndrome.do" title="상세화면으로 이동">
-								<strong class="fontChange2">이사 시즌, 새집증후군 예방을 위한 솔루션</strong>
-								<p>꼼꼼하고 철저한 준비로 새집증후군의 위협을 잘 차단하고 이사를 행복하게 마무리하는 방법을 공개합니다. </p>
-								<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-						<div class="swiper-slide width_33 swiper-slide-active" style="margin-right: 10px;">
-							<a href="/life-stage/real-estate-listing-comparison.do" title="상세화면으로 이동">
-								<strong class="fontChange2">부동산 매물비교, 현장확인 체크리스트</strong>
-								<p>관심지역의 매물을 비교하고 실제 현장확인을 나갔을 때 도움이 될 수 있는 체크리스트 확인해봅니다. </p>
-								<p class="plusAdd">더보기</p>
-							</a>
-						</div>
-					</div>
-					<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-					<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-					<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-				</div>
-				<div class="swiper-pagination3 swiper-pagination swiper-pagination-progressbar">
-					<span class="swiper-pagination-progressbar-fill" style="transform: translate3d(0px, 0px, 0px) scaleX(0.166667) scaleY(1); transition-duration: 300ms;"></span></div>
-				</div>
-				<div class="section">
 					<div class="inner bgBlueR mt5">
 						<div class="title lifeB_insure">
 							<p>
-								<span class="bigBlue">과장없는 <span class="bold">과장일기 시즌 2</span> (웹툰)</span>
+								
 							</p>
 						</div>
 					</div>
