@@ -129,6 +129,8 @@ $(document).ready(function(){
 				.lifeStageMain{background-color: #ffffff !important; margin-top: 0 !important; padding-top: 0;}
 				.bgWhite{background-color: #ffffff !important;}
 				.bgGreen{background-color: #00915a !important;}
+				.f-inherit { font-weight: inherit;}
+				.color-green{color: #00915a;}
 				.swipe-wrap.wideView{background-color: #ffffff; padding-top: 0rem; min-height: auto;}
 				/* .viewArea .swipe-wrap.bgWhite .swiper-container{margin-top: 0;} */
 				.section .inner.bgSkyblue{background-color: #008485!important; max-height: 80px; border-radius: 10px;}
@@ -136,8 +138,8 @@ $(document).ready(function(){
 				.section .inner.bgPurple{background-color:  #925fc0!important; max-height: 80px; border-radius: 10px;}
 				.section .inner.bgBlueR{background-color:  #3758c8!important; max-height: 80px; border-radius: 10px;}
 				.section .inner.bannerSky{background:url(../../img/신용케어가이드/grade_moneyM.png) no-repeat right bottom -10px/20%#d5ebff!important; height: 160px; border-radius: 10px;}
-				.section .inner.bannerG{background:url(https://www.cardif.co.kr/cmsHtml/company/csr_activity/banner_2022creditccare_aca.png) no-repeat right bottom/20%#e3f3ef!important;height: 160px; border-radius: 10px;  }
-				.section .inner.bannerY{background:url(../../img/신용케어가이드/building_money.png) no-repeat right bottom/20%#ffe6c2!important;height: 160px; border-radius: 10px;}
+				.section .bannerG{background:url(https://www.cardif.co.kr/cmsHtml/company/csr_activity/banner_2022creditccare_aca.png) no-repeat right bottom/20%#e3f3ef!important;height: 160px; border-radius: 10px;  }
+				.section .bannerY{background:url(../../img/신용케어가이드/building_money.png) no-repeat right bottom/20%#ffe6c2!important;height: 160px; border-radius: 10px;}
 				
 				/* .swiper-wrapper .swiper-slide.width_33{width: 33.333333%; position: relative;}
 				.swiper-wrapper .swiper-slide.width_33 strong{font-size: 2rem; line-height: 1.5; letter-spacing: -0.4px;} */
@@ -181,16 +183,16 @@ $(document).ready(function(){
 				/*//20230324 신용케어 가이드 목록 원복 */
 
 				/* 홈페이지 리뉴얼 */
-				.wideView .section { padding: 0 2rem;}
+				.wideView .section[class*='sec'] { padding: 0 2rem; background: none;}
 				.section .ttl-sec-area { margin-bottom: 4rem;}
 				.section .ttl-sec-area .h-ttl { font-weight: 700; font-size: 2.8rem; line-height: 4rem; letter-spacing: -0.01em; color: #000;}
 				.section .cnt-area { margin-bottom: 12rem;}
 				.section .dropdown { background-color: #F7F8F9; border-radius: 1.6rem;}
-				.section .dropdown .cnt-info-hdr::after { content: ''; display: none; position: absolute; bottom: 3.6rem; left: 54.58333333333333%; width: 30rem; height: 21.2rem; background-repeat: no-repeat; background-position: center center; background-size: 100% auto; pointer-events: none;}
+				.section .dropdown .cnt-info-hdr::after { content: ''; display: none; position: absolute; bottom: 0; right: 24.5rem; width: 36rem; height: 24.8rem; background-repeat: no-repeat; background-position: center center; background-size: 100% auto; pointer-events: none;}
 				.section .dropdown + .dropdown { margin-top: 2.4rem;}
 				.section .dropdown + .dropdown.open { margin-top: 9.2rem;}
 				.section .dropdown .cnt-info-hdr { display: flex; justify-content: space-between; position: relative; z-index: 5; padding: 4rem; padding-right: 3rem; border-radius: 1.6rem; border: 1px solid #DBDFE1; background-color: #fff; cursor: pointer;}
-				.section .dropdown .cnt-info-hdr::before { content: ''; display: block; position: absolute; top: 0; left: 0; z-index: -1; width: 100%; height: 100%; background-image: url('/cmsHtml/product/igvac001m/image/bg_sec2_green.png'); background-repeat: no-repeat; background-position: center 35%; background-size: auto 100%;}
+				.section .dropdown .cnt-info-hdr::before { content: ''; display: block; position: absolute; top: 0; left: 0; z-index: -1; width: 100%; height: 100%; background-repeat: no-repeat; background-position: center 35%; background-size: auto 100%;}
 				.section .dropdown.open .cnt-info-hdr::after { display: block;}
 				.section .dropdown .cnt-info-hdr .h-ttl { font-size: 3.2rem; line-height: 4.6rem; color: #000;}
 				.section .dropdown.open .cnt-info-hdr .h-ttl { color: #fff;}
@@ -201,28 +203,36 @@ $(document).ready(function(){
 				.section .dropdown .cnt-info-hdr .btn-cate::after { content: ''; display: inline-block; width: 2.4rem; height: 2.4rem; border-radius: 100%; background: url('/cmsHtml/product/igvac001m/image/ico_arw_bottom_black.svg') no-repeat center center / 2rem 2rem #fff; transition: transform .4s;}
 				.section .dropdown.open .cnt-info-hdr .btn-cate::after { transform: rotate(180deg);}
 				.section .dropdown .cnt-info-body { display: none; padding: 3.2rem 4rem;}
+				.section .dropdown .cnt-info-body .cnt-item { padding-bottom: 3.2rem;}
+				.section .dropdown .cnt-info-body .cnt-item:last-child { padding-bottom: 0;}
 				.section .dropdown .cnt-info-body .cnt-item + .cnt-item { padding-top: 3.2rem; border-top: 1px solid #E6E6E6;}
 				.section .dropdown .cnt-info-body .cnt-item .h-ttl { font-size: 2rem; line-height: 3.2rem; color: #000;}
 				.section .dropdown .cnt-info-body .cnt-item .cnt-link { display: flex; justify-content: space-between; align-items: center;}
-				.section .dropdown .cnt-info-body .cnt-item .more { display: flex; align-items: center; gap: .8rem; position: relative; font-size: 1.6rem; line-height: 2.6rem; color: #000;}
+				.section .dropdown .cnt-info-body .cnt-item .more { display: flex; align-items: center; gap: .8rem; position: relative; font-size: 1.6rem; line-height: 2.6rem; color: #000; background: none;}
 				.section .dropdown .cnt-info-body .cnt-item .more::after { content: ''; display: inline-block; width: 2rem; height: 2rem; background: url('/cmsHtml/product/igvac001m/image/icon_more.svg') no-repeat center center / 100% auto;}
 
-				.section .dropdown.open:nth-child(1) .cnt-info-hdr { background-color: #00965E;}
-				.section .dropdown.open:nth-child(2) .cnt-info-hdr { background-color: #F1875A;}
-				.section .dropdown.open:nth-child(3) .cnt-info-hdr { background-color: #147394;}
-				.section .dropdown.open:nth-child(4) .cnt-info-hdr { background-color: #186F65;}
-				.section .dropdown.open:nth-child(5) .cnt-info-hdr { background-color: #E35053;}
-				.section .dropdown.open:nth-child(1) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_01.png');}
-				.section .dropdown.open:nth-child(2) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_02.png');}
-				.section .dropdown.open:nth-child(3) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_03.png');}
-				.section .dropdown.open:nth-child(4) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_04.png');}
-				.section .dropdown.open:nth-child(5) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_05.png');}
-				.section .dropdown:nth-child(1) .cnt-info-hdr::after { bottom: -2.4rem; width: 36rem; height: 27.2rem;}
-				.section .dropdown:nth-child(1) .cnt-info-hdr::after { background-image: url('../../img/신용케어가이드/bg_dropdown_01_white.png');}
-				.section .dropdown:nth-child(2) .cnt-info-hdr::after { background-image: url('../../img/신용케어가이드/bg_dropdown_02_white.png');}
-				.section .dropdown:nth-child(3) .cnt-info-hdr::after { background-image: url('../../img/신용케어가이드/bg_dropdown_03_white.png');}
-				.section .dropdown:nth-child(4) .cnt-info-hdr::after { background-image: url('../../img/신용케어가이드/bg_dropdown_04_white.png');}
-				.section .dropdown:nth-child(5) .cnt-info-hdr::after { background-image: url('../../img/신용케어가이드/bg_dropdown_05_white.png');}
+				.section.sec02 .dropdown.open:nth-child(1) .cnt-info-hdr { background-color: #00965E;}
+				.section.sec02 .dropdown.open:nth-child(2) .cnt-info-hdr { background-color: #F1875A;}
+				.section.sec02 .dropdown.open:nth-child(3) .cnt-info-hdr { background-color: #147394;}
+				.section.sec02 .dropdown.open:nth-child(4) .cnt-info-hdr { background-color: #186F65;}
+				.section.sec02 .dropdown.open:nth-child(5) .cnt-info-hdr { background-color: #E35053;}
+				.section.sec02 .dropdown:nth-child(1) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_01.png');}
+				.section.sec02 .dropdown:nth-child(2) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_02.png');}
+				.section.sec02 .dropdown:nth-child(3) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_03.png');}
+				.section.sec02 .dropdown:nth-child(4) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_04.png');}
+				.section.sec02 .dropdown:nth-child(5) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_05.png');}
+				.section.sec02 .dropdown.open:nth-child(1) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_01_white.png');}
+				.section.sec02 .dropdown.open:nth-child(2) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_02_white.png');}
+				.section.sec02 .dropdown.open:nth-child(3) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_03_white.png');}
+				.section.sec02 .dropdown.open:nth-child(4) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_04_white.png');}
+				.section.sec02 .dropdown.open:nth-child(5) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_05_white.png');}
+				.section.sec02 .dropdown + .dropdown.open:nth-child(4) { margin-top: 11.9rem;}
+				.section.sec02 .dropdown:nth-child(4) .cnt-info-hdr::after { height: 27.2rem;}
+				.section.sec02 .dropdown:nth-child(1) .cnt-info-hdr::after { background-image: url('../../img/신용케어가이드/img_dropdown_01.png');}
+				.section.sec02 .dropdown:nth-child(2) .cnt-info-hdr::after { background-image: url('../../img/신용케어가이드/img_dropdown_02.png');}
+				.section.sec02 .dropdown:nth-child(3) .cnt-info-hdr::after { background-image: url('../../img/신용케어가이드/img_dropdown_03.png');}
+				.section.sec02 .dropdown:nth-child(4) .cnt-info-hdr::after { background-image: url('../../img/신용케어가이드/img_dropdown_04.png');}
+				.section.sec02 .dropdown:nth-child(5) .cnt-info-hdr::after { background-image: url('../../img/신용케어가이드/img_dropdown_05.png');}
 				
 				.section.sec01 { margin-top: 7rem;}
 				.section.sec01 .cnt-list { display: flex; flex-wrap: wrap; position: relative; z-index: 1; width: 100%; height: 100%; box-sizing: content-box; transition-property: transform; transform: translate3d(0px, 0, 0);}
@@ -240,6 +250,8 @@ $(document).ready(function(){
 				.section.sec01 .cnt-list .cnt-item .txt { display: -webkit-box; margin-top: .8rem; overflow: hidden; text-overflow: ellipsis; font-size: 1.6rem; line-height: 2.6rem; letter-spacing: -1px; -webkit-line-clamp: 2; -webkit-box-orient: vertical; color:#000;}
 				.section.sec01 .cnt-list .cnt-item .ico { display: block; width: 100%; height: 10rem; background-repeat: no-repeat; background-position: center right; background-size: auto 100%;}
 
+				.section.sec04 .cnt-area { display: flex; flex-direction: column; gap: 24px;}
+				.section.sec04 .inner .bannerLoan { background: url('/cmsHtml/life-stage/floating_banner/image/bg_floating_bnr_2312.png') no-repeat right bottom!important;height: 160px; border-radius: 10px;}
 				/* // 홈페이지 리뉴얼 */
 				
 				/* 모바일 css */
@@ -292,6 +304,60 @@ $(document).ready(function(){
 					.fixed_type {width:calc(100% - 40px);}
 					.fixed_type button {width:2.4rem;height:2.4rem;}
 					/* //20230426 배너 고정 추가*/
+
+					/* 홈페이지 리뉴얼 */
+					.section .ttl-sec-area { margin-bottom: 3rem;}
+					.section .ttl-sec-area .h-ttl { font-size: 2rem; line-height: 1.45;}
+					.section .cnt-area { margin-bottom: 6rem;}
+					.section .dropdown + .dropdown { margin-top: 1.6rem;}
+					.section .dropdown + .dropdown.open { margin-top: 6.6rem;}
+					.section .dropdown .cnt-info-hdr { flex-direction: column; padding: 2rem; padding-right: 2rem;}
+					.section .dropdown .cnt-info-hdr::before { width: 32.6rem; height: 24.2rem; background-position: 115px 0; background-size: 100% auto; pointer-events: none;}
+					.section .dropdown .cnt-info-hdr::after { top: -2.6rem; bottom: unset; right: -2rem; width: 16rem; height: 11.4rem;}
+					.section .dropdown .cnt-info-hdr .h-ttl { margin-bottom: 4rem; font-size: 2rem; line-height: 3.4rem;}
+					.section .dropdown .cnt-info-hdr .btn-cate { font-size: 1.4rem; line-height: 2rem;}
+					.section .dropdown .cnt-info-hdr .btn-cate::after { width: 2rem; height: 2rem; background: url('/cmsHtml/product/igvac001m/image/ico_arw_bottom_black.svg') no-repeat center center / 1.6rem 1.5rem #fff;}
+					.section .dropdown .cnt-info-body { padding: 2rem;}
+					.section .dropdown .cnt-info-body .cnt-item { padding-bottom: 1.6rem;}
+					.section .dropdown .cnt-info-body .cnt-item + .cnt-item { padding-top: 1.6rem;}
+					.section .dropdown .cnt-info-body .cnt-item .h-ttl { font-size: 1.6rem; line-height: 3.2rem;}
+					.section .dropdown .cnt-info-body .cnt-item .cnt-link { align-items: start; flex-direction: column; text-align: left;}
+					.section .dropdown .cnt-info-body .cnt-item .more { margin-left: auto;}
+
+					.section.sec01 { margin-top: 7rem;}
+					.section.sec01 .cnt-list { display: flex; flex-wrap: wrap; position: relative; z-index: 1; width: 100%; height: 100%; box-sizing: content-box; transition-property: transform; transform: translate3d(0px, 0, 0);}
+					.section.sec01 .cnt-list .cnt-item { position: relative; z-index: 5; width: 33.33%; height: 39.6rem; padding: 0; border-right: 1px solid #e6e6e6;}
+					.section.sec01 .cnt-list .cnt-item:nth-child(3n) { border-right: none}
+					.section.sec01 .cnt-list .cnt-item:nth-child(n+4) { border-top: 1px solid #e6e6e6;}
+					.section.sec01 .cnt-list .cnt-item::before { content: ''; display: block; position: absolute; z-index: -1; opacity: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(255,255,255,0) 36%, rgba(138,202,187,0.8) 100%); transition: opacity .4s; user-select: none; pointer-events: none;}
+					.section.sec01 .cnt-list .cnt-item:hover::before { opacity: 1;}
+					.section.sec01 .cnt-list .cnt-item .cnt-link { display: flex; flex-direction: column; width: 100%; height: 100%; min-height: 32.2rem; padding: 4.4rem; border: none;}
+					.section.sec01 .cnt-list .cnt-item:nth-child(3n+1) .cnt-link { padding-left: 0;}
+					.section.sec01 .cnt-list .cnt-item:nth-child(n+4) .cnt-link { padding-top: 4.4rem;}
+					.section.sec01 .cnt-list .cnt-item .cnt-link .txt-area { flex: 1; position: static; width: 100%; height: unset; border-radius: 0; overflow: visible;}
+					.section.sec01 .cnt-list .cnt-item .keyword { position: static; padding: .2rem .8rem; border-radius: .5rem; font-size: 16px; line-height: 2.6rem; color: #000; background-color: rgba(0, 145, 90, .1);}
+					.section.sec01 .cnt-list .cnt-item .tit { display: block; width: 100%; padding-top: 2.4rem; font-weight: 700; font-size: 2rem; line-height: 3.2rem; letter-spacing: -1px;}
+					.section.sec01 .cnt-list .cnt-item .txt { display: -webkit-box; margin-top: .8rem; overflow: hidden; text-overflow: ellipsis; font-size: 1.6rem; line-height: 2.6rem; letter-spacing: -1px; -webkit-line-clamp: 2; -webkit-box-orient: vertical; color:#000;}
+					.section.sec01 .cnt-list .cnt-item .ico { display: block; width: 100%; height: 10rem; background-repeat: no-repeat; background-position: center right; background-size: auto 100%;}
+
+					.section.sec02 .dropdown:nth-child(1) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_01.png');}
+					.section.sec02 .dropdown:nth-child(2) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_02.png');}
+					.section.sec02 .dropdown:nth-child(3) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_03.png');}
+					.section.sec02 .dropdown:nth-child(4) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_04.png');}
+					.section.sec02 .dropdown:nth-child(5) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_05.png');}
+					.section.sec02 .dropdown.open:nth-child(1) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_01_white.png');}
+					.section.sec02 .dropdown.open:nth-child(2) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_02_white.png');}
+					.section.sec02 .dropdown.open:nth-child(3) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_03_white.png');}
+					.section.sec02 .dropdown.open:nth-child(4) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_04_white.png');}
+					.section.sec02 .dropdown.open:nth-child(5) .cnt-info-hdr::before { background-image: url('../../img/신용케어가이드/bg_dropdown_05_white.png');}
+					.section.sec02 .dropdown + .dropdown.open:nth-child(4) { margin-top: 6.6rem;}
+					.section.sec02 .dropdown:nth-child(4) .cnt-info-hdr::after { height: 12.4rem;}
+
+					.section.sec03 .ttl-sec-area { padding-left: 2rem;}
+					
+					.section.sec04 .cnt-area { display: flex; flex-direction: column; gap: 24px;}
+					.section.sec04 .inner .bannerLoan { background: url('/cmsHtml/life-stage/floating_banner/image/bg_floating_bnr_2312.png') no-repeat right bottom!important;height: 160px; border-radius: 10px;}
+					/* // 홈페이지 리뉴얼 */
 				}
 				.swiper-wrapper .swiper-slide strong.fontChange2{font-size: 2rem;}
 				
@@ -344,16 +410,16 @@ $(document).ready(function(){
 					// 		type: "progressbar",
 					// 	},
 					// });
-					// var swiper = new Swiper(".fifthS", {
-					// 	slidesPerView: "auto",
-					// 	spaceBetween: 10,
-					// 	observer: true,
-					// 	observeParents: true,
-					// 	pagination: {
-					// 		el: ".fifthS + .swiper-pagination",
-					// 		type: "progressbar",
-					// 	},
-					// });
+					var swiper = new Swiper(".fifthS", {
+						slidesPerView: "auto",
+						spaceBetween: 10,
+						observer: true,
+						observeParents: true,
+						pagination: {
+							el: ".fifthS + .swiper-pagination",
+							type: "progressbar",
+						},
+					});
 					
 					/* 20230426 배너 고정 추가 */
 					// $('.section.fixed_type button').click(function(e){
@@ -460,7 +526,7 @@ $(document).ready(function(){
 						</div>
 					</div>
 				</div>
-				<div class="section">
+				<div class="section sec02">
 					<div class="inner">
 						<div class="ttl-sec-area">
 							<h2 class="h-ttl">신용관리 라이브러리</h2>
@@ -584,31 +650,31 @@ $(document).ready(function(){
 											</a>
 										</li>-->
 										<li class="cnt-item">
-											<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit202/life_stage_content.html" title="상세화면으로 이동">
+											<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit202/life_stage_content.html" title="상세화면으로 이동" class="cnt-link">
 												<h4 class="h-ttl">대출자라면 꼭 알아야하는 이자계산서가 있다?!</h4>
 												<button type="button" class="more">더보기</button>
 											</a>
 										</li>
 										<li class="cnt-item">
-											<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit201/life_stage_content.html" title="상세화면으로 이동">
+											<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit201/life_stage_content.html" title="상세화면으로 이동" class="cnt-link">
 												<h4 class="h-ttl">대출금리 줄이는 방법, 금리인하요구권 제대로 알고 활용하자!</h4>
 												<button type="button" class="more">더보기</button>
 											</a>
 										</li>
 										<li class="cnt-item">
-											<a href="https://www.cardif.co.kr/life-stage/wealth-building/cmsContents.do?cmsPath=/cmsHtml/life-stage/LSAST002M/D0019/life_stage_content.html" title="상세화면으로 이동">
+											<a href="https://www.cardif.co.kr/life-stage/wealth-building/cmsContents.do?cmsPath=/cmsHtml/life-stage/LSAST002M/D0019/life_stage_content.html" title="상세화면으로 이동" class="cnt-link">
 												<h4 class="h-ttl">주택담보대출 상환방식과 대출이자 줄이는 방법</h4>
 												<button type="button" class="more">더보기</button>
 											</a>
 										</li>
 										<li class="cnt-item">
-											<a href="/life-stage/credit-loan-overdraft.do" title="상세화면으로 이동">
+											<a href="/life-stage/credit-loan-overdraft.do" title="상세화면으로 이동" class="cnt-link">
 												<h4 class="h-ttl">신용대출과 마이너스 통장 차이점</h4>
 												<button type="button" class="more">더보기</button>
 											</a>
 										</li>
 										<li class="cnt-item">
-											<a href="/life-stage/loan-repayment-order.do" title="상세화면으로 이동">
+											<a href="/life-stage/loan-repayment-order.do" title="상세화면으로 이동" class="cnt-link">
 												<h4 class="h-ttl">대출상환 순서 제대로 알기</h4>
 												<button type="button" class="more">더보기</button>
 											</a>
@@ -684,268 +750,144 @@ $(document).ready(function(){
 									<button type="button" class="btn-cate">카테고리 펼쳐보기</button>
 								</div>
 								<div class="cnt-info-body">
-									<!-- <ul class="cnt-list">
+									<ul class="cnt-list">
 										<li class="cnt-item">
-											<a href="#" class="cnt-link">
-												<h4 class="h-ttl"></h4>
+											<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/product/IGCRD003M/D0013/life_stage_content.html" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">박과장의 내집은 어디에 ep01</h4>
 												<button type="button" class="more">더보기</button>
 											</a>
 										</li>
-									</ul> -->
+										<li class="cnt-item">
+											<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/product/IGCRD003M/D0014/life_stage_content.html" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">박과장의 내집은 어디에 ep02</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/product/IGCRD003M/D0015/life_stage_content.html" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">박과장의 내집은 어디에 ep03</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/product/IGCRD003M/D0016/life_stage_content.html" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">박과장의 내집은 어디에 ep04 </h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+										<li class="cnt-item">
+											<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/product/IGCRD003M/D0017/life_stage_content.html" title="상세화면으로 이동" class="cnt-link">
+												<h4 class="h-ttl">박과장의 내집은 어디에 ep05</h4>
+												<button type="button" class="more">더보기</button>
+											</a>
+										</li>
+									</ul>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!-- <div class="bestProduct">
-					<div class="swiper-container swiper-container-initialized swiper-container-horizontal secondS swiper-container-ios">
-						<div class="swiper-wrapper">
-							<li class="cnt-item">
-								<a href="/life-stage/inheritance-renunciation.do" title="상세화면으로 이동" class="cnt-link">
-									<h4 class="h-ttl">부모님 빚, 상속포기가 최선일까</h4>
-									<button type="button" class="more">더보기</button>
-								</a>
-							</li>
-							<li class="cnt-item">
-								<a href="/life-stage/debt-inheritance.do" title="상세화면으로 이동" class="cnt-link">
-									<h4 class="h-ttl">빚을 물려받는다고요? 빚 상속 해결 방법은요?</h4>
-									<button type="button" class="more">더보기</button>
-								</a>
-							</li>
-							<li class="cnt-item">
-								<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit006/life_stage_content.html" title="상세화면으로 이동" class="cnt-link">
-									<h4 class="h-ttl">차근차근 준비하는 상속세 재원 준비</h4>
-									<button type="button" class="more">더보기</button>
-								</a>
-							</li>
-							<li class="cnt-item">
-								<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit008/life_stage_content.html" title="상세화면으로 이동" class="cnt-link">
-									<h4 class="h-ttl">금리상승기, 업계와 학계가 바라보는 신용생명보험의 역할</h4>
-									<button type="button" class="more">더보기</button>
-								</a>
-							</li>
+				<!-- 유용한 자료들 -->
+				<div class="section sec03 bestProduct">
+					<div class="ttl-sec-area">
+						<h2 class="h-ttl">유용한 자료들</h2>
+					</div>
+					<div class="cnt-area">
+						<div class="swiper-container swiper-container-initialized swiper-container-horizontal fifthS swiper-container-ios">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide width_33" style="margin-right: 10px;">
+									<a href="/life-stage/solution-for-the-villa-king-crisis.do" title="상세화면으로 이동">
+										<strong class="fontChange2">신용생명보험, ‘빌라왕 사태’ 대책이 될 수 있을까?</strong>
+										<p>최승재 의원 주최 ‘신용생명보험 활성화를 위한 정책토론회’</p>
+										<p class="plusAdd">더보기</p>
+									</a>
+								</div>
+								<div class="swiper-slide width_33" style="margin-right: 10px;">
+									<a href="/life-stage/3000-trillion-household-debt.do" title="상세화면으로 이동">
+										<strong class="fontChange2">가계부채 3000조 시대···신용보험 활성화대책 서둘러야 한다</strong>
+										<p>저작권자 ⓒ 보험신보</p>
+										<p class="plusAdd">더보기</p>
+									</a>
+								</div>
+								<div class="swiper-slide width_33" style="margin-right: 10px;">
+									<a href="/life-stage/efficient-debt-management-alternative.do" title="상세화면으로 이동">
+										<strong class="fontChange2">'신용보험'은 효율적 부채관리의 대안이다</strong>
+										<p>저작권자 ⓒ 보험신보</p>
+										<p class="plusAdd">더보기</p>
+									</a>
+								</div>
+								<div class="swiper-slide width_33" style="margin-right: 10px;">
+									<a href="/life-stage/the-role-of-credit-life-insurance.do" target="_blank" title="상세화면으로 이동">
+										<strong class="fontChange2">금리상승기, 업계와 학계가 바라보는 신용생명보험의 역할</strong>
+										<p>김규동(2022.9.6), 「신용생명보험 현황 및 과제」, 『KIRI리포트』, 보험연구원</p>
+										<p class="plusAdd">더보기</p>
+									</a>
+								</div>
+								<div class="swiper-slide width_33 swiper-slide-active" style="margin-right: 10px;">
+									<a href="https://www.kiri.or.kr/publication/list.do?catId=28&docId=1414" target="_blank" title="상세화면으로 이동">
+										<strong class="fontChange2">신용보험 활용과 과제</strong>
+										<p>안철경·정인영(2018. 10. 1), 「신용보험의 활용과 과제」, 『KIRI 리포트』, 보험연구원</p>
+										<p class="plusAdd">더보기</p>
+									</a>
+								</div>
+								<div class="swiper-slide width_33 swiper-slide-next" style="margin-right: 10px;">
+									<a href="https://www.kiri.or.kr/report/reportList.do?catId=4&docId=6271" target="_blank" title="상세화면으로 이동">
+										<strong class="fontChange2">주요국의 신용생명보험 시장과 국내 발전방안</strong>
+										<p>이경희(2021.3), 「주요국의 신용생명보험 시장과 국내 발전방안」, 보험연구원 </p>
+										<p class="plusAdd">더보기</p>
+									</a>
+								</div>
+								<div class="swiper-slide width_33" style="margin-right: 10px;">
+									<a href="https://doi.org/10.22142/atrm.2022.5.2.1" target="_blank" title="상세화면으로 이동">
+										<strong class="fontChange2">2022 국내·외 신용생명보험제도 비교 분석 연구</strong>
+										<p>임소영(2022.2), 「2022 국내외 신용생명보험제도 비교 분석 연구」, 『무역리스크관리』, 성균관대학교 무역연구소</p>
+										<p class="plusAdd">더보기</p>
+									</a>
+								</div>
+								<div class="swiper-slide width_33" style="margin-right: 10px;">
+									<a href="https://www.kiri.or.kr/seminar/dataList.do?docId=6083&searchCon=&searchWord=&page=3" target="_blank" title="상세화면으로 이동">
+										<strong class="fontChange2">국내 신용생명보험 활성화 방안
+										</strong>
+										<p>이경희(2020.12), 국내신용생명보험 활성화방안, 보험연구원 산학세미나 발제자료</p>
+										<p class="plusAdd">더보기</p>
+									</a>
+								</div>
+							</div>
+							<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+							<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+							<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
 						</div>
-						<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-						<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-						<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-					</div>
-					<div class="swiper-pagination2 swiper-pagination swiper-pagination-progressbar">
-						<span class="swiper-pagination-progressbar-fill" style="transform: translate3d(0px, 0px, 0px) scaleX(0.25) scaleY(1); transition-duration: 300ms;"></span>
-					</div>
-				</div> -->
-				<div class="section">
-					<div class="inner bannerSky mt5">
-						<div class="bnCredit">
-						<p class="rightC">내 자산을 지켜줄 신용보험, 그 기원과 현주소</p>
-						<p class="bigBlue">신용보험 최초 개발자, 누굴까?<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/credit007/life_stage_content.html"><strong class="moreWatch">더보기<img src="../../img/신용케어가이드/icon_arrow_right_on@2x.png" alt="더보기"></strong> </a> </p>
-						</div>
-					</div>
-				</div>
-				<div class="section">
-					<div class="inner bgBlueR mt5">
-						<div class="title lifeB_insure">
-							<p>
-								
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="bestProduct">
-					<div class="swiper-container swiper-container-initialized swiper-container-horizontal forthS swiper-container-ios">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide width_33 swiper-slide-active" style="margin-right: 10px;">
-								<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/product/IGCRD003M/D0013/life_stage_content.html" title="상세화면으로 이동">
-									<strong class="fontChange2">박과장의 내집은 어디에 ep01</strong>
-									<p>날씨가 따듯해지면서 집 정리의 시간도 함께 다가왔다…</p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-							<div class="swiper-slide width_33 swiper-slide-next" style="margin-right: 10px;">
-								<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/product/IGCRD003M/D0014/life_stage_content.html" title="상세화면으로 이동">
-									<strong class="fontChange2">박과장의 내집은 어디에 ep02</strong>
-									<p>방이 조금 작아도 거실은 넓었으면 좋겠고.. 요리를 자주 하니까…</p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-							<div class="swiper-slide width_33" style="margin-right: 10px;">
-								<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/product/IGCRD003M/D0015/life_stage_content.html" title="상세화면으로 이동">
-									<strong class="fontChange2">박과장의 내집은 어디에 ep03</strong>
-									<p>초품아, 몰세권, 스테이케이션, 숲세권까지. 우리 집 구할 수 있을까..?</p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-							<div class="swiper-slide width_33" style="margin-right: 10px;">
-								<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/product/IGCRD003M/D0016/life_stage_content.html" title="상세화면으로 이동">
-									<strong class="fontChange2">박과장의 내집은 어디에 ep04 </strong>
-									<p>일단 밥부터 먹자.. 하율아 제발~~ </p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-							<div class="swiper-slide width_33" style="margin-right: 10px;">
-								<a href="/product/cpi-magazine/cmsContents.do?cmsPath=/cmsHtml/product/IGCRD003M/D0017/life_stage_content.html" title="상세화면으로 이동">
-									<strong class="fontChange2">박과장의 내집은 어디에 ep05</strong>
-									<p>“대출 떄문에 걱정이 많아서.. 이렇게 큰 돌 빌리고 무슨 일 생기면.. 우리 가족은 어쩌나 해서..”  </p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-						</div>
-						<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-						<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-						<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-					</div>
-					<div class="swiper-pagination4 swiper-pagination swiper-pagination-progressbar">
-						<span class="swiper-pagination-progressbar-fill" style="transform: translate3d(0px, 0px, 0px) scaleX(0.166667) scaleY(1); transition-duration: 300ms;"></span>
-					</div>
-				</div>
-				<div class="section">
-					<div class="inner bannerG mt5 mb3">
-						<div class="bnCredit">
-							<p class="rightC" style="color:#000000;">금융취약계층의 올바른 신용생활을 돕는</p>
-							<p class="bigGr">2022 신용케어 아카데미 <a href="/company/prbnp202m.do"> <strong class="moreWatch">더보기<img src="../../img/신용케어가이드/icon_arrow_right_on@2x.png" alt="더보기"></strong></a> </p>
+						<div class="swiper-pagination5 swiper-pagination swiper-pagination-progressbar">
+							<span class="swiper-pagination-progressbar-fill" style="transform: translate3d(0px, 0px, 0px) scaleX(0.2) scaleY(1); transition-duration: 300ms;"></span>
 						</div>
 					</div>
 				</div>
+				<!-- 더 알아봐요 -->
 				<!-- 20230426 배너 고정 추가 -->
-				<div class="section">
-					<div class="inner bannerY mt5 mb3">
-						<!-- <button type="button">배너 닫기</button> -->
-						<div class="bnCredit">
-							<p class="myHome"><em>대출금 갚아주는 보험이 있어요!</em></p>
-							<p class="bigBr">
-								(e)대출안심 보장보험(플랜선택형) 
-								<a href="https://online.cardif.co.kr/index.jsp?enterWay=3&partner=L78&package=p001&utm_source=homepage&utm_medium=link&utm_campaign=online_cpi&utm_content=credit_care_guide_banner" target="_blank">
-									<strong class="moreWatch">
-										알아보기
-										<img src="../../img/신용케어가이드/icon_arrow_right_on@2x.png" alt="알아보기">
-									</strong>
-								</a> 
-							</p>
+				<div class="section sec04">
+					<div class="inner">
+						<div class="ttl-sec-area">
+							<h2 class="h-ttl">신용관리 라이브러리</h2>
 						</div>
-					</div>
-				</div>
-				<!-- //20230426 배너 고정 추가 -->
-				<div class="section sub03 subTopM">
-					<div class="inner lineTop">
-						<div class="title">제휴사</div>
-						<div class="listBtnWrap bankNoWrap">
-							<p class="txt">신용관리와 건전한 대출 생태계 조성을 위해 <strong class="inlineD">BNP파리바 카디프생명과 함께합니다.</strong></p>
-							<ul>
-								<li>
-									<a href="javascript:void(0)" class="partner bankVoid" title="핀다" style="pointer-events:none;">
-										<img src="../../img/신용케어가이드/icon_partner_fin.png" alt="핀다 로고">
-										<p class="tit">핀다</p>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)" onclick="" class="partner bankVoid" title="뱅크몰">
-										<img src="../../img/신용케어가이드/icon_partner_mall.png" alt="뱅크몰 로고">
-										<p class="tit">뱅크몰</p>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)" onclick="" class="partner bankVoid" title="하나은행">
-										<img src="../../img/신용케어가이드/icon_bank_hana.png" alt="하나은행 로고">
-										<p class="tit">하나은행</p>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)" onclick="" class="partner bankVoid" title="신한은행">
-										<img src="../../img/신용케어가이드/icon_bank_sh.png" alt="신한은행 로고">
-										<p class="tit">신한은행</p>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)" onclick="" class="partner bankVoid" title="SC제일은행">
-										<img src="../../img/신용케어가이드/icon_bank_sc.png" alt="SC제일은행 로고">
-										<p class="tit">SC제일은행</p>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)" onclick="" class="partner bankVoid" title="케이뱅크로 이동">
-										<img src="../../img/신용케어가이드/icon_bank_kbank.png" alt="케이뱅크 로고">
-										<p class="tit">케이뱅크</p>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)" onclick="" class="partner bankVoid" title="부산은행">
-										<img src="../../img/신용케어가이드/icon_bank_bnk.png" alt="bnk부산은행 로고">
-										<p class="tit">BNK부산은행</p>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="inner lineTop">
-						<div class="title">유용한 자료들</div>
-					</div>
-				</div>
-				<div class="bestProduct">
-					<div class="swiper-container swiper-container-initialized swiper-container-horizontal fifthS swiper-container-ios">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide width_33" style="margin-right: 10px;">
-								<a href="/life-stage/solution-for-the-villa-king-crisis.do" title="상세화면으로 이동">
-									<strong class="fontChange2">신용생명보험, ‘빌라왕 사태’ 대책이 될 수 있을까?</strong>
-									<p>최승재 의원 주최 ‘신용생명보험 활성화를 위한 정책토론회’</p>
-									<p class="plusAdd">더보기</p>
-								</a>
+						<div class="cnt-area">
+							<div class="bannerLoan">
+								<div class="bnrText bnCredit">
+									<p class="bnrLgText"><strong>대출금 갚아주는</strong> 보험이 있어요!</p>
+									<p class="bnrSmText">
+										<b>(e)대출안심 보장보험</b>(플랜선택형) 
+										<a href="https://online.cardif.co.kr/index.jsp?enterWay=3&amp;partner=L78&amp;package=p001&amp;utm_source=homepage&amp;utm_medium=link&amp;utm_campaign=online_cpi&amp;utm_content=신용카드와신용점수" target="_blank" id="floatingBnrLink">
+											<strong class="moreWatch">더보기<img src="../../img/신용케어가이드/icon_arrow_right_on@2x.png" alt="더보기"></strong>
+										</a>
+									</p>
+								</div>
 							</div>
-							<div class="swiper-slide width_33" style="margin-right: 10px;">
-								<a href="/life-stage/3000-trillion-household-debt.do" title="상세화면으로 이동">
-									<strong class="fontChange2">가계부채 3000조 시대···신용보험 활성화대책 서둘러야 한다</strong>
-									<p>저작권자 ⓒ 보험신보</p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-							<div class="swiper-slide width_33" style="margin-right: 10px;">
-								<a href="/life-stage/efficient-debt-management-alternative.do" title="상세화면으로 이동">
-									<strong class="fontChange2">'신용보험'은 효율적 부채관리의 대안이다</strong>
-									<p>저작권자 ⓒ 보험신보</p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-							<div class="swiper-slide width_33" style="margin-right: 10px;">
-								<a href="/life-stage/the-role-of-credit-life-insurance.do" target="_blank" title="상세화면으로 이동">
-									<strong class="fontChange2">금리상승기, 업계와 학계가 바라보는 신용생명보험의 역할</strong>
-									<p>김규동(2022.9.6), 「신용생명보험 현황 및 과제」, 『KIRI리포트』, 보험연구원</p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-							<div class="swiper-slide width_33 swiper-slide-active" style="margin-right: 10px;">
-								<a href="https://www.kiri.or.kr/publication/list.do?catId=28&docId=1414" target="_blank" title="상세화면으로 이동">
-									<strong class="fontChange2">신용보험 활용과 과제</strong>
-									<p>안철경·정인영(2018. 10. 1), 「신용보험의 활용과 과제」, 『KIRI 리포트』, 보험연구원</p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-							<div class="swiper-slide width_33 swiper-slide-next" style="margin-right: 10px;">
-								<a href="https://www.kiri.or.kr/report/reportList.do?catId=4&docId=6271" target="_blank" title="상세화면으로 이동">
-									<strong class="fontChange2">주요국의 신용생명보험 시장과 국내 발전방안</strong>
-									<p>이경희(2021.3), 「주요국의 신용생명보험 시장과 국내 발전방안」, 보험연구원 </p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-							<div class="swiper-slide width_33" style="margin-right: 10px;">
-								<a href="https://doi.org/10.22142/atrm.2022.5.2.1" target="_blank" title="상세화면으로 이동">
-									<strong class="fontChange2">2022 국내·외 신용생명보험제도 비교 분석 연구</strong>
-									<p>임소영(2022.2), 「2022 국내외 신용생명보험제도 비교 분석 연구」, 『무역리스크관리』, 성균관대학교 무역연구소</p>
-									<p class="plusAdd">더보기</p>
-								</a>
-							</div>
-							<div class="swiper-slide width_33" style="margin-right: 10px;">
-								<a href="https://www.kiri.or.kr/seminar/dataList.do?docId=6083&searchCon=&searchWord=&page=3" target="_blank" title="상세화면으로 이동">
-									<strong class="fontChange2">국내 신용생명보험 활성화 방안
-									</strong>
-									<p>이경희(2020.12), 국내신용생명보험 활성화방안, 보험연구원 산학세미나 발제자료</p>
-									<p class="plusAdd">더보기</p>
-								</a>
+							<div class="bannerG">
+								<div class="bnCredit">
+									<p class="rightC" style="color:#000000;">금융취약계층의 올바른 신용생활을 돕는</p>
+									<p class="bigGr">2022 신용케어 아카데미 <a href="/company/prbnp202m.do"> <strong class="moreWatch">더보기<img src="../../img/신용케어가이드/icon_arrow_right_on@2x.png" alt="더보기"></strong></a> </p>
+								</div>
 							</div>
 						</div>
-						<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-						<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-						<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-					</div>
-					<div class="swiper-pagination5 swiper-pagination swiper-pagination-progressbar">
-						<span class="swiper-pagination-progressbar-fill" style="transform: translate3d(0px, 0px, 0px) scaleX(0.2) scaleY(1); transition-duration: 300ms;"></span>
 					</div>
 				</div>
 			</div>
