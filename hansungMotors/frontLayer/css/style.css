@@ -11,6 +11,7 @@
 /* layout */
 #wrap { overflow: hidden; max-width: 750px; min-height: 100dvh; margin: 0 auto;}
 .inner { padding: 0 6.666666666666667vw;}
+.ico { display: block; background-position: center center; background-size: 100% auto; background-repeat: no-repeat;}
 .section-01 { padding-top: 10px;}
 .section-01 .inner { display: flex; justify-content: center; gap: 6.666666666666667vw;}
 .section-01 .left { flex: 1;}
@@ -29,14 +30,14 @@
 .section-01 .info-bdy .txt + .txt { margin-top: 10px;}
 .section-01 .btn-info { display: none; justify-content: center; align-items: center; gap: 1.38vw; width: 100%; padding: 8px;}
 .section-01 .btn-info.active { display: flex;}
-.section-01 .btn-info .ico { display: inline-block; width: 24px; height: 24px; background-repeat: no-repeat; background-position: center center; background-size: 100% auto;}
+.section-01 .btn-info .ico { width: 24px; height: 24px;}
 .section-01 .btn-info .ico-qr { background-image: url('../images/icons/ico_qr.svg');}
 .section-01 .btn-info .ico-user-info { background-image: url('../images/icons/ico_profile.svg');}
 .section-01 .btn-info .txt { font-weight: 700; font-size: 14px; color: var(--fn-gray-6f);}
 .section-01 .right { width: 72px;}
 .section-01 .service-list .service-item + .service-item { margin-top: 20px;}
 .section-01 .btn-service { width: 100%;}
-.section-01 .btn-service .ico { display: inline-block; width: 100%; height: 72px; border-radius: 8px; background-repeat: no-repeat; background-position: center center; background-size: 35px 35px; background-color: var(--fn-gray-f5); box-shadow: inset 1px 1px 5px rgba(0, 0, 0, .1), 0 4px 10px rgba(0, 0, 0, .1);}
+.section-01 .btn-service .ico { height: 72px; border-radius: 8px; background-size: 35px 35px; background-color: var(--fn-gray-f5); box-shadow: inset 1px 1px 5px rgba(0, 0, 0, .1), 0 4px 10px rgba(0, 0, 0, .1);}
 .section-01 .btn-service .ico-phone { background-image: url('../images/icons/ico_phone.svg');}
 .section-01 .btn-service .ico-kakao { background-image: url('../images/icons/ico_kakaotalk.svg');}
 .section-01 .btn-service .ico-map { background-image: url('../images/icons/ico_map.svg');}
@@ -47,6 +48,30 @@
 .tab-wrap .tab-btn { display: inline-block; flex: 1; padding: 3px; border-radius: 8px; font-weight: 700; font-size: 14px; line-height: 34px; color: var(--fn-gray-67);}
 .tab-wrap .tab-btn.active { background-color: var(--fn-deepskyblue); color: var(--fn-white);}
 .tab-wrap .tab-btn .txt { font-weight: inherit; font-size: inherit; color: inherit;}
+
+.section-02 .tab-content { margin-top: 15px;}
+.section-02 .cnt-card .desc-list { margin-top: 10px;}
+.section-02 .cnt-card .p-desc { font-size: 14px; line-height: 1.4; color: var(--fn-darkblue);}
+.section-02 .ico-area { display: flex; gap: 4.8vw; margin-top: 10px;}
+.section-02 .ico-area .ico { width: 40px; height: 40px;}
+.section-02 .ico-area .ico-insta { background-image: url('../images/icons/ico_instagram.svg');}
+.section-02 .ico-area .ico-yt { background-image: url('../images/icons/ico_youtube.svg');}
+.section-02 .ico-area .ico-fb { background-image: url('../images/icons/ico_facebook.svg');}
+
+.cnt-list .cnt-item { padding: 5.333333333333334vw; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, .1);}
+.cnt-card .h-ttl { font-weight: 700; font-size: 14px; color: var(--fn-gray-67);}
+
+.fltg_ftr_wrap { position: fixed; z-index: 200; left: 50%; bottom: 0; width: 100%; max-width: 750px; transform: translateX(-50%);}
+.fltg_ftr { background-color: var(--fn-deepskyblue);}
+.fltg_list { display: flex; width: 100%; padding: 5px 0;}
+.fltg_item { width: 25%;}
+.fltg_item .fltg_btn { display: block; max-width: 60px; margin: 0 auto; text-align: center;}
+.fltg_item .ico { width: 24px; min-width: 24px; height: 24px; margin: 0 auto;}
+.fltg_item .ico_home { background-image: url('../images/icons/ico_home_white.svg');}
+.fltg_item .ico_bookmark { background-image: url('../images/icons/ico_star.svg');}
+.fltg_item .ico_share { background-image: url('../images/icons/ico_share.svg');}
+.fltg_item .ico_download { background-image: url('../images/icons/ico_download.svg');}
+.fltg_item .txt {display: inline-block; margin-top: 5px; font-weight: 700; font-size: 10px; line-height: 1.1; color: var(--fn-white); white-space: nowrap;}
 
 /* step page */
 .step_page,
@@ -218,29 +243,6 @@ body:not(.mode_full) .fbs_body .simplebar-track.simplebar-vertical { opacity: 0 
 .location_item .desc_area + .d_flex .btn { width: auto;}
 .location_panel .location_item { position: relative;}
 .location_panel .location_item .zzim_btn { position: absolute; right: 16px; top: 16px; width: 28px; height: 28px; background-image: url('../images/icons/ico_heart_outline.svg'); background-position: center center; background-size: 100% auto; background-repeat: no-repeat;}
-
-.fltg_ftr_wrap { position: fixed; z-index: 200; left: 50%; bottom: 0; transform: translateX(-50%); width: 100%; max-width: 720px; border-radius: 12px 12px 0 0;}
-.fltg_ftr { border-radius: 12px 12px 0 0; background-color: #4536cb;}
-.fltg_ftr_wrap .btn_area { padding: 0 16px;}
-.fltg_ftr_wrap .btn_area + .fltg_ftr { margin-top: 20px;}
-.fltg_list { display: flex; width: 100%; padding: 8px 7px 9px;}
-.fltg_item { width: 25%;}
-.fltg_item .fltg_btn { display: block; width: 90%; max-width: 80px; margin: 0 auto; text-align: center;}
-.fltg_item .ico { display: block; width: 28px; min-width: 28px; height: 28px; margin: 0 auto; background-position: center center; background-size: 100% auto; background-repeat: no-repeat;}
-.fltg_item .ico_home { background-image: url('../images/icons/ico_home_white.svg');}
-.fltg_item.active .ico_home { background-image: url('../images/icons/ico_home_skyblue.svg');}
-.fltg_item .ico_charger { background-image: url('../images/icons/ico_charger_white.svg');}
-.fltg_item.active .ico_charger { background-image: url('../images/icons/ico_charger_skyblue.svg');}
-.fltg_item .ico_timeline { background-image: url('../images/icons/ico_timeline_white.svg');}
-.fltg_item.active .ico_timeline { background-image: url('../images/icons/ico_timeline_skyblue.svg');}
-.fltg_item .ico_user { background-image: url('../images/icons/ico_user_white.svg');}
-.fltg_item.active .ico_user { background-image: url('../images/icons/ico_user_skyblue.svg');}
-.fltg_item .ico_menu { background-image: url('../images/icons/ico_menu_white.svg');}
-.fltg_item.active .ico_menu { background-image: url('../images/icons/ico_menu_skyblue.svg');}
-.fltg_item .txt { font-weight: 500; font-size: 12px; color: var(--fn-white); white-space: nowrap;}
-.fltg_item.active .txt { color: var(--fn-skyblue);}
-.fltg_item.active .ico_timeline + .txt,
-.fltg_item.active .ico_menu + .txt { color: var(--fn-aqua);}
 
 .map_page { max-width: 720px; height: 100dvh; margin: 0 auto;}
 .map_page .map_inner { display: flex; flex-direction: column; justify-content: space-between; height: 100%;}
