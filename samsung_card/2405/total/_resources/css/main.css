@@ -19,7 +19,7 @@
 --------------------------------------- */
 #contents { width:100%; height:100%; } 
 .section { position: relative; margin-top: -100px; border-top-left-radius: 100px; border-top-right-radius: 100px;}
-.section .inner { width:100%; max-width: calc(1230 / 1920 * 100vw); margin:0 auto; box-sizing:border-box; }
+.section .inner { width:100%; max-width: 1200px; margin:0 auto; padding: 0 25px; box-sizing:border-box;}
 
 /* section01 :: 이벤트 1 -------------- */
 .section01 { position: relative; padding: 95px 0 175px; background: url('../images/web/bg_section01_texture.png') #fcdfd8 repeat center center / 100% auto;}
@@ -27,7 +27,6 @@
 .section01::after { content: ''; display: block; position: absolute; pointer-events: none; user-select: none;}
 .section01::before { width: calc(228 / 1920 * 100vw); height: calc(217 / 1920 * 100vw); top: 0; left: 65.78125vw; background: url('../images/web/bg_sec01.png') no-repeat center center / 100% auto; transform: translateY(-50%);}
 .section01::after { width: 100%; height: 531px; top: -20px; left: 0; z-index: -1; opacity: .5; background: url('../images/web/section01_bg_shadow.png') no-repeat center center / 100% 100%; mix-blend-mode: multiply;}
-.section01 > .inner { padding: 0 40px;}
 .section01 h2 { text-align:center;}
 .section01 .card-item.first { margin-top: 70px;}
 .section01 .card-item { display:flex; align-items: center; justify-content: center; position: relative; margin: 30px 0 0; padding: 35px 0 35px 60px; border: 5px solid #ffa0a0; border-radius: 40px; background:#fff; box-sizing: border-box;}
@@ -106,7 +105,7 @@
 /* section04 :: 이벤트 2 -------------- */
 .section02 { padding: 100px 0 120px; position: relative; z-index: 10; background: url('../images/web/bg_section02_texture.png') repeat center center / 100% auto;}
 .section02::before { content: ''; display: block; position: absolute; top: calc(400 / 1920 * 100vw); right: 0; width: calc(203 / 1920 * 100vw); height: calc(1075 / 1920 * 100vw); background: url('../images/web/section02_bg_01.png') no-repeat center center / 100% auto; pointer-events: none; user-select: none;}
-.section02::after { content: ''; display: block; position: absolute; bottom: calc(-85 / 1920 * 100vw); left: 0; width: calc(990 / 1920 * 100vw); height: calc(700 / 1920 * 100vw); background: url('../images/web/section02_bg_02.png') no-repeat center center / 100% auto; pointer-events: none; user-select: none;}
+.section02::after { content: ''; display: block; position: absolute; bottom: calc(-85 / 1920 * 100vw); left: 0; z-index: -1; width: calc(990 / 1920 * 100vw); height: calc(700 / 1920 * 100vw); background: url('../images/web/section02_bg_02.png') no-repeat center center / 100% auto; pointer-events: none; user-select: none;}
 .section02 .evt_info { padding: 70px 80px; border-color: #ff7777;}
 .section02 dl { margin: 70px 0 0;}
 .section02 dl:nth-of-type(2) { margin: 80px auto 0;}
