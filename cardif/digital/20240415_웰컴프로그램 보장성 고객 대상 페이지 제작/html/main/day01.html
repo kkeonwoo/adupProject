@@ -1,0 +1,881 @@
+<style>
+    /* ********************************** */
+    #contents {font-size:1.8rem;color:#000;line-height:2.6rem;} /*편의를 위한 css 추가*/
+    .textCenter {text-align:center;}
+    .green {color:#00915a;}
+    .pc {display:block;}
+    .m {display:none;}
+    .tlt-t1 {font-size:4rem;line-height:6rem;}
+    .tlt-t1 b {font-weight:700;}
+    .tlt-t2 {font-size:2.4rem;line-height:3.2rem;}
+    
+    /* *******************************
+    [ layout ] main-visual 영역
+    ******************************* */
+    .main-visual {position:relative;height:62.8rem;}
+    .main-visual .banner {position:absolute;left:50%;top:0;bottom:0;width:100vw;margin-left:-50vw;padding-top:6rem;color:#fff;text-align:center;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/img_day1@3x.png) no-repeat center bottom;background-size:cover;}
+    .main-visual .banner .tlt-t1 + .tlt-t2 {margin-top:2rem;}
+    .main-visual .banner nav ul {display:-webkit-flex;display:flex;justify-content:center;align-items:center;position:relative;margin-top:3rem;}
+    .main-visual .banner nav ul li {position:relative;width:4.4rem;height:4.4rem;font-size:1.6rem;line-height:4.4rem;text-align:center;background:#00915a;box-shadow:0 0 0 2px #219f6f inset; border-radius:50%;}
+    .main-visual .banner nav ul li:last-of-type {width:6rem;height:6rem;line-height:6rem;}
+    .main-visual .banner nav ul li[aria-current] {font-weight:bold;background:#fff;box-shadow:0 3px 6px 0 rgba(0,0,0,0.16);}
+    .main-visual .banner nav ul li + li {margin-left:2.6rem;}
+    .main-visual .banner nav ul li + li:before {content:'';display:block;position:absolute;left:-2.6rem;top:calc(50% - 1px);width:2.6rem;height:2px;background:rgba(255,255,255,0.5);}
+    .main-visual .banner nav ul li a {width:100%;height:100%;margin-top:-3px;background:transparent;font-weight:initial;color:#fff;cursor:pointer;}
+    .main-visual .banner nav ul li[aria-current] a {font-weight:700;color:#00915a;}
+    .main-visual .banner > a {display:block;position:absolute;left:calc(50% + 21.8rem);bottom:5rem;width:12.6rem;height:12.6rem;text-indent:-9999rem;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/btn-image01.png) center;background-size:cover;border-radius:50%;overflow:hidden;}
+    
+    .main-visual .banner .new-event-box.fixed { position: fixed; z-index: 100; left: auto; right: 1rem; bottom: 2rem;}
+    
+    /* *******************************
+    [ layout ] 안내 텍스트 영역
+    ******************************* */
+    .desc-t1 {padding:6rem 0;background:#fff;}
+    .desc-t1 .tlt-lv {align-items:center;font-weight:bold;}
+    .desc-t1 .tlt-lv span {display:inline-block;height:3rem;margin-right:2rem;padding:0 2rem;font-size:1.6rem;font-weight:700;color:#fff;line-height:3rem;vertical-align:text-bottom;background:#00915a;border-radius:5rem;}
+    .desc-t1 .tlt-lv + p {margin-top:1rem;}
+    
+    /* *******************************
+    [ layout ] 앱다운로드 영역
+    ******************************* */
+    .desc-t2.bg01 {display:-webkit-flex;display:flex;justify-content:center;align-items:center;padding:2.3rem 0 1rem;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/bg01.png) no-repeat center;background-size:cover;}
+    .desc-t2.bg01 .thumb {width:24rem;height:35.6rem;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/img-mobile.png) center no-repeat;background-size:cover;text-indent:-9999rem;overflow:hidden;}
+    .desc-t2.bg01 .desc {margin-left:3rem;color:#fff;}
+    .desc-t2.bg01 .desc h2 {margin-bottom:2rem;font-weight:700;}
+    .desc-t2.bg01 .desc p + p {margin:1rem 0 3rem;}
+    .desc-t2.bg01 .desc a {display:block;position:relative;max-width:36rem;height:4.4rem;padding:1.2rem 0;font-size:1.4rem;font-weight:700;color:#00915a;line-height:1.4;text-align:center;background:#fff;border-radius:4px;box-shadow:3px 5px 12px 0 rgba(0,0,0,0.15);}
+    .desc-t2.bg01 .desc a:before {content:'';display:block;position:absolute;left:1.2rem;top:50%;margin-top:-1.6rem;width:3.2rem;height:3.2rem;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/icon_download.png) no-repeat center;background-size:cover;}
+    
+    /* *******************************
+    [ layout ] 카디프 안내 토글박스 영역
+    ******************************* */
+    .desc-t3 {padding:6rem 0;background:#f7f8f9;}
+    .desc-t3 h2 {font-weight:700;text-align:center;}
+    .desc-t3 h2 + p {margin:1rem 0 6rem;letter-spacing:-2px;text-align:center;word-break:keep-all;}
+    .desc-t3 h2 + p span {display:inline-block;width:3.1rem;height:2.6rem;margin:0 0.4rem;text-indent:-9999rem;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/icon_finger2.png) no-repeat center;background-size:contain;overflow:hidden;vertical-align:bottom;}
+    
+    /* 휴대폰 이미지 */
+    .desc-t3 .mobile {width:48.5rem;margin:0 auto;  box-shadow:10px 10px 23px 0 rgba(0,0,0,0.2);border-radius:3.4rem;overflow:hidden;}
+    .desc-t3 .mobile > div {padding:3.4rem 1.8rem 6.3rem;box-shadow:-10px -13px 16px 0 rgba(0,0,0,0.09) inset;}
+        /* header */
+    .desc-t3 .mobile header {display:-webkit-flex;display:flex;justify-content:space-between;align-items:center;height:6rem;padding:0 2rem;background:#fff;border-bottom:1px solid #dbdfe1;}
+    .desc-t3 .mobile header .logo {width:24.7rem;height:3.6rem;max-width:21rem;min-height:3rem;text-indent:-9999rem;background:url(https://www.cardif.co.kr/img/common/icon_bnp_logo.png) no-repeat center;background-size:contain;}
+    .desc-t3 .mobile header button {display:block;position:relative;width:2.4rem;height:2.2rem;border-top:2px solid #000;border-bottom:2px solid #000;color:transparent;background:#fff;transform:scale(0.8);overflow:hidden;}
+    .desc-t3 .mobile header button:before {content:'';position:absolute;top:50%;left:0;width:100%;height:2px;margin-top:-1px;background:#000;}
+    
+        /* contents */
+    .desc-t3 .mobile .m-container {padding:5rem 2rem 3rem;background:#fff;}
+    .desc-t3 .mobile .m-container p {margin-bottom:4rem;font-size:2.6rem;font-weight:700;letter-spacing:-2px;}
+    .desc-t3 .mobile .m-container a {display:block;position:relative;padding:0 5rem;letter-spacing:-1px;pointer-events:none;}
+    .desc-t3 .mobile .m-container a:before {content:'';display:block;position:absolute;top:0;left:0;width:3.6rem;height:3.6rem;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/icon_flag.png) no-repeat center;background-size:contain;}
+    .desc-t3 .mobile .m-container a:after  {content:'';display:inline-block;position:absolute;top:0.2rem;right:2rem;width:2.4rem;height:2.4rem;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/icon_arrow_right_on.png) no-repeat center;background-size:100%;}
+    
+    .desc-t3 .mobile .m-toggle-container {padding:2.7rem 2.2rem;background:#f7f8f9;}
+    .desc-t3 .mobile .m-toggle-container .toggle-box > button {display:block;position:relative;width:100%;height:12rem;margin-bottom:1.4rem;padding:2rem;color:#fff;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/btn_bg01.png) center;background-size:cover;border-radius:1.5rem;box-shadow:0 3px 6px 0 rgba(0,0,0,0.08);cursor:pointer;}
+    .desc-t3 .mobile .m-toggle-container .toggle-box > button:before {content:'';display:block;position:absolute;z-index:5;bottom:1.2rem;left:50%;width:7rem;height:5.8rem;margin-left:-3.7rem;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/icon_finger.png) no-repeat center;background-size:100%;}
+    .desc-t3 .mobile .m-toggle-container .toggle-box > button span:first-of-type {display:block;position:absolute;left:2.2rem;top:1.7rem;font-weight:700;}
+    .desc-t3 .mobile .m-toggle-container .toggle-box > button:after {content:'';display:block;position:absolute;left:50%;bottom:3.2rem;margin-left:calc(-1.8rem - 1.6rem);width:3.4rem;height:3.4rem;border-radius:50%;}
+    .desc-t3 .mobile .m-toggle-container .toggle-box > button span.etc {display:block;position:absolute;top:1.7rem;right:2.2rem;font-size:1.6rem;line-height:1.4;letter-spacing:-2px;}
+    .desc-t3 .mobile .m-toggle-container .toggle-box > button em {display:block;position:absolute;right:2rem;bottom:1.8rem;font-size:2.6rem;line-height:5rem;}
+    .desc-t3 .mobile .m-toggle-container .toggle-box > button em:after {content:'';display:inline-block;width:2.4rem;height:2.4rem;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/icon_arrow_right_on_white.png) no-repeat center;background-size:contain;transform:translateY(3px);}
+    .desc-t3 .mobile .m-toggle-container .toggle-box > button em strong {margin-right:5px;font-weight:700;font-size:3.4rem;line-height:5rem;vertical-align:bottom;}
+    .desc-t3 .mobile .m-toggle-container .toggle-box ~ .toggle-box:nth-of-type(2) ~  .toggle-box > button {color:#000;background:#fff;}
+    .desc-t3 .mobile .m-toggle-container .toggle-box ~ .toggle-box:nth-of-type(2) ~  .toggle-box > button em:after {background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/icon_arrow_right_on.png) no-repeat center;background-size:contain;}
+    
+    .desc-t3 .mobile .toggle-box > div {display:none;position:relative;margin-bottom:1.5rem;padding:2rem;background:#fff;border:1px solid #2862d5;border-radius:1rem;}
+    .desc-t3 .mobile .toggle-box > div button {position:absolute;top:2rem;right:1.8rem;width:2.6rem;height:2.6rem;background:#fff;text-indent:-9999rem;cursor:pointer;}
+    .desc-t3 .mobile .toggle-box > div button:before {content:'';display:block;position:absolute;top:1.2rem;right:3px;width:2rem;height:2px;background:#333;transform:rotate(45deg);}
+    .desc-t3 .mobile .toggle-box > div button:after {content:'';display:block;position:absolute;top:1.2rem;right:3px;width:2rem;height:2px;background:#333;transform:rotate(-45deg);}
+    .desc-t3 .mobile .toggle-box > div h3 {margin-bottom:1rem;font-size:2rem;font-weight:700;color:#00915a;line-height:2.6rem;}
+    .desc-t3 .mobile .toggle-box > div p {font-size:1.8rem;line-height:2.6rem;letter-spacing:-2px;}
+    .desc-t3 .mobile .toggle-box > div p + p {margin-top:1rem;}
+    .desc-t3 .mobile .toggle-box > div p strong {font-weight:700;}
+    .desc-t3 .mobile .toggle-box > div a {display:block;position:relative;margin-top:2rem;padding-right:2.5rem;color:#00915a;text-decoration:underline;}
+    .desc-t3 .mobile .toggle-box > div a:after {content:'';display:block;position:absolute;right:0;top:0.4rem;width:2rem;height:2rem;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/icon_arrow_right_on_black.png) no-repeat right top;background-size:contain;}
+    
+    html body .desc-t3 .mobile .toggle-box.variable-fund-toggle-box > button::before,
+    html body .desc-t3 .mobile .toggle-box.variable-fund-toggle-box > button::after { display: none;}
+    html body .desc-t3 .mobile .toggle-box.variable-fund-toggle-box > button { height: auto; padding: 1.4rem 2.4rem; border-radius: 0.8rem; background-image: url(./chart.svg) !important; background-position: center right 2.34rem !important; background-repeat: no-repeat !important; background-color: #FFF8E5 !important; text-align: left;}
+    html body .desc-t3 .mobile .toggle-box.variable-fund-toggle-box > button .ttl { font-weight: 700; font-size: 1.5rem; letter-spacing: -0.02em; line-height: 2.1rem; color: #7E5B40;}
+    html body .desc-t3 .mobile .toggle-box.variable-fund-toggle-box > button .txt { position: static; display: block; margin-top: .3rem; font-size: 1.5rem; letter-spacing: -0.02rem; line-height: 2.1rem; color: #82735A;}
+    html body .desc-t3 .mobile .toggle-box.variable-fund-toggle-box .dim-box { display: flex; justify-content: center; align-items: center; position: absolute; left: 0; top: 0; width: 100%; height: 100%; border-radius: .8rem; background-color: rgba(0, 0, 0, 0.6);}
+    html body .desc-t3 .mobile .toggle-box.variable-fund-toggle-box .dim-box .dim-txt { position: static; font-size: 2rem; color: #fff;}
+    html body .desc-t3 .mobile .toggle-box.variable-fund-toggle-box .dim-box .dim-txt .str { font-weight: 700;}
+    html body .desc-t3 .mobile .toggle-box .learn-btn { display: flex; gap: .5rem; justify-content: center; align-items: center; width: 100%; margin-top: 2rem; padding: .7rem; border-radius: 5rem; background-color: rgba(0, 145, 89, 0.1); font-size: 1.8rem; letter-spacing: -0.07em; line-height: 2.6rem; color: #00915A; text-decoration: none; word-break: keep-all; word-wrap: break-word; overflow-wrap: anywhere;}
+    html body .desc-t3 .mobile .toggle-box .learn-btn::after { content: ''; display: block; position: static; transform: translateY(.08em); width: 2.4rem; min-width: 2.4rem; height: 2.4rem; background-image: url('./arw_right_green.svg'); background-position: center center; background-size: 100% auto; background-repeat: no-repeat;}
+    /* //휴대폰 이미지 */
+    
+    /* *******************************
+    [ layout ] 카디프 안내 토글박스 영역
+    ******************************* */
+    .desc-t2#eventBox {padding-top:6rem;background:#fff;}
+    .desc-t2#eventBox .inner {max-width:120rem;margin:0 auto;}
+    .desc-t2#eventBox .inner > div:first-of-type {padding:2rem 0 5rem;color:#fff;text-align:center;background:linear-gradient(to bottom, #10aa80, #60dea7);border-radius:1.5rem 1.5rem 0 0;}
+    .desc-t2#eventBox .inner > div.toggle-box2 {padding:6rem 0;text-align:center;background:#fff;border:1px solid #c2c2c2;border-width:0 1px 1px 1px;border-radius:0 0 3rem 3rem;}
+    .desc-t2#eventBox .tlt-t2 {margin-bottom:2rem;font-weight:700;}
+    .desc-t2#eventBox p:not(.tlt-t2) {font-size:1.6rem;}
+    .desc-t2#eventBox .inner > div > div {position:relative;width:24.8rem;height:24.8rem;margin:5rem auto 0;border:9px solid #6CD6A7;border-radius:50%;background:#fff;overflow:hidden;}
+    .desc-t2#eventBox .inner > div > div button {position:absolute;top:0;left:0;right:0;bottom:0;width:100%;background:transparent;border-radius:50%;text-indent:-9999rem;overflow:hidden;cursor:pointer;}
+    .desc-t2#eventBox .inner > div > div button:before {content:'';display:block;position:absolute;top:1.4rem;left:50%;width:2.2rem;height:2.2rem;margin-left:-1.4rem;transform:rotate(-45deg);border:1px solid #DF82FA;border-width:0 0 2px 2px;
+    -webkit-animation: arrow-updown 1s linear infinite;
+    animation:arrow-updown 1s linear infinite;
+    }
+    .desc-t2#eventBox .inner > div:not(.toggle-box2) button.active:before {display:none;}
+    .desc-t2#eventBox .inner > div:not(.toggle-box2) button:after {content:'';display:block;position:absolute;top:1.4rem;left:50%;width:3.4rem;height:3.4rem;margin-left:-2rem;transform:rotate(-45deg);border:1px solid #CF44F8;border-width:0 0 2px 2px;
+    -webkit-animation: arrow-updown 1s linear infinite;
+    animation:arrow-updown 1s linear infinite;
+    }
+    .desc-t2#eventBox .inner > div:not(.toggle-box2) button.active:after {display:none;}
+    .desc-t2#eventBox .inner > div div[aria-live] {width:100%;height:100%;color:transparent;background: url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/img_gift.png) no-repeat;background-size:100%;background-position:0.4rem 1.2rem;}
+    
+    .desc-t2#eventBox .inner .toggle-box2 .tlt-t3 {margin-bottom:1rem;font-weight: 700;color: #00915a;}
+    .desc-t2#eventBox .inner .toggle-box2 p {font-size:1.8rem;}
+    .desc-t2#eventBox .inner .toggle-box2 dl {margin:3rem 0;}
+    .desc-t2#eventBox .inner .toggle-box2 dl dt {display:inline-block;margin-bottom:1rem;padding:0 1.5rem;font-weight:700;line-height:4.3rem;border:1px solid #00915a;border-radius:5rem;}
+    .desc-t2#eventBox .inner .toggle-box2 dl dd {font-weight:700;}
+    .desc-t2#eventBox .inner .toggle-box2 a {display:inline-block;position:relative;max-width:384px;width:100%;height:6rem;margin-top:3rem;padding:0 6rem;color:#fff;line-height:6rem;background:#00915a;border-radius:4px;cursor:pointer;}
+    .desc-t2#eventBox .inner .toggle-box2 a:before {content:'';display:block;position:absolute;top:1.4rem;left:1.4rem;width:3.2rem;height:3.2rem;background:url(https://www.cardif.co.kr/img/common/icon_download_white.png) no-repeat center;background-size:3.2rem;}
+    
+    .util-menu {padding-bottom:1.8rem;background:#fff;}
+    .util-menu > button {position:relative;width:100%;height:37.5rem;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/img_menu.png) no-repeat center;background-size:contain;cursor:pointer;}
+    .util-menu > button:before {content:'';display:block;position:absolute;z-index:5;top:50%;left:50%;width:7rem;height:5.8rem;margin-top:2rem;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/icon_finger.png) no-repeat center;background-size:100%;}
+    .util-menu > button:after {content:'';display:block;position:absolute;left:calc(50% + 0.2rem);top:calc(50% + 2.3rem);width:3.4rem;height:3.4rem;background-color:transparent;border-radius:50%;
+    -webkit-animation:ripple 1.5s linear infinite;
+    animation:ripple 1.5s linear infinite;
+    }
+    .util-menu > div {margin:0 2.2rem;}
+    
+    /* *******************************
+    [ layout ] (하단)꿀팁 영역
+    ******************************* */
+    .desc-t1:last-of-type .inner {max-width:120rem;margin:0 auto;}
+    .desc-t1:last-of-type .tlt-t2 {margin-bottom:1rem;font-weight:700;color:#00915a;}
+    .desc-t1:last-of-type .accTradeList.info {position:relative;margin-top:3rem;padding:0rem;}
+    .desc-t1:last-of-type .accTradeList.info .title {font-weight:bold;line-height:3rem;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/icon_info_question.png) no-repeat left center;text-indent:4rem;background-size:contain;}
+    .desc-t1:last-of-type .accTradeList.info.t2 .title {background-image:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/icon_info.png);}
+    .desc-t1:last-of-type .accTradeList.info button {position:absolute;top:0;left:0;right:0;width:100%;height:3rem;background:transparent;overflow:hidden;text-indent:-9999rem;cursor:pointer;}
+    .desc-t1:last-of-type .accTradeList.info button:after {content:'';display:block;position:absolute;right:0;top:0;width:3rem;height:3rem;background:url('https://www.cardif.co.kr/img/common/icon_arrow_gray.png') no-repeat right center;background-size:contain;transition:all .5s;transform:rotate(0deg);}
+    .desc-t1:last-of-type .accTradeList.info button[aria-expanded="false"]:after {transform:rotate(-180deg);}
+    .desc-t1:last-of-type .accTradeList.info dl {margin-top:3rem;}
+    .desc-t1:last-of-type .accTradeList.info.t1 dl {display:none;}
+    .desc-t1:last-of-type .accTradeList.info dl dt {padding-left:2rem;font-size:1.6rem;font-weight:700;color:#424242;}
+    .desc-t1:last-of-type .accTradeList.info dl dd {padding-left:2rem;font-size:1.6rem;color:#424242;}
+    .desc-t1:last-of-type .accTradeList.info dl dd + dt {margin-top:1rem;}
+    .desc-t1:last-of-type .accTradeList.info ul.list-dot {width:100%;margin-left:0;margin-top:1.7rem;border:none;}
+    .desc-t1:last-of-type .accTradeList.info ul.list-dot li {padding:0 0 0 3.4rem;border:none;font-size:1.6rem;}
+    .desc-t1:last-of-type .accTradeList.info ul.list-dot li + li {margin-top:0.6rem;}
+    .desc-t1:last-of-type .accTradeList.info ul.list-dot li:before {content:'';display:block;position:absolute;left:2rem;
+    top:1.1rem;width:4px;height:4px;border-radius:50%;background:#797979;}
+    .desc-t1:last-of-type .accTradeList.info ul.list-dot ol li {padding:0;margin:0;}
+    .desc-t1:last-of-type .move-link {display:block;position:relative;margin-top:6rem;width:100%;height:7rem;padding:0 2rem;font-size:1.8rem;font-weight:700;line-height:7rem;background:#f7f8f9;border-radius:4px;}
+    .desc-t1:last-of-type .move-link:after {content:'';display:block;position:absolute;right:2rem;top:50%;width:2rem;height:2rem;margin-top:-1rem;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/icon_detail.png) no-repeat center;background-size:contain;}
+    
+    /* *******************************
+    [ layout ] 카디프생명 소개 아코디언
+    ******************************* */
+    .acco-intro-area { width: 84rem; margin: 0 auto; padding-bottom: 6rem; text-align: center;}
+    .acco-intro-area .d-block { display: block !important;}
+    .acco-intro-area .d-none { display: none !important;}
+    .acco-intro-area .f-inherit { font-family: inherit; font-weight: inherit; font-size: inherit; line-height: inherit; letter-spacing: inherit; color: inherit;}
+    .acco-intro-area .fw-400 { font-weight: 400 !important;}
+    .acco-intro-area .fw-700 { font-weight: 700 !important;}
+    .acco-intro-area .color-green { color: #00915A !important;}
+    .acco-intro-header { text-align: center;}
+    .acco-intro-header .acco-st { font-weight: 700; font-size: 2.8rem; line-height: 3.2rem; letter-spacing: -0.02em; word-break: keep-all;}
+    .acco-intro-header .acco-txt { margin-top: 1rem; font-size: 1.8rem; line-height: 2.6rem; letter-spacing: -0.02em; word-break: keep-all;}
+    .acco-intro-btn { width: 5.4rem; height: 5.4rem; margin-top: 3rem; border-radius: 50%; background-image: url('https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/arw-du-down-wht.svg'); background-position: center center; background-size: 100% auto; background-repeat: no-repeat; background-color: #00915A; box-shadow: 0px 0px 8px #40404033; cursor: pointer; transition: 0.45s all;}
+    .acco-intro-area.active .acco-intro-btn { transform: rotate(180deg);}
+    .acco-intro-body { display: none; margin: 0 -3rem -3rem; padding: 3rem;}
+    .acco-intro-body .acco-intro-list { display: flex; flex-direction: column; gap: 2rem; text-align: left;}
+    .acco-intro-body .acco-intro-item { display: flex; gap: 2rem; align-items: center; padding: 2rem 4rem 2rem 6rem; border-radius: 2.4rem; box-shadow: 0px 0px 8px #40404029;}
+    .acco-intro-body .acco-intro-item .ico { display: block; align-self: flex-start; width: 8rem; min-width: 8rem; height: 8rem; background-position: center center; background-size: 100% auto; background-repeat: no-repeat;}
+    .acco-intro-body .acco-intro-item .ico-corporation { background-image: url('https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/ico-corporation.svg');}
+    .acco-intro-body .acco-intro-item .ico-partnership { background-image: url('https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/ico-partnership.svg');}
+    .acco-intro-body .acco-intro-item .ico-flags { background-image: url('https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/ico-flags.svg');}
+    .acco-intro-body .acco-intro-item .ico-fund-liquidity { background-image: url('https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/ico-fund-liquidity.svg');}
+    .acco-intro-body .acco-intro-item .acco-intro-cnt-ttl { font-weight: 700; font-size: 2rem; line-height: 3.2rem; letter-spacing: -0.02em; word-break: keep-all;}
+    .acco-intro-body .acco-intro-item .acco-intro-cnt-txt { display: block; margin-top: 1rem; font-size: 1.6rem; line-height: 2.6rem; letter-spacing: -0.02em; word-break: keep-all;}
+    .acco-intro-body .acco-intro-item .acco-intro-cnt-ref { display: block; margin-top: 0.4rem; font-size: 1.2rem; line-height: 1.7rem; letter-spacing: -0.02em; word-break: keep-all;}
+    
+    /* *******************************
+    * [ animation ]
+    ******************************* */
+    /* [1] 클릭유도 애니메이션 */
+    .desc-t3 .mobile .m-toggle-container .toggle-box > button:after {
+        background-color:transparent;
+        border-radius: 50%;
+        -webkit-animation: ripple 1.5s linear infinite;
+        animation: ripple 1.5s linear infinite;
+    }
+    
+    @-webkit-keyframes wait {
+    0% {
+    opacity: 0;
+    }
+    20% {
+    opacity: 0;
+    }
+    55% {
+    opacity: 0;
+    }
+    100% {
+    opacity: 1;
+    }
+    }
+    
+    @keyframes wait {
+    0% {
+    opacity: 0;
+    }
+    20% {
+    opacity: 0;
+    }
+    55% {
+    opacity: 0;
+    }
+    100% {
+    opacity: 1;
+    }
+    }
+    @-webkit-keyframes ripple {
+    0% {
+    box-shadow: 0 0 0 0 rgba(53, 224, 144, 0.15), 0 0 0 0.2em rgba(53, 224, 144, 0.15), 0 0 0 0.5em rgba(53, 224, 144, 0.15), 0 0 0 0.8em rgba(53, 224, 144, 0);
+    }
+    100% {
+    box-shadow: 0 0 0 0.2em rgba(53, 224, 144, 0.15),  0 0 0 0.8em rgba(53, 224, 144, 0), 0 0 0 0 rgba(53, 224, 144, 0);
+    }
+    }
+    @keyframes ripple {
+    0% {
+    box-shadow: 0 0 0 0 rgba(53, 224, 144, 0.15), 0 0 0 0.2em rgba(53, 224, 144, 0.15), 0 0 0 0.5em rgba(53, 224, 144, 0.15), 0 0 0 0.8em rgba(53, 224, 144, 0);
+    }
+    100% {
+    box-shadow: 0 0 0 0.2em rgba(53, 224, 144, 0.15), 0 0 0 0.5em rgba(53, 224, 144, 0.15), 0 0 0 0.8em rgba(53, 224, 144, 0), 0 0 0 0 rgba(53, 224, 144, 0);
+    }
+    }
+    
+    /* [2] 화살표 위아래 애니메이션 */
+    @-webkit-keyframes arrow-updown {
+    0% {
+    margin-top:0;
+    }
+    50% {
+    margin-top:1rem;
+    }
+    100% {
+    margin-top:0;
+    }
+    }
+    @keyframes arrow-updown {
+    0% {
+    margin-top:0;
+    }
+    50% {
+    margin-top:1rem;
+    }
+    100% {
+    margin-top:0;
+    }
+    }
+    /* *******************************
+    * // [ animation ]
+    ******************************* */
+    /* #############################################
+    #               [ MEDIA QUERY ]                #
+    ############################################# */
+    @media only screen and (max-width: 900px){
+    .pc {display:none;}
+    .m {display:block;}
+    .tlt-t1 {font-size:2.6rem;line-height:3.8rem;}
+    .tlt-t2 {font-size:1.6rem;line-height:2.4rem;}
+    
+    /* *******************************
+    [ layout ] main-visual 영역
+    ******************************* */
+    .main-visual {height:44.7rem;}
+    .main-visual .banner {padding-top:3rem;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/img_mo_day1.png) no-repeat center bottom;background-size:cover;}
+    .main-visual .banner .tlt-t1 + .tlt-t2 {margin-top:1.4rem;}
+    .main-visual .banner nav ul li + li {margin-left:2rem;}
+    .main-visual .banner nav ul li + li:before {left:-2rem;width:2rem;}
+    .main-visual .banner > a {left:initial;right:3rem;bottom:2rem;}
+    
+    .main-visual .banner .new-event-box.fixed { bottom: 6rem;}
+    
+    /* *******************************
+    [ layout ] 안내 텍스트 영역
+    ******************************* */
+    .desc-t1 {padding:3rem 2rem;}
+    .desc-t1 .tlt-lv {display:-webkit-flex;display:flex;justify-content:center;font-size:2.4rem;line-height:3.2rem;}
+    .desc-t1 .tlt-lv span {height:2rem;margin-right:1rem;padding:0 1rem;font-size:1.2rem;line-height:2rem;vertical-align:super;}
+    .desc-t1 .tlt-lv + p {margin-top:1rem;}
+    
+    /* *******************************
+    [ layout ] 앱다운로드 영역
+    ******************************* */
+    .desc-t2.bg01 {align-items:flex-start;padding:3rem 2rem 3rem 0;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/bg01.png) no-repeat center;background-size:cover;}
+    .desc-t2.bg01 .thumb {width:16rem;min-width:14rem;height:26.6rem;background-position:center -1.8rem;background-size:100%;}
+    .desc-t2.bg01 .desc {margin-left:0;}
+    .desc-t2.bg01 .desc h2 {font-size:2.4rem;line-height:3.2rem;}
+    .desc-t2.bg01 .desc a {height:auto;padding-left:4rem;padding-right:1.5rem;text-align:left;}
+    
+    /* *******************************
+    [ layout ] 카디프 안내 토글박스 영역
+    ******************************* */
+    .desc-t3 {padding:3rem 1.5rem;}
+    .desc-t3 h2 {font-size:2.4rem;line-height:3.2rem;word-break:keep-all;}
+    .desc-t3 h2 + p {margin:1.5rem 0 3rem;}
+    .desc-t3 h2 + p span {display:inline-block;width:3.1rem;height:2.6rem;margin:0 0.4rem;text-indent:-9999rem;background:url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.0/icon_finger2.png) no-repeat center;background-size:contain;overflow:hidden;vertical-align:bottom;}
+    
+    /* 휴대폰 이미지 */
+    .desc-t3 .mobile {max-width:48.5rem;width:100%;}
+    .desc-t3 .mobile > div {padding:3rem 1.8rem 6rem;}
+    /* header */
+    .desc-t3 .mobile header {height:6rem;padding:0 2rem;background:#fff;border-bottom:1px solid #dbdfe1;}
+    .desc-t3 .mobile header .logo {width:39vw;}
+    
+    /* contents */
+    .desc-t3 .mobile .m-container {padding:4rem 1.5rem 2rem;}
+    .desc-t3 .mobile .m-container p {margin-bottom:4rem;font-size:2.2rem;font-weight:700;letter-spacing:-2px;}
+    .desc-t3 .mobile .m-container a {padding:0 3.6rem;font-size:1.4rem;line-height:1.6;}
+    .desc-t3 .mobile .m-container a:before {width:2.6rem;height:2.6rem;background-size:100%;}
+    .desc-t3 .mobile .m-container a:after  {right:0;width:2.4rem;height:2.4rem;background-size:100%;}
+    
+    .desc-t3 .mobile .m-toggle-container {padding:2rem;}
+    .desc-t3 .mobile .m-toggle-container .toggle-box > button {height:9.6rem;margin-bottom:1rem;padding:1.6rem;border-radius:1.2rem;}
+    .desc-t3 .mobile .m-toggle-container .toggle-box > button:before {width:4.9rem;height:4.1rem;margin-left:-1.4rem;}
+    .desc-t3 .mobile .m-toggle-container .toggle-box > button span:first-of-type {left:1.8rem;font-size:1.4rem;}
+    .desc-t3 .mobile .m-toggle-container .toggle-box > button:after {bottom:2.5rem;margin-left:-1.3rem;width:2.6rem;height:2.6rem;}
+    .desc-t3 .mobile .m-toggle-container .toggle-box > button span.etc {right:1.8rem;font-size:1.2rem;letter-spacing:-1px;}
+    .desc-t3 .mobile .m-toggle-container .toggle-box > button em {right:2.2rem;bottom:0.6rem;font-size:1.8rem;}
+    .desc-t3 .mobile .m-toggle-container .toggle-box > button em:after {width:1.8rem;height:1.8rem;transform:translateY(2px);}
+    .desc-t3 .mobile .m-toggle-container .toggle-box > button em strong {font-size:2.2rem;}
+    
+    .desc-t3 .mobile .toggle-box > div {margin-bottom:1rem;padding:2rem;background:#fff;border:1px solid #2862d5;border-radius:1rem;}
+    .desc-t3 .mobile .toggle-box > div h3 {padding-right:2.6rem;font-size:1.6rem;}
+    .desc-t3 .mobile .toggle-box > div p {font-size:1.6rem;line-height:2.4rem;}
+    .desc-t3 .mobile .toggle-box > div p + p {margin-top:0.6rem;}
+    .desc-t3 .mobile .toggle-box > div a {margin-top:1.6rem;font-size:1.6rem;}
+    
+    html body .desc-t3 .mobile .toggle-box.variable-fund-toggle-box > button::before,
+    html body .desc-t3 .mobile .toggle-box.variable-fund-toggle-box > button::after { display: none;}
+    html body .desc-t3 .mobile .toggle-box.variable-fund-toggle-box > button { height: auto; padding: 1rem 1.7rem; background-position: center right 1.66rem !important; background-size: 4.6rem auto !important;}
+    html body .desc-t3 .mobile .toggle-box.variable-fund-toggle-box > button .ttl { font-size: 1.1rem; line-height: 1.6rem;}
+    html body .desc-t3 .mobile .toggle-box.variable-fund-toggle-box > button .txt { margin-top: .1rem; font-size: 1.1rem; line-height: 1.6rem;}
+    html body .desc-t3 .mobile .toggle-box.variable-fund-toggle-box .dim-box .dim-txt { font-size: 1.4rem; color: #fff;}
+    html body .desc-t3 .mobile .toggle-box .learn-btn { padding: .5rem; font-size: 1.4rem; line-height: 2rem;}
+    html body .desc-t3 .mobile .toggle-box .learn-btn::after { width: 2rem; min-width: 2rem; height: 2rem;}
+    
+    .util-menu {padding-bottom:0;}
+    .util-menu > button {max-height:37.5rem;height:68vw;}
+    .util-menu > button:before {width:4.9rem;height:4.1rem;margin-top:1rem;}
+    .util-menu > button:after {top:calc(50% + 1.3rem);width:2.5rem;height:2.5rem;}
+    .util-menu > div {margin:0 1.5rem;}
+    /* //휴대폰 이미지 */
+    
+    /* *******************************
+    [ layout ] 카디프 안내 토글박스 영역
+    ******************************* */
+    .desc-t2#eventBox {padding-top:3rem;}
+    .desc-t2#eventBox .inner {max-width:120rem;padding:0 2rem;}
+    .desc-t2#eventBox .inner > div:first-of-type {padding:3rem 2rem 1rem;color:#fff;text-align:center;background:linear-gradient(to bottom, #10aa80, #60dea7);border-radius:1.5rem 1.5rem 0 0;}
+    .desc-t2#eventBox .inner > div.toggle-box2 {padding:3rem 2rem;text-align:center;background:#fff;border:1px solid #c2c2c2;border-width:0 1px 1px 1px;border-radius:0 0 3rem 3rem;}
+    .desc-t2#eventBox .tlt-t2 {margin-bottom:1rem;font-size:2.4rem;}
+    .desc-t2#eventBox p:not(.tlt-t2) {padding:0 3rem;font-size:1.6rem;line-height:2.6rem;word-break:keep-all;}
+    .desc-t2#eventBox .inner > div > div {margin:4.3rem auto 0;}
+    
+    .desc-t2#eventBox .inner .toggle-box2 .tlt-t3 {font-size:2.4rem;line-height:3.2rem;word-break:keep-all;}
+    .desc-t2#eventBox .inner .toggle-box2 p {padding:0;}
+    .desc-t2#eventBox .inner .toggle-box2 a {width:100%;padding:0 2rem;line-height:6rem;text-indent:1.2rem;}
+    /* *******************************
+    [ layout ] (하단)꿀팁 영역
+    ******************************* */
+    .caution .inner {max-width:120rem;margin:0 auto;}
+    .caution .tlt-t3 {font-size:2.4rem;line-height:3.2rem;}
+    .caution .accTradeList.info .title {margin:0.4rem 0;font-size:1.6rem;line-height:1;text-indent:2.4rem;}
+    .caution .accTradeList.info button {top:-0.4rem;width:100%;height:2.4rem;}
+    .caution .accTradeList.info button:after {width:2.4rem;height:2.4rem;}
+    .caution .accTradeList.info dl {margin-top:2.3rem;}
+    .caution .accTradeList.info dl dt {padding-left:1rem;font-size:1.4rem;line-height:2rem;}
+    .caution .accTradeList.info dl dd {padding-left:1rem;font-size:1.4rem;line-height:2rem;}
+    .caution .accTradeList.info ul.list-dot {margin-top:1.7rem;border:none;}
+    .caution .accTradeList.info ul.list-dot li {padding:0 0 0 3.4rem;font-size:1.4rem;line-height:2rem;}
+    .caution .accTradeList.info ul.list-dot li:before {left:2rem;top:1.1rem;width:4px;height:4px;border-radius:50%;background:#797979;}
+    .caution .move-link {margin-top:3rem;height:auto;padding:1.9rem 5rem 1.9rem 2rem;line-height:1.8;}
+    
+    /* *******************************
+    [ layout ] 카디프생명 소개 아코디언
+    ******************************* */
+    .acco-intro-area { width: 100%; padding: 0 2rem 3rem;}
+    .acco-intro-area .d-lg-block { display: block !important;}
+    .acco-intro-area .d-lg-none { display: none !important;}
+    .acco-intro-body .acco-intro-list { text-align: center;}
+    .acco-intro-body .acco-intro-item { flex-direction: column; gap: 1rem; padding: 2rem 1.4rem;}
+    .acco-intro-body .acco-intro-item .ico { align-self: center; width: 6rem; min-width: 6rem; height: 6rem;}
+    .acco-intro-body .acco-intro-item .acco-intro-cnt-ttl { font-size: 1.8rem; line-height: 2.4rem;}
+    .acco-intro-body .acco-intro-item .acco-intro-cnt-txt { font-size: 1.4rem; line-height: 2.2rem;}
+    
+    /* *******************************
+    * [ animation ]
+    ******************************* */
+    /* [1] 클릭유도 애니메이션 */
+    .desc-t3 .mobile .m-toggle-container .toggle-box > button:after {
+    background-color:transparent;
+    border-radius: 50%;
+    -webkit-animation: ripple 1.5s linear infinite;
+    animation: ripple 1.5s linear infinite;
+    }
+    }
+    
+    /* 스크롤 애니메이션 css s 20220502 */
+    .box {transform:translateY(15%);opacity: 0;transition: all 0.6s ease;}
+    .box.show{opacity: 1;transform: translateY(0);}
+    
+    /* 스크롤 애니메이션 css e */
+    </style>
+    <div class="section sub">
+        <div id="contents">
+            <!-- [ css ] style -->
+            <style>
+            </style>
+            <!-- // [ css ] style -->
+    
+            <!-- #####################################
+            # [ layout ] 상단 메인비주얼
+            ##################################### -->
+            <div class="main-visual">
+                <div class="banner">
+                    <p class="tlt-t1"><b>Welcome!</b></p>
+                    <p class="tlt-t2">
+                        BNP파리바 카디프생명에 오신 것을 환영합니다!<br>
+                        내 보험관리가 편해지는 <br class="m">MY카디프를 소개합니다.<br>
+                        지금부터 함께 MY카디프 라운딩 돌아보실까요?
+                    </p>
+                    <!-- [layout] step -->
+                    <!-- [ case ] ㅇㅇㅇ 오류일 경우 -->
+                    <nav>
+                        <ul>
+                            <li aria-current="step"><a href="https://cardif.co.kr/customer-center/welcome-program/day01.do">1일</a></li>
+                            <li><a href="https://cardif.co.kr/customer-center/welcome-program/day30.do">30일</a></li>
+                            <li><a href="https://cardif.co.kr/customer-center/welcome-program/day70.do">70일</a></li>
+                            <li><a href="https://cardif.co.kr/customer-center/welcome-program/day90.do">90일</a></li>
+                            <li><a href="https://cardif.co.kr/customer-center/welcome-program/day100.do">100일</a></li>
+                        </ul>
+                    </nav>
+                    <!-- // [layout] step -->
+                    <a class="new-event-box" href="#eventBox" title="신규 청약 고객에게 제공하는 웰컴 이벤트 영역으로 이동">
+                        <span>이벤트</span>
+                    </a>
+                </div>
+            </div>
+            <!-- ## // ## -->
+    
+            <section class="desc-t1">
+                <h2 class="tlt-lv tlt-t2 textCenter"><span>Lv.1</span>골프채를 구비한 초보</h2>
+                <p class="textCenter">골프도 그렇듯 구비된 장비는 많아도 <br class="m">사용할 줄 모르면 무용지물! 지금부터 <br class="m">MY카디프의 기본부터 차근차근 배워보겠습니다!</p>
+            </section>
+            <section class="desc-sec">
+                <div class="acco-intro-area">
+                    <div class="acco-intro-header">
+                        <strong class="acco-st">여기서 잠깐!</strong>
+                        <p class="acco-txt">
+                            고객님은 <b class="f-inherit fw-700 color-green">BNP파리바 카디프생명</b>에 대해 얼마나 알고 계신가요?<br/>
+                            <br/>
+                            <b class="f-inherit fw-700 color-green">BNP파리바 카디프생명</b>은 <b class="f-inherit fw-700">30개국 이상에서 축적된 글로벌본사의 보험전문성</b>을 기반으로<br/>
+                            <b class="f-inherit fw-700">20년 이상 국내 신용생명보험과 변액보험 시장을 선도해 온 보험회사</b>입니다.<br/>
+                            대표적인 회사 특징이 궁금하실 경우, 아래 버튼을 클릭해주세요!<br/>
+                        </p>
+                    </div>
+                    <button type="button" class="acco-intro-btn" title="회사특징 내용 열기" data-title-text="회사특징 내용" aria-expanded="false"></button>
+                    <div class="acco-intro-body">
+                        <ul class="acco-intro-list">
+                            <li class="acco-intro-item">
+                                <i class="ico ico-corporation"></i>
+                                <div class="acco-intro-cnt">
+                                    <b class="acco-intro-cnt-ttl">BNP파리바카디프의 한국생명보험법인</b>
+                                    <span class="acco-intro-cnt-txt">글로벌 종합금융그룹 BNP파리바의 보험자회사 BNP파리바카디프 산하 한국생명보험법인</span>
+                                </div>
+                            </li>
+                            <li class="acco-intro-item">
+                                <i class="ico ico-partnership"></i>
+                                <div class="acco-intro-cnt">
+                                    <b class="acco-intro-cnt-ttl">신뢰를 기반으로 한 견고한 파트너십</b>
+                                    <span class="acco-intro-cnt-txt">주요 은행 및 증권사, 독립보험법인(GA), 핀테크사 등과의 판매제휴를 통해 보험상품과 서비스 제공 중</span>
+                                </div>
+                            </li>
+                            <li class="acco-intro-item">
+                                <i class="ico ico-flags"></i>
+                                <div class="acco-intro-cnt">
+                                    <b class="acco-intro-cnt-ttl">주력 보험상품</b>
+                                    <span class="acco-intro-cnt-txt">ETF변액보험, 신용생명보험 등 고객 중심의 혁신 보험상품 제공</span>
+                                </div>
+                            </li>
+                            <li class="acco-intro-item">
+                                <i class="ico ico-fund-liquidity"></i>
+                                <div class="acco-intro-cnt">
+                                    <b class="acco-intro-cnt-ttl">모그룹의 풍부한 자금유동성</b>
+                                    <span class="acco-intro-cnt-txt">즉시 사용 가능한 유동자산 적립금 약 662조 4,708억 원 (약 4,610억 유로)</span>
+                                    <span class="acco-intro-cnt-ref">*환율 기준: 1유로=1,437.03원 (2023.4.5)</span>
+                                    <span class="acco-intro-cnt-ref">*실적 기준: 2022.12.31 </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!-- 20220502 box 클래스 추가 s -->
+            <section class="desc-t2 bg01 box">
+                <div class="thumb">MY카디프 앱 메인화면 이미지</div>
+                <div class="desc">
+                    <h2 class="tlt-t2">MY카디프란?</h2>
+                    <p>쉽고 편리하게 보험계약을 관리할 수 있는<br class="pc">BNP파리바 카디프생명 고객만을 위한 모바일 앱입니다.</p>
+                    <p>
+                        판매사/보험사 방문이나 PC 접속 필요 없이<br class="pc">
+                        어디서든 활용 가능한 MY카디프에서<br class="pc">
+                        다양한 보험계약 관리 방법들을 경험하세요!
+                    </p>
+                    <a href="https://www.cardif.co.kr/file/app_b2c.html?utm_source=homepage&utm_medium=web&utm_campaign=welcome&utm_content=d01">MY카디프 APP다운로드</a>
+                </div>
+            </section>
+    
+            <!-- 20220502 box 클래스 추가 s -->
+            <section class="desc-t3 box">
+                <h2 class="tlt-t2">이제부터 MY카디프에 대해서 배워볼까요?</h2>
+                <p>아래 화면에서 <span>안내박스로</span> 표시된 영역을 눌러보세요!</p>
+    
+                <!-- [ layout ] 휴대폰화면 토글 안내 영역 -->
+                <article class="mobile">
+                    <div>
+                        <header aria-hidden="true">
+                            <h1 class="logo">BNP파리바 카디프생명</h1>
+                            <button>햄버거메뉴 열기</button>
+                        </header>
+                        <div class="m-container">
+                            <p>○○○ 고객님. 안녕하세요!</p>
+                            <a href="#">MY카디프에 오신 것을 환영합니다!<br>카드를 눌러 사용법을 확인하세요.</a>
+                        </div>
+                        <div class="m-toggle-container">
+                            <!-- [ toggle ] (1) 내 보험계약 -->
+                            <div class="toggle-box">
+                                <button type="button" aria-expanded="true" aria-controls="tgbox1" title="내 보험계약 확인 안내 박스 닫기"><span>내 보험계약</span><em><strong>1</strong>건</em></button>
+                                <div id="tgbox1" style="display: block;">
+                                    <h3>내 보험계약 확인하기!</h3>
+                                    <button type="button" title="내 보험계약 확인 안내 박스 닫기"></button>
+                                    <p>가입한 상품들을 한 눈에 볼 수 있습니다. </p>
+                                    <p><strong>보험료, 해약환급금, 보장내역, 자동이체일 등</strong> 고객님의 보험계약 관리에 필요한 필수사항을 확인할 수 있습니다.</p>
+                                </div>
+                            </div>
+                            <!-- [ toggle ] (2) 변액보험 관리하기 -->
+                            <div class="toggle-box">
+                                <button type="button" aria-expanded="true" aria-controls="tgbox2" title="변액보험 관리 안내 박스 닫기"><span>내보험 계약중</span><span class="etc">변액보험 관리하기</span><em><strong>1</strong>건</em></button>
+                                <div id="tgbox2" style="display: block;">
+                                    <h3>변액보험도 간편하게 관리하세요!</h3>
+                                    <button type="button" title="변액보험 관리 안내 박스 닫기"></button>
+                                    <p><strong>변액보험은 꾸준한 관리가 필요합니다!</strong></p>
+                                    <p>변액보험 계약의 수익률, 펀드 정보를 확인할 수 있습니다.</p>
+                                    <p class="txt-dot">※ 이 내용은 변액보험 계약 보유 시에 안내됩니다.</p>
+                                </div>
+                            </div>
+                            <!-- [ toggle ] (3) 변액보험 고객 -->
+                            <div class="toggle-box variable-fund-toggle-box">
+                                <button type="button" aria-expanded="false" aria-controls="varFundbox" title="변액보험 고객 안내 박스 열기">
+                                    <h3 class="ttl">변액펀드 컨시어지 이용하기</h3>
+                                    <span class="txt">맞춤정보</span>
+                                    <div class="dim-box">
+                                        <span class="dim-txt">변액보험 고객이라면 <b class="str">클릭!</b></span>
+                                    </div>
+                                </button>
+                                <div id="varFundbox" style="display: none;">
+                                    <h3>변액보험 고객에게는 필수!</h3>
+                                    <button type="button" title="변액보험 고객 안내 박스 닫기"></button>
+                                    <p>변액보험을 가지고 있다면 가장 중요한 수익률 관리! <strong> 맞춤 정보를 제공</strong> 받으면서 수익률 관리 해보세요!</p>
+                                    <a href="/customer-center/welcome-program/day30.do" class="learn-btn">변액펀드 컨시어지 서비스 알아보기</a>
+                                </div>
+                            </div>
+                            <!-- [ toggle ] (4) 추가납입 가능금액 -->
+                            <div class="toggle-box">
+                                <button type="button" aria-expanded="false" aria-controls="tgbox4" title="추가납입 가능금액 안내 박스 열기"><span>추가납입 가능금액</span><em><strong>000</strong>만원</em></button>
+                                <div id="tgbox4" style="display: none;">
+                                    <h3>여유자금이 있을 때는 추가납입!</h3>
+                                    <button type="button" title="추가납입 가능금액 안내 박스 닫기"></button>
+                                    <p>보험기간 중에 수시로 보험료를 추가로 납입하여 환급률을 높일 수 있습니다. </p>
+                                    <p class="txt-dot">※ 이 내용은 저축성보험 계약을 보유 시에 안내됩니다.</p>
+                                    <a href="https://www.cardif.co.kr/life-stage/wealth-building/cmsContents.do?cmsPath=%2FcmsHtml%2Flife-stage%2FLSAST002M%2FD003%2Flife_stage_content.html" target="_blank" title="재테크 고수들이 보험료를 추가 납입하는 이유 안내 페이지 새 창 열기">재테크 고수들이 보험료를 추가납입하는 이유는?</a>
+                                </div>
+                            </div>
+                            <!-- [ toggle ] (5) 보험계약대출 가능금액 -->
+                            <div class="toggle-box">
+                                <button type="button" aria-expanded="false" aria-controls="tgbox5" title="보험계약대출 가능금액 안내 박스 열기"><span>보험계약대출 가능금액</span><em><strong>000</strong>만원</em></button>
+                                <div id="tgbox5">
+                                    <h3>잠시만요! 해지를 고민하신다면?</h3>
+                                    <button type="button" title="보험계약대출 가능금액 안내 박스 닫기"></button>
+                                    <p><strong>긴급자금</strong>이 필요할 때 <strong>'보험계약대출</strong> 혹은 '중도인출'을 활용할 수 있습니다.</p>
+                                    <p>보험 혜택은 유지하면서 자산의 유동성을 확보하는 기능입니다.</p>
+                                    <p class="txt-dot">※ 이 내용은 저축성보험 계약을 보유 시에 안내됩니다.</p>
+                                    <a href="https://www.cardif.co.kr/customer-center/hcwgi002.do" target="_blank" title="보험계약대출 안내 페이지 새 창 열기">보험계약대출에 대해 더 알고 싶다면?</a>
+                                </div>
+                            </div>
+                            <!-- [ toggle ] (6) 중도인출 가능금액 -->
+                            <div class="toggle-box">
+                                <button type="button" aria-expanded="false" aria-controls="tgbox6" title="중도인출 가능금액 안내 박스 열기"><span>중도인출 가능금액</span><em><strong>000</strong>만원</em></button>
+                                <div id="tgbox6">
+                                    <h3>잠시만요! 해지를 고민하신다면?</h3>
+                                    <button type="button" title="중도인출 가능금액 안내 박스 닫기"></button>
+                                    <p><strong>긴급자금</strong>이 필요할 때 ‘보험계약대출’ 혹은 <strong>‘중도인출’</strong>을 활용할 수 있습니다.</p>
+                                    <p>보험 혜택은 유지하면서 자산의 유동성을 확보하는 기능입니다.</p>
+                                    <p class="txt_dot">※ 이 내용은 저축성보험 계약을 보유 시에 안내됩니다.</p>
+                                    <a href="https://www.cardif.co.kr/customer-center/hcwgi005.do" target="_blank" title="중도인출 안내페이지 새창 열기">중도인출에 대해 더 알고 싶다면?</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- [ toggle ] (7) MY카디프 자주찾는 메뉴 -->
+                        <h3 class="hide">MY카디프 자주 찾는 메뉴</h3>
+                        <div class="toggle-box util-menu">
+                            <button type="button" aria-expanded="false" aria-controls="tgbox7" title="MY카디프 자주 찾는 메뉴 안내 박스 열기"></button>
+                            <div id="tgbox7">
+                                <h3>이외에도 여러 기능들이 있어요</h3>
+                                <button type="button" title="MY카디프 자주 찾는 메뉴 안내 박스 닫기"></button>
+                                <p>이 외 MY카디프에서 고객님들께서 자주 이용하시는 메뉴를 한눈에 확인 수 있습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <!-- // -->
+                <!-- // [ layout ] // -->
+            </section>
+    
+            <!-- 20220502 box 클래스 추가 s -->
+            <section class="desc-t2 box" id="eventBox">
+                <div class="inner">
+                    <div>
+                        <p class="tlt-t2">잠깐만요!</p>
+                        <p>신규 청약 고객님들께만 드리는 웰컴 이벤트, 놓치지 마세요!</p>
+                        <div>
+                            <button title="첫 방문 고객에게 제공하는 혜택 소개">화살표 아이콘</button>
+                            <div aria-live="polite"></div>
+                        </div>
+                    </div>
+                    <!-- [ toggle ] 카디프 앱 다운로드 혜택 -->
+                    <div class="toggle-box2">
+                        <h2 class="tlt-t3">MY카디프 앱 다운받고, 혜택 수신 동의하면</h2>
+                        <p>신세계 상품권 5천원의 행운을 받으실 수 있습니다!</p>
+    
+                        <dl>
+                            <dt>응모방법</dt>
+                            <dd>
+                                MY카디프 로그인 → 개인정보 관리<br>
+                                → 마케팅활용 동의 → "동의함" 및 채널<br>
+                                최소 1가지 이상 선택
+                            </dd>
+                        </dl>
+                        <p>문자 수신 후 다음 달 말일까지 MY카디프 로그인 후  마케팅활용 동의를 해주신 고객님께 추첨을 통해 <strong>"신세계 상품권 5천원"</strong>을 선물해 드립니다!<br>(월 50명 추첨)</p>
+                        <a href="https://www.cardif.co.kr/file/app_b2c.html?utm_source=homepage&utm_medium=web&utm_campaign=welcome&utm_content=d01">MY카디프 APP다운로드</a>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- 20220502 box 클래스 추가 s -->
+            <section class="desc-t1 box caution">
+                <div class="inner">
+                    <h2 class="tlt-t2">마지막으로 드리는 꿀팁!</h2>
+                    <p>보험계약을 관리하다보면 생소한 단어가 많죠? 어려운 보험 용어 설명 참고하세요!</p>
+                    <div class="accTradeList info t1">
+                        <h3 class="title">어려울 수 있는 보험용어 총 정리!</h3>
+                        <button type="button" aria-expanded="false" aria-controls="tgbox-info" title="보험용어 총 정리 내용 펼치기"></button><!-- aria-* 아래 숨겨진 내용과 연결되어있음을 표시해야함 -->
+                        <dl id="tgbox-info"><!-- aria-* 숨겨져있음을 표기해야함 -->
+                            <dt>보험약관</dt>
+                            <dd>생명보험 계약에 관하여 보험계약자와 보험회사 상호간에 이행하여야 할 권리와 의무를 규정한 것</dd>
+                            <dt>보험계약자</dt>
+                            <dd>보험회사와 보험계약을 체결하고 보험료 납입의무를 지는 사람</dd>
+                            <dt>피보험자</dt>
+                            <dd>보험사고의 대상이 되는 사람</dd>
+                            <dt>보험수익자</dt>
+                            <dd>보험금 지급사유가 발생하는 때에 보험회사에 보험금을 청구하여 받을 수 있는 사람</dd>
+                            <dt>보험료</dt>
+                            <dd>보험계약에 따른 보장을 받기 위하여 보험계약자가 보험회사에 납입하는 금액</dd>
+                            <dt>보험금</dt>
+                            <dd>피보험자의 사망, 장해, 입원, 만기 등의 보험금 지급사유가 발생할 경우 보험 회사가 보험 수익자에게 지급하는 금액</dd>
+                            <dt>보험가입금액</dt>
+                            <dd>보험금, 보험료, 책임준비금 등을 산정하는 기준이 되는 금액. 보장의 측면에서 보면 보험사고가 발생했을 때 지급 받을 수 있는 보험금액을 산정하는 기준이 되는 금액.</dd>
+                            <dt>보험기간</dt>
+                            <dd>보험계약에 따라 보장을 받는 기간</dd>
+                            <dt>보험개시일</dt>
+                            <dd>보험회사의 보험금 지급의무가 시작되는 날</dd>
+                            <dt>해약환급금</dt>
+                            <dd>보험계약이 해지된 때에 보험회사가 보험계약자에게 돌려주는 금액</dd>
+                        </dl>
+                    </div>
+             <!-- 20220502 box 클래스 추가 e -->
+    
+                    <a href="https://www.cardif.co.kr/customer-center/hcqtb001.do" target="_blank" class="move-link" title="고객님들께서 자주하시는 질문 페이지 새 창 열기">고객님들께서 자주하시는 질문</a>
+    
+                    <div class="accTradeList info t2">
+                        <h3 class="title">유의사항</h3>
+                        <button type="button" aria-expanded="false" aria-controls="tgbox-info2" title="유의사항 내용 펼치기"></button>
+                        <ul id="tgbox-info2" class="list-dot" style="display:none;"><!-- aria-* 숨겨져있음을 표기해야함 -->
+                            <li>이벤트 당첨 이력이 있는 고객님은 당첨 대상에서 제외됩니다.</li>
+                        <li>마케팅 동의 후 이벤트 기간 내에 취소할 경우 경품 당첨에서 제외됩니다.</li>
+                        <li>경품은 등록된 휴대폰번호로 발송 예정입니다. 원활한 경품 수령을 위해 최신 연락처로 업데이트 해주시길 바랍니다. 연락처(휴대폰번호) 오류로 인한 경품 미전달 시 재발송되지 않습니다.</li>
+                        <li>본 이벤트에 따른 모바일 교환권의 유효기간은 발송일로부터 60일이며, 유효기간 연장 및 환불 대상이 아닙니다.</li>
+                        <li>참여자 본인 이름, 연락처가 아닌 정보로 참여하거나, 부정확한 정보로 참여 시 당첨이 취소 될 수 있습니다.</li>
+                        <li>경품 내역은 경품 제공 업체의 사정상 예고 없이 변경 또는 지연 될 수 있습니다.</li>
+                        <li>이벤트 당첨자 안내 및 경품 발송을 위해 고객님의 휴대폰번호는 경품 제휴업체에 전달되며, 경품 발송 2개월 후에 파기됩니다.</li>
+                        <li>경품 제휴업체 및 개인정보처리의 위탁에 관한 사항은 BNP파리바 카디프생명 홈페이지에서 확인하실 수 있으며, 변경이 있을 경우 동일한 홈페이지에 변경사항을 게시합니다.</li>
+                        <li>고객님께서는 개인 정보의 처리에 대한 동의를 거부할 수 있으며, 동의 후에도 언제든지 철회 가능합니다. 다만, 동의하지 않을 경우 이벤트 당첨 및 경품 지급이 불가합니다.</li>
+                        <li>준법감시인 심의필 제22-02호</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+    
+        </div>
+        <!--// contents -->
+    </div>
+           
+            <!-- ## // ## -->
+            <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+            <script>
+                $('.toggle-box').each(function(i,e){
+                    // 토글버튼 클릭 시 슬라이드 업
+                    $(e).find('button[aria-controls]').on('click',function(){
+                        var ariaExpanded = $(this).attr('aria-expanded');
+                        if($(this).attr('aria-expanded') == 'true'){
+                            $(this).attr('aria-expanded','false');
+                        }else{
+                            $(this).attr('aria-expanded','true');
+                        }
+                        $(this).siblings('div').slideToggle();
+    
+                        // button title 수정
+                        if(i==0){
+                            if($(this).attr('aria-expanded') == 'true'){
+                                $(this).attr('title','내 보험계약 확인 안내 박스 닫기');
+                            }else{
+                                $(this).attr('title','내 보험계약 확인 안내 박스 열기');
+                            }
+                        }else if(i==1){
+                            if($(this).attr('aria-expanded') == 'true'){
+                                $(this).attr('title','변액보험 관리 안내 박스 닫기');
+                            }else{
+                                $(this).attr('title','변액보험 관리 안내 박스 열기');
+                            }
+                        }else if(i==2){
+                            if($(this).attr('aria-expanded') == 'true'){
+                                $(this).attr('title','변액보험 고객 안내 박스 닫기');
+                            }else{
+                                $(this).attr('title','변액보험 고객 안내 박스 열기');
+                            }
+                        }else if(i==3){
+                            if($(this).attr('aria-expanded') == 'true'){
+                                $(this).attr('title','추가납입 가능금액 안내 박스 닫기');
+                            }else{
+                                $(this).attr('title','추가납입 가능금액 안내 박스 열기');
+                            }
+                        }else if(i==4){
+                            if($(this).attr('aria-expanded') == 'true'){
+                                $(this).attr('title','보험계약대출 가능금액 안내 박스 닫기');
+                            }else{
+                                $(this).attr('title','보험계약대출 가능금액 안내 박스 열기');
+                            }
+                        }else if(i==5){
+                            if($(this).attr('aria-expanded') == 'true'){
+                                $(this).attr('title','중도인출 가능금액 안내 박스 닫기');
+                            }else{
+                                $(this).attr('title','중도인출 가능금액 안내 박스 열기');
+                            }
+                        }else if(i==6){
+                            if($(this).attr('aria-expanded') == 'true'){
+                                $(this).attr('title','MY카디프 자주 찾는 메뉴 안내 박스 닫기');
+                            }else{
+                                $(this).attr('title','MY카디프 자주 찾는 메뉴 안내 박스 열기');
+                            }
+                        }
+                    });
+                    // 닫기버튼 클릭 시 슬라이드 업
+                    $(e).find('button:not([aria-controls])').on('click',function(){
+                        $(e).find('button[aria-controls]').attr('aria-expanded','false');
+                        $(e).find('button[aria-controls]').siblings('div').slideUp();
+                    })
+                });
+            </script>
+            <script>
+                $('.desc-t2#eventBox .inner > div > div button').on('click',function(){
+                    $(this).addClass('active');
+                    $('.desc-t2#eventBox .inner > div div[aria-live]').css({'background':'url(https://www.cardif.co.kr/cmsHtml/cmsHtml/welcomeprogram/1.2/img_gift_christmas.png) no-repeat','backgroundSize':'cover','backgroundPosition':'0 center'}).text('신세계상품권 5천원 증정');
+                });
+            </script>
+            <script>
+                infoBoxOpen($('.desc-t1:last-of-type .accTradeList.info.t1 button'), $('#tgbox-info'), '보험용어 총 정리 내용');
+                infoBoxOpen($('.desc-t1:last-of-type .accTradeList.info.t2 button'), $('#tgbox-info2'), '유의사항 내용');
+    
+                function infoBoxOpen(button, controlList, title){
+                    $(button).on('click',function(){
+                        $($(this)).siblings(controlList).eq(1).slideToggle();
+                        var ariaExpanded = $(this).attr('aria-expanded');
+                        if($(this).attr('aria-expanded') == 'true'){
+                            $(this).attr('aria-expanded','false');
+                            $($(this)).removeClass('open');
+                            $(this).attr('title', title + ' 닫기');
+                        }else{
+                            $(this).attr('aria-expanded','true');
+                            $($(this)).addClass('open');
+                            $(this).attr('title', title + ' 펼치기');
+                        }
+                    });
+                }
+    
+                $('.acco-intro-btn').on('click',(e)=>{
+                    const $this = $(e.currentTarget);
+                    const $accoIntroArea = $this.closest('.acco-intro-area');
+                    const $accoIntroBody = $accoIntroArea.find('.acco-intro-body');
+                    const isExpanded = JSON.parse($this.attr('aria-expanded'));
+                    const titleTxt = $this.attr('data-title-text');
+                    $this.attr('aria-expanded',!isExpanded);
+                    $this.attr('title',titleTxt + ' ' + (isExpanded ? '열기' : '닫기'));
+                    $accoIntroArea.toggleClass('active');
+                    $accoIntroBody.stop().slideToggle();
+                });
+                
+            </script>
+            <!-- 스크롤 애니메이션 s 20220502 -->  
+            <script>
+                const boxes = document.querySelectorAll('.box')
+                window.addEventListener('scroll',checkBoxes)
+                checkBoxes()
+                function checkBoxes() {
+                    const triggerBottom = window.innerHeight
+                    boxes.forEach(box => {
+                        const boxTop = box.getBoundingClientRect().top
+                        if(boxTop < triggerBottom) {
+                            box.classList.add('show')
+                        } else {
+                            box.classList.remove('show')
+                        }
+                    })
+                }
+            </script>
+             <!-- 스크롤 애니메이션 e -->  
+            <!-- s: scroll fiexed -->
+            <script>
+                $(()=>{
+                    window.addEventListener('scroll',fixedBox);
+                    const $newEventBox = $('.new-event-box');
+                    const $descT1 = $('.desc-t1');
+                    fixedBox();
+                    function fixedBox(){
+                        const windowSt = $(this).scrollTop();
+                        const descT1St = $descT1.offset().top;
+                        if(descT1St > windowSt){
+                            $newEventBox.removeClass('fixed');
+                        } else {
+                            $newEventBox.addClass('fixed');
+                        }
+                    }
+                });
+            </script>
+            <!-- e: scroll fiexed -->
+            <!-- ############################################################################################## -->
+            <!-- css -->
+            
+        
+    
+    <!-- 스크롤 애니메이션 -->

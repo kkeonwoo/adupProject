@@ -1,0 +1,180 @@
+.hidden {
+	display:none !important;
+}
+.pointer {
+	cursor: pointer;
+}
+.m10r {
+	margin: 1rem !important;
+}
+.ml0 {
+	margin-left: 0 !important;
+}
+.mr0 {
+	margin-right: 0 !important;
+}
+.mt0 {
+	margin-top: 0 !important;
+}
+.mb0 {
+	margin-bottom: 0 !important;
+}
+.ml10r {
+	margin-left: 1rem !important;
+}
+.mr10r {
+	margin-right: 1rem !important;
+}
+.mt10r {
+	margin-top: 1rem !important;
+}
+.mb10r {
+	margin-bottom: 1rem !important;
+}
+.ml20r {
+	margin-left: 2rem !important;
+}
+.mr20r {
+	margin-right: 2rem !important;
+}
+.mt20r {
+	margin-top: 2rem !important;
+}
+.mb20r {
+	margin-bottom: 2rem !important;
+}
+.p10r {
+	padding: 1rem !important;
+}
+.pl0 {
+	padding-left: 0 !important;
+}
+.pr0 {
+	padding-right: 0 !important;
+}
+.pt0 {
+	padding-top: 0 !important;
+}
+.pb0 {
+	padding-bottom: 0 !important;
+}
+.pl10r {
+	padding-left: 1rem !important;
+}
+.pr10r {
+	padding-right: 1rem !important;
+}
+.pt10r {
+	padding-top: 1rem !important;
+}
+.pb10r {
+	padding-bottom: 1rem !important;
+}
+.pl20r {
+	padding-left: 2rem !important;
+}
+.pr20r {
+	padding-right: 2rem !important;
+}
+.pt20r {
+	padding-top: 2rem !important;
+}
+.pb20r {
+	padding-bottom: 2rem !important;
+}
+.tal {
+	text-align: left !important;
+}
+.tar {
+	text-align: right !important;
+}
+.tac {
+	text-align: center !important;
+}
+.scrVA {
+	overflow-y: auto !important;
+}
+.scrVH {
+	overflow-y: hidden !important;
+}
+.scrHA {
+	overflow-x: auto !important;
+}
+.scrHH {
+	overflow-x: hidden !important;
+}
+.fs15r {
+	font-size: 1.5rem !important;
+}
+.fs20r {
+	font-size: 2rem !important;
+}
+.bd1p555 {
+	border: 1px solid #555;
+}
+.bdt0p {
+	border-top: 0 !important;
+}
+.bdb0p {
+	border-bottom: 0 !important;
+}
+.bdl0p {
+	border-left: 0 !important;
+}
+.bdr0p {
+	border-right: 0 !important;
+}
+.fll {
+	float: left;
+}
+.flr {
+	float: right;
+}
+.bgw {
+	background: #fff !important;
+}
+.disabled {
+	background: #eee !important;
+}
+.fwb {
+	font-weight: bold !important;
+}
+.inblk {
+	display: inline-block !important;
+}
+.lh10r {
+	line-height: 1.0rem !important;
+}
+.lh20r {
+	line-height: 2.0rem !important;
+}
+.w100 {
+	width: 100% !important;
+}
+.w0 {
+	width: 0 !important;
+}
+.h0 {
+	height: 0 !important;
+}
+.novis {
+	visibility: hidden !important;
+}
+
+/* 임시코드: 퍼블에 정식요청하기 전 임시반영 */
+/*
+ul > li > input[type='checkbox'] + label[for]:focus,
+ul > li > input[type='radio'] + label[for]:focus {
+	width: 100% !important;
+	height: 100% !important;
+	outline: thin dotted !important;
+	outline: 5px auto -webkit-focus-ring-color !important;
+	outline-offset: -1px !important;
+}
+.contents a[role='button']:focus,
+.popCont a[role='button']:focus {
+	outline: thin dotted !important;
+	outline: 5px auto -webkit-focus-ring-color !important;
+	outline-offset: -1px !important;
+}
+*/
