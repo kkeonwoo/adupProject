@@ -495,7 +495,7 @@ $(document).ready(function(){
 				.pc {display:block;}
 				.m {display:none !important;}
 				.fw-700 { font-weight: 700;}
-				.h-ttl { font-size: 3.2rem; line-height: 4rem; text-align: center;}
+				.h-ttl { font-size: 3.2rem; line-height: 4rem;}
 				.h-ttl.type02 { font-size: 2.8rem; line-height: 3.6rem;}
 				.inner { width: 100%; max-width: 120rem; margin: 0 auto;}
 				.desc-sec { margin-top: 8rem;}
@@ -547,6 +547,7 @@ $(document).ready(function(){
 				/* *******************************
 				[ layout ] 가입 상품 확인 영역
 				******************************* */
+				.desc-sec.chk-prd .ttl-box .h-ttl { text-align: center;}
 				.desc-sec.chk-prd .cnt-list { display: flex; justify-content: space-between; gap: 11.2rem; padding: 0 11.2rem;}
 				.desc-sec.chk-prd .cnt-list .cnt-item { text-align: center;}
 				.desc-sec.chk-prd .cnt-list .ico { display: inline-block; width: 16rem; height: 16rem; border-radius: 100%; border: 2px solid #E6E6E6; background-repeat: no-repeat; background-position: center center; background-size: 7.2rem auto;}
@@ -601,27 +602,27 @@ $(document).ready(function(){
 				/* *******************************
 				[ layout ] 카디프생명 소개 아코디언
 				******************************* */
-				.desc-sec .acco-intro-area { border: 1px solid #E6E6E6; border-radius: 3rem;}
-				.desc-sec .acco-intro-header { display: flex; align-items: center; position: relative; margin: -1px; padding: 4rem; border-radius: 3rem; color: #fff; background-color: #009F63; cursor: pointer;}
-				.desc-sec .acco-intro-header .ico { display: block; position: absolute; top: -4.5rem; left: 1.5rem; width: 22rem; height: 19.2rem; background: url('/img/day01/img_gift_card_yellow.png') no-repeat center center / 100% auto;}
-				.desc-sec .acco-intro-header .h-ttl { margin-left: 20rem; user-select: none;}
-				.desc-sec .acco-intro-btn { width: 5.6rem; height: 5.6rem; margin-left: auto; background: url('/img/day01/arw_up_white.png') no-repeat center center / 100% auto; transition: 0.45s all; cursor: pointer; transform: rotate(180deg);}
-				.desc-sec .acco-intro-area.active .acco-intro-btn { transform: rotate(0deg);}
-				.desc-sec .acco-intro-body { display: none; padding: 6rem; text-align: center;}
-				.desc-sec .acco-intro-body .acco-cnt-area { display: flex; gap: 7rem;}
-				.desc-sec .acco-intro-body .left { width: 480px;}
-				.desc-sec .acco-intro-body .tbl .th,
-				.desc-sec .acco-intro-body .tbl .td { padding: 1.2rem; border: 1px solid #E6E6E6;}
-				.desc-sec .acco-intro-body .tbl .th:nth-child(2n),
-				.desc-sec .acco-intro-body .tbl .td:nth-child(2n) { border-right: none;}
-				.desc-sec .acco-intro-body .tbl .th:nth-child(2n-1),
-				.desc-sec .acco-intro-body .tbl .td:nth-child(2n-1) { border-left: none;}
-				.desc-sec .acco-intro-body .tbl .th { border-top: 2px solid #009F63; background-color: rgba(0, 159, 99, .1); font-weight: 700;}
-				.desc-sec .acco-intro-body .tbl tr:last-of-type .td { border-bottom: 1px solid #009F63;}
-				.desc-sec .acco-intro-body .right .txt-area { position: relative; padding-top: 8.8rem;}
-				.desc-sec .acco-intro-body .right .p-ref { margin-top: .4rem; font-size: 1.6rem; color: #424242;}
-				.desc-sec .acco-intro-body .right .p-ref + .p-desc { margin-top: 2.4rem;}
-				.desc-sec .acco-intro-body .right .txt-area::before { content: ''; display: block; position: absolute; top: 0; left: 50%; width: 6.4rem; height: 6.4rem; background: url('/img/day01/ico_firework.png') no-repeat center center / 100% auto; transform: translateX(-50%);}
+				.acco-intro-wrap.type02 .acco-intro-area { width: unset; padding-bottom: unset; border: 1px solid #E6E6E6; border-radius: 3rem;}
+				.acco-intro-wrap.type02 .acco-intro-header { display: flex; align-items: center; position: relative; margin: -1px; padding: 4rem; border-radius: 3rem; color: #fff; background-color: #009F63; cursor: pointer;}
+				.acco-intro-wrap.type02 .acco-intro-header .ico { display: block; position: absolute; top: -4.5rem; left: 1.5rem; width: 22rem; height: 19.2rem; background: url('/img/day01/img_gift_card_yellow.png') no-repeat center center / 100% auto;}
+				.acco-intro-wrap.type02 .acco-intro-header .h-ttl { margin-left: 20rem; user-select: none;}
+				.acco-intro-wrap.type02 .acco-intro-btn { width: 5.6rem; height: 5.6rem; margin-top: unset; margin-left: auto; background: url('/img/day01/arw_up_white.png') no-repeat center center / 100% auto; transition: 0.45s all; cursor: pointer; transform: rotate(180deg); box-shadow: unset;}
+				.acco-intro-wrap.type02 .acco-intro-area.active .acco-intro-btn { transform: rotate(0deg);}
+				.acco-intro-wrap.type02 .acco-intro-body { display: none; margin: unset; padding: 6rem; text-align: center;}
+				.acco-intro-wrap.type02 .acco-intro-body .acco-cnt-area { display: flex; gap: 7rem;}
+				.acco-intro-wrap.type02 .acco-intro-body .left { width: 480px;}
+				.acco-intro-wrap.type02 .acco-intro-body .tbl .th,
+				.acco-intro-wrap.type02 .acco-intro-body .tbl .td { padding: 1.2rem; border: 1px solid #E6E6E6;}
+				.acco-intro-wrap.type02 .acco-intro-body .tbl .th:nth-child(2n),
+				.acco-intro-wrap.type02 .acco-intro-body .tbl .td:nth-child(2n) { border-right: none;}
+				.acco-intro-wrap.type02 .acco-intro-body .tbl .th:nth-child(2n-1),
+				.acco-intro-wrap.type02 .acco-intro-body .tbl .td:nth-child(2n-1) { border-left: none;}
+				.acco-intro-wrap.type02 .acco-intro-body .tbl .th { border-top: 2px solid #009F63; background-color: rgba(0, 159, 99, .1); font-weight: 700;}
+				.acco-intro-wrap.type02 .acco-intro-body .tbl tr:last-of-type .td { border-bottom: 1px solid #009F63;}
+				.acco-intro-wrap.type02 .acco-intro-body .right .txt-area { position: relative; padding-top: 8.8rem;}
+				.acco-intro-wrap.type02 .acco-intro-body .right .p-ref { margin-top: .4rem; font-size: 1.6rem; color: #424242;}
+				.acco-intro-wrap.type02 .acco-intro-body .right .p-ref + .p-desc { margin-top: 2.4rem;}
+				.acco-intro-wrap.type02 .acco-intro-body .right .txt-area::before { content: ''; display: block; position: absolute; top: 0; left: 50%; width: 6.4rem; height: 6.4rem; background: url('/img/day01/ico_firework.png') no-repeat center center / 100% auto; transform: translateX(-50%);}
 
 				/* *******************************
 				* [ animation ]
@@ -734,14 +735,14 @@ $(document).ready(function(){
 				/* *******************************
 				[ layout ] 카디프생명 소개 아코디언
 				******************************* */
-				.desc-sec .acco-intro-area { border-radius: 1.5rem;}
-				.desc-sec .acco-intro-header { flex-direction: column; padding: 1.6rem; padding-top: 10rem; border-radius: 1.5rem; text-align: center;}
-				.desc-sec .acco-intro-header .ico { top: -5.5rem; left: 50%; width: 18rem; height: 16rem; background: url('/img/day01/img_gift_card_yellow_mo.png') no-repeat center center / 100% auto; transform: translateX(-50%);}
-				.desc-sec .acco-intro-header .h-ttl { margin-left: 0;}
-				.desc-sec .acco-intro-btn { width: 4.8rem; height: 4.8rem; margin-top: .8rem; margin-left: unset;}
-				.desc-sec .acco-intro-body { display: none; padding: 3.2rem 2rem;}
-				.desc-sec .acco-intro-body .acco-cnt-area { flex-direction: column; align-items: center; gap: 3.2rem;}
-				.desc-sec .acco-intro-body .left { width: 78.66666666666666vw;}
+				.acco-intro-wrap.type02 .acco-intro-area { border-radius: 1.5rem;}
+				.acco-intro-wrap.type02 .acco-intro-header { flex-direction: column; padding: 1.6rem; padding-top: 10rem; border-radius: 1.5rem; text-align: center;}
+				.acco-intro-wrap.type02 .acco-intro-header .ico { top: -5.5rem; left: 50%; width: 18rem; height: 16rem; background: url('/img/day01/img_gift_card_yellow_mo.png') no-repeat center center / 100% auto; transform: translateX(-50%);}
+				.acco-intro-wrap.type02 .acco-intro-header .h-ttl { margin-left: 0;}
+				.acco-intro-wrap.type02 .acco-intro-btn { width: 4.8rem; height: 4.8rem; margin-top: .8rem; margin-left: unset;}
+				.acco-intro-wrap.type02 .acco-intro-body { display: none; padding: 3.2rem 2rem;}
+				.acco-intro-wrap.type02 .acco-intro-body .acco-cnt-area { flex-direction: column; align-items: center; gap: 3.2rem;}
+				.acco-intro-wrap.type02 .acco-intro-body .left { width: 78.66666666666666vw;}
 				}
 				
 				/* 스크롤 애니메이션 css s 20220502 */
@@ -1016,50 +1017,52 @@ $(document).ready(function(){
 										</li>
 									</ul>
 
-									<div class="acco-intro-area">
-										<div class="acco-intro-header" aria-expanded="false" data-title-text="(e)대출안심 보장보험 내용">
-											<i class="ico"><span class="blind">최대 30,000원</span></i>
-											<h3 class="h-ttl type02 fw-700">
-												(e)대출안심 보장보험 고객님<br class="m"> 한 달 후에 상품권 꼭 챙기세요!
-											</h3>
-											<button type="button" class="acco-intro-btn"></button>
-										</div>
-										<div class="acco-intro-body">
-											<div class="acco-cnt-area">
-												<div class="left">
-													<table class="tbl">
-														<caption>월 보험료에 따른 상품권 지급에 관한 정보 제공</caption>
-														<colgroup>
-															<col width="*">
-															<col width="*">
-														</colgroup>
-														<thead>
-															<tr>
-																<th class="th">월 보험료</th>
-																<th class="th">상품권</th>
-															</tr>
-														</thead>
-														<tbody>
-															<tr>
-																<td class="td">5천원 이상</td>
-																<td class="td">5천원 상품권</td>
-															</tr>
-															<tr>
-																<td class="td">1만원 이상</td>
-																<td class="td">1만원 상품권</td>
-															</tr>
-															<tr>
-																<td class="td">2만 5천원 이상</td>
-																<td class="td">3만원 상품권</td>
-															</tr>
-														</tbody>
-													</table>
-												</div>
-												<div class="right">
-													<div class="txt-area">
-														<p class="p-desc fw-700">가입하고 한달이 지나면<br class="m"> 상품권을 받을 수 있어요.</p>
-														<p class="p-ref">※ 보험을 30일간 유지하셔야<br class="m"> 당첨 요건이 충족됩니다.</p>
-														<p class="p-desc">참여방법 및 유의사항은<br class="m"> 홈페이지를 참조하시기 바랍니다.</p>
+									<div class="acco-intro-wrap type02">
+										<div class="acco-intro-area">
+											<div class="acco-intro-header" aria-expanded="false" data-title-text="(e)대출안심 보장보험 내용">
+												<i class="ico"><span class="blind">최대 30,000원</span></i>
+												<h3 class="h-ttl type02 fw-700">
+													(e)대출안심 보장보험 고객님<br class="m"> 한 달 후에 상품권 꼭 챙기세요!
+												</h3>
+												<button type="button" class="acco-intro-btn"></button>
+											</div>
+											<div class="acco-intro-body">
+												<div class="acco-cnt-area">
+													<div class="left">
+														<table class="tbl">
+															<caption>월 보험료에 따른 상품권 지급에 관한 정보 제공</caption>
+															<colgroup>
+																<col width="*">
+																<col width="*">
+															</colgroup>
+															<thead>
+																<tr>
+																	<th class="th">월 보험료</th>
+																	<th class="th">상품권</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td class="td">5천원 이상</td>
+																	<td class="td">5천원 상품권</td>
+																</tr>
+																<tr>
+																	<td class="td">1만원 이상</td>
+																	<td class="td">1만원 상품권</td>
+																</tr>
+																<tr>
+																	<td class="td">2만 5천원 이상</td>
+																	<td class="td">3만원 상품권</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+													<div class="right">
+														<div class="txt-area">
+															<p class="p-desc fw-700">가입하고 한달이 지나면<br class="m"> 상품권을 받을 수 있어요.</p>
+															<p class="p-ref">※ 보험을 30일간 유지하셔야<br class="m"> 당첨 요건이 충족됩니다.</p>
+															<p class="p-desc">참여방법 및 유의사항은<br class="m"> 홈페이지를 참조하시기 바랍니다.</p>
+														</div>
 													</div>
 												</div>
 											</div>
