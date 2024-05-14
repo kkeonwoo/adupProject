@@ -16,7 +16,7 @@ gsap.to('.orange', {
     duration:2.5,
     y:100,
     // repeat: -1,
-    onComplete: complete('orange'),
+    onComplete: complete,
     onCompleteParams: ['오렌지', 3],
     onUpdate() {
         h1.textContent = `애니메이션 재생 중`
@@ -36,7 +36,7 @@ gsap.to('.orange', {
 
 function complete(color, number) {
     // console.log(color);
-    console.log(this); // tweens
+    // console.log(this); // tweens
 
     h1.textContent = `${color} + 애니메이션 재생 끝`
 
@@ -54,7 +54,7 @@ const user = {
     sayBuy: () => { // 화살표 함수
         console.log(this); // this X window
     },
-    sayGood() { // concise method constructore X
+    sayGood() { // concise method constructor X
         console.log(this); // 호출한 대상
     }
 }

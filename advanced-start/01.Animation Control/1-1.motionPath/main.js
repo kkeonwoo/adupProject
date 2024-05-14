@@ -12,7 +12,6 @@ const time = $('#time');
 gsap.to('#mPath', { 
     strokeDashoffset: 0,
     duration: 4,
-    
 })
 const animation = gsap.to(tiger, { 
     x:100,
@@ -110,7 +109,7 @@ svg.addEventListener('click', (e) => {
     if (!target || !id || id === 'svg') return;
     
     let progress = 0;
-    animation.pause();;
+    animation.pause();
     
     switch (id) {
         case 'home': progress = 0; break;

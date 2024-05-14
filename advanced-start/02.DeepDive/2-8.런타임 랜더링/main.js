@@ -1,6 +1,6 @@
 const tl = gsap.timeline({
     defaults: {
-        duration: 2,
+        duration: 1,
     }
 });
 
