@@ -1,0 +1,60 @@
+.btn {
+    flex-wrap: wrap;
+    width: 100%;
+    min-width: 100px;
+    padding: 10px;
+    border: 1px solid transparent;
+    background-color: transparent;
+    font-weight: 400;
+    font-size: $font-normal + 2;
+    line-height: 1.5;
+    color: #697a8d;
+    vertical-align: middle;
+    transition: all .2s ease-in-out;
+    border-radius: 10px;
+    user-select: none;
+    word-wrap: anywhere;
+    @include inline-flex();
+
+    /* s: Block */
+    /* e: Block */
+
+    /* s: Modified */
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.65;
+    }
+
+    &--primary {
+        border-color: $color-blue3;
+        background-color: $color-blue3;
+    }
+    
+    &--secondary {
+        border-color: $color-gray4;
+        background-color: $color-gray4;
+    }
+
+    &--success,
+    &--active {
+        background-color: $color-blue;
+    }
+
+    &--dark {
+        background-color: $color-black2;
+    }
+    /* e: Modified */
+}
+
+@include media-down(tab) {
+    .btn {
+        padding: 8px;
+        font-size: $font-small;
+        
+        /* s: Block */
+        /* e: Block */
+    
+        /* s: Modified */
+        /* e: Modified */
+    }
+}

@@ -1,0 +1,164 @@
+.form-select {
+    position: relative;
+
+    &--show {
+        z-index: 10;
+
+        .form-select__btn::after {
+            transform: translateY(-50%) rotate(180deg);
+            background-color: $color-red;
+        }
+    }
+
+    &__btn {
+        display: block;
+        width: 100%;
+        padding: 13px;
+        padding-right: calc(13px * 2 + 14px);
+        border: 1px solid $color-gray4;
+        background-color: $color-white;
+        color: $color-gray4;
+        text-align: left;
+        border-radius: 8px;
+        outline: none;
+        @include ellipsis();
+
+        &::after {
+            top: 50%;
+            right: 16px;
+            width: 16px;
+            height: 10px;
+            background: url('../images/icons/arw_down_black2.svg') no-repeat center / 100% auto;
+            transform: translateY(-50%);
+            transition: transform .45s;
+            pointer-events: none;
+            @include pseudo();
+        }
+
+        &--active {
+            color: #191919;
+        }
+    }
+}
+
+.option {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    width: 100%;
+    max-height: 250px;
+    padding: 7px 0;
+    background-color: #FFFFFF;
+    transform: translateY(10px);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    border-radius: 4px;
+
+    &--show {
+        display: block;
+    }
+
+    &__btn {
+        display: block;
+        width: 100%;
+        padding: 6px 13px;
+        font-size: 14px;
+        text-align: left;
+        line-height: 1.285714;
+        @include ellipsis();
+    }
+
+    &__item:hover {
+        .option__btn {
+            background-color: #fafafa;
+        }
+    }
+
+    &__item--active {
+        .option__btn {
+            background-color: #eee;
+        }
+    }
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    &__txt {
+        padding: 10px 20px;
+        background-color: $color-white;
+        border: 1px solid $color-gray4;
+        border-radius: 6px;
+        font-size: $font-normal;
+        line-height: 1.25;
+        text-align: center;
+        white-space: nowrap;
+        @include flex(null, center);
+
+        &:first-child~&,
+        &:first-child~.form-control {
+            margin-left: -1px;
+            border-radius: 0;
+        }
+    }
+
+    &:focus-within &__txt,
+    &:focus-within .form-control {
+        border-color: $color-blue;
+    }
+
+    .form-control {
+        position: relative;
+        flex: 1 1 auto;
+        width: 1%;
+        min-width: 0;
+    }
+
+    &__txt,
+    .form-control {
+        &:first-child {
+            border-top-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &:last-child {
+            margin-left: -1px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-top-right-radius: 6px !important;
+            border-bottom-right-radius: 6px !important;
+        }
+    }
+
+}
+
+@include media-down(tab) {
+    .form-select {
+        max-width: 100%;
+
+        &__btn {
+            min-height: 38px;
+            padding: 6px 12px;
+            padding-right: calc(12px * 2 + 12px);
+            font-size: $font-small - 2;
+
+            &::after {
+                right: 12px;
+                width: 12px;
+                height: 8px;
+            }
+        }
+    }
+
+    .option {
+        &__btn {
+            font-size: $font-small - 2;
+            padding: 4px 8px;
+        }
+    }
+}

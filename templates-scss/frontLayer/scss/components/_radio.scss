@@ -1,0 +1,57 @@
+/*radio*/
+.fancy {
+    &-area {
+        display: flex;
+        gap: 10px;
+    }
+
+    &-ani-box {
+        display: inline-flex;
+
+        & input+label {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        & input+label>span {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            background: transparent;
+            border: 2px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 250ms cubic-bezier(.4, .0, .23, 1);
+            @include flex(center, center);
+
+            &::before {
+                top: 2px;
+                left: 5px;
+                width: 4px;
+                height: 8px;
+                border-right: 2px solid #000;
+                border-bottom: 2px solid #000;
+                border-radius: 2px;
+                transform: rotate(45deg);
+                @include pseudo($display: null);
+            }
+        }
+
+        & input:checked+label>span {
+            border: 2px solid #00B96B;
+            background: #00B96B;
+            animation: bounce 200ms cubic-bezier(.4, .0, .23, 1);
+
+            &::before {
+                border-right: 2px solid #fff;
+                border-bottom: 2px solid #fff;
+            }
+        }
+
+        & input:focus-within+label {
+            outline: 1px dashed #000;
+        }
+    }
+}
