@@ -240,6 +240,27 @@
     align-self: stretch !important;
 }
 
+.skip a {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -9999em;
+    width: 100%;
+    padding: 15px 0;
+    background-color: #494e53;
+    color: #fff;
+    font: 16px 'Noto Sans KR', '맑은 고딕', 'sans-serif';
+    font-weight: 400;
+    text-align: center;
+    z-index: 99999;
+
+    & a:hover,
+    & a:active,
+    & a:focus {
+        top: 0
+    }
+}
+
 @for $i from 1 through 12 {
     .col_#{$i} {
         max-width: calc(100% / 12 * #{$i});
