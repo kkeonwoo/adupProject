@@ -97,7 +97,7 @@ h2{
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  display: none;
+  /* display: none; */
 }
 
 
@@ -138,7 +138,7 @@ h2{
   top: 0;
   z-index: 9999;
   pointer-events: none;
-  display: none;
+  /* display: none; */
 }
 
 .rectContainer svg{
