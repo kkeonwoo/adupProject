@@ -100,6 +100,8 @@ main{
       }
 
       .logo_container {
+        /* 애니메이션을 받으려면 부모의 사이즈에 영향을 받으면 안되기 때문에 */
+        /* abolute로 부모를 띄우고 전체 크기를 줘서 자식이 부모에 영향을 안 받게 설정 */
         position: absolute;
         left: 0;
         top: 0;
