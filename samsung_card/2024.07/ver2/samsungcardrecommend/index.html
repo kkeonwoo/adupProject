@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="autocomplete" content="off" />
+    <meta name="format-detection" content="telephone=no, address=no, email=no" />
+
+    <!-- meta tag -->
+    <meta name="Author" content="삼성카드" />
+    <meta name="title" content="samsungcardrecommend" />
+    <meta name="keywords" content="삼성카드추천" />
+    <meta name="description" content="삼성카드추천페이지" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="삼성카드,추천페이지" />
+    <meta property="og:description" content="삼성카드추천페이지" />
+    <meta property="og:image" content="">
+
+    <title>삼성카드</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="//static12.samsungcard.com/images/personal/samsung.ico" />
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" href="./_resources/css/setting.css" />
+    <link rel="stylesheet" type="text/css" href="./_resources/css/main.css?ver=2406261030" />
+
+    <!-- javascript -->
+    <script type="text/javascript" src="./_resources/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="./_resources/js/main.js"></script>
+
+    <!-- pixel -->
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                "gtm.start": new Date().getTime(),
+                event: "gtm.js"
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-NS8T9BS");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                "gtm.start": new Date().getTime(),
+                event: "gtm.js"
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-P5BKB5G");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9CWT88YTVF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-9CWT88YTVF");
+        gtag("config", "UA-199547061-1");
+    </script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !(function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) :
+                    n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = "2.0";
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+        })(
+            window,
+            document,
+            "script",
+            "//connect.facebook.net/en_US/fbevents.js"
+        );
+        fbq("init", "852918281434894");
+        fbq("track", "PageView");
+    </script>
+    <noscript><img height="1" width="1" style="display: none" src="https://www.facebook.com/tr?id=852918281434894&ev=PageView&noscript=1" /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !(function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) :
+                    n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = "2.0";
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+        })(
+            window,
+            document,
+            "script",
+            "https://connect.facebook.net/en_US/fbevents.js"
+        );
+        fbq("init", "770499889992244");
+        fbq("track", "PageView");
+    </script>
+    <noscript><img height="1" width="1" style="display: none" src="https://www.facebook.com/tr?id=770499889992244&ev=PageView&noscript=1" /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <!-- Kakao Pixel 공통 -->
+    <script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
+    <script type="text/javascript">
+        kakaoPixel("1474872991439998482").pageView();
+        kakaoPixel("7840640162826436917").pageView();
+    </script>
+    <!-- end Kakao Pixel -->
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NS8T9BS" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5BKB5G" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrap">
+        <div id="visual">
+            <div class="visual_img">
+                <img src="./_resources/images/web/img_visual.jpg?ver=2406261030" alt="Samsung Card 삼성카드 지금 주문하시겠습니까? 당신만의 커피를 추천하는 바리스타처럼, 당신을 위해 삼성카드를 추천해드립니다." class="img web_view" />
+                <img src="./_resources/images/app/img_visual.jpg?ver=2406261030" alt="Samsung Card 삼성카드 지금 주문하시겠습니까? 당신만의 커피를 추천하는 바리스타처럼, 당신을 위해 삼성카드를 추천해드립니다." class="img mob_view" />
+            </div>
+        </div>
+
+        <!-- s:tab -->
+        <div class="tab">
+            <div class="tab_inner">
+                <ul>
+                    <li class="active"><a href="#section01">시그니처<br>TOP10</a></li>
+                    <li><a href="#section02">내게 맞는<br>카드 찾기</a></li>
+                    <li><a href="#section03">이 달의<br>카드</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- e:tab -->
+
+        <!-- s:대상카드 -->
+        <div class="img_wrap section" id="section01">
+
+          <div class="img_item">
+            <img src="./_resources/images/web/img_top10.png?ver=2406261030" alt="어디서부터 시작해야할지 모르시겠다면? 삼성카드의 시그니처 카드부터 추천드릴게요! TOP 10 삼성카드의 Signature Card를 소개합니다. 24.04-05기간 기준" class="web_view">
+            <img src="./_resources/images/app/img_top10.jpg?ver=2406261030" alt="어디서부터 시작해야할지 모르시겠다면? 삼성카드의 시그니처 카드부터 추천드릴게요~ 삼성카드 시그니처 TOP 10 삼성카드의 Signature Card를 소개합니다. 2023.12.15~2024.3.15 홈페이지 신규 발급 기준" class="mob_view">
+          </div>
+
+          <div class="img_item img_card01_section">
+            <img src="./_resources/images/web/img_card01.png?ver=2406261030" alt="1위 모니모카드 이동통신요금, 아파트 관리비 10% 결제일 할인 대중교통 10% 결제일 할인" class="web_view">
+            <img src="./_resources/images/app/img_card01.jpg?ver=2406261030" alt="1위 모니모카드 이동통신요금, 아파트 관리비 10% 결제일 할인 대중교통 10% 결제일 할인" class="mob_view">
+            <a href="#" class="btn_detail" id="btnDetail01" target="_blank">
+              <img src="./_resources/images/app/img_card01_detail.png?ver=2406261030" alt="자세히 보기">
+            </a>
+          </div>
+
+          <div class="img_item img_card02_section">
+            <img src="./_resources/images/web/img_card02.png?ver=2406261030" alt="2위 삼성카드 &amp; MILEAGE PLATINUM 1000원당 스카이패스 1마일리지 적립" class="web_view">
+            <img src="./_resources/images/app/img_card02.jpg?ver=2406261030" alt="2위 삼성카드 &amp; MILEAGE PLATINUM 1000원당 스카이패스 1마일리지 적립" class="mob_view">
+            <a href="#" class="btn_detail" id="btnDetail02" target="_blank">
+              <img src="./_resources/images/app/img_card02_detail.png?ver=2406261030" alt="자세히 보기">
+            </a>
+            <a href="#" class="btn_speech_bubble" target="_blank" aria-label="연회비캐시백 이벤트"></a>
+          </div>
+
+          <div class="img_item img_card03_section">
+            <img src="./_resources/images/web/img_card03.png?ver=2406261030" alt="3위 삼성카드 Taptap O 대중교통 10% 결제일할인 통신요금 10% 결제일 할인" class="web_view">
+            <img src="./_resources/images/app/img_card03.jpg?ver=2406261030" alt="3위 삼성카드 Taptap O 대중교통 10% 결제일할인 통신요금 10% 결제일 할인" class="mob_view">
+            <a href="#" class="btn_detail" id="btnDetail03" target="_blank">
+              <img src="./_resources/images/app/img_card03_detail.png?ver=2406261030" alt="자세히 보기">
+            </a>
+            <a href="#" class="btn_speech_bubble" target="_blank" aria-label="연회비캐시백 이벤트"></a>
+          </div>
+
+          <div class="img_item img_card04_section">
+            <img src="./_resources/images/web/img_card04.png?ver=2406261030" alt="4위 모니모A 카드 국내외 가맹점 0.5%/1% 모니머니 리워드 적립 보험 9% 모니머니 리워드 추가 적립" class="web_view">
+            <img src="./_resources/images/app/img_card04.jpg?ver=2406261030" alt="4위 모니모A 카드 국내외 가맹점 0.5%/1% 모니머니 리워드 적립 보험 9% 모니머니 리워드 추가 적립" class="mob_view">
+            <a href="#" class="btn_detail" id="btnDetail04" target="_blank">
+              <img src="./_resources/images/app/img_card04_detail.png?ver=2406261030" alt="자세히 보기">
+            </a>
+          </div>
+
+          <div class="img_item img_card05_section">
+            <img src="./_resources/images/web/img_card05.png?ver=2406261030" alt="5위 삼성카드 iD ON 카드 많이쓰는 영역 30% 자동맞춤할인 교통,이동통신,스트리밍 10% 결제일할인" class="web_view">
+            <img src="./_resources/images/app/img_card05.jpg?ver=2406261030" alt="5위 삼성카드 iD ON 카드 많이쓰는 영역 30% 자동맞춤할인 교통,이동통신,스트리밍 10% 결제일할인" class="mob_view">
+            <a href="#" class="btn_detail" id="btnDetail05" target="_blank">
+              <img src="./_resources/images/app/img_card05_detail.png?ver=2406261030" alt="자세히 보기">
+            </a>
+            <a href="#" class="btn_speech_bubble" target="_blank" aria-label="연회비캐시백 이벤트"></a>
+          </div>
+
+          <div class="img_item img_card06_section">
+            <img src="./_resources/images/web/img_card06.png?ver=2406261030" alt="6위 삼성카드 iD SIMPLE 카드 국내외 가맹점 0.7% 결제일할인 온라인쇼핑몰 멤버십 50% 결제일할인" class="web_view">
+            <img src="./_resources/images/app/img_card06.jpg?ver=2406261030" alt="6위 삼성카드 iD SIMPLE 카드 국내외 가맹점 0.7% 결제일할인 온라인쇼핑몰 멤버십 50% 결제일할인" class="mob_view">
+            <a href="#" class="btn_detail" id="btnDetail06" target="_blank">
+              <img src="./_resources/images/app/img_card06_detail.png?ver=2406261030" alt="자세히 보기">
+            </a>
+            <a href="#" class="btn_speech_bubble" target="_blank" aria-label="연회비캐시백 이벤트"></a>
+          </div>
+
+          <div class="img_item img_card07_section">
+            <img src="./_resources/images/web/img_card07.png?ver=2406261030" alt="7위 삼성 iD ENERGY 카드 주유 10000원 결제일할인 대중교통 10% 결제일할인" class="web_view">
+            <img src="./_resources/images/app/img_card07.jpg?ver=2406261030" alt="7위 삼성 iD ENERGY 카드 주유 10000원 결제일할인 대중교통 10% 결제일할인" class="mob_view">
+            <a href="#" class="btn_detail" id="btnDetail07" target="_blank">
+              <img src="./_resources/images/app/img_card07_detail.png?ver=2406261030" alt="자세히 보기">
+            </a>
+            <a href="#" class="btn_speech_bubble" target="_blank" aria-label="연회비캐시백 이벤트"></a>
+          </div>
+
+          <div class="img_item img_card08_section">
+            <img src="./_resources/images/web/img_card08.png?ver=2406261030" alt="8위 삼성 iD VITA 카드 의료 20% 결제일할인 보험 10% 결제할인" class="web_view">
+            <img src="./_resources/images/app/img_card08.jpg?ver=2406261030" alt="6. 삼성 iD VITA 카드 의료 20% 결제일할인 보험 10% 결제할인" class="mob_view">
+            <a href="#" class="btn_detail" id="btnDetail08" target="_blank">
+              <img src="./_resources/images/app/img_card08_detail.png?ver=2406261030" alt="자세히 보기">
+            </a>
+            <a href="#" class="btn_speech_bubble" target="_blank" aria-label="연회비캐시백 이벤트"></a>
+          </div>
+
+          <div class="img_item img_card09_section">
+            <img src="./_resources/images/web/img_card09.png?ver=2406261030" alt="9위 삼성 iD 달달할인 카드 생활요금 정기결제 10% 결제일할인 할인점, 주유, 의료 5% 결제일할인" class="web_view">
+            <img src="./_resources/images/app/img_card09.jpg?ver=2406261030" alt="9위 삼성 iD 달달할인 카드 생활요금 정기결제 10% 결제일할인 할인점, 주유, 의료 5% 결제일할인" class="mob_view">
+            <a href="#" class="btn_detail" id="btnDetail09" target="_blank">
+              <img src="./_resources/images/app/img_card09_detail.png?ver=2406261030" alt="자세히 보기">
+            </a>
+          </div>
+
+          <div class="img_item img_card10_section">
+            <img src="./_resources/images/web/img_card10.png?ver=2406261030" alt="10위 삼성 iD EDU 카드 교육 10% 결제일 할인 아파트 관리비 5천원 결제일 할인" class="web_view">
+            <img src="./_resources/images/app/img_card10.jpg?ver=2406261030" alt="10위 삼성 iD EDU 카드 교육 10% 결제일 할인 아파트 관리비 5천원 결제일 할인" class="mob_view">
+            <a href="#" class="btn_detail" id="btnDetail10" target="_blank">
+              <img src="./_resources/images/app/img_card10_detail.png?ver=2406261030" alt="자세히 보기">
+            </a>
+          </div>
+
+          <div class="img_item">
+            <img src="./_resources/images/web/img_section_content01_01.png?ver=2406261030" alt="당신의 취향에 맞는 카드를 찾지 못하셨나요? 카드혜택을 위한 실적조건 등 자세한 내용은 카드별 '자세히보기'에서 확인 여기서 잠깐! 7월 한정 이벤트가 있다는데? 지금 20만원 쓰면 12만원 캐시백! TOP 카드 중에서 7월 한정 이벤트 대상카드를 확인해보세요" class="web_view">
+            <img src="./_resources/images/app/img_section_content01_01.jpg?ver=2406261030" alt="당신의 취향에 맞는 카드를 찾지 못하셨나요? 카드혜택을 위한 실적조건 등 자세한 내용은 카드별 '자세히보기'에서 확인 여기서 잠깐! 7월 한정 이벤트가 있다는데? 지금 20만원 쓰면 12만원 캐시백! TOP 카드 중에서 7월 한정 이벤트 대상카드를 확인해보세요" class="mob_view">
+            <a href="#" id="eventMemoBtn01" class="event_memo_btn" target="_blank" aria-label="확인하기"></a>
+          </div>
+
+        </div>
+        <!-- e:대상카드 -->
+
+        <!-- s:삼성카드 레시피 -->
+        <div class="img_wrap section" id="section02">
+
+            <div class="section02_relative web_view">
+                <div class="img_item img_coffee01">
+                    <img loading="lazy" src="./_resources/images/web/img_coffee01.png?ver=2406261030" alt="">
+                </div>
+
+                <div class="img_item img_coffee02">
+                    <img loading="lazy" src="./_resources/images/web/img_coffee02.png?ver=2406261030" alt="">
+                </div>
+            </div>
+
+          <div class="img_item">
+            <img src="./_resources/images/web/img_section_content02_01.png?ver=2406261030" alt="그렇다면 한번 찾아볼까요? 내가 원하는 것만 담긴, 나만의 삼성카드 레시피를 만들어보세요" class="web_view">
+            <img src="./_resources/images/app/img_section_content02_01.jpg?ver=2406261030" alt="그렇다면 한번 찾아볼까요? 내가 원하는 것만 담긴, 나만의 삼성카드 레시피를 만들어보세요" class="mob_view">
+          </div>
+
+          <div class="img_item">
+            <img src="./_resources/images/web/img_section_content02_02.png?ver=2406261030" alt="혜택유형? 연회비? 주요 혜택? 나만의 삼성카드 레시피를 만들었다면, 이제 그 카드를 찾아볼 시간!" class="web_view">
+            <img src="./_resources/images/app/img_section_content02_02.jpg?ver=2406261030" alt="혜택유형? 연회비? 주요 혜택? 나만의 삼성카드 레시피를 만들었다면, 이제 그 카드를 찾아볼 시간!" class="mob_view">
+          </div>
+
+          <div class="img_item">
+            <a href="https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoPersonalizedBenefit001" target="_blank">
+              <img src="./_resources/images/web/img_section_content02_03.png?ver=2406261030" alt="내게 맞는 카드 확인하기!" class="web_view">
+              <img src="./_resources/images/app/img_section_content02_03.jpg?ver=2406261030" alt="내게 맞는 카드 확인하기!" class="mob_view">
+            </a>
+          </div>
+
+          <div class="img_item">
+            <a href="https://www.samsungcard.com/home/card/cardinfo/PGHPPDCCardCardinfoRecommendPC001?webViewFirstPage=true" target="_blank">
+              <img src="./_resources/images/web/img_section_content02_04.png?ver=2406261030" alt="전체 카드 보러 가기!" class="web_view">
+              <img src="./_resources/images/app/img_section_content02_04.jpg?ver=2406261030" alt="전체 카드 보러 가기!" class="mob_view">
+            </a>
+          </div>
+
+        </div>
+        <!-- e:삼성카드 레시피 -->
+
+        <!-- s:이달의 카드 -->
+        <div class="img_wrap section" id="section03">
+
+          <div class="img_item">
+            <img src="./_resources/images/web/img_section_content03_01.png?ver=2406261030" longdesc="imgSectionContent03_01" class="web_view">
+            <img src="./_resources/images/app/img_section_content03_01.jpg?ver=2406261030" longdesc="imgSectionContent03_01" class="mob_view">
+            <div class="blind" id="imgSectionContent03_01">
+                <p>이 카드 주목~!</p>
+                <p>삼성카드가 뽑은 이달의 카드</p>
+                <p>삼성 iD GLOBAL 카드</p>
+            </div>
+          </div>
+
+          <div class="img_item">
+            <a href="#" id="btnDetailGlobal" target="_blank">
+              <img src="./_resources/images/web/img_section_content03_02.png?ver=2406261030" alt="이달의 카드 자세히 보기" class="web_view">
+              <img src="./_resources/images/app/img_section_content03_02.jpg?ver=2406261030" alt="이달의 카드 자세히 보기" class="mob_view">
+            </a>
+          </div>
+
+          <div class="img_item">
+            <img src="./_resources/images/web/img_section_content03_03.png?ver=2406281456" longdesc="imgSectionContent03_03" class="web_view">
+            <img src="./_resources/images/app/img_section_content03_03.jpg?ver=2406281456" longdesc="imgSectionContent03_03" class="mob_view">
+            <div class="blind" id="imgSectionContent03_03">
+                <p>카드 담당자가 말하는 이 카드는 이런 혜택 절대 놓치지 마세요~!</p>
+                <ul>
+                    <li>
+                        <p>해외 수수료 전액 결제일할인!</p>
+                        <p>전월 이용금액에 관계없이, 할인한도 없이 해외 수수료를 할인받을 수 있어요.</p>
+                    </li>
+                    <li>
+                        <p>국내 인앱결제/디지털콘텐츠 50% 결제일할인!</p>
+                        <p>전월이용금액에 관계없이 해외 온오프라인에서 월 최대 30만원까지 할인받을 수 있어요</p>
+                    </li>
+                    <li>
+                        <p>해외 온오프라인 2% 결제일 할인!</p>
+                        <p>구글플레이/앱스토어 결제건부터 넷플릭스/유튜브프리미엄 등 정기결제 콘텐츠까지 50% 할인받을 수 있어요.</p>
+                    </li>
+                    <li>
+                        <p>국내외 라운지도 연 2회 무료!</p>
+                        <p>The Lounge 앱을 설치하고 이 카드를 등록하면 국내, 해외 공항 라운지 이용권을 다운로드 할 수 있어요.</p>
+                    </li>
+                </ul>
+                <p>카드혜택을 위한 실적조건 등 자세한 내용은 이 달의 카드 자세히보기에서 확인</p>
+            </div>
+          </div>
+
+          <div class="img_item">
+            <img src="./_resources/images/web/img_section_content03_04.png?ver=2406261030" alt="이 달의 카드 이벤트도 진행하고 있으니 놓치지 마세요! 20만원 쓰면 12만원 캐시백 받고 해외 최대 8.2% 할인까지! (선착순 1,000명)" class="web_view">
+            <img src="./_resources/images/app/img_section_content03_04.jpg?ver=2406261030" alt="이 달의 카드 이벤트도 진행하고 있으니 놓치지 마세요! 20만원 쓰면 12만원 캐시백 받고 해외 최대 8.2% 할인까지! (선착순 1,000명)" class="mob_view">
+            <a href="#" id="eventMemoBtn02" class="event_memo_btn" target="_blank" aria-label="확인하기"></a>
+          </div>
+
+        </div>
+        <!-- e:이달의 카드 -->
+
+        <div class="notice_area">
+            <div class="notice_card">
+                <div class="notice_header">
+                    <h3 class="ttl">필수사항</h3>
+                </div>
+                <div class="notice_body">
+                    <ul class="depth1_list">
+                        <li class="depth1_item">
+                            <div class="depth1_box">
+                                <p class="depth1_txt">삼성카드 등록 업종 기준이며, 할인 제외 대상 및 전월 실적 등 자세한 내용은 홈페이지 등을 통해 확인해 주시기 바랍니다. </p>
+                            </div>
+                        </li>
+                        <li class="depth1_item">
+                            <div class="depth1_box">
+                                <p class="depth1_txt">연회비 : </p>
+                                <ul>
+                                    <li>모니모카드 해외겸용(Mastercard) 1만원 | 국내전용 1만원</li>
+                                    <li>삼성카드 & MILEAGE PLATINUM (스카이패스) 해외겸용(AMEX) 4만9천원 | 국내전용 4만7천원</li>
+                                    <li>삼성카드 taptap O 해외겸용(Mastercard) 1만원 | 국내전용 1만원</li>
+                                    <li>모니모A 카드 해외겸용(Mastercard) 1만원 | 국내전용 1만원</li>
+                                    <li>삼성 iD ON 카드 해외겸용(Mastercard) 2만원 | 국내전용 2만원</li>
+                                    <li>삼성 iD SIMPLE 카드 해외겸용(Mastercard,Unionpay) 7천원 | 국내전용 7천원</li>
+                                    <li>삼성 iD ENERGY 카드 해외겸용(VISA) 2만원 | 국내전용 2만원</li>
+                                    <li>삼성 iD VITA 카드 해외겸용(Mastercard,Unionpay) 2만원 | 국내전용 2만원</li>
+                                    <li>삼성 iD 달달할인 카드 해외겸용(Mastercard) 2만9천원 | 국내전용 2만 9천원</li>
+                                    <li>삼성 iD EDU 카드 해외겸용(VISA) 3만원 | 국내전용 3만원</li>
+                                    <li>삼성 iD GLOBAL 카드 해외겸용 (Mastercard) 2만원 / 국내전용 2만원</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="depth1_item">
+                            <div class="depth1_box">
+                                <b>연체이자율 : 회원별 · 이용상품별 정상이자율 + 3%p (최고 연 20.0%)</b>
+                            </div>
+                        </li>
+                        <li class="depth1_item">
+                            <div class="depth1_box">
+                                <b>연체 발생 시점에 정상이자율이 없는 경우 아래와 같이 적용</b>
+                                <ol>
+                                    <li><b>일시불 거래 연체 시 : 거래 발생 시점의 최소기간(2개월) 유이자할부 이자율</b></li>
+                                    <li><b>무이자할부 거래 연체 시 : 거래 발생 시점의 동일한 할부 계약기간 유이자할부 이자율</b></li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li class="depth1_item">
+                            <div class="depth1_box">
+                                <p class="depth1_txt">금융상품 이용 전 상품설명서, 홈페이지, 약관을 통해 이용조건을 확인해 주시기 바랍니다.</p>
+                            </div>
+                        </li>
+                        <li class="depth1_item">
+                            <div class="depth1_box">
+                                <p class="depth1_txt">금융소비자는 해당 상품 또는 서비스에 대하여 설명을 받을 권리가 있습니다.</p>
+                            </div>
+                        </li>
+                        <li class="depth1_item">
+                            <div class="depth1_box">
+                                <p class="depth1_txt">신용카드 발급이 부적정한 경우(개인신용평점 낮음 등) 카드 발급이 제한될 수 있습니다.</p>
+                            </div>
+                        </li>
+                        <li class="depth1_item">
+                            <div class="depth1_box">
+                                <p class="depth1_txt">카드 이용대금과 이에 수반되는 모든 수수료를 지정된 대금 결제일에 상환합니다.</p>
+                            </div>
+                        </li>
+                        <li class="depth1_item">
+                            <div class="depth1_box">
+                                <p class="depth1_txt"><b>상환 능력에 비해 신용카드 사용액이 과도할 경우 귀하의 개인신용평점이 하락할 수 있습니다.</b></p>
+                            </div>
+                        </li>
+                        <li class="depth1_item">
+                            <div class="depth1_box">
+                                <p class="depth1_txt"><b>개인신용평점 하락 시 금융거래 관련된 불이익이 발생할 수 있습니다.</b></p>
+                            </div>
+                        </li>
+                        <li class="depth1_item">
+                            <div class="depth1_box">
+                                <p class="depth1_txt"><b>일정 기간 원리금을 연체할 경우, 모든 원리금을 변제할 의무가 발생할 수 있습니다.</b></p>
+                            </div>
+                        </li>
+                        <li class="depth1_item">
+                            <div class="depth1_box">
+                                <p class="depth1_txt">여신금융협회 심의필 제 2024 - C1h - 05591호 (2024.5.20 ~ 2025.05.19)</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- :::::::::::: SCRIPT :::::::::::: -->
+    <!-- 네이버 신검 스크립트 -->
+    <script type="text/javascript">
+        var _NGUL = "wcs.naver.net/wcslog.js";
+        var _NPR =
+            location.protocol == "https:" ? "https://" + _NGUL : "http://" + _NGUL;
+        document.writeln(
+            "<scr" +
+            "ipt type='text/ja" +
+            "vascript' src='" +
+            _NPR +
+            "'></scr" +
+            "ipt>"
+        );
+    </script>
+    <script type="text/javascript">
+        if (!wcs_add) var wcs_add = {};
+        wcs_add["wa"] = "s_3c26177e4848";
+        wcs.inflow("samsungcard.com"); // 사이트 기본 도메인 설정 필요 ex) www.naver.com 일 경우 "naver.com"으로 설정
+        wcs_do();
+    </script>
+    <!-- End 네이버 신검 스크립트 -->
+    <!-- ::::::::::: //SCRIPT ::::::::::: -->
+    <script>
+        //카드 자세히보기 BUTTON
+        var btn_detail_card01 = document.getElementById("btnDetail01"); // 모니모카드
+        var btn_detail_card02 = document.getElementById("btnDetail02"); // &MILEAGE
+        var btn_detail_card03 = document.getElementById("btnDetail03"); // Taptap O
+        var btn_detail_card04 = document.getElementById("btnDetail04"); // 모니모A
+        var btn_detail_card05 = document.getElementById("btnDetail05"); // iD ON
+        var btn_detail_card06 = document.getElementById("btnDetail06"); // iD SIMPLE
+        var btn_detail_card07 = document.getElementById("btnDetail07"); // iD ENERGY
+        var btn_detail_card08 = document.getElementById("btnDetail08"); // iD VITA
+        var btn_detail_card09 = document.getElementById("btnDetail09"); // iD 달달할인
+        var btn_detail_card10 = document.getElementById("btnDetail10"); // iD EDU
+        var btn_detail_global = document.getElementById("btnDetailGlobal"); // iD GLOBAL
+
+        //카드 자세히보기 URL
+        var url_detail_card01 = "https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1742"; // 모니모카드
+        var url_detail_card02 = "https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1452"; // &MILEAGE
+        var url_detail_card03 = "https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1483"; // Taptap O
+        var url_detail_card04 = "https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1817"; // 모니모A
+        var url_detail_card05 = "https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1731"; // iD ON
+        var url_detail_card06 = "https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1767"; // iD SIMPLE
+        var url_detail_card07 = "https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1753"; // iD ENERGY
+        var url_detail_card08 = "https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1790"; // iD VITA
+        var url_detail_card09 = "https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1719"; // iD 달달할인
+        var url_detail_card10 = "https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1756"; // iD EDU
+        var url_detail_global = "https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1824"; // iD GLOBAL
+
+        // 확인하기 랜딩 버튼 
+        var btn_event_memo01 = document.getElementById("eventMemoBtn01"); // 섹션1 확인하기버튼
+        var btn_event_memo02 = document.getElementById("eventMemoBtn02"); // 섹션3 확인하기버튼
+
+        //확인하기 랜딩 버튼  URL - (확인!) /로 끝날경우 파라미터 따라붙게 index.html? 넣기
+        var url_event_memo01 = "https://www.samsungcard-ad.com/2407v1/total/index.html?"; // 섹션1 확인하기버튼
+        var url_event_memo02 = "https://www.samsungcard-ad.com/2407v1/global/index.html?"; // 섹션3 확인하기버튼
+
+        // Query String
+        var query_json = getQueryStringToJson(location.search);
+
+        // URL + Query String
+        var card_detail_qs =
+            "&alncmpC=" + query_json.site + "&affcode=" + query_json.site + "&BSCPN=" + query_json.BSCPN + "&BSPRG=" + query_json.BSPRG + "&BSCCN1=" + query_json.BSCCN1;
+
+        // URL + Query String
+        var event_memo_qs =
+        "site=" + query_json.site + "&cmpid=" + query_json.site + "&BSCPN=" + query_json.BSCPN + "&BSPRG=" + query_json.BSPRG + "&BSCCN1=" + query_json.BSCCN1;
+
+        //UTM
+        var utm_qs =
+            "&utm_source=" +
+            query_json.utm_source +
+            "&utm_medium=" +
+            query_json.utm_medium +
+            "&utm_campaign=" +
+            query_json.utm_campaign +
+            "&utm_term=" +
+            query_json.utm_term +
+            "&utm_content=" +
+            query_json.utm_content;
+
+        // LINK 교체 -- 자세히보기
+        btn_detail_card01.setAttribute("href",url_detail_card01 + card_detail_qs + utm_qs);
+        btn_detail_card02.setAttribute("href",url_detail_card02 + card_detail_qs + utm_qs);
+        btn_detail_card03.setAttribute("href",url_detail_card03 + card_detail_qs + utm_qs);
+        btn_detail_card04.setAttribute("href",url_detail_card04 + card_detail_qs + utm_qs);
+        btn_detail_card05.setAttribute("href",url_detail_card05 + card_detail_qs + utm_qs);
+        btn_detail_card06.setAttribute("href",url_detail_card06 + card_detail_qs + utm_qs);
+        btn_detail_card07.setAttribute("href",url_detail_card07 + card_detail_qs + utm_qs);
+        btn_detail_card08.setAttribute("href",url_detail_card08 + card_detail_qs + utm_qs);
+        btn_detail_card09.setAttribute("href",url_detail_card09 + card_detail_qs + utm_qs);
+        btn_detail_card10.setAttribute("href",url_detail_card10 + card_detail_qs + utm_qs);
+        btn_detail_global.setAttribute("href",url_detail_global + card_detail_qs + utm_qs);
+
+        // 말풍선 - 연회비 캐시백 이벤트 진행 중 랜딩 url 삽입
+        $('.btn_speech_bubble').attr('href','https://www.samsungcard.com/personal/event/ing/UHPPBE1403M0.jsp?cms_id=3655055');
+
+        // LINK 교체 - 확인하기 랜딩 버튼 
+        btn_event_memo01.setAttribute("href",url_event_memo01 + event_memo_qs + utm_qs);
+        btn_event_memo02.setAttribute("href",url_event_memo02 + event_memo_qs + utm_qs);
+
+        function getQueryStringToJson(queryString) {
+            var params = {};
+
+            if (!queryString) queryString = window.location.search;
+            if (queryString == "") return params;
+            try {
+                queryString = trim(queryString);
+            } catch (e) {}
+
+            if (queryString.indexOf("?") != 0) queryString = "?" + queryString;
+
+            try {
+                queryString.replace(
+                    /[?&]+([^=&]+)=([^&]*)/gi,
+                    function(str, key, value) {
+                        params[decodeURIComponent(key)] = decodeURIComponent(value);
+                    }
+                );
+            } catch (e) {
+                params = {
+                    error: queryString
+                };
+            }
+
+            return params;
+        }
+    </script>
+</body>
+
+</html>

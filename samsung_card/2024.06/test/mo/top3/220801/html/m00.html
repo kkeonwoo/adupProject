@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+
+    <!-- meta tag -->
+    <meta name="Author" content="삼성카드">
+    <meta name="title" content="추천카드 | 삼성카드">
+    <meta name="description" content="삼성카드 추천 TOP3">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="추천카드 | 삼성카드">
+    <meta property="og:description" content="삼성카드 추천 TOP3">
+    <meta property="og:image" content="../_resources/images/com/sns_thumb_best.jpg">
+
+	<title>추천카드 | 삼성카드</title>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="//static12.samsungcard.com/images/personal/samsung.ico">
+	<!-- stylesheet -->
+	<link rel="stylesheet" type="text/css" href="../_resources/css/aos.css">
+	<link rel="stylesheet" type="text/css" href="../_resources/css/setting.css">
+	<link rel="stylesheet" type="text/css" href="../_resources/css/main.css?ver=2406031744">
+	
+	<!-- javascript -->
+	<script type="text/javascript" src="../_resources/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="../_resources/js/aos.js"></script>
+
+	<!-- gnb -->
+	<script src="../_resources/js/gsap.min.js"></script>
+	<script src="../_resources/js/ScrollTrigger.min.js"></script>
+	 <script src="../_resources/js/gnb.js?ver=2406031744"></script>
+	<script src="../_resources/js/parameter.js"></script>
+
+
+	<!-- [S] Pixel -->
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-P5BKB5G');</script>
+	<!-- End Google Tag Manager -->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CWT88YTVF"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-9CWT88YTVF');
+	  gtag('config', 'UA-199547061-1');
+	</script>
+
+	<!-- Facebook Pixel Code -->
+	<script>
+	!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n; n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0; t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','//connect.facebook.net/en_US/fbevents.js'); fbq('init', '852918281434894'); fbq('track', "PageView");
+	</script> <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=852918281434894&ev=PageView&noscript=1" /></noscript>
+	<!-- End Facebook Pixel Code -->
+
+	<!-- 20190221 추가 -->
+    <!-- Facebook Pixel Code -->
+    <script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script',
+	'https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '770499889992244');
+	fbq('track', 'PageView');
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=770499889992244&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Facebook Pixel Code -->
+
+	<!-- Kakao Pixel 공통 -->
+	<script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
+	<script type="text/javascript">
+		kakaoPixel('1474872991439998482').pageView();
+		kakaoPixel('7840640162826436917').pageView();
+	</script>
+	<!-- end Kakao Pixel -->
+	<!-- [E] Pixel -->
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5BKB5G"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+	
+<div id="wrap"  class="page_event">
+	
+	<div id="event" class="best-visual">
+		<div class="visual-wrap">
+			<h1 class="ttl">
+				<img class="img" src="../_resources/images/mob/event_cards/visual_txt.png" alt="Samsung Card 삼성카드 EVENT"/>
+			</h1>
+		</div>
+	</div>
+
+	<div id="contents">
+		<div class="gnb_pannel" data-active-index="0"></div>
+
+		<section class="section01">
+			<ul id="eventCardList" class="event_card_list"></ul>
+		</section>
+		
+		<section class="notice">
+			<div class="inner">
+				<div class="title">
+					<h2>유의사항</h2>
+				</div>
+				<div class="content">
+				<ul>
+					<li>
+						<strong>연체이자율 : 회원별·이용상품별 정상이자율 + 3%p (최고 연 20.0%)</strong>
+					</li>
+					<li class="dot">
+						<strong>
+						연체 발생 시점에 정상이자율이 없는 경우 아래와 같이 적용 <br>
+						① 일시불 거래 연체 시 : 거래 발생 시점의 최소 기간(2개월) 유이자할부 이자율 <br>
+						② 무이자할부 거래 연체 시 : 거래 발생 시점의 동일한 할부 계약기간 유이자할부 이자율
+						</strong>
+					</li>
+					<li>
+						<strong>상환 능력에 비해 신용카드 사용액이 과도할 경우 귀하의 개인신용평점이 하락할 수 있습니다.</strong>
+					</li>
+					<li>
+						<strong>개인신용평점 하락 시 금융거래 관련된 불이익이 발생할 수 있습니다.</strong>
+					</li>
+					<li>
+						<strong>일정 기간 원리금을 연체할 경우, 모든 원리금을 변제할 의무가 발생할 수 있습니다.</strong>
+					</li>
+					<li>
+						금융상품 이용 전 상품설명서, 홈페이지, 약관을 통해 이용조건을 확인해 주시기 바랍니다.
+					</li>
+					<li>
+						필요 이상으로 신용카드를 발급 및 이용하실 경우 개인신용평점, 이용한도 등에 영향을 미칠 수 있습니다.
+					</li>
+					<li>
+						금융소비자는 해당 상품 또는 서비스에 대하여 설명을 받을 권리가 있습니다.
+					</li>
+					<li>
+						신용카드 발급이 부적정한 경우(개인신용평점 낮음 등) 카드 발급이 제한될 수 있습니다.
+					</li>
+					<li>
+						카드 이용대금과 이에 수반되는 모든 수수료를 지정된 대금 결제일에 상환합니다.
+					</li>
+					<li>
+						여신금융협회 심의필 제 2023 - C1h - 11627호 ( 2023.10.24 ~ 2024.10.23 )
+					</li>
+				</ul>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+<script>
+	function eventCardPage(){
+		const card_info_arr = [
+			{
+				name: '삼성카드 taptap O',
+				folder: 'taptap_o',
+				info: {
+					alt: '삼성카드 taptap O 신규회원 연회비 100% 캐시백 2024.06.01 ~ 06.31'
+				},
+				btn: {
+					alt: '혜택 받기',
+					herf: 'https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1483&alncmpC=QAMBMBS11T&affcode=QAMBMBS11T'
+				}
+			},
+			{
+				name: 'taptap DRIVE',
+				folder: 'taptap_drive',
+				info: {
+					alt: 'taptap DRIVE 신규회원 연회비 100% 캐시백 2024.06.01 ~ 06.31'
+				},
+				btn: {
+					alt: '혜택 받기',
+					herf: 'https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1667&alncmpC=QAMBMBS11T&affcode=QAMBMBS11T'
+				}
+			},
+			{
+				name: 'taptap Digital',
+				folder: 'taptap_digital',
+				info: {
+					alt: 'taptap Digital 신규회원 연회비 100% 캐시백 2024.06.01 ~ 06.31'
+				},
+				btn: {
+					alt: '혜택 받기',
+					herf: 'https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1666&alncmpC=QAMBMBS11T&affcode=QAMBMBS11T'
+				}
+			},
+			{
+				name: 'taptap SIMPLE',
+				folder: 'id_simple',
+				info: {
+					alt: 'taptap SIMPLE 신규회원 연회비 100% 캐시백 2024.06.01 ~ 06.31'
+				},
+				btn: {
+					alt: '혜택 받기',
+					herf: 'https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1767&alncmpC=QAMBMBS11T&affcode=QAMBMBS11T'
+				}
+			},
+			{
+				name: '삼성 iD ENERGY',
+				folder: 'id_energy',
+				info: {
+					alt: '삼성 iD ENERGY 신규회원 연회비 100% 캐시백 2024.06.01 ~ 06.31'
+				},
+				btn: {
+					alt: '혜택 받기',
+					herf: 'https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1753&alncmpC=QAMBMBS11T&affcode=QAMBMBS11T'
+				}
+			},
+			{
+				name: '삼성카드 & MILEAGE PLATINUM (스카이패스)',
+				folder: 'skypass',
+				info: {
+					alt: '삼성카드 & MILEAGE PLATINUM (스카이패스) 신규회원 연회비 100% 캐시백 2024.06.01 ~ 06.31'
+				},
+				btn: {
+					alt: '혜택 받기',
+					herf: 'https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1452&alncmpC=QAMBMBS11T&affcode=QAMBMBS11T'
+				}
+			},
+			{
+				name: 'THE iD. TITANIUM',
+				folder: 'theid_titanium',
+				info: {
+					alt: 'THE iD. TITANIUM 신규회원 연회비 100% 캐시백 2024.06.01 ~ 06.31'
+				},
+				btn: {
+					alt: '혜택 받기',
+					herf: 'https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1777&alncmpC=QAMBMBS11T&affcode=QAMBMBS11T'
+				}
+			},
+			{
+				name: 'THE iD. PLATINUM',
+				folder: 'theid_platinum',
+				info: {
+					alt: 'THE iD. PLATINUM 신규회원 연회비 100% 캐시백 2024.06.01 ~ 06.31'
+				},
+				btn: {
+					alt: '혜택 받기',
+					herf: 'https://www.samsungcard.com/personal/card/simple-apply/UHPPCA0225M0.jsp?code=AAP1779&alncmpC=QAMBMBS11T&affcode=QAMBMBS11T',
+				}
+			},
+		]
+		
+		// 기본값 세팅
+		cardSet();
+		function cardSet(){
+			function setDefaultSrc(obj, key, folder, filename) {
+				if (obj[key] === undefined) {
+					obj[key] = {};
+				}
+				if (obj[key]?.src === undefined) {
+					obj[key].src = `../_resources/images/mob/event_cards/${folder}/${filename}`;
+				}
+				if (obj[key]?.param === undefined) {
+					obj[key].param = [
+						utm_param,
+						card_detail_qs,
+					];
+				}
+			}
+		
+			card_info_arr.forEach(t => {
+				setDefaultSrc(t, 'card', t.folder, 'card.png');
+				setDefaultSrc(t, 'info', t.folder, 'info.png');
+				setDefaultSrc(t, 'btn', t.folder, 'cta_btn.png');
+			});
+		}
+	
+	
+		const $eventCardList = $('#eventCardList');
+		card_info_arr.forEach(t=>{
+			if (t.btn.param){
+				t.btn.param.forEach(param=>t.btn.herf += param)
+			}
+			
+			$eventCardList.append(`
+				<li class="event_card_item ${t.folder || ''}">
+					<div class="event_card_box">
+						<div class="event_card">
+							<img class="card" src="${t.card.src}" alt=""/>
+						</div>
+						<div class="event_info">
+							<img class="info" src="${t.info.src}" alt="${t.info.alt}"/>
+							<a href="${t.btn.herf}" class="cta_btn" target="_blank">
+								<img class="img" src="${t.btn.src}" alt="${t.btn.alt}"/>
+							</a>
+						</div>
+					</div>
+				</li>
+			`);
+		});
+
+		gsap.set($eventCardList,{opacity:0});
+		setTimeout(()=>{
+			gsap.set($eventCardList,{opacity:1});
+			gsap.utils.toArray(".event_card_item").forEach(target=>{
+				ScrollTrigger.create({
+					trigger: target,
+					start: 'top 100%',
+					animation: gsap.from(target,{y:100,opacity:0}),
+				});
+			})
+		},1000)
+	}
+
+	// Query String
+	var query_json = getQueryStringToJson( location.search );
+
+	// URL + Query String
+	var utm_param = "&utm_source=" + query_json.utm_source + "&utm_medium=" + query_json.utm_medium + "&utm_campaign=" + query_json.utm_campaign;
+	var card_detail_qs = "&BSCPN=" + query_json.BSCPN + "&BSPRG=" + query_json.BSPRG + "&BSCCN1=" + query_json.BSCCN1;
+
+	function getQueryStringToJson( queryString ){
+		var params = {};
+
+		if( !queryString ) queryString = window.location.search;
+		if( queryString == "" ) return params;
+		try{ queryString = trim(queryString); }catch(e){}
+		
+		if( queryString.indexOf("?") != 0 ) queryString = "?" + queryString;
+
+		try{
+			queryString.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) { 
+				params[decodeURIComponent( key )] = decodeURIComponent( value );  
+			});
+		}catch(e){
+			params = {error:queryString};
+		}
+		
+		return params;
+	}
+
+
+	eventCardPage();
+</script>
+<script>
+	AOS.init();
+</script>
+
+<!-- [S] Pixel -->
+<!-- 구글 리마케팅 태그 -->
+<script type="text/javascript">
+	/* <![CDATA[ */
+	var google_conversion_id = 988302966;
+	var google_custom_params = window.google_tag_params;
+	var google_remarketing_only = true;
+	/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+<noscript><div style="display:inline;"><img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/988302966/?value=0&amp;guid=ON&amp;script=0"/></div></noscript>
+<!-- End 구글 리마케팅 태그 -->
+
+<!-- 네이버 신검 스크립트 -->
+<script type="text/javascript">
+	var _NGUL = "wcs.naver.net/wcslog.js";
+	var _NPR = location.protocol=="https:"?"https://"+_NGUL:"http://"+_NGUL;
+	document.writeln("<scr"+"ipt type='text/ja"+"vascript' src='"+ _NPR +"'></scr"+"ipt>");
+</script>
+<script type="text/javascript">
+	if (!wcs_add) var wcs_add={};
+	wcs_add["wa"] = "s_3c26177e4848";
+	wcs.inflow("samsungcard.com"); // 사이트 기본 도메인 설정 필요 ex) www.naver.com 일 경우 "naver.com"으로 설정
+	wcs_do();
+</script>
+<!-- End 네이버 신검 스크립트 -->
+<!-- [E] Pixel -->
+</body>
+</html>

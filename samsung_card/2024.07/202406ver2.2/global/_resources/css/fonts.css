@@ -1,0 +1,80 @@
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/Pretendard/Pretendard-Light.woff') format('woff'),
+       url('../fonts/Pretendard/Pretendard-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Pretendard/Pretendard-Regular.woff') format('woff'),
+       url('../fonts/Pretendard/Pretendard-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/Pretendard/Pretendard-Medium.woff') format('woff'),
+       url('../fonts/Pretendard/Pretendard-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/Pretendard/Pretendard-Bold.woff') format('woff'),
+       url('../fonts/Pretendard/Pretendard-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../fonts/Pretendard/Pretendard-Black.woff') format('woff'),
+       url('../fonts/Pretendard/Pretendard-Black.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'NotoSansKR';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/notokr/notokr-light.woff') format('woff'),
+       url('../fonts/notokr/notokr-light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'NotoSansKR';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/notokr/notokr-regular.woff') format('woff'),
+       url('../fonts/notokr/notokr-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'NotoSansKR';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/notokr/notokr-medium.woff') format('woff'),
+       url('../fonts/notokr/notokr-medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'NotoSansKR';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/notokr/notokr-bold.woff') format('woff'),
+       url('../fonts/notokr/notokr-bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'NotoSansKR';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../fonts/notokr/notokr-black.woff') format('woff'),
+       url('../fonts/notokr/notokr-black.woff2') format('woff2');
+}

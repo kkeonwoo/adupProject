@@ -1,0 +1,28 @@
+git flow
+- branch
+    1. master
+     : 언제나 실행 가능한 상태 유지
+
+     2. develop
+     : 실행 가능한 상태를 만들어가는 과정
+
+     3. release
+     : 출시 준비. 출시 전 버그 확인.
+       버그 발생시 수정 진행하고 develop에 병합 -> develop에서 git merge release
+       버그 확인 후 잘 작동되면 master 브랜치로 병합 -> 일반 merge가 아닌 commit을 남기는 merge 사용
+       git merge --no-ff 브랜치명
+
+     4. feature/short, feature/long
+     : 기간
+       develop에 병합하고 삭제
+       삭제될 브랜치를 merge할 땐 --no-ff로 로그 남기기
+       
+
+git 명령어
+1. git commit -am : -all 변경된 파일 스테이징에 올리기 / -m commit 메세지
+2. git tag 태그명 : 브랜치에 태그 달기. 언제든 태그로 돌아가기 위해 남김.
+3. git checkout -b 브랜치명 : 브랜치 만들기
+4. git merge 브랜치명 : 현재 브랜치에서 입력한 브랜치명의 소스를 fast-forward 방식으로 병합. 병합 방식이 남지 않음
+5. git merge --no-ff 브랜치명 : fast-forward 방식 하지말라는 명령어. 의도적으로 commit이 남게 됨
+-> 나중에 브랜치를 삭제해도 브랜치 merge 기록은 남음
+6. git branch -d 브랜치명 : 브랜치 삭제
