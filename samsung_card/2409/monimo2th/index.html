@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="autocomplete" content="off" />
+    <meta name="format-detection" content="telephone=no, address=no, email=no" />
+
+    <!-- meta tag -->
+    <meta name="Author" content="삼성카드" />
+    <meta name="title" content="MONIMOevent" />
+    <meta name="keywords" content="MONIMOevent" />
+    <meta name="description" content="모니모캐시백이벤트" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="모니모캐시백이벤트" />
+    <meta property="og:description" content="모니모캐시백이벤트" />
+    <meta property="og:image" content="">
+
+    <title>삼성카드</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="//static12.samsungcard.com/images/personal/samsung.ico" />
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" href="./_resources/css/setting.css" />
+    <link rel="stylesheet" type="text/css" href="./_resources/css/main.css?ver=240801" />
+
+    <!-- javascript -->
+    <script type="text/javascript" src="./_resources/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="./_resources/js/gsap-3.12.6.min.js"></script>
+    <script type="text/javascript" src="./_resources/js/ScrollTrigger.min.js"></script>
+    <script type="text/javascript" src="./_resources/js/main.js?ver=2407151324"></script>
+
+    <!-- pixel -->
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                "gtm.start": new Date().getTime(),
+                event: "gtm.js"
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-NS8T9BS");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                "gtm.start": new Date().getTime(),
+                event: "gtm.js"
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-P5BKB5G");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9CWT88YTVF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-9CWT88YTVF");
+        gtag("config", "UA-199547061-1");
+    </script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !(function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) :
+                    n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = "2.0";
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+        })(
+            window,
+            document,
+            "script",
+            "//connect.facebook.net/en_US/fbevents.js"
+        );
+        fbq("init", "852918281434894");
+        fbq("track", "PageView");
+    </script>
+    <noscript><img height="1" width="1" style="display: none"
+            src="https://www.facebook.com/tr?id=852918281434894&ev=PageView&noscript=1" /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !(function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) :
+                    n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = "2.0";
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+        })(
+            window,
+            document,
+            "script",
+            "https://connect.facebook.net/en_US/fbevents.js"
+        );
+        fbq("init", "770499889992244");
+        fbq("track", "PageView");
+    </script>
+    <noscript><img height="1" width="1" style="display: none"
+            src="https://www.facebook.com/tr?id=770499889992244&ev=PageView&noscript=1" /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <!-- Kakao Pixel 공통 -->
+    <script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
+    <script type="text/javascript">
+        kakaoPixel("1474872991439998482").pageView();
+        kakaoPixel("7840640162826436917").pageView();
+    </script>
+    <!-- end Kakao Pixel -->
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NS8T9BS" height="0" width="0"
+            style="display: none; visibility: hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5BKB5G" height="0" width="0"
+            style="display: none; visibility: hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrap">
+        <div id="visual">
+            <div class="visual_img">
+                <img src="./_resources/images/web/img_visual.jpg?ver=2407151324" aria-describedby="visualTtl" alt="monimo 이벤트 비주얼" class="img web_view" />
+                <img src="./_resources/images/app/img_visual.jpg?ver=2407151324" aria-describedby="visualTtl" alt="monimo 이벤트 비주얼" class="img mob_view" />
+                <h1 id="visualTtl" class="blind">Samsung Card x monimo 모니모카드로 누리는 13만원 혜택 이 모든 혜택 모니모카드로 누려보세요!</h1>
+            </div>
+        </div>
+
+        <!-- s:대상카드 -->
+        <div class="target_card_ttl">
+            <div class="center">
+                <b class="ttl">대상카드</b>
+                <span class="desc">모니모카드, 모니모A 카드</span>
+            </div>
+        </div>
+        <div class="tab_area">
+            <div class="tab">
+                <button type="button" class="tab_btn active">모니모카드</button>
+                <button type="button" class="tab_btn">모니모A 카드</button>
+            </div>
+            <div class="tab_content">
+                <div class="tab_content_01">
+                    <div class="center">
+                        <div class="card_tab_01_content">
+                            <b class="benefits">할인받는 즐거움!<br/> <span class="f_inherit color_blue">연간 최대 36만원</span>혜택!</b>
+                        </div>
+                        <div class="card_tab_01_box">
+                            <ul class="benefits_list">
+                                <li class="benefits_item">
+                                    <i class="ico ico_wallet"></i>
+                                    <div class="benefits_box">
+                                        <strong class="ttl">생활 곳곳에!</strong>
+                                        <ul class="bf_list">
+                                            <li class="bf_item">이동통신요금 <span class="f_inherit fw_700 color_blue">10% 할인</span></li>
+                                            <li class="bf_item">아파트 관리비 <span class="f_inherit fw_700 color_blue">10% 할인</span></li>
+                                            <li class="bf_item">편의점·다이소·올리브영 <span class="f_inherit fw_700 color_blue">7% 할인</span></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="benefits_item">
+                                    <i class="ico ico_cooking"></i>
+                                    <div class="benefits_box">
+                                        <strong class="ttl">식사할 때!</strong>
+                                        <ul class="bf_list">
+                                            <li class="bf_item">스타벅스 <span class="f_inherit fw_700 color_blue">50% 할인</span></li>
+                                            <li class="bf_item">배달앱 <span class="f_inherit fw_700 color_blue">10% 할인</span></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="benefits_item">
+                                    <i class="ico ico_car"></i>
+                                    <div class="benefits_box">
+                                        <strong class="ttl">이동할 때!</strong>
+                                        <ul class="bf_list">
+                                            <li class="bf_item">스트리밍 <span class="f_inherit fw_700 color_blue">30% 할인</span></li>
+                                            <li class="bf_item">대중교통·택시 <span class="f_inherit fw_700 color_blue">10% 할인</span></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="benefits_item">
+                                    <i class="ico ico_shopping"></i>
+                                    <div class="benefits_box">
+                                        <strong class="ttl">쇼핑할 때!</strong>
+                                        <ul class="bf_list">
+                                            <li class="bf_item">온라인 패션· 오늘의집 <span class="f_inherit fw_700 color_blue">30% 할인</span></li>
+                                            <li class="bf_item">온라인 쇼핑몰 <span class="f_inherit fw_700 color_blue">7% 할인</span></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="btn_area">
+                                <a href="#" id="btn_apply01" class="btn_blue">모니모카드 자세히 보기</a>
+                            </div>
+                            <p class="memo">전월실적 조건 등 자세한 내용은<br/> 모니모카드 자세히보기버튼을 통해 확인바랍니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab_content_02">
+                    <div class="center">
+                        <div class="card_tab_01_content">
+                            <b class="benefits">이렇게 쉬울 수가!<br/> 로그인만 해도 커지는 혜택</b>
+                        </div>
+                        <div class="card_tab_01_box">
+                            <ul class="benefits_list">
+                                <li class="benefits_item">
+                                    <i class="ico ico_wallet"></i>
+                                    <div class="benefits_box">
+                                        <strong class="ttl">로그인만 해도!</strong>
+                                        <ul class="bf_list">
+                                            <li class="bf_item">적립한도 없이<br/> <span class="f_inherit fw_700 color_blue">국내외가맹점 0.5/1% 적립</span></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="benefits_item">
+                                    <i class="ico ico_cooking"></i>
+                                    <div class="benefits_box">
+                                        <strong class="ttl">매일 로그인하면!</strong>
+                                        <ul class="bf_list">
+                                            <li class="bf_item">스타벅스 <span class="f_inherit fw_700 color_blue">5천원 할인!</span></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="benefits_item">
+                                    <i class="ico ico_car"></i>
+                                    <div class="benefits_box">
+                                        <strong class="ttl">이동할 때!</strong>
+                                        <ul class="bf_list">
+                                            <li class="bf_item">주유·전기차충전·항공<br/> <span class="f_inherit fw_700 color_blue">최대2% 적립</span></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="benefits_item">
+                                    <i class="ico ico_shopping"></i>
+                                    <div class="benefits_box">
+                                        <strong class="ttl">생활 곳곳에</strong>
+                                        <ul class="bf_list">
+                                            <li class="bf_item">온라인쇼핑몰·의료·학원·해외<br/> <span class="f_inherit fw_700 color_blue">최대2% 적립</span></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="btn_area">
+                                <a href="#" id="btn_apply02" class="btn_blue">모니모A카드 자세히 보기</a>
+                            </div>
+                            <p class="memo">전월실적 조건 등 자세한 내용은<br/> 모니모A 카드 자세히 보기 버튼을 통해 확인바랍니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- e:대상카드 -->
+
+        <!-- s:이벤트 -->
+        <div class="event_all_area">
+            <!-- <div class="tab_area">
+                <div class="tab event_tab_pin">
+                    <a href="#">
+                        <img src="./_resources/images/web/img_card_tab_event_01.jpg" alt="이벤트1" class="web_view">
+                        <img src="./_resources/images/app/img_card_tab_event_01.jpg" alt="이벤트1" class="mob_view">
+                    </a>
+                    <a href="#">
+                        <img src="./_resources/images/web/img_card_tab_event_02.jpg" alt="이벤트2" class="web_view">
+                        <img src="./_resources/images/app/img_card_tab_event_02.jpg" alt="이벤트2" class="mob_view">
+                    </a>
+                </div>
+            </div> -->
+            <div class="event_card_list">
+                <div class="event_card event_card1">
+                    <div class="center">
+                        <span class="event_num">이벤트 1</span>
+                        <h2 class="ttl"><span class="f_inhert color_blue">20만원</span> 이용하면<br/> 캐시백 <span class="f_inhert color_blue">13만원</span> 혜택!</h2>
+                        <div class="thumb">
+                            <img src="./_resources/images/web/img_event_01.png" alt=""/>
+                        </div>
+                        <ul class="event_list">
+                            <li class="event_item">
+                                <h3 class="ttl">행사기간</h3>
+                                <p class="txt">2024.8.1(목) ~ 8.31(토)<br/> <span class="fs_32 fs_lg_16 color_gray">(응모일 기준)</span></p>
+                            </li>
+                            <li class="event_item">
+                                <h3 class="ttl">대상회원</h3>
+                                <ul class="desc_list">
+                                    <li class="desc_item">
+                                        <p class="txt">모니모회원</p>
+                                    </li>
+                                    <li class="desc_item">
+                                        <p class="txt">온라인(PC, 모바일)을 통해 대상카드를 보유한 회원</p>
+                                    </li>
+                                    <li class="desc_item">
+                                        <p class="txt">
+                                            행사직전 6개월(2024.2.1~2024.7.31)동안 <br class="web_view"/>
+                                            삼성개인신용카드 결제 이력 및 삼성카드 탈회 이력이 없는 회원
+                                        </p>
+                                        <div class="add_box">
+                                            <ul class="add_list">
+                                                <li class="add_item">
+                                                    <p class="txt">
+                                                        결제이력은 후불 하이패스 카드, 무승인결제건(대중교통, 이동통신 등 정기결제건, 문자알림서비스 결제건, 고속도로 통행료 등)도 포함됩니다.
+                                                    </p>
+                                                </li>
+                                                <li class="add_item">
+                                                    <p class="txt">
+                                                        법인개별/체크/가족카드 결제 이력이 있더라도, 본인 명의의 삼성개인신용카드 결제 이력이 없다면 행사대상이 됩니다.
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="desc_item">
+                                        <p class="txt">2022.1.1부터 혜택 제공일 전까지 삼성카드의 다른 행사 혜택(캐시백, 포인트, 마일리지 등)을 받은 경우 조건을 충족하더라도 혜택을 받을 수 없습니다.</p>
+                                    </li>
+                                    <li class="desc_item">
+                                        <p class="txt">혜택 제공월로부터 12개월 이내에 삼성카드 탈회 시 받은 혜택을 금액으로 환산 후 청구하거나 카드 결제계좌에서 자동 출금될 수 있습니다. (캐시백 1원=1원의 가치)</p>
+                                        <div class="add_box">
+                                            <ul class="add_list">
+                                                <li class="add_item">
+                                                    <p class="txt">
+                                                        예 : 2023년 2월에 혜택을 받은 후, 2024.2.29 이전에 삼성카드 탈회 시 받은 혜택 청구
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="event_item">
+                                <h3 class="ttl">이벤트 혜택</h3>
+                                <div class="d_flex ai_center">
+                                    <i class="ico ico_coin"></i>
+                                    <p class="txt"><b class="fw_700 fs_46 color_blue">캐시백 13만원</b> <span class="fs_33">(1인 1회)</span></p>
+                                </div>
+                            </li>
+                            <li class="event_item">
+                                <h3 class="ttl">이벤트 참여방법</h3>
+                                <ol class="order_list">
+                                    <li class="order_item">
+                                        <div class="order_box">
+                                            <span class="order_num">01</span>
+                                            <p class="txt">아래 ‘응모하기’를 눌러 이벤트 응모</p>
+                                        </div>
+                                    </li>
+                                    <li class="order_item">
+                                        <div class="order_box">
+                                            <span class="order_num">02</span>
+                                            <p class="txt">2024.8.1(목)~9.10(화) 동안 국내외 가맹점에서 대상 카드로 일시불 및 할부 합산 <b class="f_inhert fw_700 color_blue">20만원 이상 이용</b></p>
+                                        </div>
+                                        <div class="add_box">
+                                            <ul class="add_list">
+                                                <li class="add_item">
+                                                    <p class="txt">카드 이용 후 응모해도 행사대상이 됩니다.</p>
+                                                </li>
+                                                <li class="add_item">
+                                                    <p class="txt">이용금액은 할인, 쿠폰/포인트 사용 등을 제외한 최종 결제금액 기준으로 합산하여 산정합니다.</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="order_item">
+                                        <div class="order_box">
+                                            <span class="order_num">03</span>
+                                            <div>
+                                                <p class="txt ls_05">
+                                                    삼성카드 앱 내 ‘마케팅 수신 동의‘에서 아래 항목에 모두 동의
+                                                </p>
+                                                <div class="d_flex">
+                                                    <span class="txt f_inhert ls_04">①</span>
+                                                    <span class="txt f_inhert ls_04">카드상품/금융서비스 혜택 관련 안내 및 이용 권유</span>
+                                                </div>
+                                                <div class="d_flex">
+                                                    <span class="txt f_inhert ls_04">②</span>
+                                                    <span class="txt f_inhert ls_04">카드상품/금융서비스 이외의 혜택 관련 안내 및 이용 권유</span>
+                                                </div>
+                                                <div class="d_flex">
+                                                    <span class="txt f_inhert ls_04">③</span>
+                                                    <span class="txt f_inhert ls_04">전자적 전송매체를 통한 광고성 정보의 수신 동의</span>
+                                                </div>
+                                                <div class="d_flex">
+                                                    <span class="txt f_inhert ls_04">④</span>
+                                                    <span class="txt f_inhert ls_04">혜택 안내 수신방법</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="add_box">
+                                            <ul class="add_list">
+                                                <li class="add_item">
+                                                    <p class="txt">‘혜택 안내 수신방법’의 경우 ‘카드 혜택 및 이벤트 안내 수신방법’, ‘단기카드대출(현금서비스), 장기카드대출(카드론) 등 금융 혜택 안내 수신방법’, ‘보험, 여행, 쇼핑 등 기타 혜택 안내 수신방법’의 문자메시지/이메일/전화/우편 항목 에 모두 체크해야 혜택을 받을 수 있습니다.</p>
+                                                </li>
+                                                <li class="add_item">
+                                                    <p class="txt">혜택 제공시점까지 ①~④ 조건 유지 시 혜택이 제공됩니다.</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li class="event_item">
+                                <h3 class="ttl">혜택 제공일</h3>
+                                <p class="txt">2024.10.23(수) 이후 결제 대금내역에서 확인가능</p>
+                                <div class="add_box">
+                                    <ul class="add_list">
+                                        <li class="add_item">
+                                            <p class="txt">캐시백 금액은 회원님의 카드 결제대금에서 자동 차감됩니다.</p>
+                                        </li>
+                                        <li class="add_item">
+                                            <p class="txt">캐시백되는 달의 카드 이용금액이 캐시백 금액보다 적을 경우,<br class="web_view"/> 다음 달 이용금액에서 잔여 캐시백 금액만큼 자동 차감됩니다.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="event_card event_card2">
+                    <div class="center">
+                        <span class="event_num">이벤트 2</span>
+                        <h2 class="ttl">한번에 LINK하고<br/> <span class="f_inhert color_blue">최대 67,500원 할인!</span></h2>
+                        <div class="thumb">
+                            <img src="./_resources/images/web/img_event_02.png" alt=""/>
+                        </div>
+                        <ul class="event_list">
+                            <li class="event_item">
+                                <h3 class="ttl">행사기간</h3>
+                                <p class="txt">2024.8.1(목) ~ 8.31(토)</p>
+                            </li>
+                            <li class="event_item">
+                                <h3 class="ttl">대상카드</h3>
+                                <p class="txt">삼성개인신용카드 <span class="color_gray">(가족카드 포함)</span></p>
+                            </li>
+                            <li class="event_item">
+                                <div class="d_flex ai_center">
+                                    <h3 class="ttl">8월의</h3>
+                                    <i class="ico ico_linkplus"></i>
+                                </div>
+                                <div class="event_benefits">
+                                    <div class="event_benefits_box">
+                                        <div class="d_flex ai_center">
+                                            <i class="ico ico_chk"></i>
+                                            <strong class="ttl">온라인쇼핑할 때 할인!</strong>
+                                        </div>
+                                        <ul class="linkplus_list">
+                                            <li class="linkplus_item">
+                                                <i class="ico ico_coupang"></i>
+                                                <p class="txt">쿠팡<br/><span class="f_inherit fw_700 color_blue">최대 5,000원 결제일 할인</span></p>
+                                            </li>
+                                            <li class="linkplus_item">
+                                                <i class="ico ico_gmarket"></i>
+                                                <p class="txt">G마켓/옥션<br/><span class="f_inherit fw_700 color_blue">최대 50,000원 결제일 할인</span></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="event_benefits_box">
+                                        <div class="d_flex ai_center">
+                                            <i class="ico ico_chk"></i>
+                                            <strong class="ttl">장 볼 때도 할인!</strong>
+                                        </div>
+                                        <ul class="linkplus_list">
+                                            <li class="linkplus_item">
+                                                <i class="ico ico_nobrand"></i>
+                                                <p class="txt">노브랜드<br/><span class="f_inherit fw_700 color_blue">최대 5,000원 결제일 할인</span></p>
+                                            </li>
+                                            <li class="linkplus_item">
+                                                <i class="ico ico_hanaro"></i>
+                                                <p class="txt">농협 하나로마트<br/><span class="f_inherit fw_700 color_blue">3,000원 현장 할인</span></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="event_benefits_box">
+                                        <div class="d_flex ai_center">
+                                            <i class="ico ico_chk"></i>
+                                            <strong class="ttl">출출할 때도 할인!</strong>
+                                        </div>
+                                        <ul class="linkplus_list">
+                                            <li class="linkplus_item">
+                                                <i class="ico ico_paris"></i>
+                                                <p class="txt">파리바게뜨<br/><span class="f_inherit fw_700 color_blue">2,500원 결제일 할인</span></p>
+                                            </li>
+                                            <li class="linkplus_item">
+                                                <i class="ico ico_baskin"></i>
+                                                <p class="txt">배스킨라빈스<br/><span class="f_inherit fw_700 color_blue">2,000원 결제일 할인</span></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="event_item">
+                                <div class="add_box">
+                                    <ul class="add_list">
+                                        <li class="add_item">
+                                            <p class="txt">
+                                                혜택별 유의사항 등 자세한 내용은 <br/>
+                                                ‘한번에 링크하기‘를 통해 확인해 주세요.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="d_flex"><a href="https://www.samsungcard.com/personal/event/ing/UHPPBE1403M0.jsp?cms_id=3661953" class="btn_blue" id="btn_chk_benefits">LINK 혜택 확인하기</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- s:꼭 알아두세요 -->
+        <div class="section_footer">
+            <div class="center">
+                <h2 class="ttl">꼭 알아두세요</h2>
+                <ul class="depth_list">
+                    <li class="depth_item">
+                        <span class="txt">혜택 제공시점까지 이용 가능한 대상 카드 보유시 혜택이 제공됩니다.</span>
+                    </li>
+                    <li class="depth_item">
+                        <span class="txt">이벤트 참여 후 모니모 탈퇴 시, 캐시백이 지급되지 않습니다.</span>
+                    </li>
+                    <li class="depth_item">
+                        <span class="txt">혜택이 잘못 제공된 경우(중복 제공 등) 받은 혜택을 금액으로 환산 후 청구되거나 카드 결제계좌에서 자동 출금될 수 있습니다.<br/> (캐시백 1원=1원의 가치)</span>
+                    </li>
+                    <li class="depth_item">
+                        <span class="txt">신규 회원 연회비 캐시백 행사 및 삼성카드의 다른 이용 유도 행사 혜택(캐시백, 포인트, 쿠폰 등)과 중복 적용되지 않습니다.</span>
+                    </li>
+                    <li class="depth_item">
+                        <span class="txt">이용금액 산정은 승인시점 기준으로 적용됩니다. 단, 보험/해외 결제건 및 무승인 결제건(예 : 대중교통, 이동통신 등 정기결제 결제건 등)은 매출전표 접수일 기준으로 적용됩니다.</span>
+                    </li>
+                    <li class="depth_item">
+                        <span class="txt">이용금액 산정 시 단기카드대출(현금서비스), 장기카드대출 (카드론), 각종 수수료 및 이자(할부수수료, 카드대출 이자 등), 연체료, 연회비 납부건, 스마트오토서비스 이용건 및 매출전표 미접수, 승인 거절, 승인 취소, 부분 취소, 반품, 환불 등으로 인해 승인 완료되지 않은 결제건은 제외됩니다.</span>
+                    </li>
+                    <li class="depth_item">
+                        <div class="d_flex">
+                            <span class="txt ws_nowrap">연회비 : </span>
+                            <span class="txt">모니모카드 해외겸용(Mastercard) 1만원/국내전용 1만원, 모니모A 카드 해외겸용(Mastercard) 1만원/국내전용 1만원</span>
+                        </div>
+                    </li>
+                    <li class="depth_item fw_700 color_black">
+                        <span class="txt">연체이자율 : 회원별/이용상품별 정상이자율+3.0%p(최고 연 20.0%)</span>
+                        <ul class="depth2_list">
+                            <li class="depth2_item">
+                                <span class="txt">연체 발생 시점에 정상이자율이 없는 경우 아래와 같이 적용</span>
+                                <div class="d_flex">
+                                    <span class="txt">①</span>
+                                    <span class="txt">
+                                        일시불 거래 연체 시 : 거래 발생 시점의 최소 <br/>
+                                        기간(2개월) 유이자할부 이자율
+                                    </span>
+                                </div>
+                                <div class="d_flex">
+                                    <span class="txt">②</span>
+                                    <span class="txt">
+                                        무이자할부 거래 연체 시 : 거래 발생 시점의 <br/>
+                                        동일한 할부 계약기간 유이자할부 이자율
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="depth_item">
+                        <span class="txt">금융상품 이용 전 상품설명서, 홈페이지, 약관을 통해 이용조건을<br class="web_view"/> 확인해 주시기 바랍니다.</span>
+                    </li>
+                    <li class="depth_item">
+                        <span class="txt">금융소비자는 해당 상품 또는 서비스에 대하여 설명을 받을 권리가 있습니다.</span>
+                    </li>
+                    <li class="depth_item">
+                        <span class="txt">신용카드 발급이 부적정한 경우(개인신용평점 낮음 등)<br/> 카드 발급이 제한될 수 있습니다.</span>
+                    </li>
+                    <li class="depth_item">
+                        <span class="txt">카드 이용대금과 이에 수반되는 모든 수수료를<br class="web_view"/> 지정된 대금 결제일에 상환합니다.</span>
+                    </li>
+                    <li class="depth_item fw_700 color_black">
+                        <span class="txt">상환 능력에 비해 신용카드 사용액이 과도할 경우 귀하의<br class="web_view"/> 개인신용평점이 하락할 수 있습니다.</span>
+                    </li>
+                    <li class="depth_item fw_700 color_black">
+                        <span class="txt">개인신용평점 하락 시 금융거래 관련된 불이익이 발생할 수 있습니다.</span>
+                    </li>
+                    <li class="depth_item fw_700 color_black">
+                        <span class="txt">일정 기간 원리금을 연체할 경우,<br class="web_view"/> 모든 원리금을 변제할 의무가 발생할 수 있습니다.</span>
+                    </li>
+                    <li class="depth_item">
+                        <span class="txt">
+                            여신금융협회 심의필 제 2024 - C1h - 08340호<br/>
+                            ( 2024.07.12 ~ 2025.07.11 )
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- e:꼭 알아두세요 -->
+
+        <!-- s:이벤트 옹모하기 -->
+        <div id="floating">
+            <a href="#" class="btn_blue" id="btn_apply">
+                이벤트 응모하기
+            </a>
+        </div>
+        <!-- e:이벤트 옹모하기 -->
+    </div>
+
+    <!-- :::::::::::: SCRIPT :::::::::::: -->
+    <!-- 네이버 신검 스크립트 -->
+    <script type="text/javascript">
+        var _NGUL = "wcs.naver.net/wcslog.js";
+        var _NPR =
+            location.protocol == "https:" ? "https://" + _NGUL : "http://" + _NGUL;
+        document.writeln(
+            "<scr" +
+            "ipt type='text/ja" +
+            "vascript' src='" +
+            _NPR +
+            "'></scr" +
+            "ipt>"
+        );
+    </script>
+    <script type="text/javascript">
+        if (!wcs_add) var wcs_add = {};
+        wcs_add["wa"] = "s_3c26177e4848";
+        wcs.inflow("samsungcard.com"); // 사이트 기본 도메인 설정 필요 ex) www.naver.com 일 경우 "naver.com"으로 설정
+        wcs_do();
+    </script>
+    <!-- End 네이버 신검 스크립트 -->
+    <!-- ::::::::::: //SCRIPT ::::::::::: -->
+    <script>
+        //카드 자세히보기 BUTTON
+        var btn_apply_card = document.getElementById("btn_apply"); // 플로팅 이벤트 응모하기
+        var btn_apply_card01 = document.getElementById("btn_apply01"); // 모니모 카드 자세히 보기
+        var btn_apply_card02 = document.getElementById("btn_apply02"); // 모니모A 카드 자세히 보기
+
+        //응모하기/카드 자세히보기 URL
+        var url_apply_card =
+            "https://www.samsungcard.com/personal/event/ing/UHPPBE1404P0.jsp?bgdAlncPdC=AAP1742&cms_id=3661952&evt_type=01&ojDvC=01&operAgree=Y";
+        var url_apply_card01 =
+            "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1742";
+        var url_apply_card02 =
+            "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1817";
+
+        // Query String
+        var query_json = getQueryStringToJson(location.search);
+
+        // URL + Query String
+        var card_detail_qs =
+            "site=" + query_json.site + "&cmpid=" + query_json.cmpid + "&BSCPN=" + query_json.BSCPN + "&BSPRG=" + query_json.BSPRG + "&BSCCN1=" + query_json.BSCCN1;
+
+        //UTM
+        var utm_qs = "&utm_source=" + query_json.utm_source + "&utm_medium=" + query_json.utm_medium + "&utm_campaign=" + query_json.utm_campaign + "&utm_term=" + query_json.utm_term + "&utm_content=" + query_json.utm_content;
+
+        // LINK 교체 -- 옹모하기/자세히보기
+        btn_apply_card.setAttribute(
+            "href",
+            url_apply_card + "&" + card_detail_qs + utm_qs
+        );
+        btn_apply_card01.setAttribute(
+            "href",
+            url_apply_card01 + "&" + card_detail_qs + utm_qs
+        );
+        btn_apply_card02.setAttribute(
+            "href",
+            url_apply_card02 + "&" + card_detail_qs + utm_qs
+        );
+
+        function getQueryStringToJson(queryString) {
+            var params = {};
+
+            if (!queryString) queryString = window.location.search;
+            if (queryString == "") return params;
+            try {
+                queryString = trim(queryString);
+            } catch (e) { }
+
+            if (queryString.indexOf("?") != 0) queryString = "?" + queryString;
+
+            try {
+                queryString.replace(
+                    /[?&]+([^=&]+)=([^&]*)/gi,
+                    function (str, key, value) {
+                        params[decodeURIComponent(key)] = decodeURIComponent(value);
+                    }
+                );
+            } catch (e) {
+                params = {
+                    error: queryString
+                };
+            }
+
+            return params;
+        }
+    </script>
+</body>
+
+</html>
