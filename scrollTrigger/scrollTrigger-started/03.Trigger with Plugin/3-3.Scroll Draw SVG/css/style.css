@@ -33,7 +33,7 @@ h2{
 
 .ball {
   fill: white;
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
 .line {
