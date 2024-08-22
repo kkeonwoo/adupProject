@@ -6,9 +6,11 @@ function drawSVG(el) {
 
     let pathLength;
 
+    // typeof => 대상의 타입을 판단하는 매서드
     if(typeof el !== 'string') {
         throw new TypeError('drawSVG 함수에 전달된 인수는 string 타입이어야 합니다.')
     }
+    // includes() : 특정 값이 배열에 포함되어 있는지 판단하여 boolean 반환
     if(el.includes(',')) {
         const arr = el.split(',').map(t => {
             pathLength = document.querySelector(t).getTotalLength();
@@ -71,8 +73,7 @@ const master = gsap.timeline()
 .add(line, 0)
 
 master.eventCallback('onUpdate', function() {
-    console.log( this._time);
-    
+    // console.log( this._time); => 포지션 파라미터 값 구할때
 })
 
 ScrollTrigger.create({
