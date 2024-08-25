@@ -48,9 +48,6 @@ function killAll() {
     init(); // resize 시 killAll하고 다시 생성
 }
 
-window.addEventListener('resize', killAll);
-window.addEventListener('load', init);
-
 // 여러번 실행하는 이벤트는 성능문제가 발생
 // throttle : 사용자가 이벤트를 실행하고 있는 중간에 해당 시간 초에 맞춰서 호출
 // debounce : 사용자가 이벤트를 막 끝마쳤을 때 한 번 호출
@@ -60,11 +57,20 @@ window.addEventListener('load', init);
 // }, 5000);
 // clearTimeout(id);
 
-let timeOut;
+// 디바운스 동작과정
+// 최초 실행 : timeOut을 콜스택에 저장
+// 두번 실행 : clearTimeout으로 콜스택에 timeOut을 삭제시키고 다시 등록
+// 결국 마지막 timeOut만 설정해둔 시간이 지난 후에 한 번만 실행됨
 
 const debounce = (callback, time = 500) => {
-    timeOut = setTimeout(() => {
-        callback()
-    }, time);
-    
+    let timeOut;
+
+    return function(...args) {
+        timeOut = setTimeout(() => {
+            callback.apply(this, args)
+        }, time);
+    }
 }
+
+window.addEventListener('resize', debounce(killAll, 1000));
+window.addEventListener('load', init);
