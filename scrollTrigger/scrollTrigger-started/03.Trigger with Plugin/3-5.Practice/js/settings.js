@@ -35,7 +35,22 @@ ScrollTrigger.scrollerProxy(container, {
 scrollbar.addListener(ScrollTrigger.update);
 ScrollTrigger.defaults({ scroller: container });
 
+barba.hooks.leave(() => {
+  ScrollTrigger.getAll().forEach(t => t.kill());
+})
 
+barba.hooks.after(() => {
+  scrollbar.update();
+  scrollbar.scrollTo(0, 0);
+  markers();
+})
+
+barba.hooks.beforeEnter((data) => {
+  if(data.next.namespace !== 'main') {
+      gsap.set('nav', { pointerEvents:'none'})
+      gsap.set('nav li', { yPercent: innerHeight})
+  }
+})
 
 
 
