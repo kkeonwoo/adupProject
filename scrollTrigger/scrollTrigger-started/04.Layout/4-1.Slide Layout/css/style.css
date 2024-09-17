@@ -21,7 +21,7 @@ h2{
 
 .wrapper{
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden; /* from x이동 시 가로 스크롤 발생 */
 }
 
 #container .section{
