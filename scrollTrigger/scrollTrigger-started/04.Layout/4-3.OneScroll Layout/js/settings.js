@@ -23,7 +23,7 @@ gsap.utils.toArray('.section').forEach((item,index)=>{
 
 // gsap.registerPlugin(ScrollTrigger);
 
-// const container = document.querySelector('#container');
+const container = document.querySelector('#container');
 
 // const options = { damping: 0.1, }
 
