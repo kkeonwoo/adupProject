@@ -114,20 +114,17 @@ function transition(index,dir){
 function handleWheel(e){
 
   let direction = e.deltaY < 0 ? 'up' : 'down'
-
+  
   if(state.isPlaying){
-
-    state.isPlaying = false;
-
+    
     if(currentPageIndex === 3) return;
-
     if(direction === 'up'){
       if(currentPageIndex <= 1) return;
+      if(currentPageIndex !== 1) state.isPlaying = false;
       --currentPageIndex
-  
     }else{
-  
       if(currentPageIndex >= sections.length) return;
+      if(currentPageIndex !== sections.length) state.isPlaying = false;
       ++currentPageIndex
     }
     transition(currentPageIndex,direction)
