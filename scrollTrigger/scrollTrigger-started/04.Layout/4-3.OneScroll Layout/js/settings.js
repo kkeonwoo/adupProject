@@ -21,27 +21,27 @@ gsap.utils.toArray('.section').forEach((item,index)=>{
 
 
 
-// gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 const container = document.querySelector('#container');
 
-// const options = { damping: 0.1, }
+const options = { damping: 0.1, }
 
-// const section03 = document.querySelector('.section03')
+const section03 = document.querySelector('.section03')
 
-// const scrollbar = Scrollbar.init(section03, {
-//   ...options
-// });
+const scrollbar = Scrollbar.init(section03, {
+  ...options
+});
 
-// ScrollTrigger.scrollerProxy(section03, {
-//   scrollTop(value) {
-//     if (arguments.length) {
-//       scrollbar.scrollTop = value; // setter
-//     }
-//     return scrollbar.scrollTop; // getter
-//   },
-// });
-// scrollbar.track.yAxis.hide();
-// scrollbar.addListener(ScrollTrigger.update);
-// ScrollTrigger.defaults({ scroller: section03 });
+ScrollTrigger.scrollerProxy(section03, {
+  scrollTop(value) {
+    if (arguments.length) {
+      scrollbar.scrollTop = value; // setter
+    }
+    return scrollbar.scrollTop; // getter
+  },
+});
+scrollbar.track.yAxis.hide();
+scrollbar.addListener(ScrollTrigger.update);
+ScrollTrigger.defaults({ scroller: section03 });
 

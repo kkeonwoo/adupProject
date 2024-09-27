@@ -29,7 +29,19 @@ const pages = {
     },
     page03: {
         enter:()=>{
-
+            if (!ScrollTrigger.getById('section03')) {
+                ScrollTrigger.create({
+                    trigger: '.depth_wrapper',
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    markers: true,
+                    id: 'section03',
+                    onLeaveBack:()=> transition(2,'up'),
+                    onLeave:()=> transition(4,'down')
+                })
+    
+                markers()
+            }
         },
         leave:()=>{
 
@@ -44,39 +56,65 @@ const pages = {
         }
     }
 }
+function globalEnter(){
+// console.log('globalEnter');
+    gsap.to('h2',{opacity:1,y:0})
+}
 
-function transition(index, dir) {
-        
-    const { page01, page02, page03, page04 } = pages;
+function globalLeave(){
+// console.log('globalLeave');
+    gsap.to('h2',{opacity:0,y:30})
+}
 
-    // fullpage는 100vh 기준으로 이동
-    // wrapper를 innerHeight만큼 움직이면 됨
-    gsap.to('.wrapper', {
-        y: -innerHeight * (index - 1),
-        duration: 1.5,
-        ease: 'expo.inOut',
-        // 현재 페이지를 떠날 시점에 일어나는 애니메이션
-        onStart:()=>{
-            switch (dir === 'up' ? index + 1 : index - 1) { // currentpage 값을 올릴땐 더하고 내릴 땐 빼줘야 제대로 나옴
-                case 1: page01.leave();break;
-                case 2: page02.leave();break;
-                case 3: page03.leave();break;
-                case 4: page04.leave();break;
-            }
-        },
-        // 다음 페이지 도착했을 시점에 일어나는 애니메이션
-        onComplete: () => {
-            state.isPlaying = true;
+function transition(index,dir){
 
-            switch (index) {
-                case 1: page01.enter();break;
-                case 2: page02.enter();break;
-                case 3: page03.enter();break;
-                case 4: page04.enter();break;
-            }
+const {page01,page02,page03,page04} = pages;
+
+currentPageIndex = index;
+
+
+gsap.to('.wrapper',{
+    y: -innerHeight * (index - 1),
+    duration:1.5,
+    ease:'expo.inOut',
+    onStart:()=>{
+
+    globalLeave()
+
+    switch (dir === 'up' ? index + 1 : index - 1) {
+        case 1: page01.leave(); return;
+        case 2: page02.leave(); return;
+        case 3: page03.leave(); return;
+        case 4: 
+        page04.leave(); 
+        state.isPlaying = false;
+        return;
+    }
+    },
+    onComplete:()=>{
+    state.isPlaying = true;
+    
+    globalEnter()
+
+    switch (index) {
+        case 1: page01.enter(); return;
+        case 2: page02.enter(); return;
+        case 3: 
+        page03.enter(); 
+
+        if(dir === 'up'){
+            scrollbar.scrollTo(0,scrollbar.limit.y - 1,600)
         }
-    })
-
+        
+        state.isPlaying = false;
+        state.isGoingUp = false;
+        return
+        ;
+        case 4: page04.enter(); return;
+    
+    }
+    }
+})
 }
 
 function handleWheel(e) {
@@ -87,20 +125,19 @@ function handleWheel(e) {
 
         state.isPlaying = false;
 
+        if (currentPageIndex === 3) return;
+
         if (direction === 'up') {
             if (currentPageIndex <= 1) return;
             --currentPageIndex
         } else {
-            if (currentPageIndex >= sections.legnth) return;
+            if (currentPageIndex >= sections.length) return;
             ++currentPageIndex
         }
-    
-    transition(currentPageIndex, direction);
+        
+        transition(currentPageIndex, direction);
     }
 
 }
 
 container.addEventListener('wheel', handleWheel)
-
-// markers()
-
