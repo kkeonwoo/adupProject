@@ -36,9 +36,18 @@ gsap.utils.toArray('.section').forEach((item, index) => {
 
 gsap.registerPlugin(ScrollTrigger);
 
+// 가로 스크롤 막기
+class DisableScroll extends Scrollbar.ScrollbarPlugin {
+  static pluginName = 'DisableScroll'
 
+  transformDelta(delta) {
+    delta['x'] = 0;
 
+    return delta;
+  }
+}
 
+Scrollbar.use(DisableScroll)
 
 const container = document.querySelector('#container');
 
@@ -50,7 +59,7 @@ const scrollbar = Scrollbar.init(container, {
   ...options,
 });
 
-
+// 가로 스크롤바 UI도 삭제
 scrollbar.track.xAxis.element.remove();
 
 
