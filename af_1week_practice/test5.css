@@ -1,0 +1,31 @@
+header { height: 100px; background-color: #000;}
+
+.inner { width: 800px; margin: 10px auto;}
+.inner > * + * { margin-top: 10px;}
+
+.box1 { display: flex; gap: 10px;}
+.box1 div{ height: 300px; flex: 1; background-color: #000;}
+.box1 div:last-child { position: relative;}
+.box1 div:last-child .btn {position: absolute; top: 50%; width: 50px; height: 50px; transform: translateY(-50%); background-color: #fff;}
+.box1 div:last-child .btn.prev { left: 10px;}
+.box1 div:last-child .btn.next { right: 10px;}
+
+.box2 { height: 100px; background-color: #000;}
+
+.box3 { display: grid; padding: 10px; gap: 10px; flex-wrap: wrap; grid-template-columns: repeat(10, 1fr); grid-template-rows: repeat(2, 100px); background-color: #ccc;}
+.box3 div { height: 100px; background-color: #666;}
+.box3 div:nth-of-type(1) { grid-column: span 7;}
+.box3 div:nth-of-type(2) { grid-column: span 3;}
+.box3 div:nth-of-type(3) { grid-column: span 2;}
+.box3 div:nth-of-type(4) { grid-column: span 8;}
+
+.box4 { padding: 10px; background-color: #ccc;}
+.box4 div { display: flex;}
+.box4 .btn { width: 50px; height: 50px; margin-left: auto;}
+
+.box5 ul { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, auto); gap: 10px;}
+.box5 ul li { display: flex; flex-direction: column; gap: 10px; padding: 10px; background-color: #f00;}
+.box5 ul li img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover;}
+.box5 h3, .box5 p { background-color: #fff; text-overflow: ellipsis; display: -webkit-box;  overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2;}
+
+footer { height: 100px; background-color: #ccc;}
