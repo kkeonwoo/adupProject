@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { margin: 0; padding: 0;}
+        html, body { height: 100%;}
+        body { background-color: #ccc;}
+        header { position: absolute; top: 0; left: 0; width: 200px; height: 100%; background-color: #000;}
+        main { margin-left: 200px; padding: 10px;}
+        .box { display: flex; gap: 10px;}
+        .box + .box { margin-top: 10px;}
+        .box > div { flex: 1; height: 100px; background-color: #fff;}
+        .box5 div:nth-child(1) { flex: 1 0 calc(80% - 5px);}
+        .box5 div:nth-child(2) { flex: 1 0 calc(20% - 5px);}
+        .box6 div:nth-child(1) { flex: 1 0 calc(30% - 5px);}
+        .box6 div:nth-child(2) { flex: 1 0 calc(70% - 5px);}
+    </style>
+</head>
+<body>
+    <header>header</header>
+    <main>
+        <div class="box">
+            <div>1</div>
+        </div>
+        <div class="box">
+            <div>1</div>
+            <div>2</div>
+        </div>
+        <div class="box">
+            <div>1</div>
+        </div>
+        <div class="box">
+            <div>1</div>
+        </div>
+        <div class="box box5">
+            <div>1</div>
+            <div>2</div>
+        </div>
+        <div class="box box6">
+            <div>1</div>
+            <div>2</div>
+        </div>
+        <div class="box">
+            <div></div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        header {
+            height: 100px;
+            background-color: #000;
+        }
+
+        body {
+            background-color: #ccc;
+        }
+
+        main > div {
+            width: 800px;
+            margin: 10px auto;
+        }
+
+        .box {
+            display: flex;
+            gap: 10px;
+        }
+
+        .box + .box {
+            margin-top: 10px;
+        }
+
+        .box > div {
+            flex: 1;
+            height: 100px;
+            background-color: #fff;
+        }
+
+        .box:last-child {
+            padding: 10px;
+            background-color: #000;
+        }
+
+        .box:last-child div {
+            width: calc((100% - 10px) / 2);
+        }
+    </style>
+</head>
+<body>
+    <header>header</header>
+    <main>
+        <div>
+            <div class="box">
+                <div>1</div>
+            </div>
+            <div class="box">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+            </div>
+            <div class="box">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+            </div>
+            <div class="box">
+                <div>1</div>
+                <div>2</div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

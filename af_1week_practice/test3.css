@@ -1,0 +1,30 @@
+header { position: relative; height: 200px; background-color: #000;}
+header h1 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+header h1 a { display: block; width: 100px; height: 50px; background-color: #fff;}
+header .util { position: absolute; top: 0; width: 50px; height: 50px; background-color: #fff;}
+header .util:nth-child(1) { left: 0;}
+header .util:nth-child(2) { right: 0;}
+
+.box1 { position: relative; height: 300px; background-color: #ccc;}
+.box1 .btn { position: absolute; top: 50%; width: 50px; height: 50px; transform: translateY(-50%);}
+.box1 .btn.prev { left: 50px;}
+.box1 .btn.next { right: 50px;}
+.box1 .pagination { display: flex; position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); gap: 10px;}
+.box1 .pagination span { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background-color: #fff;}
+.box1 .pagination span.active { background-color: #f00; color: #fff;}
+
+.inner { width: 800px; margin: 0 auto;}
+
+.box2 { padding: 80px 0;}
+.box2 h2{ font-size: 30px; font-weight: bold; text-align: center;}
+.box2 ul{ display: flex; margin-top: 50px; gap: 10px;}
+.box2 ul li{ flex: 1; min-width: 0; padding: 10px; background-color: #000;}
+.box2 ul li img{ width: 100%; aspect-ratio: 1/1; object-fit: cover;}
+.box2 ul li p{ background-color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+
+.box3 { padding: 80px 0; background-color: #666;}
+.box3 ul{}
+.box3 ul li{ height: 100px; background-color: #fff;}
+.box3 ul li + li{ margin-top: 10px;}
+
+footer { height: 100px; background-color: #ccc;}

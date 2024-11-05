@@ -1,0 +1,27 @@
+header { }
+header .top{ display: flex; align-items: flex-start; justify-content: space-between; position: relative;height: 200px; background-color: #000;}
+header .top h1{ position: absolute; top: 50%; left: 50%; width: 200px; height: 50px; transform: translate(-50%, -50%); background-color: #fff;}
+header .top .util{ background-color: #fff;}
+
+header .bottom { background-color: #ccc;}
+header .bottom ul{ display: flex; justify-content: center;}
+header .bottom ul li{}
+header .bottom ul li a{ display: block; padding: 10px;}
+
+.inner { width: 800px; margin: 0 auto; padding: 10px 0;}
+.box1 {background-color: #ccc; padding: 10px;}
+.box1 div { width: 100%; height: 100px; background-color: #fff;}
+
+.box2 {background-color: #ccc; padding: 10px; padding-top: 0;}
+.box2 > div { display: flex; gap: 10px; padding: 10px; background-color: #fff;}
+.box2 .left { flex: 1; display: flex; flex-wrap: wrap; gap: 10px;}
+.box2 .left .item { width: calc((100% - 20px) / 3); height: 100px; background-color: #000;}
+.box2 .right { width: 150px; background-color: #000;}
+
+.box3 { margin-top: 10px;}
+.box3 ul li { display: flex; gap: 10px; padding: 10px; background-color: #ccc;}
+.box3 ul li + li { margin-top: 10px;}
+.box3 ul li img { width: 150px; aspect-ratio: 1 / 1; object-fit: contain;}
+.box3 ul li p { flex: 1; background-color: #fff;}
+
+footer { height: 100px; background-color: #ccc;}
