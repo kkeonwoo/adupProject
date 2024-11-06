@@ -1,0 +1,34 @@
+header { background-color: #f00;height: 100px;}
+
+.inner { width: 800px;margin: 10px auto;}
+.inner > * + * { margin-top: 10px;}
+
+.blind { position: absolute; width: 1px;height: 1px;overflow: hidden;margin: -1px; clip: rect(0,0,0,0);}
+
+.box1 { display: flex; gap: 10px;}
+.box1 .item {position: relative; flex: 1; height: 100px; background-color: #ccc;}
+.box1 .btn { position: absolute; top: 50%; transform: translateY(-50%);}
+.box1 .btn.prev { left: 50px;}
+.box1 .btn.next { right: 50px;}
+
+.box2 { height: 100px; background-color: #f00;}
+
+.box3 { padding: 10px; background-color: #ccc;}
+.box3 ul {display: grid;padding: 10px;background-color: #fff;grid-template-rows: repeat(2, 100px); grid-template-columns: repeat(10, 1fr); gap: 10px;}
+.box3 ul li { background-color: #f00;}
+.box3 ul li:nth-child(1) {grid-column: span 7;}
+.box3 ul li:nth-child(2) {grid-column: span 3;}
+.box3 ul li:nth-child(3) {grid-column: span 2;}
+.box3 ul li:nth-child(4) {grid-column: span 8;}
+
+.box4 {display: flex; align-items: center; padding: 10px; background-color: #ccc;}
+.box4 .navi {display: flex; margin-left: auto;}
+.box4 .navi a { width: 50px; height: 50px; background-color: #fff;}
+
+.box5 ul { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, auto); gap: 10px;}
+.box5 ul li { min-width: 0;}
+.box5 ul li a{ padding: 10px; background-color: #f00; display: flex; flex-direction: column; gap: 10px;}
+.box5 ul li strong { background-color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.box5 ul li p { background-color: #fff; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;}
+
+.footer { height: 100px; background-color: #f00;}

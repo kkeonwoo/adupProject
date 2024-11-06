@@ -1,0 +1,48 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    height: 200px;
+    background-color: #ccc;
+}
+
+header h1 {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+header h1 a {
+    display: block;
+    width: 200px;
+    height: 50px;
+    background-color: #f00;
+}
+
+header .util { background-color: #fff;}
+
+.blind {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+}
+.box1 {position: relative; height: 300px; background-color: #666;}
+.box1 .btn{ position: absolute; top: 50%; transform: translateY(-50%);}
+.box1 .btn.prev{left: 20px;}
+.box1 .btn.next{right: 20px;}
+.box1 .pagination { display: flex; position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); gap: 10px;}
+.box1 .pagination span{ display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; background-color: #fff; border-radius: 50%;}
+.box1 .pagination span.active{background-color: #f00;}
+
+.box2 {padding: 100px 0;}
+.box2 h2{ margin-bottom: 50px;font-weight: bold; font-size: 50px; text-align: center;}
+.box2 ul{ display: flex; width: 800px;margin: 0 auto; gap: 10px;}
+.box2 ul li{min-width: 0; padding: 10px; background-color: #f00;}
+.box2 ul li a { display: flex; flex-direction: column; gap: 10px;}
+.box2 ul li img{ aspect-ratio: 1/1; object-fit: cover;}
+.box2 ul li p{ overflow: hidden; margin-top: 10px; padding: 10px; background-color: #fff; white-space: nowrap; text-overflow: ellipsis; }
+
+.box3 { padding: 100px 0;background-color: #ccc;}
+.box3 ul{display: flex; flex-direction: column; width: 800px;margin: 0 auto; gap: 10px;}
+.box3 ul li{ height: 100px; background-color: #fff;}

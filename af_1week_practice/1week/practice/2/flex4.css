@@ -1,0 +1,35 @@
+header .top{ position: relative; display: flex; justify-content: space-between; align-items: flex-start;height: 200px;background-color: #ccc;}
+header .top h1 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+header .top h1 a { display: block; width: 200px;height: 50px;background-color: #f00;}
+
+header .bottom { background-color: #666;}
+header .bottom ul { display: flex; justify-content: center;}
+header .bottom ul li a{ display: block; padding: 10px;}
+
+.blind {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    clip: rect(0,0,0,0);
+    margin: -1px;
+}
+main { width: 800px; margin: 0 auto;}
+main > * { margin: 10px 0;}
+
+.box1 { padding: 10px; background-color: #ccc;}
+.box1 > * + * { margin-top: 10px;}
+.box1 .top { height: 100px;background-color: #fff;}
+.box1 .bottom { display: flex; gap: 10px;}
+.box1 .bottom .left { flex: 1; background-color: #0f0;}
+.box1 .bottom .left ul { display: flex; flex-wrap: wrap; gap: 10px;}
+.box1 .bottom .left ul li { width: calc((100% - 20px) / 3); height: 100px; background-color: #f00;}
+.box1 .bottom .right { width: 150px; background-color: #fff;}
+
+.box2 ul { padding: 10px; background-color: #ccc;}
+.box2 ul li + li { margin-top: 10px;}
+.box2 ul a { display: flex; gap: 10px;}
+.box2 ul img { width: 150px;}
+.box2 ul p { background-color: #fff; flex: 1;}
+
+footer { height: 100px; background-color: #f00;}
