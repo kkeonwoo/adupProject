@@ -1,0 +1,131 @@
+.inner {
+    width: 800px;
+    margin: 10px auto;
+}
+
+.inner > * + *{margin-top: 10px;}
+
+header {
+    height: 100px;
+    background-color: #f00;
+}
+
+.box1 {
+    display: flex;
+    gap: 10px;
+}
+.box1 .item{
+    position: relative;
+    flex: 1;
+    height: 200px;
+    background-color: #ccc;
+}
+.box1 .item .btn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.box1 .item .btn.prev{left: 10px;}
+.box1 .item .btn.next{right: 10px;}
+
+.box2 {
+    height: 100px;
+    background-color: #f00;
+}
+
+.box3 {
+    padding: 10px;
+    background-color: #ccc;
+}
+/* .box3 ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    background-color: #fff;
+}
+.box3 ul li{
+    height: 100px;
+    background-color: #f00;
+}
+.box3 ul li:nth-child(1){
+    width: calc(70% - 5px);
+}
+.box3 ul li:nth-child(2){
+    width: calc(30% - 5px);
+}
+.box3 ul li:nth-child(3){
+    width: calc(20% - 5px);
+}
+.box3 ul li:nth-child(4){
+    width: calc(80% - 5px);
+} */
+.box3 ul {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(2, 100px);
+    gap: 10px;
+    padding: 10px;
+    background-color: #fff;
+}
+.box3 ul li{
+    background-color: #f00;
+}
+.box3 ul li:nth-child(1){
+    grid-column: span 7;
+}
+.box3 ul li:nth-child(2){grid-column: span 3;}
+.box3 ul li:nth-child(3){grid-column: span 2;}
+.box3 ul li:nth-child(4){grid-column: span 8;}
+
+.box4 {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #ccc;
+}
+.box4 h2{}
+.box4 .navi{
+    display: flex;
+    margin-left: auto;
+}
+.box4 .navi a{
+    width: 50px;
+    height: 50px;
+    background-color: #f00;
+}
+
+.box5 {}
+.box5 ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 10px;
+}
+.box5 ul li{min-width: 0;}
+.box5 ul a{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f00;
+}
+.box5 ul img{}
+.box5 ul strong{
+    background-color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.box5 ul p{
+    background-color: #fff;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+footer {
+    height: 100px;
+    background-color: #f00;
+}
