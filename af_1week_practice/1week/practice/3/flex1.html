@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { margin: 0;padding: 0;}
+        body { background-color: #ccc;}
+        header { height: 100px; background-color: #000;}
+        main { width: 800px; margin: 0 auto;}
+        main > * { margin-top: 10px;}
+        .box1 { height: 200px; background-color: #fff;}
+        .box2 { display: flex; gap: 10px;}
+        .box2 div { flex: 1; height: 100px; background-color: #fff;}
+        .box3 { display: flex;}
+        .box3 div{ flex: 1; height: 100px; background-color: #fff;}
+        .box3 div + div{ margin-left: 10px;}
+        .box4 { display: flex; justify-content: space-between; padding: 10px; background-color: #f00;}
+        .box4 div{ width: calc(50% - 5px); height: 100px; background-color: #fff;}
+    </style>
+</head>
+<body>
+    <header></header>
+    <main>
+        <div class="box1">box1</div>
+        <div class="box2">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </div>
+        <div class="box3">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+        </div>
+        <div class="box4">
+            <div>1</div>
+            <div>2</div>
+        </div>
+    </main>
+</body>
+</html>
