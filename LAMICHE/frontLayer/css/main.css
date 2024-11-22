@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+/* common */
+.sc-01 { padding: 50px 0;}
+/* .section { padding: 50px 0;} */
+.section .txt-area {}
+.section .txt-area .ttl {}
+.section .txt-area .desc {}
+.inner { padding: 0 15px;}
+.sc-01 .cnt-area { margin-top: 15px;}
+/* .section .cnt-area { margin-top: 30px;} */
+
+/* main-visual swiper */
+.main-swiper .swiper-slide img {object-fit: cover;}
+.main-swiper .swiper-control { display: flex; align-items: center; position: absolute; top: 50%; right: 20px; gap: 5px;}
+.main-swiper .swiper-control .btn { position: static; min-width: unset; width: 40px; height: 40px; border-radius: 50%; background: url('../images/common/icon-arw-left-circle.png') no-repeat center center / 100% auto;}
+.main-swiper .swiper-control .btn.swiper-button-next { transform: rotate(180deg);}
+
+/* main product swiper */
+.prd-swiper { position: relative; padding-left: 15px; padding-bottom: 50px;}
+.prd-swiper .swiper-slide {}
+.prd-swiper .swiper-slide .img-area { position: relative; padding-top: calc(410 / 372 * 100%);}
+.prd-swiper .swiper-slide .img-area img { position: absolute; bottom: 0; left: 0;}
+.prd-swiper .swiper-slide .txt-area { margin-top: 25px; color: #272727;}
+.prd-swiper .swiper-slide .cate{ font-size: 12px; color: #bbb; list-style: 1.4;}
+.prd-swiper .swiper-slide .tit{ margin-top: 10px; font-size: 15px; font-weight: 700;}
+.prd-swiper .swiper-slide .desc{ display: -webkit-box; overflow: hidden; margin-top: 15px; font-size: 13px; -webkit-line-clamp: 2; -webkit-box-orient: vertical;}
+.prd-swiper .swiper-control{ position: absolute; width: calc(100% - 30px); left: 50%; bottom: 0; height: 5px; transform: translateX(-50%);}
+.prd-swiper .swiper-pagination-progressbar { height: 100%; background-color: #dadada;}
+.prd-swiper .swiper-pagination-progressbar .swiper-pagination-progressbar-fill { background-color: #454545;}

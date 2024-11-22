@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>LAMICHE</title>
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+        
+    <!-- link:favicon -->
+    <link rel="shortcut icon" href="../../frontLayer/images/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../frontLayer/images/favicon/180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../frontLayer/images/favicon/32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../frontLayer/images/favicon/16x16.png">
+    
+    <link rel="stylesheet" href="../../frontLayer/css/package.css">
+    <script src="../../frontLayer/js/jquery-3.3.1.min.js"></script>
+    <script src="../../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../../frontLayer/js/current-device.min.js"></script>
+    <script src="../../frontLayer/js/swiper.min.js"></script>
+    <script src="../../frontLayer/js/include.js"></script>
+    <script src="../../frontLayer/js/gsap.min.js"></script>
+    <script src="../../frontLayer/js/ScrollTrigger.min.js"></script>
+    <script src="../../frontLayer/js/ScrollToPlugin.min.js"></script>
+    <script src="../../frontLayer/js/fn.js"></script>
+    <script src="../../frontLayer/js/common.js"></script>
+</head>
+<body>
+    <!-- s:wrap -->
+    <div id="wrap" class="tour">
+
+        <!-- s:skip -->
+        <div class="skip">
+            <a href="#container">Go to main text</a>
+        </div>
+        <!-- e:skip -->
+
+        <!-- s:header -->
+        <header id="header" class="hdr type_white">
+            <!-- Header content is included from include.js -->
+        </header>
+        <!-- e:header -->
+
+        <!-- s:container -->
+        <div id="container">
+
+            <section class="sub-visual" data-color="#e9ceb4">
+                <div class="group-ttl">
+                    <div class="ttl-area">
+                        <h2 class="ttl">Look around</h2>
+                        <p class="sub-ttl">
+                            Нийт 48 ширхэг хувийн эмчилгээний өрөө,<br/>
+                            тэг таталцлын ор гэх мэт. үйлчлүүлэгч тав тухтай<br/>
+                            эмчилгээ хийлгэх боломжтой байхаар шийдсэн
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sc-01">
+                <div class="inner">
+
+                    <div class="group-cnt-ttl">
+                        <h2 class="ttl">Эмнэлэгтэй танилцах</h2>
+                    </div>
+                    
+                    <div class="group-tab">
+                        <div class="tab-area">
+                            <ul class="tab-list">
+                                <li class="tab-item active" data-tab="#tab1">
+                                    <button class="btn btn-tab">Мэдээллийн хэсэг</button>
+                                </li>
+                                <li class="tab-item" data-tab="#tab2">
+                                    <button class="btn btn-tab">Мэдээллийн хэсэг</button>
+                                </li>
+                                <li class="tab-item" data-tab="#tab3">
+                                    <button class="btn btn-tab">Мэдээллийн хэсэг</button>
+                                </li>
+                                <li class="tab-item" data-tab="#tab4">
+                                    <button class="btn btn-tab">Мэдээллийн хэсэг</button>
+                                </li>
+                                <li class="tab-item" data-tab="#tab5">
+                                    <button class="btn btn-tab">Мэдээллийн хэсэг</button>
+                                </li>
+                                <li class="tab-item" data-tab="#tab6">
+                                    <button class="btn btn-tab">Мэдээллийн хэсэг</button>
+                                </li>
+                                <li class="tab-item" data-tab="#tab7">
+                                    <button class="btn btn-tab">Мэдээллийн хэсэг</button>
+                                </li>
+                                <li class="tab-item" data-tab="#tab8">
+                                    <button class="btn btn-tab">Мэдээллийн хэсэг</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab-con">
+                        <div id="tab1" class="con active">
+                            <div class="group-gallery">
+                                <div class="gallery-swiper-wrap">
+                                    <div class="gallery-main-area gallery-swiper swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery1.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery2.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery3.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery4.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery5.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery6.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery7.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-control">
+                                        <button class="btn swiper-button-next"></button>
+                                        <button class="btn swiper-button-prev"></button>
+                                    </div>
+                                </div>
+                                <div class="gallery-thumb-area">
+                                    <div class="thumb-list">
+                                        <div class="thumb-item active">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery2.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery3.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery4.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery5.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery6.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery7.jpg" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab2" class="con">
+                            <div class="group-gallery">
+                                <div class="gallery-swiper-wrap">
+                                    <div class="gallery-main-area gallery-swiper swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery1.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery2.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery3.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery4.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery5.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery6.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery7.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-control">
+                                        <button class="btn swiper-button-next"></button>
+                                        <button class="btn swiper-button-prev"></button>
+                                    </div>
+                                </div>
+                                <div class="gallery-thumb-area">
+                                    <div class="thumb-list">
+                                        <div class="thumb-item active">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery2.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery3.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery4.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery5.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery6.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery7.jpg" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab3" class="con">
+                            <div class="group-gallery">
+                                <div class="gallery-swiper-wrap">
+                                    <div class="gallery-main-area gallery-swiper swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery1.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery2.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery3.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery4.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery5.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery6.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery7.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-control">
+                                        <button class="btn swiper-button-next"></button>
+                                        <button class="btn swiper-button-prev"></button>
+                                    </div>
+                                </div>
+                                <div class="gallery-thumb-area">
+                                    <div class="thumb-list">
+                                        <div class="thumb-item active">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery2.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery3.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery4.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery5.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery6.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery7.jpg" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab4" class="con">
+                            <div class="group-gallery">
+                                <div class="gallery-swiper-wrap">
+                                    <div class="gallery-main-area gallery-swiper swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery1.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery2.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery3.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery4.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery5.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery6.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery7.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-control">
+                                        <button class="btn swiper-button-next"></button>
+                                        <button class="btn swiper-button-prev"></button>
+                                    </div>
+                                </div>
+                                <div class="gallery-thumb-area">
+                                    <div class="thumb-list">
+                                        <div class="thumb-item active">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery2.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery3.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery4.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery5.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery6.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery7.jpg" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab5" class="con">
+                            <div class="group-gallery">
+                                <div class="gallery-swiper-wrap">
+                                    <div class="gallery-main-area gallery-swiper swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery1.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery2.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery3.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery4.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery5.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery6.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery7.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-control">
+                                        <button class="btn swiper-button-next"></button>
+                                        <button class="btn swiper-button-prev"></button>
+                                    </div>
+                                </div>
+                                <div class="gallery-thumb-area">
+                                    <div class="thumb-list">
+                                        <div class="thumb-item active">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery2.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery3.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery4.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery5.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery6.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery7.jpg" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab6" class="con">
+                            <div class="group-gallery">
+                                <div class="gallery-swiper-wrap">
+                                    <div class="gallery-main-area gallery-swiper swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery1.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery2.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery3.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery4.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery5.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery6.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery7.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-control">
+                                        <button class="btn swiper-button-next"></button>
+                                        <button class="btn swiper-button-prev"></button>
+                                    </div>
+                                </div>
+                                <div class="gallery-thumb-area">
+                                    <div class="thumb-list">
+                                        <div class="thumb-item active">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery2.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery3.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery4.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery5.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery6.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery7.jpg" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab7" class="con">
+                            <div class="group-gallery">
+                                <div class="gallery-swiper-wrap">
+                                    <div class="gallery-main-area gallery-swiper swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery1.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery2.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery3.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery4.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery5.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery6.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery7.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-control">
+                                        <button class="btn swiper-button-next"></button>
+                                        <button class="btn swiper-button-prev"></button>
+                                    </div>
+                                </div>
+                                <div class="gallery-thumb-area">
+                                    <div class="thumb-list">
+                                        <div class="thumb-item active">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery2.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery3.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery4.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery5.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery6.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery7.jpg" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab8" class="con">
+                            <div class="group-gallery">
+                                <div class="gallery-swiper-wrap">
+                                    <div class="gallery-main-area gallery-swiper swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery1.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery2.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery3.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery4.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery5.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery6.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="../../frontLayer/images/gallery7.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-control">
+                                        <button class="btn swiper-button-next"></button>
+                                        <button class="btn swiper-button-prev"></button>
+                                    </div>
+                                </div>
+                                <div class="gallery-thumb-area">
+                                    <div class="thumb-list">
+                                        <div class="thumb-item active">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery2.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery3.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery4.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery5.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery6.jpg" alt=""></a>
+                                        </div>
+                                        <div class="thumb-item">
+                                            <a href="#" role="button"><img src="../../frontLayer/images/gallery7.jpg" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <!-- e:container -->
+
+        <!-- s:footer -->
+        <footer id="footer" class="ftr">
+            <!-- Footer content is included from include.js -->
+        </footer>
+        <!-- e:footer -->
+
+    </div>
+    <!-- e:wrap -->
+</body>
+</html>
