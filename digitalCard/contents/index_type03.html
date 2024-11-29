@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <title>디지털명함</title>
+    <!-- link favicon -->
+    <link rel="icon" type="image/png" sizes="512x512" href="../frontLayer/images/favicons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../frontLayer/images/favicons/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../frontLayer/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../frontLayer/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../frontLayer/images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../frontLayer/images/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../frontLayer/images/favicons/favicon.ico">
+    <!-- link css -->
+    <link rel="stylesheet" href="../frontLayer/css/package.css">
+    <!-- link js -->
+    <script src="../frontLayer/js/jquery-3.5.1.min.js"></script>
+    <script src="../frontLayer/js/jquery-ui.min.js"></script>
+    <script src="../frontLayer/js/fn.js"></script>
+    <script src="../frontLayer/js/common.js"></script>
+</head>
+
+<body>
+
+    <!-- s:wrapper -->
+    <div id="wrap" class="type03">
+
+        <!-- s:header -->
+        <header class="header">
+            <div class="inner">
+                <div class="logo">
+                    <a href="/" class="logo-link">
+                        <img class="img" src="../frontLayer/images/img/logo_porsche.svg" alt=""/>
+                    </a>
+                    <div class="logo-ttl-area">
+                        <h1 class="logo-ttl">
+                            Stuttgart Sports Cars Ltd.
+                            <span class="txt color-gray">포르쉐 공식 딜러</span>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- e:header -->
+
+        <!-- s:main -->
+        <div class="container">
+            <section class="section section-01">
+                <div class="inner">
+                    <div class="left">
+                        <div class="info-wrap switch-wrap">
+                            <div class="info-area">
+                                <div class="info-box switch-box info active">
+                                    <div class="info-hdr">
+                                        <div class="img-area">
+                                            <img src="../frontLayer/images/img/img_profile.png" alt="" class="img">
+                                        </div>
+                                        <h2 class="h-ttl">
+                                            안 태 민
+                                        </h2>
+                                        <span class="txt">
+                                            스튜디오 청담 지점장
+                                        </span>
+                                        <span class="txt">
+                                            부장
+                                        </span>
+                                    </div>
+                                    <div class="info-bdy">
+                                        <p class="txt">
+                                            010-9147-7070
+                                        </p>
+                                        <p class="txt">
+                                            taemin.ahn@porschestudio-cheongdam.com
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="info-box switch-box qr-code-box">
+                                    <div class="info-hdr">
+                                        <div class="img-area qr-code">
+                                            <img src="../frontLayer/images/img/img_qrcode_porsche.svg" alt="" class="img">
+                                        </div>
+                                        <span class="txt">
+                                            포르쉐 공식 딜러
+                                            SSCL 임직원 입니다.
+                                        </span>
+                                    </div>
+                                    <div class="info-bdy">
+                                        <p class="txt">
+                                            서울시 강남구 도산대로 420 <br>
+                                            청담스퀘어 G층 / 06062
+                                        </p>
+                                        <p class="txt">
+                                            02-6191-0910
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-btn-area">
+                                <button type="button" class="btn-switch btn-info qr active">
+                                    <i class="ico ico-qr">
+                                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.88582 21.5051C6.42319 21.3612 5.43867 21.0361 4.70384 20.3012C3.96901 19.5664 3.64387 18.5819 3.5 17.1193M7.88582 3.73344C6.42319 3.8773 5.43867 4.20245 4.70384 4.93728C3.96901 5.67211 3.64387 6.65663 3.5 8.11926M16.8858 3.73344C18.3484 3.8773 19.333 4.20245 20.0678 4.93728C20.8026 5.67211 21.1278 6.65663 21.2716 8.11926M16.8858 21.5051C18.3484 21.3612 19.333 21.0361 20.0678 20.3012C20.8026 19.5664 21.1278 18.5819 21.2716 17.1193" stroke="#A7002C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M21.5 12.6193L3.5 12.6193" stroke="#A7002C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </i>
+                                    <span class="txt">QR정보 표시</span>
+                                </button>
+                                <button type="button" class="btn-switch btn-info user">
+                                    <i class="ico ico-user-info">
+                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="12" cy="9.71924" r="2.5" stroke="#A7002C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M3 12.6191C3 8.3765 3 6.25518 4.31802 4.93716C5.63604 3.61914 7.75736 3.61914 12 3.61914C16.2426 3.61914 18.364 3.61914 19.682 4.93716C21 6.25518 21 8.3765 21 12.6191C21 16.8618 21 18.9831 19.682 20.3011C18.364 21.6191 16.2426 21.6191 12 21.6191C7.75736 21.6191 5.63604 21.6191 4.31802 20.3011C3 18.9831 3 16.8618 3 12.6191Z" stroke="#A7002C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M7 21.1193V19.8192C7.31692 13.6325 16.6831 13.6325 17 19.8192V21.1193" stroke="#A7002C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </i>
+                                    <span class="txt">직원정보 표시</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <ul class="service-list">
+                            <li class="service-item">
+                                <button type="button" class="btn-service">
+                                    <i class="ico ico-phone">
+                                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M23.2499 21.6771C19.7573 25.3531 10.8481 16.5239 14.3541 12.8339C16.4947 10.5809 14.0765 8.00614 12.738 6.11362C10.226 2.56176 4.71125 7.46559 4.87873 10.585C5.4069 20.4221 16.0481 32.0796 26.3526 31.0629C29.5763 30.7448 33.2802 24.9229 29.5826 22.7953C27.7336 21.7314 25.1957 19.6292 23.2499 21.6771Z" stroke="#A7002C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M20.917 4.875C23.6244 4.875 26.2209 5.95052 28.1354 7.86495C30.0498 9.77939 31.1253 12.3759 31.1253 15.0833" stroke="#A7002C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M20.917 10.7083C22.0773 10.7083 23.1901 11.1692 24.0106 11.9897C24.8311 12.8101 25.292 13.9229 25.292 15.0833" stroke="#A7002C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </i>
+                                    <span class="txt">전화걸기</span>
+                                </button>
+                            </li>
+                            <li class="service-item">
+                                <button type="button" class="btn-service">
+                                    <i class="ico ico-kakao">
+                                        <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path class="ico-bg" d="M18.0008 3C9.16324 3 2 8.69584 2 15.7217C2 20.0765 4.75157 23.9195 8.94842 26.213L7.79219 32.4143C7.73533 32.7223 8.07493 32.9498 8.33713 32.776L15.2097 28.249C15.2097 28.249 17.0483 28.4433 17.9992 28.4433C26.8368 28.4433 34 22.7475 34 15.7217C34 8.69584 26.8368 3 17.9992 3H18.0008Z" fill="#A7002C"/>
+                                            <path d="M11.5207 12.1755H6.91003C6.47566 12.1755 6.125 12.5294 6.125 12.9653C6.125 13.4013 6.47566 13.7567 6.91003 13.7567H8.40902V19.3246C8.40902 19.5267 8.49116 19.7242 8.6349 19.8695C8.77548 20.0132 8.97292 20.0954 9.17352 20.0954H9.34095C9.54156 20.0954 9.73742 20.0132 9.87958 19.8711C10.0233 19.7258 10.1055 19.5283 10.1055 19.3261V13.7582H11.5223C11.9567 13.7582 12.3073 13.4044 12.3073 12.9669C12.3073 12.5294 11.9567 12.1771 11.5223 12.1771L11.5207 12.1755Z" fill="#F5F5F5"/>
+                                            <path d="M22.313 18.608H20.1695V12.9217C20.1695 12.4478 19.7873 12.064 19.3182 12.064C18.849 12.064 18.4668 12.4478 18.4668 12.9217V19.3251C18.4668 19.7216 18.7859 20.0438 19.1792 20.0438H22.313C22.7079 20.0438 23.0254 19.7216 23.0254 19.3251C23.0254 18.9287 22.7079 18.608 22.313 18.608Z" fill="#F5F5F5"/>
+                                            <path d="M29.1948 18.8686L26.8049 15.7048L28.9641 13.5282C29.2564 13.2344 29.2564 12.7558 28.9641 12.462C28.6719 12.1666 28.1965 12.1666 27.9043 12.462L25.2301 15.1551V12.9217C25.2301 12.4478 24.8494 12.064 24.3787 12.064C23.908 12.064 23.5273 12.4478 23.5273 12.9217V19.2383C23.5273 19.7121 23.9096 20.0975 24.3787 20.0975C24.8478 20.0975 25.2301 19.7137 25.2301 19.2383V17.2891L25.7166 16.7994L27.9769 19.7895C28.2281 20.1275 28.7067 20.197 29.0415 19.9412C29.378 19.6868 29.4459 19.2051 29.1932 18.8671L29.1948 18.8686Z" fill="#F5F5F5"/>
+                                            <path d="M17.9585 19.0736L15.6602 12.7381C15.6602 12.7381 15.6539 12.7333 15.6523 12.7318C15.5054 12.3463 15.0805 12.0652 14.5751 12.0652C14.4503 12.0652 14.3255 12.0826 14.2071 12.1173C14.0949 12.1505 13.9859 12.1979 13.888 12.2626C13.7948 12.3227 13.7111 12.3969 13.64 12.4838C13.5942 12.5406 13.5531 12.6038 13.5215 12.6702C13.4931 12.7286 13.381 13.0524 13.343 13.1535L13.3036 13.2593L13.2562 13.3857L13.2025 13.531L13.1424 13.6937L13.0761 13.8722L13.005 14.0649L12.9292 14.2718L12.8487 14.4898L12.7649 14.7172L12.6781 14.9526L12.588 15.1943L12.4964 15.4407L12.4032 15.6918L12.31 15.9445L12.2168 16.1973L12.1236 16.45L12.032 16.6996L11.942 16.9444L11.8535 17.1845L11.7682 17.4167L11.6861 17.6394L11.6071 17.8526L11.5329 18.0532L11.4634 18.2412L11.4002 18.4134L11.3418 18.5698L11.2912 18.7072L11.247 18.8256L11.2107 18.922L11.1838 18.9962L11.1649 19.0468L11.1554 19.0736C11.0164 19.4748 11.2249 19.9124 11.6213 20.0529C12.0194 20.1935 12.4538 19.9834 12.5943 19.5822L12.9861 18.4576H16.1309L16.5227 19.5822C16.6617 19.9834 17.0976 20.1935 17.4941 20.0529C17.8906 19.9124 18.1006 19.4748 17.9601 19.0736H17.9585ZM13.482 17.0234L14.5388 13.9843C14.5514 13.9843 14.5609 13.9875 14.5735 13.9875L15.6286 17.0234H13.482Z" fill="#F5F5F5"/>
+                                        </svg>
+                                    </i>
+                                    <span class="txt">카카오톡</span>
+                                </button>
+                            </li>
+                            <li class="service-item">
+                                <button type="button" class="btn-service">
+                                    <i class="ico ico-map">
+                                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M18.8165 30.8635C18.3277 31.2122 17.6723 31.2122 17.1835 30.8635C10.1416 25.8419 2.66646 15.5166 10.2223 8.05603C12.2851 6.01925 15.0828 4.875 18 4.875C20.9172 4.875 23.7149 6.01925 25.7777 8.05603C33.3335 15.5166 25.8584 25.8419 18.8165 30.8635Z" stroke="#A7002C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <circle cx="18" cy="15.0833" r="4.375" stroke="#A7002C" stroke-width="2.5"/>
+                                        </svg>
+                                    </i>
+                                    <span class="txt">전시장 위치</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section section-02">
+                <div class="tab-wrap">
+                    <div class="tab-btn-list">
+                        <button type="button" class="tab-btn active">
+                            <span class="txt">소개</span>
+                        </button>
+                        <button type="button" class="tab-btn">
+                            <span class="txt">알아보기</span>
+                        </button>
+                        <button type="button" class="tab-btn">
+                            <span class="txt">프로모션</span>
+                        </button>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pannel active">
+                            <ul class="cnt-list">
+                                <li class="cnt-item">
+                                    <div class="cnt-card">
+                                        <h3 class="h-ttl">
+                                            BIO
+                                        </h3>
+                                        <div class="desc-list">
+                                            <p class="p-desc">
+                                                SSCL 포르쉐 스튜디오 청담은 전 세계 8번째로 오픈한 포르쉐 스튜디오입니다. 포르쉐의 미래형 쇼룸을 콘셉트로, 기존의 전시장 형태를 벗어나 포르쉐가 가진 헤리티지부터 라이프스타일 영역에 이르기까지 고객들에게 폭 넓은 경험을 제시하는 새로운 브랜드 공간입니다.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="cnt-item">
+                                    <div class="cnt-card">
+                                        <h3 class="h-ttl">
+                                            개인 SNS 채널
+                                        </h3>
+                                        <div class="ico-area">
+                                            <a href="#" class="sns-link"><i class="ico ico-insta"><span class="blind">인스타그램</span></i></a>
+                                            <a href="#" class="sns-link"><i class="ico ico-yt"><span class="blind">유튜브</span></i></a>
+                                            <a href="#" class="sns-link"><i class="ico ico-fb"><span class="blind">페이스북</span></i></a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pannel mt_px_20">
+                            <div class="tab-ttl-area my_px_30">
+                                <h3 class="h-ttl">Porsche Studio Cheongdam</h3>
+                            </div>
+                            <ul class="cnt-list">
+                                <li class="cnt-item">
+                                    <div class="cnt-card">
+                                        <div class="img-area">
+                                            <img src="../frontLayer/images/@/@img_section02_01_porche.jpg" alt="" class="img">
+                                        </div>
+                                        <div class="txt-area">
+                                            <h3 class="h-ttl">
+                                                SSCL 포르쉐 서비스 센터 대치
+                                            </h3>
+                                            <p class="p-desc">
+                                                강남 유일의 공식 서비스센터인 “포르쉐 서비스센터 대치”는 우수한 접근성을 갖추고 신속하고 원활한 A/S를 제공하는 메인터넌스 전문 센터입니다.
+                                            </p>
+                                        </div>
+                                        <a href="https://dealer.porsche.com/kr/daechi/Service-Center/Porsche-Center-Daechi"  title="새창열기" target="_blank" class="btn btn-primary btn-outline btn-outline-primary">자세히 보기</a>
+                                    </div>
+                                </li>
+                                <li class="cnt-item">
+                                    <div class="cnt-card">
+                                        <div class="img-area">
+                                            <img src="../frontLayer/images/@/@img_section02_02_porche.jpg" alt="" class="img">
+                                        </div>
+                                        <div class="txt-area">
+                                            <h3 class="h-ttl">
+                                                인증 중고차 찾기
+                                            </h3>
+                                            <p class="p-desc">
+                                                포르쉐를 만나는 가장 빠르고 안전한 방법, SSCL 인증 중고차를 방문해 보세요.
+                                            </p>
+                                        </div>
+                                        <a href="https://porsche-approved-bundang.com/user/desktop/home/"  title="새창열기" target="_blank" class="btn btn-primary btn-outline btn-outline-primary">자세히 보기</a>
+                                    </div>
+                                </li>
+                                <li class="cnt-item">
+                                    <div class="cnt-card">
+                                        <div class="img-area">
+                                            <img src="../frontLayer/images/@/@img_section02_03_porche.jpg" alt="" class="img">
+                                        </div>
+                                        <div class="txt-area">
+                                            <h3 class="h-ttl">
+                                                SSCL 전국 쇼룸 안내
+                                            </h3>
+                                            <p class="p-desc">
+                                                국내 최초이자 최대 “포르쉐 공식 딜러 SSCL”의 전시장을 소개합니다.
+                                            </p>
+                                        </div>
+                                        <a href="https://dealer.porsche.com/kr/daechi/About-Us/About-Centers"  title="새창열기" target="_blank" class="btn btn-primary btn-outline btn-outline-primary">자세히 보기</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pannel mt_px_20">
+                            <div class="tab-ttl-area my_px_30">
+                                <h3 class="h-ttl">SSCL 이 달의 프로모션</h3>
+                            </div>
+                            <ul class="cnt-list">
+                                <li class="cnt-item">
+                                    <div class="cnt-card">
+                                        <div class="img-area">
+                                            <img src="../frontLayer/images/@/@img_section03_01_porche.jpg" alt="" class="img">
+                                        </div>
+                                        <div class="txt-area">
+                                            <h3 class="h-ttl">
+                                                2023 Porsche Spring Campaign<br>
+                                                (2023 봄 캠페인)
+                                            </h3>
+                                            <p class="p-desc">
+                                                따뜻한 햇살과 함께 사랑하는 사람들과 봄나들이 떠나기 전, 스프링 캠페인을 통해 퍼포먼스와 안전함을 모두 갖춘 포르쉐를 느껴보세요.
+                                            </p>
+                                        </div>
+                                        <a href="https://dealer.porsche.com/kr/porschestudiocheongdam/ko-KR/SSCL-News/Promotions/2023-Porsche-Spring-Campaign"  title="새창열기" target="_blank" class="btn btn-primary btn-outline btn-outline-primary">자세히 보기</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <!-- e:home_page -->
+
+        <!-- s:fltg_ftr_wrap -->
+        <div class="fltg_ftr_wrap">
+            <div class="fltg_ftr">
+                <ul class="fltg_list">
+                    <li class="fltg_item">
+                        <button type="button" class="fltg_btn">
+                            <i class="ico ico_home"></i>
+                            <span class="txt">홈 화면 추가</span>
+                        </button>
+                    </li>
+                    <li class="fltg_item">
+                        <button type="button" class="fltg_btn">
+                            <i class="ico ico_bookmark"></i>
+                            <span class="txt">즐겨찾기 추가</span>
+                        </button>
+                    </li>
+                    <li class="fltg_item">
+                        <button type="button" class="fltg_btn">
+                            <i class="ico ico_share"></i>
+                            <span class="txt">공유하기</span>
+                        </button>
+                    </li>
+                    <li class="fltg_item">
+                        <button type="button" class="fltg_btn">
+                            <i class="ico ico_download"></i>
+                            <span class="txt">명함 다운로드</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- e:fltg_ftr_wrap -->
+
+    </div>
+    <!-- e:wrapper -->
+    
+</body>
+
+</html>

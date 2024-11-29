@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #add-contact-btn {
+            display: block;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }    
+    </style>
+
+    <button type="button" id="add-contact-btn" class="fltg_btn">
+        <i class="ico ico_add_num"></i>
+        <span class="txt">연락처 추가99</span>
+    </button>
+
+    <script>
+        document.getElementById('add-contact-btn').addEventListener('click', function () {
+        // vCard 데이터 준비
+        const vCardData = `
+BEGIN:VCARD
+VERSION:3.0
+FN:John Doe
+TEL;TYPE=WORK,VOICE:(111) 555-1212
+EMAIL:john.doe@example.com
+END:VCARD
+`;
+
+            const blob = new Blob([vCardData], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'contact.vcf';
+            document.body.appendChild(a);
+
+            if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+                window.open(url, '_blank');
+            } else {
+                a.click();
+            }
+
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+</html>
